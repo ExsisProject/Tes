@@ -1,0 +1,1 @@
+(function(){var e={title:"\ubbf8\ub9ac\ubcf4\uae30 (\uc0c8\ucc3d)",icon:{p_popuppreview:"\ubbf8\ub9ac\ubcf4\uae30 (\uc0c8\ucc3d)"}};try{if(G_DEPlugin){G_DEPlugin.popuppreview.lang=e,dext5_lang.plugins.popuppreview=e;var t=document.getElementById("ue_"+DEXTTOP.G_CURREDITOR.ID+"p_popuppreview");t&&t.setAttribute("title",e.icon.p_popuppreview)}}catch(n){}})();

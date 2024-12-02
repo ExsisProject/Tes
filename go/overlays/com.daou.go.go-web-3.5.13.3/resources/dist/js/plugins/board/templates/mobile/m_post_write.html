@@ -1,0 +1,110 @@
+<div class="content write">
+<form name="formPostWrite" onsubmit="return false;" enctype="multipart/form-data">
+	<input type="hidden" name="currentBoard" value="" />
+	<fieldset>
+		<table class="form_type">
+			<caption>{{lang.post_write}}</caption>
+			<tbody id="deptList">
+			<tr>
+				<td id="headerList">
+				</td>
+			</tr>
+			<tr class="classicPart" style="display:none">
+				<td>
+					<div class="ipt_wrap"><input id="subject" class="input w_max edit" type="text" placeholder="{{lang.placeholder_subject}}"></div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<div class="ipt_wrap"><textarea placeholder="{{lang.placeholder_content}}" id="mobileContent"></textarea></div>
+				</td>
+			</tr>
+			<tr>
+				<td class="display_position">
+					<div class="critical">
+						{{^isReply}}
+						<span class="btn_action_off classicPart" style="display:none">
+							<input type="checkbox" id="secret" />
+							<label for="secret" class="txt">{{lang.private}}</label>
+						</span>
+						{{/isReply}}
+						<span id="publicWriterSettingPart" style="display:none;">
+							<span class="btn_action action_off">
+								<input type="checkbox" id="isPublicWriter" {{#isEditMode}}disabled="disabled"{{/isEditMode}}>
+								<label for="isPublicWriter">{{lang.public_writer}}</label>
+							</span>
+						</span>
+                        {{^anonymFlag}}
+                        <span id="notiMailBtn" class="postNotiBtn btn_action_off streamPart" style="">
+                            <input id="post_mail_noti" type="checkbox" />
+                            <label for="post_mail_noti">{{lang.alim_mail}}</label>
+                        </span>
+                        <span id="notiPushBtn" class="postNotiBtn btn_action_off streamPart" style="">
+                            <input id="post_push_noti" type="checkbox" />
+                            <label for="post_push_noti">{{lang.alim_push}}</label>
+                        </span>
+						{{/anonymFlag}}
+					</div>
+					<div class="optional wrap_btn_attach" id="go-fileuploader">
+						<!-- div class="btn_wrap">
+							<a data-bypass id="progressBtn">progress btn</a>
+							<a data-bypass id="progressBtnMessage">progrress Message</a>
+						</div-->
+					</div>
+				</td>
+			</tr>
+			<tr id="linkInputPart" style="display:none;">
+				<td>
+					<div class="form_url">
+						<div class="ipt_wrap"><input class="input w_max edit" type="url" id="linkUrl"/></div>
+						<input data-btntype="linkSubmit" class="btn_half" type="submit" value="{{lang.link_input}}" />
+					</div>
+				</td>
+			</tr>
+			<tr id="linkAttachPart" style="display:none">
+				<td>
+					<div class="meta_info_wrap" id="linkInfo">
+
+					</div>
+				</td>
+			</tr>
+			<tr id="authorizedUserList">
+				<td>
+					<div class="div_ipt_wrap add_ipt_wrap">
+						<div class="div_ipt">
+							<ul class="name_tag" id="postAuthUsersUL">
+								<!--<li data-userid="{{userid}}" data-username="{{username}}" data-userposition="{{position}}">
+									<span class="name">{{me}}</span>
+									<span class="btn_wrap" data-btntype="attendeeDelete"><span class="ic ic_del removeAuthUserBtn"></span></span>
+								</li>-->
+							</ul>
+						</div>
+						<a data-bypass data-btntype="userAddBtn">
+						<span class="btn_item_add">
+							<span class="ic ic_plus"></span>
+							<span class="txt">{{boardLang.열람자 추가}}</span>
+						</span>
+						</a>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<div class="option_display" id=attach_wrap style="display:none">
+						<ul class="file_wrap" id="file_attach_wrap_ul"></ul>
+						<ul class="img_wrap" id="img_attach_wrap_ul"></ul>
+					</div>
+				</td>
+			</tr>
+
+			</tbody>
+		</table>
+	</fieldset>
+</form>
+</div>
+
+
+<!-- div class="page_action_wrap">
+	<span id="feedWrite" class="btn_major" data-role="button" data-btntype="saveBbs"><span class="txt">�뺤씤</span></span>
+	<span class="btn_minor" data-role="button"><span class="txt">痍⑥냼</span></span>
+</div-->

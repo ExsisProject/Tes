@@ -1,0 +1,23 @@
+<tr sub_query>
+    <td>
+        <span class="wrap_select wfix_medium">
+            {{#hasChartFields}}
+            <select data-cid class="w_max" sub_query_select>
+                {{#chartFields}}
+                <option value="{{cid}}" data-value-type="{{valueType}}">{{label}}</option>
+                {{/chartFields}}
+            </select>
+            {{/hasChartFields}}
+        </span>
+        <span class="wrap_select">
+            <select data-method class="w_max">
+                <option value="COUNT">{{{lang.개수}}}</option>
+                <option value="SUM">{{{lang.합계}}}</option>
+                <option value="AVG">{{{lang.평균}}}</option>
+                <option value="MAX">{{{lang.최대값}}}</option>
+                <option value="MIN">{{{lang.최소값}}}</option>
+            </select>
+            </span>
+        <span class="wrapBtn"><span row-delete class="ic ic_delete" title="{{{lang.삭제}}}"></span></span>
+    </td>
+</tr>

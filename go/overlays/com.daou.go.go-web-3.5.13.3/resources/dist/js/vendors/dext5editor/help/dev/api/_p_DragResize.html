@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+<title>DEXT5 Developer Manual</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<link href="../../css/help.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div class="dext5help_content_right">
+<div class="right_con">           
+    <h3 class="title">DEXT5 Editor :: Config :: DragResize<br />DEXT5 Editor :: Config :: DragResizeApplyBrowser</h3>
+    <p class="ttl">config.DragResize</p>
+    <p class="txt">
+    에디터 또는 브라우저의 기본 리사이즈 사용여부를 설정합니다.
+    </p>
+    <p class="mttl01">remarks</p>
+    <p class="txt">
+    기본값은 "0" 이고 브라우저 기본 리사이즈를 사용, "1"로 설정 시 에디터에서 제공하는 리사이즈를 사용합니다.<br /><br />
+    "1" 일 경우 DragResizeApplyBrowser 설정이 가능합니다.<br /> DragResizeApplyBrowser에 입력한 브라우저만(ie,edge,firefox,opera,chrome,safari) 리사이즈를 사용합니다.<br />
+    빈값일 경우 모든 브라우저가 설정됩니다.
+    </p>
+    <p class="mttl01">sample code</p>            
+    <div class="cord">
+        <pre class="pre">
+&#60;script type="text/javascript" src="dext5/js/dext5editor.js"&#62;&#60;/script&#62;	
+ 
+&#60;!-- ..... 생략 ..... --&#62;
+ 
+&#60;div style="width:900px;height:550px"&#62;    
+    &#60;script type="text/javascript"&#62;
+
+        // 에디터에서 제공하는 리사이즈를 사용 설정합니다.
+        DEXT5.config.DragResize = "1";
+
+        // 에디터에서 제공하는 리사이즈를 ie,firefox,opera 브라우저만 사용합니다.
+        DEXT5.config.DragResizeApplyBrowser = "ie,firefox,opera";
+
+        new Dext5editor("editor1");
+
+    &#60;/script&#62;       
+&#60;/div&#62;
+        </pre>  
+    </div>                   
+    </div>
+</div>
+</body>
+</html>
+

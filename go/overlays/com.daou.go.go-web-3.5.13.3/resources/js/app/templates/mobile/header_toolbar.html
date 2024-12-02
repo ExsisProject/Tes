@@ -1,0 +1,38 @@
+<div id="headerMenu">
+    <h1 id="appTitle" {{#isClose}}class="goAppHomeDisable"{{/isClose}}>{{title}}</h1>
+    <div class="critical">
+        {{#isSideMenu}}
+        <a id="btnSideMenu"><span class="ic_nav ic_nav_list"></span></a>
+        {{/isSideMenu}}
+        {{^isMobileApp}}
+            {{#isHome}}
+            <a id="btnMobileHome"><span class="ic_nav ic_nav_home"></span></a>
+            {{/isHome}}
+        {{/isMobileApp}}
+        {{#isPrev}}
+        <a id="prevBtn"><span class="ic_nav ic_nav_prev"></span></a>
+        {{/isPrev}}
+        {{#isClose}}
+        <a id="closeBtn"><span class="ic_nav ic_nav_cancel"></span></a>
+        {{/isClose}}
+    </div>
+    <div class="optional">
+        {{#isList}}
+            {{#isSearch}}
+            <a id="btnHeaderSearch"><span class="ic_nav ic_nav_search"></span></a>
+            {{/isSearch}}
+        {{/isList}}
+    </div>
+</div>
+{{#isList}}
+<div style="display:none" id="checkedHeaderMenu">
+    <div class="critical">
+        <a id="btnHeaderCheckCancel"><span class="ic_nav ic_nav_cancel"></span></a>
+    </div>
+    <div class="optional" id="checkedActionMenu">
+    </div>
+</div>
+{{/isList}}
+{{#isWriteBtn}}
+<a class="btn_write" id="commonWriteButton" style="-webkit-transition-duration: 0.2s;"><span class="ic_cmm ic_write"></span></a>
+{{/isWriteBtn}}

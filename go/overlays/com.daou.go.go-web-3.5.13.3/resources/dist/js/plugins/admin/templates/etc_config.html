@@ -1,0 +1,205 @@
+{{#dataset}}
+<div class="content_page">
+    <form name="formBaseConfig" id="formBaseConfig" >
+        <div class="container">
+            <div class="header">
+                <h2>{{lang.label_display}}</h2>
+            </div>
+            <div class="content">
+                <table class="detail">
+                    <caption>{{lang.label_display}}</caption>
+                    <colgroup>
+                        <col width="140px" />
+                        <col width="*" />
+                    </colgroup>
+                <tbody>
+                    <tr>
+                        <th><span class="title">{{lang.label_login}}</span></th>
+                        <td>
+                            <span class="img_logo logo_preview_login" >
+                                <img src="{{displayConfigModel.loginThumb}}" id="login_thumnail_image" name="attache" />
+                                <span class="btn_edit_logo">{{lang.label_upload}}</span>
+                            </span>
+                            <span class="btn_s vb" id="delete_logo" data-target-id="login_thumnail_image" data-basic-src="{{displayConfigModel.basicLoginThumb}}">{{lang.삭제}}</span>
+                            <span class="desc vb">{{lang.label_login_desc}}
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><span class="title">{{lang.label_mobile}}</span></th>
+                        <td>
+                            <span class="img_logo logo_preview_m" >
+                                <img src="{{displayConfigModel.mobileThumb}}" id="mobile_thumnail_image" name="attache" />
+                                <span class="btn_edit_logo">{{lang.label_upload}}</span>
+                            </span>
+                            <span class="btn_s vb" id="delete_logo" data-target-id="mobile_thumnail_image" data-basic-src="{{displayConfigModel.basicMobileThumb}}">{{lang.삭제}}</span>
+                            <span class="desc vb">{{lang.label_mobile_desc}}
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><span class="title">{{lang.label_logo}}</span></th>
+                        <td>
+                            <span class="img_logo logo_preview_web">
+                                <img src="{{displayConfigModel.classicCiLogo}}" id="thumnail_image" name="attache">
+                                <span class="btn_edit_logo">{{lang.label_upload}}</span>
+                            </span>
+                            <span class="btn_s vb" id="delete_logo" data-target-id="thumnail_image" data-basic-src="{{displayConfigModel.basicClassicCiLogo}}">{{lang.삭제}}</span>
+                            <span class="desc vb">(Classic: {{lang.label_classic_desc}}, {{lang.회색 로고 권장}})</span><br><br>
+                            <span class="img_logo logo_preview_web">
+                                <img src="{{displayConfigModel.advancedCiLogo}}" id="thumnail_image_advanced" name="attache">
+                                <span class="btn_edit_logo">{{lang.label_upload}}</span>
+                            </span>
+                            <span class="btn_s vb" id="delete_logo" data-target-id="thumnail_image_advanced" data-basic-src="{{displayConfigModel.basicAdvancedCiLogo}}">{{lang.삭제}}</span>
+                            <span class="desc vb">(Advanced: {{lang.label_advanced_desc}}, {{lang.흰색 로고 권장}})</span><br><br>
+                            <span class="desc vb">※ {{lang.설정된 테마에 따라, 위의 로고를 표시합니다}}</span><br>
+                            <span class="desc vb">{{lang.label_desc_img}}</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><span class="title">{{lang.label_favicon}}</span></th>
+                        <td>
+                           <div class="btn_minor_s" id="swfupload-control_favicon" style="padding:0; !important"></div>
+                            <span id="progressBarWrap" class="btn_action_wrap" style="display:inline-block"></span>
+                              <ul class="file_wrap" id="fileComplete">
+                                {{#displayConfigModel.favicon}}
+                                    <li id='item_file'>
+                                        <span class='item_file'>
+                                            <span class='ic_file ic_def'></span>
+                                            <span class='name'>{{name}}</span>
+                                            <span class='size'>({{size}})</span>
+                                            <span class="btn_wrap" title="{{lang.삭제}}"><span class="ic_classic ic_del"></span></span>
+                                        </span>
+                                    </li>
+                                {{/displayConfigModel.favicon}}
+                            	</ul>
+                            <span class="desc vb">{{lang.label_favicon_desc}} {{lang.label_favicon_preview}}
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><span class="title">{{lang.label_web_title}}</span></th>
+                        <td>
+                            <span class="user_data editable" data-formname="webTitle" data-value="{{displayConfigModel.webTitle}}">
+                                <span id="data">{{displayConfigModel.webTitle}}</span>
+                                <span class="btn_box" data-btntype="changeform">
+                                    <span class="ic ic_edit" title="{{lang.label_edit}}"></span>
+                                </span>
+                            </span>
+                            <span class="go_alert" id="webTitleValidate"></span>
+                        </td>
+                    </tr>
+                    <tr style="display: none;">
+                        <th><span class="title">{{lang.label_skin}}</span></th>
+                        <td>
+                             <span class="option_wrap">
+                                <input type="radio" id="skin_true" name="skin" value="true" checked="checked"/>
+                                <label for="skin_true">{{lang.label_confirm}}</label>
+                            </span>
+                            <span class="option_wrap">
+                                <input type="radio" id="skin_false" name="skin" value="false" checked="checked"/>
+                                <label for="skin_false">{{lang.label_unconfirm}}</label>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr style="display: none;">
+                        <th><span class="title">{{lang.label_style}}</span></th>
+                        <td>
+                            <select id="style" name="style">
+                                {{#selectStyle}}
+                                    <option value="{{value}}">{{name}}</option>
+                                {{/selectStyle}}
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><span class="title">{{lang.label_block_pwd_change}}</span></th>
+                        <td>
+                            <span class="option_wrap">
+                                <input type="radio" id="blockPasswordChangeOn" name="blockPasswordChange" value="true" checked="checked"/>
+                                <label for="blockPasswordChangeOn">{{lang.label_use}}</label>
+                            </span>&nbsp;&nbsp;&nbsp;
+                            <span class="option_wrap">
+                                <input type="radio" id="blockPasswordChangeOff" name="blockPasswordChange" value="false" checked="checked"/>
+                                <label for="blockPasswordChangeOff">{{lang.label_notuse}}</label>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><span class="title">{{lang.메뉴 테마 설정}}</span></th>
+                        <td>
+                            <span class="option_wrap">
+                                <input type="radio" id="theme_classic" name="theme" value="THEME_CLASSIC" checked="checked"/>
+                                <label for="theme_classic">Classic</label>
+                            </span>&nbsp;&nbsp;
+                            <span class="option_wrap">
+                                <input type="radio" id="theme_advanced" name="theme" value="THEME_ADVANCED" checked="checked"/>
+                                <label for="theme_advanced">Advanced</label>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr class="last">
+                        <th><span class="title">Welcome Screen</span></th>
+                        <td>
+                            <span class="option_wrap">
+                                <input type="radio" id="useUelcomeScreen" name="welcomeScreen" value="true" checked="checked"/>
+                                <label for="useUelcomeScreen">{{lang.label_use}}</label>
+                            </span>&nbsp;&nbsp;&nbsp;
+                            <span class="option_wrap">
+                                <input type="radio" id="notUseWelcomeScreen" name="welcomeScreen" value="false"/>
+                                <label for="notUseWelcomeScreen">{{lang.label_notuse}}</label>
+                            </span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="container" style="display:none">
+        <div class="header">
+            <h2>{{lang.label_noti_config}}</h2>
+        </div>
+
+        <div class="content">
+            <table class="detail">
+                <caption>{{lang.label_noti_config}}</caption>
+                <colgroup>
+                    <col width="110px" />
+                    <col width="*" />
+                </colgroup>
+                <tbody>
+                   <!--  <tr>
+                        <th><span class="title">{{lang.label_noti_base}}</span></th>
+                        <td>
+                            <span class="option_wrap">
+                                <input type="radio" id="noti_true" name="useNoti" value="true" {{#notiConfigModel.useNoti}}checked="checked"{{/notiConfigModel.useNoti}} >
+                                <label for="noti_true">{{lang.label_use}}</label>
+                            </span>
+                            <span class="option_wrap">
+                                <input type="radio" id="noti_false" name="useNoti" value="false" {{^notiConfigModel.useNoti}}checked="checked"{{/notiConfigModel.useNoti}} >
+                                <label for="noti_false">{{lang.label_notuse}}</label>
+                            </span>
+                        </td>
+                    </tr>-->
+                    <tr class="last" id="selectTime">
+                        <th><span class="title">{{lang.label_perior}}</span></th>
+                        <td>
+                            <select id="storagePerior" name="storagePerior">
+                                {{#selectTime}}
+                                    <option value="{{value}}">{{value}}{{lang.label_month}}</option>
+                                {{/selectTime}}
+                            </select>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    </form>
+</div>
+<div class="page_action">
+    <span class="btn" id="btn_ok">{{lang.label_ok}}</span>
+    <span class="btn_nega" id="btn_cancel">{{lang.label_cancel}}</span>
+</div>
+{{/dataset}}

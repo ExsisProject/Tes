@@ -1,0 +1,1 @@
+(function(){define(["app"],function(e){var t=e.BaseModel.extend({url:function(){return"/api/mobile/company"}});return t})}).call(this);

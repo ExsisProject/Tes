@@ -1,0 +1,85 @@
+<form onsubmit="return false;">
+    <fieldset>
+        <table class="form_type">
+            <colgroup>
+                <col>
+                <col>
+            </colgroup>
+            <tbody>
+            <tr>
+                <th>
+                    <ins class="asterisk">*</ins>
+                    <span class="title">{{lang.시간}}</span>
+                </th>
+                <td>
+				    <span class="wrap_txt">
+                        <input class="txt wfix_mini" type="text" value="30" data-number>
+                    </span>
+                    <span class="wrap_select">
+                        <select data-unit>
+                            {{#useMinute}}
+                            <option value="MINUTE">{{lang.MINUTE}}</option>
+                            {{/useMinute}}
+                            {{#useHour}}
+                            <option value="HOUR">{{lang.HOUR}}</option>
+                            {{/useHour}}
+                            <option value="DAY">{{lang.DAY}}</option>
+                        </select>
+                    </span>
+                    <span class="btn_wrap" data-add-time>
+                        <span class="btn_minor_s">{{lang.추가}}</span>
+                    </span>
+                    <div data-time-list-wrapper style="display: none;">
+                        <div class="option_display">
+                            <div class="vertical_wrap_s">
+                                <ul class="list_option" data-time-list></ul>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <ins class="asterisk">*</ins>
+                    <span class="title">{{lang.알림}}</span>
+                </th>
+                <td data-method>
+                    <span class="wrap_option">
+                        <input id="push" type="checkbox" value="NOTIFICATION">
+                        <label for="push">{{lang.푸시}}</label>
+                    </span>
+                    <span class="horspace1"></span>
+                    <span class="wrap_option">
+                        <input id="mail" type="checkbox" value="MAIL">
+                        <label for="mail">{{lang.메일}}</label>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <ins class="asterisk">*</ins>
+                    <span class="title">{{lang.대상자 선택}}</span>
+                </th>
+                <td data-targets>
+                    <span class="wrap_option">
+                        <input id="admin" type="checkbox" value="ADMIN">
+                        <label for="admin">{{lang.운영자}}</label>
+                    </span>
+                    <span class="horspace1"></span>
+                    <span class="wrap_option">
+                        <input id="creator" type="checkbox" value="REGISTRANT">
+                        <label for="creator">{{lang.등록자}}</label>
+                    </span>
+                    {{#userFields}}
+                    <span class="horspace1"></span>
+                    <span class="wrap_option">
+                        <input id="{{cid}}" type="checkbox" value="{{cid}}">
+                        <label for="{{cid}}">{{label}}</label>
+                    </span>
+                    {{/userFields}}
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </fieldset>
+</form>

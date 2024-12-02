@@ -1,0 +1,44 @@
+<!--data_display_control-->
+{{#dataset}}
+{{#isSeparator}}
+<li class="delimiter">
+	<p class="title">
+	<ins class="ic"></ins><span class="txt">{{title}}</span>
+	</p>
+</li>
+{{/isSeparator}}
+{{^isSeparator}}
+<li class="bbs {{#isClassic}}classic{{/isClassic}}{{^isClassic}}feed{{/isClassic}}">
+	<p class="title">
+		<a class="go_board" data-boardId="{{board.id}}" data-bypass>
+			<ins class="ic"></ins>
+            {{#isPublic}}<span class="ic_side ic_private"></span>{{/isPublic}}
+			<span class="txt">{{board.name}}</span>
+		</a>
+		{{#hasRecentPost}}<span class="ic_classic ic_new2"></span>{{/hasRecentPost}}
+		{{#manageFlag}}<span class="boardAdmin btn_wrap"><span class="ic_side ic_side_setting" title="{{lang.manage_flag}}"></span></span>{{/manageFlag}}
+	</p>
+</li>
+{{/isSeparator}}
+{{/dataset}}
+{{^dataset}}
+<div id="board_null" class="null_guide">
+	<p class="desc">
+		{{{lang.board_null}}}
+	</p>
+</div>
+{{/dataset}}
+<li id="goClosedBoard" class="closed" style="display:none">
+	<p class="title">
+		<a class="go_closedBoard" data-communityid="{{community}}" data-bypass>
+			<ins class="ic"></ins>
+			<span class="txt">{{lang.closed_board}}</span>
+		</a>
+	</p>
+</li>
+<div class="list_action">
+	<span id="addBoard" class="btn_wrap">
+	<span class="btn_side2">
+		<a data-bypass ><ins class="ic"></ins><span class="txt">{{lang.board_add}}</span></a>
+	</span>
+</span>

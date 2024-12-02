@@ -1,0 +1,120 @@
+﻿<tr id="partialArea"></tr>
+<tr data-tag="partial">							
+	<th><span class="title">{{lang.title}}</span><ins class="asterisk">*</ins></th>
+	<td>									
+		<div class="wrap_txt">
+			<input id="taskName" class="txt w_max" type="text" value="{{data.name}}" {{^editable.NAME}}disabled="disabled"{{/editable.NAME}} />
+		</div>
+		{{#folder.id}}
+		<span class="wrap_option">
+			<input id="privateTask" type="checkbox" 
+			{{#folder.privateTask}} checked disabled="disabled" {{/folder.privateTask}}
+			{{^folder.privateTask}}
+				{{#data.privateTask}}
+					checked
+				{{/data.privateTask}} 
+			{{/folder.privateTask}}
+			{{^editable.NAME}}disabled="disabled"{{/editable.NAME}}
+			>
+			<label for="privateTask">{{lang.private}}</label>
+		</span>
+		<span class="wrap_ic_s">
+			<span class="help">
+				<span class="tool_tip">{{lang.privateDesc}}
+					<i class="tail_left"></i>
+				</span>
+			</span>
+		</span>
+		{{/folder.id}}	
+	</td>
+</tr>
+{{#folder.id}}
+{{#editable.ASSIGNEE}}
+<tr data-tag="partial">							
+	<th><span class="title">{{lang.assignee}}</span></th>
+	<td>									
+		<div class="wrap_name_tag">
+			<ul id="assignees" class="name_tag">
+			</ul>
+		</div>
+	</td>
+</tr>
+{{/editable.ASSIGNEE}}
+{{#editable.DUEDATE}}
+<tr data-tag="partial">
+	<th><span class="title">{{lang.dueDate}}								
+		<span class="help">&nbsp;
+			<span class="tool_tip">{{lang.dueDateDesc}}<i class="tail_left"></i></span>
+		</span>
+	</span>
+	</th>
+	<td>
+		<span class="wrap_date">
+			<input id="beginDate" class="txt wfix_small" type="text" value="{{beginDate}}" {{^editable.DUEDATE}}disabled="disabled"{{/editable.DUEDATE}} />
+			<span class="ic ic_calendar"></span>
+		</span>
+		 ~
+		<span class="wrap_date" id="dueDateWrap">
+			<input id="dueDate" class="txt wfix_small" type="text" value="{{dueDate}}" {{^editable.DUEDATE}}disabled="disabled"{{/editable.DUEDATE}} />
+			<span class="ic ic_calendar"></span>
+		</span>
+        {{#isAvailableCalendar}}
+		<!-- 모델에 캘린더 정보가 없는경우 보여줌 -->
+        <span class="btn_minor_s" id="addCalendarEvent" {{^showAddEventBtn}} style="display:none" {{/showAddEventBtn}}>
+            <span class="txt">{{lang.addCalEvent}}</span>
+        </span>
+		<!-- 모델에 캘린더 정보가 있는경우 보여줌 -->
+		<span class="wrap_alert" id="calendarEvent" {{#showAddEventBtn}} style="display:none" {{/showAddEventBtn}}>
+			<span class="alert_box" id="eventSummary" data-calendarid="{{calendarId}}" data-summary="{{eventSummary}}" data-location="{{eventLocation}}" data-type="{{eventType}}" data-timeType="{{timeType}}" data-id="{{eventId}}">
+				<span class="txt" >{{lang.calendar}} : <span id="start">{{start}}</span> ~ <span id="end">{{end}}</span></span>&nbsp;
+				{{#isEventEditable}}			
+				<span class="btn"><span class="ic_side ic_edit" title="{{lang.edit}}"></span></span>
+				<span class="btn"><span class="ic_side ic_basket_bx" title="{{lang.delete}}"></span></span>
+				{{/isEventEditable}}
+				{{^isEventEditable}}
+				<span class="btn"></span>
+				{{/isEventEditable}}
+			</span>
+		</span>
+        {{/isAvailableCalendar}}
+		<span id="dateError">
+		</span>
+		<span class="wrap_desc_top">
+		</span>
+	</td>
+</tr>
+{{/editable.DUEDATE}}
+{{#folder.tagAllowed}}
+<tr data-tag="partial" id="tag-tr">							
+	<th><span class="title">{{lang.tag}}{{#folder.tagRequired}}<ins class="asterisk">*</ins>{{/folder.tagRequired}}</span></th>
+	<td>									
+		<div class="wrap_name_tag" id="tagError">
+			<ul id="tag" class="name_tag">
+			</ul>
+		</div>
+	</td>
+</tr>
+{{/folder.tagAllowed}}
+
+<tr id="folderFieldArea"></tr>
+<tr id="typeFieldArea"></tr>
+
+{{#folder.referersAllowed}}
+<tr data-tag="partial">
+	<th>
+		<span class="title">{{lang.referer}}									
+			<span class="help">&nbsp;
+				<span class="tool_tip">{{lang.refererDesc}}<i class="tail_left"></i></span>
+			</span>
+		</span>
+		
+	</th>
+	<td>
+		<div class="wrap_name_tag">
+			<ul id="referers" class="name_tag">
+			</ul>
+		</div>
+	</td>
+</tr>
+{{/folder.referersAllowed}}
+{{/folder.id}}

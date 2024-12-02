@@ -1,0 +1,1 @@
+define(["backbone"],function(e){var t=null,n=e.Model.extend({url:function(){return this.get("admin")?"/ad/api/communityconfig":"/api/communityconfig"}},{get:function(e){return t==null&&(t=new n),t.set({admin:e.admin?e.admin:!1}),t.fetch({async:!1}),t}});return{read:function(e){return communityConfigdModel=n.get(e)},create:function(){return new n}}});

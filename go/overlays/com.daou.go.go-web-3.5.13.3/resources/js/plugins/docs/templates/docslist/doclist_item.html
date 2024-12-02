@@ -1,0 +1,48 @@
+{{#columns.선택}}
+    <td id="check" class="check">{{#isCheckboxVisible}}<input type="checkbox" name="checkbox" class="doclist_item_checkbox" data-id="{{doc.id}}" data-docsInfoId="{{doc.docsInfoId}}">{{/isCheckboxVisible}}</td>
+{{/columns.선택}}
+
+{{#columns.열람일}}
+<td class="date"  data-id="{{doc.id}}"><span class="txt">{{doc.readDate}}</span></td>
+{{/columns.열람일}}
+
+{{#columns.등록일}}
+<td class="date"  data-id="{{doc.id}}"><span class="txt">{{doc.completDate}}</span></td>
+{{/columns.등록일}}
+
+{{#columns.등록요청일}} 
+    <td class="date"  data-id="{{doc.id}}"><span class="txt">{{doc.writeDate}}</span></td>
+{{/columns.등록요청일}}
+
+{{#columns.제목}}
+<td class="subject" id="title" data-id="{{doc.id}}">
+    <a><span class="txt">{{doc.title}}</span></a>
+    {{#doc.hasComment}}<span class="ic_classic ic_reply"></span><span class="num">[<strong>{{doc.commentCount}}</strong>]</span>{{/doc.hasComment}}
+    {{#isNew}}<span class="ic_classic ic_new2"></span>{{/isNew}}
+</td>
+{{/columns.제목}}
+
+{{#columns.문서번호}}
+	<td class="date"  data-id="{{doc.id}}"><span class="txt">{{doc.docNum}}</span></td>
+{{/columns.문서번호}}
+
+{{#columns.첨부}}
+    <td class="attach" data-id="{{doc.id}}">
+        {{#doc.hasAttach}}
+            <a id="attach"><span class="ic ic_file_s" ></span><span class="num">{{doc.attachCount}}</span></a>
+        {{/doc.hasAttach}}
+    </td>
+{{/columns.첨부}}
+
+{{#columns.문서위치}}
+<td class="subject" data-id="{{doc.id}}"><span class="txt" title="{{doc.folderPath}}">{{doc.folderName}}</span></td>
+{{/columns.문서위치}}
+
+{{#columns.등록자}}
+<td class="people" data-id="{{doc.id}}"><a id="writer"><span class="txt">{{doc.writer}}</span></a></td>
+{{/columns.등록자}}
+
+{{#columns.상태}}
+<td class="state_wrap" data-id="{{doc.id}}"><span class="state {{doc.statusClass}}">{{doc.stateName}}</span></td>
+{{/columns.상태}}
+

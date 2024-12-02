@@ -1,0 +1,91 @@
+<header class="content_top">	
+</header>
+<div class="content_page">
+<!-- 검색결과 요약 정보  -->		
+<div class="content_search_wrap">
+	<h1><ins class="bullet"></ins><span class="title">{{lang.search}} :</span></h1>
+	{{#isDetaiSearch}}
+	<dl class="info"><!-- 상세 검색 요약정보 -->	
+	{{#searchData}}
+		<dt>[{{lang.board}}]</dt>
+		<dd>{{boardName}}</dd>
+		<dt>[{{lang.content}}]</dt>
+		<dd>{{content}}</dd>
+		<dt>[{{lang.comment}}]</dt>
+		<dd>{{comments}}</dd>
+		<dt>[{{lang.attachName}}]</dt>
+		<dd>{{attachFileNames}}</dd>
+        <dt>[{{lang.attachContent}}]</dt>
+        <dd>{{attachFileContents}}</dd>
+		<dt>[{{lang.writer}}]</dt>
+		<dd>{{userName}}</dd>
+		<dt>[{{lang.term}}]</dt>
+		<dd><span class="date">{{parseDate}}</span></dd>
+	{{/searchData}}
+	</dl>
+	{{/isDetaiSearch}}
+	{{^isDetaiSearch}}
+	<span class="info">
+		{{searchData.keyword}}
+	</span>
+	{{/isDetaiSearch}}
+</div>
+<!-- //검색결과 요약 정보  -->		
+<section class="comm_list">
+	<ul class="article_list post_result">
+		{{^dataset}}
+		<li class="no_result">
+			<p class="data_null">
+				<span class="ic_classic ic_no_result"></span>
+				<span class="txt">{{lang.no_search_result}}</span>							
+			</p>
+		</li>		
+		{{/dataset}}
+		{{#dataset}}		
+		<li class="classic" data-boardType="{{boardType}}" data-boardid="{{boardId}}" data-postid="{{id}}" data-hidden="{{hiddenPost}}">
+			<div class="article_wrap">
+				<span class="photo" data-userid="{{writer.id}}" evt-profile>
+					<a data-userid="{{writer.id}}" data-bypass><img alt="{{writer.name}} {{writer.positionName}}" title="{{writer.name}} {{writer.positionName}}" src="{{writer.thumbSmall}}"></a>
+				</span>
+				<div class="info">
+					<a class="name" data-userid="{{writer.id}}" evt-profile data-bypass>{{writer.name}} {{writer.positionName}}</a>
+					<span class="category">
+						<a data-bypass>{{ownerName}}</a>
+						<span class="arrow">></span>
+						<a data-bypass>{{boardName}}</a>
+					</span>
+					<span class="date">{{dateParse}}</span>
+				</div>
+				{{#isStream}}
+				<p class="title"><a data-bypass>{{#postHeaderName}}[{{postHeaderName}}]&nbsp;{{/postHeaderName}}{{{title}}}</a></p>
+				{{/isStream}}
+				<div class="article">
+					<a data-bypass>{{{resultContentParse}}}</a>
+				</div>
+				{{#attachFileNames}}
+				<div class="recent_file_wrap">
+					<span class="item_file">
+						<span class="ic_file ic_{{checkFileType}}"></span>
+						<span class="name">{{{attachFileNames}}}</span>
+						<!-- span class="size">({{fileSize}}byte)</span-->
+					</span>
+				</div>	
+				{{/attachFileNames}}
+			</div>
+			<div class="meta_wrap">
+				<!-- a class="plus_wrap" href="#">
+					<span class="plus">plus<i class="tail"></i></span>
+					<span class="num">3,601</span>
+				</a-->
+				<a class="btn_list_more" data-boardType="{{boardType}}" data-boardid="{{boardId}}" data-postid="{{id}}" data-hidden="{{hiddenPost}}">
+					<span class="txt">{{lang.detail}}</span>
+				</a>
+			</div>
+		</li>
+		{{/dataset}}
+	</ul>	
+	<div class="bottom_action" id="searchMoreButton">
+		<a class="btn_list_reload" data-bypass><span class="ic"></span><span class="txt">{{lang.more}}</span></a>
+	</div>
+</section>
+</div>

@@ -1,0 +1,430 @@
+<div class="critical">
+
+    <!-- 접수대기 -->
+    {{#useActData.isReceivable}}
+        <a id="act_receive" class="btn_tool" data-role="button">
+            <span class="ic_toolbar receive"></span>
+            <span class="txt">{{lang.접수}}</span>
+        </a>
+        <a id="reassign_receiver" class="btn_tool" data-role="button">
+            <span class="ic_toolbar member"></span>
+            <span class="txt">{{lang.담당자 지정}}</span>
+        </a>
+        <a id="return_reception" class="btn_tool" data-role="button">
+            <span class="ic_toolbar return"></span>
+            <span class="txt">{{lang.반송}}</span>
+        </a>
+    {{/useActData.isReceivable}}
+    
+    <!-- 접수완료 -->
+    {{#useActData.isReceived}}
+        {{^useActData.isDeletedDeptRcvDoc}}
+	        {{#useActData.isReceiver}}
+	        <a id="act_draft" class="btn_tool" data-role="button">
+                <span class="ic_toolbar approval"></span>
+	            <span class="txt">{{lang.결재요청}}</span>
+	        </a>
+	        {{/useActData.isReceiver}}
+
+            {{#useActData.isAllowCancelReceive}}
+	        <a id="cancel_reception" class="btn_tool" data-role="button">
+                <span class="ic_toolbar cancel"></span>
+                <span class="txt">{{lang.접수취소}}</span>
+            </a>
+            {{/useActData.isAllowCancelReceive}}
+
+	        {{#useActData.isDocumentEditable}}
+	        <a id="act_edit" class="btn_tool" data-role="button">
+                <span class="ic_toolbar modify"></span>
+                <span class="txt">{{lang.문서 수정}}</span>
+            </a>
+	        {{/useActData.isDocumentEditable}}
+	        <span class="btn_tool_group">           
+	            <a id="act_save" class="btn_tool" data-role="button">
+                    <span class="ic_toolbar save"></span>
+                    <span class="txt">{{lang.저장}}</span>
+                </a>
+	            <a id="act_cancel" class="btn_tool" data-role="button">
+                    <span class="ic_toolbar cancel"></span>
+                    <span class="txt">{{lang.취소}}</span>
+                </a>
+	        </span>
+        {{/useActData.isDeletedDeptRcvDoc}}
+        {{#useActData.isDeletedDeptRcvDoc}}
+        <a id="cancel_and_return_reception" class="btn_tool" data-role="button">
+            <span class="ic_toolbar return_again"></span>
+            <span class="txt">{{lang.접수 취소 후 반송}}</span>
+        </a>
+        <a id="reassign_dept" class="btn_tool" data-role="button">
+            <span class="ic_toolbar member_check"></span>
+            <span class="txt">{{lang.부서 재지정}}</span>
+        </a>
+        {{/useActData.isDeletedDeptRcvDoc}}
+    {{/useActData.isReceived}}
+    
+    <!-- 수신문서의 반려 -->
+    {{#useActData.isRereceivable}}
+	        <a id="act_rereceive" class="btn_tool" data-role="button">
+                <span class="ic_toolbar receive"></span>
+                <span class="txt">{{lang.재접수}}</span>
+            </a>
+    	{{^useActData.isDeletedDeptRcvDoc}}
+	        <a id="reassign_receiver" class="btn_tool" data-role="button">
+                <span class="ic_toolbar member"></span>
+                <span class="txt">{{lang.담당자 지정}}</span>
+            </a>
+        {{/useActData.isDeletedDeptRcvDoc}}
+	        <a id="return_reception" class="btn_tool" data-role="button">
+                <span class="ic_toolbar return"></span>
+                <span class="txt">{{lang.반송}}</span>
+            </a>
+    {{/useActData.isRereceivable}}
+    
+	{{#useActData.isActivityUser}}
+    	{{#useActData.createDraft}}
+    	<a id="act_draft" class="btn_tool" data-role="button">
+            <span class="ic_toolbar approval"></span>
+            <span class="txt">{{lang.결재요청}}</span>
+        </a>
+        <span class="btn_tool_group">
+        	<a id="act_temp_save" class="btn_tool" data-role="button">
+                <span class="ic_toolbar save"></span>
+                <span class="txt">{{lang.임시저장}}</span>
+            </a>
+        	<a id="act_document_preview" class="btn_tool" data-role="button">
+                <span class="ic_toolbar preview"></span>
+                <span class="txt">{{lang.미리보기}}</span>
+            </a>
+        	<a id="act_cancel_draft" class="btn_tool" data-role="button">
+                <span class="ic_toolbar cancel"></span>
+                <span class="txt">{{lang.취소}}</span>
+            </a>
+        </span>
+    	{{/useActData.createDraft}}
+        
+        {{#useActData.tempSave}}
+        <a id="act_draft" class="btn_tool" data-role="button">
+            <span class="ic_toolbar approval"></span>
+            <span class="txt">{{lang.결재요청}}</span>
+        </a>
+        <span class="btn_tool_group">
+        	<a id="act_temp_save" class="btn_tool" data-role="button">
+                <span class="ic_toolbar save"></span>
+                <span class="txt">{{lang.임시저장}}</span>
+            </a>
+        	<a id="act_document_preview" class="btn_tool" data-role="button">
+                <span class="ic_toolbar preview"></span>
+                <span class="txt">{{lang.미리보기}}</span>
+            </a>
+        	<a id="act_cancel_draft" class="btn_tool" data-role="button">
+                <span class="ic_toolbar cancel"></span>
+                <span class="txt">{{lang.취소}}</span>
+            </a>
+        	<a id="act_delete" class="btn_tool" data-role="button">
+                <span class="ic_toolbar del"></span>
+                <span class="txt">{{lang.삭제}}</span>
+            </a>
+        </span>
+        {{/useActData.tempSave}}
+
+        {{#useActData.inDraft}}
+        <a id="act_draft_withdrawal" class="btn_tool" data-role="button">
+            <span class="ic_toolbar cancel"></span>
+        	<span class="txt">{{lang.상신취소}}</span>
+       	</a>
+        {{/useActData.inDraft}}
+        {{#useActData.inDraftWithdraw}}
+        <a id="act_draft_withdrawal_inprogress" class="btn_tool" data-role="button">
+            <span class="ic_toolbar receive"></span>
+        	<span class="txt">{{lang.결재문서회수}}</span>
+       	</a>
+        {{/useActData.inDraftWithdraw}}
+        
+        {{#useActData.showDraftBtnByDraftWaiting}}
+        <a id="act_draft_withdrawal_draft" class="btn_tool" data-role="button">
+            <span class="ic_toolbar approval"></span>
+            <span class="txt">{{lang.결재요청}}</span>
+        </a>
+        <a id="act_draft_withdrawal_cancelDraft" class="btn_tool" data-role="button">
+            <span class="ic_toolbar cancel"></span>
+        	<span class="txt">{{lang.상신취소}}</span>
+       	</a>
+        {{/useActData.showDraftBtnByDraftWaiting}}
+        
+        
+        {{#useActData.inApproval}}
+        <a id="act_approve" class="btn_tool" data-role="button">
+            <span class="ic_toolbar approval"></span>
+            <span class="txt">{{lang.결재}}</span>
+        </a>
+        <a id="act_return" class="btn_tool" data-role="button">
+            <span class="ic_toolbar return"></span>
+            <span class="txt">{{lang.반려}}</span>
+        </a>
+        {{^useActData.inHold}}
+        <a id="act_hold" class="btn_tool" data-role="button">
+            <span class="ic_toolbar delay"></span>
+            <span class="txt">{{lang.보류}}</span>
+        </a>
+        {{/useActData.inHold}}
+        {{#useActData.isDocumentEditable}}
+        <a id="act_edit" class="btn_tool" data-role="button">
+            <span class="ic_toolbar modify"></span>
+            <span class="txt">{{lang.문서 수정}}</span>
+        </a>
+        <span class="btn_tool_group">        	
+        	<a id="act_save" class="btn_tool" data-role="button">
+                <span class="ic_toolbar save"></span>
+                <span class="txt">{{lang.저장}}</span>
+            </a>
+        	<a id="act_cancel" class="btn_tool" data-role="button">
+                <span class="ic_toolbar cancel"></span>
+                <span class="txt">{{lang.취소}}</span>
+            </a>
+        </span>
+        {{/useActData.isDocumentEditable}}
+        {{/useActData.inApproval}}
+        
+        {{#useActData.inPostApproval}}
+        <a id="act_postapproval" class="btn_tool" data-role="button">
+            <span class="ic_toolbar approval"></span>
+            <span class="txt">{{lang.후결}}</span>
+        </a>
+        {{/useActData.inPostApproval}}
+        
+        {{#useActData.inPostCheck}}
+       	<a id="act_postcheck" class="btn_tool" data-role="button">
+       		<span class="txt">{{lang.후열}}</span>
+      	</a>
+        {{/useActData.inPostCheck}}
+        	
+        {{#useActData.inRecovery}}
+       	<a id="act_withdrawal" class="btn_tool" data-role="button">
+            <span class="ic_toolbar cancel"></span>
+       		{{#useActData.latestCompletedActionisApproval}}
+       			<span class="txt">{{lang.결재취소}}</span>
+       		{{/useActData.latestCompletedActionisApproval}}
+       		{{^useActData.latestCompletedActionisApproval}}
+       			<span class="txt">{{useActData.latestCompletedActionName}}{{lang.취소}}</span>
+       		{{/useActData.latestCompletedActionisApproval}}
+      	</a>
+        {{/useActData.inRecovery}}
+        
+        {{#useActData.inAgree}}
+       	<a id="act_agree" class="btn_tool" data-role="button">
+            <span class="ic_toolbar agree"></span>
+       		<span class="txt">{{lang.합의}}</span>
+        </a>
+       	<a id="act_disagree" class="btn_tool" data-role="button">
+            <span class="ic_toolbar opposition"></span>
+            <span class="txt">{{lang.반대}}</span>
+        </a>
+       	{{^useActData.inHold}}
+        <a id="act_hold" class="btn_tool" data-role="button">
+            <span class="ic_toolbar delay"></span>
+            <span class="txt">{{lang.보류}}</span>
+        </a>
+        {{/useActData.inHold}}	
+        {{#useActData.isDocumentEditable}}
+        <a id="act_edit" class="btn_tool" data-role="button">
+            <span class="ic_toolbar modify"></span>
+            <span class="txt">{{lang.문서 수정}}</span>
+        </a>
+        <span class="btn_tool_group">
+           <a id="act_save" class="btn_tool" data-role="button">
+               <span class="ic_toolbar save"></span>
+               <span class="txt">{{lang.저장}}</span>
+           </a>
+           <a id="act_cancel" class="btn_tool" data-role="button">
+               <span class="ic_toolbar cancel"></span>
+               <span class="txt">{{lang.취소}}</span>
+           </a>
+        </span>
+        {{/useActData.isDocumentEditable}}
+        {{/useActData.inAgree}}
+        
+        {{#useActData.inCheck}}
+        <a id="act_check" class="btn_major_s" data-role="button">
+            <span class="txt">{{lang.확인}}</span>            
+        </a>        
+        <a id="act_return" class="btn_tool" data-role="button">
+            <span class="ic_toolbar return"></span>
+            <span class="txt">{{lang.반려}}</span>
+        </a>
+        {{^useActData.inHold}}
+        <a id="act_hold" class="btn_tool" data-role="button">
+            <span class="ic_toolbar delay"></span>
+            <span class="txt">{{lang.보류}}</span>
+        </a>
+        {{/useActData.inHold}}
+        {{#useActData.isDocumentEditable}}
+        <a id="act_edit" class="btn_tool" data-role="button">
+            <span class="ic_toolbar modify"></span>
+            <span class="txt">{{lang.문서 수정}}</span>
+        </a>
+        <span class="btn_tool_group">
+            <a id="act_save" class="btn_tool" data-role="button">
+                <span class="ic_toolbar save"></span>
+                <span class="txt">{{lang.저장}}</span>
+            </a>
+            <a id="act_cancel" class="btn_tool" data-role="button">
+                <span class="ic_toolbar cancel"></span>
+                <span class="txt">{{lang.취소}}</span>
+            </a>
+        </span>
+        {{/useActData.isDocumentEditable}}
+        {{/useActData.inCheck}}
+        
+        {{#useActData.inInspection}}
+        <a id="act_inspection" class="btn_tool" data-role="button">
+            <span class="ic_toolbar approval"></span>
+            <span class="txt">{{lang.결재}}</span>            
+        </a>
+        {{#useActData.inInspectionReturn}}
+        <a id="act_return" class="btn_tool" data-role="button">
+            <span class="ic_toolbar return"></span>
+            <span class="txt">{{lang.반려}}</span>
+        </a>
+        {{/useActData.inInspectionReturn}}        
+        {{^useActData.inHold}}
+        <a id="act_hold" class="btn_tool" data-role="button">
+            <span class="ic_toolbar delay"></span>
+            <span class="txt">{{lang.보류}}</span>
+        </a>
+        {{/useActData.inHold}}
+        {{#useActData.isDocumentEditable}}
+        <a id="act_edit" class="btn_tool" data-role="button">
+            <span class="ic_toolbar modify"></span>
+            <span class="txt">{{lang.문서 수정}}</span>
+        </a>
+        <span class="btn_tool_group">
+            <a id="act_save" class="btn_tool" data-role="button">
+                <span class="ic_toolbar save"></span>
+                <span class="txt">{{lang.저장}}</span>
+            </a>
+            <a id="act_cancel" class="btn_tool" data-role="button">
+                <span class="ic_toolbar cancel"></span>
+                <span class="txt">{{lang.취소}}</span>
+            </a>
+        </span>
+        {{/useActData.isDocumentEditable}}
+        {{/useActData.inInspection}}
+        
+        {{#useActData.inAdvApproval}}
+        <a id="act_advappr" class="btn_tool" data-role="button">
+            <span class="ic_toolbar approval"></span>
+            <span class="txt">{{lang.선결재}}</span>
+        </a>
+        {{/useActData.inAdvApproval}}
+    {{/useActData.isActivityUser}}
+    
+    {{#useActData.isApprovalInfoButtonVisible}}
+    	{{^useActData.hideWhenDeletedDeptRcvDoc}}
+        	<a id="act_edit_apprflow" class="btn_tool" data-role="button">
+                <span class="ic_toolbar info"></span>
+                <span class="txt">{{lang.결재 정보}}</span>
+            </a>
+        {{/useActData.hideWhenDeletedDeptRcvDoc}}
+    {{/useActData.isApprovalInfoButtonVisible}}
+    
+    {{#useActData.isActivityUser}} 
+        {{^useActData.isReceptionDocument}}
+        {{#useActData.completeDraft}}
+        <a id="act_reapply" class="btn_tool" data-role="button">
+            <span class="ic_toolbar approval"></span>
+            <span class="txt">{{lang.재기안}}</span>
+        </a>
+        {{/useActData.completeDraft}}
+        {{/useActData.isReceptionDocument}}
+     	
+        {{^useActData.isReceptionDocument}}
+     	{{#useActData.returnDraft}}
+     	<a id="act_reapply" class="btn_major_s" data-role="button">
+            <span class="ic_toolbar approval"></span>
+            <span class="txt">{{lang.재기안}}</span>
+        </a>
+        <a id="act_delete" class="btn_tool" data-role="button">
+            <span class="ic_toolbar del"></span>
+            <span class="txt">{{lang.삭제}}</span>
+        </a>
+        {{/useActData.returnDraft}}
+        {{/useActData.isReceptionDocument}}
+        
+        <!-- <a id="post_regist" class="btn_tool" data-role="button"><span class="txt">{{lang.게시판 게시}}</span></a> -->
+        {{#useActData.isPostRegistable}}
+        <a id="post_regist" class="btn_tool" data-role="button">
+            <span class="ic_toolbar board"></span>
+            <span class="txt">{{lang.게시판 게시}}</span>
+        </a>
+        {{/useActData.isPostRegistable}}	
+    {{/useActData.isActivityUser}}
+    {{#useActData.isApprovalInfoButtonVisible}}
+	    {{#useActData.showSendMailBtn}}
+	    	{{^useActData.hideWhenDeletedDeptRcvDoc}}
+	   	    	<a id="sendMail" class="btn_tool" data-role="button">
+                    <span class="ic_toolbar mail"></span>
+                    <span class="txt">{{lang.메일발송}}</span>
+                </a>
+	   	    {{/useActData.hideWhenDeletedDeptRcvDoc}}
+	    {{/useActData.showSendMailBtn}}
+    {{/useActData.isApprovalInfoButtonVisible}}
+    {{#useActData.showDownloadBtn}}
+    	{{^useActData.hideWhenDeletedDeptRcvDoc}}
+<!--    	    <a id="downloadDocument" class="btn_tool" data-role="button"><span class="txt">{{lang.다운로드}}</span></a> -->
+   	    {{/useActData.hideWhenDeletedDeptRcvDoc}}
+    {{/useActData.showDownloadBtn}}        
+    {{#useHelp}}
+        <a id="show_help" class="btn_tool" data-role="button" data-value="{{formId}}">
+            <span class="ic_toolbar help_doc"></span>
+            <span class="" title="{{lang.도움말}}"></span><span class="txt">{{lang.도움말}}</span>
+        </a>
+    {{/useHelp}}
+</div>
+
+<ul class="optional">
+    {{#isAutoSave}}
+    <li class="sel_r">
+        <label> 
+            <select id="autoSaveSelect" evt-rol="auto-save">
+                {{#autoSaveOptions.options}}
+                <option value="{{val}}" {{#selected}}selected="selected"{{/selected}}>{{txt}}</option>
+                {{/autoSaveOptions.options}}
+            </select>
+        </label>
+    </li>
+    {{/isAutoSave}}
+	{{^isPopup}}
+    {{#isPopupButtonVisible}}
+    {{^useActData.createDraft}} <!-- 기안 시에 팝업 보기를 하면, 작성 중인 문서의 데이터가 사라집니다. 따라서 기안 올리기 전의 팝업 보기 처리가 추가로 진행된 이후에 버튼을 노출합니다. (기획 나오면..) -->
+ 	<li>
+ 		<a id="show_popup" class="btn_tool" data-role="button" >
+            <span class="ic_toolbar popup" title="{{lang.팝업보기}}"></span>
+            <span class="txt">{{lang.팝업보기}}</span>
+ 		</a>
+ 	</li>
+    {{/useActData.createDraft}}
+    {{/isPopupButtonVisible}}
+    {{#useActData.showUrlCopy}}
+    <li>
+        <a class="btn_tool" url-copy>
+            <span class="ic_toolbar copy_url" title="{{lang.복사}}"></span>
+            <span class="txt">{{lang.복사}}</span>
+        </a>
+    </li>
+    {{/useActData.showUrlCopy}}
+ 	<li>
+ 		<a id="act_list" class="btn_tool" data-role="button" >
+            <span class="ic_toolbar list" title="{{lang.목록}}"></span>
+            <span class="txt">{{lang.목록}}</span>
+ 		</a>
+ 	</li>
+ 	{{/isPopup}}
+ 	{{#useActData.showPrintBtn}}
+ 	<li>
+        <a id="act_doc_print" class="btn_tool btn_print" data-role="button">
+            <span class="ic_toolbar print"></span>
+            <span class="txt">{{lang.인쇄}}</span>
+        </a>
+    </li>
+ 	{{/useActData.showPrintBtn}}
+</ul>

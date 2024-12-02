@@ -1,0 +1,127 @@
+			<div class="tool_bar calendar_tool_bar">
+				<!-- tab -->
+				<!--월간 탭 추가-->
+				<div class="critical">
+					<ul class="tab_nav">			
+						<li class="first daily"><span>{{lang.일간}}</span></li>			
+						<li class="last on monthly"><span>{{lang.월간}}</span></li>
+					</ul>
+                    {{#hasDescendantSelect}}
+                    <select class="slt_team" id="attnd_descendant_dept">
+                        <option value="{{dept.id}}">{{dept.name}}</option>
+                        {{#descendantDept}}
+                        <option value="{{id}}">{{name}}</option>
+                        {{/descendantDept}}
+                    </select>
+                    {{/hasDescendantSelect}}
+				</div>
+				<!--월간 탭 추가 //-->
+				<div class="current_date">
+					<span class="btn_ic_prev2 btn_border" title="{{lang.이전}}" id="preMonth"><span class="ic ic_prev2"></span></span>						
+					<span class="date">{{data.logMonth}}</span>					
+					<span class="btn_ic_next2 btn_border" title="{{lang.다음}}" id="nextMonth"><span class="ic ic_next2"></span></span>
+					<span class="btn_tool" alt="{{lang.label_move_date}}" id="attndCalBtn">
+						<span class="ic_gnb ic_cal_mini">
+							<input type="text" id="list_cal" style="border:0px;width:1px;height:1px"/>
+						</span>
+					</span>					
+					<span class="btn_tool" id="todayMonth"><span class="txt">{{lang.오늘}}</span></span>
+				</div>
+				<div class="optional">
+					<!-- 전사 근태 관리 - 하위부서 포함 없음, 부서 근태 관리 - 하위부서 포함 있음-->
+					<span class="wrap_option">
+						<!-- <input type="checkbox"><label>하위부서 포함</label> -->
+					</span>
+					<!--// 전사 근태 관리 - 하위부서 포함 없음, 부서 근태 관리 - 하위부서 포함 있음 2015.05.28 확인 요청-->
+				</div>
+				<div class="dataTables_length">
+				</div>
+			</div>
+			<!-- //tool bar -->
+			<!-- attend_list -->
+			<div class="go_body">
+				<div class="month_view">
+					<div class="month_line">
+						<div class="list_month_line">
+							<div>
+								<table class="type_normal tb_agenda tb_attend">
+									<thead>
+										<th class="sorting department" colspan="2" id="name_column" sort-id="name">
+											<span class="title_sort">{{lang.부서원}}<ins class="ic"></ins>
+											</span>
+										</th>
+									</tr></thead>
+								</table>
+							</div>
+						</div>
+						<div class="tb_month_line_wrap">
+							<table class="type_normal tb_agenda tb_attend">
+								<thead>
+									<tr>
+										<th class="status">
+											<span class="number"></span>
+										</th>
+										{{#data.days}}
+										<th>
+											<span class="number{{#isSaturday}} sat{{/isSaturday}}{{#isSunday}} sun{{/isSunday}}{{^isSaturday}}{{#isHoliday}} holi{{/isHoliday}}{{/isSaturday}}">{{day}}</span>
+										</th>
+										{{/data.days}}
+									</tr>
+								</thead>
+							</table>
+						</div>
+					</div>
+					<div id="monthly_records">
+					</div>
+				</div>
+				<div class="tool_bar tool_absolute">
+					<div class="critical" style="width:300px">
+						<section class="marker">
+							<ul>
+								<li class="normal"><span></span>{{lang.정상}}</li>
+								<li class="late"><span></span>{{lang.지각}}</li>
+								<li class="modify"><span></span>{{lang.수정}}</li>
+							</ul>
+						</section>
+						<div class="btn_down">
+							<a class="btn_tool" id="monthly_download">
+								<span class="txt">{{lang.목록 다운로드}}</span>
+							</a>
+						</div>
+					</div>
+					<div id="page_navivation">
+					
+					</div>
+					<!--  상단 메뉴와 동일 -->
+					<div class="dataTables_length">
+					</div>
+					
+					<!--// 페이지 네이션-->
+					<div class="page_navivation"></div>
+
+					<!-- 테이블 검색 -->
+					{{^isDept}}
+					<div class="table_search table_new_search">
+						<select id="searchtype">
+							<option value="user">{{lang.부서원}}</option>
+							<option value="dept">{{lang.부서명}}</option>
+							<option value="group">{{lang.그룹}}</option>
+						</select>
+						
+						<select id="search_group_filter" style="display: none">
+							<option value="">{{lang.선택}}</option>
+							{{#data.groups}}
+							<option value="{{id}}">{{name}}</option>
+							{{/data.groups}}
+						</select>
+						
+						<section id="keyword_section" class="search2">
+							<div class="search_wrap">
+								<input id="keyword" class="search2" type="text" placeholder="">								
+								<span id="searchBtn" class="btn_search2"></span>								
+							</div>
+						</section>
+					</div>
+					{{/isDept}}
+					<!-- //테이블 검색 -->
+			</div>

@@ -1,0 +1,1 @@
+define("admin/models/docs_folder",function(require){var e=require("underscore"),t=Backbone.Model.extend({initialize:function(){},url:function(){var t=GO.contextRoot+"ad/api/docs/companyfolder/";return e.isUndefined(this.get("id"))?t:t+this.get("id")}});return t});

@@ -1,0 +1,32 @@
+			<div class="reply_wrap">
+				<ul class="list_reply">
+					{{#dataset}}
+					<li class="depth{{depth}}" data-id="{{id}}" data-thread="{{thread}}" data-commentId="{{commentId}}">
+						<span class="ic ic_reply"></span>
+						<div class="msg_wrap">
+							<p class="subject">
+								<span class="txt">{{{parseMessage}}}</span>
+							</p>
+							<div class="info">
+								<span class="name txt_ellipsis">{{writer.name}} {{writer.positionName}}</span>
+								<span class="part">|</span>
+								<span class="date">{{dateformat}}</span>
+							</div>
+							{{{postAttachFiles}}}
+							<div class="btn_wrap">
+								{{#commentReply}}<a href="javascript:;" class="btn_type2 comment_reply"><span class="txt">{{lang.reply}}</span></a>{{/commentReply}}
+								{{#isWritable}}<a href="javascript:;" class="btn_type2 comment_modify"><span class="txt">{{lang.modify}}</span></a>
+								<a href="javascript:;" class="btn_type2 comment_delete"><span class="txt_caution">{{lang.delete}}</span></a>
+								{{/isWritable}}
+							</div>
+						</div>					
+					</li>
+					{{/dataset}}
+					<li class="creat">
+						<form name="comment_form">
+						<div class="ipt_wrap"><textarea id="formPostComment" name="comment" placeholder="{{lang.comment_placeholder}}"></textarea></div>
+						<a href="javascript:;" id="btnPostComment" class="btn_type2"><span class="txt">{{lang.comment_save}}</span></a>
+						</form>
+					</li>
+				</ul>
+			</div>

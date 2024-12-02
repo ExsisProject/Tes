@@ -1,0 +1,199 @@
+<meta name ="form:name" content="휴가신청" folder-name="인사"/>
+<body id="go-approval-form">
+<span><div style="font-family:돋움;font-size:9pt;"><span> 
+ <table style="border: 0px solid rgb(0, 0, 0); width: 800px; font-family: malgun gothic, dotum, arial, tahoma; margin-top: 1px; border-collapse: collapse;"> 
+  <!-- Header --> 
+  <colgroup> 
+   <col width="310"> 
+   <col width="490"> 
+  </colgroup> 
+  <tbody> 
+   <tr> 
+    <td style="background: white; padding: 0px !important; border: 0px currentColor; height: 90px; text-align: center; color: black; font-size: 36px; font-weight: bold; vertical-align: middle;" colspan="2">휴가신청서</td> 
+   </tr> 
+   <tr> 
+    <td style="background: white; padding: 0px !important; border: currentColor; text-align: left; color: black; font-size: 12px; font-weight: normal; vertical-align: top;"> 
+     <table style="border: 1px solid rgb(0, 0, 0); font-family: malgun gothic, dotum, arial, tahoma; margin-top: 1px; border-collapse: collapse;"> 
+      <!-- User --> 
+      <colgroup> 
+       <col width="90"> 
+       <col width="220"> 
+      </colgroup> 
+      <tbody> 
+       <tr> 
+        <td style="background: rgb(221, 221, 221); padding: 5px; border: 1px solid black; height: 18px; text-align: center; color: rgb(0, 0, 0); font-size: 12px; font-weight: bold; vertical-align: middle;">기안자 </td> 
+        <td style="background: rgb(255, 255, 255); padding: 5px; border: 1px solid black; text-align: left; color: rgb(0, 0, 0); font-size: 12px; font-weight: normal; vertical-align: middle;"><span data-type="system" data-dsl="{{label:draftUser}}" data-id="draftUser" data-name="draftUser" data-value="" data-require="false" data-maxlength="" data-width="" data-defaultstr="" data-editable="true"></span> </td> 
+       </tr> 
+       <tr> 
+        <td style="background: rgb(221, 221, 221); padding: 5px; border: 1px solid black; height: 18px; text-align: center; color: rgb(0, 0, 0); font-size: 12px; font-weight: bold; vertical-align: middle;">소속 </td> 
+        <td style="background: rgb(255, 255, 255); padding: 5px; border: 1px solid black; text-align: left; color: rgb(0, 0, 0); font-size: 12px; font-weight: normal; vertical-align: middle;"><span data-type="system" data-dsl="{{label:draftDept}}" data-id="draftDept" data-name="draftDept" data-value="" data-require="false" data-maxlength="" data-width="" data-defaultstr="" data-editable="true"></span> </td> 
+       </tr> 
+       <tr> 
+        <td style="background: rgb(221, 221, 221); padding: 5px; border: 1px solid black; height: 18px; text-align: center; color: rgb(0, 0, 0); font-size: 12px; font-weight: bold; vertical-align: middle;">기안일 </td> 
+        <td style="background: rgb(255, 255, 255); padding: 5px; border: 1px solid black; text-align: left; color: rgb(0, 0, 0); font-size: 12px; font-weight: normal; vertical-align: middle;"><span data-type="system" data-dsl="{{label:draftDate}}" data-id="draftDate" data-name="draftDate" data-value="" data-require="false" data-maxlength="" data-width="" data-defaultstr="" data-editable="true"></span> </td> 
+       </tr> 
+       <tr> 
+        <td style="background: rgb(221, 221, 221); padding: 5px; border: 1px solid black; height: 18px; text-align: center; color: rgb(0, 0, 0); font-size: 12px; font-weight: bold; vertical-align: middle;">문서번호 </td> 
+        <td style="background: rgb(255, 255, 255); padding: 5px; border: 1px solid black; text-align: left; color: rgb(0, 0, 0); font-size: 12px; font-weight: normal; vertical-align: middle;"><span data-type="system" data-dsl="{{label:docNo}}" data-id="docNo" data-name="docNo" data-value="" data-require="false" data-maxlength="" data-width="" data-defaultstr="" data-editable="true"></span> </td> 
+       </tr> 
+      </tbody> 
+     </table></td> 
+    <td style="background: white; padding: 0px !important; border: currentColor; text-align: right; color: black; font-size: 12px; font-weight: normal; vertical-align: top;"> 
+     <div class="sign_type1 sign_type_new" data-group-type="type1" data-group-max-count="1" data-group-name="신청" data-group-seq="0"> 
+      <table class="tb_sign_type1"> 
+       <tbody> 
+        <tr> 
+         <th>신청</th> 
+         <td> 
+          <table class="sign_member"> 
+           <tbody> 
+            <tr> 
+             <td><span class="sign_rank"></span></td> 
+            </tr> 
+            <tr> 
+             <td><span class="sign_name" id="status_"></span></td> 
+            </tr> 
+            <tr> 
+             <td class="last"><span class="sign_date" id="date_"></span></td> 
+            </tr> 
+           </tbody> 
+          </table></td> 
+        </tr> 
+       </tbody> 
+      </table> 
+     </div> 
+     <div class="sign_type1 sign_type_new" data-group-type="type1" data-group-max-count="7" data-group-name="승인" data-group-seq="1"> 
+      <table class="tb_sign_type1"> 
+       <tbody> 
+        <tr> 
+         <th>승인</th> 
+         <td> 
+          <table class="sign_member"> 
+           <tbody> 
+            <tr> 
+             <td><span class="sign_rank"></span></td> 
+            </tr> 
+            <tr> 
+             <td><span class="sign_name" id="status_"></span></td> 
+            </tr> 
+            <tr> 
+             <td class="last"><span class="sign_date" id="date_"></span></td> 
+            </tr> 
+           </tbody> 
+          </table></td> 
+         <td> 
+          <table class="sign_member"> 
+           <tbody> 
+            <tr> 
+             <td><span class="sign_rank"></span></td> 
+            </tr> 
+            <tr> 
+             <td><span class="sign_name" id="status_"></span></td> 
+            </tr> 
+            <tr> 
+             <td class="last"><span class="sign_date" id="date_"></span></td> 
+            </tr> 
+           </tbody> 
+          </table></td> 
+         <td> 
+          <table class="sign_member"> 
+           <tbody> 
+            <tr> 
+             <td><span class="sign_rank"></span></td> 
+            </tr> 
+            <tr> 
+             <td><span class="sign_name" id="status_"></span></td> 
+            </tr> 
+            <tr> 
+             <td class="last"><span class="sign_date" id="date_"></span></td> 
+            </tr> 
+           </tbody> 
+          </table></td> 
+         <td> 
+          <table class="sign_member"> 
+           <tbody> 
+            <tr> 
+             <td><span class="sign_rank"></span></td> 
+            </tr> 
+            <tr> 
+             <td><span class="sign_name" id="status_"></span></td> 
+            </tr> 
+            <tr> 
+             <td class="last"><span class="sign_date" id="date_"></span></td> 
+            </tr> 
+           </tbody> 
+          </table></td> 
+         <td> 
+          <table class="sign_member"> 
+           <tbody> 
+            <tr> 
+             <td><span class="sign_rank"></span></td> 
+            </tr> 
+            <tr> 
+             <td><span class="sign_name" id="status_"></span></td> 
+            </tr> 
+            <tr> 
+             <td class="last"><span class="sign_date" id="date_"></span></td> 
+            </tr> 
+           </tbody> 
+          </table></td> 
+         <td> 
+          <table class="sign_member"> 
+           <tbody> 
+            <tr> 
+             <td><span class="sign_rank"></span></td> 
+            </tr> 
+            <tr> 
+             <td><span class="sign_name" id="status_"></span></td> 
+            </tr> 
+            <tr> 
+             <td class="last"><span class="sign_date" id="date_"></span></td> 
+            </tr> 
+           </tbody> 
+          </table></td> 
+         <td> 
+          <table class="sign_member"> 
+           <tbody> 
+            <tr> 
+             <td><span class="sign_rank"></span></td> 
+            </tr> 
+            <tr> 
+             <td><span class="sign_name" id="status_"></span></td> 
+            </tr> 
+            <tr> 
+             <td class="last"><span class="sign_date" id="date_"></span></td> 
+            </tr> 
+           </tbody> 
+          </table></td> 
+        </tr> 
+       </tbody> 
+      </table> 
+     </div> 
+     <br> </td> 
+   </tr> 
+  </tbody> 
+ </table> 
+ <table style="border: 0px solid rgb(0, 0, 0); width: 800px; font-family: malgun gothic, dotum, arial, tahoma; margin-top: 10px; border-collapse: collapse;"> 
+  <!-- 휴가 신청 --> 
+  <colgroup> 
+   <col width="120"> 
+   <col width="680"> 
+  </colgroup> 
+  <tbody> 
+   <tr> 
+    <td style="background: rgb(221, 221, 221); padding: 5px; border: 1px solid black; height: 25px; text-align: center; color: rgb(0, 0, 0); font-size: 14px; font-weight: bold; vertical-align: middle;"><b style="color: rgb(255, 0, 0);">*</b> 휴가 종류</td> 
+    <td style="background: rgb(255, 255, 255); padding: 5px; border: 1px solid black; height: 25px; text-align: left; color: rgb(0, 0, 0); font-size: 14px; font-weight: normal; vertical-align: middle;"><span data-type="cSel" data-dsl="{{cSel_선택_연차_오전반차_오후반차_결혼(본인)_결혼(본인,배우자의 형제자매)_결혼(자녀)_사망(배우자)_사망(본인, 배우자의 부모)_사망(본인,배우자의 조부모)_사망(자녀)_사망(본인, 배우자의 백숙부모)_사망(본인, 배우자의 형제자매)_회갑(본인,배우자의 부모)_출산(배우자)_출산(본인)_보건휴가_예비군_민방위_병가(무급휴가)_탈상_교육훈련휴가_공민권}}" data-selectval="" data-autotype="false"></span></td> 
+   </tr> 
+   <tr> 
+    <td style="background: rgb(221, 221, 221); padding: 5px; border: 1px solid black; height: 25px; text-align: center; color: rgb(0, 0, 0); font-size: 14px; font-weight: bold; vertical-align: middle;"><b style="color: rgb(255, 0, 0);">*</b> 휴가 기간</td> 
+    <td style="padding: 5px; border: 1px solid black; height: 25px; text-align: left; color: rgb(0, 0, 0); font-size: 14px; vertical-align: middle; background-color: rgb(255, 255, 255);"><span style="font-weight: normal;"><span data-type="period" data-dsl="{{period}}" data-id="" data-name="" data-value=""></span> &nbsp;</span><b>사용일수</b>: <span class="editor_num" data-type="num" data-dsl="{{number}}" data-id="" data-name="" data-value="" data-require="false" data-maxlength="" data-width="" data-defaultstr="" data-editable="true"></span>일 <span id="formErrorMsg" style="color: red;"></span> </td> 
+   </tr> 
+   
+   <tr> 
+    <td style="background: rgb(221, 221, 221); padding: 5px; border: 1px solid black; height: 80px; text-align: center; color: rgb(0, 0, 0); font-size: 14px; font-weight: bold; vertical-align: middle;"><b style="color: rgb(255, 0, 0);">*</b> 휴가 사유</td> 
+    <td style="background: rgb(255, 255, 255); padding: 5px; border: 1px solid black; text-align: left; color: rgb(0, 0, 0); font-size: 14px; font-weight: normal; vertical-align: top;"><span data-type="textarea" data-dsl="{{textarea:reason}}" data-id="reason" data-name="reason" data-value="" data-require="false" data-maxlength="" data-width="" data-defaultstr="" data-editable="true"></span> </td> 
+   </tr> 
+  </tbody> 
+ </table></span> 
+<span> <br><strong>[당일 반차 신청시]</strong> 시작일만 오전/오후 체크<br><strong>[예비군/민방위 신청시]</strong> 통지서 스캔하여 파일 첨부<br><strong>[경조휴가 신청시]</strong> 증빙서류 스캔하여&nbsp;파일 첨부 (예: 청첩장 등본 등)<br>&nbsp;<br>&nbsp;<br> <br> </span></div></span>
+</body>

@@ -1,0 +1,60 @@
+
+<div class="content_body" style="margin-bottom:10px;" id="offlinUpdate">
+    <h5>
+        {{lang.label_desc}}
+    </h5>
+    <input type="hidden" id="offlineFilePath" name="offlineFilePath"/>
+    <input type="hidden" id="offlineVersion" name="offlineVersion"/>
+    <input type="hidden" id="offlineAction" name="offlineAction"/>
+    <table class="contentTable">
+        <colgroup>
+            <col width="180px"></col>
+            <col></col>
+        </colgroup>
+
+        <tr id="">
+            <th class="rightAlignTh">{{lang.label_apns_add}}</th>
+            <td class="" style="padding:5px;">
+                <span id="file_layer">
+                    <ul class="file_wrap" >
+                    </ul>
+                </span>
+                <span id="file_upload_btn">
+                    <span class="btn_minor_s" id="swfupload-control" style="padding:0 !important; "></span>
+                </span>
+            </td>
+        </tr>
+        <!--<tr id="">-->
+            <!--<th class="rightAlignTh">{{lang.label_apns_path}}</th>-->
+            <!--<td class="" style="padding:5px;">-->
+                <!--<div style="float:left;line-height:150%;"><span id="\"></span></div>-->
+            <!--</td>-->
+        <!--</tr>-->
+        <tr>
+            <th class="rightAlignTh">{{lang.label_apns_password}}</th>
+            <td class="last" style="padding:5px;">
+                <input type="text" id="apnsPassword" class="IP300" size="60" />
+            </td>
+        </tr>
+        <tr>
+            <th class="rightAlignTh">{{lang.label_apns_type}}</th>
+            <td class="last">
+                <span class="option_wrap">
+                    <input type="radio" value="production" id="apnsTypeProduction" name="apnsType" {{#isProductionType}} checked="checked" {{/isProductionType}} />
+                    <label for="apnsTypeProduction">production</label>
+                </span>
+                <span class="option_wrap">
+                    <input type="radio" value="sandbox" id ="apnsTypeSendbox" name="apnsType" {{^isProductionType}} checked="checked" {{/isProductionType}} />
+                    <label for="apnsTypeSendbox">sandbox</label>
+                </span>
+            </td>
+        </tr>
+    </table>
+
+    <div class="page_action">
+        <span class="btn" id="btn_ok">{{lang.label_ok}}</span>
+        <span class="btn_nega" id="btn_cancel">{{lang.label_cancel}}</span>
+    </div>
+
+</div>
+

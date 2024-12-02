@@ -1,0 +1,1 @@
+define(["backbone","report/models/activity_log"],function(e,t){var n=e.Collection.extend({model:t,initialize:function(e,t){this.seriesId=t.id},url:function(){return GO.contextRoot+"api/report/series/"+this.seriesId+"/log"}},{fetch:function(e){var t=new n([],{id:e.id}),r=e.page||0,i=e.offset||10;return t.fetch({async:!1,data:{page:r,offset:i}}),t}});return n});

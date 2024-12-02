@@ -1,0 +1,104 @@
+<div class="nav" id="searchNav">
+</div>
+<div id="searchDetail" class="search_detail">
+    <span id="simpleSearchWrap">
+        <p class="tit">{{lang.검색 조건}}</p>
+        <ul class="search_result">
+            <li>
+                <a href="" data-search="all">
+                    <label class="tit">{{lang.전체}} {{lang.검색}}</label>
+                    <div class="txt">
+                        <span class="searchText"></span>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="" data-search="drafterName">
+                    <label class="tit">{{lang.기안자}}</label>
+                    <div class="txt">
+                        <span class="searchText"></span>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="" data-search="title">
+                    <label class="tit">{{lang.제목}}</label>
+                    <div class="txt">
+                        <span class="searchText"></span>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </span>
+    <span id="detailSearchWrap">
+        <ul class="search_result">
+            <li>
+                <label class="tit">{{lang.결재양식}}</label>
+                <div class="txt">
+                    <input id="formName" class="input" type="search" placeholder="{{lang.검색 키워드를 입력하세요}}">
+                </div>
+            </li>
+            <li>
+                <label class="tit">{{lang.기안자}}</label>
+                <div class="txt">
+                    <input id="drafterName" class="input" type="search" placeholder="{{lang.검색 키워드를 입력하세요}}">
+                </div>
+            </li>
+            <li>
+                <label class="tit">{{lang.기안부서}}</label>
+                <div class="txt">
+                    <input id="drafterDeptName" class="input" type="search" placeholder="{{lang.검색 키워드를 입력하세요}}">
+                </div>
+            </li>
+            <li>
+                <label class="tit">{{lang.결재선}}</label>
+                <div class="txt">
+                    <input id="activityUserNames" class="input" type="search" placeholder="{{lang.검색 키워드를 입력하세요}}">
+                </div>
+            </li>
+            <li>
+                <label class="tit">{{lang.문서번호}}</label>
+                <div class="txt">
+                    <input id="docNum" class="input" type="search" placeholder="{{lang.검색 키워드를 입력하세요}}">
+                </div>
+            </li>
+            <li>
+                <label class="tit">{{lang.검색어}}</label>
+                <div class="txt">
+                    <span class="option_wrap">
+                        <input id="title" type="checkbox" name="title">
+                        <label for="title" class="txt">{{lang.제목}}</label>
+                    </span>
+                    <span class="option_wrap">
+                        <input id="docBody" type="checkbox" name="docBody">
+                        <label for="docBody" class="txt">{{lang.본문}}</label>
+                    </span>
+                    <span class="option_wrap">
+                        <input id="attachFile" type="checkbox" name="attachFile">
+                        <label for="attachFile" class="txt">{{lang.첨부파일}}</label>
+                    </span>
+                    <input class="input" type="search" id="stext" placeholder="{{lang.검색 키워드를 입력하세요}}"/>
+                </div>
+            </li>
+            <li>
+                <label class="tit">{{lang.검색조건}}</label>
+                <div class="txt">
+                    <span class="option_wrap">
+                        <input id="searchOptionAND" type="radio" name="searchOption" checked="checked" value="AND">
+                        <label for="searchOptionAND" class="txt">{{lang.모두만족}}</label>
+                    </span>
+                    <span class="option_wrap">
+                        <input id="searchOptionOR" type="radio" name="searchOption" value="OR">
+                        <label for="searchOptionOR" class="txt">{{lang.하나만만족}}</label>
+                    </span>
+                </div>
+            </li>
+        </ul>
+        <a class="btn_wrap" id="searchInit">
+            <span class="btn btn_refresh"></span>
+            <span class="txt">{{lang.초기화}}</span>
+        </a>
+    </span>
+    <span id="searchResultWrap">
+    </span>
+</div>

@@ -1,0 +1,106 @@
+
+
+<div class="content_page">
+    <div class="container">
+        <div class="content">
+            {{#isAppAuthView}}
+            <div class="wrap_search">
+							<span class="wrap_select">
+								<select class="v2_slt w170" name="" id="app_category_select">
+									<option value="ALL" selected="">{{AdminLang.메뉴 전체}}</option>
+									<option value="DASHBOARD">{{AdminLang.대시보드}}</option>
+									<option value="APPROVAL">{{AdminLang.전자결재}}</option>
+									<option value="TIMELINE">{{AdminLang.근태관리}}</option>
+									<option value="WORKS">{{AdminLang.Works}}</option>
+									<option value="SURVEY">{{AdminLang.설문}}</option>
+									<option value="WEBFOLDER">{{AdminLang.자료실}}</option>
+									<option value="CALENDAR">{{AdminLang.캘린더}}</option>
+									<option value="CONTACT">{{AdminLang.주소록}}</option>
+									<option value="BOARD">{{AdminLang.게시판}}</option>
+									<option value="RESERVATION">{{AdminLang.예약}}</option>
+									<option value="DOCS">{{AdminLang.문서관리}}</option>
+									<option value="COMMUNITY">{{AdminLang.커뮤니티}}</option>
+								</select>
+							</span>
+                <input class="input w_half" id="search_txt" type="text" placeholder="{{AdminLang.검색할 운영자(이름+이메일)을 입력하세요}}">
+                <button class="major search_btn">{{CommonLang.검색}}</button>
+            </div>
+            {{/isAppAuthView}}
+            {{#isContentAuthView}}
+            <div class="wrap_search">
+							<span class="wrap_select">
+								<select class="v2_slt w170" name="" id="search_category_select">
+									<option value="userName" selected="">{{AdminLang.운영자}}</option>
+									<option value="contentName">{{appTitle}}</option>
+								</select>
+
+							</span>
+                            <input class="input w_half" id="search_content_txt" type="text" placeholder="{{AdminLang.검색할 운영자(이름+이메일)을 입력하세요}}">
+                            <button class="major search_btn">{{CommonLang.검색}}</button>
+            </div>
+            {{/isContentAuthView}}
+
+        </div>
+    </div>
+
+    <div class="dataTables_wrapper container">
+        {{#multiManager}}
+        <div class="toolbar_top header_tb">
+            <div class="critical">
+							<span class="btn_tool btn_adm_add btn_only_checked disable">
+								<span class="ic_adm ic_plus"></span>
+								<span class="txt" >{{AdminLang.운영자 추가}}</span>
+							</span>
+                <span class="btn_tool btn_adm_del btn_only_checked disable">
+								<span class="ic_adm ic_delete"></span>
+								<span class="txt" >{{AdminLang.운영자 삭제}}</span>
+							</span>
+            </div>
+        </div>
+        {{/multiManager}}
+
+        <div class="content_tb">
+            <table
+                    {{#isAppAuthView}} class='chart size tb_admin_list tb_authority tb_type_loose' {{/isAppAuthView}}
+                    {{#isContentAuthView}} class='chart size tb_admin_list tb_authority_detail tb_type_loose' {{/isContentAuthView}}
+                    id="auth_table">
+                <thead>
+                <tr>
+                    <th class="chk">
+                        {{#viewCkbox}}
+                        <input type="checkbox" id="sel_auth_item_all">
+                        {{/viewCkbox}}
+                    </th>
+
+                    {{#isAppAuthView}}
+                    <th class="sorting menu" value="groupName"><span class="title_sort">{{AdminLang.메뉴명}}<ins class="ic"></ins><span class="selected"></span></span></th>
+                    <th class="detail"><span class="title_sort">{{CommonLang.상세}}</span></th>
+                    <th class="name"><span class="title_sort">{{AdminLang.운영자}} / {{AdminLang.관리자}} / {{AdminLang.마스터}}</span></th>
+                    <th class="shortcut"><span class="title_sort">{{AdminLang.설정 바로가기}}</span></th>
+                    {{/isAppAuthView}}
+
+                    {{#isContentAuthView}}
+                    <th class="sorting detail" value="name"><span class="title_sort">{{appTitle}}<ins class="ic"></ins><span class="selected"></span></span></th>
+                    <th class="name"><span class="title_sort">{{AdminLang.운영자}}</span></th>
+                    {{/isContentAuthView}}
+                </tr>
+                </thead>
+
+            </table>
+        </div>
+        {{#pageView}}
+        <div id="page_view"></div>
+        {{/pageView}}
+    </div>
+
+
+    {{#isContentAuthView}}
+    <div class="page_action">
+        {{#viewSaveButton}}
+        <span class="btn" id="ok_button">{{CommonLang.저장}}</span>
+        <span class="btn_nega" id="cancel_button">{{CommonLang.취소}}</span>
+        {{/viewSaveButton}}
+        <span class="btn_nega" id="back_list">{{AdminLang.목록으로 돌아가기}}</span>
+    </div>
+    {{/isContentAuthView}}
+</div>

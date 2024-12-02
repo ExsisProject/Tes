@@ -1,0 +1,95 @@
+<header class="content_top"></header>	
+
+<div class="content_page">
+	<div class="tab_conent_wrap">
+		{{^isEmpty}}
+		<div class="tool_bar">		
+			<div class="critical">						
+				<a class="btn_tool" data-role="button" data-tag="order">
+                    <span class="ic_toolbar change"></span>
+                    <span class="txt">{{lang.setOrder}}</span>
+				</a>
+				<a class="btn_tool" data-role="button" data-tag="orderComplete" style="display:none">
+                    <span class="ic_toolbar done"></span>
+                    <span class="txt">{{lang.orderComplte}}</span>
+                </a>
+				<a class="btn_tool" data-role="button" data-tag="separator">
+                    <span class="ic_toolbar dotline"></span>
+                    <span class="txt">{{lang.addSeparator}}</span>
+                </a>
+				<a class="btn_tool" data-role="button" data-tag="close">
+                    <span class="ic_toolbar stop"></span>
+                    <span class="txt">{{lang.stop}}</span>
+                </a>
+				<a class="btn_tool" data-role="button" data-tag="delete">
+                    <span class="ic_toolbar del"></span>
+                    <span class="txt_caution">{{lang.delete}}</span>
+                </a>
+				<a class="btn_tool" data-role="button" data-tag="transfer">
+                    <span class="ic_toolbar move"></span>
+                    <span class="txt">{{lang.transferFolder}}</span>
+                </a>
+			</div>			
+		</div>
+		{{/isEmpty}}
+
+		<table class="type_normal list_task002">	
+			<thead>
+				{{^isEmpty}}
+				<tr>
+					<th class="sorting_disabled checkbox"><input type="checkbox" id="checkAllAdmin"></th>
+					<th class="sorting_disabled subject"><span class="title_sort">{{lang.taskFolderName}}</span></th>
+					<th class="sorting_disabled name"><span class="title_sort">{{lang.admin}}</span></th>
+					<th class="sorting_disabled date"><span class="title_sort">{{lang.createdAt}}</span></th>
+					<th class="sorting_disabled num"><span class="title_sort">{{lang.taskCount}}</span></th>
+					<th class="sorting_disabled setting"><span class="title_sort">{{lang.setting}}</span></th>
+				</tr>
+				{{/isEmpty}}
+				{{#isEmpty}}
+				<tr class="odd">
+					<td valign="top" colspan="5" class="dataTables_empty">
+						<p class="data_null">
+							<span class="ic_data_type ic_no_contents"></span>
+							<span class="txt">{{lang.isEmpty}}</span>
+						</p>
+					</td>
+				</tr>	
+				{{/isEmpty}}
+			</thead>
+			<tbody>			
+			</tbody>
+		</table>
+			
+			
+		{{^isEmpty}}
+		<div class="tool_bar">		
+			<div class="critical">						
+				<a class="btn_tool" data-role="button" data-tag="order">
+                    <span class="ic_toolbar change"></span>
+                    <span class="txt">{{lang.setOrder}}</span>
+                </a>
+				<a class="btn_tool" data-role="button" data-tag="orderComplete" style="display:none">
+                    <span class="ic_toolbar done"></span>
+                    <span class="txt">{{lang.orderComplte}}</span>
+                </a>
+				<a class="btn_tool" data-role="button" data-tag="separator">
+                    <span class="ic_toolbar dotline"></span>
+                    <span class="txt">{{lang.addSeparator}}</span>
+                </a>
+				<a class="btn_tool" data-role="button" data-tag="close">
+                    <span class="ic_toolbar stop"></span>
+                    <span class="txt">{{lang.stop}}</span>
+                </a>
+				<a class="btn_tool" data-role="button" data-tag="delete">
+                    <span class="ic_toolbar del"></span>
+                    <span class="txt_caution">{{lang.delete}}</span>
+                </a>
+				<a class="btn_tool" data-role="button" data-tag="transfer">
+                    <span class="ic_toolbar move"></span>
+                    <span class="txt">{{lang.transferFolder}}</span>
+                </a>
+			</div>			
+		</div>
+		{{/isEmpty}}
+	</div>
+</div>				

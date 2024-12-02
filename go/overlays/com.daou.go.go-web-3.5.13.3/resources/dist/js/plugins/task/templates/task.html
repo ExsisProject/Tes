@@ -1,0 +1,95 @@
+<header class="content_top"></header>	
+
+<div class="content_page go_renew go_task">
+	<form>
+		<fieldset>				
+			<table class="form_type form_reserach001">
+				<tbody>
+					<tr>
+						<th><span class="title">{{lang.location}}</span></th>
+						<td>
+							<span class="wrap_select">
+								<select id="deptList" name="" {{^isCreate}}disabled="disabled"{{/isCreate}} value="{{data.deptId}}" data-type="department">
+									<option value="">{{lang.selectDept}}</option>
+									{{#departments}}
+									<option value="{{id}}">{{name}}</option>
+									{{/departments}}
+								</select>
+							</span>								
+							<span class="wrap_select" id="folderError">
+								<select id="folderList" name="" {{^isCreate}}disabled="disabled"{{/isCreate}} data-type="folder">
+									<option value="">{{lang.selectFolder}}</option>
+									{{#folders}}
+									<option value="{{id}}">{{name}}</option>
+									{{/folders}}
+								</select>
+							</span>								
+						</td>
+					</tr>
+					<tr id="typeArea">
+						<th><span class="title">{{lang.type}}</span></th>
+						<td>
+							<span class="wrap_select">
+								<select id="typeList" name="" value="{{data.issueType.id}}" {{^isCreate}}disabled="disabled"{{/isCreate}} data-type="type">
+								{{^isCreate}}
+									<option value={{data.issueType.id}}>{{data.issueType.name}}</option>
+								{{/isCreate}}
+								{{#isCreate}}{{#folder.types}}
+									<option value={{id}}>{{name}}</option>
+								{{/folder.types}}{{/isCreate}}
+								</select>
+							</span>								
+						</td>
+					</tr>
+					
+					<tr id="partialArea"></tr>
+			
+					<tr class="line"><td colspan="2"><hr></td></tr>
+					<tr id="editorArea" class="last"> 
+						<th colspan="2">
+							<span class="title">{{lang.detail}}</span>
+							<div id="editor" style="width: 100%; display: "></div>
+							<span id="file-control" class="btn_minor_s" style="padding:0 !important;">
+							</span>
+							<ul id="fileWrap" class="file_wrap">
+								{{#files}} 
+								<li data-id="{{id}}">
+									<span class="item_file">
+										<span class="ic_file {{icon}}"></span>
+										<span class="name">{{name}}</span>
+										<span class="size">({{fileSizeString}})</span>
+										{{#editable.CONTENT}}
+										<span class="btn_wrap">
+											<span class="ic_classic ic_del"></span>										
+										</span>
+										{{/editable.CONTENT}}
+									</span>									
+								</li>
+								{{/files}} 
+							</ul>
+							<ul class="img_wrap" id="img_wrap">
+								{{#images}} 
+								<li data-id="{{id}}" data-type="attach" data-path="{{path}}" data-name="{{name}}">
+									<span class="item_image">
+										<span class="thumb"><img src="{{thumbSmall}}"></span>
+										<span class="btn_wrap">
+                                            {{#editable.CONTENT}}
+											<span class="ic_classic ic_del"></span>			
+                                            {{/editable.CONTENT}}							
+										</span>
+									</span>
+								</li>
+								{{/images}} 
+							</ul>
+						</th>
+						
+					</tr>							
+				</tbody>	
+			</table>					
+		</fieldset>
+	</form>
+	<div class="page_action_wrap">
+		<a id="submitTask" class="btn_major" data-role="button"><span class="txt">{{lang.regist}}</span></a>
+		<a id="goBackTask" class="btn_minor" data-role="button"><span class="txt">{{lang.cancel}}</span></a>			
+	</div>
+</div>

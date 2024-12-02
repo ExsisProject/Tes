@@ -1,0 +1,27 @@
+							<section class="card_item card_item_horizon {{#data.isOn}} on {{/data.isOn}} {{#data.isClickable}} clickable {{/data.isClickable}}" data-id="{{data.id}}" data-reportId="{{data.reportId}}" {{#data.isClickable}} style="cursor: pointer;" {{/data.isClickable}} {{^data.isClickable}} style="cursor: auto;" {{/data.isClickable}}>
+								<div class="h_border"></div>
+								<div class="card_wrapper">
+										<span class="photo">
+											<img alt="{{data.name}} {{data.position}}" title="{{data.name}} {{data.position}}" src="{{data.thumbnail}}"/>
+											{{#data.isPrivateShow}}
+											<span class="ic_side ic_private" title="비공개입니다"></span>
+											{{/data.isPrivateShow}}
+										</span>
+										<span class="info">
+											<span class="name" title="{{data.name}} {{data.position}}">{{data.name}}</span>
+											<span class="position">{{data.position}}</span>
+                                            {{#data.isNewReport}}
+                                            <span class="ic_classic ic_new2"></span>
+                                            {{/data.isNewReport}}
+										</span>
+										{{#data.isWritable}}
+											<span class="btn_fn7" data-role="button" id="writeReportBtn"><span class="txt">{{lang.reportWrite}}</span></span>
+										{{/data.isWritable}}
+										{{#data.isCommentCountShow}}
+											<span class="btn_wrap"  {{#data.isClickable}} style="cursor: pointer;" {{/data.isClickable}} {{^data.isClickable}} style="cursor: auto;" {{/data.isClickable}}>
+												<span class="ic_classic ic_reply"></span>
+												<span class="num">{{data.commentCount}}</span>
+											</span>
+										{{/data.isCommentCountShow}}
+								</div>
+							</section>

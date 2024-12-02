@@ -1,0 +1,35 @@
+					<div class="content">
+						<!-- 제외된 보고자 -->
+						<div class="noti_box">
+							<strong>{{lang.exclude_reporters}} :</strong> {{data.excludeReporters}}
+						</div>
+						<!-- //제외된 보고자 -->
+
+						<p class="title not">{{lang.undone}}</p>
+						<!-- 보고하지 않은 사람 목록 -->
+						<div class="wrapper undones">
+							{{#data.undones}}
+							{{> seriesReporterCard}}
+							{{/data.undones}}
+						</div>
+						<!-- //보고하지 않은 사람 목록 -->
+
+						<p class="title">{{lang.done}}</p>
+						<!-- 보고한 사람 목록 -->
+						<div class="wrapper dones">
+							{{#data.dones}}
+							{{> seriesReporterCard}}
+							{{/data.dones}}
+						</div>
+						<!-- //보고한 사람 목록 -->
+					</div>
+					<!-- //GO-22553 폰트 사이즈 이슈로 히든 처리 2.4.2 에서 툴바 개선하기로함 -->
+					<div class="tool_bar tool_bar_bottom" style="display:none">
+						<div class="critical">
+							<a class="btn_tool list" data-role="button" href=""><span class="txt">{{lang.list}}</span></a>
+							<a class="btn_tool comment" data-role="button" href="">
+								<span class="txt">{{lang.series_comment}}</span>
+								<span class="num">{{data.commentCount}}</span>
+							</a>
+						</div>				
+					</div>

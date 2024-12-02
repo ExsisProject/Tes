@@ -1,0 +1,38 @@
+<div class="vertical_wrap wrap_calendar_name">
+	<form id="form-add-mycal">
+		<span class="wrap_txt">
+			<label>{{label.calendar_name}}</label>
+			<input type="text" name="calendar_name" class="input wfix_large">
+			<a class="btn-submit btn_fn10" href="#" data-bypass>{{label.add_calendar}}</a>
+		</span>
+	</form> 
+</div>
+<div class="tool_bar">
+	<div class="critical">						
+		<a class="btn-reorder btn_tool" data-role="button">
+			<span class="ic_toolbar change"></span>
+			<span class="txt">{{label.reorder}}</span>
+		</a>
+		<a class="btn-remove btn_tool" data-role="button">
+			<span class="ic_toolbar del"></span>
+			<span class="txt_caution">{{label.delete}}</span>
+		</a>
+	</div>						
+</div>
+<table class="calendar-list type_normal tb_admin_myCalendar">
+	<thead>
+		<tr>
+			<th class="check"><input type="checkbox" class="check-all"></th>
+			<th class="tit">{{label.calendar}}</th>
+			<th class="opt">{{label.default_calendar}}</th>
+			<th class="state">{{label.visibility_state}}</th>
+		</tr>
+	</thead>
+	<tbody>
+	</tbody>
+</table>
+<div class="page_action_wrap">
+	<span id="btn-gotocal" data-role="button" class="btn_minor">
+		<span class="txt">{{label.go_to_calendar}}</span>
+	</span>
+</div>

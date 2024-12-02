@@ -1,0 +1,1 @@
+(function(){define(["jquery","backbone","app","approval/models/subscriber_group"],function(e,t,n,r){var i=t.Collection.extend({model:r,url:function(){return GO.contextRoot+"api/approval/usersetting/subscribergroup"}});return i})}).call(this);

@@ -1,0 +1,1 @@
+define("works/collections/workflow_flows",function(require){var e=require("backbone");return e.Collection.extend({transitions:function(){var e=this.clone();return e.shift(),e},firstNotiList:function(){return this.at(0).get("pushRoles")},addFirstFlow:function(t,n){this.unshift(new e.Model({beforeStatus:null,nextStatus:t||"",pushRoles:n}))}})});

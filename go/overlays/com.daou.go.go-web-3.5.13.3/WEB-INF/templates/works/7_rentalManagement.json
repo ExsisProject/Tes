@@ -1,0 +1,716 @@
+{
+	"meta": {
+		"key": "29f3be43-3608-425e-a148-d9bd44af3ad4",
+		"base": {
+			"name": "applet.rent.manage.template.name",
+			"desc": "applet.rent.manage.template.desc",
+			"icon": "ic_app13.png"
+		},
+		"exporter": {
+			"name": "관리자",
+			"companyName": "다우기술"
+		}
+	},
+	"components": {
+		"view": {
+			"charts": [],
+			"columns": [{
+				"fieldCid": "_kyewtfvyy"
+			}, {
+				"fieldCid": "_tzoy78r9n"
+			}, {
+				"fieldCid": "_m02vy50ow"
+			}, {
+				"fieldCid": "_7ophl7jha"
+			}, {
+				"fieldCid": "create_date",
+				"columnName": "{{applet.new.template.col.createdat}}"
+			}],
+			"titleColumnIndex": 0,
+			"sortColumnIndex": 4,
+			"sortDirection": "DESC"
+		},
+		"form": {
+			"data": {
+				"type": "canvas",
+				"multiple": false,
+				"cid": "cxx1",
+				"components": [{
+					"type": "label",
+					"multiple": false,
+					"cid": "_uz2ix17b6",
+					"parentCid": "cxx1",
+					"properties": {
+						"label": "○ 임대 회사 "
+					},
+					"components": []
+				}, {
+					"type": "columns",
+					"multiple": false,
+					"cid": "_tpvsc97if",
+					"parentCid": "cxx1",
+					"properties": {
+						"count": 2
+					},
+					"components": [{
+						"type": "column",
+						"multiple": false,
+						"cid": "_9ihm5stsj",
+						"parentCid": "_tpvsc97if",
+						"properties": {},
+						"components": [{
+							"type": "text",
+							"valueType": "STEXT",
+							"multiple": false,
+							"cid": "_a5dd78f7o",
+							"parentCid": "_9ihm5stsj",
+							"properties": {
+								"label": "임대회사",
+								"hideLabel": false,
+								"guide": "",
+								"guideAsTooltip": true,
+								"required": false,
+								"defaultValue": "",
+								"minLength": 0,
+								"maxLength": 100,
+								"width": "200",
+								"widthUnit": "px",
+								"format": "all"
+							},
+							"components": []
+						}]
+					}, {
+						"type": "column",
+						"multiple": false,
+						"cid": "_oobuaaghe",
+						"parentCid": "_tpvsc97if",
+						"properties": {},
+						"components": [{
+							"type": "text",
+							"valueType": "STEXT",
+							"multiple": false,
+							"cid": "_8blm4j2k5",
+							"parentCid": "_oobuaaghe",
+							"properties": {
+								"label": "임대 담당자",
+								"hideLabel": false,
+								"guide": "",
+								"guideAsTooltip": true,
+								"required": false,
+								"defaultValue": "",
+								"minLength": 0,
+								"maxLength": 100,
+								"width": "200",
+								"widthUnit": "px",
+								"format": "all"
+							},
+							"components": []
+						}]
+					}]
+				}, {
+					"type": "columns",
+					"multiple": false,
+					"cid": "_4puf9s5pg",
+					"parentCid": "cxx1",
+					"properties": {
+						"count": 2
+					},
+					"components": [{
+						"type": "column",
+						"multiple": false,
+						"cid": "_uwiamdih8",
+						"parentCid": "_4puf9s5pg",
+						"properties": {},
+						"components": [{
+							"type": "text",
+							"valueType": "STEXT",
+							"multiple": false,
+							"cid": "_xmu4jft4m",
+							"parentCid": "_uwiamdih8",
+							"properties": {
+								"label": "사업자 번호",
+								"hideLabel": false,
+								"guide": "",
+								"guideAsTooltip": true,
+								"required": false,
+								"defaultValue": "",
+								"minLength": 0,
+								"maxLength": 100,
+								"width": "200",
+								"widthUnit": "px",
+								"format": "all"
+							},
+							"components": []
+						}]
+					}, {
+						"type": "column",
+						"multiple": false,
+						"cid": "_8gk0i3h0z",
+						"parentCid": "_4puf9s5pg",
+						"properties": {},
+						"components": []
+					}]
+				}, {
+					"type": "columns",
+					"multiple": false,
+					"cid": "_k3p3xqf01",
+					"parentCid": "cxx1",
+					"properties": {
+						"count": 2
+					},
+					"components": [{
+						"type": "column",
+						"multiple": false,
+						"cid": "_vm4l846tw",
+						"parentCid": "_k3p3xqf01",
+						"properties": {},
+						"components": [{
+							"type": "text",
+							"valueType": "STEXT",
+							"multiple": false,
+							"cid": "_8jmhdpvk0",
+							"parentCid": "_vm4l846tw",
+							"properties": {
+								"label": "연락처",
+								"hideLabel": false,
+								"guide": "",
+								"guideAsTooltip": true,
+								"required": false,
+								"defaultValue": "",
+								"minLength": 0,
+								"maxLength": 100,
+								"width": "200",
+								"widthUnit": "px",
+								"format": "all"
+							},
+							"components": []
+						}]
+					}, {
+						"type": "column",
+						"multiple": false,
+						"cid": "_mljwtzqvl",
+						"parentCid": "_k3p3xqf01",
+						"properties": {},
+						"components": [{
+							"type": "text",
+							"valueType": "STEXT",
+							"multiple": false,
+							"cid": "_lnn6wcbib",
+							"parentCid": "_mljwtzqvl",
+							"properties": {
+								"label": "이메일",
+								"hideLabel": false,
+								"guide": "",
+								"guideAsTooltip": true,
+								"required": false,
+								"defaultValue": "",
+								"minLength": 0,
+								"maxLength": 100,
+								"width": "200",
+								"widthUnit": "px",
+								"format": "all"
+							},
+							"components": []
+						}]
+					}]
+				}, {
+					"type": "label",
+					"multiple": false,
+					"cid": "_gif0b7cml",
+					"parentCid": "cxx1",
+					"properties": {
+						"label": "○ 임대 정보"
+					},
+					"components": []
+				}, {
+					"type": "columns",
+					"multiple": false,
+					"cid": "_7v500ytpp",
+					"parentCid": "cxx1",
+					"properties": {
+						"count": 2
+					},
+					"components": [{
+						"type": "column",
+						"multiple": false,
+						"cid": "_z57ca76wf",
+						"parentCid": "_7v500ytpp",
+						"properties": {},
+						"components": [{
+							"type": "text",
+							"valueType": "STEXT",
+							"multiple": false,
+							"cid": "_kyewtfvyy",
+							"parentCid": "_z57ca76wf",
+							"properties": {
+								"label": "임대 요약",
+								"hideLabel": false,
+								"guide": "",
+								"guideAsTooltip": true,
+								"required": false,
+								"defaultValue": "",
+								"minLength": 0,
+								"maxLength": 100,
+								"width": 100,
+								"widthUnit": "percent",
+								"format": "all"
+							},
+							"components": []
+						}]
+					}, {
+						"type": "column",
+						"multiple": false,
+						"cid": "_fgjddk6ja",
+						"parentCid": "_7v500ytpp",
+						"properties": {},
+						"components": [{
+							"type": "text",
+							"valueType": "STEXT",
+							"multiple": false,
+							"cid": "_6wlq1f7ky",
+							"parentCid": "_fgjddk6ja",
+							"properties": {
+								"label": "수량",
+								"hideLabel": false,
+								"guide": "",
+								"guideAsTooltip": true,
+								"required": false,
+								"defaultValue": "",
+								"minLength": 0,
+								"maxLength": 100,
+								"width": "30",
+								"widthUnit": "percent",
+								"format": "all"
+							},
+							"components": []
+						}]
+					}]
+				}, {
+					"type": "columns",
+					"multiple": false,
+					"cid": "_mn091ltzx",
+					"parentCid": "cxx1",
+					"properties": {
+						"count": 2
+					},
+					"components": [{
+						"type": "column",
+						"multiple": false,
+						"cid": "_l7hcrb0az",
+						"parentCid": "_mn091ltzx",
+						"properties": {},
+						"components": [{
+							"type": "text",
+							"valueType": "STEXT",
+							"multiple": false,
+							"cid": "_tzoy78r9n",
+							"parentCid": "_l7hcrb0az",
+							"properties": {
+								"label": "상세 장비명",
+								"hideLabel": false,
+								"guide": "",
+								"guideAsTooltip": true,
+								"required": false,
+								"defaultValue": "",
+								"minLength": 0,
+								"maxLength": 100,
+								"width": "200",
+								"widthUnit": "px",
+								"format": "all"
+							},
+							"components": []
+						}]
+					}, {
+						"type": "column",
+						"multiple": false,
+						"cid": "_kpdrlwfk9",
+						"parentCid": "_mn091ltzx",
+						"properties": {},
+						"components": [{
+							"type": "text",
+							"valueType": "STEXT",
+							"multiple": false,
+							"cid": "_s5oi8vmwi",
+							"parentCid": "_kpdrlwfk9",
+							"properties": {
+								"label": "장비 일련번호",
+								"hideLabel": false,
+								"guide": "",
+								"guideAsTooltip": true,
+								"required": false,
+								"defaultValue": "",
+								"minLength": 0,
+								"maxLength": 100,
+								"width": "200",
+								"widthUnit": "px",
+								"format": "all"
+							},
+							"components": []
+						}]
+					}]
+				}, {
+					"type": "columns",
+					"multiple": false,
+					"cid": "_bftemiwk7",
+					"parentCid": "cxx1",
+					"properties": {
+						"count": 2
+					},
+					"components": [{
+						"type": "column",
+						"multiple": false,
+						"cid": "_2vbejk5q6",
+						"parentCid": "_bftemiwk7",
+						"properties": {},
+						"components": [{
+							"type": "date",
+							"valueType": "DATE",
+							"multiple": false,
+							"cid": "_w6iqyeiag",
+							"parentCid": "_2vbejk5q6",
+							"properties": {
+								"label": "임대 장비 계약일",
+								"hideLabel": false,
+								"guide": "",
+								"guideAsTooltip": true,
+								"required": false,
+								"defaultAsNow": false,
+								"defaultDate": ""
+							},
+							"components": []
+						}]
+					}, {
+						"type": "column",
+						"multiple": false,
+						"cid": "_ak121e86m",
+						"parentCid": "_bftemiwk7",
+						"properties": {},
+						"components": [{
+							"type": "org",
+							"valueType": "USERS",
+							"multiple": false,
+							"cid": "_7ophl7jha",
+							"parentCid": "_ak121e86m",
+							"properties": {
+								"label": "계약 담당자",
+								"hideLabel": false,
+								"guide": "",
+								"guideAsTooltip": true,
+								"required": false,
+								"noLimit": true,
+								"useDefaultRegister": false,
+								"allowMemberCount": "1",
+								"members": []
+							},
+							"components": []
+						}]
+					}]
+				}, {
+					"type": "columns",
+					"multiple": false,
+					"cid": "_b2ra6rdvn",
+					"parentCid": "cxx1",
+					"properties": {
+						"count": 2
+					},
+					"components": [{
+						"type": "column",
+						"multiple": false,
+						"cid": "_jof1jtvqe",
+						"parentCid": "_b2ra6rdvn",
+						"properties": {},
+						"components": [{
+							"type": "date",
+							"valueType": "DATE",
+							"multiple": false,
+							"cid": "_m02vy50ow",
+							"parentCid": "_jof1jtvqe",
+							"properties": {
+								"label": "임대 종료일",
+								"hideLabel": false,
+								"guide": "",
+								"guideAsTooltip": true,
+								"required": false,
+								"defaultAsNow": false,
+								"defaultDate": ""
+							},
+							"components": []
+						}]
+					}, {
+						"type": "column",
+						"multiple": false,
+						"cid": "_kauwrb4ay",
+						"parentCid": "_b2ra6rdvn",
+						"properties": {},
+						"components": []
+					}]
+				}, {
+					"type": "columns",
+					"multiple": false,
+					"cid": "_gs4pgfwm3",
+					"parentCid": "cxx1",
+					"properties": {
+						"count": 2
+					},
+					"components": [{
+						"type": "column",
+						"multiple": false,
+						"cid": "_p11vkh9ul",
+						"parentCid": "_gs4pgfwm3",
+						"properties": {},
+						"components": [{
+							"type": "number",
+							"valueType": "NUMBER",
+							"multiple": false,
+							"cid": "_6lxqxpw7s",
+							"parentCid": "_p11vkh9ul",
+							"properties": {
+								"label": "보증금",
+								"hideLabel": false,
+								"guide": "",
+								"guideAsTooltip": true,
+								"required": false,
+								"defaultValue": "",
+								"minLength": 1,
+								"maxLength": 100000000000,
+								"width": 100,
+								"widthUnit": "px",
+								"unitText": "원",
+								"fixType": "postfix",
+								"decimalPoints": 2,
+								"thousandComma": true
+							},
+							"components": []
+						}]
+					}, {
+						"type": "column",
+						"multiple": false,
+						"cid": "_ifqpji0gj",
+						"parentCid": "_gs4pgfwm3",
+						"properties": {},
+						"components": [{
+							"type": "number",
+							"valueType": "NUMBER",
+							"multiple": false,
+							"cid": "_276yftk8c",
+							"parentCid": "_ifqpji0gj",
+							"properties": {
+								"label": "임대료",
+								"hideLabel": false,
+								"guide": "",
+								"guideAsTooltip": true,
+								"required": false,
+								"defaultValue": "",
+								"minLength": 1,
+								"maxLength": 100000000000,
+								"width": 100,
+								"widthUnit": "px",
+								"unitText": "원",
+								"fixType": "postfix",
+								"decimalPoints": 2,
+								"thousandComma": true
+							},
+							"components": []
+						}]
+					}]
+				}, {
+					"type": "table",
+					"multiple": false,
+					"cid": "_fcrozlgxv",
+					"parentCid": "cxx1",
+					"properties": {
+						"label": "추가 장비 관리",
+						"hideLabel": false,
+						"guide": "",
+						"guideAsTooltip": true
+					},
+					"components": [{
+						"type": "text",
+						"valueType": "STEXT",
+						"multiple": true,
+						"cid": "_r4pds7aos",
+						"parentCid": "_fcrozlgxv",
+						"properties": {
+							"label": "장비명",
+							"hideLabel": false,
+							"guide": "",
+							"guideAsTooltip": true,
+							"required": false,
+							"defaultValue": "",
+							"minLength": 0,
+							"maxLength": 100,
+							"width": 100,
+							"widthUnit": "percent",
+							"format": "all"
+						},
+						"components": []
+					}, {
+						"type": "text",
+						"valueType": "STEXT",
+						"multiple": true,
+						"cid": "_elxry2kbs",
+						"parentCid": "_fcrozlgxv",
+						"properties": {
+							"label": "장비번호",
+							"hideLabel": false,
+							"guide": "",
+							"guideAsTooltip": true,
+							"required": false,
+							"defaultValue": "",
+							"minLength": 0,
+							"maxLength": 100,
+							"width": 100,
+							"widthUnit": "percent",
+							"format": "all"
+						},
+						"components": []
+					}, {
+						"type": "number",
+						"valueType": "NUMBER",
+						"multiple": true,
+						"cid": "_fiv0gw83g",
+						"parentCid": "_fcrozlgxv",
+						"properties": {
+							"label": "수량",
+							"hideLabel": false,
+							"guide": "",
+							"guideAsTooltip": true,
+							"required": false,
+							"defaultValue": "",
+							"minLength": 1,
+							"maxLength": 100000000000,
+							"width": 100,
+							"widthUnit": "px",
+							"unitText": "",
+							"fixType": "postfix",
+							"decimalPoints": 2,
+							"thousandComma": true
+						},
+						"components": []
+					}, {
+						"type": "number",
+						"valueType": "NUMBER",
+						"multiple": true,
+						"cid": "_i2b5x9k5t",
+						"parentCid": "_fcrozlgxv",
+						"properties": {
+							"label": "단가",
+							"hideLabel": false,
+							"guide": "",
+							"guideAsTooltip": true,
+							"required": false,
+							"defaultValue": "",
+							"minLength": 1,
+							"maxLength": 100000000000,
+							"width": 100,
+							"widthUnit": "px",
+							"unitText": "",
+							"fixType": "postfix",
+							"decimalPoints": 2,
+							"thousandComma": true
+						},
+						"components": []
+					}, {
+						"type": "number",
+						"valueType": "NUMBER",
+						"multiple": true,
+						"cid": "_nul93oag2",
+						"parentCid": "_fcrozlgxv",
+						"properties": {
+							"label": "임대료",
+							"hideLabel": false,
+							"guide": "",
+							"guideAsTooltip": true,
+							"required": false,
+							"defaultValue": "",
+							"minLength": 1,
+							"maxLength": 100000000000,
+							"width": 100,
+							"widthUnit": "px",
+							"unitText": "",
+							"fixType": "postfix",
+							"decimalPoints": 2,
+							"thousandComma": true
+						},
+						"components": []
+					}, {
+						"type": "date",
+						"valueType": "DATE",
+						"multiple": true,
+						"cid": "_9lafogzxh",
+						"parentCid": "_fcrozlgxv",
+						"properties": {
+							"label": "임대 종료일",
+							"hideLabel": false,
+							"guide": "",
+							"guideAsTooltip": true,
+							"required": false,
+							"defaultAsNow": false,
+							"defaultDate": ""
+						},
+						"components": []
+					}]
+				}]
+			}
+		},
+		"process": {
+			"useProcess": false,
+			"statuses": [{
+				"name": "{{applet.new.template.status.ready}}",
+				"start": true,
+				"doing": false,
+				"end": false,
+				"color": "0"
+			}, {
+				"name": "{{applet.new.template.status.progress}}",
+				"start": false,
+				"doing": true,
+				"end": false,
+				"color": "0"
+			}, {
+				"name": "{{applet.new.template.status.complete}}",
+				"start": false,
+				"doing": false,
+				"end": true,
+				"color": "0"
+			}],
+			"transitions": [{
+				"beforeStatus": "{{applet.new.template.status.ready}}",
+				"nextStatus": "{{applet.new.template.status.progress}}",
+				"actionName": "{{applet.new.template.action.progress}}",
+				"actionRoles": ["REGISTRANT", "ADMIN"],
+				"pushRoles": []
+			}, {
+				"beforeStatus": "{{applet.new.template.status.progress}}",
+				"nextStatus": "{{applet.new.template.status.complete}}",
+				"actionName": "{{applet.new.template.action.complete}}",
+				"actionRoles": ["REGISTRANT", "ADMIN"],
+				"pushRoles": []
+			}, {
+				"beforeStatus": "{{applet.new.template.status.complete}}",
+				"nextStatus": "{{applet.new.template.status.progress}}",
+				"actionName": "{{applet.new.template.action.cancel}}",
+				"actionRoles": ["REGISTRANT", "ADMIN"],
+				"pushRoles": []
+			}],
+			"addPushes": []
+		}
+	},
+	"messageKeys": [
+		"applet.new.template.status.ready",
+		"applet.new.template.status.progress",
+		"applet.new.template.status.complete",
+		"applet.new.template.action.progress",
+		"applet.new.template.action.complete",
+		"applet.new.template.action.cancel",
+		"applet.new.template.col.createdat"
+	],
+	"guide" : {
+		"contents" : "applet.rent.manage.template.guide.content",
+		"imageFiles" : [
+			"7_rentalManagement/7_01.png",
+			"7_rentalManagement/7_02.png",
+			"7_rentalManagement/7_03.png"
+		]
+	}
+}

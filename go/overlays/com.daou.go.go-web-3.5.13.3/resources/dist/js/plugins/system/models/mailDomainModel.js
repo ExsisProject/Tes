@@ -1,0 +1,1 @@
+define(["backbone"],function(e){var t=null,n=e.Model.extend({url:function(){return this.get("id")==undefined?"/ad/api/system/domain":"/ad/api/system/domain/"+this.get("id")}},{get:function(e){return t==null&&(t=new n),t.set("id",e,{silent:!0}),t.fetch({async:!1}),t},create:function(){return t==null&&(t=new n),t}});return n});

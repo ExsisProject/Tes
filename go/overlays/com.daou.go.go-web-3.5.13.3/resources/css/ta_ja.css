@@ -1,0 +1,80 @@
+body, input, textarea, select, a, p, span, div,ul,h1,h1 span.txt,ul.briefing_list li p.title span.date,a.btn_bk,.go_intro p.title,span.title,span.btn_feedwrite span.txt ,div.current_date span.date span.week,div.layer_mail_popup h2 span.title,ul.briefing_list li p.title span.date
+{font-family:arial,sans-serif,MS PGothic,Osaka!important}
+/* *{font-family:'MS PGothic', 'Osaka', arial, sans-serif!important;} */
+
+table.form_mail001 {} /* 메일 > 도메인 메일함 관리 */
+table.form_mail001 tbody th {width:130px}
+table.form_mail001 tbody td {}
+
+table.form_cal001 {} /* 사이트어드민 > 캘린더 */
+table.form_cal001 tbody th {width:155px}
+table.form_cal001 tbody td {}
+
+table.form_acc001 {} /* 사이트어드민 > 계정 > 계정일괄등록 */
+table.form_acc001 tbody th {width:155px}
+table.form_acc001 tbody td {}
+
+@media \0screen {
+select {min-width:0}
+}
+
+div.tTop nav ul li {padding:0 7px;}
+
+@media all and (max-width:1170px) {/* For IE8 */
+div.tTop nav ul li  {padding:0 7px}
+}
+@media all and (min-width:1171px) {
+div.tTop nav ul li  {padding:0 10px}
+}
+/*font-weight : bold처리*/
+strong,
+.bold,
+.layer_info_position h2,
+.gnb .gnb_group .gnb_memu.gnb_menu_manage .gnb_sub li .tit> .ic_accordion_s + .txt,
+.tab_v li .menu .txt ,
+table.chart tr.total td,
+.tb_ehr_group_set tr.on td.subject,
+table.chart td.depart_bg span.title_depart,
+.tb_stair .delimiter .item .title_depar,
+.tb_stair .delimiter .item .title_depart,
+.module_drop .module_drop_head .tit .txt,
+div.content_info .info_summary li .tit,
+.btn_file_form,
+.info_type1 .tit,
+.wrap_organogram_opt .critical .btn_func_wrap .tit,
+.content_top h1 span.title,
+.layer_megamenu .wrap_profile .name,
+span.major,
+span.title,
+.go_intro input.ipt_login,
+div.jstree-default li > a[rel="org"],
+div.jstree-default li.ic,
+aside.go_organogram ul.tab_nav li.ui-state-active a,
+.tPage h5,
+ul.member_list span.name,
+.ui-datepicker table thead th, 
+.ui-datepicker .ui-state-active,
+.ui-datepicker .ui-state-default,
+.container .detail.search th label.tit,
+.tb_authority th.menu .txt,
+.tb_authority_detail td.detail .txt,
+.container .wrap_container .com_opt_container .header > .tit,
+div.search_wrap.search_focus input,
+p.title,
+.payline_table th .txt,
+.header_btn_box.tool_header  h2 .tit,
+.content_option_box,
+div.admin_content div.content_page div.mam_manage div.content_info h3,
+.container div.toolbar_top .critical h3,
+.container .content_tb div.col2 div.critical h3,
+.layer_megamenu h3 .menu_tit,
+ul.reply li span.name,
+.layer_reading table.form_type th span.txt
+{font-weight: bold;}
+
+
+
+
+
+
+

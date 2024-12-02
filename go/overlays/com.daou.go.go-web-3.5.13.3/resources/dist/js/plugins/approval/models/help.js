@@ -1,0 +1,1 @@
+define(["backbone","app","GO.util"],function(e,t){var n=e.Model.extend({urlRoot:t.contextRoot+"api/approval/apprform/help",initialize:function(){}});return n});

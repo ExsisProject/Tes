@@ -1,0 +1,165 @@
+<div class="content_page page_doc_rule">
+	<div class="container">
+		<div class="header">
+			<h2>{{lang.문서번호 규칙설정}}</h2>
+		</div>		
+		
+		<div class="content_tb">
+			<div class="col1" style="width:500px">
+				<div class="header_group">						
+					<div class="critical"><h3>{{lang.목록}}</h3></div>
+				</div>
+				<div class="tb_wrap">
+					<table class="chart tb_admin_doc_rule">
+						<thead>
+							<tr>
+								<th class="part sorting_disable"><span class="title_sort">{{lang.구분}}</span></th>
+								<th class="sample sorting_disable"><span class="title_sort">{{lang.예시}}</span></th>
+								<th class="num sorting_disable"><span class="title_sort">{{lang.자리수}}</span></th>
+								<th class="add sorting_disable"><span class="title_sort">{{lang.추가}}</span></th>
+								<th class="null"></th><!-- 스크롤이 없을 경우 삭제 됨 -->
+							</tr>
+						</thead>
+					</table>
+					<div class="list_doc_rule">
+						<table class="chart tb_admin_doc_rule">
+							<tbody>
+								<tr style="background-color:#FFFFAF">
+									<td class="part">{{lang.사용자문자열}}</td>
+									<td class="sample"><input class="input" id="userStr" type="text" name="userStr" value="{{userStr}}" maxlength = "20" style="width:100px">
+										<span class="go_alert" id="userStrAlert"></span>
+									</td>
+									<td class="num"></td>
+									<td class="add" data-type="USERSTR" seqType="false"><span class="btn_s"><span class="ic_con ic_arrow_type4"></span></span></td>
+								</tr>
+								<tr>
+									<td class="part">{{lang.회사명}}</td>
+									<td class="sample">{{lang.회사명샘플}}</td>
+									<td class="num">99</td>
+									<td class="add"  data-type="CORP" seqType="false"><span class="btn_s"><span class="ic_con ic_arrow_type4"></span></span></td>
+								</tr>
+								<tr>
+									<td class="part">{{lang.부서명}}</td>
+									<td class="sample">{{lang.부서명샘플}}</td>
+									<td class="num">99</td>
+									<td class="add" data-type="DEPT" seqType="true"><span class="btn_s"><span class="ic_con ic_arrow_type4"></span></span></td>
+								</tr>
+																				<tr>
+									<td class="part">{{lang.부서명 약어}}</td>
+									<td class="sample">{{lang.부서명약어샘플}}</td>
+									<td class="num">99</td>
+									<td class="add" data-type="ACRONYMDEPT" seqType="true"><span class="btn_s"><span class="ic_con ic_arrow_type4"></span></span></td>
+								</tr>
+								<tr>
+									<td class="part">{{lang.문서양식명}}</td>
+									<td class="sample">{{lang.문서양식명샘플}}</td>
+									<td class="num">99</td>
+									<td class="add" data-type="FORM" seqType="true"><span class="btn_s"><span class="ic_con ic_arrow_type4"></span></span></td>
+								</tr>
+								<tr>
+									<td class="part">{{lang.문서양식약어명}}</td>
+									<td class="sample">{{lang.문서양식약어명샘플}}</td>
+									<td class="num">99</td>
+									<td class="add" data-type="ACRONYMFORM" seqType="true"><span class="btn_s"><span class="ic_con ic_arrow_type4"></span></span></td>
+								</tr>
+								<tr>
+									<td class="part">{{lang.등록년도1}}</td>
+									<td class="sample">{{lang.등록년도1샘플}}</td>
+									<td class="num">4</td>
+									<td class="add" data-type="YYYY" seqType="true"><span class="btn_s"><span class="ic_con ic_arrow_type4"></span></span></td>
+								</tr>
+                                <tr>
+                                    <td class="part">{{lang.등록년도2}}</td>
+                                    <td class="sample">{{lang.등록년도2샘플}}</td>
+                                    <td class="num">2</td>
+                                    <td class="add" data-type="YY" seqType="true"><span class="btn_s"><span class="ic_con ic_arrow_type4"></span></span></td>
+                                </tr>
+								<tr>
+									<td class="part">{{lang.등록년도월}}</td>
+									<td class="sample">{{lang.등록년도월샘플}}</td>
+									<td class="num">6</td>
+									<td class="add" data-type="YYYYMM" seqType="true"><span class="btn_s"><span class="ic_con ic_arrow_type4"></span></span></td>
+								</tr>
+																				<tr>
+									<td class="part">{{lang.등록년월}}</td>
+									<td class="sample">{{lang.등록년월샘플}}</td>
+									<td class="num">4</td>
+									<td class="add" data-type="YYMM" seqType="true"><span class="btn_s"><span class="ic_con ic_arrow_type4"></span></span></td>
+								</tr>
+								<tr>
+									<td class="part">{{lang.등록월일}}</td>
+									<td class="sample">{{lang.등록월일샘플}}</td>
+									<td class="num">4</td>
+									<td class="add" data-type="MMDD" seqType="true"><span class="btn_s"><span class="ic_con ic_arrow_type4"></span></span></td>
+								</tr>
+								<tr>
+									<td class="part">{{lang.등록월}}</td>
+									<td class="sample">{{lang.등록월샘플}}</td>
+									<td class="num">2</td>
+									<td class="add" data-type="MM" seqType="true"><span class="btn_s"><span class="ic_con ic_arrow_type4"></span></span></td>
+								</tr>
+								<tr>
+									<td class="part">{{lang.등록일}}</td>
+									<td class="sample">{{lang.등록일샘플}}</td>
+									<td class="num">2</td>
+									<td class="add" data-type="DD" seqType="true"><span class="btn_s"><span class="ic_con ic_arrow_type4"></span></span></td>
+								</tr>
+									<tr>
+									<td class="part">{{lang.등록시분초}}</td>
+									<td class="sample">{{lang.등록시분초샘플}}</td>
+									<td class="num">6</td>
+									<td class="add" data-type="HHMMSS" seqType="true"><span class="btn_s"><span class="ic_con ic_arrow_type4"></span></span></td>
+								</tr>
+								<tr>
+									<td class="part">{{lang.일련번호 3자리}}</td>
+									<td class="sample">{{lang.일련번호 3자리샘플}}</td>
+									<td class="num">3</td>
+									<td class="add" data-type="SEQ3" seqType="false"><span class="btn_s"><span class="ic_con ic_arrow_type4"></span></span></td>
+								</tr>
+								<tr>
+									<td class="part">{{lang.일련번호 5자리}}</td>
+									<td class="sample">{{lang.일련번호 5자리샘플}}</td>
+									<td class="num">5</td>
+									<td class="add" data-type="SEQ5" seqType="false"><span class="btn_s"><span class="ic_con ic_arrow_type4"></span></span></td>
+								</tr>
+								<tr>
+									<td class="part">{{lang.일련번호 7자리}}</td>
+									<td class="sample">{{lang.일련번호 7자리샘플}}</td>
+									<td class="num">7</td>
+									<td class="add" data-type="SEQ7" seqType="false"><span class="btn_s"><span class="ic_con ic_arrow_type4"></span></span></td>
+								</tr>
+								<tr>
+									<td class="part">{{lang.구분자1}}</td>
+									<td class="sample">{{lang.구분자1샘플}}</td>
+									<td class="num">1</td>
+									<td class="add" data-type="DELIMITER1" seqType="false"><span class="btn_s"><span class="ic_con ic_arrow_type4"></span></span></td>
+								</tr>
+								<tr>
+									<td class="part">{{lang.구분자2}}</td>
+									<td class="sample">{{lang.구분자2샘플}}</td>
+									<td class="num">1</td>
+									<td class="add" data-type="DELIMITER2" seqType="false"><span class="btn_s"><span class="ic_con ic_arrow_type4"></span></span></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			<div class="col2" style="margin-left:500px">
+				<!-- 선택된 폴더 -->		
+				<div class="header_group">						
+					<h3>{{lang.문서번호 규칙}}</h3>
+					<span class="desc" id="exampleTxt"></span>
+				</div>
+				<div class="name_tag_wrap">
+					<ul id="attendee-list" class="name_tag">
+					</ul>
+				</div>
+			</div><!-- end col2 -->
+		</div><!-- end content_tb -->
+	</div><!-- end container -->
+	<div class="page_action">
+		<span class="btn" id="docnumSave">{{lang.저장}}</span>
+		<span class="btn_nega" id="docnumCancel">{{lang.취소}}</span>
+	</div>
+</div>

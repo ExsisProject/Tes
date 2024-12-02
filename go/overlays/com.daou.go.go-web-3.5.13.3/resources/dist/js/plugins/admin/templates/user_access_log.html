@@ -1,0 +1,318 @@
+<div class="container">
+    <div class="content">
+        <div class="wrap_search min" id="simpleSearchArea">
+            <div class="wrap_header">
+                <div class="optional">
+                    <span id="detailSearch" class="folded wrap_btn">
+                <span class="txt">{{lang.detail_search}}</span>
+                <i class="ic_set ic_down" title="{{lang.open}}"></i>
+            </span>
+                </div>
+            </div>
+
+            <table class="detail search">
+                <caption>{{lang.search}}</caption>
+                <colgroup>
+                    <col width="*">
+                    <col width="*">
+                </colgroup>
+                <tbody>
+                <tr>
+                    <th class="search_name">
+                        <span class="param_check option_wrap">
+						    <input type="checkbox" checked id="nameCheck" style="display: none;">
+                            <label for="nameCheck" class="tit">{{lang.name}}</label>
+                        </span>
+                    </th>
+
+                    <td class="search_name">
+                        <span class="wrap_txt">
+                            <input class="input" type="text" id="userName" value="">
+                        </span>
+                    </td>
+
+                    <th class="search_duration"><!-- 기간 -->
+                        <span class="param_check option_wrap">
+                            <input type="checkbox" checked id="searchDurationCheck" style="display: none;">
+                            <label for="searchDurationCheck" class="tit">{{lang.search_duration}}</label>
+                        </span>
+                    </th>
+                    <td class="search_duration">
+                        <span class="wrap_dateselect">
+                            <select class="v2_slt" id="selectDateOpt">
+                                <option value="7d">{{lang.recent_7d}}</option>
+                                <option value="15d">{{lang.recent_15d}}</option>
+                                <option value="30d">{{lang.recent_30d}}</option>
+                                <option value="custom">{{lang.date_input}}</option>
+                            </select>
+                        </span>
+                        <span class="option_wrap">
+                            <span class="wrap_date">
+                                <input id="simpleStartDate" class="txt wfix_medium" type="text" value="">
+                                <span class="ic_go ic_calendar"></span>
+                            </span>
+                            <span class="wave">~</span>
+                            <span class="wrap_date">
+                                <input id="simpleEndDate" class="txt wfix_medium" type="text" value="">
+                                <span class="ic_go ic_calendar"></span>
+                            </span>
+                        </span>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <div class="wrap_footer">
+                <div class="optional search_accuracy">
+                    <span class="wrap_select">
+                        <select class="v2_slt" id="accuracy">
+                            {{#accuracyTypes}}
+                            <option value="{{name}}">{{message}}</option>
+                            {{/accuracyTypes}}
+                        </select>
+                    </span>
+
+                    <span class="search_btn">
+                        <button class="major" id="searchBtn">{{lang.search}}</button>
+                    </span>
+                </div>
+            </div>
+        </div><!-- simpleSearchArea -->
+
+        <div class="wrap_search max" id="detailSearchArea" style="display:none;">
+            <div class="wrap_header">
+                <div class="optional">
+                    <span id="simpleSearch" class="wrap_btn">
+                        <span class="txt">{{lang.detail_search}}</span>
+                        <i class="ic_set ic_up" title="{{lang.close}}"></i>
+                    </span>
+                </div>
+            </div>
+
+            <table class="detail search">
+                <caption>{{lang.search}}</caption>
+                <colgroup>
+                    <col width="*">
+                    <col width="*">
+                    <col width="*">
+                    <col width="*">
+                </colgroup>
+                <tbody>
+                <tr>
+                    <th class="search_name"><!-- 이름 -->
+                        <span class="param_check option_wrap">
+						    <input type="checkbox" id="nameCheck">
+                            <label for="nameCheck" class="tit">{{lang.name}}</label>
+                        </span>
+                    </th>
+                    <td class="search_name">
+                        <span class="wrap_txt">
+                            <input class="input" type="text" id="userName" value="">
+                        </span>
+                    </td>
+                    <th class="search_ip"><!-- IP -->
+                        <span class="param_check option_wrap">
+                            <input type="checkbox" id="ipCheck">
+                            <label for="ipCheck" class="tit">{{lang.ip}}</label>
+                        </span>
+                    </th>
+                    <td class="search_ip">
+                        <span class="wrap_txt">
+                            <input class="input" type="text" id="ip">
+                        </span>
+
+                    </td>
+
+
+                </tr>
+                <tr>
+                    <th class="search_duration"><!-- 기간 -->
+                        <span class="param_check option_wrap">
+                            <input type="checkbox" checked id="searchDurationCheck">
+                            <label for="searchDurationCheck" class="tit">{{lang.search_duration}}</label>
+                        </span>
+                    </th>
+                    <td class="search_duration">
+                        <span class="wrap_dateselect">
+                            <select class="v2_slt" id="selectDateOpt">
+                                <option value="7d">{{lang.recent_7d}}</option>
+                                <option value="15d">{{lang.recent_15d}}</option>
+                                <option value="30d">{{lang.recent_30d}}</option>
+                                <option value="custom">{{lang.date_input}}</option>
+                            </select>
+                        </span>
+                        <span class="option_wrap">
+                            <span class="wrap_date">
+                                <input id="detailStartDate" class="txt wfix_medium" type="text" value="">
+                                <span class="ic_go ic_calendar"></span>
+                            </span>
+                            <span class="wave">~</span>
+                            <span class="wrap_date">
+                                <input id="detailEndDate" class="txt wfix_medium" type="text" value="">
+                                <span class="ic_go ic_calendar"></span>
+                            </span>
+                        </span>
+                    </td>
+                    <th class="search_device"><!-- 디바이스 -->
+                        <span class="param_check option_wrap">
+                            <input type="checkbox" id="clientTypeCheck">
+                            <label for="clientTypeCheck" class="tit">{{lang.device}}</label>
+                        </span>
+                    </th>
+                    <td class="search_device">
+                        <span class="wrap_select">
+                            <select class="v2_slt" name="" id="clientType">
+                                {{#clientTypes}}
+                                <option value="{{name}}">{{message}}</option>
+                                {{/clientTypes}}
+                            </select>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <th class="search_dept"><!-- 부서 -->
+                        <span class="param_check option_wrap">
+                            <input type="checkbox" id="deptCheck">
+                            <label for="deptCheck" class="tit">{{lang.dept}}</label>
+                        </span>
+                    </th>
+                    <td class="search_dept">
+                        <span class="wrap_txt">
+                            <input class="input" type="text" id="deptName" value="">
+                        </span>
+                    </td>
+                    <th class="search_browser"><!-- 브라우저 -->
+                        <span class="param_check option_wrap">
+                            <input type="checkbox" id="browserCheck">
+                            <label for="browserCheck" class="tit">{{lang.browser}}</label>
+                        </span>
+                    </th>
+                    <td class="search_browser">
+                        <span class="wrap_txt">
+                            <input class="input" type="text" id="browser" value="">
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <th class="search_loginEventType"><!-- 상태 -->
+                        <span class="param_check option_wrap">
+                            <input type="checkbox" id="loginEventTypeCheck">
+                            <label for="loginEventTypeCheck" class="tit">{{lang.login_event_type}}</label>
+                        </span>
+                    </th>
+                    <td class="search_loginEventType">
+                        <span class="wrap_select">
+                            <select class="v2_slt" name="" id="eventType">
+                                {{#loginEventTypes}}
+                                <option value="{{name}}">{{message}}</option>
+                                {{/loginEventTypes}}
+                            </select>
+                        </span>
+                    </td>
+                    <th class="search_os"><!-- 운영체제 -->
+                        <span class="param_check option_wrap">
+                            <input type="checkbox" id="osCheck">
+                            <label for="osCheck" class="tit">{{lang.os}}</label>
+                        </span>
+                    </th>
+                    <td class="search_os">
+                        <span class="wrap_txt">
+                            <input class="input" type="text" id="os" value="">
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <th class="search_siteType"><!-- 유형 -->
+                        <span class="param_check option_wrap">
+                            <input type="checkbox" id="siteTypeCheck">
+                            <label for="siteTypeCheck" class="tit">{{lang.site_type}}</label>
+                        </span>
+                    </th>
+                    <td class="search_siteType">
+                        <span class="wrap_select">
+                            <select class="v2_slt" name="" id="siteType">
+                                {{#siteTypes}}
+                                <option value="{{name}}">{{name}}</option>
+                                {{/siteTypes}}
+                            </select>
+                        </span>
+                    </td>
+
+                </tr>
+                </tbody>
+            </table>
+            <div class="wrap_footer">
+                <div class="optional search_accuracy">
+                    <span class="wrap_select">
+                        <select class="v2_slt" id="accuracy">
+                            {{#accuracyTypes}}
+                            <option value="{{name}}">{{message}}</option>
+                            {{/accuracyTypes}}
+                        </select>
+                    </span>
+
+                    <span class="search_btn">
+                        <button class="major" id="searchBtn">{{lang.search}}</button>
+                    </span>
+
+                    <span class="btn_wrap" id="reset">
+                        <span class="btn_s">{{lang.reset}}</span>
+                    </span>
+                </div>
+            </div>
+        </div> <!-- detailSearchArea -->
+    </div>
+</div>
+
+
+<div class="dataTables_wrapper container">
+    <div class="content_tb">
+        <table class="chart size tb_admin_list tb_log" id="userAccessLogList">
+            <thead>
+            <tr>
+                <th class="sorting date">
+                    <span class="title_sort">
+                        <label>{{lang.time}}</label>
+                        <ins class="ic"></ins><span class="selected"></span>
+                    </span>
+                </th>
+                <th class="sorting name">
+                    <span class="title_sort">
+                        <label>{{lang.name}}({{lang.email}})</label>
+                        <ins class="ic"></ins><span class="selected"></span>
+                    </span>
+                </th>
+                <th class="sorting_disable part">
+                    <span class="title_sort"><label>{{lang.dept}}</label></span>
+                </th>
+                <th class="sorting state">
+                    <span class="title_sort">
+                        <label>{{lang.login_event_type}}</label>
+                        <ins class="ic"></ins><span class="selected"></span>
+                    </span>
+                </th>
+                <th class="sorting state">
+                    <span class="title_sort">
+                        <label>{{lang.site_type}}</label>
+                        <ins class="ic"></ins><span class="selected"></span>
+                    </span>
+                </th>
+                <th class="sorting_disable ip">
+                    <span class="title_sort"><label>{{lang.ip}}</label></span>
+                </th>
+                <th class="sorting device">
+                    <span class="title_sort">
+                        <label>{{lang.device}}</label>
+                        <ins class="ic"></ins><span class="selected"></span>
+                    </span>
+                </th>
+                <th class="sorting_disable browser">
+                    <span class="title_sort"><label>{{lang.browser}}</label></span>
+                </th>
+                <th class="sorting_disable os last">
+                    <span class="title_sort"><label>{{lang.os}}</label></span>
+                </th>
+            </tr>
+            </thead>
+        </table>
+    </div>
+</div>

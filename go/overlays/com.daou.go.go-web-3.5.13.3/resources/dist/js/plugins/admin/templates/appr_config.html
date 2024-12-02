@@ -1,0 +1,453 @@
+<div class="container">
+    <div class="module_drop">
+        <div class="module_drop_head">
+            <hr>
+            <div class="tit">
+                <span class="txt">{{lang.기본}}</span>
+                <span class="ic ic_arrow_open"></span>
+            </div>
+        </div>
+        <div class="module_drop_body">
+            <table class="detail">
+                <colgroup>
+                    <col width="200px">
+                    <col width="*">
+                </colgroup>
+                <tbody>
+                    <tr class="last">
+                        <th><span class="title">{{lang.업로드 불가 파일}}</span></th>
+                        <td>
+                            <span class="option_wrap">
+                                {{^config.isEmptyExcludeExtension}}
+                                <span class="user_data editable" data-formname="excludeExtension" data-value="{{config.excludeExtension}}">
+                                    <span id="data">{{config.excludeExtension}}</span>
+                                    <span class="btn_box" data-btntype="changeForm">
+                                        <span class="ic ic_edit" title="{{lang.수정}}"></span>
+                                    </span>
+                                </span>
+                                {{/config.isEmptyExcludeExtension}}
+                                {{#config.isEmptyExcludeExtension}}
+                                <input type="text" class="input w_large" id="excludeExtension" name="excludeExtension" value="">
+                                {{/config.isEmptyExcludeExtension}}
+                                <span class="desc vb">{{lang.업로드 제한}}</span>
+                            </span>
+                            <span class="go_alert" id="excludeExtensionAlert"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><span class="title">{{lang.결재칸 표기 방법}}</span></th>
+                        <td>
+                        <span class="btn_wrap">
+                            <span class="btn_s" id="activityBoxSettingButton">{{lang.결재칸 설정}}</span>
+                        </span>
+                            <p class="desc">{{lang.결재칸 설정 설명}}</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><span class="title">{{lang.전사 문서함 사용}}</span></th>
+                        <td>
+                        <span class="option_wrap">
+                            <input type="radio" id="useCompanyDocFolder" name="radioUseCompanyDocFolder" {{#config.useCompanyDocFolder}}checked{{/config.useCompanyDocFolder}}>
+                            <label for="useCompanyDocFolder">{{lang.사용}}</label>
+                        </span>
+                            <span class="option_wrap">
+                            <input type="radio" id="notUseCompanyDocFolder" name="radioUseCompanyDocFolder" {{^config.useCompanyDocFolder}}checked{{/config.useCompanyDocFolder}}>
+                            <label for="notUseCompanyDocFolder">{{lang.사용하지 않음}}</label>
+                        </span>
+                            <p class="desc">{{lang.전사 문서함 설명}}</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <span class="title">{{lang.합의 결재 옵션}}</span> <span class="help">
+                            <span class="tool_tip">{{{lang.합의 결재 설명}}}<i class="tail_left"></i></span>
+                        </span>
+                        </th>
+                        <td>
+                        <span class="option_wrap">
+                            <input type="radio" id="useAgreement" name="radioAgreement" value="true" {{#config.useAgreement}}checked{{/config.useAgreement}}>
+                            <label for="useAgreement">{{lang.사용}}</label>
+                        </span>
+                            <span class="option_wrap">
+                            <input type="radio" id="notUseAgreement" name="radioAgreement" value="false" {{^config.useAgreement}}checked{{/config.useAgreement}}>
+                            <label for="notUseAgreement">{{lang.사용하지 않음}}</label>
+                        </span>
+                            <div class="option_display" id="oppositionOpt">
+                            <span class="option_wrap">
+                                <input type="radio" id="notReturnOnOpposition" name="radioReturnOnOpposition" {{^config.returnOnOpposition}}checked{{/config.returnOnOpposition}}>
+                                <label for="notReturnOnOpposition">{{lang.반대하여도 결재 진행}}</label>
+                            </span>
+                                <span class="option_wrap">
+                                <input type="radio" id="returnOnOpposition" name="radioReturnOnOpposition" {{#config.returnOnOpposition}}checked{{/config.returnOnOpposition}}>
+                                <label for="returnOnOpposition">{{lang.반대하면 결재 중단}}</label>
+                            </span>
+                                <p class="desc">{{lang.합의 결재 옵션 설명}}</p>
+                            </div>
+                            <div class="option_display" id="agreementArea">
+                            <span class="option_wrap">
+                                <input id="agreementAll" type="radio" {{#config.agreementAllowType.isAll}}checked{{/config.agreementAllowType.isAll}} name="agreementAllowType" value="ALL">
+                                <label for="agreementAll">{{lang.모두 설정 가능}}</label>
+                            </span>
+                                <span class="option_wrap">
+                                <input id="agreementDept" type="radio" {{#config.agreementAllowType.isDept}}checked{{/config.agreementAllowType.isDept}} name="agreementAllowType" value="DEPARTMENT">
+                                <label for="agreementDept">{{lang.부서만 설정 가능}}</label>
+                            </span>
+                                <span class="option_wrap">
+                                <input id="agreementUser" type="radio" {{#config.agreementAllowType.isUser}}checked{{/config.agreementAllowType.isUser}} name="agreementAllowType" value="USER">
+                                <label for="agreementUser">{{lang.사용자만 설정 가능}}</label>
+                            </span>
+                                <p class="desc">※ {{lang.부서합의 상세 설명}}</p>
+                            </div>
+                            <div class="option_display" id="deptAgreementOption">
+                            <span class="option_wrap">
+                                <input id="deptAgreementMaster" type="radio" {{#config.deptAgreementType.isMaster}}checked{{/config.deptAgreementType.isMaster}} name="deptAgreementType" value="MASTER">
+                                <label for="deptAgreementMaster">{{lang.부서장만 부서합의 가능}}</label>
+                            </span>
+                                <span class="option_wrap">
+                                <input id="deptAgreementManager" type="radio" {{#config.deptAgreementType.isManager}}checked{{/config.deptAgreementType.isManager}} name="deptAgreementType" value="MANAGER">
+                                <label for="deptAgreementManager">{{lang.부서장 부부서장만 부서합의 가능}}</label>                                    </span>
+                                <span class="option_wrap">
+                                <input id="deptAgreementAll" type="radio" {{#config.deptAgreementType.isAll}}checked{{/config.deptAgreementType.isAll}} name="deptAgreementType" value="ALL">
+                                <label for="deptAgreementAll">{{lang.부서원 전체 부서합의 가능}}</label>
+                            </span>
+                                <p class="desc">※ {{lang.부서합의 설명1}}</p>
+                                <p class="desc">※ {{lang.부서합의 설명2}}</p>
+                            </div>
+                            <div class="option_display" id="defaultAgreementOption">
+                                <span class="option_wrap">
+                                    <input type="radio" id="defaultAgreementSeries" name="defaultAgreementType" value="SERIES" {{#config.isSeriesAsDefaultAgreementType}}checked{{/config.isSeriesAsDefaultAgreementType}}>
+                                    <label for="defaultAgreementSeries">{{lang.순차합의}}</label>
+                                </span>
+                                <span class="option_wrap">
+                                    <input type="radio" id="defaultAgreementParallel" name="defaultAgreementType" value="PARALLEL" {{^config.isSeriesAsDefaultAgreementType}}checked{{/config.isSeriesAsDefaultAgreementType}}>
+                                    <label for="defaultAgreementParallel">{{lang.병렬합의}}</label>
+                                </span>
+                                <p class="desc">{{lang.기본합의설정 설명}}</p>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><span class="title">{{lang.확인 결재 타입}}</span></th>
+                        <td>
+                        <span class="option_wrap">
+                            <input type="radio" id="useCheckActivity" name="radioUseCheckActivity" {{#config.useCheckActivity}}checked{{/config.useCheckActivity}}>
+                            <label for="useCheckActivity">{{lang.사용}}</label>
+                        </span>
+                            <span class="option_wrap">
+                            <input type="radio" id="notUseCheckActivity" name="radioUseCheckActivity" {{^config.useCheckActivity}}checked{{/config.useCheckActivity}}>
+                            <label for="notUseCheckActivity">{{lang.사용하지 않음}}</label>
+                        </span>
+                            <p class="desc">{{lang.확인 결재 설명}}</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><span class="title">{{lang.감사 결재 옵션}}</span></th>
+                        <td>
+                        <span class="option_wrap">
+                            <input type="radio" id="useInspectionActivity" name="radioUseInspection" value="true" {{#config.useInspectionActivity}}checked{{/config.useInspectionActivity}}>
+                            <label for="useInspectionActivity">{{lang.사용}}</label>
+                        </span>
+                            <span class="option_wrap">
+                            <input type="radio" id="notUseInspectionActivity" name="radioUseInspection" value="false" {{^config.useInspectionActivity}}checked{{/config.useInspectionActivity}}>
+                            <label for="notUseInspectionActivity">{{lang.사용하지 않음}}</label>
+                        </span>
+                            <div id="useInspectionReturnArea" {{^config.useInspectionActivity}}style="display:none;"{{/config.useInspectionActivity}}>
+                                <div class="option_display">
+                                    <span class="vertical_wrap">
+                                        <span class="option_wrap">
+                                            <input type="checkbox" id="useInspectionReturn" {{#config.useInspectionReturn}}checked{{/config.useInspectionReturn}}>
+                                            <label for="useInspectionReturn">{{lang.반려 기능 제공}}</label>
+                                        </span>
+                                    </span>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div> <div class="container">
+    <div class="module_drop">
+        <div class="module_drop_head">
+            <hr>
+            <div class="tit">
+                <span class="txt">{{lang.프로세스}}</span>
+                <span class="ic ic_arrow_open"></span>
+            </div>
+        </div>
+        <div class="module_drop_body">
+            <table class="detail">
+                <colgroup>
+                    <col width="200px">
+                    <col width="*">
+                </colgroup>
+                <tbody>
+                    <tr>
+                        <th><span class="title">{{lang.선결재 기능 사용}}</span></th>
+                        <td>
+                            <span class="option_wrap">
+                                <input type="radio" id="useAdvApproval" name="radioUseAdvApproval" {{#config.useAdvApproval}}checked{{/config.useAdvApproval}}>
+                                <label for="useAdvApproval">{{lang.사용}}</label>
+                            </span>
+                            <span class="option_wrap">
+                                <input type="radio" id="notUseAdvApproval" name="radioUseAdvApproval" {{^config.useAdvApproval}}checked{{/config.useAdvApproval}}>
+                                <label for="notUseAdvApproval">{{lang.사용하지 않음}}</label>
+                            </span>
+                            <p class="desc">{{lang.선결재 기능 설명}}</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><span class="title">{{lang.전단계반려옵션}}</span></th>
+                        <td>
+                            <span class="option_wrap">
+                                <input type="radio" id="usePreviousReturn" name="radioUsePreviousReturn" {{#config.usePreviousReturn}}checked{{/config.usePreviousReturn}}>
+                                <label for="usePreviousReturn">{{lang.사용}}</label>
+                            </span>
+                            <span class="option_wrap">
+                                <input type="radio" id="notUsePreviousReturn" name="radioUsePreviousReturn" {{^config.usePreviousReturn}}checked{{/config.usePreviousReturn}}>
+                                <label for="notUsePreviousReturn">{{lang.사용하지 않음}}</label>
+                            </span>
+                            <p class="desc">{{lang.전단계반려옵션설명}}</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><span class="title">{{lang.결재문서회수}}</span></th>
+                        <td>
+                            <span class="option_wrap">
+                                <input type="radio" id="useDraftWithdraw" name="radioUseDraftWithdraw" value="true" {{#config.useDraftWithdraw}}checked{{/config.useDraftWithdraw}}>
+                                <label for="useDraftWithdraw">{{lang.사용}}</label>
+                            </span>
+                            <span class="option_wrap">
+                                <input type="radio" id="notUseDraftWithdraw" name="radioUseDraftWithdraw" value="false" {{^config.useDraftWithdraw}}checked{{/config.useDraftWithdraw}}>
+                                <label for="notUseDraftWithdraw">{{lang.사용하지 않음}}</label>
+                            </span>
+                            <p class="desc">{{lang.결재문서회수설명}}</p>
+                            <div id="useSkipApprovalArea" {{^config.useDraftWithdraw}}style="display:none;"{{/config.useDraftWithdraw}}>
+                                <div class="option_display">
+                                    <span class="vertical_wrap">
+                                        <span class="option_wrap">
+                                            <input type="checkbox" id="useSkipApproval" {{#config.useSkipApproval}}checked{{/config.useSkipApproval}}>
+                                            <label for="useSkipApproval">{{lang.재기안시기결재자통과하기}}</label>
+                                        </span>
+                                    </span>
+                                <p class="desc">{{lang.재기안시기결재자통과하기설명}}</p>
+                            </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <span class="title">{{lang.일괄 결재 옵션}}</span>
+                        </th>
+                        <td>
+                            <span class="option_wrap">
+                                <input id="bulklyApprovalAll" type="radio" {{#config.bulklyApprovalOption.isAll}}checked{{/config.bulklyApprovalOption.isAll}} name="bulklyApprovalType" value="ALL">
+                                <label for="bulklyApprovalAll">{{lang.전체 사용}}</label>
+                            </span>
+                            <span class="option_wrap">
+                                <input id="bulklyApprovalPart" type="radio" {{#config.bulklyApprovalOption.isPart}}checked{{/config.bulklyApprovalOption.isPart}} name="bulklyApprovalType" value="PART">
+                                <label for="bulklyApprovalPart">{{lang.일부만 사용}}</label>
+                            </span>
+                             <span class="option_wrap">
+                                <input id="bulklyApprovalNone" type="radio" {{#config.bulklyApprovalOption.isNone}}checked{{/config.bulklyApprovalOption.isNone}} name="bulklyApprovalType" value="NONE">
+                                <label for="bulklyApprovalNone">{{lang.사용하지 않음}}</label>
+                            </span>
+                             <div class="option_display" id="bulklyApprovalPartArea"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <span class="title">{{lang.일괄 수신 처리 옵션}}</span>
+                        </th>
+                        <td>
+                            <span class="option_wrap">
+                                <input id="bulklyReceiveAll" type="radio" {{#config.bulklyReceiveOption.isAll}}checked{{/config.bulklyReceiveOption.isAll}} name="bulklyReceiveType" value="ALL">
+                                <label for="bulklyReceiveAll">{{lang.전체 사용}}</label>
+                            </span>
+                            <span class="option_wrap">
+                                <input id="bulklyReceivePart" type="radio" {{#config.bulklyReceiveOption.isPart}}checked{{/config.bulklyReceiveOption.isPart}} name="bulklyReceiveType" value="PART">
+                                <label for="bulklyReceivePart">{{lang.일부만 사용}}</label>
+                            </span>
+                            <span class="option_wrap">
+                                <input id="bulklyReceiveNone" type="radio" {{#config.bulklyReceiveOption.isNone}}checked{{/config.bulklyReceiveOption.isNone}} name="bulklyReceiveType" value="NONE">
+                                <label for="bulklyReceiveNone">{{lang.사용하지 않음}}</label>
+                            </span>
+                            <div class="option_display" id="bulklyReceivePartArea"></div>
+                            <p class="desc">※{{lang.일괄 수신처리 설명}}</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><span class="title">{{lang.공문 발송 승인 설정}}</span></th>
+                        <td>
+                            <span class="option_wrap">
+                                <input type="radio" id="useOfficial" name="radioOfficialConfirm" {{#config.useOfficialConfirm}}checked{{/config.useOfficialConfirm}}>
+                                <label for="useOfficial">{{lang.사용}}</label>
+                            </span>
+                            <span class="option_wrap">
+                                <input type="radio" id="notUseOfficial" name="radioOfficialConfirm" {{^config.useOfficialConfirm}}checked{{/config.useOfficialConfirm}}>
+                                <label for="notUseOfficial">{{lang.사용하지 않음}}</label>
+                            </span>
+                            <p class="desc">{{lang.공문 발송 설명}}</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><span class="title">{{lang.참조자 열람 옵션}}</span></th>
+                        <td>
+                            <span class="option_wrap">
+                                <input type="radio" id="referrerVisibleInProgress" name="radioReferrerVisibleInProgress" {{#config.referrerVisibleInProgress}}checked{{/config.referrerVisibleInProgress}}>
+                                <label for="referrerVisibleInProgress">{{lang.결재 진행중에도 열람}}</label>
+                            </span>
+                            <span class="option_wrap">
+                                <input type="radio" id="notReferrerVisibleInProgress" name="radioReferrerVisibleInProgress" {{^config.referrerVisibleInProgress}}checked{{/config.referrerVisibleInProgress}}>
+                                <label for="notReferrerVisibleInProgress">{{lang.결재 완료후에만 열람}}</label>
+                            </span>
+                            <p class="desc">{{lang.참조자 열람 옵션 설명}}</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><span class="title">{{lang.보류 옵션}}</span></th>
+                        <td>
+                            <span class="option_wrap">
+                                <input type="radio" id="useHold" name="radioUseHold" {{#config.useHold}}checked{{/config.useHold}}>
+                                <label for="useHold">{{lang.사용}}</label>
+                            </span>
+                            <span class="option_wrap">
+                                <input type="radio" id="notUseHold" name="radioUseHold" {{^config.useHold}}checked{{/config.useHold}}>
+                                <label for="notUseHold">{{lang.사용하지 않음}}</label>
+                            </span>
+                            <p class="desc">{{lang.보류 옵션 설명}}</p>
+                        </td>
+                    </tr>
+                    <tr class="last">
+                        <th><span class="title">{{lang.결재 지연 설정}}</span></th>
+                        <td>
+                                        <span class="option_wrap">
+                                            <input type="radio" id="useDelayRemind" name="radioUseDelayRemind" value="true" {{#config.useDelayRemind}}checked{{/config.useDelayRemind}}>
+                                            <label for="useDelayRemind">{{lang.사용}}</label>
+                                        </span>
+                            <span class="option_wrap">
+                                            <input type="radio" id="notUseDelayRemind" name="radioUseDelayRemind" value="false" {{^config.useDelayRemind}}checked{{/config.useDelayRemind}}>
+                                            <label for="notUseDelayRemind">{{lang.사용하지 않음}}</label>
+                                        </span>
+                            <p class="desc">※ {{lang.결재지연방지설명}}</p>
+                            <div id="useDelayRemindTerm" {{^config.useDelayRemind}}style="display:none;"{{/config.useDelayRemind}}>
+                            <div class="option_display">
+                                <span class="option_wrap">{{lang.결재 지연 안내 메일 발송 일자}}</span>
+                                <span class="option_wrap user_data editable" data-formname="delayRemindMin" data-value="{{config.delayRemindMin}}">
+                                    <span id="data">{{config.delayRemindMin}}</span>
+                                    <input type="input" data-type="delayRemindTermType" name="minDelayRemindDay" id="minDelayRemindDay" class="input t_num" value="{{config.delayRemindMin}}" style="display: none"/>
+                                    <span class="btn_box" data-btntype="changeForm">
+                                        <span class="ic ic_edit"></span>
+                                    </span>
+                                </span>
+                                <label>{{lang.일}}</label>
+                                <span class="go_alert" id="delayRemindMinAlert"></span>
+                                <span class="wave"> ~ </span>
+                                <span class="option_wrap suser_data editable" data-formname="delayRemindMax" data-value="{{config.delayRemindMax}}">
+                                                    <span id="data">{{config.delayRemindMax}}</span>
+                                                    <input type="input" data-type="delayRemindTermType" name="maxDelayRemindDay" id="maxDelayRemindDay" class="input t_num" value="{{config.delayRemindMax}}" style="display: none"/>
+                                                    <span class="btn_box" data-btntype="changeForm">
+                                                        <span class="ic ic_edit"></span>
+                                                    </span>
+                                                </span>
+                                <label>{{lang.일}}</label>
+                                <span class="go_alert" id="delayRemindMaxAlert"></span>
+                                <p class="desc">※ {{{lang.결재지연기간설정설명}}}</p>
+                            </div>
+                </div>
+                </td>
+                </tr>
+                 </tbody>
+            </table>
+        </div>
+    </div>
+
+</div> <div class="container">
+    <div class="module_drop">
+        <div class="module_drop_head">
+            <hr>
+            <div class="tit">
+                <span class="txt">{{lang.기타}}</span>
+                <span class="ic ic_arrow_open"></span>
+            </div>
+        </div>
+        <div class="module_drop_body">
+            <table class="detail">
+                <colgroup>
+                    <col width="200px">
+                    <col width="*">
+                </colgroup>
+                <tbody>
+                    <tr>
+                        <th><span class="title">{{lang.결재전용 비밀번호 사용}}</span></th>
+                        <td>
+                            <span class="option_wrap">
+                                <input type="radio" id="usePassword" name="radioUsePassword" {{#config.usePassword}}checked{{/config.usePassword}}>
+                                <label for="usePassword">{{lang.사용}}</label>
+                            </span>
+                            <span class="option_wrap">
+                                <input type="radio" id="notUsePassword" name="radioUsePassword" {{^config.usePassword}}checked{{/config.usePassword}}>
+                                <label for="notUsePassword">{{lang.사용하지 않음}}</label>
+                            </span>
+                            <p class="desc">{{lang.결재전용 비밀번호 설명}}</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><span class="title">{{lang.수신처 설정}}</span></th>
+                        <td>
+                            <span class="option_wrap">
+                                <input id="receiveAll" type="radio" {{#config.receiveAllowType.isAll}}checked{{/config.receiveAllowType.isAll}} name="receiveAllowType" value="ALL">
+                                <label for="receiveAll">{{lang.모두 설정 가능}}</label>
+                            </span>
+                            <span class="option_wrap">
+                                <input id="receiveDept" type="radio" {{#config.receiveAllowType.isDept}}checked{{/config.receiveAllowType.isDept}} name="receiveAllowType" value="DEPARTMENT">
+                                <label for="receiveDept">{{lang.부서만 설정 가능}}</label>
+                            </span>
+                            <span class="option_wrap">
+                                <input id="receiveUser" type="radio" {{#config.receiveAllowType.isUser}}checked{{/config.receiveAllowType.isUser}} name="receiveAllowType" value="USER">
+                                <label for="receiveUser">{{lang.사용자만 설정 가능}}</label>
+                            </span>
+                            <p class="desc">{{lang.수신처 설정 설명}}</p>
+                        </td>
+                    </tr>
+                    <tr class="last">
+                        <th><span class="title">{{lang.비공개 문서 제목 표시}}</span></th>
+                        <td>
+                            <span class="option_wrap">
+                                <input type="radio" id="usePrivateDocTitleVisible" name="radioUsePrivateDocTitleVisible" {{#config.usePrivateDocTitleVisible}}checked{{/config.usePrivateDocTitleVisible}}>
+                                <label for="usePrivateDocTitleVisible">{{lang.제목만 표시}}</label>
+                            </span>
+                            <span class="option_wrap">
+                                <input type="radio" id="usePrivateDocTitleUnvisible" name="radioUsePrivateDocTitleVisible" {{^config.usePrivateDocTitleVisible}}checked{{/config.usePrivateDocTitleVisible}}>
+                                <label for="usePrivateDocTitleUnvisible">{{lang.비공개 문서로 표시}}</label>
+                            </span>
+                            <p class="desc">{{lang.비공개 문서 제목 표시 설명}}</p>
+                        </td>
+                    </tr>
+                    <!-- <tr class="last">
+                        <th><span class="title">{{lang.문서 내보내기 형식}}</span></th>
+                        <td>
+                            <span class="option_wrap">
+                                <input type="radio" id="pdfType" value="PDF" name="docConvertType" {{#config.docConvertType.pdfType}}checked{{/config.docConvertType.pdfType}}>
+                                <label for="pdfType">{{lang.pdf형식 사용}}</label>
+                            </span>
+                            <span class="option_wrap">
+                                <input type="radio" id="html" value="htmlType" name="docConvertType" {{#config.docConvertType.htmlType}}checked{{/config.docConvertType.htmlType}}>
+                                <label for="htmlType">{{lang.HTML형식 사용}}</label>
+                            </span>
+                            <p class="caution">{{lang.pdf형식 설명}}</p>
+                            <p class="desc">{{lang.문서 내보내기 형식 설명}}</p>
+                        </td>
+                    </tr> -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="page_action">
+    <span id="btn_save_appr_config" class="btn">{{lang.저장}}</span>
+    <span id="btn_cancel_appr_config" class="btn_nega">{{lang.취소}}</span>
+</div>

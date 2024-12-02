@@ -1,0 +1,50 @@
+<li>
+    <div><label for="">{{lang.이름}}</label></div>
+    <div><input type="text" name="label" value="{{model.label}}" class="txt_mini tool_txt" placeholder="{{lang.이름을 입력해주세요}}"></div>
+    <div class="wrap_input_sub">
+        <input type="checkbox" id="hideLabel" name="hideLabel" class="tool_chk" title="{{lang.이름숨기기}}" {{#model.hideLabel}}checked{{/model.hideLabel}}><label for="hideLabel">{{lang.이름숨기기}}</label>
+    </div>
+</li>
+<li>
+    <div><label for="">{{lang.설명}}</label></div>
+    <div><input type="text" name="guide" value="{{model.guide}}" class="txt_mini tool_txt" placeholder="{{lang.설명을 입력해주세요}}"></div>
+    <div class="wrap_input_sub">
+        <input type="checkbox" name="guideAsTooltip" id="guideAsTooltip" class="tool_chk" title=""{{#model.guideAsTooltip}} checked="checked"{{/model.guideAsTooltip}}><label for="guideAsTooltip">{{lang.툴팁으로 표현}}</label>
+    </div>
+</li>
+<li>
+    <div><label for="">{{lang.연동 컴포넌트}}</label></div>
+    <div>
+        {{^appletChangeable}}
+        <div class="wrap_name_tag">
+            <ul class="name_tag">
+                <li><span class="name" title="{{model.targetComponentLabel}}">{{model.targetComponentLabel}}</span></li>
+            </ul>
+        </div>
+        {{/appletChangeable}}
+
+        {{#appletChangeable}}
+        <select name="{{targetComponentCid}}" class="attr_select">
+            <option value="">{{lang.선택하세요}}</option>
+        </select>
+        {{/appletChangeable}}
+    </div>
+</li>
+<li>
+    <div><label for="">{{lang.컴포넌트 매핑}}</label></div>
+    <div>
+        {{^fieldChangeable}}
+        <div class="wrap_name_tag">
+            <ul class="name_tag">
+                <li><span class="name" title="{{model.targetAppletName}} - {{model.targetFieldLabel}}">{{model.targetAppletName}} - {{model.targetFieldLabel}}</span></li>
+            </ul>
+        </div>
+        {{/fieldChangeable}}
+
+        {{#fieldChangeable}}
+        <select name="{{targetFieldCid}}" id="" class="attr_select">
+            <option value="">{{lang.선택하세요}}</option>
+        </select>
+        {{/fieldChangeable}}
+    </div>
+</li>

@@ -1,0 +1,47 @@
+					<div style="position:relative;" id="articleView">
+							<header class="article_header" id="doc_header">
+                                {{#data.name}}
+								<h2>{{data.name}}<span class="num"></span></h2>
+                                {{/data.name}}
+								<span class="photo">
+									<a href="javascript:;">
+										<img alt="" title="{{data.reporter.name}} {{data.reporter.position}}" src="{{data.reporter.thumbnail}}">
+									</a>
+								</span>
+								<div class="info">
+									<span class="name txt_ellipsis">{{data.reporter.name}} {{data.reporter.position}}</span><br/>
+									<span class="date">{{data.createdAtBasicDate}}</span>
+								</div>
+								<div id="fontResizeWrap" style="display:none"></div>
+                                <a href="javascript:;" class="btn_share" id="copyUrl">
+                                    <span class="ic ic_link"></span>
+                                </a>
+							</header>
+							<!-- 양식 영역 -->
+							<article class="article_view" id="articleViewWrap" style="padding:0;">
+								<div id="iScrollContentWrap" class="scroll"> <!-- div 삭제하면 안됨 iscroll관련 -->
+									<div id="report_detail" style="display:inline-table;margin:15px">
+										{{{data.content}}}
+									</div>
+									<div id="report-attach-placeholder"></div>
+								</div>
+							</article>
+							<!-- 양식 영역 -->
+					</div>
+					<!-- div class="tool_bar tool_bar_bottom">
+						<div class="critical">
+							<a class="btn_tool list" data-role="button" href="javascript:;"><span class="txt">{{lang.list}}</span></a>
+							<a class="btn_tool comment" data-role="button" href="{{data.listUrl}}">
+								<span class="txt">{{lang.commentCount}}</span>
+								<span class="num">{{data.commentCount}}</span>
+							</a>
+						</div>
+						<div class="optional">
+							{{#data.actions.updatable}}
+							<a class="btn_tool modify" data-role="button" href="javascript:;"><span class="txt">{{lang.modify}}</span></a>
+							{{/data.actions.updatable}}
+							{{#data.actions.removable}}
+							<a class="btn_tool remove" data-role="button" href="javascript:;"><span class="txt_caution">{{lang.remove}}</span></a>
+							{{/data.actions.removable}}
+						</div>
+					</div-->

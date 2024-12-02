@@ -1,0 +1,41 @@
+<span class="photo">
+	<a data-userid="{{data.writer.id}}">
+		<img src="{{thumbnail}}" alt="{{data.writer.name}} {{#position}}{{position}}{{/position}}" title="{{data.writer.name}} {{#position}}{{position}}{{/position}}">
+	</a>
+</span>
+<div class="msg_wrap">
+	<div class="info">
+		<span class="name{{#data.writer.otherCompanyUser}} multi_user{{/data.writer.otherCompanyUser}}">{{data.writer.name}} {{#position}}{{position}}{{/position}}</span>
+		{{#isReply}}
+		<span class="btn_wrap" id="reply">
+			<span class="ic_classic ic_answer"></span>
+			<span class="txt_b">{{lang.comment}}</span>
+		</span>
+		{{/isReply}}
+		<span class="date">{{createdAt}}</span>
+	</div>
+	<p>
+		<span id="commentContent">{{{content}}}</span>
+	</p>
+	<div class="{{#hasAttach}}option_display{{/hasAttach}}" id="attachPart">
+	</div>
+	{{#hasEmoticon}}
+	<div class="thumb_append" id="emoticonPart">
+		<img class="emoticon" src="{{emoticonPath}}">
+	</div>
+	{{/hasEmoticon}}
+</div>
+<div class="action_wrap" style="display:">
+	{{#writable}}
+	{{#data.actions.updatable}}
+	<span class="btn_fn4" id="edit">
+		<span class="ic_feed ic_edit_white"></span>
+	</span>
+	{{/data.actions.updatable}}
+	{{#data.actions.removable}}
+	<span class="btn_fn4" id="delete">
+		<span class="ic_feed ic_del_white"></span>
+	</span>
+	{{/data.actions.removable}}
+	{{/writable}}
+</div>

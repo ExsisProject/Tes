@@ -1,0 +1,216 @@
+<div class="content_page">
+    <form name="formSiteConfig">
+        <!-- 사이트 그룹 기본 정보 -->
+        <div id="sitegroup_detail_basic" class="container">         
+            <div class="header">
+                <h2>{{lang.사이트 그룹 기본 정보}}</h2>
+            </div>
+            <div class="content">
+                <input type="hidden" id="installLocale" value="">
+                <table class="detail">
+                    <colgroup>
+                        <col width="120px">
+                        <col width="*">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <th class="title">
+                                <ins class="asterisk">*</ins>{{lang.사이트 그룹명}}
+                            </th>
+                            <td>
+                                <input class="w_half input" name="name" type="text" value="{{data.name}}">
+                            </td>
+                        </tr>
+                        <tr class="last">
+                            <th class="title">
+                                <ins class="asterisk">*</ins>{{lang.사이트 매칭}}
+                            </th>
+                            <td>
+                                <table class="tb_select">
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <p class="tit">{{lang.사이트 목록}}</p>
+                                                <div class="div_scroll wrap_list">
+                                                    <ul id="companies_candidate">
+                                                        {{#data.companiesCandidate}}
+                                                            <li data-id="{{id}}" data-name="{{name}}" class="">{{name}}</li>
+                                                        {{/data.companiesCandidate}}
+                                                        {{^data.companiesCandidate}}
+                                                            <li>{{lang.추가할 사이트가 없습니다}}</li>
+                                                        {{/data.companiesCandidate}}
+                                                    </ul>
+                                                </div>
+                                            </td>
+                                            <td class="action">
+                                                <span id="add_site_to_group" class="btn_s"><span class="ic_con ic_arrow_type4"></span></span>
+                                            </td>
+                                            <td>
+                                                <div id="selected_companies_tool_bar" class="tool_bar">
+                                                    <span class="btn_s" id="move_site_top" data-type="top" title="{{lang.맨 위로}}"><span class="ic_order first"></span></span>
+                                                    <span class="btn_s" id="move_site_up" title="{{lang.위로}}"><span class="ic_order top"></span></span>
+                                                    <span class="btn_s" id="move_site_down" title="{{lang.아래로}}"><span class="ic_order bottom"></span></span>
+                                                    <span class="btn_s" id="move_site_bottom" data-type="bottom" title="{{lang.맨 아래로}}"><span class="ic_order last"></span></span>
+													<span class="btn_s" id="move_site_right" title="{{lang.들여쓰기}}"><span class="ic_order indent"></span></span>                                                    
+													<span class="btn_s" id="move_site_left" title="{{lang.들여쓰기 취소}}"><span class="ic_order outdent "></span></span>
+                                                    <span class="btn_s vt" id="remove_site_from_group">{{lang.삭제}}</span>
+                                                </div>
+                                                <p class="tit">{{lang.선택한 사이트}}</p>
+                                                <div class="div_scroll wrap_list">
+                                                    <ul id="companies_selected">
+                                                        {{#data.companiesSelected}}
+                                                            <li class="depth{{groupDepth}}" data-depth="{{groupDepth}}" data-id="{{id}}" data-name="{{name}}">{{name}}</li>
+                                                        {{/data.companiesSelected}}
+                                                    </ul>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!-- //사이트 그룹 기본 정보 -->
+        <!-- 그룹 겸직자 설정 -->
+        <div id="sitegroup_detail_user_integration" class="container">
+            <div class="header">
+                <h2>{{lang.겸직자 목록}} <span class="wrap_ic_s"><span class="help"><span class="tool_tip">{{lang.겸직자 목록 도움말}}<i class="tail_left"></i></span></span></span></h2>
+            </div>
+            <div class="content_tb">
+                <div id="siteList_wrapper" class="dataTables_wrapper" role="grid">
+                    <div class="toolbar_top header_tb">
+                        <div class="critical custom_header">
+                            <div class="" style="">
+                                <span class="btn_tool" id="addUserIntegration">{{lang.추가}}</span>
+                                <span class="btn_tool txt_caution" id="deleteUserIntegrations" data-defaultdomain="4">{{lang.삭제}}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <table class="chart size dataTable" id="siteList" style="width: 100%; margin-bottom: 0px;">
+                        <thead>
+                            <tr role="row">
+                                <th class="sorting_disabled" role="columnheader" rowspan="1" colspan="1" aria-label="" style="width: 28px;"><input name="userIntegration" type="checkbox" id="checkAllUserIntegration"></th>
+                                <th class="sorting_desc sorting_disabled">
+                                    <span class="title_sort">
+                                        <label>{{lang.이름}}</label>
+                                    </span>
+                                </th>
+                                <th class="sorting_desc sorting_disabled">
+                                    <span class="title_sort">
+                                        <label>{{lang.사이트명}}</label>
+                                    </span>
+                                </th>
+                                <th class="sorting_desc sorting_disabled">
+                                    <span class="title_sort">
+                                        <label>{{lang.이메일}}</label>
+                                    </span>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{#data.userIntegrations}}
+                            <tr>
+                                <td>
+                                    <input name="userIntegration" data-id="{{id}}" data-userlistkey="{{userListKey}}" type="checkbox">
+                                </td>
+                                <td class="showUserIntegration" style="cursor: pointer;">
+                                    {{#userNames}}
+                                    <a href="#" data-bypass>{{.}}</a><br>
+                                    {{/userNames}}
+                                </td>
+                                <td class="">
+                                    {{#siteNames}}
+                                    {{.}}<br>
+                                    {{/siteNames}}
+                                </td>
+                                <td class="">
+                                    {{#userEmails}}
+                                    {{.}}<br>
+                                    {{/userEmails}}
+                                </td>
+                            </tr>
+                            {{/data.userIntegrations}}
+                            {{^data.userIntegrations}}
+                            <tr>
+                                <td colspan=4>{{lang.겸직자가 존재하지 않습니다}}</td>
+                            </tr>
+                            {{/data.userIntegrations}}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- 그룹 겸직자 설정 -->
+        <!-- 그룹간 조직도 공유 -->
+        <div id="sitegroup_detail_org_share" class="container">         
+            <div class="header">
+                <h2>{{lang.그룹사간 조직도 공유}} <span class="wrap_ic_s"><span class="help"><span class="tool_tip">{{lang.그룹사간 조직도 공유 도움말}}<i class="tail_left"></i></span></span></span></h2>
+            </div>
+            <div class="content">
+                <table class="detail">
+                    <colgroup>
+                        <col width="120px">
+                        <col width="*">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <th class="title">{{lang.조직도 공유자}}</th>
+                            <td>
+                                <div class="vertical_wrap_s">
+                                    <span class="wrap_option">
+                                        <input name="org_tree_share_scope" value="NO_USER" id="org_tree_share_to_no_user" type="radio" {{#data.orgShareToNoUser}}checked="checked"{{/data.orgShareToNoUser}}>
+                                        <label for="org_tree_share_to_no_user">{{lang.선택 안함}}</label>                                                    
+                                    </span>
+                                </div>
+                                <div class="vertical_wrap_s">
+                                    <span class="wrap_option">
+                                        <input name="org_tree_share_scope" value="SELECTED_USER" id="org_tree_share_to_all_user" type="radio" {{#data.orgShareToSelectedUser}}checked="checked"{{/data.orgShareToSelectedUser}}>
+                                        <label for="org_tree_share_to_all_user">{{lang.지정 사용자}}</label>
+                                    </span>
+                                </div>
+                                <div id="org_tree_share_user" class="option_display appointUser" style="display:none">
+                                    <!-- 지정 사용자 써클 -->
+                                </div>
+                                <div class="vertical_wrap_s">
+                                    <span class="wrap_option">
+                                        <input name="org_tree_share_scope" type="radio" value="ALL_USER" id="org_tree_share_to_selected_user" {{#data.orgShareToAllUser}}checked="checked"{{/data.orgShareToAllUser}}>
+                                        <label for="org_tree_share_to_selected_user">{{lang.모든 사용자}}</label>
+                                    </span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr id="sitegroup_detail_org_share_content" class="last">
+                            <th class="title">{{lang.공유 범위}} <span class="wrap_ic_s"><span class="help"><span class="tool_tip">{{lang.공유 범위 도움말}}<i class="tail_left"></i></span></span></span></th>
+                            <td>
+                                <span class="option_wrap">
+                                    <input type="radio" name="org_tree_share_content" id="org_tree_share_by_tree" value="TREE" {{#data.orgShareByTree}}checked="checked"{{/data.orgShareByTree}}>
+                                    <label for="org_tree_share_by_tree">{{lang.조직도와 검색을 제공합니다}}</label>
+                                </span>
+                                <span class="option_wrap">
+                                    <input type="radio" name="org_tree_share_content" id="org_tree_share_by_search" value="SEARCH" {{^data.orgShareByTree}}checked="checked"{{/data.orgShareByTree}}>
+                                    <label for="org_tree_share_by_search">{{lang.검색만 제공합니다}}</label>
+                                </span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="content_info" id="companySharePageNoti">
+        	<span class="desc">{{lang.사이트 그룹 컨텐츠 공유방법 설명1}}</span>
+		</div>
+		<div class="content_page" id="companySharePage">
+		</div>
+        <!-- //그룹간 조직도 공유 -->
+    </form>
+    <div class="page_action">
+        <span class="btn" id="btn_save">{{lang.저장}}</span>
+        <span class="btn_nega" id="btn_cancel">{{lang.취소}}</span>
+        {{^data.isNew}}
+        <span class="btn_nega" id="btn_return_list">{{lang.목록으로 돌아가기}}</span>
+        {{/data.isNew}}
+    </div>
+</div>

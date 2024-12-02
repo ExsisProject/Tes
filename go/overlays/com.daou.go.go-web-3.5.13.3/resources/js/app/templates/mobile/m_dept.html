@@ -1,0 +1,58 @@
+<div class="go_wrap">
+	<header class="go_header">
+		<!-- 액션 툴바 -->
+		<div class="nav con_nav">
+			<h1>{{lang.title}}</h1>
+			<div class="critical">
+				<a title="{{btn_cancel}}" data-btn='cancel'><span class="ic_nav ic_nav_cancel"></span></a>
+			</div>
+			<div class="optional">
+				<ul class="toolbar_list">
+					<li>
+						<a title="{{btn_ok}}" data-btn='ok'>{{lang.btn_ok}}</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<!-- //액션 툴바 -->
+	</header>
+	<div class="go_body">
+		<div class="go_content go_approval" style="left:0">
+			<div class="content_page">
+				<div class="content">
+					<!-- 선택된 임직원 목록 -->
+					<!-- 검색 -->
+					<div class="docu_search">
+						<div class="wrap_search">
+							<input id="searchKeyword" class="input" type="text" placeholder="{{lang.search_placeholder}}">
+							<a>
+								<span id="btnSearchResetBtn" class="btn btn_del_type1"></span>
+							</a>
+							<a>
+								<span id="btnSearch" class="ic_cmm ic_cmm_search"></span>
+							</a>
+						</div>
+<!--						<span class="result_search txt">{{lang.search_result}} <strong id="search_result_count">{{lang.search_result_count}} {{lang.count}}</strong></span>-->
+<!--						<span class="result_check txt">{{lang.select}} <strong id="select_count">{{lang.select_count}}개</strong></span>-->
+					</div>
+					<!-- 검색 결과 -->
+					<div class="docu_body">
+						<div class="bcr" id="userCheckedScroll">
+						</div>
+						<!-- 목록 -->
+						<p class="list_title" id="dept_list_title">{{lang.department}}</p>
+						<ul id="deptItem" class="list_normal list_photo list_photo_ipt">
+						</ul>
+						<!-- 목록 -->
+						<p class="list_title" id="users_list_title">{{lang.dept_users}}</p>
+						<ul id="deptPeopleItem" class="list_normal list_photo list_photo_ipt">
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<a id="scrollToTop" class="btn_pageTop" style="display: none">
+	<span class="ic_v2 ic_pageTop"></span>
+</a>

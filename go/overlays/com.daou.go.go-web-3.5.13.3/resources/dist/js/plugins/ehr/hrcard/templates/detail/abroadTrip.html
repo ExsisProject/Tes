@@ -1,0 +1,96 @@
+<h3 class="tab_title" style="display:none;">{{lang.label_trip}}</h3>
+<!--탭 전체 펼치기시 타이틀 나옴-->
+<div class="ehr_trip viewForm">
+    <table class="type_list_box">
+        <tr>
+            <th class="num"><span class="title_txt">No</span></th>
+            <th class="period"><span class="title_txt">{{lang.label_trip_period}}</span></th>
+            <th class="country"><span class="title_txt">{{lang.label_trip_country}}</span></th>
+            <th class="area"><span class="title_txt">{{lang.label_trip_place}}</span></th>
+            <th class="purpose"><span class="title_txt">{{lang.label_trip_purpose}}</span></th>
+            {{#editable}}
+			<th class="modify"><span class="title_txt">{{lang.label_modify}}</span></th>
+			{{/editable}}
+        </tr>
+        {{#data}}
+        <tr class="dataRow" {{#dataId.useColumn}}data-id="{{dataId.value}}"{{/dataId.useColumn}}>
+            <td class="num">
+                <span>{{number}}</span>
+            </td>
+            <td class="period">
+                <div class="date_wrap">
+                	{{#startPeriod.useColumn}}
+                	{{#editable}}
+                    <span class="wrap_date">
+                        <input class="txt wfix_small" type="text" name="startPeriod" value="{{startPeriod.value}}">
+                        <span class="ic ic_calendar"></span>
+                    </span>
+                    {{/editable}}
+                    {{^editable}}
+                    <span class="txt">{{startPeriod.value}}</span>
+                    {{/editable}}
+                    {{/startPeriod.useColumn}}
+                    {{^startPeriod.useColumn}}
+                    	<span class="txt hide">{{lang.label_private}}</span>
+                    {{/startPeriod.useColumn}}
+                    <span class="date_wave">~</span>
+                    
+                    {{#endPeriod.useColumn}}
+                    {{#editable}}
+                    <span class="wrap_date">
+                        <input class="txt wfix_small" type="text" name="endPeriod" value="{{endPeriod.value}}">
+                        <span class="ic ic_calendar"></span>
+                    </span>
+                    {{/editable}}
+                    {{^editable}}                        
+                    <span class="txt">{{endPeriod.value}}</span>
+                    {{/editable}}
+                    {{/endPeriod.useColumn}}
+                    {{^endPeriod.useColumn}}
+                    	<span class="txt hide">{{lang.label_private}}</span>
+                    {{/endPeriod.useColumn}}
+                </div>
+            </td>
+            <td class="country">
+                {{#country.useColumn}}
+                <span class="txt">{{country.value}}</span>
+                {{#editable}}
+                <input class="txt w_max" type="text" name="country" value="{{country.value}}" style="display:none;"/>   
+                {{/editable}}
+                {{/country.useColumn}}
+                {{^country.useColumn}}
+                <span class="txt hide">{{lang.label_private}}</span>
+                {{/country.useColumn}}
+            </td>
+            <td class="area">
+                {{#place.useColumn}}
+                <span class="txt">{{place.value}}</span>
+                {{#editable}}
+                <input class="txt w_max" type="text" name="place" value="{{place.value}}" style="display:none;"/>   
+                {{/editable}}
+                {{/place.useColumn}}
+                {{^place.useColumn}}
+                <span class="txt hide">{{lang.label_private}}</span>
+                {{/place.useColumn}}
+            </td>
+            <td class="purpose">
+                {{#purpose.useColumn}}
+                <span class="txt">{{purpose.value}}</span>
+                {{#editable}}
+                <input class="txt w_max" type="text" name="purpose" value="{{purpose.value}}" style="display:none;"/>   
+                {{/editable}}
+                {{/purpose.useColumn}}
+                {{^purpose.useColumn}}
+                <span class="txt hide">{{lang.label_private}}</span>
+                {{/purpose.useColumn}}
+            </td>
+            {{#editable}}
+		    <td class="modify">
+		         <span class="ic_con ic_remove" title="삭제"></span>
+		         <span class="ic_con ic_add" title="추가"></span>
+		    </td>
+		    {{/editable}}
+        </tr>
+        {{/data}}
+    </table>
+</div>

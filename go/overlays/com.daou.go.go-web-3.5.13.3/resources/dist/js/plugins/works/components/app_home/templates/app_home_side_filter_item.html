@@ -1,0 +1,13 @@
+<p class="title">
+    <a title="{{model.name}}" data-id="{{model.id}}" data-type="{{model.type}}" el-filter>
+   	    <ins class="ic ic_side_dot"></ins>
+   	    <span class="txt">
+   	    {{model.name}}
+   	    </span>
+    </a>
+	{{#auth}}
+	<span class="btn_wrap" el-setting backdrop-toggle="true">
+		<span class="ic_side ic_more_option"></span>
+	</span>
+	{{/auth}}
+</p>

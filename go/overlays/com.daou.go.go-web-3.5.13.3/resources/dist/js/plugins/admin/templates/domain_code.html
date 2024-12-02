@@ -1,0 +1,88 @@
+<div class="container">
+    <div class="container_opt">
+        <a class="btn_minor_s" id="batchRegisterShortcut">
+            <span class="ic_adm ic_shortcut"></span>
+            <span class="txt">{{lang.label_downloadExcelBatchRegist}}</span>
+        </a>
+    </div>
+    <div class="content">
+        <div class="tab_menu_wrap">
+            <ul class="tab_menu">
+                <li class="active"><span class="txt type" id="position">{{lang.label_position}}</span></li>
+                {{#isUseOrgService}}
+                <li class=""><span class="txt type" id="duty">{{lang.label_duty}}</span></li>
+                {{/isUseOrgService}}
+                <li class=""><span class="txt type" id="grade">{{lang.label_grade}}</span></li>
+                <li class=""><span class="txt type" id="usergroup">{{lang.label_usergroup}}</span></li>
+            </ul>
+        </div>
+
+        <div class="tab_content">
+            <div>
+                <div class="desc" id="domainCodeTypeDesc"></div>
+                <div class="wrap_column">
+                    <div class="column">
+                        <div class="dataTables_wrapper">
+                            <form name="formCodeList">
+                                <div class="toolbar_top header_tb">
+                                    <div class="critical">
+                                        <h3 id="domainCodeType"></h3>
+                                    </div>
+                                    <div class="optional">
+                                        <span class="btn_tool" id="btn_add">
+                                            <span class="ic_adm ic_plus"></span>
+                                            <span class="txt">{{lang.label_add}}</span>
+                                        </span>
+                                        <span class="btn_tool" id="btn_delete">
+                                            <span class="ic_adm ic_delete"></span>
+                                            <span class="txt">{{lang.label_delete}}</span>
+                                        </span>
+                                        <span class="btn_tool btn_list_change" id="btnReorderCodes">
+                                            <span class="ic_adm ic_array"></span>
+                                            <span class="txt">{{lang.label_order}}</span>
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <table class="chart list_position" id="codeList">
+                                    <thead>
+                                    <tr>
+                                        <th class="sorting_asc subject">
+                                            <span class="title_sort">
+                                                <label>{{lang.label_name}}</label>
+                                                <ins class="ic"></ins><span class="selected"></span>
+                                            </span>
+                                        </th>
+                                        <th class="sorting code">
+                                            <span class="title_sort">
+                                                <label>{{lang.label_code}}</label>
+                                                <ins class="ic"></ins><span class="selected"></span>
+                                            </span>
+                                        </th>
+                                        <th class="sorting member">
+                                            <span class="title_sort">
+                                                <label>{{lang.label_account}}</label>
+                                                <ins class="ic"></ins><span class="selected"></span>
+                                            </span>
+                                        </th>
+                                    </tr>
+                                    </thead>
+                                </table>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="column_func">
+                        <span class="btn_wrap">
+                            <span class="btn_s btn_insert" id="setSampleItemBtn">
+                                <span class="ic_adm ic_arrow_left"></span>
+                            </span>
+                        </span>
+                    </div>
+
+                    <div class="column template_oganization" id="sampleArea">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

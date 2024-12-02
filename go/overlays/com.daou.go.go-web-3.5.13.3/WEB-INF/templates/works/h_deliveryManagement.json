@@ -1,0 +1,1082 @@
+{
+  "meta": {
+    "key": "8a27caeb-27a4-3224-e152-f4128fdd3851",
+    "base": {
+      "name": "applet.delivery.manage.template.name",
+      "desc": "applet.delivery.manage.template.desc",
+      "icon": "ic_app27.png"
+    },
+    "exporter": {
+      "name": "관리자",
+      "companyName": "다우기술"
+    }
+  },
+  "components": {
+    "view": {
+      "charts": [],
+      "columns": [
+        {
+          "fieldCid": "status"
+        },
+        {
+          "fieldCid": "_auruq8tvy"
+        },
+        {
+          "fieldCid": "_e7zjnc2uw"
+        },
+        {
+          "fieldCid": "_u0zmtu5hl"
+        },
+        {
+          "fieldCid": "_qg76ivfpx"
+        },
+        {
+          "fieldCid": "_4riioz3ii"
+        },
+        {
+          "fieldCid": "_vf2d9kc7g"
+        },
+        {
+          "fieldCid": "_yc2z4n3px"
+        },
+        {
+          "fieldCid": "_7kfycow8u"
+        }
+      ],
+      "titleColumnIndex": 1,
+      "sortColumnIndex": 7,
+      "sortDirection": "DESC",
+      "docNoConfig": {
+        "useDocNo": false,
+        "docNoType": "simple",
+        "customDigit": 2
+      }
+    },
+    "form": {
+      "data": {
+        "type": "canvas",
+        "multiple": false,
+        "cid": "cxx1",
+        "components": [
+          {
+            "type": "label",
+            "multiple": false,
+            "cid": "_t6xhr1vt8",
+            "parentCid": "cxx1",
+            "properties": {
+              "label": "◆ 주문 정보",
+              "color": "4"
+            },
+            "components": []
+          },
+          {
+            "type": "columns",
+            "multiple": false,
+            "cid": "_4dh1mc2hm",
+            "parentCid": "cxx1",
+            "properties": {
+              "count": 2
+            },
+            "components": [
+              {
+                "type": "column",
+                "multiple": false,
+                "cid": "_58zbn5rh6",
+                "parentCid": "_4dh1mc2hm",
+                "properties": {},
+                "components": [
+                  {
+                    "type": "number",
+                    "valueType": "NUMBER",
+                    "multiple": false,
+                    "cid": "_qg76ivfpx",
+                    "parentCid": "_58zbn5rh6",
+                    "properties": {
+                      "label": "주문수량",
+                      "hideLabel": false,
+                      "guide": "",
+                      "guideAsTooltip": true,
+                      "required": true,
+                      "defaultValue": "0",
+                      "minLength": "0",
+                      "maxLength": "100000000",
+                      "width": "100",
+                      "widthUnit": "px",
+                      "unitText": "",
+                      "fixType": "postfix",
+                      "decimalPoints": 2,
+                      "thousandComma": true,
+                      "useTableAutoAggr": false,
+                      "tableAggrType": "",
+                      "code": "number_1"
+                    },
+                    "components": []
+                  }
+                ]
+              },
+              {
+                "type": "column",
+                "multiple": false,
+                "cid": "_gy99vsg37",
+                "parentCid": "_4dh1mc2hm",
+                "properties": {},
+                "components": [
+                  {
+                    "type": "number",
+                    "valueType": "NUMBER",
+                    "multiple": false,
+                    "cid": "_4riioz3ii",
+                    "parentCid": "_gy99vsg37",
+                    "properties": {
+                      "label": "결제금액",
+                      "hideLabel": false,
+                      "guide": "",
+                      "guideAsTooltip": true,
+                      "required": true,
+                      "defaultValue": "0",
+                      "minLength": "0",
+                      "maxLength": "100000000",
+                      "width": "120",
+                      "widthUnit": "px",
+                      "unitText": "원",
+                      "fixType": "postfix",
+                      "decimalPoints": "0",
+                      "thousandComma": true,
+                      "useTableAutoAggr": false,
+                      "tableAggrType": "",
+                      "code": "number_2"
+                    },
+                    "components": []
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "columns",
+            "multiple": false,
+            "cid": "_zi1xoq940",
+            "parentCid": "cxx1",
+            "properties": {
+              "count": 2
+            },
+            "components": [
+              {
+                "type": "column",
+                "multiple": false,
+                "cid": "_smck8zpd4",
+                "parentCid": "_zi1xoq940",
+                "properties": {},
+                "components": [
+                  {
+                    "type": "text",
+                    "valueType": "STEXT",
+                    "multiple": false,
+                    "cid": "_auruq8tvy",
+                    "parentCid": "_smck8zpd4",
+                    "properties": {
+                      "label": "주문자",
+                      "hideLabel": false,
+                      "guide": "",
+                      "guideAsTooltip": true,
+                      "required": true,
+                      "duplicate": false,
+                      "similar": false,
+                      "defaultValue": "",
+                      "minLength": "0",
+                      "maxLength": "20",
+                      "width": "100",
+                      "widthUnit": "px",
+                      "format": "all"
+                    },
+                    "components": []
+                  }
+                ]
+              },
+              {
+                "type": "column",
+                "multiple": false,
+                "cid": "_3xia2w37v",
+                "parentCid": "_zi1xoq940",
+                "properties": {},
+                "components": [
+                  {
+                    "type": "text",
+                    "valueType": "STEXT",
+                    "multiple": false,
+                    "cid": "_e7zjnc2uw",
+                    "parentCid": "_3xia2w37v",
+                    "properties": {
+                      "label": "연락처",
+                      "hideLabel": false,
+                      "guide": "",
+                      "guideAsTooltip": true,
+                      "required": true,
+                      "duplicate": false,
+                      "similar": false,
+                      "defaultValue": "",
+                      "minLength": "0",
+                      "maxLength": "15",
+                      "width": "150",
+                      "widthUnit": "px",
+                      "format": "all"
+                    },
+                    "components": []
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "columns",
+            "multiple": false,
+            "cid": "_ojcrarai0",
+            "parentCid": "cxx1",
+            "properties": {
+              "count": 2
+            },
+            "components": [
+              {
+                "type": "column",
+                "multiple": false,
+                "cid": "_c5w5dn1xn",
+                "parentCid": "_ojcrarai0",
+                "properties": {},
+                "components": [
+                  {
+                    "type": "text",
+                    "valueType": "STEXT",
+                    "multiple": false,
+                    "cid": "_u0zmtu5hl",
+                    "parentCid": "_c5w5dn1xn",
+                    "properties": {
+                      "label": "지역",
+                      "hideLabel": false,
+                      "guide": "도 단위 이상의 지역명 (예: 서울, 충북)",
+                      "guideAsTooltip": false,
+                      "required": true,
+                      "duplicate": false,
+                      "similar": false,
+                      "defaultValue": "",
+                      "minLength": 0,
+                      "maxLength": "10",
+                      "width": 100,
+                      "widthUnit": "px",
+                      "format": "all"
+                    },
+                    "components": []
+                  }
+                ]
+              },
+              {
+                "type": "column",
+                "multiple": false,
+                "cid": "_rvygd066h",
+                "parentCid": "_ojcrarai0",
+                "properties": {},
+                "components": [
+                  {
+                    "type": "text",
+                    "valueType": "STEXT",
+                    "multiple": false,
+                    "cid": "_mycclis2t",
+                    "parentCid": "_rvygd066h",
+                    "properties": {
+                      "label": "주소",
+                      "hideLabel": false,
+                      "guide": "",
+                      "guideAsTooltip": true,
+                      "required": false,
+                      "duplicate": false,
+                      "similar": false,
+                      "defaultValue": "",
+                      "minLength": 0,
+                      "maxLength": "100",
+                      "width": 100,
+                      "widthUnit": "percent",
+                      "format": "all"
+                    },
+                    "components": []
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "columns",
+            "multiple": false,
+            "cid": "_nzdlnlipg",
+            "parentCid": "cxx1",
+            "properties": {
+              "count": 2,
+              "code": ""
+            },
+            "components": [
+              {
+                "type": "column",
+                "multiple": false,
+                "cid": "_2gabsakwj",
+                "parentCid": "_nzdlnlipg",
+                "properties": {},
+                "components": [
+                  {
+                    "type": "select",
+                    "valueType": "SELECT",
+                    "multiple": false,
+                    "cid": "_it3k293nn",
+                    "parentCid": "_2gabsakwj",
+                    "properties": {
+                      "label": "상품 카테고리",
+                      "hideLabel": false,
+                      "guide": "",
+                      "guideAsTooltip": true,
+                      "required": false,
+                      "defaultValue": "0",
+                      "items": [
+                        {
+                          "value": "0",
+                          "displayText": "상품 A",
+                          "selected": true
+                        },
+                        {
+                          "value": "1",
+                          "displayText": "상품 B",
+                          "selected": false
+                        },
+                        {
+                          "value": "2",
+                          "displayText": "상품 C",
+                          "selected": false
+                        }
+                      ]
+                    },
+                    "components": []
+                  }
+                ]
+              },
+              {
+                "type": "column",
+                "multiple": false,
+                "cid": "_8uos515tz",
+                "parentCid": "_nzdlnlipg",
+                "properties": {},
+                "components": [
+                  {
+                    "type": "org",
+                    "valueType": "USERS",
+                    "multiple": false,
+                    "cid": "_p6m2nn2gy",
+                    "parentCid": "_8uos515tz",
+                    "properties": {
+                      "label": "검수 담당자",
+                      "hideLabel": false,
+                      "guide": "",
+                      "guideAsTooltip": true,
+                      "required": false,
+                      "noLimit": true,
+                      "useDefaultRegister": false,
+                      "allowMemberCount": "1",
+                      "members": []
+                    },
+                    "components": []
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "hr",
+            "multiple": false,
+            "cid": "_lmugbsz3b",
+            "parentCid": "cxx1",
+            "properties": {},
+            "components": []
+          },
+          {
+            "type": "label",
+            "multiple": false,
+            "cid": "_scf2wen77",
+            "parentCid": "cxx1",
+            "properties": {
+              "label": "◆ 처리 내역",
+              "color": "4"
+            },
+            "components": []
+          },
+          {
+            "type": "columns",
+            "multiple": false,
+            "cid": "_2xk0wk92m",
+            "parentCid": "cxx1",
+            "properties": {
+              "count": 2
+            },
+            "components": [
+              {
+                "type": "column",
+                "multiple": false,
+                "cid": "_q9czgw2ns",
+                "parentCid": "_2xk0wk92m",
+                "properties": {},
+                "components": [
+                  {
+                    "type": "date",
+                    "valueType": "DATE",
+                    "multiple": false,
+                    "cid": "_yc2z4n3px",
+                    "parentCid": "_q9czgw2ns",
+                    "properties": {
+                      "label": "발송일",
+                      "hideLabel": false,
+                      "guide": "",
+                      "guideAsTooltip": true,
+                      "required": false,
+                      "defaultAsNow": false,
+                      "defaultDate": "",
+                      "code": "date_12755"
+                    },
+                    "components": []
+                  }
+                ]
+              },
+              {
+                "type": "column",
+                "multiple": false,
+                "cid": "_r7r8fb8p0",
+                "parentCid": "_2xk0wk92m",
+                "properties": {},
+                "components": [
+                  {
+                    "type": "date",
+                    "valueType": "DATE",
+                    "multiple": false,
+                    "cid": "_7kfycow8u",
+                    "parentCid": "_r7r8fb8p0",
+                    "properties": {
+                      "label": "고객수령일",
+                      "hideLabel": false,
+                      "guide": "",
+                      "guideAsTooltip": true,
+                      "required": false,
+                      "defaultAsNow": false,
+                      "defaultDate": "",
+                      "code": "date_16636"
+                    },
+                    "components": []
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "columns",
+            "multiple": false,
+            "cid": "_3f2gbq4d1",
+            "parentCid": "cxx1",
+            "properties": {
+              "count": 2
+            },
+            "components": [
+              {
+                "type": "column",
+                "multiple": false,
+                "cid": "_3yhiavnhj",
+                "parentCid": "_3f2gbq4d1",
+                "properties": {},
+                "components": [
+                  {
+                    "type": "number",
+                    "valueType": "NUMBER",
+                    "multiple": false,
+                    "cid": "_yhcjx2qi3",
+                    "parentCid": "_3yhiavnhj",
+                    "properties": {
+                      "label": "배송비",
+                      "hideLabel": false,
+                      "guide": "",
+                      "guideAsTooltip": true,
+                      "required": true,
+                      "defaultValue": "0",
+                      "minLength": "0",
+                      "maxLength": "100000000",
+                      "width": "120",
+                      "widthUnit": "px",
+                      "unitText": "원",
+                      "fixType": "postfix",
+                      "decimalPoints": "0",
+                      "thousandComma": true,
+                      "useTableAutoAggr": false,
+                      "tableAggrType": "",
+                      "code": "number_17758"
+                    },
+                    "components": []
+                  }
+                ]
+              },
+              {
+                "type": "column",
+                "multiple": false,
+                "cid": "_x8i6ch6em",
+                "parentCid": "_3f2gbq4d1",
+                "properties": {},
+                "components": [
+                  {
+                    "type": "radio",
+                    "valueType": "SELECT",
+                    "multiple": false,
+                    "cid": "_vf2d9kc7g",
+                    "parentCid": "_x8i6ch6em",
+                    "properties": {
+                      "label": "배송비 결제구분",
+                      "hideLabel": false,
+                      "guide": "",
+                      "guideAsTooltip": true,
+                      "required": true,
+                      "defaultValue": "1",
+                      "items": [
+                        {
+                          "value": "-999",
+                          "displayText": "선택안함",
+                          "selected": false
+                        },
+                        {
+                          "value": "0",
+                          "displayText": "무료",
+                          "selected": false
+                        },
+                        {
+                          "value": "1",
+                          "displayText": "선결제",
+                          "selected": true
+                        },
+                        {
+                          "value": "2",
+                          "displayText": "착불",
+                          "selected": false
+                        }
+                      ],
+                      "align": "horizontal"
+                    },
+                    "components": []
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "columns",
+            "multiple": false,
+            "cid": "_wx4kfzen8",
+            "parentCid": "cxx1",
+            "properties": {
+              "count": 2
+            },
+            "components": [
+              {
+                "type": "column",
+                "multiple": false,
+                "cid": "_k2nho86n1",
+                "parentCid": "_wx4kfzen8",
+                "properties": {},
+                "components": [
+                  {
+                    "type": "select",
+                    "valueType": "SELECT",
+                    "multiple": false,
+                    "cid": "_67jxcx3m2",
+                    "parentCid": "_k2nho86n1",
+                    "properties": {
+                      "label": "배송업체",
+                      "hideLabel": false,
+                      "guide": "회사에서 주로 이용하는 업체를 옵션 지정합니다.",
+                      "guideAsTooltip": false,
+                      "required": false,
+                      "defaultValue": "0",
+                      "items": [
+                        {
+                          "value": "-999",
+                          "displayText": "선택안함",
+                          "selected": false
+                        },
+                        {
+                          "value": "0",
+                          "displayText": "A 택배",
+                          "selected": true
+                        },
+                        {
+                          "value": "1",
+                          "displayText": "B 택배",
+                          "selected": false
+                        },
+                        {
+                          "value": "2",
+                          "displayText": "C 택배",
+                          "selected": false
+                        },
+                        {
+                          "value": "3",
+                          "displayText": "기타",
+                          "selected": false
+                        }
+                      ]
+                    },
+                    "components": []
+                  }
+                ]
+              },
+              {
+                "type": "column",
+                "multiple": false,
+                "cid": "_dbxmz99rp",
+                "parentCid": "_wx4kfzen8",
+                "properties": {},
+                "components": [
+                  {
+                    "type": "text",
+                    "valueType": "STEXT",
+                    "multiple": false,
+                    "cid": "_i3oguaxyk",
+                    "parentCid": "_dbxmz99rp",
+                    "properties": {
+                      "label": "운송장번호",
+                      "hideLabel": false,
+                      "guide": "",
+                      "guideAsTooltip": true,
+                      "required": false,
+                      "duplicate": false,
+                      "similar": false,
+                      "defaultValue": "",
+                      "minLength": 0,
+                      "maxLength": 100,
+                      "width": "50",
+                      "widthUnit": "percent",
+                      "format": "all"
+                    },
+                    "components": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "process": {
+      "useProcess": true,
+      "statuses": [
+        {
+          "name": "{{applet.delivery.manage.template.status.waiting}}",
+          "start": true,
+          "doing": false,
+          "end": false,
+          "color": "3"
+        },
+        {
+          "name": "{{applet.delivery.manage.template.status.delivering}}",
+          "start": false,
+          "doing": true,
+          "end": false,
+          "color": "17"
+        },
+        {
+          "name": "{{applet.delivery.manage.template.status.refund.proposal}}",
+          "start": false,
+          "doing": true,
+          "end": false,
+          "color": "5"
+        },
+        {
+          "name": "{{applet.delivery.manage.template.status.refund.progress}}",
+          "start": false,
+          "doing": true,
+          "end": false,
+          "color": "6"
+        },
+        {
+          "name": "{{applet.delivery.manage.template.status.refund.complete}}",
+          "start": false,
+          "doing": true,
+          "end": true,
+          "color": "9"
+        },
+        {
+          "name": "{{applet.delivery.manage.template.status.delivered}}",
+          "start": false,
+          "doing": true,
+          "end": true,
+          "color": "8"
+        },
+        {
+          "name": "{{applet.delivery.manage.template.status.shipped}}",
+          "start": false,
+          "doing": true,
+          "end": false,
+          "color": "12"
+        }
+      ],
+      "transitions": [
+        {
+          "beforeStatus": "{{applet.delivery.manage.template.status.delivering}}",
+          "nextStatus": "{{applet.delivery.manage.template.status.delivered}}",
+          "actionName": "{{applet.delivery.manage.template.action.delivered}}",
+          "actionRoles": [
+            "REGISTRANT",
+            "ADMIN"
+          ],
+          "pushRoles": [
+            "REGISTRANT",
+            "ADMIN"
+          ]
+        },
+        {
+          "beforeStatus": "{{applet.delivery.manage.template.status.delivered}}",
+          "nextStatus": "{{applet.delivery.manage.template.status.refund.proposal}}",
+          "actionName": "{{applet.delivery.manage.template.action.refund.proposal}}",
+          "actionRoles": [
+            "REGISTRANT",
+            "_p6m2nn2gy",
+            "ADMIN"
+          ],
+          "pushRoles": [
+            "REGISTRANT",
+            "_p6m2nn2gy",
+            "ADMIN"
+          ]
+        },
+        {
+          "beforeStatus": "{{applet.delivery.manage.template.status.refund.proposal}}",
+          "nextStatus": "{{applet.delivery.manage.template.status.refund.progress}}",
+          "actionName": "{{applet.delivery.manage.template.action.refund.progress}}",
+          "actionRoles": [
+            "REGISTRANT",
+            "_p6m2nn2gy",
+            "ADMIN"
+          ],
+          "pushRoles": [
+            "REGISTRANT",
+            "_p6m2nn2gy",
+            "ADMIN"
+          ]
+        },
+        {
+          "beforeStatus": "{{applet.delivery.manage.template.status.refund.progress}}",
+          "nextStatus": "{{applet.delivery.manage.template.status.refund.complete}}",
+          "actionName": "{{applet.delivery.manage.template.action.refund.complete}}",
+          "actionRoles": [
+            "REGISTRANT",
+            "_p6m2nn2gy",
+            "ADMIN"
+          ],
+          "pushRoles": [
+            "REGISTRANT",
+            "_p6m2nn2gy",
+            "ADMIN"
+          ]
+        },
+        {
+          "beforeStatus": "{{applet.delivery.manage.template.status.refund.complete}}",
+          "nextStatus": "{{applet.delivery.manage.template.status.waiting}}",
+          "actionName": "{{applet.delivery.manage.template.action.reshipping}}",
+          "actionRoles": [
+            "REGISTRANT",
+            "_p6m2nn2gy",
+            "ADMIN"
+          ],
+          "pushRoles": [
+            "REGISTRANT",
+            "_p6m2nn2gy",
+            "ADMIN"
+          ]
+        },
+        {
+          "beforeStatus": "{{applet.delivery.manage.template.status.waiting}}",
+          "nextStatus": "{{applet.delivery.manage.template.status.shipped}}",
+          "actionName": "{{applet.delivery.manage.template.action.shipped}}",
+          "actionRoles": [
+            "REGISTRANT",
+            "_p6m2nn2gy",
+            "ADMIN"
+          ],
+          "pushRoles": [
+            "REGISTRANT",
+            "ADMIN"
+          ]
+        },
+        {
+          "beforeStatus": "{{applet.delivery.manage.template.status.shipped}}",
+          "nextStatus": "{{applet.delivery.manage.template.status.delivering}}",
+          "actionName": "{{applet.delivery.manage.template.action.delivering}}",
+          "actionRoles": [
+            "REGISTRANT",
+            "_p6m2nn2gy",
+            "ADMIN"
+          ],
+          "pushRoles": [
+            "REGISTRANT",
+            "ADMIN"
+          ]
+        }
+      ],
+      "addPushes": [],
+      "template": "[{\"type\":\"stat\",\"name\":\"{{applet.delivery.manage.template.status.waiting}}\",\"geometryX\":220,\"geometryY\":275},{\"type\":\"stat\",\"name\":\"{{applet.delivery.manage.template.status.delivering}}\",\"geometryX\":590,\"geometryY\":275},{\"type\":\"stat\",\"geometryX\":20,\"geometryY\":275},{\"type\":\"transition\",\"nextStatus\":\"{{applet.delivery.manage.template.status.waiting}}\"},{\"type\":\"stat\",\"name\":\"{{applet.delivery.manage.template.status.refund.proposal}}\",\"geometryX\":620,\"geometryY\":80},{\"type\":\"stat\",\"name\":\"{{applet.delivery.manage.template.status.refund.progress}}\",\"geometryX\":460,\"geometryY\":80},{\"type\":\"stat\",\"name\":\"{{applet.delivery.manage.template.status.refund.complete}}\",\"geometryX\":300,\"geometryY\":80},{\"type\":\"stat\",\"name\":\"{{applet.delivery.manage.template.status.delivered}}\",\"geometryX\":760,\"geometryY\":275},{\"type\":\"transition\",\"beforeStatus\":\"{{applet.delivery.manage.template.status.deliveringapplet.delivery.manage.template.status.delivering}}\",\"nextStatus\":\"{{applet.delivery.manage.template.status.delivered}}\"},{\"type\":\"transition\",\"beforeStatus\":\"{{applet.delivery.manage.template.status.delivered}}\",\"nextStatus\":\"{{applet.delivery.manage.template.status.refund.proposal}}\",\"geometryX\":[800],\"geometryY\":[105]},{\"type\":\"transition\",\"beforeStatus\":\"{{applet.delivery.manage.template.status.refund.proposal}}\",\"nextStatus\":\"{{applet.delivery.manage.template.status.refund.progress}}\"},{\"type\":\"transition\",\"beforeStatus\":\"{{applet.delivery.manage.template.status.refund.progress}}\",\"nextStatus\":\"{{applet.delivery.manage.template.status.refund.complete}}\"},{\"type\":\"transition\",\"beforeStatus\":\"{{applet.delivery.manage.template.status.refund.complete}}\",\"nextStatus\":\"{{applet.delivery.manage.template.status.waiting}}\"},{\"type\":\"stat\",\"name\":\"{{applet.delivery.manage.template.status.shipped}}\",\"geometryX\":410,\"geometryY\":275},{\"type\":\"transition\",\"beforeStatus\":\"{{applet.delivery.manage.template.status.waiting}}\",\"nextStatus\":\"{{applet.delivery.manage.template.status.shipped}}\"},{\"type\":\"transition\",\"beforeStatus\":\"{{applet.delivery.manage.template.status.shipped}}\",\"nextStatus\":\"{{applet.delivery.manage.template.status.delivering}}\"}]"
+    },
+    "reports": [
+      {
+        "template": "[{\"rid\":\"_u6yvuteqe\",\"type\":\"text\",\"width\":12,\"height\":2,\"x\":0,\"y\":0},{\"rid\":\"_3tcwx93e1\",\"type\":\"text\",\"width\":12,\"height\":2,\"x\":0,\"y\":2},{\"rid\":\"_pya7cb1k1\",\"type\":\"card\",\"width\":6,\"height\":4,\"x\":0,\"y\":4},{\"rid\":\"_uhvaprruh\",\"type\":\"chart\",\"width\":6,\"height\":4,\"x\":6,\"y\":4},{\"rid\":\"_dab4z2qvl\",\"type\":\"chart\",\"width\":12,\"height\":6,\"x\":0,\"y\":8},{\"rid\":\"_r7li5p6j9\",\"type\":\"chart\",\"width\":12,\"height\":6,\"x\":0,\"y\":14}]",
+        "title": "[Sample] 리포트",
+        "reportItems": [
+          {
+            "data": "{\"type\":\"text\",\"content\":\"<p style=\\\"font-family: &quot;맑은 고딕&quot;; font-size: 10pt; line-height: 1; margin-top: 0px; margin-bottom: 0px; text-align: center;\\\"><span style=\\\"font-size: 36pt;\\\"><b>2022년 제품별 배송 및 매출 현황</b></span></p>\"}",
+            "rid": "_u6yvuteqe"
+          },
+          {
+            "data": "{\"type\":\"text\",\"content\":\"<p style=\\\"font-family: 굴림체; font-size: 10pt; line-height: 1.5; margin-top: 0px; margin-bottom: 0px;\\\"><span style=\\\"font-weight: bold; color: rgb(188, 192, 195); font-family: &quot;Google Sans Text&quot;, arial, sans-serif; font-size: 14px; background-color: rgb(32, 33, 36);\\\"></span><span style=\\\"font-family: 굴림체; font-size: 12pt;\\\">2022년 매출&nbsp;현황을 월 별로&nbsp;파악하는&nbsp;서식입니다.</span></p><p style=\\\"font-family: 굴림체; font-size: 10pt; line-height: 1.5; margin-top: 0px; margin-bottom: 0px;\\\"><span style=\\\"font-family: 굴림체; font-size: 12pt;\\\">한&nbsp;해의&nbsp;매출을&nbsp;월&nbsp;단위로&nbsp;현황파악하고 합계를&nbsp;내어 작성하는 리포트입니다.</span><span style=\\\"color: rgb(189, 193, 198); font-family: &quot;Google Sans Text&quot;, arial, sans-serif; font-size: 14px; background-color: rgb(32, 33, 36);\\\"></span></p>\"}",
+            "rid": "_3tcwx93e1"
+          },
+          {
+            "data": "{\"cardModel\":{\"appletId\":\"6774\",\"cid\":\"_4riioz3ii\",\"title\":\"2022년 총 매출\",\"color\":4,\"method\":\"SUM\",\"aggRangeOption\":\"ALL\",\"compareRangeOption\":\"DONE\",\"aggStartDate\":\"2022-01-19\",\"aggEndDate\":\"2022-01-19\",\"isEndDateToday\":false,\"compareStartDate\":\"2022-01-19\",\"compareEndDate\":\"2022-01-19\",\"aggValue\":7671260,\"aggDate\":\"ALL\",\"compareValue\":0,\"compareValueSubtract\":0},\"type\":\"card\"}",
+            "rid": "_pya7cb1k1"
+          },
+          {
+            "data": "{\"chartModel\":{\"fieldCid\":\"_qg76ivfpx\",\"title\":\"지역별 발송 현황\",\"goal\":0,\"chartType\":\"PIE\",\"groupByCid\":\"_u0zmtu5hl\",\"rangeOption\":null,\"aggMethod\":\"COUNT\",\"subAggMethod\":\"COUNT\",\"aggCid\":null,\"theme\":\"1\",\"subChartType\":\"LINE\",\"subAggCid\":\"_qg76ivfpx\",\"stack\":false,\"subStack\":false,\"subGroupByCid\":\"\",\"subRangeOption\":null,\"combination\":false,\"aggField\":null},\"conditions\":[],\"type\":\"chart\"}",
+            "rid": "_uhvaprruh"
+          },
+          {
+            "data": "{\"chartModel\":{\"fieldCid\":\"_qg76ivfpx\",\"title\":\"월별 상품 매출 현황\",\"goal\":0,\"chartType\":\"COLUMN\",\"groupByCid\":\"_yc2z4n3px\",\"rangeOption\":\"MONTH\",\"aggMethod\":\"SUM\",\"subAggMethod\":\"COUNT\",\"aggCid\":\"_4riioz3ii\",\"theme\":\"2\",\"subChartType\":\"LINE\",\"subAggCid\":\"_qg76ivfpx\",\"stack\":true,\"subStack\":false,\"subGroupByCid\":\"_it3k293nn\",\"subRangeOption\":\"DAY\",\"combination\":false,\"aggField\":\"_4riioz3ii\"},\"conditions\":[],\"type\":\"chart\"}",
+            "rid": "_dab4z2qvl"
+          },
+          {
+            "data": "{\"chartModel\":{\"fieldCid\":\"_qg76ivfpx\",\"title\":\"월별 상품 매출 현황\",\"goal\":0,\"chartType\":\"COLUMN\",\"groupByCid\":\"_yc2z4n3px\",\"rangeOption\":\"MONTH\",\"aggMethod\":\"SUM\",\"subAggMethod\":\"COUNT\",\"aggCid\":\"_4riioz3ii\",\"theme\":\"2\",\"subChartType\":\"LINE\",\"subAggCid\":\"_qg76ivfpx\",\"stack\":true,\"subStack\":false,\"subGroupByCid\":\"_it3k293nn\",\"subRangeOption\":\"DAY\",\"combination\":false,\"aggField\":\"_4riioz3ii\"},\"conditions\":[],\"type\":\"chart\"}",
+            "rid": "_r7li5p6j9"
+          }
+        ],
+        "shared": true
+      }
+    ],
+    "calendarView": {
+      "name": "캘린더 뷰",
+      "periods": [
+        {
+          "startCid": "_yc2z4n3px",
+          "endCid": ""
+        },
+        {
+          "startCid": "_7kfycow8u",
+          "endCid": ""
+        }
+      ]
+    }
+  },
+  "messageKeys": [
+    "applet.delivery.manage.template.name",
+    "applet.delivery.manage.template.desc",
+    "applet.delivery.manage.template.status.waiting",
+    "applet.delivery.manage.template.status.delivering",
+    "applet.delivery.manage.template.status.refund.proposal",
+    "applet.delivery.manage.template.status.refund.progress",
+    "applet.delivery.manage.template.status.refund.complete",
+    "applet.delivery.manage.template.status.delivered",
+    "applet.delivery.manage.template.status.shipped",
+    "applet.delivery.manage.template.action.shipped",
+    "applet.delivery.manage.template.action.delivering",
+    "applet.delivery.manage.template.action.delivered",
+    "applet.delivery.manage.template.action.refund.proposal",
+    "applet.delivery.manage.template.action.refund.progress",
+    "applet.delivery.manage.template.action.refund.complete",
+    "applet.delivery.manage.template.action.reshipping"
+  ],
+  "guide": {
+    "contents": "applet.delivery.manage.template.guide.content",
+    "imageFiles": [
+      "h_deliveryManagement/h_01.png",
+      "h_deliveryManagement/h_02.png",
+      "h_deliveryManagement/h_03.png"
+    ]
+  },
+  "sampleData": {
+    "docValues": [
+      {
+        "status": "{{applet.delivery.manage.template.status.shipped}}",
+        "_auruq8tvy": "[Sample] 안부산",
+        "_qg76ivfpx": 15,
+        "_4riioz3ii": 30000,
+        "_e7zjnc2uw": "010-9999-9999",
+        "_u0zmtu5hl": "부산",
+        "_it3k293nn": 0,
+        "_yc2z4n3px": "20220103",
+        "_7kfycow8u": "20220108",
+        "_yhcjx2qi3": 3500,
+        "_vf2d9kc7g": 0,
+        "_67jxcx3m2": 2
+      },
+      {
+        "status": "{{applet.delivery.manage.template.status.waiting}}",
+        "_auruq8tvy": "[Sample] 홍길동",
+        "_qg76ivfpx": 40,
+        "_4riioz3ii": 550300,
+        "_e7zjnc2uw": "010-4000-1111",
+        "_u0zmtu5hl": "충북",
+        "_it3k293nn": 1,
+        "_yc2z4n3px": "20220110",
+        "_7kfycow8u": "20220111",
+        "_yhcjx2qi3": 7000,
+        "_vf2d9kc7g": 0,
+        "_67jxcx3m2": 1
+      },
+      {
+        "status": "{{applet.delivery.manage.template.status.waiting}}",
+        "_auruq8tvy": "[Sample] 최전북",
+        "_qg76ivfpx": 25,
+        "_4riioz3ii": 650000,
+        "_e7zjnc2uw": "010-2000-0000",
+        "_u0zmtu5hl": "전북",
+        "_it3k293nn": 2,
+        "_yc2z4n3px": "20220112",
+        "_7kfycow8u": "20220113",
+        "_yhcjx2qi3": 7000,
+        "_vf2d9kc7g": 0,
+        "_67jxcx3m2": 1
+      },
+      {
+        "status": "{{applet.delivery.manage.template.status.refund.complete}}",
+        "_auruq8tvy": "[Sample] 이서울",
+        "_qg76ivfpx": 100,
+        "_4riioz3ii": 600000,
+        "_e7zjnc2uw": "010-3700-0000",
+        "_u0zmtu5hl": "서울",
+        "_it3k293nn": 2,
+        "_yc2z4n3px": "20220203",
+        "_7kfycow8u": "20220205",
+        "_yhcjx2qi3": 3500,
+        "_vf2d9kc7g": 2,
+        "_67jxcx3m2": 0
+      },
+      {
+        "status": "{{applet.delivery.manage.template.status.waiting}}",
+        "_auruq8tvy": "[Sample] 전전남",
+        "_qg76ivfpx": 30,
+        "_4riioz3ii": 2600000,
+        "_e7zjnc2uw": "010-0003-0000",
+        "_u0zmtu5hl": "전남",
+        "_it3k293nn": 0,
+        "_yc2z4n3px": "20220209",
+        "_7kfycow8u": "20220210",
+        "_yhcjx2qi3": 5000,
+        "_vf2d9kc7g": 1,
+        "_67jxcx3m2": 0
+      },
+      {
+        "status": "{{applet.delivery.manage.template.status.refund.progress}}",
+        "_auruq8tvy": "[Sample] 김강원",
+        "_qg76ivfpx": 43,
+        "_4riioz3ii": 654000,
+        "_e7zjnc2uw": "010-6000-0000",
+        "_u0zmtu5hl": "강원",
+        "_it3k293nn": 1,
+        "_yc2z4n3px": "20220215",
+        "_7kfycow8u": "20220219",
+        "_yhcjx2qi3": 7000,
+        "_vf2d9kc7g": 1,
+        "_67jxcx3m2": 2
+      },
+      {
+        "status": "{{applet.delivery.manage.template.status.shipped}}",
+        "_auruq8tvy": "[Sample] 유제주",
+        "_qg76ivfpx": 9,
+        "_4riioz3ii": 90000,
+        "_e7zjnc2uw": "010-3999-0000",
+        "_u0zmtu5hl": "제주",
+        "_it3k293nn": 0,
+        "_yc2z4n3px": "20220308",
+        "_7kfycow8u": "20220310",
+        "_yhcjx2qi3": 5000,
+        "_vf2d9kc7g": 0,
+        "_67jxcx3m2": 2
+      },
+      {
+        "status": "{{applet.delivery.manage.template.status.delivered}}",
+        "_auruq8tvy": "[Sample] 조경남",
+        "_qg76ivfpx": 40,
+        "_4riioz3ii": 509000,
+        "_e7zjnc2uw": "010-8000-0000",
+        "_u0zmtu5hl": "경남",
+        "_it3k293nn": 1,
+        "_yc2z4n3px": "20220329",
+        "_7kfycow8u": "20220331",
+        "_yhcjx2qi3": 3500,
+        "_vf2d9kc7g": 2,
+        "_67jxcx3m2": 0
+      },
+      {
+        "status": "{{applet.delivery.manage.template.status.delivering}}",
+        "_auruq8tvy": "[Sample] 이경북",
+        "_qg76ivfpx": 45,
+        "_4riioz3ii": 390000,
+        "_e7zjnc2uw": "010-2222-0000",
+        "_u0zmtu5hl": "경북",
+        "_it3k293nn": 2,
+        "_yc2z4n3px": "20220329",
+        "_7kfycow8u": "20220131",
+        "_yhcjx2qi3": 3000,
+        "_vf2d9kc7g": 2,
+        "_67jxcx3m2": 2
+      },
+      {
+        "status": "{{applet.delivery.manage.template.status.waiting}}",
+        "_auruq8tvy": "[Sample] 안충남",
+        "_qg76ivfpx": 35,
+        "_4riioz3ii": 354000,
+        "_e7zjnc2uw": "010-9000-0000",
+        "_u0zmtu5hl": "충남",
+        "_it3k293nn": 1,
+        "_yc2z4n3px": "20220404",
+        "_7kfycow8u": "20220422",
+        "_yhcjx2qi3": 10000,
+        "_vf2d9kc7g": 0,
+        "_67jxcx3m2": 1
+      },
+      {
+        "status": "{{applet.delivery.manage.template.status.delivering}}",
+        "_auruq8tvy": "[Sample] 한라봉",
+        "_qg76ivfpx": 85,
+        "_4riioz3ii": 758000,
+        "_e7zjnc2uw": "010-7000-0000",
+        "_u0zmtu5hl": "제주",
+        "_it3k293nn": 2,
+        "_yc2z4n3px": "20220405",
+        "_7kfycow8u": "20220407",
+        "_yhcjx2qi3": 40000,
+        "_vf2d9kc7g": 2,
+        "_67jxcx3m2": 3
+      },
+      {
+        "status": "{{applet.delivery.manage.template.status.refund.proposal}}",
+        "_auruq8tvy": "[Sample] 김다우",
+        "_qg76ivfpx": 20,
+        "_4riioz3ii": 35960,
+        "_e7zjnc2uw": "010-0000-0000",
+        "_u0zmtu5hl": "서울",
+        "_it3k293nn": 0,
+        "_yc2z4n3px": "20220413",
+        "_7kfycow8u": "20220419",
+        "_yhcjx2qi3": 3500,
+        "_vf2d9kc7g": 1,
+        "_67jxcx3m2": 0
+      },
+      {
+        "status": "{{applet.delivery.manage.template.status.delivered}}",
+        "_auruq8tvy": "[Sample] 이주문",
+        "_qg76ivfpx": 60,
+        "_4riioz3ii": 450000,
+        "_e7zjnc2uw": "010-0000-0000",
+        "_u0zmtu5hl": "충북",
+        "_it3k293nn": 2,
+        "_yc2z4n3px": "20220422",
+        "_7kfycow8u": "20220425",
+        "_yhcjx2qi3": 3500,
+        "_vf2d9kc7g": 0,
+        "_67jxcx3m2": 2
+      }
+    ]
+  }
+}

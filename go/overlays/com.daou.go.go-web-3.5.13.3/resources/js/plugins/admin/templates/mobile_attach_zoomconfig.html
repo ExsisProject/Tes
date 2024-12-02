@@ -1,0 +1,26 @@
+<div class="content_page">
+    <div class="container">
+        <div class="header">
+            <h2>
+                <span class="title">{{adminLang.화상회의 Zoom 연동 서비스 이용 동의}}</span>
+            </h2>
+        </div>
+        Zoom 서비스 이용과 관련된 모든 사항은 Zoom의 서비스 정책에 따르며,<br>
+        다우기술(회사)는 Zoom 서비스 이용에 관하여 어떠한 책임도 부담하지 않습니다.<br>
+        위 내용에 동의하시는 경우에 한하여 다우오피스를 통해 Zoom 서비스를 이용하실 수 있습니다.<br><Br>
+        <span class="option_wrap">
+            <input type="checkbox" id="zoomAgreement" {{#agreement}}checked{{/agreement}}>
+            <label for="zoomAgreement">{{adminLang.동의합니다}}</label>
+        </span>
+        {{#agreement}}
+        <p class="desc">
+            {{adminLang.동의일자}}: {{updatedAt}}<br>
+            {{adminLang.화상회의 Zoom 연동서비스를 이용을 위해 PC 메신저를 재시작 하여 주시기 바랍니다}}
+
+        </p>
+        {{/agreement}}
+    </div>
+    <div class="page_action">
+        <span class="btn" id="btn_ok">{{commonLang.저장}}</span>
+    </div>
+</div>

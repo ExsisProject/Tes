@@ -1,0 +1,87 @@
+<div class="wrap_attach">
+{{#hasFiles}}
+<div class="feed origin">
+	<ul class="file_wrap">
+		{{#files}}
+		<li data-name="{{name}}" data-id="{{id}}" data-size="{{size}}">
+			<span class="item_file">
+				<span class="ic_file ic_{{extention}}"></span>
+				<span class="name">
+                    {{#isMobile}}
+                        {{#useMobileSecurity}}
+                            <a class="filedown" href="javascript:;"  data-bypass title="{{name}}" data-docsId="{{docsId}}" data-id="{{id}}" data-size="{{size}}">{{name}}</a>
+                        {{/useMobileSecurity}}
+                        {{^useMobileSecurity}}
+                            {{name}}
+                        {{/useMobileSecurity}}
+                    {{/isMobile}}
+                    {{^isMobile}}
+                    <a href="{{contextRoot}}api/docs/{{docsId}}/download/{{id}}" data-bypass>{{name}}</a>
+                    {{/isMobile}}
+                </span>
+				<span class="size">({{size}})</span>
+				<span class="optional">
+                    {{#isMobile}}
+                    {{#preview}}
+                    {{#useMobilePreview}}
+                    <a href="javascript:;" class="wrap_ic_file wrap_ic_file_preview preview" data-bypass data-id="{{encrypt}}">
+                        <span class="ic ic_file_preview"></span>
+                    </a>
+                    {{/useMobilePreview}}
+                    {{/preview}}
+                    {{#useMobileSecurity}}
+                    <a href="javascript:;" class="wrap_ic_file filedown" data-bypass data-role="button" title="{{name}}" data-docsId="{{docsId}}" data-id="{{id}}" data-size="{{size}}">
+                        <span class="txt ic ic_file_download"></span>
+                    </a>
+                    {{/useMobileSecurity}}
+                    {{/isMobile}}
+
+                    {{^isMobile}}
+                    <a href="javascript:;" class="btn_fn4 preview" data-bypass data-id="{{encrypt}}"><span class="txt">{{lang.preview}}</span></a>
+					<a href="{{contextRoot}}api/docs/{{docsId}}/download/{{id}}" class="btn_fn4" data-bypass><span class="txt">{{lang.download}}</span></a>
+                    {{/isMobile}}
+				</span>
+			</span>
+		</li>
+		{{/files}}
+	</ul>
+</div>
+{{/hasFiles}}
+{{#hasImages}}
+	<!-- 이미지 첨부 -->
+<div class="feed origin">
+	<ul class="img_wrap">
+		{{#images}}
+        <li data-name="{{name}}" data-docsId="{{docsId}}" data-id="{{id}}" data-size="{{size}}">
+            <span class="item_image">
+                <span class="thumb">
+                    {{^isMobile}}
+                    <a href="{{contextRoot}}api/docs/{{docsId}}/download/{{id}}" data-bypass class="fancybox-thumbs fancybox-button" data-fancybox-group="thumb_{{docsId}}" title="{{name}}" data-docsId="{{docsId}}">
+                        <img src="{{#isGif}}{{contextRoot}}api/docs/{{docsId}}/download/{{id}}{{/isGif}}{{^isGif}}{{thumbSmall}}{{/isGif}}" alt="{{lang.sample_img}}" />
+                    </a>
+                    {{/isMobile}}
+                    {{#isMobile}}
+                        {{#isMobileApp}}
+                            <a class="imageview" href="javascript:;" data-role="button" data-docsId="{{docsId}}" data-group="thumb_{{docsId}}" title="{{name}}" data-id="{{id}}" >
+                                <img src="{{#isGif}}{{contextRoot}}api/docs/{{docsId}}/download/{{id}}{{/isGif}}{{^isGif}}{{thumbSmall}}{{/isGif}}" alt="{{lang.sample_img}}" />
+                            </a>
+                        {{/isMobileApp}}
+                        {{^isMobileApp}}
+                            {{#useMobileSecurity}}
+                            <a class="imageview" href="javascript:;" data-role="button" data-docsId="{{docsId}}" data-group="thumb_{{docsId}}" title="{{name}}" data-id="{{id}}" >
+                                <img src="{{#isGif}}{{contextRoot}}api/docs/{{docsId}}/download/{{id}}{{/isGif}}{{^isGif}}{{thumbSmall}}{{/isGif}}" alt="{{lang.sample_img}}" />
+                            </a>
+                            {{/useMobileSecurity}}
+                            {{^useMobileSecurity}}
+                                <img src="{{#isGif}}{{contextRoot}}api/docs/{{docsId}}/download/{{id}}{{/isGif}}{{^isGif}}{{thumbSmall}}{{/isGif}}" alt="{{lang.sample_img}}" />
+                            {{/useMobileSecurity}}
+                        {{/isMobileApp}}
+                    {{/isMobile}}
+                </span>
+           </span>
+        </li>
+		{{/images}}
+	</ul>
+</div>
+{{/hasImages}}
+</div>

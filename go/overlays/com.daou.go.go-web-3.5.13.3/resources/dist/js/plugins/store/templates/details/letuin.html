@@ -1,0 +1,190 @@
+<div class="linkplus_detail_header">
+    <img class="service_logo" src="{{baseImgUrl}}letuin_logo.png" alt="">
+    <div class="info">
+        <p class="name">
+            렛유인엑스퍼트
+
+            {{#isApply}}
+            <span class="linkplus_request">
+                <span class="txt">{{storeLang.신청중}}</span>
+                <span class="tooltip">
+                    {{storeLang.제휴사로 연결을 요청중입니다}}<br>
+                    {{storeLang.연결이 완료되면 사용하실 수 있습니다}}
+                </span>
+            </span>
+            {{/isApply}}
+
+            {{#inUse}}
+            <span class="linkplus_using">{{storeLang.사용중}}</span>
+            {{/inUse}}
+
+        </p>
+        <p class="desc">법정교육부터 직무교육까지 PC와 Mobile로 쉽고 편하게 수강하세요. 인사담당자는 전 직원의 수료증을 한번에 관리 할 수 있습니다.</p>
+        <div class="meta">
+            <div class="critical">
+                <div class="list_album_meta">
+                    <span class="state ghost category">법정의무교육</span>
+                    <span class="state ghost service">㈜렛유인</span>
+                </div>
+            </div>
+            <div class="optional">
+                <a class="btn_minor" id="goToList">
+                    <span class="txt">{{commonLang.목록}}</span>
+                </a>
+
+                {{#canUse}}
+                <a class="btn_major " id="useService">
+                    <span class="txt">{{storeLang.사용하기}}</span>
+                </a>
+                {{/canUse}}
+
+                {{#canRegister}}
+                <a class="btn_major" id="register">
+                    <span class="txt">{{commonLang.신청하기}}</span>
+                </a>
+                {{/canRegister}}
+            </div>
+        </div>
+    </div>
+</div>
+<div class="linkplus_detail_display">
+    <div class="banner_rolling">
+        <div class="wrap_img" id="banner_container" style="width:801px; overflow:hidden; position:relative;">
+            <div id="banner_wrapper" style="width:2403px;position:absolute;">
+                <img src="{{baseImgUrl}}letuin_thum1.png" style="float:left;" alt="">
+                <img src="{{baseImgUrl}}letuin_thum2.png" style="float:left;" alt="">
+                <img src="{{baseImgUrl}}letuin_thum3.png" style="float:left;" alt="">
+            </div>
+        </div>
+        <a class="btn_banner_rolling prev" data-type="prev" data-rol="button">
+            <span class="ic_dashboard2 ic_prev" title="다음"></span>
+        </a>
+        <a  class="btn_banner_rolling next" data-type="next" data-rol="button">
+            <span class="ic_dashboard2 ic_next" title="다음"></span>
+        </a>
+        <div class="banner_rolling_page">
+            <span class="on"></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+</div>
+<div class="linkplus_detail_container">
+    <h2>법정의무교육! 온라인(PC , Mobile)으로 쉽고 완벽하게 관리할 수 있습니다.</h2>
+    <p class="desc">
+        1년에 딱 한 번은 거쳐야하는 법정의무교육, 귀사에서는 어떤 방법으로 진행중이신가요?<br>
+        업계 최저가 + 양질의 컨텐츠로 렛유인을 통해 귀사의 모든 직원교육을 온라인으로 만나보실 수 있습니다.<br>
+        렛유인엑스퍼트는 3,000차시가 넘는 온라인 직무교육을 자체개발 및 공급하고 있습니다.<br>
+        모든 법정교육을 고용노동부로부터 위탁기관 인증 받은 전문 교육기관이며, 특히 이공계 특화 교육을 자랑합니다.<br>
+        사내 온라인교육의 모든 것을 해결할 수 있는, 렛유인엑스퍼트!<br>
+        지금 바로 기업 전문 온라인교육 컨텐츠를 만나보시기 바랍니다.!
+    </p>
+    <h2>가입/연동/혜택</h2>
+    <ul class="list_accordion">
+        <li>
+            <div class="subject">
+                <span class="txt">1. 서비스 상세 소개</span>
+                <div class="optional">
+                    <span class="ic24 arrow_t"></span>
+                </div>
+            </div>
+            <div class="desc on">
+                1) 법정의무교육 : 개인정보보호, 직장 내 성희롱 예방, 장애인 인식개선 등 모든 법정의무교육 총망라<br>
+                2) 이공계 전문교육 : 반도체, 자동차, 디스플레이, 플렌트/방산, IT/IoT 관련 전문 교육 컨텐츠<br>
+                3) 외국어 교육 : 영어, 중국어, 일본어, 베트남어 교육 컨텐츠<br>
+                4) 자격증 과정 : 건설안전기사, 산림기사, 산업안전기사, 건축기사 등 총 9개 특화 교육 컨텐츠<br>
+                5) 각 종 사업자/근로자 환급과정 지원<br>
+                <a class="serviceLink" data-url="https://www.letuinexpert.com/">www.letuinexpert.com</a>
+            </div>
+        </li>
+        <li>
+            <div class="subject">
+                <span class="txt">2. 기업에서 사용하면 어떤 점이 좋을까요.</span>
+                <div class="optional">
+                    <span class="ic24 arrow_d"></span>
+                </div>
+            </div>
+            <div class="desc">
+                1) 기업 전용 연수원 개설을 통해, 귀사만의 ‘온라인교육센터’가 생성됩니다.<br>
+                2) 수강생 안내 및 독려 자동화 시스템이 제공되어, 교육을 진행하지 못하는 누락이 발생하지 않습니다.<br>
+                3) 인사담당자용 관리자 페이지를 제공해드려, 직원들의 교육 트렌드 및 통계를 실시간 확인하실 수 있습니다.<br>
+                4) 수료현황 및 수료증을 일괄 관리할 수 있어, 인사팀 업무를 최소화 시켜 드립니다.<br>
+                5) 각 종 환급과정 제공을 통해, 보다 경쟁력 있는 비용으로 직원 교육이 가능합니다.
+            </div>
+        </li>
+        <li>
+            <div class="subject">
+                <span class="txt">3. 서비스의 특징과 장점은 무엇일까요</span>
+                <div class="optional">
+                    <span class="ic24 arrow_d"></span>
+                </div>
+            </div>
+            <div class="desc">
+                1) 합리적인 비용으로 모든 기업에서 필요한 ‘기업 법정의무교육’을 제공하고 있습니다.<br>
+                2) 반도체/자동차/디스플레이/IT 등 타 경쟁사에서 찾아볼 수 없는 특화된 이공계 교육컨텐츠를 자랑합니다.<br>
+                3) 영업, 마케팅, 연구원, 현장 엔지니어까지 모든 임직원을 위한 직무 맞춤별 커리큘럼을 제공합니다.<br>
+                4) 약 4천여 고객사가 렛유인엑스퍼트의 ‘법정의무교육’ 과정을 수강하고 있습니다.<br>
+                5) 수강생의 92%가 만족한, 높은 수준의 컨텐츠를 매일 업데이트하고 관리합니다.
+            </div>
+        </li>
+        <li>
+            <div class="subject">
+                <span class="txt">4. 다우오피스와는 어떻게 연동되나요.</span>
+                <div class="optional">
+                    <span class="ic24 arrow_d"></span>
+                </div>
+            </div>
+            <div class="desc">
+                다우오피스와는 가입 및 SSO (Single Sign On, 한 번의 로그인으로 여러 서비스 로그인 가능) 가 연동되고 있습니다.<br>
+                * 가입 연동 : 다우오피스를 통해서 렛유인엑스퍼트 신청 시, 렛유인엑스퍼트로 자동으로 넘어가 가입이 가능합니다.<br>
+                * SSO (Single Sign On) : 다우오피스 Link+를 통해서, 별도의 로그인 없이 자동으로 렛유인엑스퍼트 서비스를 이용할 수 있습니다.
+            </div>
+        </li>
+        <li>
+            <div class="subject">
+                <span class="txt">5. 어떻게 가입하고 사용하나요.</span>
+                <div class="optional">
+                    <span class="ic24 arrow_d"></span>
+                </div>
+            </div>
+            <div class="desc">
+                1) 다우오피스 ‘Link+’ 에서 ‘렛유인엑스퍼트’ 클릭 후 ‘신청하기’ 버튼 클릭<br>
+                2) 이동한 가입페이지에서 가입 진행 (※ 다우오피스를 통한 가입의 경우만, 다우오피스와 연동되오니 참고 부탁드립니다.)<br>
+                3) 렛유인엑스퍼트에서 가입내역 확인<br>
+                4) 교육사이트 오픈<br>
+                5) 전 직원이 렛유인엑스퍼트에서 교육신청 및 수강<br>
+                <a class="serviceLink" data-url="https://youtu.be/KQIUnTKYgJc">가입 및 사용 가이드 영상</a>
+            </div>
+        </li>
+        <li>
+            <div class="subject">
+                <span class="txt">6. 다우오피스를 통해 사용하면 드리는 혜택</span>
+                <div class="optional">
+                    <span class="ic24 arrow_d"></span>
+                </div>
+            </div>
+            <div class="desc">
+                1) 다우오피스와 연동이 무료!<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;: 별도의 개발인력 비용이 소요되는 SSO (Single Sign On) 연동을 귀사의 부담으로 진행하시나요?<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;타사에서 볼 수 없는 ‘다우오피스 - 렛유인엑스퍼트’간의 SSO 연동비용이 무료입니다. <br>
+                2) 다우오피스 고객대상 전용상품 제공<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;- 온라인프리패스 상품 : 1인당 3만원에, 법정의무교육부터 3000차수 온라인 교육을 한 번에 수강하실 수 있는 상품입니다.<br>
+                &nbsp;&nbsp;- 법정교육(비환급) : 1인당 최소 6,000원에 법정의무교육을 수강할 수 있는 상품입니다. (100명이상 단체 수강일 경우 가격협의 가능합니다.)
+            </div>
+        </li>
+    </ul>
+    <h2>필수 확인사항</h2>
+    <p class="desc">
+        1. 다우오피스를 통해 가입한 기업만 해당 제휴서비스와 다우오피스간의 SSO (Single Sign On) 연동기능을 사용하실 수 있습니다. 기존 렛유인엑스퍼트를 사용중인 고객 대상의 연동은 향후 지원
+        예정이니 양해 부탁드립니다.<br>
+        2. 해당 제휴서비스는 다우오피스에서 연동만 지원하며, 가입 및 결제, 고객지원 모두 제휴서비스인 ‘렛유인엑스퍼트’에서 진행됩니다. <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;- ‘렛유인엑스퍼트’ 가입 및 결제 , 고객지원 문의 : 02-539-1778 <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;- 지원센터 운영시간 <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: (월~금요일) 오전 10시 ~ 오후 7시<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: (점심시간) 오후 12시 30분 ~ 오후 1시 30분<br>
+    </p>
+    <div class="box linkplus_question">
+        <span class="ic_link ic_tooltip"></span>
+        {{storeLang.사이트 관리자에게 문의}}
+    </div>
+</div>

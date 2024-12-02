@@ -1,0 +1,1 @@
+define("works/views/app/layout/side",function(require){function i(){this.$el.html(n({appName:"\uc5c5\ubb34 2.0",contextRoot:t.config("contextRoot")}))}var e=require("backbone"),t=require("app"),n=require("hgn!works/templates/app/side"),r=e.View.extend({initialize:function(){i.call(this)}});return r});

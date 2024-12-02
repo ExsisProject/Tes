@@ -1,0 +1,1 @@
+define(["backbone"],function(e){var t=null,n=e.Model.extend({url:function(){var e="/api/approval/favorite";return e}},{get:function(){return t==null&&(t=new n),t.fetch({async:!1}),t},setUrl:function(e){alert(this.url),this.url="/api/approval/favorite/"+e,alert(this.url)}});return n});

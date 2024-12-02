@@ -1,0 +1,25 @@
+<p class="q">{{lang.일괄결재요청안내}}</p>
+<form onsubmit="return false;">
+	<fieldset>
+	<table class="form_type">
+		<tbody>
+			<tr>
+				<th><span class="title">{{lang.기안의견}}</span></th>
+				<td>
+					<div class="wrap_txtarea">
+						<textarea class="w_max textarea" id="textarea-desc" name="description" placeholder="{{lang.의견을 작성해 주세요}}" rows="7"></textarea>
+					</div>
+				</td>
+			</tr>
+			{{#usePassword}}
+			<tr>
+				<th><span class="title">{{lang.결재비밀번호}}</span></th>
+				<td>
+					<input class="input w_max" type="password" id="apprPassword">
+				</td>
+			</tr>
+			{{/usePassword}}		
+		</tbody>
+	</table>
+	</fieldset>
+</form>	

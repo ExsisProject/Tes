@@ -1,0 +1,53 @@
+<header class="content_top">
+</header>
+<!--목록-->
+<div class="content_page" >
+    <div class="dataTables_wrapper">
+        <!-- 툴바  -->
+        <div id="docToolbar" class="tool_bar">
+            <div class="critical">
+                <a id="bulkApproval" class="btn_tool" data-role="button">
+                    <span class="ic_toolbar check_all"></span>
+                    <span class="txt">{{lang.일괄 승인}}</span>
+                </a>
+            </div>
+        </div>
+        <!-- 탭 -->
+        <div class="tool_bar tool_bar_second">
+            <!-- 리스트 갯수 선택 select box (마크업 유지) -->
+            <div class="dataTables_length">
+            </div>
+			<div class="optional" id="docFieldArea">
+            </div>
+        </div>
+        
+        <!-- 테이블 -->
+        <table class="type_normal list_approval">
+            <thead id ="doclist_field_header">
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        <div class="tool_bar tool_absolute">
+            <!--  상단 메뉴와 동일 -->
+            <div class="dataTables_length">
+            </div>                 
+        </div>
+    </div>
+    <div class="table_search">                    
+        <select id="searchtype">
+            <option value="title">{{lang.제목}}</option>
+            <option value="drafterName">{{lang.기안자}}</option>
+            <option value="drafterDeptName">{{lang.기안부서}}</option>
+            <option value="formName">{{lang.결재양식}}</option>
+            <option value="docNum">{{lang.문서번호}}</option>
+            <option value="activityUserName">{{lang.결재선}}</option>
+        </select>
+        <section class="search2">
+            <div class="search_wrap"><!--focus되면 "search_focus" multi class로 추가해주세요.-->
+                <input id="keyword" class="search2" type="text" placeholder="{{lang.placeholder_search}}">                               
+                <span class="btn_search2" title="{{lang.검색}}"></span>                                
+            </div>
+        </section>                  
+    </div>
+</div>

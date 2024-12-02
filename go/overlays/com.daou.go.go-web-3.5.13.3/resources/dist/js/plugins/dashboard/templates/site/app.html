@@ -1,0 +1,68 @@
+<div class="go_dashboard_header">
+	<ul class="dashboad-tabs dashboard_tab">
+	{{#dashboards}}
+	<li class="dashboard-tab{{#activated}} on mgmt{{/activated}}" data-id="{{id}}">
+		<a href="#" data-bypass>{{title}}</a>
+		{{#activated}}
+		<span id="btn-dashboard-manage" class="ic_dashboard2 ic_mgmt_t" title="{{label.manage}}">
+			<a href="#" data-bypass></a>
+		</span>
+		{{/activated}}
+	</li>
+	{{/dashboards}}
+	<li class="create">
+		<span id="btn-dashboard-add" class="ic_dashboard2 ic_create_t" title="{{label.add}}"></span>
+	</li>
+	</ul>
+	<section class="search">
+	</section>
+</div>
+
+<div id="dashboard-config-toolbar" class="go_dashboard_ctrl" style="display:none">
+	<div class="critical">
+		<span id="titleViewArea" class="txt_form">
+			<span id="dashboard-title"></span>
+			<span class="btn_ic_list_reorder" id="dashboard-title-form">
+				<span class="ic_side ic_list_reorder" title="{{label.config}}"></span>
+			</span>
+		</span>
+		<span id="titleEditArea" class="txt_edit" style="display:none">
+			<input class="input edit wfix_large" type="text" name="title">
+			<span class="btn_wrap ui_edit_ing">
+				<span id="dashboard-title-edit" class="ic_side ic_done" title="{{label.edit_complete}}"></span>
+				<span id="dashboard-title-undo" class="ic_side ic_cancel" title="{{label.cancel}}"></span>
+			</span>
+		</span>
+		<span id="gadget-addable-option-row" class="btn_ic_side_setting">
+			<span class="groupManage ic_side ic_side_setting" title="{{label.add_gaget_accept}}"></span>
+		</span>
+		
+	</div>
+	<ul class="option_layout" id="btn-change-layout">
+		{{#layout_specs}}
+		<li class="layout-option layout-{{boxCount}}-{{layout}}" data-boxcount="{{boxCount}}" data-layout={{layout}}>
+			<span class="ic_dashboard2 ic_layout{{boxCount}}_{{layout}}"></span>
+		</li>
+		{{/layout_specs}}
+	</ul>
+	<div class="optional">
+		<a class="btn_minor_s" id="remove-option-btn"><span class="txt">{{label.remove}}</span></a>
+		<a class="btn_major_s" id="btn-close"><span class="txt">{{label.complete}}</span></a>
+		<span class="btn_ctrl btn-add-gadget">
+			<span class="ic_dashboard2 ic_ctrl_open" title="{{label.open}}"></span>
+		</span>
+	</div>
+</div>
+
+<div id="dashboard-option-gadget" class="dashboard-option-pane go_dashboard_option dashboard_option_gadget" data-type="gadget" style="display:none">
+	<div class="gadget_list_wrap">
+		<ul class="gadget_list"></ul>
+	</div>
+</div>
+
+<div class="layer_alarm2" id="layer_alarm_top" style="display:none">
+    <span class="dday" id="layer_alarm_dady">{{dday}}</span>
+    <span class="txt">{{ddaymsg}}</span>
+    <a class="btn_layer_x" title="{{close}}"><span class="ic"></span><span class="txt">{{close}}</span></a>
+</div>
+

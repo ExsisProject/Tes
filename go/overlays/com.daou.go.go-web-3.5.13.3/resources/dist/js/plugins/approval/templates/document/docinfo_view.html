@@ -1,0 +1,144 @@
+
+<form>
+    <fieldset>
+        <table class="form_type tb_doc_info">
+            <tbody>
+                <tr>
+                    <th><span class="title">{{lang.문서번호}}</span></th>
+                    <td><span class="txt">{{docInfo.docNum}}</span></td>
+                </tr>
+            	<tr>
+                    <th><span class="title">{{lang.공개여부}}</span></th>
+                    <td>
+                        <span class="txt">
+                     	{{#docInfo.isPublic}}{{lang.공개}}{{/docInfo.isPublic}}
+                     	{{^docInfo.isPublic}}{{lang.비공개}}{{/docInfo.isPublic}}
+                        </span>
+                    </td>
+                </tr>
+                {{#action.companyDocFolderUseFlag}}
+                <tr id="companyDocFolderUse">
+                    <th><span class="title">{{lang.전사문서함}}</span></th>
+                    <td>
+                    	<ul class="name_tag" id="addFolder">        	                 
+        	                {{#docInfo.docFolders}}
+                    	 	<li>
+								<span class="name" title="{{parentName}}">{{parentName}}</span>
+							</li>
+        	                {{/docInfo.docFolders}}
+                    	 </ul>
+                    </td>
+                </tr>
+                {{/action.companyDocFolderUseFlag}}
+                <tr {{^action.securityLevelActive}}style="display:none;"{{/action.securityLevelActive}}>
+                    <th><span class="title">{{lang.보안등급}}</span></th>
+                    <td>
+                    	<span class="txt">{{docInfo.securityLevelName}}</span>
+                    </td>
+                </tr>
+                <tr>
+                    <th><span class="title">{{lang.보존연한}}</span></th>
+                    <td>
+                        <span class="txt">{{#docInfo.docYear}}{{docInfo.docYear}}{{lang.년}}{{/docInfo.docYear}}{{^docInfo.docYear}}{{lang.영구}}{{/docInfo.docYear}}</span>
+                    </td>
+                </tr>
+                <tr>
+                    <th><span class="title">{{lang.기안부서}}</span></th>
+                    <td><span class="txt">{{docInfo.drafterDeptName}}</span></td>
+                </tr>
+                {{#action.referenceActive}}
+                <tr>
+                    <th><span class="title">{{lang.문서참조}}</span></th>
+                    <td>
+                        <div class="wrap_name_tag">
+	                        <ul class="name_tag" id="addReference">
+	                        	{{#docInfo.docReferenceReaders}}
+		                        <li>
+									<span class="name">{{reader.name}} {{reader.position}}</span>
+								</li>
+								{{/docInfo.docReferenceReaders}}
+	                        </ul>
+                        </div>                                                                   
+                    </td>
+                </tr>   
+                {{/action.referenceActive}}
+                {{^isComplete}}
+                {{#action.receptionActive}}
+                <tr>
+                    <th><span class="title">{{lang.문서수신}}</span></th>
+                    <td>
+                        <div class="wrap_name_tag">
+	                        <ul class="name_tag" id="addReceive">
+	                            {{#docInfo.docReceptionReaders}}
+		                        <li>
+									<span class="name">{{reader.name}} {{reader.position}}</span>
+								</li>
+								{{/docInfo.docReceptionReaders}}
+	                        </ul>
+                        </div>
+                    </td>
+                </tr>
+                {{/action.receptionActive}}
+                {{/isComplete}}
+                {{#isComplete}}
+                {{#action.receptionActive}}
+                <tr>
+                    <th><span class="title">{{lang.문서수신}}</span></th>
+                    <td>
+                        <div class="wrap_name_tag">
+                            <ul class="name_tag" id="addReceive">
+                                {{#docInfo.docReceptionReaders}}
+                                <li data-id="{{reader.id}}" data-userId="{{reader.id}}" data-userName="{{reader.name}}" data-userPosition="{{reader.position}}" data-sid="{{id}}" data-deptType={{reader.deptType}}>
+                                    <span class="name">{{reader.name}} {{reader.position}}</span>
+                                </li>
+                                {{/docInfo.docReceptionReaders}}
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
+                {{/action.receptionActive}}
+                {{/isComplete}}
+                
+                <tr>
+                    <th><span class="title">{{lang.문서열람}}</span></th>
+                    <td>
+                        <ul class="name_tag" id="addReading">
+                            {{#docInfo.docReadingReaders}}
+	                        <li data-id="{{reader.id}}" data-userId="{{reader.id}}" data-userName="{{reader.name}}" data-userPosition="{{reader.position}}" data-sid="{{id}}" data-deptType={{reader.deptType}}>
+								<span class="name">{{reader.name}} {{reader.position}}</span>
+							</li>
+							{{/docInfo.docReadingReaders}}
+                        </ul>                                                                       
+                    </td>
+                </tr> 
+                
+                {{#action.officialDocumentSendable}}
+                <tr>
+                    <th><span class="title">{{lang.공문발송}}</span></th>
+                    <td>
+                        <div class="wrap_name_tag">
+	                        <ul class="name_tag" id="addOfficialDoc">
+                            {{#docInfo.officialVersions}}
+								{{#receivers}}
+		                        <li>
+									<span class="name">{{company}} {{name}}</span>
+								</li>
+								{{/receivers}}
+							{{/docInfo.officialVersions}}
+	                        </ul>
+                        </div>                                                                       
+                    </td>
+                </tr>            
+                {{/action.officialDocumentSendable}}
+                <tr>
+                    <th><span class="title">{{lang.긴급문서}}</span></th>
+                    <td>
+                    	{{#isEmergency}}
+                    	<span class="txt">{{lang.긴급}}</span>
+                    	{{/isEmergency}}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </fieldset>
+</form>

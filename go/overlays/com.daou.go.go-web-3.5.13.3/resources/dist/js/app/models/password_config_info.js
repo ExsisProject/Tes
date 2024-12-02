@@ -1,0 +1,1 @@
+define(function(require){var e=require("backbone"),t=e.Model.extend({idAttribute:"_id",url:GO.contextRoot+"api/passwordconfig"});return t});

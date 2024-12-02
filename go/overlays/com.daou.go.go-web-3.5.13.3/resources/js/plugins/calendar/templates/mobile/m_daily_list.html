@@ -1,0 +1,19 @@
+	<section class="calendar_tool_bar">
+		<div class="current_date">		
+			<a href="javascript:;" data-bypass id="prevDatePart" data-btntype="moveDate" data-date="{{prevDate}}"><span class="btn btn_prev_type2"></span></a>
+			<span class="date" data-date="{{currentDateBasic}}" id="currentDatePart">{{currentDate}}</span>					
+			<a href="javascript:;" data-bypass id="nextDatePart" data-btntype="moveDate" data-date="{{nextDate}}"><span class="btn btn_next_type2"></span></a>
+		</div>
+		<div class="critical">
+			<a href="javascript:;" class="btn_tool" data-btntype="monthView" data-role="button" data-bypass><span class="txt">{{lang.monthly}}</span></a>
+
+		</div>
+		<div class="optional">		
+			<a href="javascript:;" class="btn_tool" data-role="button" data-btntype="today" data-bypass><span class="txt">{{lang.today}}</span></a>		
+		</div>			
+	</section>
+	<div class="content">
+		<dl class="list_type3" id="dailyListWrap">
+			{{{dailyListUnit}}}
+		</dl>
+	</div>

@@ -1,0 +1,81 @@
+{{^isNullGroup?}}
+<div class="box">
+    <div class="box_body">
+        <div class="form_tr">
+            <div class="form_th">
+                <div class="label">
+                    <span class="txt">{{groupName}}</span>
+                </div>
+                {{#isAddButtonShow}}
+                <span class="btn_round small btn_modify editSort">{{lang.edit}}</span>
+                {{/isAddButtonShow}}
+            </div>
+        </div>
+        {{#activities}}
+        <div class="form_tr">
+            <div class="form_td">
+                <div class="list nude list_approvalLine" data-userId="{{userId}}" data-deptId="{{deptId}}">
+                    <div class="item drag">
+                        {{^isAssigned}}
+                            {{#isEnabled}}
+                                <select>
+                                    {{#userName}}
+                                    {{#isApprovalTypeVisible}}
+                                    <option name="type" value="APPROVAL" {{#isApprovalType}}selected{{/isApprovalType}}>{{lang.approval}}</option>
+                                    {{/isApprovalTypeVisible}}
+                                    {{/userName}}
+                                    {{#isAgreementTypeVisible}}
+                                    <option name="type" value="AGREEMENT" {{#isAgreementType}}selected{{/isAgreementType}}>{{lang.agreement}}</option>
+                                    {{/isAgreementTypeVisible}}
+                                    {{#userName}}
+                                    {{#isCheckTypeVisible}}
+                                    <option name="type" value="CHECK" {{#isCheckType}}selected{{/isCheckType}}>{{lang.check}}</option>
+                                    {{/isCheckTypeVisible}}
+                                    {{/userName}}
+                                    {{#userName}}
+                                    {{#isInspectionTypeVisible}}
+                                    <option name="type" value="INSPECTION" {{#isInspectionType}}selected{{/isInspectionType}}>{{lang.inspection}}</option>
+                                    {{/isInspectionTypeVisible}}
+                                    {{/userName}}
+                                </select>
+                            {{/isEnabled}}
+                            {{^isEnabled}}
+                                {{activityType}}
+                            {{/isEnabled}}
+                        {{/isAssigned}}
+                        {{#isAssigned}}
+                            {{activityType}}
+                        {{/isAssigned}}
+                        <!--span class="kind omit">기안</span-->
+                        <a class="photo s" href="#">
+                            <img src="{{thumbnail}}">
+                        </a>
+                        <span class="name omit">{{userName}}</span>
+                        <span class="team omit">{{deptName}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{/activities}}
+        {{^activities}}
+        <div class="form_tr">
+            <div class="form_td">
+                <div class="data_null">{{lang.data_null}}</div>
+            </div>
+        </div>
+        {{/activities}}
+    </div>
+    {{#isAddButtonShow}}
+    <div class="box_footer">
+        <div class="wrap_btn_add">
+            <div class="column">
+                <button class="btn node big btn_add">
+                    <span class="bullet">+</span>
+                    <span class="txt">{{lang.add_approval}}</span>
+                </button>
+            </div>
+        </div>
+    </div>
+    {{/isAddButtonShow}}
+</div>
+{{/isNullGroup?}}

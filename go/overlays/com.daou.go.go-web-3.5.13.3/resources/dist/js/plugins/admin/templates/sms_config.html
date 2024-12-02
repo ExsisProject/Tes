@@ -1,0 +1,108 @@
+<div class="content_info" id="count_info">
+    <dl>
+        <dt>{{lang.label_desc1}}</dt>
+        <dt>{{lang.label_desc2}}</dt>
+    </dl>
+</div>
+
+<div id="lmsContainer" class="container">
+    <div class="header">
+        <h2>{{lang.label_lmsSetting}}</h2>
+    </div>
+    <div class="content">
+        <table class="detail">
+            <colgroup>
+                <col width="160px">
+                <col width="*">
+            </colgroup>
+            <tbody>
+                <tr class="last">
+                    <th><span class="title access_class_label">{{lang.label_policySetting}}</span></th>
+                    <td>
+                        <span class="action" style="left: 200px;" id="selectLmsAccessPolicy">
+                            <div class="vertical_wrap_s">
+                                <span class="wrap_opt">
+                                    <input type="radio" data-type="lms" id="lms_black" name="lmsAccessSetting" value="BLACK" >
+                                    <label for="lms_black">{{lang.label_blackDesc}}</label>
+                                </span>&nbsp;&nbsp;
+                                <span class="wrap_opt">
+                                    <input type="radio" data-type="lms" id="lms_white" name="lmsAccessSetting" value="WHITE" checked="checked">
+                                    <label for="lms_white">{{lang.label_whiteDesc}}</label>
+                                </span>
+                            </div>
+                        </span>
+                    </td>
+                </tr>
+                <tr class="last">
+                    <th><span class="title access_class_label" id="lmsAccessTitle">{{lang.label_config}}</span></th>
+                    <td>
+                        <div class="vertical_tit_wrap">				
+                            <span class="selectedClass tit">{{lang.허용할클래스선택}}</span>
+                            <span id="lmsAccessUser"></span>
+                            <span class="exceptedClass tit">{{lang.예외차단클래스선택}}</span>
+                            <span class="help">
+                                <span class="tool_tip exceptedClassToolTip">{{lang.예외차단클래스툴팁}}
+                                    <i class="tail_left"></i>
+                                </span>
+                            </span>
+                            <span id="lmsExceptionUser"></span>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div id="mmsContainer" class="container">
+    <div class="header">
+        <h2>{{lang.label_mmsSetting}}</h2>
+    </div>
+    <div class="content">
+        <table class="detail">
+            <colgroup>
+                <col width="160px">
+                <col width="*">
+            </colgroup>
+            <tbody>
+                <tr class="last">
+                    <th><span class="title access_class_label">{{lang.label_policySetting}}</span></th>
+                    <td>
+                        <span class="action" style="left: 200px;" id="selectMmsAccessPolicy">
+                            <div class="vertical_wrap_s">
+                                <span class="wrap_opt">
+                                    <input type="radio" data-type="mms" id="mms_black" name="mmsAccessSetting" value="BLACK" >
+                                    <label for="mms_black">{{lang.label_blackDesc}}</label>
+                                </span>
+                                &nbsp;&nbsp;
+                                <span class="wrap_opt">
+                                    <input type="radio" data-type="mms" id="mms_white" name="mmsAccessSetting" value="WHITE" checked="checked">
+                                    <label for="mms_white">{{lang.label_whiteDesc}}</label>
+                                </span>
+                            </div>
+                        </span>
+                    </td>
+                </tr>
+                <tr class="last">
+                    <th><span class="title access_class_label" id="mmsAccessTitle">{{lang.label_config}}</span></th>
+                    <td>
+                        <div class="vertical_tit_wrap">             
+                            <span class="selectedClass tit">{{lang.허용할클래스선택}}</span>
+                            <span id="mmsAccessUser"></span>
+                            <span class="exceptedClass tit">{{lang.예외차단클래스선택}}</span>
+                            <span class="help">
+                                <span class="tool_tip exceptedClassToolTip">{{lang.예외차단클래스툴팁}}
+                                    <i class="tail_left"></i>
+                                </span>
+                            </span>
+                            <span id="mmsExceptionUser"></span>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="page_action">
+    <span class="btn" id="smsConfigSubmit">{{lang.label_ok}}</span>
+    <span class="btn_nega" id="smsConfigCancel">{{lang.label_cancel}}</span>
+</div>

@@ -1,0 +1,49 @@
+<li class="org" data-deptid="{{id}}">
+	<p class="title">
+        <a style="cursor: auto;">
+    		<ins class="ic"></ins><span class="txt">{{name}}</span>
+    		<span class="btn_wrap">
+    			<span class="ic_side ic_side_setting" id="manage"></span>
+    		</span>
+        </a>
+	</p>
+	<ul class="data_set" id="folderList">
+		<li class="appr_compl" data-navi="draft" data-folderId="{{id}}">
+            <p class="title">
+                <a class="go_boards">
+                    <ins class="ic"></ins><span class="txt">{{lang.기안 완료함}}</span>
+                </a>
+            </p>
+        </li>
+        <li class="appr_cc" data-navi="reference" data-folderId="{{id}}">
+            <p class="title">
+                <a class="go_boards">
+                    <ins class="ic"></ins><span class="txt">{{lang.부서 참조함}}</span>
+                </a>
+            </p>
+        </li>
+		<li class="appr_reception" data-navi="receive" data-folderId="{{id}}">
+			<p class="title">
+				<a class="go_boards">
+					<ins class="ic"></ins><span class="txt">{{lang.부서 수신함}}</span>
+				</a>
+			</p>
+		</li>
+        <li class="appr" data-navi="official" data-folderId="{{id}}">
+            <p class="title">
+                <a class="go_boards">
+                    <ins class="ic"></ins><span class="txt">{{lang.dept_official}}</span>
+                </a>
+            </p>
+        </li>
+		{{#collection}}
+		<li class="appr" data-navi="doc" data-folderId="{{folderId}}">
+			<p class="title">
+				<a class="go_boards">
+					<ins class="ic"></ins><span class="txt">{{folderName}}</span>
+				</a>
+			</p>
+		</li>
+		{{/collection}}
+	</ul>
+</li>

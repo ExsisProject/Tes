@@ -1,0 +1,205 @@
+<header class="content_top">
+	<h1>
+		{{#info}}
+		<span id=groupInfoName class="txt" data-groupId={{id}}>{{name}}</span>
+		{{/info}}
+
+		{{^info}}
+		<span class="txt">{{lang.all_contact}}</span>
+		{{/info}}
+		
+		<span class="meta">in {{getSubTitle}}
+			<span id="contactCount" class="num"></span>
+		</span>
+
+		{{#isGroup}}
+		{{#isAvailableMail}}
+		<a id="sendMailGroup" class="btn_fn6" data-bypass>
+			<span class="ic_common ic_mail"></span>
+			<span class="txt">{{lang.sendMail}}</span>
+		</a>
+		{{/isAvailableMail}}
+		{{/isGroup}}
+	</h1>
+</header>
+
+<div class="content_page">
+	<section class="tool_bar">
+		<ul class="critical">
+			{{#writable}}
+			<li>
+				<a id="quickRegistToggler" data-bypass class="btn_tool">
+					<span class="ic_toolbar fast"></span>
+					<span class="txt">{{lang.quick}}</span>
+				</a>
+			</li>
+			{{/writable}}
+			{{#isAvailableMail}}
+			<li>
+				<a id="contactMail" data-bypass class="btn_tool">
+					<span class="ic_toolbar mail"></span>
+					<span class="txt">{{lang.mail}}</span>
+				</a>
+			</li>
+			{{/isAvailableMail}}
+
+			{{^isCompanyMode}}
+			{{#writable}}
+			<li>
+				<a id="groupModify" data-bypass class="btn_tool">
+                    <span class="ic_toolbar group"></span>
+                    <span class="txt">{{lang.addgroup}}</span>
+                </a>
+            </li>
+			{{#isGroup}}
+            <li>
+                <a id="groupCancel" data-bypass class="btn_tool">
+                    <span class="ic_toolbar group_cancel"></span>
+                    <span class="txt">{{lang.groupCancel}}</span>
+                </a>
+            </li>
+            {{/isGroup}}
+			{{/writable}}
+			{{/isCompanyMode}}
+
+			{{#removable}}
+			<li>
+                <a id="contactDelete" data-bypass class="btn_tool">
+                    <span class="ic_toolbar del"></span>
+                    <span class="txt_caution">{{lang.delete}}</span>
+                </a>
+            </li>
+			{{/removable}}
+
+			<li id="exposeCopyBtn">
+				<a class="btn_tool" id="copyContact">
+					<span class="ic_toolbar copy"></span>
+					<span class="txt_caution">{{lang.copy}}</span>
+				</a>
+			</li>
+
+			{{#isCompanyManager}}
+			<li>
+                <a id="manage_company" data-bypass="" class="btn_tool">
+                    <span class="ic_toolbar group_setting"></span>
+                    <span class="txt">{{lang.그룹관리}}</span>
+                </a>
+            </li>
+			{{/isCompanyManager}}
+
+			<li>
+				<div id="seeMore" class="btn_submenu">
+					<a class="btn_tool" data-role="button" el-backdrop-link>
+						<span class="ic_toolbar more"></span>
+						<span class="txt">{{lang.더보기}}</span>
+					</a>
+					<div class="array_option" el-backdrop style="display: none;">
+						<ul class="array_type">
+							<li id="contactExport"><span>{{lang.export}}</span></li>
+							{{#writable}}
+							<li id="contactCsvImport"><span>{{lang.import_csv}}</span></li>
+							{{#mailExposure}}
+							<li id="contactDeptImport"><span>{{lang.import_from_org}}</span></li>
+							{{/mailExposure}}
+							{{/writable}}
+							<li id="contactCurrentPrint" data-type="current"><span>{{lang.current_print}}</span></li>
+							<li id="contactAllPrint" data-type="all" class="last"><span>{{lang.all_print}}</span></li>
+						</ul>
+					</div>
+				</div>
+			</li>
+		</ul>
+	</section>
+
+	{{#writable}}
+	<form id="quickCreateForm" class="speed_regist">
+		<fieldset>
+			<div class="form_type form_speed">
+				<input id="quickName" type="text" placeholder="{{lang.displayname}}" class="input w_small">
+				<input id="quickEmail" type="text" placeholder="{{lang.email}}" class="input w_small">
+				<input id="quickPhone" type="text" placeholder="{{lang.mobileno}}" class="input w_small">
+				<span class="btn_minor_s2">
+					<span id="quickCreate" class="ic_toolbar fast"></span>
+				</span>
+				<span class="btn_minor_s3">
+					<span id="detailCreate" class="txt">{{lang.detail}}</span>
+				</span>
+			</div>
+		</fieldset>
+	</form>
+	{{/writable}}
+
+	<div class="critical mar10t" id="toolBar" style="display:none">
+	</div>
+
+	<form name="formContacts">
+		<div class="wrap_type_normal">
+		<table id="contacts" class="type_normal tb_addr_list">
+			<thead>
+			<tr>
+				{{#isName}}
+				<th class="name" style="min-width: 100px"><span class="title_sort">{{lang.displayname}}<ins class="ic"></ins><span class="selected"></span></span></th>
+				{{#isLocaleJp}}
+				<th class="name" style="min-width: 100px"><span class="title_sort">{{lang.hurigana}}<ins class="ic"></ins><span class="selected"></span></span></th>
+				{{/isLocaleJp}}
+				{{/isName}}
+
+				{{#isPosition}}
+				<th class="position" style="min-width: 50px"><span class="title_sort">{{lang.position}}<ins class="ic"></ins></span></th>
+				{{/isPosition}}
+
+				{{#isMobile}}
+				<th class="hp" style="min-width: 80px"><span class="title_sort">{{lang.mobileno}}<ins class="ic"></ins></span></th>
+				{{/isMobile}}
+
+				{{#isEmail}}
+				<th class="email" style="min-width: 90px"><span class="title_sort">{{lang.email}}<ins class="ic"></ins><span class="selected"></span></span></th>
+				{{/isEmail}}
+
+				{{#isDepartment}}
+				<th class="department" style="min-width: 50px"><span class="title_sort">{{lang.department}}<ins class="ic"></ins></span></th>
+				{{/isDepartment}}
+
+				{{#isCompany}}
+				<th class="company" style="min-width: 55px"><span class="title_sort">{{lang.companyname}}<ins class="ic"></ins><span class="selected"></span></span></th>
+				{{/isCompany}}
+
+				{{#isCompanyPhone}}
+				<th class="tel" style="min-width: 80px"><span class="title_sort">{{lang.company_tel}}<ins class="ic"></ins></span></th>
+				{{/isCompanyPhone}}
+
+				{{#isCompanyAddress}}
+				<th class="company_address" style="min-width: 100px"><span class="title_sort">{{lang.company_address}}<ins class="ic"></ins></span></th>
+				{{/isCompanyAddress}}
+
+				{{#isMemo}}
+				<th class="memo" style="min-width: 100px"><span class="title_sort">{{lang.memo}}<ins class="ic"></ins></span></th>
+				{{/isMemo}}
+
+				{{#isShowGroup}}
+				<th class="group" style="min-width: 110px">
+				    <span class="title_sort">
+				        {{#info}}
+				        {{lang.group}}<ins class="ic"></ins>
+				        {{/info}}
+				        {{^info}}
+				        <div class="article_head_wrap">
+                            <select id="groups" class="article_head">
+                                <option value="">{{lang.group}}</option>
+                                {{#contactGroup}}
+                                <option value="{{id}}">{{name}}</option>
+                                {{/contactGroup}}
+                            </select>
+                        </div>
+                        {{/info}}
+				    </span>
+				</th>
+				{{/isShowGroup}}
+
+			</tr>
+			</thead>
+		</table>
+		</div>
+	</form>
+	<iframe name="printIframe" id="printIframe" style="display:none"></iframe>
+</div>

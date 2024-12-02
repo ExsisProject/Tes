@@ -1,0 +1,42 @@
+{{^dataset}}
+<li class="creat data_null">
+    <span class="txt">{{lang.검색결과없음}}</span>
+</li>
+{{/dataset}}
+{{#dataset}}
+<li>
+    <a class="tit" data-bypass data-id="{{id}}">
+            <span class="subject">
+                <span class="state {{getStatusClass}}">{{getStatusName}}</span>
+                {{#isReceive}}
+                <span class="state ghost">{{lang.수신}}</span>
+                {{/isReceive}}
+            </span>
+        <span class="subject">
+                <span class="title">{{{formName}}}</span>
+            </span>
+        <span class="txt">
+                {{{title}}}
+            </span>
+        <span class="info">
+                <span class="writer">{{{drafterName}}}</span>
+                {{#docNum}}
+                <span class="part">|</span>
+                <span class="date">{{{docNum}}}</span>
+                {{/docNum}}
+                {{#draftedAt}}
+                <span class="part">|</span>
+                <span class="date">{{parseDraftedAt}}</span>
+                {{/draftedAt}}
+            </span>
+        {{#attachFileNames}}
+        <span class="opt">
+                <span class="wrap_ic">
+                    <span class="ic ic_attach"></span>
+                    <span class="num">{{attachFileCount}}</span>
+                </span>
+            </span>
+        {{/attachFileNames}}
+    </a>
+</li>
+{{/dataset}}

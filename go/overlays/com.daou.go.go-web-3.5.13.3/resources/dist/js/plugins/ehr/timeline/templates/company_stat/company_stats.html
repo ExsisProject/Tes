@@ -1,0 +1,68 @@
+<header class="content_top">
+    <h1>
+        {{#isDept}}
+            <span class="txt single_txt">{{TimelineLang.부서 근태현황}}</span>
+        {{/isDept}}
+
+        {{#isCompany}}
+            <span class="txt single_txt">{{TimelineLang.전사 근태현황}}</span>
+        {{/isCompany}}
+    </h1>
+</header>
+        <!-- tool bar -->
+<div class="content_page">
+
+        <div class="tool_bar calendar_tool_bar">
+            <div class="current_date">
+                <span class="btn_ic_prev2 btn_border" title={{CommonLang.이전}} id="prevDate"><span class="ic_ehr ic_date_prev"></span></span>
+                <span class="date" id="searchDate">
+                    {{dateInfo}}
+                </span>
+                <span class="btn_ic_next2 btn_border" title="" id="nextDate"><span class="ic_ehr ic_date_next"></span></span>
+                <input id="calendarDatepicker" type="text" style="border:0px;width:0px;height:0px;">
+                <span class="btn_tool"><span class="txt" id="todayBtn">{{CommonLang.오늘}}</span></span>
+                <ul class="tab_nav" id="statType">
+                    <li id="weekBtn"  class="{{#isDept}}on{{/isDept}}" data-type="weekly" ><span>{{TimelineLang.주간}}</span></li>
+                    <li id="monthBtn" class="{{#isCompany}}on{{/isCompany}}" data-type="monthly"><span>{{TimelineLang.월간}}</span></li>
+                </ul>
+            </div>
+        </div>
+</div>
+        <!-- //tool bar -->
+        <!-- ehr datatable -->
+        <div class="wrap_tb_box">
+            	<section class="tool_bar">
+                    <div class="critical" id="filter_parent">
+
+                        </div>
+                        <div  class="optional">
+                            <!--<a id="xlsxDownBtn" class="btn_tool"><span class="txt">{{CommonLang.목록 다운로드}}</span></a>-->
+                            <div id="timeline_list_length" class="dataTables_length"></div>
+                        </div>
+                    </section>
+
+            <div class="wrap_tb_shadow">
+                <table class="type_normal type_white type_white_depart tb_ehr_flexible">
+                    <thead>
+                        <tr id="timeline_stat_title">
+                        </tr>
+                    </thead>
+                    <tbody id="timeline_stat_content">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="tool_bar tool_absolute wrap_tb_box">
+            <div class="critical">
+                <section class="marker2">
+                    <ul>
+                        <li class="normal"><span></span>{{TimelineLang.정상}}</li>
+                        <li class="late"><span></span>{{TimelineLang.지각}}</li>
+                        <li class="modify"><span></span>{{TimelineLang.수정}}</li>
+                    </ul>
+                </section>
+            </div>
+
+            <div class="dataTables_length"></div>
+
+        <!-- //ehr datatable -->

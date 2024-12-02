@@ -1,0 +1,1 @@
+define(function(require){var e=require("backbone"),t=e.Model.extend({defaults:{companyId:"",companyName:"",jdbcId:"",jdbcName:"",keyColumns:"",queryType:"",query:""},url:"/ad/api/sync/query"});return t});

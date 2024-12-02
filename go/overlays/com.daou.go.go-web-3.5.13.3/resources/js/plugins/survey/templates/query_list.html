@@ -1,0 +1,41 @@
+<ul class="survey_list">
+	<li>
+		<form id="survey-desc-form">
+			<table class="form_type form_survey">
+                <colgroup>
+                    <col width="100px"/>
+                    <col width="*" />
+                </colgroup>
+				<tbody>
+					<tr>
+						<th>
+							<span class="title">{{label.quide_text}}</span>
+                            <span class="help"><span class="tool_tip">{{{label.guide_desc}}}<i class="tail_left"></i></span></span>
+						</th>
+						<td>
+							<div class="wrap_txtarea">
+								<textarea class="w_large" name="survey_guidance" placeholder = "{{label.guidance}}" maxlength="1000">{{guidance}}</textarea>
+							</div>
+							<span class="verspace1"></span>
+							<span class="file-uploader btn_minor_s" style="padding:0 !important;"></span>
+							<div id="survey-attach-placeholder"></div>
+						</td>
+                        
+					</tr>
+				</tbody>
+			</table>
+		</form>
+	</li>
+	
+	<li class="action">							
+		<div id="btn-add-query" class="btn_addsurvey" data-role="button">
+			<span class="ic"></span><span class="txt">{{label.add_query}}</span>
+		</div>	
+	</li>
+</ul>
+
+<div class="page_action_wrap">
+	<a class="btn-finished btn_major" data-role="button"><span class="txt">{{label.finished}}</span></a>
+	<a class="btn-previous btn_minor" data-role="button"><span class="txt">{{label.previous}}</span></a>
+	<a class="btn-tempsave btn_minor" data-role="button"><span class="txt">{{label.tempsave}}</span></a>			
+</div>

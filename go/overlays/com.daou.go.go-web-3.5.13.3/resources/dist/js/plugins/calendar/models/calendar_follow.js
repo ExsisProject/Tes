@@ -1,0 +1,1 @@
+(function(){define(["backbone","app"],function(e,t){var n=t.BaseModel.extend({url:function(){return"/api/calendar/follower/"+this.options.followId},initialize:function(e){this.options=e}});return n})}).call(this);

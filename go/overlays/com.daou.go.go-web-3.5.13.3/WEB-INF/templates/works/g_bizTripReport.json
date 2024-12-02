@@ -1,0 +1,731 @@
+{
+  "meta": {
+    "key": "3312d888-4612-983b-a92b-44c1381c927",
+    "base": {
+      "name": "applet.biz.trip.template.name",
+      "desc": "applet.biz.trip.template.desc",
+      "icon": "ic_app16.png"
+    },
+    "exporter": {
+      "name": "관리자",
+      "companyName": "다우기술"
+    }
+  },
+  "components": {
+    "view": {
+      "charts": [],
+      "columns": [
+        {
+          "fieldCid": "status"
+        },
+        {
+          "fieldCid": "_z5nl6hr3p"
+        },
+        {
+          "fieldCid": "_gclubxkkk"
+        },
+        {
+          "fieldCid": "_0kvv8io9c"
+        },
+        {
+          "fieldCid": "_yvrfkbu5t"
+        },
+        {
+          "fieldCid": "_6kxcztn3b"
+        },
+        {
+          "fieldCid": "_kjnl6fjj2"
+        },
+        {
+          "fieldCid": "_viqol42vg"
+        },
+        {
+          "fieldCid": "_xupta5ggo"
+        }
+      ],
+      "titleColumnIndex": 1,
+      "sortColumnIndex": -1,
+      "sortDirection": "DESC",
+      "docNoConfig": {
+        "useDocNo": false,
+        "docNoType": "simple",
+        "customDigit": 2
+      }
+    },
+    "form": {
+      "data": {
+        "type": "canvas",
+        "multiple": false,
+        "cid": "cxx1",
+        "components": [
+          {
+            "type": "columns",
+            "multiple": false,
+            "cid": "_xlh5dm8oo",
+            "parentCid": "cxx1",
+            "properties": {
+              "count": 2
+            },
+            "components": [
+              {
+                "type": "column",
+                "multiple": false,
+                "cid": "_ela8b9w62",
+                "parentCid": "_xlh5dm8oo",
+                "properties": {},
+                "components": [
+                  {
+                    "type": "text",
+                    "valueType": "STEXT",
+                    "multiple": false,
+                    "cid": "_z5nl6hr3p",
+                    "parentCid": "_ela8b9w62",
+                    "properties": {
+                      "label": "출장지",
+                      "hideLabel": false,
+                      "guide": "",
+                      "guideAsTooltip": true,
+                      "required": false,
+                      "duplicate": false,
+                      "similar": false,
+                      "defaultValue": "",
+                      "minLength": 0,
+                      "maxLength": 100,
+                      "width": 100,
+                      "widthUnit": "percent",
+                      "format": "all"
+                    },
+                    "components": []
+                  },
+                  {
+                    "type": "date",
+                    "valueType": "DATE",
+                    "multiple": false,
+                    "cid": "_gclubxkkk",
+                    "parentCid": "_ela8b9w62",
+                    "properties": {
+                      "label": "출발일",
+                      "hideLabel": false,
+                      "guide": "",
+                      "guideAsTooltip": true,
+                      "required": false,
+                      "defaultAsNow": false,
+                      "defaultDate": "",
+                      "code": "date_17649"
+                    },
+                    "components": []
+                  },
+                  {
+                    "type": "date",
+                    "valueType": "DATE",
+                    "multiple": false,
+                    "cid": "_0kvv8io9c",
+                    "parentCid": "_ela8b9w62",
+                    "properties": {
+                      "label": "복귀일",
+                      "hideLabel": false,
+                      "guide": "",
+                      "guideAsTooltip": true,
+                      "required": false,
+                      "defaultAsNow": false,
+                      "defaultDate": "",
+                      "code": "date_17654"
+                    },
+                    "components": []
+                  }
+                ]
+              },
+              {
+                "type": "column",
+                "multiple": false,
+                "cid": "_790d2kvtv",
+                "parentCid": "_xlh5dm8oo",
+                "properties": {},
+                "components": [
+                  {
+                    "type": "creator",
+                    "valueType": "USER",
+                    "multiple": false,
+                    "cid": "creator",
+                    "parentCid": "_790d2kvtv",
+                    "properties": {
+                      "label": "출장자",
+                      "hideLabel": false,
+                      "code": "creator"
+                    },
+                    "components": []
+                  },
+                  {
+                    "type": "create_date",
+                    "valueType": "DATETIME",
+                    "multiple": false,
+                    "cid": "create_date",
+                    "parentCid": "_790d2kvtv",
+                    "properties": {
+                      "label": "등록일",
+                      "hideLabel": false,
+                      "code": "create_date"
+                    },
+                    "components": []
+                  },
+                  {
+                    "type": "text",
+                    "valueType": "STEXT",
+                    "multiple": false,
+                    "cid": "_yvrfkbu5t",
+                    "parentCid": "_790d2kvtv",
+                    "properties": {
+                      "label": "기간",
+                      "hideLabel": false,
+                      "guide": "",
+                      "guideAsTooltip": true,
+                      "required": false,
+                      "duplicate": false,
+                      "similar": false,
+                      "defaultValue": "0박 0일",
+                      "minLength": 0,
+                      "maxLength": 100,
+                      "width": 100,
+                      "widthUnit": "percent",
+                      "format": "all"
+                    },
+                    "components": []
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "textarea",
+            "valueType": "TEXT",
+            "multiple": false,
+            "cid": "_zi5k4oa1v",
+            "parentCid": "cxx1",
+            "properties": {
+              "label": "출장목적 및 출장일정",
+              "hideLabel": false,
+              "guide": "",
+              "guideAsTooltip": true,
+              "required": false,
+              "defaultValue": "",
+              "width": 100,
+              "widthUnit": "percent",
+              "rows": 10
+            },
+            "components": []
+          },
+          {
+            "type": "hr",
+            "multiple": false,
+            "cid": "_xbgiz065n",
+            "parentCid": "cxx1",
+            "properties": {},
+            "components": []
+          },
+          {
+            "type": "label",
+            "multiple": false,
+            "cid": "_uyf2zab4m",
+            "parentCid": "cxx1",
+            "properties": {
+              "label": "여비정산내역"
+            },
+            "components": []
+          },
+          {
+            "type": "columns",
+            "multiple": false,
+            "cid": "_qar4qxthl",
+            "parentCid": "cxx1",
+            "properties": {
+              "count": 2
+            },
+            "components": [
+              {
+                "type": "column",
+                "multiple": false,
+                "cid": "_l6qs9m9gq",
+                "parentCid": "_qar4qxthl",
+                "properties": {},
+                "components": [
+                  {
+                    "type": "number",
+                    "valueType": "NUMBER",
+                    "multiple": false,
+                    "cid": "_kjnl6fjj2",
+                    "parentCid": "_l6qs9m9gq",
+                    "properties": {
+                      "label": "교통비",
+                      "hideLabel": false,
+                      "guide": "",
+                      "guideAsTooltip": true,
+                      "required": false,
+                      "minLength": "0",
+                      "maxLength": 100000000000,
+                      "width": 250,
+                      "widthUnit": "px",
+                      "unitText": "",
+                      "fixType": "postfix",
+                      "decimalPoints": 2,
+                      "thousandComma": true,
+                      "useTableAutoAggr": false,
+                      "tableAggrType": "",
+                      "code": "number_1",
+                      "defaultValue": "0"
+                    },
+                    "components": []
+                  },
+                  {
+                    "type": "number",
+                    "valueType": "NUMBER",
+                    "multiple": false,
+                    "cid": "_viqol42vg",
+                    "parentCid": "_l6qs9m9gq",
+                    "properties": {
+                      "label": "숙박비",
+                      "hideLabel": false,
+                      "guide": "",
+                      "guideAsTooltip": true,
+                      "required": false,
+                      "minLength": "0",
+                      "maxLength": 100000000000,
+                      "width": 250,
+                      "widthUnit": "px",
+                      "unitText": "",
+                      "fixType": "postfix",
+                      "decimalPoints": 2,
+                      "thousandComma": true,
+                      "useTableAutoAggr": false,
+                      "tableAggrType": "",
+                      "code": "number_3",
+                      "defaultValue": "0"
+                    },
+                    "components": []
+                  },
+                  {
+                    "type": "formula",
+                    "valueType": "NUMBER",
+                    "multiple": false,
+                    "cid": "_6kxcztn3b",
+                    "parentCid": "_l6qs9m9gq",
+                    "properties": {
+                      "label": "출장비 합계",
+                      "hideLabel": false,
+                      "guide": "",
+                      "guideAsTooltip": true,
+                      "expressionType": "number",
+                      "expression": "number_1+number_2+number_3+number_4",
+                      "width": 250,
+                      "widthUnit": "px",
+                      "unitText": "",
+                      "fixType": "postfix",
+                      "decimalPoints": 2,
+                      "thousandComma": true,
+                      "code": "formula_26283"
+                    },
+                    "components": []
+                  }
+                ]
+              },
+              {
+                "type": "column",
+                "multiple": false,
+                "cid": "_4gewx5vul",
+                "parentCid": "_qar4qxthl",
+                "properties": {},
+                "components": [
+                  {
+                    "type": "number",
+                    "valueType": "NUMBER",
+                    "multiple": false,
+                    "cid": "_xupta5ggo",
+                    "parentCid": "_4gewx5vul",
+                    "properties": {
+                      "label": "일당",
+                      "hideLabel": false,
+                      "guide": "",
+                      "guideAsTooltip": true,
+                      "required": false,
+                      "minLength": "0",
+                      "maxLength": 100000000000,
+                      "width": 250,
+                      "widthUnit": "px",
+                      "unitText": "",
+                      "fixType": "postfix",
+                      "decimalPoints": 2,
+                      "thousandComma": true,
+                      "useTableAutoAggr": false,
+                      "tableAggrType": "",
+                      "code": "number_2",
+                      "defaultValue": "0"
+                    },
+                    "components": []
+                  },
+                  {
+                    "type": "number",
+                    "valueType": "NUMBER",
+                    "multiple": false,
+                    "cid": "_2v6g6eea2",
+                    "parentCid": "_4gewx5vul",
+                    "properties": {
+                      "label": "기타",
+                      "hideLabel": false,
+                      "guide": "",
+                      "guideAsTooltip": true,
+                      "required": false,
+                      "minLength": "0",
+                      "maxLength": 100000000000,
+                      "width": 250,
+                      "widthUnit": "px",
+                      "unitText": "",
+                      "fixType": "postfix",
+                      "decimalPoints": 2,
+                      "thousandComma": true,
+                      "useTableAutoAggr": false,
+                      "tableAggrType": "",
+                      "code": "number_4",
+                      "defaultValue": "0"
+                    },
+                    "components": []
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "hr",
+            "multiple": false,
+            "cid": "_fxjx1ovhd",
+            "parentCid": "cxx1",
+            "properties": {},
+            "components": []
+          },
+          {
+            "type": "file",
+            "valueType": "FILES",
+            "multiple": false,
+            "cid": "_hdz1ftvb7",
+            "parentCid": "cxx1",
+            "properties": {
+              "label": "파일첨부",
+              "hideLabel": false,
+              "guide": "",
+              "guideAsTooltip": true,
+              "required": false
+            },
+            "components": []
+          }
+        ]
+      }
+    },
+    "process": {
+      "useProcess": true,
+      "statuses": [
+        {
+          "name": "{{applet.new.template.status.ready}}",
+          "start": true,
+          "doing": false,
+          "end": false,
+          "color": "0"
+        },
+        {
+          "name": "{{applet.biz.trip.template.status.ok}}",
+          "start": false,
+          "doing": true,
+          "end": false,
+          "color": "17"
+        },
+        {
+          "name": "{{applet.biz.trip.template.status.complete}}",
+          "start": false,
+          "doing": false,
+          "end": true,
+          "color": "8"
+        },
+        {
+          "name": "{{applet.biz.trip.template.status.delay}}",
+          "start": false,
+          "doing": true,
+          "end": false,
+          "color": "5"
+        }
+      ],
+      "transitions": [
+        {
+          "beforeStatus": "{{applet.new.template.status.ready}}",
+          "nextStatus": "{{applet.biz.trip.template.status.ok}}",
+          "actionName": "{{applet.biz.trip.template.action.ok}}",
+          "actionRoles": [
+            "REGISTRANT",
+            "ADMIN"
+          ],
+          "pushRoles": []
+        },
+        {
+          "beforeStatus": "{{applet.biz.trip.template.status.ok}}",
+          "nextStatus": "{{applet.biz.trip.template.status.complete}}",
+          "actionName": "{{applet.biz.trip.template.action.complete}}",
+          "actionRoles": [
+            "REGISTRANT",
+            "ADMIN"
+          ],
+          "pushRoles": []
+        },
+        {
+          "beforeStatus": "{{applet.biz.trip.template.status.ok}}",
+          "nextStatus": "{{applet.new.template.status.ready}}",
+          "actionName": "{{applet.biz.trip.template.action.cancel}}",
+          "actionRoles": [
+            "REGISTRANT",
+            "ADMIN"
+          ],
+          "pushRoles": []
+        },
+        {
+          "beforeStatus": "{{applet.biz.trip.template.status.complete}}",
+          "nextStatus": "{{applet.biz.trip.template.status.delay}}",
+          "actionName": "{{applet.biz.trip.template.action.delay}}",
+          "actionRoles": [
+            "REGISTRANT",
+            "ADMIN"
+          ],
+          "pushRoles": []
+        },
+        {
+          "beforeStatus": "{{applet.biz.trip.template.status.delay}}",
+          "nextStatus": "{{applet.biz.trip.template.status.ok}}",
+          "actionName": "{{applet.biz.trip.template.action.recheck}}",
+          "actionRoles": [
+            "REGISTRANT",
+            "ADMIN"
+          ],
+          "pushRoles": []
+        },
+        {
+          "beforeStatus": "{{applet.new.template.status.ready}}",
+          "nextStatus": "{{applet.biz.trip.template.status.delay}}",
+          "actionName": "{{applet.biz.trip.template.action.delay}}",
+          "actionRoles": [
+            "REGISTRANT",
+            "ADMIN"
+          ],
+          "pushRoles": []
+        }
+      ],
+      "addPushes": [],
+      "template": "[{\"type\":\"stat\",\"name\":\"{{applet.new.template.status.ready}}\",\"geometryX\":220,\"geometryY\":275},{\"type\":\"stat\",\"name\":\"{{applet.biz.trip.template.status.ok}}\",\"geometryX\":420,\"geometryY\":275},{\"type\":\"stat\",\"name\":\"{{applet.biz.trip.template.status.complete}}\",\"geometryX\":620,\"geometryY\":275},{\"type\":\"stat\",\"name\":\"{{applet.biz.trip.template.status.delay}}\",\"geometryX\":420,\"geometryY\":160},{\"type\":\"transition\",\"beforeStatus\":\"{{applet.new.template.status.ready}}\",\"nextStatus\":\"{{applet.biz.trip.template.status.ok}}\"},{\"type\":\"transition\",\"beforeStatus\":\"{{applet.biz.trip.template.status.ok}}\",\"nextStatus\":\"{{applet.biz.trip.template.status.complete}}\",\"geometryX\":[460,660],\"geometryY\":[370,370]},{\"type\":\"transition\",\"beforeStatus\":\"{{applet.biz.trip.template.status.ok}}\",\"nextStatus\":\"{{applet.new.template.status.ready}}\",\"geometryX\":[460,260],\"geometryY\":[370,370]},{\"type\":\"transition\",\"beforeStatus\":\"{{applet.biz.trip.template.status.complete}}\",\"nextStatus\":\"{{applet.biz.trip.template.status.delay}}\",\"geometryX\":[660,460],\"geometryY\":[190,190]},{\"type\":\"transition\",\"beforeStatus\":\"{{applet.biz.trip.template.status.delay}}\",\"nextStatus\":\"{{applet.biz.trip.template.status.ok}}\",\"geometryX\":[460,460],\"geometryY\":[240,240]},{\"type\":\"transition\",\"beforeStatus\":\"{{applet.new.template.status.ready}}\",\"nextStatus\":\"{{applet.biz.trip.template.status.delay}}\",\"geometryX\":[260],\"geometryY\":[190]},{\"type\":\"stat\",\"geometryX\":20,\"geometryY\":275},{\"type\":\"transition\",\"nextStatus\":\"{{applet.new.template.status.ready}}\"}]"
+    },
+    "calendarView": {
+      "name": "출장 일정 ",
+      "periods": [
+        {
+          "startCid": "_gclubxkkk",
+          "endCid": "_0kvv8io9c"
+        }
+      ]
+    }
+  },
+  "messageKeys": [
+    "applet.new.template.status.ready",
+    "applet.biz.trip.template.status.ok",
+    "applet.biz.trip.template.status.complete",
+    "applet.biz.trip.template.status.delay",
+    "applet.biz.trip.template.action.ok",
+    "applet.biz.trip.template.action.complete",
+    "applet.biz.trip.template.action.cancel",
+    "applet.biz.trip.template.action.delay",
+    "applet.biz.trip.template.action.recheck"
+  ],
+  "guide": {
+    "contents": "applet.biz.trip.manage.template.guide.content",
+    "imageFiles": [
+      "g_bizTripReport/g_01.png",
+      "g_bizTripReport/g_02.png",
+      "g_bizTripReport/g_03.png"
+    ]
+  },
+  "sampleData": {
+    "docValues": [
+      {
+        "status": "{{applet.new.template.status.ready}}",
+        "_z5nl6hr3p": "[Sample] 제주도 한림 고객사",
+        "_gclubxkkk": {
+          "baseDate": "now",
+          "operation": "PLUS",
+          "days": 7
+        },
+        "_0kvv8io9c": {
+          "baseDate": "now",
+          "operation": "MINUS",
+          "days": 60
+        },
+        "_yvrfkbu5t": "1박 2일",
+        "_kjnl6fjj2": 54000,
+        "_viqol42vg": 50000,
+        "_xupta5ggo": 80000,
+        "_2v6g6eea2": 4000,
+        "_6kxcztn3b": 188000
+      },
+      {
+        "status": "{{applet.biz.trip.template.status.ok}}",
+        "_z5nl6hr3p": "[Sample] 세종시 고객사",
+        "_gclubxkkk": {
+          "baseDate": "now",
+          "operation": "MINUS",
+          "days": 5
+        },
+        "_0kvv8io9c": {
+          "baseDate": "now",
+          "operation": "MINUS",
+          "days": 4
+        },
+        "_yvrfkbu5t": "1박 2일",
+        "_kjnl6fjj2": 65000,
+        "_viqol42vg": 80000,
+        "_xupta5ggo": 70000,
+        "_2v6g6eea2": 7000,
+        "_6kxcztn3b": 222000
+      },
+      {
+        "status": "{{applet.biz.trip.template.status.delay}}",
+        "_z5nl6hr3p": "[Sample] 부산 영동 고객사",
+        "_gclubxkkk": {
+          "baseDate": "now",
+          "operation": "MINUS",
+          "days": 1
+        },
+        "_0kvv8io9c": {
+          "baseDate": "now",
+          "operation": "PLUS",
+          "days": 2
+        },
+        "_yvrfkbu5t": "3박 4일",
+        "_kjnl6fjj2": 70000,
+        "_viqol42vg": 150000,
+        "_xupta5ggo": 160000,
+        "_2v6g6eea2": 12000,
+        "_6kxcztn3b": 392000
+      },
+      {
+        "status": "{{applet.biz.trip.template.status.complete}}",
+        "_z5nl6hr3p": "[Sample] 대구 달성군 고객사",
+        "_gclubxkkk": {
+          "baseDate": "now",
+          "operation": "MINUS",
+          "days": 5
+        },
+        "_0kvv8io9c": {
+          "baseDate": "now",
+          "operation": "MINUS",
+          "days": 4
+        },
+        "_yvrfkbu5t": "1박 2일",
+        "_kjnl6fjj2": 40000,
+        "_viqol42vg": 120000,
+        "_xupta5ggo": 120000,
+        "_2v6g6eea2": 7000,
+        "_6kxcztn3b": 287000
+      },
+      {
+        "status": "{{applet.biz.trip.template.status.ok}}",
+        "_z5nl6hr3p": "[Sample] 강원도 속초 고객사",
+        "_gclubxkkk": {
+          "baseDate": "now",
+          "operation": "MINUS",
+          "days": 14
+        },
+        "_0kvv8io9c": {
+          "baseDate": "now",
+          "operation": "MINUS",
+          "days": 12
+        },
+        "_yvrfkbu5t": "2박 3일",
+        "_kjnl6fjj2": 77000,
+        "_viqol42vg": 130000,
+        "_xupta5ggo": 120000,
+        "_2v6g6eea2": 8000,
+        "_6kxcztn3b": 335000
+      },
+      {
+        "status": "{{applet.biz.trip.template.status.ok}}",
+        "_z5nl6hr3p": "[Sample] 경기도 평택 고객사",
+        "_gclubxkkk": {
+          "baseDate": "now",
+          "operation": "PLUS",
+          "days": 2
+        },
+        "_0kvv8io9c": {
+          "baseDate": "now",
+          "operation": "PLUS",
+          "days": 4
+        },
+        "_yvrfkbu5t": "2박 3일",
+        "_kjnl6fjj2": 110000,
+        "_viqol42vg": 100000,
+        "_xupta5ggo": 83000,
+        "_2v6g6eea2": 10000,
+        "_6kxcztn3b": 303000
+      },
+      {
+        "status": "{{applet.biz.trip.template.status.ok}}",
+        "_z5nl6hr3p": "[Sample] 충정도 천안 고객사",
+        "_gclubxkkk": {
+          "baseDate": "now",
+          "operation": "PLUS",
+          "days": 8
+        },
+        "_0kvv8io9c": {
+          "baseDate": "now",
+          "operation": "PLUS",
+          "days": 10
+        },
+        "_yvrfkbu5t": "2박 3일",
+        "_kjnl6fjj2": 120000,
+        "_viqol42vg": 120000,
+        "_xupta5ggo": 90000,
+        "_2v6g6eea2": 25000,
+        "_6kxcztn3b": 355000
+      },
+      {
+        "status": "{{applet.biz.trip.template.status.delay}}",
+        "_z5nl6hr3p": "[Sample] 강원도 평창 고객사",
+        "_gclubxkkk": {
+          "baseDate": "now",
+          "operation": "MINUS",
+          "days": 15
+        },
+        "_0kvv8io9c": {
+          "baseDate": "now",
+          "operation": "MINUS",
+          "days": 12
+        },
+        "_yvrfkbu5t": "2박 3일",
+        "_kjnl6fjj2": 200000,
+        "_viqol42vg": 150000,
+        "_xupta5ggo": 95000,
+        "_2v6g6eea2": 20000,
+        "_6kxcztn3b": 465000
+      },
+      {
+        "status": "{{applet.biz.trip.template.status.complete}}",
+        "_z5nl6hr3p": "[Sample] 경기도 용인 고객사",
+        "_gclubxkkk": {
+          "baseDate": "now",
+          "operation": "MINUS",
+          "days": 22
+        },
+        "_0kvv8io9c": {
+          "baseDate": "now",
+          "operation": "MINUS",
+          "days": 20
+        },
+        "_yvrfkbu5t": "2박 3일",
+        "_kjnl6fjj2": 120000,
+        "_viqol42vg": 150000,
+        "_xupta5ggo": 90000,
+        "_2v6g6eea2": 20000,
+        "_6kxcztn3b": 380000
+      }
+    ]
+  }
+}

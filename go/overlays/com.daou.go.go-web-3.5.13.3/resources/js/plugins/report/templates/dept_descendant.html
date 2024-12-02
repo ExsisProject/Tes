@@ -1,0 +1,49 @@
+		<header class="content_top">
+		
+		</header>
+		
+		<div class="content_page" >
+			<div class="dataTables_wrapper">
+				<div class="tab_menu_wrap">
+					<ul class="tab_menu" id="selectStatus">
+						<li class="active" data-value="active"><span class="txt">{{lang.normal}}</span></li>
+						<li data-value="inactive"><span class="txt">{{lang.close}}</span></li>
+					</ul>
+				</div>			
+				<!-- 상단 메뉴바 START  -->
+				<div class="tool_bar" style="display: none;">
+					<div class="critical">						
+						<span class="wrap_select" id="controlButtons">
+							<select name="" class="wfix_medium" id="deptList">
+								<option value="all">{{lang.descendant_all}}</option>
+								{{#data}}
+								     <option value="{{id}}">{{name}}</option>
+								{{/data}}
+							</select>
+						</span>					
+					</div>
+				</div>
+				<!-- 상단 메뉴바 END  -->
+				
+				
+				<!-- 테이블 -->		
+				<table class="type_normal tb_report_sub_part" id="dept_descendant_table">	
+					<colgroup>
+						<col/>
+						<col/>
+						<col/>
+						<col/>
+						<col/>
+					</colgroup>
+					<thead>
+						<tr>
+							<th class="part sorting_desc "><span class="title_sort">{{lang.dept_name}}<ins class="ic"></ins><span class="selected"></span></span></th>
+							<th class="subject sorting"><span class="title_sort">{{lang.report_name}}<ins class="ic"></ins></span></th>
+							<th class="name sorting_disabled"><span class="title_sort">{{lang.admin}}</span></th>
+							<th class="date sorting"><span class="title_sort">{{lang.createAt}}<ins class="ic"></ins></span></th>
+							<th class="setting sorting_disabled"><span class="title_sort">{{lang.config}}</span></th>
+						</tr>
+					</thead>
+				</table>
+			</div>
+		</div>

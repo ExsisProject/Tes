@@ -1,0 +1,179 @@
+<div class="linkplus_detail_header">
+    <img class="service_logo" src="{{baseImgUrl}}imarket_logo.png" alt="">
+    <div class="info">
+        <p class="name">
+            아이마켓코리아
+            {{#isApply}}
+            <span class="linkplus_request">
+                <span class="txt">{{storeLang.신청중}}</span>
+                <span class="tooltip">
+                    {{storeLang.제휴사로 연결을 요청중입니다}}<br>
+                    {{storeLang.연결이 완료되면 사용하실 수 있습니다}}
+                </span>
+            </span>
+            {{/isApply}}
+
+            {{#inUse}}
+            <span class="linkplus_using">{{storeLang.사용중}}</span>
+            {{/inUse}}
+        </p>
+        <p class="desc">아이마켓은 중소기업, 소상공인, 개인사업자에게 필요한 모든 상품을 가장 저렴하고 빠르게 제공하는 온라인 쇼핑몰 입니다.</p>
+        <div class="meta">
+            <div class="critical">
+                <div class="list_album_meta">
+                    <span class="state ghost category">MRO</span>
+                    <span class="state ghost service">(주)아이마켓코리아</span>
+                </div>
+            </div>
+            <div class="optional">
+                <a class="btn_minor" id="goToList">
+                    <span class="txt">{{commonLang.목록}}</span>
+                </a>
+
+                {{#canUse}}
+                <a class="btn_major " id="useService">
+                    <span class="txt">{{storeLang.사용하기}}</span>
+                </a>
+                {{/canUse}}
+
+                {{#canRegister}}
+                <a class="btn_major" id="register">
+                    <span class="txt">{{commonLang.신청하기}}</span>
+                </a>
+                {{/canRegister}}
+            </div>
+        </div>
+    </div>
+</div>
+<div class="linkplus_detail_display">
+    <div class="banner_rolling">
+        <div class="wrap_img" id="banner_container" style="width:801px; overflow:hidden; position:relative;">
+            <div id="banner_wrapper" style="width:2403px;position:absolute;">
+                <img src="{{baseImgUrl}}imarket_thum1.png" style="float:left;" alt="">
+                <img src="{{baseImgUrl}}imarket_thum2.png" style="float:left;" alt="">
+                <img src="{{baseImgUrl}}imarket_thum3.png" style="float:left;" alt="">
+            </div>
+        </div>
+        <a class="btn_banner_rolling prev" data-type="prev" data-rol="button">
+            <span class="ic_dashboard2 ic_prev" title="다음"></span>
+        </a>
+        <a class="btn_banner_rolling next" data-type="next" data-rol="button">
+            <span class="ic_dashboard2 ic_next" title="다음"></span>
+        </a>
+        <div class="banner_rolling_page">
+            <span class="on"></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+</div>
+
+<div class="linkplus_detail_container">
+    <h2>사무용품부터 전문 기자재까지 사업에 필요한 모든 상품 구색</h2>
+    <p class="desc">
+        기업을 운영하면서 필요한 다양한 상품을 귀사에서는 어떻게 찾고 구매하고 계신가요?<br>
+        기업 필수 비품부터 청소/식음료/전산/전기/인테리어/의료용품까지 사업에 꼭 필요한 원자재를 가장 합리적인 가격으로
+        제공하는 MRO B2B 서비스 1위 ‘아이마켓’은 국내 최대 온라인 산업재 쇼핑몰입니다.<br>
+        필요한 상품을 검색하고, 개별 주문에 쏟는 시간이 아까우신가요?<br>
+        이제 아이마켓과 함께 다우오피스와의 편리한 연동으로, 귀사에서 필요한 다양한 물품을 편리하게 구매해보시기 바랍니다.
+    </p>
+    <h2>가입/연동/혜택</h2>
+    <ul class="list_accordion">
+        <li>
+            <div class="subject">
+                <span class="txt">1. 서비스 상세 소개</span>
+                <div class="optional">
+                    <span class="ic24 arrow_t"></span>
+                </div>
+            </div>
+            <div class="desc on">
+                아이마켓은 중소기업, 소상공인, 개인 사업자에게 필요한 모든 상품을 가장 저렴하고 빠르게 제공하는 온라인 쇼핑몰입니다.<br>
+                <a class="serviceLink" data-url="http://www.imarket.co.kr">http://www.imarket.co.kr</a>
+            </div>
+        </li>
+        <li>
+            <div class="subject">
+                <span class="txt">2. 기업에서 사용하면 어떤 점이 좋을까요.</span>
+                <div class="optional">
+                    <span class="ic24 arrow_d"></span>
+                </div>
+            </div>
+            <div class="desc">
+                1) 소량 주문도 대기업 제공 수준의 가격으로!<br>
+                2) 구매부터 증빙까지 한 번에!<br>
+                3) 기업 사용자를 위한 후불 여신 제공
+            </div>
+        </li>
+        <li>
+            <div class="subject">
+                <span class="txt">3. 서비스의 특징과 장점은 무엇일까요</span>
+                <div class="optional">
+                    <span class="ic24 arrow_d"></span>
+                </div>
+            </div>
+            <div class="desc">
+                1) 사업에 필요한 50만 가지의 모든 상품 구색<Br>
+                2) 첫 구매 시 즉시 할인 제공<Br>
+                3) 오늘 주문, 오늘 바로 출고!<Br>
+                4) 간편한 후불 결제
+            </div>
+        </li>
+        <li>
+            <div class="subject">
+                <span class="txt">4. 다우오피스와는 어떻게 연동되나요.</span>
+                <div class="optional">
+                    <span class="ic24 arrow_d"></span>
+                </div>
+            </div>
+            <div class="desc">
+                다우오피스와는 가입 및 SSO (Single Sign On, 한 번의 로그인으로 여러 서비스 로그인 가능) 가 연동되고 있습니다.<br>
+                * 가입 연동 : 다우오피스를 통해서 아이마켓 신청 시, 아이마켓으로 자동으로 넘어가 가입이 가능합니다.<br>
+                * SSO (Single Sign On) : 다우오피스 Link+를 통해서, 별도의 로그인 없이 자동으로 아이마켓 서비스를 이용할 수 있습니다.
+            </div>
+        </li>
+        <li>
+            <div class="subject">
+                <span class="txt">5. 어떻게 가입하고 사용하나요.</span>
+                <div class="optional">
+                    <span class="ic24 arrow_d"></span>
+                </div>
+            </div>
+            <div class="desc">
+                1) 다우오피스 ‘Link+’ 에서 ‘아이마켓’ 클릭 후 ‘신청하기’ 버튼 클릭<br>
+                2) 이동한 가입페이지에서 개인 가입 진행 (※ 다우오피스를 통한 가입의 경우만, 다우오피스와 연동되오니 참고 부탁드립니다.)<br>
+                3) 아이마켓에서 가입내역 확인<br>
+                4) 아이마켓 사이트 연동 및 접속 가능<br>
+                5) 전 직원이 아이마켓에서 상품 구매 및 결제
+            </div>
+        </li>
+        <li>
+            <div class="subject">
+                <span class="txt">6. 다우오피스를 통해 사용하면 드리는 혜택</span>
+                <div class="optional">
+                    <span class="ic24 arrow_d"></span>
+                </div>
+            </div>
+            <div class="desc">
+                1) 다우오피스와 연동이 무료!<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;별도의 개발인력 비용이 소요되는 SSO (Single Sign On) 연동을 귀사의 부담으로 진행하시나요?<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;타사에서 볼 수 없는 ‘다우오피스 - 아이마켓’간의 SSO 연동비용이 무료입니다. <br>
+                2) 다우오피스 고객대상 전용 할인 프로모션<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;- 다우오피스 고객 전용 ‘첫 구매 10% 즉시 할인’ 제공
+            </div>
+        </li>
+    </ul>
+    <h2>필수 확인사항</h2>
+    <p class="desc">
+        1.  다우오피스를 통해 가입한 기업만 해당 제휴서비스와 다우오피스간의 SSO (Single Sign On) 연동기능을 사용하실 수 있습니다.
+        기존 아이마켓을 사용중인 고객 대상의 연동은 향후 지원 예정이니 양해 부탁드립니다.<br>
+        2. 해당 제휴서비스는 다우오피스에서 연동만 지원하며,  가입 및 결제, 고객지원 모두 제휴서비스인 ‘아이마켓’에서 진행됩니다.<br>
+        - ‘아이마켓’ 가입 및 구매, 견적, 고객지원 문의 : 1522-8250 <br>
+        - 지원센터 운영시간 <br>
+        : (월~금요일) 오전 09시 ~ 오후 6시 <br>
+        : (점심시간) 오후 11시 30분 ~ 오후 1시 00분 <br>
+    </p>
+    <div class="box linkplus_question">
+        <span class="ic_link ic_tooltip"></span>
+        {{storeLang.사이트 관리자에게 문의}}
+    </div>
+</div>

@@ -1,0 +1,32 @@
+<div class="content">
+	<ul class="list_normal list_search">
+        {{#collection}}
+		<li>
+			<a class="card-link tit" href="{{contextRoot}}app/todo/{{todoId}}/card/{{id}}" data-todoid="{{todoId}}" data-id="{{id}}" data-bypass>
+				<span class="subject"><span class="title">{{{title}}}</span></span>
+				<span class="info">
+					<span class="column txt_ellipsis">in column {{categoryTitle}}</span>
+					<span class="part">|</span>
+					<span class="board txt_ellipsis">in board {{todoTitle}}</span>
+					<span class="part">|</span>
+					<span class="date">{{dueDate}}</span>
+				</span>
+			</a>
+		</li>
+        {{/collection}}
+	</ul>
+
+	<div class="paging">
+        {{^firstPage?}}
+		<a class="page-link btn_type4" href="#" data-page="{{prevPage}}" data-bypass><span class="ic ic_arrow3_l"></span><span class="txt">{{label.prev}}</span></span></a>
+        {{/firstPage?}}
+		<span class="page">
+			<span class="current_page">{{currentPage}}</span>
+			<span class="txt_bar">-</span>
+			<span class="total_page">{{totalPage}}</span>
+		</span>
+        {{^lastPage?}}
+		<a class="page-link btn_type4" href="#" data-page="{{nextPage}}" data-bypass><span class="txt">{{label.next}}</span><span class="ic ic_arrow3_r"></span></span></a>
+        {{/lastPage?}}
+	</div>
+</div>

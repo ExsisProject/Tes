@@ -1,0 +1,208 @@
+<form onsubmit="return false;">
+<div class="set_wrap">
+<!-- 결재 문서 첨부 -->
+	<div class="set_nav" id="company_Folder_searchTree">
+		<div class="content_tab_wrap content_h">
+			<section class="lnb" id="userReference">
+				<h1 class="user" style="cursor: default">
+					<ins class="ic"></ins>
+					<a data-bypass="" data-role="button" class="txt" style="cursor: default">{{lang.개인 문서함}}</a>
+				</h1>        
+				<ul class="side_depth">
+					<li class="delimiter">
+						<p class="title">
+							<ins class="ic"></ins><span class="txt">&lt;{{lang.base_docfolder}}&gt;</span>
+						</p>
+					</li>
+					<li class="appr_draft" data-type="draft">
+						<p class="title on">										
+							<a><ins class="ic"></ins><span class="txt">{{lang.기안 문서함}}</span></a><span class="btn_wrap"></span>
+						</p>
+					</li>
+					<li class="appr_sign" data-type="sign">
+						<p class="title ">											
+							<a><ins class="ic"></ins><span class="txt">{{lang.결재 문서함}}</span></a><span class="btn_wrap"></span>
+						</p>
+					</li>
+					<li class="appr_cc" data-type="cc">
+						<p class="title">										
+							<a><ins class="ic"></ins><span class="txt">{{lang.참조/열람 문서함}}</span></a><span class="btn_wrap"></span>
+						</p>
+					</li>
+					<li class="appr_inbox" data-type="inbox">
+						<p class="title">										
+							<a><ins class="ic"></ins><span class="txt">{{lang.수신 문서함}}</span></a><span class="btn_wrap"></span>
+						</p>
+					</li>
+					<li class="appr_send" data-type="send">
+						<p class="title">
+							<a><ins class="ic"></ins><span class="txt">{{lang.send_docfolder}}</span></a><span class="btn_wrap"></span>
+						</p>
+					</li>
+					{{#addedFolder}}
+					<li class="delimiter">
+						<p class="title">
+							<ins class="ic"></ins><span class="txt">&lt;{{lang.added_docfolder}}&gt;</span>
+						</p>
+					</li>
+					{{/addedFolder}}
+					{{#apprSideData.userFolders}}
+					<li class="appr" data-type="userFolder">
+						<p class="title">
+							<a class="go_boards" data-id="{{folderId}}" data-navi="userdoc" data-bypass>
+								<ins class="ic"></ins><span class="txt">{{folderName}}</span>
+							</a>
+						</p>
+					</li>
+					{{/apprSideData.userFolders}}
+					{{#sharedFolder}}
+					<li class="delimiter">
+						<p class="title">
+							<ins class="ic"></ins><span class="txt">&lt;{{lang.shared_docfolder}}&gt;</span>
+						</p>
+					</li>
+					{{/sharedFolder}}
+					{{#apprSideData.sharedFoldersToUser}}
+					<li class="appr" data-type="sharedFolder">
+						<p class="title">
+							<a class="go_boards" data-id="{{folderId}}" {{#isfolderTypeUser}}data-navi="shareuserdoc" data-belong="inuser" {{/isfolderTypeUser}}{{^isfolderTypeUser}}data-navi="sharedeptdoc" data-deptid="{{deptId}}" data-belong="indept" {{/isfolderTypeUser}}  data-bypass>
+								<ins class="ic"></ins><span class="txt">{{folderName}}</span>
+							</a>
+						</p>
+					</li>
+					{{/apprSideData.sharedFoldersToUser}}
+				</ul>
+			</section>
+			<br>
+			<section class="lnb" id="deptReference">
+				<h1 class="org" style="cursor: default">
+					<ins class="ic"></ins>
+					<a data-bypass="" data-role="button" class="txt" style="cursor: default">{{lang.부서 문서함}}</a>
+				</h1>
+				<ul class="side_depth"><!--data_display_control-->
+					{{#dataset}}
+					<li class="org">
+						<p class="title">
+							<ins class="ic"></ins><span class="txt">{{deptName}}</span>
+						</p>
+						<ul data-deptid="{{deptId}}" class="data_set">
+							<li class="delimiter">
+								<p class="title">
+									<ins class="ic"></ins><span class="txt">&lt;{{lang.base_docfolder}}&gt;</span>
+								</p>
+							</li>
+							<li class="appr_compl" data-type="draft">
+								<p class="title">
+								<a data-bypass="" data-navi="deptdraft" data-deptid="59" class="go_boards">
+								<ins class="ic"></ins><span class="txt">{{lang.기안 완료함}}</span>
+								</a>
+								</p>
+							</li>
+							<li class="appr_cc" data-type="cc">
+								<p class="title">
+								<a data-bypass="" data-navi="deptreference" data-deptid="59" class="go_boards">
+								<ins class="ic"></ins><span class="txt">{{lang.부서 참조함}}</span>
+								</a>
+								</p>
+							</li>
+							{{#subscribeMaster}}
+							<li class="appr_reception" data-type="inbox">
+								<p class="title">
+								<a data-bypass="" data-navi="deptreceive" data-deptid="59" class="go_boards">
+								<ins class="ic"></ins><span class="txt">{{lang.부서 수신함}}</span>
+								</a>
+								</p>
+							</li>
+							{{/subscribeMaster}}
+							{{#addedDeptFolder}}
+							<li class="delimiter">
+								<p class="title">
+									<ins class="ic"></ins><span class="txt">&lt;{{lang.added_docfolder}}&gt;</span>
+								</p>
+							</li>
+							{{/addedDeptFolder}}
+							{{#deptFolders}}
+							<li class="appr" data-type="folder" data-folderId="{{folderId}}">
+								<p class="title">
+								<a data-bypass="" data-navi="deptdoc" class="go_boards">
+								<ins class="ic"></ins><span class="txt">{{folderName}}</span>
+								</a>
+								</p>
+							</li>
+							{{/deptFolders}}
+							{{#sharedDeptFolder}}
+							<li class="delimiter">
+								<p class="title">
+									<ins class="ic"></ins><span class="txt">&lt;{{lang.shared_docfolder}}&gt;</span>
+								</p>
+							</li>
+							{{/sharedDeptFolder}}
+							{{#sharedDocFolders}}
+							<li class="appr" data-type="sharedFolder" data-folderId="{{folderId}}">
+								<p class="title">
+									<a class="go_boards"
+								    {{#isfolderTypeUser}} data-navi="shareuserdoc"{{/isfolderTypeUser}}
+									{{^isfolderTypeUser}} data-navi="sharedeptdoc"{{/isfolderTypeUser}}
+									data-belong="indept" data-bypass>
+										<ins class="ic"></ins><span class="txt">{{folderName}}</span>
+									</a>
+								</p>
+							</li>
+							{{/sharedDocFolders}}
+						</ul>
+					</li>
+					{{/dataset}}
+				</ul>
+			</section>
+			<br>
+			<section id="companyDocSide" class="lnb" >
+				<h1 class="company" style="cursor: default">
+					<ins class="ic"></ins>
+					<span class="txt" style="cursor: default">{{lang.company_docfolder}}</span>
+					<!-- <span class="btn_wrap"><span class="ic_side ic_hide_up" title="{{lang.expand}}" data-slide="true" ></span></span> -->
+				</h1>
+				<ul class="side_depth" id="companyDocTree">
+				</ul>
+			</section>
+		</div>
+	</div>
+	<div class="set_data" id="form_detail_list">
+		<section class="search">
+		   <div class="search_wrap">
+			 <select id="referenceSearchType">
+				 <option value="title">{{columns.제목}}</option>
+				 <option value="drafterName">{{columns.기안자}}</option>
+				 <option value="formName">{{columns.결재양식}}</option>
+				 <option value="docNum">{{lang.문서번호}}</option>
+				 <option value="activityUserName">{{lang.결재선}}</option>
+			 </select>
+			 <input id="search_title" class="search" type="text" placeholder="{{lang.검색}}">
+			 <input id="search_icon" class="btn_search" type="button" value="{{lang.검색}}" title="{{lang.검색}}">
+		   </div>
+		   <div id="detailSearchLayerWrap" style="position:relative;display:none;z-index:60"></div>
+		</section>
+		<table class="type_normal tb_doc_attach">
+			<thead>
+				<tr><!-- 객수 최대 10개 -->
+					<th class="check" ></th>
+					<th class="division">{{columns.결재양식}}</th>
+					<th class="subject">{{columns.제목}}</th>
+					<th class="writer">{{columns.기안자}}</th>
+					<th class="date">{{columns.결재일}}</th>
+                    <th class="space"></th>
+				</tr>
+			</thead>
+		</table>
+		<div class="div_scroll">
+			<table class="type_normal tb_doc_attach">
+				<tbody id="reference_tbody">
+				</tbody>
+			</table>
+		</div>
+		<div id="messageNaviWrap">
+	           <!--  상단 메뉴와 동일 -->
+	         <div class="dataTables_length"></div>
+		</div>
+	</div>
+</div>
+</form>

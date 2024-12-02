@@ -1,0 +1,109 @@
+<form id="formCreateDept" name="formCreateDept">
+    <table class="table_form_mini">
+        <colgroup>
+            <col width="120px">
+            <col width="*">
+        </colgroup>
+        <tbody>
+            <tr>
+                <th>
+                    <span class="title">
+                        <ins class="asterisk">*</ins>{{lang.dept_name}}
+                        {{#isKoLocale}} ({{lang.locale_ko}}) {{/isKoLocale}}
+                        {{#isEnLocale}} ({{lang.locale_en}}) {{/isEnLocale}}
+                        {{#isJpLocale}} ({{lang.locale_jp}}) {{/isJpLocale}}
+                        {{#isZhcnLocale}} ({{lang.locale_zhcn}}) {{/isZhcnLocale}}
+                        {{#isZhtwLocale}} ({{lang.locale_zhtw}}) {{/isZhtwLocale}}
+                        {{#isViLocale}} ({{lang.locale_vi}}) {{/isViLocale}}
+                    </span>
+                </th>
+                <td>
+                    <input class="input w200" type="text" id="name" name="name" maxlength="64">
+                    <span class="wrap_btn" id="btnMultiLang">
+                        <span class="txt">{{lang.multi_lang}}</span>
+                        <i class="ic_adm ic_accordion_s" title="{{lang.open}}"></i>
+				    </span>
+                </td>
+        </tr>
+        {{^isKoLocale}}
+        <tr id="koNameInput" style="display: none">
+            <th><span class="title">{{lang.dept_name}} ({{lang.locale_ko}})</span></th>
+            <td>
+                <input class="input w200" type="text" id="koName" name="koName" maxlength="64">
+            </td>
+        </tr>
+        {{/isKoLocale}}
+        {{^isEnLocale}}
+        <tr id="enNameInput" style="display: none">
+            <th><span class="title">{{lang.dept_name}} ({{lang.locale_en}})</span></th>
+            <td>
+                <input class="input w200" type="text" id="enName" name="enName" maxlength="64">
+            </td>
+        </tr>
+        {{/isEnLocale}}
+        {{^isJpLocale}}
+        <tr id="jpNameInput" style="display: none">
+            <th><span class="title">{{lang.dept_name}} ({{lang.locale_jp}})</span></th>
+            <td>
+                <input class="input w200" type="text" id="jpName" name="jpName" maxlength="64">
+            </td>
+        </tr>
+        {{/isJpLocale}}
+        {{^isZhcnLocale}}
+        <tr id="zhcnNameInput" style="display: none">
+            <th><span class="title">{{lang.dept_name}} ({{lang.locale_zhcn}})</span></th>
+            <td>
+                <input class="input w200" type="text" id="zhcnName" name="zhcnName" maxlength="64">
+            </td>
+        </tr>
+        {{/isZhcnLocale}}
+        {{^isZhtwLocale}}
+        <tr id="zhtwNameInput" style="display: none">
+            <th><span class="title">{{lang.dept_name}} ({{lang.locale_zhtw}})</span></th>
+            <td>
+                <input class="input w200" type="text" id="zhtwName" name="zhtwName" maxlength="64">
+            </td>
+        </tr>
+        {{/isZhtwLocale}}
+        {{^isViLocale}}
+        <tr id="viNameInput" style="display: none">
+            <th><span class="title">{{lang.dept_name}} ({{lang.locale_vi}})</span></th>
+            <td>
+                <input class="input w200" type="text" id="viName" name="viName" maxlength="64">
+            </td>
+        </tr>
+        {{/isViLocale}}
+        <tr>
+            <th><span class="title">{{lang.dept_mail_id}}</span>
+                <span class="wrap_ic_s">
+                    <span class="help">
+                        <span class="tool_tip">{{{lang.dept_mail_id_desc}}}<i class="tail_left"></i></span>
+                    </span>
+                </span>
+            </th>
+            <td>
+                <!--<input placeholder="{{lang.auto_desc}}" class="input w200" type="text" id="emailId" name="emailId" maxlength="64">-->
+                <input class="input w200" type="text" id="emailId" name="emailId" maxlength="64">
+            </td>
+        </tr>
+        <tr>
+            <th><span class="title">{{lang.dept_code}}</span>
+                <span class="help"><span class="tool_tip top">{{{lang.dept_code_desc}}}<i class="tail_left"></i></span></span>
+            </th>
+            <td>
+                <input class="input w200" type="text" id="code" name="code" maxlength="64">
+            </td>
+        </tr>
+        <tr>
+            <th><span class="title">{{lang.dept_alias}}</span>
+                    <span class="help">
+                        <span class="tool_tip top">{{{lang.dept_alias_desc}}}<i class="tail_left"></i></span>
+                    </span>
+            </th>
+            <td>
+                <input class="input w200" type="text" id="deptAlias" name="deptAlias" maxlength="64">
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</form>

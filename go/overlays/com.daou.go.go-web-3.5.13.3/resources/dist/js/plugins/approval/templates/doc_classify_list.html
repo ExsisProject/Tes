@@ -1,0 +1,97 @@
+<header class="content_top">
+</header>   
+<div class="content_page">
+	<!-- 탭 메뉴  -->
+	<div class="tab_menu_wrap">
+		<ul class="tab_menu">
+			<li id = "tab_folder"><span class="txt" >{{lang.문서함}}</span></li>
+			<li id = "tab_folder_classify" class="active"><span class="txt" >{{lang.자동분류}}</span></li>
+		</ul>
+	</div>
+	<section class="form_admin">
+		<form id="profileForm">
+			<fieldset>
+				<table class="form_type">
+					<colgroup>
+						<col width="130px"><!-- 개발쪽에서 width값을 받아가서 재설정 후 삭제  -->
+						<col width="*">
+					</colgroup>
+					<tbody>
+						<tr class="line">
+							<th>
+								<span class="title">{{lang.자동분류 규칙}}</span>
+							</th>
+							<td>
+								<span class="wrap_option">
+									<input id="apply" type="radio" name="inUse" value="true" {{#model.inUse}}checked{{/model.inUse}}>
+									<label for="apply">{{lang.적용함}}</label>
+								</span>
+								<span class="horspace1"></span>
+								<span class="wrap_option">
+									<input id="notApply" type="radio" name="inUse" value="false" {{^model.inUse}}checked{{/model.inUse}}>
+									<label for="notApply">{{lang.적용하지 않음}}</label>
+								</span>
+							</td>
+						</tr>
+                        <tr><td colspan="2"><hr></td></tr>
+					</tbody>
+				</table>
+			</fieldset>
+		</form>
+		<div class="page_action_wrap">
+	        <a class="btn_major" data-role="button" id="saveApplyRuleSetting"><span class="txt">{{lang.저장}}</span></a>
+	        <a class="btn_minor" data-role="button" id="cancelApplyRuleSetting"><span class="txt">{{lang.취소}}</span></a>                
+	    </div>
+		<div class="dataTables_wrapper">
+			<div class="tool_bar">
+				<div class="critical">
+					<a class="btn_tool btnReorder">
+						<span class="ic_toolbar change"></span>
+						<span class="txt">{{lang.순서 바꾸기}}</span>
+					</a>
+					<a class="btn_tool btnCreate">
+						<span class="ic_toolbar plus"></span>
+						<span class="txt">{{lang.추가}}</span>
+					</a>
+					<a class="btn_tool btnDelete">
+						<span class="ic_toolbar del"></span>
+						<span class="txt">{{lang.삭제}}</span>
+					</a>
+				</div>
+			</div>
+			<div class="tb_sub_wrap">
+			
+				<table class="type_normal tb_part_doc" id="tableList">
+					<thead>
+						<tr>
+							<th class="sorting_disabled sorting_desc hp check first"><input type="checkbox" id="checkAll"></th>
+							<th class="sorting_disabled subject"><span class="title_sort">{{lang.분류규칙}}<ins class="ic"></ins></span></th>
+							<th class="sorting_disabled sort"><span class="title_sort">{{lang.분류 조건}}<ins class="ic"></ins></span></th>
+							<th class="sorting_disabled doc_storage"><span class="title_sort">{{lang.보관문서함}}<ins class="ic"></ins></span></th>
+						</tr>
+					</thead>
+					<tbody>
+						
+					</tbody>
+				</table>
+			
+			</div>
+			<div class="tool_bar">
+				<div class="critical">						
+					<a class="btn_tool btnReorder">
+						<span class="ic_toolbar change"></span>
+						<span class="txt">{{lang.순서 바꾸기}}</span>
+					</a>
+					<a class="btn_tool btnCreate">
+						<span class="ic_toolbar plus"></span>
+						<span class="txt">{{lang.추가}}</span>
+					</a>
+					<a class="btn_tool btnDelete">
+						<span class="ic_toolbar del"></span>
+						<span class="txt">{{lang.삭제}}</span>
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
+</div>

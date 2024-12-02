@@ -1,0 +1,61 @@
+<div class="wrap_tb_box annual_set_default">
+    <h1 class="s_title">{{lang.기본 설정}}</h1>
+    <div class="wrap_tb_shadow">
+        <table class="form_hr">
+            <tbody>
+            <tr>
+                <th>
+                    <span class="title">{{lang.근속연수별 연차 설정}}</span>
+                </th>
+                <td>
+                    <div class="tb_vacation_set">
+                        <div class="col1" id="working_year_list">
+                            {{#model.yearPoints}}
+                            <div class="tb_content">
+                                <span class="txt">{{workingYear}} {{lang.년차}}</span>
+                                <span class="wrap_txt">
+                                    <input class="txt wfix_small points" name="" value="{{points}}" data-year="{{workingYear}}">
+                                </span>
+                            </div>
+                            {{/model.yearPoints}}
+                        </div>
+                        <div class="col2">
+                            <span class="btn_minor_s btn_plus" id="add_col"><span class="txt">+</span></span>
+                            <span class="btn_minor_s btn_delete" id="remove_col" ><span class="txt">-</span></span>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th><span class="title">{{lang.내년휴가 사용}}</span>
+
+                </th>
+                <td>
+                    <span class="wrap_btn_toggle t2" id="useNextVacation">
+                        <button class="btn_toggle t2 {{#model.companyConfig.useNextVacation}} on {{/model.companyConfig.useNextVacation}}" type="button" value="true">{{lang.허용}}</button>
+                        <button class="btn_toggle t1 {{^model.companyConfig.useNextVacation}} on {{/model.companyConfig.useNextVacation}}" type="button" value="false">{{lang.허용하지 않음}}</button>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <span class="title">
+                        {{lang.부서장 연차현황 공개}}
+                        <span class="help"><span class="tool_tip">{{lang.부서장 연차현황 공개 설명}}<i class="tail_left"></i></span></span>
+                    </span>
+                </th>
+                <td>
+                    <span class="wrap_btn_toggle t2" id="deptManageOpen">
+                        <button class="btn_toggle t2 {{#model.companyConfig.deptManageOpen}} on {{/model.companyConfig.deptManageOpen}}" type="button" value="true">{{lang.허용}}</button>
+                        <button class="btn_toggle t1 {{^model.companyConfig.deptManageOpen}} on {{/model.companyConfig.deptManageOpen}}" type="button" value="false">{{lang.허용하지 않음}}</button>
+                    </span>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="page_action_wrap">
+    <span class="btn_major" data-role="button" id="btn_ok"><span class="txt">{{lang.저장}}</span></span>
+    <span class="btn_minor" data-role="button" id="btn_cancel"><span class="txt">{{lang.취소}}</span></span>
+</div>

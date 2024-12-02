@@ -1,0 +1,119 @@
+<h3 class="tab_title" style="display:none;">{{lang.label_duty}}</h3>
+<!--탭 전체 펼치기시 타이틀 나옴-->
+<div class="ehr_jop viewForm">
+    <table class="type_list_box">
+		<tr>
+			<th class="num"><span class="title_txt">No</span></th>
+			<th class="group"><span class="title_txt">{{lang.label_jobGroup}}</span></th>
+			<th class="category"><span class="title_txt">{{lang.label_jobClass}}</span></th>
+			<th class="jop"><span class="title_txt">{{lang.label_jobDuty}}</span></th>
+			<th class="date"><span class="title_txt">{{lang.label_beginDate}}</span></th>
+			<th class="date"><span class="title_txt">{{lang.label_endDate}}</span></th>
+			<th class="percent"><span class="title_txt">{{lang.label_jobWeight}}</span></th>
+			<th class="work"><span class="title_txt">{{lang.label_chargeDuty}}</span></th>
+			{{#editable}}
+			<th class="modify"><span class="title_txt">{{lang.label_modify}}</span></th>
+			{{/editable}}
+		</tr>
+		{{#data}}
+		<tr class="dataRow" {{#dataId.useColumn}}data-id="{{dataId.value}}"{{/dataId.useColumn}}>
+		    <td class="num">
+		    	<span>{{number}}</span>
+		    </td>
+		    <td class="group">
+		    	{{#jobGroup.useColumn}}
+		        <span class="txt">{{jobGroup.value}}</span>
+		        {{#editable}}
+		        <input class="txt w_max" type="text" name="jobGroup" value="{{jobGroup.value}}" style="display:none;"/>
+		        {{/editable}}
+		        {{/jobGroup.useColumn}}
+		        {{^jobGroup.useColumn}}
+		        <span class="txt hide">{{lang.label_private}}</span>
+		        {{/jobGroup.useColumn}}
+		    </td>
+		    <td class="category">
+		    	{{#jobClass.useColumn}}
+		        <span class="txt">{{jobClass.value}}</span>
+		        {{#editable}}
+		        <input class="txt w_max" type="text" name="jobClass" value="{{jobClass.value}}" style="display:none;"/>
+		        {{/editable}}
+		        {{/jobClass.useColumn}}
+		        {{^jobClass.useColumn}}
+		        <span class="txt hide">{{lang.label_private}}</span>
+		        {{/jobClass.useColumn}}
+		    </td>
+		    <td class="jop">
+		    	{{#jobDuty.useColumn}}
+		        <span class="txt">{{jobDuty.value}}</span>
+		        {{#editable}}
+		        <input class="txt w_max" type="text" name="jobDuty" value="{{jobDuty.value}}" style="display:none;"/>
+		        {{/editable}}
+		        {{/jobDuty.useColumn}}
+		        {{^jobDuty.useColumn}}
+		        <span class="txt hide">{{lang.label_private}}</span>
+		        {{/jobDuty.useColumn}}
+		    </td>
+		    <td class="date">
+		    	{{#beginDate.useColumn}}
+		        {{#editable}}
+                <span class="wrap_date">
+                <input class="txt wfix_small" type="text" name="beginDate" value="{{beginDate.value}}" />
+                <span class="ic ic_calendar"></span>
+                </span>
+                {{/editable}}
+                {{^editable}}
+                {{beginDate.value}}
+                {{/editable}}
+		        {{/beginDate.useColumn}}
+		        {{^beginDate.useColumn}}
+		        <span class="txt hide">{{lang.label_private}}</span>
+		        {{/beginDate.useColumn}}
+		    </td>
+		    <td class="date">
+		    	{{#endDate.useColumn}}
+		        {{#editable}}
+                <span class="wrap_date">
+                <input class="txt wfix_small" type="text" name="endDate" value="{{endDate.value}}" />
+                <span class="ic ic_calendar"></span>
+                </span>
+                {{/editable}}
+                {{^editable}}
+                {{endDate.value}}
+                {{/editable}}
+		        {{/endDate.useColumn}}
+		        {{^endDate.useColumn}}
+		        <span class="txt hide">{{lang.label_private}}</span>
+		        {{/endDate.useColumn}}
+		    </td>
+		    <td class="percent">
+		    	{{#jobWeight.useColumn}}
+		        <span class="txt">{{jobWeight.value}}</span>
+		        {{#editable}}
+		        <input class="txt w_max" type="text" name="jobWeight" value="{{jobWeight.value}}" style="display:none;"/>
+		        {{/editable}}
+		        {{/jobWeight.useColumn}}
+		        {{^jobWeight.useColumn}}
+		        <span class="txt hide">{{lang.label_private}}</span>
+		        {{/jobWeight.useColumn}}
+		    </td>
+		    <td class="work">
+		    	{{#chargeDuty.useColumn}}
+		        <span class="txt">{{chargeDuty.value}}</span>
+		        {{#editable}}
+		        <input class="txt w_max" type="text" name="chargeDuty" value="{{chargeDuty.value}}" style="display:none;"/>
+		        {{/editable}}
+		        {{/chargeDuty.useColumn}}
+		        {{^chargeDuty.useColumn}}
+		        <span class="txt hide">{{lang.label_private}}</span>
+		        {{/chargeDuty.useColumn}}
+		    </td>
+		    {{#editable}}
+		    <td class="modify">
+		        <span class="ic_con ic_remove" title="삭제"></span>		        
+		        <span class="ic_con ic_add" title="추가"></span>
+		    </td>
+		    {{/editable}}
+		</tr>
+		{{/data}}
+	</table>
+</div>

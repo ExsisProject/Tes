@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <title>예약 바로가기</title>
+    <meta name = "gadget:name-ko" content="예약 바로가기" />
+    <meta name = "gadget:name-en" content="Shortcut for Reserve/Rent" />
+    <meta name = "gadget:name-ja" content="予約へショットカット" />
+    <meta name = "gadget:name-zhcn" content="预约快捷键" />
+    <meta name = "gadget:name-zhtw" content="預約快捷鍵" />
+    <meta name = "gadget:name-vi" content="Đến ngay mục đặt trước" />
+    <meta name = "gadget:app-dependency" content="ASSET" />
+    <meta name = "gadget:description" content="전사자산 예약 리스트입니다." />
+    <meta name = "gadget:version" content="1.5.0" />
+    <meta name = "gadget:thumbnail" content="gadget_asset.png" />
+    
+    <!-- 테스트 할 로케일은 여기에 설정하세요.-->
+    <meta name = "locale" content="ko" />
+    
+    <!-- 컨텍스트 루트는 여기서 설정하세요 -->
+    <meta name = "contextRoot" content="/" />
+
+    <link rel="stylesheet" href="css/go-gadget-standalone.css" media="screen, print" />
+    <!--[if IE]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="js/go-gadget-standalone.js"></script>
+
+    <script type="text/javascript" id="go-gadget-script">    
+    gadget.load({
+    	
+    	refreshable: false,
+    	
+    	highlightable : true,
+    	    	    	
+    	langs: {
+    		"commpany_asset": "전사자산",
+    		"asset_title" : "예약 바로가기",
+    		"asset_reservation" : "예약",
+    		"asset_rental" : "대여",
+    		"msg_validate": "선택된 자산이 없습니다.",
+    		"en": {
+    			"commpany_asset" : "Public Asset",
+    			"asset_title" : "Reserve/Rent",
+    			"asset_reservation" : "Reserve",
+    			"asset_rental" : "Rent",
+    			"msg_validate" : "Please select at least an option."
+            },
+            "ja": {
+            	"commpany_asset" : "全体資産",
+            	"asset_title" : "予約へショートカット",
+            	"asset_reservation" : "予約",
+            	"asset_rental" : "貸出",
+            	"msg_validate" : "一つ以上の表示オプションを選択してください。"
+            },
+            "zh_CN": {
+            	"commpany_asset" : "全体资产",
+            	"asset_title" : "预约快捷键",
+            	"asset_reservation" : "预约",
+            	"asset_rental" : "出租",
+            	"msg_validate" : "请选择一个以上的显示项目。"
+            },
+            "zh_TW": {
+            	"commpany_asset" : "全體資產",
+            	"asset_title" : "預約快捷鍵",
+            	"asset_reservation" : "預約",
+            	"asset_rental" : "出租",
+            	"msg_validate" : "請選擇一個以上的顯示項目。"
+            },
+            "vi": {
+            	"commpany_asset": "Tài sản toàn công ty",
+        		"asset_title" : "Đến ngay mục đặt trước",
+        		"asset_reservation" : "Đặt trước",
+        		"asset_rental" : "Thuê mượn",
+        		"msg_validate": "Không có tài sản được chọn."
+            }
+    	}, 
+    	
+        url: function() {
+            if (console) console.log('gadget-asset-list'); // debugging 용도
+
+        	var param = "";
+        	
+        	if(typeof this.options.assetId == 'undefined'){
+        		return;	
+        	}
+        	
+        	if(typeof this.options.assetId == "object"){
+        		param = this.options.assetId.join("|");
+        	}else{
+        		param = this.options.assetId;
+        	}
+            return GO.config("contextRoot") + "api/asset/gadget?ids=" + encodeURIComponent(param);
+        }, 
+
+        renderConfig: function(el) {
+        	this._renderConfigTemplate(el);
+        }, 
+
+        onSuccess: function(el, resp) {
+            this._renderContent(el, resp.data);
+        },
+        
+        validate: function(el) {
+			var $target = $(el).find('.display-options');
+        	if($target.find('input[type=checkbox]:checked').length < 1) {
+        		return this.i18n.parse("msg_validate");
+        	}
+        	return false;
+        }, 
+        _checkAsset : function(e){
+        	var target = $(e.currentTarget);
+        	target.attr("checked",target.is(":checked"));
+        },
+        _goAsset : function(e){
+            var $target = $(e.currentTarget);
+        	var assetId = $target.attr("data-assetid");
+            var isRental = $target.attr('data-rental') === 'true';
+        	window.location.href = this.contextRoot + "app/asset/" + assetId + "/list/" + (isRental ? 'rental' : 'reservation');
+        },
+        _renderContent: function(el, data) {
+        	var _this = this;
+        	$(el).off("click","li.go_asset");
+        	$(el).on("click", "li.go_asset", $.proxy(this._goAsset, this));
+            $(el).empty().append(this.template(this._contentTemplate(), {
+            	"dataset": data,
+            	"isRental" : function(){
+            		if(this.useRental){
+            			return _this.i18n.parse("asset_rental");
+            		}	
+            		return _this.i18n.parse("asset_reservation");
+            	}
+            }));
+        }, 
+        _contentTemplate: function() {        	
+        	var html = [
+                '<div class="gadget_design_wrap">',
+                    '<div class="go_gadget_header">',
+                        '<div class="gadget_h1">',
+                            '<span class="type"><span class="ic_dashboard2 ic_type_asset" title="'+this.i18n.parse('asset_reservation')+'"></span></span>',
+                            '<span class="title">'+this.i18n.parse('asset_title')+'</span>',
+                        '</div>',
+                    '</div>',
+                    '<ul class="side_depth asset_list">',
+                        '{{#dataset}}',
+                        '<li class="classic go_asset" data-assetid="{{id}}" data-rental="{{useRental}}">',
+                            '<p class="title">',
+                                '<a class="go_boards"  data-bypass="">',
+                                    '<ins class="ic"></ins><span class="txt">{{name}}</span>',
+                                '</a>',
+                            	'{{#otherCompany}}<span class="ic_con ic_share"></span>{{/otherCompany}}',
+                                '<span class="btn_formal"><span class="txt">{{isRental}}</span></span>',
+                            '</p>',
+                        '</li>',
+                        '{{/dataset}}',
+                        '{{^dataset}}',
+                        	'<li class="null_data">',
+                        		'<p class="desc">' + this.i18n.parse("msg_validate") + '</p>',
+                    		'</li>',
+                        '{{/dataset}}',
+                    '</ul>',
+                    '</div>'
+            ].join('');
+
+        	return html;
+        }, 
+        
+        _renderConfigTemplate: function(el) {
+        	$(el).off("click", "li input");
+        	$(el).on("click", "li input", $.proxy(this._checkAsset, this));
+        	var _this = this;
+            var uid = 'gadget' + this.spec.id; // 동일한 가젯이 등록된 경우 가젯 아이디를 uid 로 사용 가능하다.
+        	var html = [
+                '<ul class="static_style display-options">',
+                    '<li>',
+                    '{{#isShare}}',
+                    	'<p class="title">{{companyName}}</p>',
+                    '{{/isShare}}',
+                    '{{^isShare}}',
+                        '<p class="title">'+this.i18n.parse('commpany_asset')+'</p>',
+                    '{{/isShare}}',
+                        '{{#dataset}}',
+                        '<span class="wrap_option wrap_label">',
+                            '<input id="' + uid + '_asset{{id}}" type="checkbox" data-assetid="{{id}}" name="assetId" value="{{id}}" {{#isChecked}}checked{{/isChecked}}>',
+                            '<label for="' + uid + '_asset{{id}}">{{name}}</label>',
+                        '</span>',
+                        '{{/dataset}}',
+                    '</li>',
+                '</ul>'
+            ].join('');
+
+           $.ajax( this.contextRoot + "api/asset", {type: "GET", async: false} )
+            .done(function(resp) {
+                _.each(resp.data, function(data) {
+                    data.isChecked = _.contains(_this.options.assetId, data.id + "");
+                });
+                var template = _this.template(html, {"dataset" : resp.data, 'isShare' : false});
+                $(el).append(template);
+
+                if(!_this.options.assetId){
+                    $(el).find('input[data-assetid]').attr("checked",true);
+                }else{
+                    var assetIds = new Array(_this.options.assetId);
+                    $.each(assetIds,function(k,v){
+                        $(el).find('input[data-assetid="'+v+'"]').attr("checked",true);
+                    });
+                }
+            }).fail(function() {
+                $(el).append('');
+			});
+           
+
+           //위에 함수가 async false라서 순서 보장이 된다.
+            $.ajax( this.contextRoot + "api/asset/share", {type: "GET", async: false} )
+           .done(function(resp) {
+				_.each(resp.data, function(datas) {
+					_.each(datas.assets, function(data) {
+						data.isChecked = _.contains(_this.options.assetId, data.id + "");
+					});
+					var template = _this.template(html, {"dataset" : datas.assets, 'isShare' : true, 'companyName' : datas.companyName});
+					$(el).append(template);
+					if(!_this.options.assetId){
+                       $(el).find('input[data-assetid]').attr("checked",true);
+					}else{
+						var assetIds = new Array(_this.options.assetId);
+						$.each(assetIds,function(k,v){
+							$(el).find('input[data-assetid="'+v+'"]').attr("checked",true);
+						});
+					}
+               }, this);
+           }).fail(function() {
+               $(el).append('');
+			});
+        }
+    });
+    </script>
+</head>
+
+<body id="main" class="go_skin_home_default" data-role="main">
+    <div class="go-dashboard go-dashboard-editing go_dashboard_3_2">
+        <div class="go-gadget-column gadget-col-1" data-columnid="1">
+            <!-- empty -->
+        </div>
+        
+        <div class="gripper"></div>
+
+        <div id="gadget-containter" class="go-gadget-column gadget-col-2" data-columnid="2">
+            <!-- empty -->
+        </div>
+
+        <div class="gripper"></div>
+
+        <div class="go-gadget-column gadget-col-3" data-columnid="3">
+            <!-- empty -->
+        </div>
+    </div>
+</body>
+</html>

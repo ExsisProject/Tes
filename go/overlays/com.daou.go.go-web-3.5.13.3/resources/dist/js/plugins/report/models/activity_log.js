@@ -1,0 +1,1 @@
+define(["backbone"],function(e){var t=null,n=e.Model.extend({urlRoot:""},{get:function(e,n){return t=new ReportMenu,t}});return n});

@@ -1,0 +1,152 @@
+{{^isImageType}}
+<span class="item_file">
+	<span class="optional">
+	{{#editable?}}
+		{{^isMobile}}
+		<a class="btn-file-remove" href="javascript:;">
+			<span class="btn-text ic_classic ic_del"></span>
+		</a>
+		{{/isMobile}}
+	{{/editable?}}
+	</span>
+	<span class="ic_file {{icon_class}}"></span>
+	<span class="name">
+		{{#download_url}}
+			{{#downloadable?}}
+			<a class="btn-download" data-bypass href="{{download_url}}">{{name}}</a>
+			{{/downloadable?}}
+			{{^downloadable?}}
+				{{name}}
+			{{/downloadable?}}
+		{{/download_url}}
+	</span>
+	{{^download_url}}
+	{{name}}
+	{{/download_url}}
+	<span class="size">({{file_size}})</span>
+	<span class="optional">
+		{{#previewable?}}
+			{{#isMobile}}
+				{{#useMobilePreview}}
+				<a class="wrap_ic_file wrap_ic_file_preview" id="filePreview" data-bypass data-id="{{encrypt}}" href="javascript:;">
+					 <span class="ic ic_file_preview"></span>
+				</a>
+				{{/useMobilePreview}}
+                {{#useMobileTempPreview}}
+                <a class="wrap_ic_file wrap_ic_file_preview" id ="tempFilePreview" data-bypass data-hostid="{{hostId}}" href="javascript:;">
+                             <span class="ic ic_file_preview"></span>
+                        </a>
+                {{/useMobileTempPreview}}
+			{{/isMobile}}
+			{{^isMobile}}
+			<a class="btn-preview btn_fn4" data-bypass data-id="{{encrypt}}"
+			   style="margin-right: 0px; display: inline-block;">
+				<span class="btn-text txt">{{label.preview}}</span>
+			</a>
+			{{/isMobile}}
+		{{/previewable?}}
+
+		{{#downloadable?}}
+		<a class="btn-download wrap_ic_file btn_fn4" data-bypass href="{{download_url}}"
+		   style="display: inline-block;">
+			<span class="btn-text txt">{{label.save}}</span>
+		</a>
+		{{/downloadable?}}
+
+		{{#editable?}}
+			{{#isMobile}}
+			<a class="wrap_ic_file" data-bypass href="javascript:;">
+				<span class="txt ic ic_file_del"></span>
+			</a>
+			{{/isMobile}}
+		{{/editable?}}
+	</span>
+</span>
+{{/isImageType}}
+{{#isImageType}}
+<span class="item_image">
+		 {{#isMobileApp}}
+			 <span class="thumb">
+					{{#editable?}}
+						<img border="0" src="{{thumbSmall}}">
+					{{/editable?}}
+					{{^editable?}}
+						{{#downloadable?}}
+						<a class="imageview fancybox-thumbs fancybox-button" data-bypass data-fancybox-group="thumb_{{imageGroupId}}"
+                           data-url="/thumb/attach/original/comment/{{encrypt}}"
+                           href="{{download_url}}" title="{{name}}">
+							<img border="0" src="{{thumbSmall}}">
+						</a>
+						{{/downloadable?}}
+						{{^downloadable?}}
+							<img alt="{{name}}" src="{{thumbSmall}}">
+						{{/downloadable?}}
+					{{/editable?}}
+			 </span>
+			 {{#editable?}}
+				<span class="img_tit">{{name}}</span>
+				<span class="txt">({{file_size}})</span>
+				<a class="iscroll-tap-highlight">
+					<span class="btn_wrap btn_del" title="삭제">
+						<span class="ic_cmm ic_del"></span>
+					</span>
+				</a>
+			 {{/editable?}}
+		 {{/isMobileApp}}
+         {{^isMobileApp}}
+            {{#isMobile}}
+                <span class="thumb">
+                {{#editable?}}
+                    <img border="0" src="{{thumbSmall}}">
+				</span>
+				<span class="img_tit">{{name}}</span>
+				<span class="txt">({{file_size}})</span>
+				<a class="iscroll-tap-highlight">
+					<span class="btn_wrap" title="삭제">
+						<span class="ic_cmm ic_del"></span>
+					</span>
+				</a>
+				{{/editable?}}
+                {{^editable?}}
+                    {{#downloadable?}}
+                    <a class="imageview fancybox-thumbs fancybox-button" data-bypass data-fancybox-group="thumb_{{imageGroupId}}"
+                       data-url="/thumb/attach/original/comment/{{encrypt}}" href="{{download_url}}"
+                       title="{{name}}">
+                        <img border="0" src="{{thumbSmall}}">
+                    </a>
+                    {{/downloadable?}}
+                    {{^downloadable?}}
+						<img alt="{{name}}" src="{{thumbSmall}}">
+                    {{/downloadable?}}
+                {{/editable?}}
+            {{/isMobile}}
+            {{^isMobile}}
+            <span class="thumb">
+				{{#editable?}}
+				<img border="0" src="{{thumbSmall}}">
+					<span class="name">{{name}}</span>
+					<span class="txt">({{file_size}})</span>
+					<a class="iscroll-tap-highlight">
+						<span class="btn_wrap" title="삭제">
+							<span class="ic_classic ic_del"></span>
+						</span>
+					</a>
+				{{/editable?}}
+				{{^editable?}}
+					{{#downloadable?}}
+					<a class="imageview fancybox-thumbs fancybox-button" data-bypass data-fancybox-group="thumb_{{imageGroupId}}"
+                       data-url="/thumb/attach/original/comment/{{encrypt}}" href="{{download_url}}"
+                       title="{{name}}">
+						<img border="0" src="{{thumbSmall}}">
+					</a>
+					{{/downloadable?}}
+					{{^downloadable?}}
+					<span class="name">{{name}}</span>
+					<span class="size">({{file_size}})</span>
+					{{/downloadable?}}
+				{{/editable?}}
+			</span>
+            {{/isMobile}}
+         {{/isMobileApp}}
+	</span>
+{{/isImageType}}

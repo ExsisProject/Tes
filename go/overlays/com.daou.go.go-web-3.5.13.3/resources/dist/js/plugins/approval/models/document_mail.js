@@ -1,0 +1,1 @@
+define(["backbone","app"],function(e,t){var n=e.Model.extend({initialize:function(e){this.docId=e.docId},url:function(){return[GO.contextRoot+"api/approval/document",this.docId,"sendmail"].join("/")}});return n});

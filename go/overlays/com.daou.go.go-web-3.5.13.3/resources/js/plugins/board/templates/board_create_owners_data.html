@@ -1,0 +1,12 @@
+<tr data-id="{{id}}">
+	<td>{{name}}</td>						
+	<td>
+		<form name="owners-{{id}}">
+			<input type="checkbox" name="permission" value="3" {{#checked}}checked="true"{{/checked}} />
+			<input type="hidden" name="ownerShip" value="JOINT" />
+			<input type="hidden" name="ownerType" value="Department" />
+			<input type="hidden" name="ownerId" value="{{id}}" />
+		</form>
+	</td>
+	<td><span class="btn_bdr"><span class="ic_classic ic_basket" title="{{lang.delete}}" data-id="{{id}}"></span></span></td>
+</tr>

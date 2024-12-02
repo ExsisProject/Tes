@@ -1,0 +1,1 @@
+define("docs/views/mobile/home",function(require){var e=require("docs/views/base_docs"),t=require("hgn!docs/templates/mobile/home"),n=require("views/mobile/title_toolbar");return e.extend({render:function(){var e=this,r={name:"asdf",isIscroll:!1,isPrev:!1};return this.titleToolbarView=n,this.titleToolbarView.render(r),this.$el.html(t({lang:this.lang})),this}})});

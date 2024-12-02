@@ -1,0 +1,1 @@
+G_DEPlugin.spellcheck.handlerURL="https://dict.raonwiz.com:8443/spellchecker/spellcheck_handler.jsp",G_DEPlugin.spellcheck.weakRule=!1;

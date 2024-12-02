@@ -1,0 +1,27 @@
+<div class="card_item_wrapper">
+    <div class="report_card type_num">
+        <p class="tit">{{title}}</p>
+        <p class="date">{{aggDate}}</p>
+        <p class="price" style="color:{{color}}">{{aggValue}}{{unitText}}</p>
+
+        <div class="wrap_info">
+            {{#isCustom}}
+            <span class="txt" style="color:#999;">{{compareDate}} {{{lang.대비}}}</span>
+            <span class="txt" style="color:{{compareColor}};">
+                {{compareValueSubtract}}{{unitText}}{{compareValuePercent}}</span>
+            <span class="ic ic_info">
+                <span class="txt_info">{{{lang.기간}}} : {{compareDate}}</span>
+            </span>
+            {{/isCustom}}
+
+            {{^isDone}}{{^isCustom}}
+            <span class="txt" style="color:#999;">{{compareRangeOption}} {{{lang.대비}}}</span>
+            <span class="txt" style="color:{{compareColor}};">
+                {{compareValueSubtract}}{{unitText}}{{compareValuePercent}}</span>
+            <span class="ic ic_info">
+                <span class="txt_info">{{{lang.기간}}} : {{compareDate}}</span>
+            </span>
+            {{/isCustom}}{{/isDone}}
+        </div>
+    </div>
+</div>

@@ -1,0 +1,1380 @@
+{
+  "meta": {
+    "key": "3a8bdb9c-cae2-3a92-90c3-82f3d2351e7",
+    "base": {
+      "name": "applet.reservation.manage.template.name",
+      "desc": "applet.reservation.manage.template.desc",
+      "icon": "ic_app17.png"
+    },
+    "exporter": {
+      "name": "관리자",
+      "companyName": "다우기술"
+    }
+  },
+  "components": {
+    "view": {
+      "charts": [],
+      "columns": [
+        {
+          "fieldCid": "status"
+        },
+        {
+          "fieldCid": "_o9kc4rucv"
+        },
+        {
+          "fieldCid": "_jc64snrp1"
+        },
+        {
+          "fieldCid": "_9h11x6z36"
+        },
+        {
+          "fieldCid": "_4rdpugp8s"
+        },
+        {
+          "fieldCid": "_39h27d7xe"
+        },
+        {
+          "fieldCid": "_015egxtov"
+        },
+        {
+          "fieldCid": "_obdvgqt16"
+        },
+        {
+          "fieldCid": "_3yevlkc75"
+        }
+      ],
+      "titleColumnIndex": 2,
+      "sortColumnIndex": 1,
+      "sortDirection": "DESC",
+      "docNoConfig": {
+        "useDocNo": false,
+        "docNoType": "simple",
+        "customDigit": 2
+      }
+    },
+    "form": {
+      "data": {
+        "type": "canvas",
+        "multiple": false,
+        "cid": "cxx1",
+        "components": [
+          {
+            "type": "label",
+            "multiple": false,
+            "cid": "_mbbs4h2z6",
+            "parentCid": "cxx1",
+            "properties": {
+              "label": "◆ 예약 정보",
+              "color": "4"
+            },
+            "components": []
+          },
+          {
+            "type": "columns",
+            "multiple": false,
+            "cid": "_jwgzgbncp",
+            "parentCid": "cxx1",
+            "properties": {
+              "count": 2
+            },
+            "components": [
+              {
+                "type": "column",
+                "multiple": false,
+                "cid": "_wqro40au9",
+                "parentCid": "_jwgzgbncp",
+                "properties": {},
+                "components": [
+                  {
+                    "type": "datetime",
+                    "valueType": "DATETIME",
+                    "multiple": false,
+                    "cid": "_o9kc4rucv",
+                    "parentCid": "_wqro40au9",
+                    "properties": {
+                      "label": "예약일시",
+                      "hideLabel": false,
+                      "guide": "",
+                      "guideAsTooltip": true,
+                      "required": true,
+                      "defaultAsNow": false,
+                      "defaultDate": "",
+                      "defaultTime": "",
+                      "code": "datetime_39008"
+                    },
+                    "components": []
+                  }
+                ]
+              },
+              {
+                "type": "column",
+                "multiple": false,
+                "cid": "_ue04hf06c",
+                "parentCid": "_jwgzgbncp",
+                "properties": {},
+                "components": [
+                  {
+                    "type": "select",
+                    "valueType": "SELECT",
+                    "multiple": false,
+                    "cid": "_jc64snrp1",
+                    "parentCid": "_ue04hf06c",
+                    "properties": {
+                      "label": "사용 홀",
+                      "hideLabel": false,
+                      "guide": "",
+                      "guideAsTooltip": true,
+                      "required": true,
+                      "defaultValue": "-999",
+                      "items": [
+                        {
+                          "value": "-999",
+                          "displayText": "선택안함",
+                          "selected": true
+                        },
+                        {
+                          "value": "0",
+                          "displayText": "세미나 A(50)",
+                          "selected": false
+                        },
+                        {
+                          "value": "1",
+                          "displayText": "세미나 B(30)",
+                          "selected": false
+                        },
+                        {
+                          "value": "2",
+                          "displayText": "세미나 C(20)",
+                          "selected": false
+                        },
+                        {
+                          "value": "3",
+                          "displayText": "세미나 D(20)",
+                          "selected": false
+                        },
+                        {
+                          "value": "4",
+                          "displayText": "세미나 E(60)",
+                          "selected": false
+                        }
+                      ]
+                    },
+                    "components": []
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "columns",
+            "multiple": false,
+            "cid": "_s7voxo18e",
+            "parentCid": "cxx1",
+            "properties": {
+              "count": 2
+            },
+            "components": [
+              {
+                "type": "column",
+                "multiple": false,
+                "cid": "_w8vpa8ida",
+                "parentCid": "_s7voxo18e",
+                "properties": {},
+                "components": [
+                  {
+                    "type": "text",
+                    "valueType": "STEXT",
+                    "multiple": false,
+                    "cid": "_9h11x6z36",
+                    "parentCid": "_w8vpa8ida",
+                    "properties": {
+                      "label": "예약자",
+                      "hideLabel": false,
+                      "guide": "",
+                      "guideAsTooltip": true,
+                      "required": true,
+                      "duplicate": false,
+                      "similar": false,
+                      "defaultValue": "",
+                      "minLength": 0,
+                      "maxLength": "10",
+                      "width": 100,
+                      "widthUnit": "px",
+                      "format": "all"
+                    },
+                    "components": []
+                  }
+                ]
+              },
+              {
+                "type": "column",
+                "multiple": false,
+                "cid": "_de427h809",
+                "parentCid": "_s7voxo18e",
+                "properties": {},
+                "components": [
+                  {
+                    "type": "text",
+                    "valueType": "STEXT",
+                    "multiple": false,
+                    "cid": "_scfg8hjfk",
+                    "parentCid": "_de427h809",
+                    "properties": {
+                      "label": "전화번호",
+                      "hideLabel": false,
+                      "guide": "",
+                      "guideAsTooltip": true,
+                      "required": true,
+                      "duplicate": false,
+                      "similar": false,
+                      "defaultValue": "",
+                      "minLength": 0,
+                      "maxLength": "15",
+                      "width": "150",
+                      "widthUnit": "px",
+                      "format": "all"
+                    },
+                    "components": []
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "columns",
+            "multiple": false,
+            "cid": "_65kqqowwi",
+            "parentCid": "cxx1",
+            "properties": {
+              "count": 2
+            },
+            "components": [
+              {
+                "type": "column",
+                "multiple": false,
+                "cid": "_ernn0jhr7",
+                "parentCid": "_65kqqowwi",
+                "properties": {},
+                "components": [
+                  {
+                    "type": "datetime",
+                    "valueType": "DATETIME",
+                    "multiple": false,
+                    "cid": "_lcg468ddr",
+                    "parentCid": "_ernn0jhr7",
+                    "properties": {
+                      "label": "사용 시작일",
+                      "hideLabel": false,
+                      "guide": "",
+                      "guideAsTooltip": true,
+                      "required": true,
+                      "defaultAsNow": false,
+                      "defaultDate": "",
+                      "defaultTime": "",
+                      "code": "datetime_1957"
+                    },
+                    "components": []
+                  },
+                  {
+                    "type": "datetime",
+                    "valueType": "DATETIME",
+                    "multiple": false,
+                    "cid": "_vu3mwd7w7",
+                    "parentCid": "_ernn0jhr7",
+                    "properties": {
+                      "label": "사용 종료일",
+                      "hideLabel": false,
+                      "guide": "",
+                      "guideAsTooltip": true,
+                      "required": true,
+                      "defaultAsNow": false,
+                      "defaultDate": "",
+                      "defaultTime": "",
+                      "code": "datetime_1949"
+                    },
+                    "components": []
+                  }
+                ]
+              },
+              {
+                "type": "column",
+                "multiple": false,
+                "cid": "_985nxcotn",
+                "parentCid": "_65kqqowwi",
+                "properties": {},
+                "components": [
+                  {
+                    "type": "radio",
+                    "valueType": "SELECT",
+                    "multiple": false,
+                    "cid": "_es56atuz7",
+                    "parentCid": "_985nxcotn",
+                    "properties": {
+                      "label": "요일구분",
+                      "hideLabel": false,
+                      "guide": "",
+                      "guideAsTooltip": true,
+                      "required": true,
+                      "defaultValue": "0",
+                      "items": [
+                        {
+                          "value": "-999",
+                          "displayText": "선택안함",
+                          "selected": false
+                        },
+                        {
+                          "value": "0",
+                          "displayText": "평일",
+                          "selected": true
+                        },
+                        {
+                          "value": "1",
+                          "displayText": "주말/휴일",
+                          "selected": false
+                        }
+                      ],
+                      "align": "horizontal"
+                    },
+                    "components": [],
+                    "emptyChildrenComponent": true
+                  },
+                  {
+                    "type": "label",
+                    "multiple": false,
+                    "cid": "_5t8yu83v2",
+                    "parentCid": "_985nxcotn",
+                    "properties": {
+                      "label": "※ 주말/휴일 대관 시 20% 가산 적용",
+                      "color": "17"
+                    },
+                    "components": []
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "columns",
+            "multiple": false,
+            "cid": "_gisbouh0y",
+            "parentCid": "cxx1",
+            "properties": {
+              "count": 2
+            },
+            "components": [
+              {
+                "type": "column",
+                "multiple": false,
+                "cid": "_g2t8co8kx",
+                "parentCid": "_gisbouh0y",
+                "properties": {},
+                "components": [
+                  {
+                    "type": "select",
+                    "valueType": "SELECT",
+                    "multiple": false,
+                    "cid": "_39h27d7xe",
+                    "parentCid": "_g2t8co8kx",
+                    "properties": {
+                      "label": "사용시간대",
+                      "hideLabel": false,
+                      "guide": "",
+                      "guideAsTooltip": true,
+                      "required": true,
+                      "defaultValue": "-999",
+                      "items": [
+                        {
+                          "value": "-999",
+                          "displayText": "선택안함",
+                          "selected": true
+                        },
+                        {
+                          "value": "0",
+                          "displayText": "오전(09:00~13:00)",
+                          "selected": false
+                        },
+                        {
+                          "value": "1",
+                          "displayText": "오후(13:00~17:00)",
+                          "selected": false
+                        },
+                        {
+                          "value": "2",
+                          "displayText": "저녁(17:00~21:00)",
+                          "selected": false
+                        }
+                      ]
+                    },
+                    "components": []
+                  }
+                ]
+              },
+              {
+                "type": "column",
+                "multiple": false,
+                "cid": "_ohfhqs6tj",
+                "parentCid": "_gisbouh0y",
+                "properties": {},
+                "components": [
+                  {
+                    "type": "number",
+                    "valueType": "NUMBER",
+                    "multiple": false,
+                    "cid": "_sbzivmwpm",
+                    "parentCid": "_ohfhqs6tj",
+                    "properties": {
+                      "label": "사용료",
+                      "hideLabel": false,
+                      "guide": "",
+                      "guideAsTooltip": true,
+                      "required": true,
+                      "defaultValue": "0",
+                      "minLength": "0",
+                      "maxLength": "10000000",
+                      "width": "120",
+                      "widthUnit": "px",
+                      "unitText": "원",
+                      "fixType": "postfix",
+                      "decimalPoints": "0",
+                      "thousandComma": true,
+                      "useTableAutoAggr": false,
+                      "tableAggrType": "",
+                      "code": "number_0"
+                    },
+                    "components": []
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "select",
+            "valueType": "SELECT",
+            "multiple": false,
+            "cid": "_vxy0msj5z",
+            "parentCid": "cxx1",
+            "properties": {
+              "label": "예약상태",
+              "hideLabel": false,
+              "guide": "",
+              "guideAsTooltip": true,
+              "required": true,
+              "defaultValue": "0",
+              "items": [
+                {
+                  "value": "-999",
+                  "displayText": "선택안함",
+                  "selected": false
+                },
+                {
+                  "value": "0",
+                  "displayText": "입금 대기중",
+                  "selected": true
+                },
+                {
+                  "value": "1",
+                  "displayText": "입금기한 초과",
+                  "selected": false
+                },
+                {
+                  "value": "2",
+                  "displayText": "입장 대기중",
+                  "selected": false
+                },
+                {
+                  "value": "3",
+                  "displayText": "예약자 취소",
+                  "selected": false
+                },
+                {
+                  "value": "4",
+                  "displayText": "입장 완료",
+                  "selected": false
+                }
+              ]
+            },
+            "components": []
+          },
+          {
+            "type": "label",
+            "multiple": false,
+            "cid": "_d8je5ywa6",
+            "parentCid": "cxx1",
+            "properties": {
+              "label": "※ 입금 안내사항 : 예약 신청 후 2시간 내 미결제 시 자동 취소 됩니다.",
+              "color": "17"
+            },
+            "components": []
+          },
+          {
+            "type": "hr",
+            "multiple": false,
+            "cid": "_tkcf91k8k",
+            "parentCid": "cxx1",
+            "properties": {},
+            "components": []
+          },
+          {
+            "type": "label",
+            "multiple": false,
+            "cid": "_at7qgc6jd",
+            "parentCid": "cxx1",
+            "properties": {
+              "label": "◆ 입금 / 취소 환불 내역",
+              "color": "4"
+            },
+            "components": []
+          },
+          {
+            "type": "columns",
+            "multiple": false,
+            "cid": "_2dybzf1gt",
+            "parentCid": "cxx1",
+            "properties": {
+              "count": 2
+            },
+            "components": [
+              {
+                "type": "column",
+                "multiple": false,
+                "cid": "_xllmiom6j",
+                "parentCid": "_2dybzf1gt",
+                "properties": {},
+                "components": [
+                  {
+                    "type": "datetime",
+                    "valueType": "DATETIME",
+                    "multiple": false,
+                    "cid": "_i44x86g07",
+                    "parentCid": "_xllmiom6j",
+                    "properties": {
+                      "label": "입금일시",
+                      "hideLabel": false,
+                      "guide": "",
+                      "guideAsTooltip": true,
+                      "required": false,
+                      "defaultAsNow": false,
+                      "defaultDate": "",
+                      "defaultTime": "",
+                      "code": "datetime_40854"
+                    },
+                    "components": []
+                  }
+                ]
+              },
+              {
+                "type": "column",
+                "multiple": false,
+                "cid": "_jskdv8z94",
+                "parentCid": "_2dybzf1gt",
+                "properties": {},
+                "components": [
+                  {
+                    "type": "number",
+                    "valueType": "NUMBER",
+                    "multiple": false,
+                    "cid": "_015egxtov",
+                    "parentCid": "_jskdv8z94",
+                    "properties": {
+                      "label": "입금액",
+                      "hideLabel": false,
+                      "guide": "",
+                      "guideAsTooltip": true,
+                      "required": true,
+                      "defaultValue": "0",
+                      "minLength": "0",
+                      "maxLength": "1000000",
+                      "width": "120",
+                      "widthUnit": "px",
+                      "unitText": "원",
+                      "fixType": "postfix",
+                      "decimalPoints": "0",
+                      "thousandComma": true,
+                      "useTableAutoAggr": false,
+                      "tableAggrType": "",
+                      "code": "number_1"
+                    },
+                    "components": []
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "columns",
+            "multiple": false,
+            "cid": "_ib5lgqpss",
+            "parentCid": "cxx1",
+            "properties": {
+              "count": 2
+            },
+            "components": [
+              {
+                "type": "column",
+                "multiple": false,
+                "cid": "_jos64ujxd",
+                "parentCid": "_ib5lgqpss",
+                "properties": {},
+                "components": [
+                  {
+                    "type": "datetime",
+                    "valueType": "DATETIME",
+                    "multiple": false,
+                    "cid": "_r0saiwq0l",
+                    "parentCid": "_jos64ujxd",
+                    "properties": {
+                      "label": "취소요청일시",
+                      "hideLabel": false,
+                      "guide": "",
+                      "guideAsTooltip": true,
+                      "required": false,
+                      "defaultAsNow": false,
+                      "defaultDate": "",
+                      "defaultTime": "",
+                      "code": "datetime_42392"
+                    },
+                    "components": []
+                  }
+                ]
+              },
+              {
+                "type": "column",
+                "multiple": false,
+                "cid": "_nxsp1hqgz",
+                "parentCid": "_ib5lgqpss",
+                "properties": {},
+                "components": [
+                  {
+                    "type": "label",
+                    "multiple": false,
+                    "cid": "_goh4h1l06",
+                    "parentCid": "_nxsp1hqgz",
+                    "properties": {
+                      "label": "※ 사용일 1일 전까지 취소 시 환불 가능. 당일 취소는 환불 불가",
+                      "color": "17"
+                    },
+                    "components": []
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "columns",
+            "multiple": false,
+            "cid": "_dtldstqh3",
+            "parentCid": "cxx1",
+            "properties": {
+              "count": 2
+            },
+            "components": [
+              {
+                "type": "column",
+                "multiple": false,
+                "cid": "_51ofy6d3d",
+                "parentCid": "_dtldstqh3",
+                "properties": {},
+                "components": [
+                  {
+                    "type": "number",
+                    "valueType": "NUMBER",
+                    "multiple": false,
+                    "cid": "_dpmo1ta27",
+                    "parentCid": "_51ofy6d3d",
+                    "properties": {
+                      "label": "취소환불액",
+                      "hideLabel": false,
+                      "guide": "",
+                      "guideAsTooltip": true,
+                      "required": false,
+                      "defaultValue": "0",
+                      "minLength": "0",
+                      "maxLength": "10000000",
+                      "width": "120",
+                      "widthUnit": "px",
+                      "unitText": "원",
+                      "fixType": "postfix",
+                      "decimalPoints": "0",
+                      "thousandComma": true,
+                      "useTableAutoAggr": false,
+                      "tableAggrType": "",
+                      "code": "number_2"
+                    },
+                    "components": []
+                  }
+                ]
+              },
+              {
+                "type": "column",
+                "multiple": false,
+                "cid": "_0arz07jtj",
+                "parentCid": "_dtldstqh3",
+                "properties": {},
+                "components": [
+                  {
+                    "type": "datetime",
+                    "valueType": "DATETIME",
+                    "multiple": false,
+                    "cid": "_kpv8a0cfw",
+                    "parentCid": "_0arz07jtj",
+                    "properties": {
+                      "label": "환불일시",
+                      "hideLabel": false,
+                      "guide": "",
+                      "guideAsTooltip": true,
+                      "required": false,
+                      "defaultAsNow": false,
+                      "defaultDate": "",
+                      "defaultTime": "",
+                      "code": "datetime_42937"
+                    },
+                    "components": []
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "hr",
+            "multiple": false,
+            "cid": "_8gbm0esxl",
+            "parentCid": "cxx1",
+            "properties": {},
+            "components": []
+          },
+          {
+            "type": "label",
+            "multiple": false,
+            "cid": "_vn3mjtpvo",
+            "parentCid": "cxx1",
+            "properties": {
+              "label": "◆ 당일 추가 사용 내역",
+              "color": "4"
+            },
+            "components": []
+          },
+          {
+            "type": "table",
+            "multiple": false,
+            "cid": "_jeb4a7vbf",
+            "parentCid": "cxx1",
+            "properties": {
+              "label": "사용 내역",
+              "hideLabel": false,
+              "guide": "",
+              "guideAsTooltip": true
+            },
+            "components": [
+              {
+                "type": "select",
+                "valueType": "SELECT",
+                "multiple": true,
+                "cid": "_k2od3gqlq",
+                "parentCid": "_jeb4a7vbf",
+                "properties": {
+                  "label": "사용 항목",
+                  "hideLabel": false,
+                  "guide": "",
+                  "guideAsTooltip": true,
+                  "required": false,
+                  "defaultValue": "-999",
+                  "items": [
+                    {
+                      "value": "-999",
+                      "displayText": "선택안함",
+                      "selected": true
+                    },
+                    {
+                      "value": "1",
+                      "displayText": "빔프로젝터",
+                      "selected": false
+                    },
+                    {
+                      "value": "2",
+                      "displayText": "냉방",
+                      "selected": false
+                    },
+                    {
+                      "value": "3",
+                      "displayText": "난방",
+                      "selected": false
+                    }
+                  ]
+                },
+                "components": []
+              },
+              {
+                "type": "number",
+                "valueType": "NUMBER",
+                "multiple": true,
+                "cid": "_twf1mgvdo",
+                "parentCid": "_jeb4a7vbf",
+                "properties": {
+                  "label": "사용 시간(회)",
+                  "hideLabel": false,
+                  "guide": "",
+                  "guideAsTooltip": true,
+                  "required": false,
+                  "defaultValue": "0",
+                  "minLength": "0",
+                  "maxLength": "100",
+                  "width": "50",
+                  "widthUnit": "px",
+                  "unitText": "",
+                  "fixType": "postfix",
+                  "decimalPoints": 2,
+                  "thousandComma": true,
+                  "useTableAutoAggr": false,
+                  "tableAggrType": "",
+                  "code": "number_44125"
+                },
+                "components": []
+              },
+              {
+                "type": "number",
+                "valueType": "NUMBER",
+                "multiple": true,
+                "cid": "_97hqdfrs3",
+                "parentCid": "_jeb4a7vbf",
+                "properties": {
+                  "label": "금액",
+                  "hideLabel": false,
+                  "guide": "",
+                  "guideAsTooltip": true,
+                  "required": false,
+                  "defaultValue": "0",
+                  "minLength": "0",
+                  "maxLength": "1000000",
+                  "width": "120",
+                  "widthUnit": "px",
+                  "unitText": "원",
+                  "fixType": "postfix",
+                  "decimalPoints": "0",
+                  "thousandComma": true,
+                  "useTableAutoAggr": true,
+                  "tableAggrType": "SUM",
+                  "code": "sum_1"
+                },
+                "components": []
+              }
+            ]
+          },
+          {
+            "type": "columns",
+            "multiple": false,
+            "cid": "_ozq1g2o7n",
+            "parentCid": "cxx1",
+            "properties": {
+              "count": 2
+            },
+            "components": [
+              {
+                "type": "column",
+                "multiple": false,
+                "cid": "_g4vixbslv",
+                "parentCid": "_ozq1g2o7n",
+                "properties": {},
+                "components": [
+                  {
+                    "type": "formula",
+                    "valueType": "NUMBER",
+                    "multiple": false,
+                    "cid": "_obdvgqt16",
+                    "parentCid": "_g4vixbslv",
+                    "properties": {
+                      "label": "당일 추가요금",
+                      "hideLabel": false,
+                      "guide": "",
+                      "guideAsTooltip": true,
+                      "expressionType": "number",
+                      "expression": "sum_1",
+                      "width": "120",
+                      "widthUnit": "px",
+                      "unitText": "원",
+                      "fixType": "postfix",
+                      "decimalPoints": "0",
+                      "thousandComma": true,
+                      "code": "formula_1"
+                    },
+                    "components": []
+                  }
+                ]
+              },
+              {
+                "type": "column",
+                "multiple": false,
+                "cid": "_xw8dornqq",
+                "parentCid": "_ozq1g2o7n",
+                "properties": {},
+                "components": [
+                  {
+                    "type": "formula",
+                    "valueType": "NUMBER",
+                    "multiple": false,
+                    "cid": "_3yevlkc75",
+                    "parentCid": "_xw8dornqq",
+                    "properties": {
+                      "label": "매출총액",
+                      "hideLabel": false,
+                      "guide": "",
+                      "guideAsTooltip": true,
+                      "expressionType": "number",
+                      "expression": "number_1 - number_2 + formula_1",
+                      "width": "120",
+                      "widthUnit": "px",
+                      "unitText": "원",
+                      "fixType": "postfix",
+                      "decimalPoints": "0",
+                      "thousandComma": true,
+                      "code": "formula_2"
+                    },
+                    "components": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "process": {
+      "useProcess": true,
+      "statuses": [
+        {
+          "name": "{{applet.reservation.manage.status.deposit.waiting}}",
+          "start": true,
+          "doing": false,
+          "end": false,
+          "color": "18"
+        },
+        {
+          "name": "{{applet.reservation.manage.status.overdue.cancel}}",
+          "start": false,
+          "doing": true,
+          "end": false,
+          "color": "4"
+        },
+        {
+          "name": "{{applet.reservation.manage.status.entrance.waiting}}",
+          "start": false,
+          "doing": false,
+          "end": true,
+          "color": "11"
+        },
+        {
+          "name": "{{applet.reservation.manage.status.reservation.cancel}}",
+          "start": false,
+          "doing": false,
+          "end": true,
+          "color": "4"
+        },
+        {
+          "name": "{{applet.reservation.manage.status.complete}}",
+          "start": false,
+          "doing": false,
+          "end": true,
+          "color": "9"
+        }
+      ],
+      "transitions": [
+        {
+          "beforeStatus": "{{applet.reservation.manage.status.deposit.waiting}}",
+          "nextStatus": "{{applet.reservation.manage.status.overdue.cancel}}",
+          "actionName": "{{applet.reservation.manage.action.auto.cancel}}",
+          "actionRoles": [
+            "ADMIN"
+          ],
+          "pushRoles": [
+            "ADMIN"
+          ]
+        },
+        {
+          "beforeStatus": "{{applet.reservation.manage.status.deposit.waiting}}",
+          "nextStatus": "{{applet.reservation.manage.status.entrance.waiting}}",
+          "actionName": "{{applet.reservation.manage.action.deposit.complete}}",
+          "actionRoles": [
+            "ADMIN"
+          ],
+          "pushRoles": [
+            "ADMIN"
+          ]
+        },
+        {
+          "beforeStatus": "{{applet.reservation.manage.status.entrance.waiting}}",
+          "nextStatus": "{{applet.reservation.manage.status.reservation.cancel}}",
+          "actionName": "{{applet.reservation.manage.action.cancel}}",
+          "actionRoles": [
+            "ADMIN"
+          ],
+          "pushRoles": [
+            "ADMIN"
+          ]
+        },
+        {
+          "beforeStatus": "{{applet.reservation.manage.status.entrance.waiting}}",
+          "nextStatus": "{{applet.reservation.manage.status.complete}}",
+          "actionName": "{{applet.reservation.manage.action.complete}}",
+          "actionRoles": [
+            "ADMIN"
+          ],
+          "pushRoles": [
+            "ADMIN"
+          ]
+        }
+      ],
+      "addPushes": [],
+      "template": "[{\"type\":\"stat\",\"name\":\"{{applet.reservation.manage.status.deposit.waiting}}\",\"geometryX\":240,\"geometryY\":275},{\"type\":\"stat\",\"name\":\"{{applet.reservation.manage.status.overdue.cancel}}\",\"geometryX\":240,\"geometryY\":190},{\"type\":\"stat\",\"name\":\"{{applet.reservation.manage.status.entrance.waiting}}\",\"geometryX\":420,\"geometryY\":275},{\"type\":\"stat\",\"name\":\"{{applet.reservation.manage.status.reservation.cancel}}\",\"geometryX\":420,\"geometryY\":190},{\"type\":\"stat\",\"name\":\"{{applet.reservation.manage.status.complete}}\",\"geometryX\":610,\"geometryY\":275},{\"type\":\"transition\",\"beforeStatus\":\"{{applet.reservation.manage.status.deposit.waiting}}\",\"nextStatus\":\"{{applet.reservation.manage.status.overdue.cancel}}\",\"geometryX\":[280],\"geometryY\":[203]},{\"type\":\"transition\",\"beforeStatus\":\"{{applet.reservation.manage.status.deposit.waiting}}\",\"nextStatus\":\"{{applet.reservation.manage.status.entrance.waiting}}\",\"geometryX\":[280],\"geometryY\":[280]},{\"type\":\"transition\",\"beforeStatus\":\"{{applet.reservation.manage.status.entrance.waiting}}\",\"nextStatus\":\"{{applet.reservation.manage.status.reservation.cancel}}\"},{\"type\":\"transition\",\"beforeStatus\":\"{{applet.reservation.manage.status.entrance.waiting}}\",\"nextStatus\":\"{{applet.reservation.manage.status.complete}}\",\"geometryX\":[530,530],\"geometryY\":[290,290]},{\"type\":\"stat\",\"geometryX\":20,\"geometryY\":275},{\"type\":\"transition\",\"nextStatus\":\"{{applet.reservation.manage.status.deposit.waiting}}\"}]"
+    },
+    "calendarView": {
+      "name": "대관 예약 일정",
+      "periods": [
+        {
+          "startCid": "_o9kc4rucv",
+          "endCid": "_vu3mwd7w7"
+        },
+        {
+          "startCid": "_i44x86g07",
+          "endCid": "_r0saiwq0l"
+        },
+        {
+          "startCid": "_o9kc4rucv",
+          "endCid": "_lcg468ddr"
+        }
+      ]
+    }
+  },
+  "messageKeys": [
+    "applet.reservation.manage.template.name",
+    "applet.reservation.manage.template.desc",
+    "applet.reservation.manage.status.deposit.waiting",
+    "applet.reservation.manage.status.overdue.cancel",
+    "applet.reservation.manage.status.entrance.waiting",
+    "applet.reservation.manage.status.reservation.cancel",
+    "applet.reservation.manage.status.complete",
+    "applet.reservation.manage.action.auto.cancel",
+    "applet.reservation.manage.action.deposit.complete",
+    "applet.reservation.manage.action.cancel",
+    "applet.reservation.manage.action.complete"
+  ],
+  "guide": {
+    "contents": "applet.reservation.manage.template.guide.content",
+    "imageFiles": [
+      "f_reservationManagement/f_01.png",
+      "f_reservationManagement/f_02.png",
+      "f_reservationManagement/f_03.png"
+    ]
+  },
+  "sampleData": {
+    "docValues": [
+      {
+        "status": "{{applet.reservation.manage.status.complete}}",
+        "_jc64snrp1": 0,
+        "_o9kc4rucv": "2019-12-18T11:00:00.000+09:00",
+        "_9h11x6z36": "홍철기",
+        "_scfg8hjfk": "010-3838-0000",
+        "_es56atuz7": 1,
+        "_39h27d7xe": 1,
+        "_sbzivmwpm": 240000,
+        "_vxy0msj5z": 1,
+        "_i44x86g07": "2019-12-06T11:30:00.000+09:00",
+        "_015egxtov": 240000,
+        "_dpmo1ta27": 0,
+        "_obdvgqt16": 30000,
+        "_3yevlkc75": 270000
+      },
+      {
+        "status": "{{applet.reservation.manage.status.deposit.waiting}}",
+        "_jc64snrp1": 0,
+        "_o9kc4rucv": {
+          "baseDate": "now",
+          "operation": "MINUS",
+          "days": 19,
+          "time": "00:30"
+        },
+        "_9h11x6z36": "김두리",
+        "_scfg8hjfk": "010-3000-0000",
+        "_lcg468ddr": {
+          "baseDate": "now",
+          "operation": "MINUS",
+          "days": 18
+        },
+        "_es56atuz7": 0,
+        "_vu3mwd7w7": {
+          "baseDate": "now",
+          "operation": "MINUS",
+          "days": 14,
+          "time": "01:30"
+        },
+        "_39h27d7xe": 1,
+        "_sbzivmwpm": 20000,
+        "_vxy0msj5z": 0,
+        "_015egxtov": 200000,
+        "_dpmo1ta27": 0,
+        "_k2od3gqlq": [
+          -999
+        ],
+        "_twf1mgvdo": [
+          0
+        ],
+        "_97hqdfrs3": [
+          0
+        ],
+        "_obdvgqt16": 0,
+        "_3yevlkc75": 200000
+      },
+      {
+        "status": "{{applet.reservation.manage.status.entrance.waiting}}",
+        "_jc64snrp1": 3,
+        "_o9kc4rucv": {
+          "baseDate": "now",
+          "operation": "MINUS",
+          "days": 16
+        },
+        "_9h11x6z36": "김다키",
+        "_scfg8hjfk": "010-0000-0000",
+        "_lcg468ddr": {
+          "baseDate": "now",
+          "operation": "MINUS",
+          "days": 7,
+          "time": "22:00"
+        },
+        "_es56atuz7": 0,
+        "_vu3mwd7w7": {
+          "baseDate": "now",
+          "operation": "MINUS",
+          "days": 8,
+          "time": "13:00"
+        },
+        "_39h27d7xe": 1,
+        "_sbzivmwpm": 150000,
+        "_vxy0msj5z": 0,
+        "_015egxtov": 150000,
+        "_dpmo1ta27": 0,
+        "_k2od3gqlq": [
+          -999
+        ],
+        "_twf1mgvdo": [
+          0
+        ],
+        "_97hqdfrs3": [
+          0
+        ],
+        "_obdvgqt16": 0,
+        "_3yevlkc75": 150000
+      },
+      {
+        "status": "{{applet.reservation.manage.status.deposit.waiting}}",
+        "_jc64snrp1": 4,
+        "_o9kc4rucv": {
+          "baseDate": "now",
+          "operation": "MINUS",
+          "days": 13,
+          "time": "18:20"
+        },
+        "_9h11x6z36": "이상오",
+        "_scfg8hjfk": "010-4400-0000",
+        "_lcg468ddr": {
+          "baseDate": "now",
+          "operation": "PLUS",
+          "days": 4,
+          "time": "17:00"
+        },
+        "_es56atuz7": 1,
+        "_vu3mwd7w7": {
+          "baseDate": "now",
+          "operation": "PLUS",
+          "days": 4,
+          "time": "21:00"
+        },
+        "_39h27d7xe": 2,
+        "_sbzivmwpm": 300000,
+        "_vxy0msj5z": 4,
+        "_i44x86g07": {
+          "baseDate": "now",
+          "operation": "PLUS",
+          "days": 1,
+          "time": "11:00"
+        },
+        "_015egxtov": 300000,
+        "_dpmo1ta27": 1,
+        "_k2od3gqlq": [
+          1
+        ],
+        "_twf1mgvdo": [
+          3
+        ],
+        "_97hqdfrs3": [
+          30000
+        ],
+        "_obdvgqt16": 30000,
+        "_3yevlkc75": 329999
+      },
+      {
+        "status": "{{applet.reservation.manage.status.deposit.waiting}}",
+        "_jc64snrp1": 2,
+        "_o9kc4rucv": {
+          "baseDate": "now",
+          "operation": "MINUS",
+          "days": 9,
+          "time": "16:30"
+        },
+        "_9h11x6z36": "김지우",
+        "_scfg8hjfk": "010-0000-0000",
+        "_lcg468ddr": {
+          "baseDate": "now",
+          "operation": "MINUS",
+          "days": 6,
+          "time": "13:30"
+        },
+        "_es56atuz7": 0,
+        "_vu3mwd7w7": {
+          "baseDate": "now",
+          "operation": "MINUS",
+          "days": 6,
+          "time": "16:00"
+        },
+        "_39h27d7xe": 1,
+        "_sbzivmwpm": 120000,
+        "_vxy0msj5z": 2,
+        "_015egxtov": 120000,
+        "_dpmo1ta27": 0,
+        "_k2od3gqlq": [
+          -999
+        ],
+        "_twf1mgvdo": [
+          0
+        ],
+        "_97hqdfrs3": [
+          0
+        ],
+        "_obdvgqt16": 0,
+        "_3yevlkc75": 120000
+      },
+      {
+        "status": "{{applet.reservation.manage.status.reservation.cancel}}",
+        "_jc64snrp1": 3,
+        "_o9kc4rucv": {
+          "baseDate": "now",
+          "operation": "MINUS",
+          "days": 8,
+          "time": "18:20"
+        },
+        "_9h11x6z36": "안상민",
+        "_scfg8hjfk": "010-2198-0000",
+        "_es56atuz7": 0,
+        "_39h27d7xe": 0,
+        "_sbzivmwpm": 100000,
+        "_vxy0msj5z": 2,
+        "_i44x86g07": {
+          "baseDate": "now",
+          "operation": "PLUS",
+          "days": 1,
+          "time": "11:00"
+        },
+        "_015egxtov": 100000,
+        "_r0saiwq0l": {
+          "baseDate": "now",
+          "operation": "PLUS",
+          "days": 2,
+          "time": "10:10"
+        },
+        "_dpmo1ta27": 100000,
+        "_kpv8a0cfw": {
+          "baseDate": "now",
+          "operation": "PLUS",
+          "days": 2,
+          "time": "14:00"
+        },
+        "_obdvgqt16": 0,
+        "_3yevlkc75": 0
+      },
+      {
+        "status": "{{applet.reservation.manage.status.overdue.cancel}}",
+        "_jc64snrp1": 1,
+        "_o9kc4rucv": {
+          "baseDate": "now",
+          "operation": "MINUS",
+          "days": 7,
+          "time": "18:20"
+        },
+        "_9h11x6z36": "김길동",
+        "_scfg8hjfk": "010-5959-0000",
+        "_es56atuz7": 0,
+        "_39h27d7xe": 1,
+        "_sbzivmwpm": 150000,
+        "_vxy0msj5z": 1,
+        "_015egxtov": 0,
+        "_dpmo1ta27": 0,
+        "_obdvgqt16": 0,
+        "_3yevlkc75": 0
+      },
+      {
+        "status": "{{applet.reservation.manage.status.deposit.waiting}}",
+        "_jc64snrp1": 0,
+        "_o9kc4rucv": {
+          "baseDate": "now",
+          "operation": "MINUS",
+          "days": 2,
+          "time": "08:30"
+        },
+        "_9h11x6z36": "김사유",
+        "_scfg8hjfk": "010-0000-0000",
+        "_lcg468ddr": {
+          "baseDate": "now",
+          "operation": "PLUS",
+          "days": 5,
+          "time": "08:30"
+        },
+        "_es56atuz7": 0,
+        "_vu3mwd7w7": {
+          "baseDate": "now",
+          "operation": "PLUS",
+          "days": 6,
+          "time": "12:00"
+        },
+        "_39h27d7xe": 0,
+        "_sbzivmwpm": 100000,
+        "_vxy0msj5z": 0,
+        "_015egxtov": 100000,
+        "_dpmo1ta27": 0,
+        "_k2od3gqlq": [
+          -999
+        ],
+        "_twf1mgvdo": [
+          0
+        ],
+        "_97hqdfrs3": [
+          0
+        ],
+        "_obdvgqt16": 0,
+        "_3yevlkc75": 100000
+      },
+      {
+        "status": "{{applet.reservation.manage.status.complete}}",
+        "_jc64snrp1": 2,
+        "_o9kc4rucv": {
+          "baseDate": "now",
+          "operation": "MINUS",
+          "days": 0,
+          "time": "18:21"
+        },
+        "_9h11x6z36": "이철민",
+        "_scfg8hjfk": "010-3901-0000",
+        "_es56atuz7": 0,
+        "_39h27d7xe": 1,
+        "_sbzivmwpm": 150000,
+        "_vxy0msj5z": 1,
+        "_i44x86g07": {
+          "baseDate": "now",
+          "operation": "PLUS",
+          "days": 1,
+          "time": "11:00"
+        },
+        "_015egxtov": 150000,
+        "_dpmo1ta27": 0,
+        "_obdvgqt16": 66000,
+        "_3yevlkc75": 216000
+      }
+    ]
+  }
+}

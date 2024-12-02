@@ -1,0 +1,1 @@
+define("timeline/views/title",function(require){function s(e,t,n){}var e=require("backbone"),t=require("app"),n=require("hgn!timeline/templates/title"),r=require("i18n!timeline/nls/timeline"),i=e.View.extend({events:{},initialize:function(){},render:function(e){return this.$el.html(n({lang:r})),this}});return i});

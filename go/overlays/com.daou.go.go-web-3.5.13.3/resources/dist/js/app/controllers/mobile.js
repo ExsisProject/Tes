@@ -1,0 +1,1 @@
+(function(){define(["app"],function(e){var t=function(){var t=function(){};return t.prototype={home:function(){location.href=e.contextRoot+"app/home"},preview:function(e){require(["views/preview"],function(t){var n=new t({encrypt:e});$("body").append(n.render().$el)})}},t}();return new t})}).call(this);

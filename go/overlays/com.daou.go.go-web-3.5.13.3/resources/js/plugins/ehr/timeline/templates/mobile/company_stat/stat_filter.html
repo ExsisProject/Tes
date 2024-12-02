@@ -1,0 +1,12 @@
+<form onSubmit="return false;">
+    <select class="btn_tool btn_slt" id="filter_type">
+        {{#isCompany}}
+		<option value="departmentName">{{CommonLang.부서명}}</option>
+		{{/isCompany}}
+        <option value="userName">{{CommonLang.부서원}}</option>
+    </select>
+    <div class="search_keyword">
+        <input type="text" id="text_field">
+        <a class="btn_search" id="search"></a>
+    </div>
+</form>

@@ -1,0 +1,189 @@
+<div class="linkplus_detail_header">
+    <img class="service_logo" src="{{baseImgUrl}}signok_logo.png" alt="">
+    <div class="info">
+        <p class="name">
+            싸인오케이
+
+            {{#isApply}}
+            <span class="linkplus_request">
+                <span class="txt">{{storeLang.신청중}}</span>
+                <span class="tooltip">
+                    {{storeLang.제휴사로 연결을 요청중입니다}}<br>
+                    {{storeLang.연결이 완료되면 사용하실 수 있습니다}}
+                </span>
+            </span>
+            {{/isApply}}
+
+            {{#inUse}}
+            <span class="linkplus_using">{{storeLang.사용중}}</span>
+            {{/inUse}}
+
+        </p>
+        <p class="desc">싸인오케이는 구축이 필요 없습니다.
+            회원가입 후 기존에 사용하던 계약서 파일을 그대로 업로드하여 메일이나 카카오톡/SMS를 통해 상대방에게 서명요청하여 계약을 체결할 수 있는 서비스 입니다.</p>
+        <div class="meta">
+            <div class="critical">
+                <div class="list_album_meta">
+                    <span class="state ghost category">전자계약</span>
+                    <span class="state ghost service">한국정보인증(주)</span>
+                </div>
+            </div>
+            <div class="optional">
+                <a class="btn_minor" id="goToList">
+                    <span class="txt">{{commonLang.목록}}</span>
+                </a>
+
+                {{#canUse}}
+                <a class="btn_major " id="useService">
+                    <span class="txt">{{storeLang.사용하기}}</span>
+                </a>
+                {{/canUse}}
+
+                {{#canRegister}}
+                <a class="btn_major" id="register">
+                    <span class="txt">{{commonLang.신청하기}}</span>
+                </a>
+                {{/canRegister}}
+            </div>
+        </div>
+    </div>
+</div>
+<div class="linkplus_detail_display">
+    <div class="banner_rolling">
+        <div class="wrap_img" id="banner_container" style="width:801px; overflow:hidden; position:relative;">
+            <div id="banner_wrapper" style="width:2403px;position:absolute;">
+                <img src="{{baseImgUrl}}signok_thum1.png" style="float:left;" alt="">
+                <img src="{{baseImgUrl}}signok_thum2.png" style="float:left;" alt="">
+                <img src="{{baseImgUrl}}signok_thum3.png" style="float:left;" alt="">
+            </div>
+        </div>
+        <a class="btn_banner_rolling prev" data-type="prev" data-rol="button">
+            <span class="ic_dashboard2 ic_prev" title="다음"></span>
+        </a>
+        <a  class="btn_banner_rolling next" data-type="next" data-rol="button">
+            <span class="ic_dashboard2 ic_next" title="다음"></span>
+        </a>
+        <div class="banner_rolling_page">
+            <span class="on"></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+</div>
+<div class="linkplus_detail_container">
+    <h2>비대면으로 언제 어디서나 쉽고 빠르게 PC/모바일을 통해 전자계약을 체결할 수 있습니다.</h2>
+    <p class="desc">
+        계약 한 번 하려면 왜 이렇게 복잡할까?<br>
+        계약서를 잘못 보관했다가 잃어버리면 어떡하지?<br>
+        이 종이 다 버릴텐데 결국 다 낭비 아닌가?<br>
+        싸인오케이는 이러한 불편을 해결하면서, 종이계약보다 더 편리한 계약 문화를 만들 수 있을 것이라는 확신으로 출시한 전자계약 서비스입니다.<br>
+        국가공인인증기관이 전자계약 서비스를 제공하는 이유! 종이에서 벗어나 전자계약을 써야 하는 이유!<br>
+        전자계약의 대중화를 꿈꾸는 싸인오케이가 알려드립니다.<br>
+        이제 번거로운 종이 계약 대신, 간편한 비대면 전자계약서비스로 귀사의 업무 환경을 바꿔보시기 바랍니다.
+    </p>
+    <h2>가입/연동/혜택</h2>
+    <ul class="list_accordion">
+        <li>
+            <div class="subject">
+                <span class="txt">1. 서비스 상세 소개</span>
+                <div class="optional">
+                    <span class="ic24 arrow_t"></span>
+                </div>
+            </div>
+            <div class="desc on">
+                싸인오케이는 온라인 상으로 계약을 체결할 수 있는 대한민국 대표 ‘전자계약서비스’ 입니다.<br>
+                1) 기존 영업사원이 직접 방문하거나 우편으로 진행하던 계약 체결 업무를 대체 할 수 있는 전자계약입니다.<br>
+                2) 계약 종류에 상관없이 모든 계약에 적용할 수 있습니다.<br>
+                3) 기존에 사용하던 계약서 파일(워드/한글/PDF/이미지 등)을 업로드 후, 상대방에게 메일 또는 카카오톡으로 서명 요청할 수 있습니다.<br>
+                <a class="serviceLink" data-url="https://www.signok.com">www.signok.com</a>
+            </div>
+        </li>
+        <li>
+            <div class="subject">
+                <span class="txt">2. 기업에서 사용하면 어떤 점이 좋을까요.</span>
+                <div class="optional">
+                    <span class="ic24 arrow_d"></span>
+                </div>
+            </div>
+            <div class="desc">
+                1) 기존 종이계약 보다 약 50%의 비용이 절감 됩니다.<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;- 우편요금 절약, 별도 종이문서 보관장소 불필요<br>
+                2) 계약문서 관리가 보다 효율적입니다.<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;- 문서 분실 위험 축소, 실무자 불편함 해소
+                3) 계약 업무시간이 단축됩니다.<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;- 대면계약 불필요, 우편발송 기간 절약
+            </div>
+        </li>
+        <li>
+            <div class="subject">
+                <span class="txt">3. 서비스의 특징과 장점은 무엇일까요</span>
+                <div class="optional">
+                    <span class="ic24 arrow_d"></span>
+                </div>
+            </div>
+            <div class="desc">
+                1) 대량으로 계약서 발송이 가능합니다.<br>
+                2) 자주 사용하는 계약서 템플릿을 보관하고 활용할 수 있습니다.<br>
+                3) 모바일 서명이 가능하며, 장소/시간에 제약받지 않습니다.<br>
+                4) 귀사의 기업 로고를 등록한 전용페이지가 제공됩니다.<br>
+                5) 서명 유효 여부 및 문서 위/변조 여부 등 법적효력 증명이 가능한 스마트한 서비스입니다.
+            </div>
+        </li>
+        <li>
+            <div class="subject">
+                <span class="txt">4. 다우오피스와는 어떻게 연동되나요.</span>
+                <div class="optional">
+                    <span class="ic24 arrow_d"></span>
+                </div>
+            </div>
+            <div class="desc">
+                다우오피스와는 가입 및 SSO (Single Sign On, 한 번의 로그인으로 여러 서비스 로그인 가능) 가 연동되고 있습니다.<br>
+                * 가입 연동 : 다우오피스를 통해서 싸인오케이 신청 시, 싸인오케이로 자동으로 넘어가 가입이 가능합니다.<br>
+                * SSO (Single Sign On) : 다우오피스 Link+를 통해서, 별도의 로그인 없이 자동으로 싸인오케이 서비스를 이용할 수 있습니다.
+            </div>
+        </li>
+        <li>
+            <div class="subject">
+                <span class="txt">5. 어떻게 가입하고 사용하나요.</span>
+                <div class="optional">
+                    <span class="ic24 arrow_d"></span>
+                </div>
+            </div>
+            <div class="desc">
+                1) 다우오피스 ‘Link+’ 에서 ‘싸인오케이’ 클릭 후 ‘신청하기’ 버튼 클릭<br>
+                2) 이동한 가입페이지에서 가입 진행 (※ 다우오피스를 통한 가입의 경우만, 다우오피스와 연동되오니 참고 부탁드립니다.)<br>
+                3) 싸인오케이에서 가입내역 확인 후, 귀사 전용페이지 개설<br>
+                4) 필요에 따라 상품 결제<br>
+                5) 전 직원이 등록된 템플릿을 활용하여 전자계약서비스 활용<br>
+                <a class="serviceLink" data-url="https://youtu.be/J7VG_ayDxO4">가입 및 사용 가이드 영상</a>
+            </div>
+        </li>
+        <li>
+            <div class="subject">
+                <span class="txt">6. 다우오피스를 통해 사용하면 드리는 혜택</span>
+                <div class="optional">
+                    <span class="ic24 arrow_d"></span>
+                </div>
+            </div>
+            <div class="desc">
+                1) 다우오피스와 연동이 무료!<br>
+                : 5백만원~1천만원 소요되는 SSO (Single Sign On) 연동을 별도로 진행하시나요?<br>
+                타사에서 볼 수 없는 ‘다우오피스 - 싸인오케이’간의 SSO 연동비용이 무료입니다. <br>
+                2) 다우오피스 고객대상 무료 체험<br>
+                : 서비스를 체험해볼 수 있도록 무료 3건이 자동 충전됩니다.
+            </div>
+        </li>
+    </ul>
+    <h2>필수 확인사항</h2>
+    <p class="desc">
+        1. 다우오피스를 통해 가입한 기업만 해당 제휴서비스와 다우오피스간의 SSO (Single Sign On) 연동기능을 사용하실 수 있습니다.<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;기존 싸인오케이 사용중인 고객 대상의 연동은 향후 지원 예정이니 양해 부탁드립니다.<br>
+        2. 해당 제휴서비스는 다우오피스에서 연동만 지원하며, 가입 및 결제, 해지, 고객지원 모두 제휴서비스인 ‘싸인오케이’에서 진행됩니다.<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;- ‘싸인오케이’ 가입 및 결제 , 고객지원 문의 : 1566-7797 / webmaster@signok.com<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;- 지원센터 운영시간 : 오전 9시 ~ 오후 6시 (월~금) / 오후 12시 ~ 오후 1시 (점심시간)
+    </p>
+    <div class="box linkplus_question">
+        <span class="ic_link ic_tooltip"></span>
+        {{storeLang.사이트 관리자에게 문의}}
+    </div>
+</div>

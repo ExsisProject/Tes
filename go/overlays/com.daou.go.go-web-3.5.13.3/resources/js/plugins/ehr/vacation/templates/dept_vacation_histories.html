@@ -1,0 +1,73 @@
+<header class="content_top">
+    <h1>
+        <span class="txt single_txt">{{lang.부서 연차현황}}</span>
+    </h1>
+
+</header>
+
+<div class="content_page annualvacation_depart"><!--annualvacation_depart 멀티클래스 추가-->
+    <!-- tool bar -->
+    <div class="tool_bar calendar_tool_bar">
+        <div class="current_date">
+            <span class="btn_ic_prev2 btn_border" title="이전" id="preDate"><span class="ic_ehr ic_date_prev"></span></span>
+            <span class="date" id="baseDate" data-date="{{baseDate}}">{{displayBaseDate}}</span>
+            <span class="btn_ic_next2 btn_border" title="" id="nextDate"><span class="ic_ehr ic_date_next"></span></span>
+            <input type="text" id="baseDatePicker" style="border:0px;width:1px;height:0px">
+        </div>
+    </div>
+    <!-- //tool bar -->
+
+    <!-- // Start -->
+    <div class="wrap_tb_box">
+        <div class="tool_bar">
+            <div class="optional">
+                <a class="btn_tool" id="downloadList" data-bypass><span class="ic_toolbar download"></span><span class="txt">{{lang.목록 다운로드}}</span></a>
+            </div>
+        </div>
+        <div class="wrap_tb_shadow">
+            <table class="type_normal type_white list_annual_depart" id="vacation_list">
+                <thead>
+                <tr>
+                    <th class="sorting_desc name"><span class="title_sort">{{lang.이름}}<ins class="ic"></ins><span class="selected"></span></span></th>
+                    <th class="sorting_disabled "><span class="title_sort">{{lang.입사일}}<ins class="ic"></ins></span></th>
+                    <th class="sorting_disabled "><span class="title_sort">{{lang.근속연수}}<ins class="ic"></ins></span></th>
+                    <th class="sorting_disabled "><span class="title_sort">{{lang.발생 연차}}<ins class="ic"></ins></span></th>
+                    <th class="sorting_disabled ">
+                        <span class="title_sort">
+                            {{lang.발생 월차}}
+                            <span class="help">
+                                <span class="tool_tip tooltip_push">
+                                    {{lang.1년 미만 발생 월차}}
+                                    <i class="tail_left"></i>
+                                </span>
+                            </span>
+                            <ins class="ic"></ins>
+                        </span>
+                    </th>
+                    <th class="sorting_disabled ">
+                        <span class="title_sort">
+                            {{lang.이월 월차}}
+                            <span class="help">
+                                <span class="tool_tip tooltip_push">
+                                    {{lang.1년 미만 이월 월차}}
+                                    <i class="tail_left"></i>
+                                </span>
+                            </span>
+                            <ins class="ic"></ins>
+                        </span>
+                    </th>
+                    <th class="sorting_disabled dayoff"><span class="title_sort">{{lang.조정 연차}}<ins class="ic"></ins></span></th>
+                    <th class="sorting_disabled dayoff"><span class="title_sort">{{lang.총연차}}<ins class="ic"></ins></span></th>
+                    <th class="sorting_disabled dayoff"><span class="title_sort">{{lang.사용 연차}}<ins class="ic"></ins></span></th>
+                    <th class="sorting_disabled dayoff"><span class="title_sort">{{lang.잔여 연차}}<ins class="ic"></ins></span></th>
+                    <th class="sorting_disabled dayoff"><span class="title_sort">{{lang.상태}}<ins class="ic"></ins></span></th>
+                </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+    <!-- End //-->
+</div>

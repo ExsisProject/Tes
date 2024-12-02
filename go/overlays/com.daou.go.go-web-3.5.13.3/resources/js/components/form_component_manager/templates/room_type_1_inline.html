@@ -1,0 +1,14 @@
+{{^withoutCover}}
+<span unselectable="on" contenteditable="false" class="comp_wrap" data-wrapper>
+{{/withoutCover}}
+<span class="sign_type1_inline" data-group-seq="{{seq}}" data-group-name="{{name}}" data-group-max-count="{{maxApprovalCount}}" data-group-type="{{roomType}}" {{^isAgreement}}data-is-reception="{{#isReception}}true{{/isReception}}"{{/isAgreement}} {{#isAgreement}}data-is-agreement="true" id="agreementWrap"{{/isAgreement}}><span class="sign_tit_wrap"><span class="sign_tit"><strong>{{^name}}&nbsp;{{/name}}{{#name}}{{name}}{{/name}}</strong></span></span>{{#activities}}<span class="sign_member_wrap"><span class="sign_member"><span class="sign_rank_wrap"><span class="sign_rank">&nbsp;</span></span><span class="sign_wrap">&nbsp;</span><span class="sign_date_wrap"><span class="sign_date">&nbsp;</span></span></span></span>{{/activities}}</span>
+{{^withoutCover}}
+<span contenteditable="false" class="comp_active" style="display:none;">
+<span class="Active_dot1"></span><span class="Active_dot2"></span>
+<span class="Active_dot3"></span><span class="Active_dot4"></span>
+</span>
+<span contenteditable="false" class="comp_hover" data-content-protect-cover="true">
+<a contenteditable="false" class="ic_prototype ic_prototype_trash" data-content-protect-cover="true" data-component-delete-button="true"></a>
+</span>
+</span>
+{{/withoutCover}}

@@ -1,0 +1,98 @@
+{{#useLayout}}
+<div class="content_page" id="aliasCreateTmpl">
+        <div class="container">
+            <div class="header">
+                <h2>{{lang.label_alias_create}}</h2>
+            </div>
+            <div class="content">
+            {{/useLayout}}
+                <form name="formAliasCreate">
+                <table class="detail">
+	                <colgroup>
+						<col width="140px">
+						<col width="*">
+					</colgroup>
+		            <tbody>
+		            <tr>
+					    <th><ins class="asterisk">*</ins><span class="title">{{lang.label_alias_name}}</span></th>
+		            	<td>
+		                	<input class="input w_half" id="userName" name="userName" />
+		                </td>
+		            </tr>
+		            <tr {{^useLayout}}class="last"{{/useLayout}}>
+					    <th><ins class="asterisk">*</ins><span class="title">{{lang.label_alias_id}}</span>
+							<span class="wrap_ic_s">
+								<span class="help">
+									<span class="tool_tip">{{lang.id_tooltip}}<i class="tail_left"></i></span>
+								</span>
+							</span>
+						</th>
+		            	<td>
+		                	<input class="input w_half" id="mailUid" name="mailUid" style="text-transform:lowercase;"/> @{{domain}}
+		                </td>
+		            </tr>
+		            <tr {{^useLayout}} style="display:none;"{{/useLayout}}>
+					    <th><span class="title">{{lang.label_service_status}}</span></th>
+		            	<td>
+		                	<span class="option_wrap">
+		                        <input type="radio" id="accountStatus_enabled" name="accountStatus" value="enabled" checked="checked" /> 
+		                        <label for="accountStatus_enabled">{{lang.label_enabled_status}}</label>
+		                    </span>
+		                    <span class="option_wrap">
+		                        <input type="radio" id="accountStatus_disabled" name="accountStatus" value="disabled" /> 
+		                        <label for="accountStatus_disabled">{{lang.label_disabled_status}}</label>
+		                    </span>
+		                </td>
+		            </tr>
+		            {{#useLayout}}
+		            <tr>
+					    <th><span class="title">{{lang.label_forwarding_email}}</span><br/>
+					    	<span class="title">{{lang.label_forwrding_detail_user}}</span>
+					    </th>
+		            	<td>
+		            		<ul class="name_tag" id="addEmailEl">
+			                	<ul class="name_tag" id="addOrgEmailEl">
+								</ul>
+								<ul class="name_tag" id="addUserEmailEl">
+								</ul>
+								<li class="creat">
+									<span class="btn_wrap">
+										<span class="ic ic_addlist"></span>
+										<span class="txt" id="selectAccount">{{lang.label_select_account}}</span>
+									</span>
+								</li>
+							</ul>
+		                </td>
+		            </tr>
+		             <tr class="last">
+					    <th><span class="title">{{lang.label_forwarding_email}}</span>	<br/>
+					    	<span class="title">{{lang.label_forwrding_detail_alias}}</span>
+					    </th>
+		            	<td>
+		                	<ul class="name_tag" id="addAliasEmailEl">
+								<li class="creat">
+									<span class="btn_wrap">
+										<span class="ic ic_addlist"></span>
+										<span class="txt" id="selectAlias">{{lang.label_select_alias}}</span>
+									</span>
+								</li>
+							</ul>
+		                </td>
+		            </tr>
+		            {{/useLayout}}
+		            </tbody>
+		        </table>
+                </form>
+        {{#useLayout}}
+            </div>
+        </div>
+        {{/useLayout}}
+    {{#useLayout}}
+    <div class="page_action">
+        <span class="btn" id="btn_ok">{{lang.label_ok}}</span> 
+        <span class="btn_nega" id="btn_cancel">{{lang.label_cancel}}</span>
+        <span class="btn_nega" id="btn_move_list">{{lang.label_move_list}}</span>
+    </div>
+</div>
+	{{/useLayout}}
+

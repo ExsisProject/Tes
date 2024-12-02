@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<script type="text/javascript" src="../../vendors/jquery/jquery-1.7.2.min.js"></script>
+		<style type="text/css">
+			body, input, textarea, select, button, table {
+				font-size: 12px;
+			}
+			body {
+			   margin: 0;
+			   padding: 0;
+			}
+			html, body {
+			    height: 100%;
+			    overflow: auto;
+			}
+			body, p {
+				line-height: 1.5;
+			}
+			html {
+			    overflow: visible;
+			}
+			h1, h2, h3, h4, h5, td, th, dl, dt, dd, p, form, fieldset, legend {
+    			margin: 0;
+    			padding: 0;
+			}
+			select {
+			    font-size: 12px;
+			}
+			embed, object {
+			    vertical-align: bottom;
+			}
+			select {
+			    padding: 1px;
+			}
+			table[align="left"] {
+			    text-align: left;
+			}
+			table[align="right"] {
+			    text-align: right;
+			}
+			button img {
+			    margin: 0 2px 1px 0;
+			    vertical-align: middle;
+			}
+			button[disabled="disabled"] {
+			    box-shadow: 1px 1px 3px #DDDDDD inset;
+			    color: #A0A0A0;
+			    cursor: default !important;
+			    font-weight: normal;
+			    text-shadow: 1px 1px #FFFFFF;
+			}
+			label {
+			    cursor: pointer;
+			}
+			img, fieldset {
+			    border: 0 none;
+			}
+			em, address {
+			    font-style: normal;
+			}
+			a, a:link {
+			    text-decoration: none;
+			}
+			a:hover, a:active, a:focus {
+			    text-decoration: underline;
+			}
+			textarea {
+			    overflow: auto;
+			}
+			legend {
+			    font-size: 0;
+			    height: 0;
+			    left: 0;
+			    line-height: 0;
+			    overflow: hidden;
+			    position: absolute;
+			    top: 0;
+			    visibility: hidden;
+			    width: 0;
+			}
+			p.MsoListParagraph {
+				text-indent:0px !important;
+			}
+			
+			#message-container {
+                padding : 0 4px;
+            }
+            #message-container td, #message-container p, #message-container p span {
+                word-break: normal !important;
+                word-wrap: break-word !important;
+                clear:both;
+            }
+			
+	</style>
+
+	<script type="text/javascript">	
+		var resizeDone = false;
+		var resizeCnt = 0;
+		var interval;
+	
+		function initStyle() {
+			var fontFamily = "맑은 고딕,돋움,dotum,AppleGothic,arial,Helvetica,sans-serif";
+			if(parent.LOCALE === 'jp') {
+				fontFamily = "MS PGothic,Osaka,arial,sans-serif";
+			}
+			
+			jQuery("body").css("font-family", fontFamily);
+		}
+		
+		function setContent(){
+			var message = replaceXTag(parent.getMessageText());
+			document.getElementById("message-container").innerHTML = message;
+			checkInlineLink();
+		}
+		
+		function checkInlineLink() {
+			jQuery("#message-container a[href]").each(function() {
+				var href = jQuery.trim(jQuery(this).attr("href"));
+				if (href && href.length > 0 && href.charAt(0) == '#') {
+					jQuery(this).removeAttr("target");
+				}
+			});
+		}
+		
+	    function replaceXTag(content){
+	    	escaped = escapeXssFromHtml(content);
+	    	return escaped.replace(/x-background-color/g, 'background-color');
+	    }
+	    
+		function escapeXssFromHtml(content) {
+
+			if(!content) {
+				return content;
+			}
+
+			value = content;
+			value = value.replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, "");
+			// 유투브 영상을 삽입하는 등, 고객사에서 iframe 태그를 사용하고 있어 정책적으로 막기는 힘들다. 
+			// iframe을 사용할 수 있도록 기본 정책을 가져가야 할 듯...
+			// value = value.replace(/<iframe\b[^<]*(?:(?!<\/iframe>)<[^<]*)*<\/iframe>/gi, "");
+			// value = value.replace(/<iframe\b[^<>]*>/gi, "");
+
+			var regex = /(<[^\/]([^>]+)>)/ig;
+			var tag;
+			var result = '';
+			var cursor = 0;
+			while ((tag = regex.exec(value)) !== null) {
+				// console.log("Found " + tag[0] + ". Next match starts at " + regex.lastIndex);
+				result = result + value.substring(cursor, tag.index);
+				result = result + escapeXssProperty(tag);
+				cursor = regex.lastIndex;
+			}
+			result = result + value.substring(cursor);
+
+			return result;
+		}
+
+		function escapeXssProperty(tag) {
+			var value = tag[0];
+
+			value = value.replace(/(javascript:)/ig, "x-$1");
+			// 서버에서 방어하고 있지 않음.
+			value = value.replace(/(onabort+=)/ig, "x-$1");
+			value = value.replace(/(onactivate+=)/ig, "x-$1");
+			value = value.replace(/(onafterprint+=)/ig, "x-$1");
+			value = value.replace(/(onafterupdate+=)/ig, "x-$1");
+			value = value.replace(/(onbeforeactivate+=)/ig, "x-$1");
+			value = value.replace(/(onbeforecopy+=)/ig, "x-$1");
+			value = value.replace(/(onbeforecut+=)/ig, "x-$1");
+			value = value.replace(/(onbeforedeactivate+=)/ig, "x-$1");
+			value = value.replace(/(onbeforeeditfocus+=)/ig, "x-$1");
+			value = value.replace(/(onbeforepaste+=)/ig, "x-$1");
+			value = value.replace(/(onbeforeprint+=)/ig, "x-$1");
+			value = value.replace(/(onbeforeunload+=)/ig, "x-$1");
+			value = value.replace(/(onbeforeupdate+=)/ig, "x-$1");
+			value = value.replace(/(onblur+=)/ig, "x-$1");
+			value = value.replace(/(onbounce+=)/ig, "x-$1");
+			value = value.replace(/(oncellchange+=)/ig, "x-$1");
+			value = value.replace(/(onchange+=)/ig, "x-$1");
+			value = value.replace(/(onclick+=)/ig, "x-$1");
+			value = value.replace(/(oncontextmenu+=)/ig, "x-$1");
+			value = value.replace(/(oncontrolselect+=)/ig, "x-$1");
+			value = value.replace(/(oncopy+=)/ig, "x-$1");
+			value = value.replace(/(oncut+=)/ig, "x-$1");
+			value = value.replace(/(ondataavailable+=)/ig, "x-$1");
+			value = value.replace(/(ondatasetchanged+=)/ig, "x-$1");
+			value = value.replace(/(ondatasetcomplete+=)/ig, "x-$1");
+			value = value.replace(/(ondblclick+=)/ig, "x-$1");
+			value = value.replace(/(ondeactivate+=)/ig, "x-$1");
+			value = value.replace(/(ondrag+=)/ig, "x-$1");
+			value = value.replace(/(ondragend+=)/ig, "x-$1");
+			value = value.replace(/(ondragenter+=)/ig, "x-$1");
+			value = value.replace(/(ondragleave+=)/ig, "x-$1");
+			value = value.replace(/(ondragover+=)/ig, "x-$1");
+			value = value.replace(/(ondragstart+=)/ig, "x-$1");
+			value = value.replace(/(ondrop+=)/ig, "x-$1");
+			value = value.replace(/(onerror+=)/ig, "x-$1");
+			value = value.replace(/(onerrorupdate+=)/ig, "x-$1");
+			value = value.replace(/(onfilterchange+=)/ig, "x-$1");
+			value = value.replace(/(onfinish+=)/ig, "x-$1");
+			value = value.replace(/(onfocus+=)/ig, "x-$1");
+			value = value.replace(/(onfocusin+=)/ig, "x-$1");
+			value = value.replace(/(onfocusout+=)/ig, "x-$1");
+			value = value.replace(/(onhelp+=)/ig, "x-$1");
+			value = value.replace(/(onkeydown+=)/ig, "x-$1");
+			value = value.replace(/(onkeypress+=)/ig, "x-$1");
+			value = value.replace(/(onkeyup+=)/ig, "x-$1");
+			value = value.replace(/(onlayoutcomplete+=)/ig, "x-$1");
+			value = value.replace(/(onload+=)/ig, "x-$1");
+			value = value.replace(/(onlosecapture+=)/ig, "x-$1");
+			value = value.replace(/(onmousedown+=)/ig, "x-$1");
+			value = value.replace(/(onmouseenter+=)/ig, "x-$1");
+			value = value.replace(/(onmouseleave+=)/ig, "x-$1");
+			value = value.replace(/(onmousemove+=)/ig, "x-$1");
+			value = value.replace(/(onmouseout+=)/ig, "x-$1");
+			value = value.replace(/(onmouseover+=)/ig, "x-$1");
+			value = value.replace(/(onmouseup+=)/ig, "x-$1");
+			value = value.replace(/(onmousewheel+=)/ig, "x-$1");
+			value = value.replace(/(onmove+=)/ig, "x-$1");
+			value = value.replace(/(onmoveend+=)/ig, "x-$1");
+			value = value.replace(/(onmovestart+=)/ig, "x-$1");
+			value = value.replace(/(onpaste+=)/ig, "x-$1");
+			value = value.replace(/(onpropertychange+=)/ig, "x-$1");
+			value = value.replace(/(onreadystatechange+=)/ig, "x-$1");
+			value = value.replace(/(onreset+=)/ig, "x-$1");
+			value = value.replace(/(onresize+=)/ig, "x-$1");
+			value = value.replace(/(onresizeend+=)/ig, "x-$1");
+			value = value.replace(/(onresizestart+=)/ig, "x-$1");
+			value = value.replace(/(onrowenter+=)/ig, "x-$1");
+			value = value.replace(/(onrowexit+=)/ig, "x-$1");
+			value = value.replace(/(onrowsdelete+=)/ig, "x-$1");
+			value = value.replace(/(onrowsinserted+=)/ig, "x-$1");
+			value = value.replace(/(onscroll+=)/ig, "x-$1");
+			value = value.replace(/(onselect+=)/ig, "x-$1");
+			value = value.replace(/(onselectionchange+=)/ig, "x-$1");
+			value = value.replace(/(onselectstart+=)/ig, "x-$1");
+			value = value.replace(/(onstart+=)/ig, "x-$1");
+			value = value.replace(/(onstop+=)/ig, "x-$1");
+			value = value.replace(/(onsubmit+=)/ig, "x-$1");
+			value = value.replace(/(onunload+=)/ig, "x-$1");
+			value = value.replace(/(onsubmit+=)/ig, "x-$1");
+			value = value.replace(/(onunload+=)/ig, "x-$1");
+
+			return value;
+		}
+
+	    
+	    function resizeInit(){
+	    	var width = jQuery("#contentT").width();
+			parent.resizeTextFrame(350,width);
+			resizeInterval();
+	    }
+	    
+	    function resizeInterval() {
+	    	if(!resizeDone){
+	    		if (resizeCnt <= 20) {
+	    			setTimeout(function(){
+						checkBodyHeight();
+						resizeInterval();
+					},1000);
+	    			resizeCnt++;
+	    		}
+			}
+	    }
+	    
+		function resizeFrame(){
+			jQuery("#contentBox").append("<br><br><br>");
+
+			checkBodyHeight();
+
+			jQuery("#contentT").width("100%");
+
+			var width = jQuery("#contentT").width();
+			width = jQuery('#contentT').parent().width();
+
+            var iframeEl =  jQuery(parent.document).find("#messageContentFrame");
+            jQuery("#message-container").find("img").load(function() {
+
+                var newImgWidth = jQuery(parent).innerWidth();
+                if(parent.isPopup && jQuery(this).width() > newImgWidth) {
+                    jQuery(this).width(newImgWidth);
+                } else if(jQuery(this).width() > width) {
+                    jQuery(this).width(width);
+                }
+
+                if (iframeEl.length === 1) {
+                    iframeEl.height(iframeEl.height() + jQuery(this).height());
+                }
+            });
+		}
+		
+		function checkBodyHeight() {
+			var exHeight = 0;
+			if(jQuery.browser.msie){
+				var reply = jQuery("blockQuote[style]");
+				var pwidth = "";
+				 if(reply.length > 0){
+					pwidth = (100-(reply.length * 2)) +"%";
+				 }
+				jQuery("p").css({"word-wrap":"break-word","word-break":"break-all","width":pwidth});
+				jQuery("span").css({"word-wrap":"break-word","word-break":"break-all"});
+				var mdn = jQuery("#TMSMDN");
+				if(mdn)exHeight = 40;
+			}
+			var height = document.body.scrollHeight + exHeight;
+			height = (height > 350)?height:350;
+			var width = document.body.scrollWidth;
+			parent.resizeTextFrame(height,width);
+		}
+	
+		function init(){
+			resizeDone = true;
+			resizeFrame();
+		}
+		 
+		jQuery(function() {
+			initStyle();
+			setContent();
+			resizeInit();
+			init();
+		});
+	</script>
+</head>
+
+<body id="contentBox">
+	<table cellpadding="0" cellspacing="0" border="0" id="contentT" style="font-size:12px;">
+		<tr>
+			<td id="contentTC">
+				<div id="message-container"></div>
+			</td>
+		</tr>
+	</table>
+</body>
+</html>

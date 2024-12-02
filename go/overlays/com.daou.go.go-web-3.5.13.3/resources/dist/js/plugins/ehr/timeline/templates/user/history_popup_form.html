@@ -1,0 +1,66 @@
+<table class="form_type go_form_basic">
+    <tbody>
+    <tr>
+        <th><span class="title">{{TimelineLang.일시}}</span></th>
+        <td>
+            <span class="wrap_date">
+                <input id="timelineDatePicker" class="txt wfix_small txt_mini" type="text" name="" value="" readonly="readonly">
+                <span class="ic ic_calendar"></span>
+            </span>
+            &nbsp;
+            <span class="wrap_select">
+                <select id="checkTimeHour">
+                    {{#HOUR}}
+                    <option value="{{.}}" {{#isCheckTimeHour}} selected {{/isCheckTimeHour}}>{{.}}</option>
+                    {{/HOUR}}
+                </select>
+            </span>
+            <span class="date_wave">:</span>
+            <span class="wrap_select">
+                <select id="checkTimeMinute">
+                    {{#MINUTE}}
+                    <option value="{{.}}" {{#isCheckTimeMinute}} selected {{/isCheckTimeMinute}}>{{.}}</option>
+                    {{/MINUTE}}
+                </select>
+            </span>
+            <span class="vertical_wrap">
+            <span class="option_wrap">
+                <input type="checkbox" id="isNightWork" {{#data.isNightWork}} checked {{/data.isNightWork}}>
+                <label for="isNightWork">{{TimelineLang.철야}}</label>
+                <label for="isNightWork" id="nightWorkDescription" {{^data.isNightWork}} style="display:none;" {{/data.isNightWork}}>{{TimelineLang.철야 설명}}</label>
+            </span>
+</span>
+        </td>
+    </tr>
+    <tr>
+        <th><span class="title">{{TimelineLang.상태}}</span></th>
+        <td>
+            <div class="mb_5 go_type_option">
+                <select class="select_status" id="status">
+                    {{#status}}
+                    <option value="{{id}}" {{#isSelected}} selected {{/isSelected}}>{{name}}</option>
+                    {{/status}}
+                </select>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <th><span class="title">{{CommonLang.내용}}</span></th>
+        <td>
+            <input id="content" class="txt_mini w_max" type="text" value="{{data.content}}"
+                   placeholder="{{TimelineLang.상태에 대한 간단 설명을 입력하세요}}">
+        </td>
+    </tr>
+    {{^isNew}}
+    <tr>
+        <th><span class="title">{{{TimelineLang.수정삭제사유}}}
+            <ins class="asterisk">*</ins>
+            </span>
+        </th>
+        <td>
+            <input id="reason" class="txt_mini w_max" type="text" placeholder="{{TimelineLang.내용을 입력해주세요}}">
+        </td>
+    </tr>
+    {{/isNew}}
+    </tbody>
+</table>

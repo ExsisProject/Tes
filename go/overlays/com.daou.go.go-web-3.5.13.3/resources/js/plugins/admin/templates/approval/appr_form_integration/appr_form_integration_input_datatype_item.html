@@ -1,0 +1,41 @@
+<td class="chk">
+    <input type="checkbox" />
+</td>
+<td class="">
+    <span class="wrap_txt">
+        <textarea name="inputDataAccessQuery" id="" cols="30" rows="10" class='w_full' row-id={{model.id}}>{{model.query}}</textarea>
+    </span>
+</td>
+<td class="para">
+    <ul class="name_tag basic_tag"> 
+        {{#parameters}}
+            <li name="param">
+            	<span data-id="paramWrap">
+	                <span class="name" name="input_parameters" data-dataType="{{dataType}}" data-paramName = "{{paramName}}" data-paramType = "{{paramType}}">{{paramName}}({{dataType}})</span>
+	                <span name="dataTypeParamDel" class="btn_wrap">
+	                    <span class="ic ic_del" title="{{lang.삭제}}"></span>
+	                </span>
+                </span>
+            </li>
+        {{/parameters}}
+        <li class="creat">
+             <span name="dataTypeRowAdd" class="btn_wrap">
+                 <span class="ic ic_addlist"></span>
+                 <span class="txt">{{lang.추가}}</span>
+             </span>
+         </li>
+    </ul>
+</td>
+<td class="type">
+    <span class="option_wrap">
+        <input type="radio" id="multiRow_{{cid}}_false" value="false" name="multiRow_{{cid}}" class="multiRow" {{^multiRow}} checked="checked" {{/multiRow}}> 
+        <label for="multiRow_{{cid}}_false">{{lang.단일}}</label>
+    </span>
+    <span class="option_wrap">
+        <input type="radio" id="multiRow_{{cid}}_true" value="true" name="multiRow_{{cid}}" class="multiRow" {{#multiRow}} checked="checked" {{/multiRow}}> 
+        <label for="multiRow_{{cid}}_true">{{lang.멀티}}</label>
+    </span>
+    <div class="input_wrap">
+        <input type="text" name="returnMethod" class="w_max" value="{{model.returnMethod}}" {{^multiRow}} style="display:none" {{/multiRow}}>
+    </div>
+</td>

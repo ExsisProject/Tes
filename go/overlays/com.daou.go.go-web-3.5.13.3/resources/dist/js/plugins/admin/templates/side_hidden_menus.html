@@ -1,0 +1,17 @@
+<section class="lnb">
+	<ul class="admin">
+		{{#menus}}
+		{{#isShow}}
+		<li data-url="{{href}}" {{#isActive}} class="active"{{/isActive}}>
+		<a data-bypass>
+			<ins class="ic_bullet"></ins>
+			<span>
+				<span class="txt">{{name}}</span>
+			</span>
+		</a>
+		</li>
+		{{/isShow}}
+		{{/menus}}
+	</ul>
+</section>
+<div id="uploadManager"></div>

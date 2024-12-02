@@ -1,0 +1,87 @@
+<div class="critical">
+	<span id="btnGroup" class="btn_tool_group">
+		{{#isApproveWaiting}}
+            {{#isCreator}}
+            <a class="btn_tool" data-role="button" data-tag="action" id="btnCancel">
+                <span class="ic_toolbar cancel"></span>
+                <span class="txt">{{lang.요청취소}}</span>
+            </a>
+            {{/isCreator}}
+			{{#isManageable}}
+				<a class="btn_tool" data-role="button" data-tag="action" id="btnPermit">
+                    <span class="ic_toolbar agree"></span>
+                    <span class="txt">{{lang.승인}}</span>
+                </a>
+				<a class="btn_tool" data-role="button" data-tag="action" id="btnReject">
+                    <span class="ic_toolbar return"></span>
+                    <span class="txt">{{lang.반려}}</span>
+                </a>
+			{{/isManageable}}
+		{{/isApproveWaiting}}
+		{{^isApproveWaiting}}
+            {{#isEditable}}
+                <a class="btn_tool" data-role="button" data-tag="action" id="btnEdit">
+                    <span class="ic_toolbar update"></span>
+                    <span class="txt">{{lang.업데이트}}</span>
+                </a>
+            {{/isEditable}}
+            {{#isDeletable}}
+                {{#reject}}
+                <a class="btn_tool" data-role="button" id="totalDeleteBtn">
+                    <span class="ic_toolbar del"></span>
+                    <span class="txt">{{lang.삭제}}</span>
+                </a>
+                {{/reject}}
+                {{^reject}}
+                    <div class="btn_submenu">
+                        <a class="btn_tool btn_tool_multi" id="totalDeleteBtn">
+                            <span class="ic_toolbar del"></span>
+                            <span class="txt">{{lang.삭제}}</span>
+                        </a>
+                        <span class="btn_func_more" id="submenuBtn" backdrop-toggle="true" el-backdrop-link>
+                            <span class="ic ic_arrow_type3"></span>
+                        </span>
+                        <div class="array_option" id="deleteBtn" style="display: none;">
+                            <ul class="array_type">
+                                <li id="currentDelete"><span>{{lang.현재버전삭제}}</span></li>
+                                <li id="totalDelete"><span>{{lang.모든버전삭제}}</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <a class="btn_tool" data-role="button" id="btnMove">
+                        <span class="ic_toolbar move"></span>
+                        <span class="txt">{{lang.이동}}</span>
+                    </a>
+                {{/reject}}
+            {{/isDeletable}}
+		{{/isApproveWaiting}}
+	</span>
+</div>
+<div class="optional">
+    {{#needNavigator}}
+	{{#hasNext}}
+	<a class="btn_tool" data-role="button" id="goToNext">
+        <span class="ic_toolbar up" title="{{lang.이전}}"></span>
+        <span class="txt">{{lang.이전}}</span>
+	</a>
+	{{/hasNext}}
+	{{#hasPrev}}
+	<a class="btn_tool" data-role="button" id="goToPrev">
+        <span class="ic_toolbar down" title="{{lang.다음}}"></span>
+        <span class="txt">{{lang.다음}}</span>
+	</a>
+	{{/hasPrev}}
+    <a class="btn_tool" url-copy>
+        <span class="ic_toolbar copy_url"></span>
+        <span class="txt">{{lang.복사}}</span>
+    </a>
+    {{/needNavigator}}
+    <a class="btn_tool" id="goToListBtn">
+        <span class="ic_toolbar list"></span>
+        <span class="txt">{{lang.목록}}</span>
+    </a>
+	<a class="btn_tool" id="docsPrint">
+        <span class="ic_toolbar print"></span>
+		<span class="txt">{{lang.인쇄}}</span>
+	</a>
+</div>

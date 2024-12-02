@@ -1,0 +1,25 @@
+<h1 class="cs_s_title">{{lang.community}}</h1>
+	<div class="cs_community_group">
+{{#dataset}}
+		<div class="article_wrap">
+			<div class="info">
+				<span class="item item_default">
+					<span class="name" id="postTitle" data-communityId="{{communityId}}" data-boardId="{{boardId}}" data-postId="{{id}}" data-boardType="{{boardType}}">{{{title}}}</span>
+					<span class="date">{{convertCreatedAt}}</span>
+				</span>
+			</div>
+			<div class="cs_article dot" style="word-wrap: break-word;"><span>{{{content}}}</span></div>
+			<span class="item">
+				<span class="sub">{{ownerName}} &gt; {{boardName}}</span>
+				<span class="part">l</span>
+				<span>{{writer.name}}</span>
+			</span>
+		</div>
+{{/dataset}}
+	</div>
+<div class="btn_more_wrap">
+	<a class="btn_more" id="btn_more" style="display:none;">
+		<span class="txt">{{lang.more}}</span>
+		<span class="ic ic_csm_arrow"></span>
+	</a>
+</div>	

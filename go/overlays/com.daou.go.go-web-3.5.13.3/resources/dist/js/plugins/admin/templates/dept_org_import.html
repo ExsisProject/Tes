@@ -1,0 +1,32 @@
+<div class="content">
+	<form name="importForm">
+		<table class="table_form_mini">
+			<tbody>
+			<tr>
+				<th><span class="title">{{lang.select_file}}</span></th>
+				<td>
+					<span class="btn_minor_s" id="swfupload-control" style="padding:0 !important">
+						<span class="txt" id="button"></span>
+					</span>
+					<p id="fileName" class="filename"></p>					
+					<input id="filePath" type="hidden">
+				</td>
+			</tr>
+
+			<tr class="align_t">
+				<th><span class="title">{{lang.duplicate_data}}</span></th>
+				<td>
+					<span class="option_wrap">
+						<input type="radio" name="writeType" id="addnew" value="OVERWRITE" checked="checked"><label for="addnew">{{lang.overwrite}}</label>
+					</span>
+					<span class="option_wrap">
+						<input type="radio" name="writeType" id="overwrite" value="IGNORE"><label for="overwrite">{{lang.ignore}}</label>
+					</span>
+					<p class="desc">{{lang.import_desc}}</p>
+				</td>			
+			</tr>
+			<input type="hidden" name="ownerType" value="{{ownerType}}"> 
+		</tbody>
+		</table>
+	</form>
+</div>

@@ -1,0 +1,1 @@
+(function(){define(["backbone"],function(e){var t=e.Model.extend({url:function(){this.assetId=this.get("assetId");var e=["/api/asset",this.assetId,"guide"];return e.join("/")}});return t})}).call(this);

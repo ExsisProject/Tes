@@ -1,0 +1,38 @@
+<header class="content_top"></header>	
+
+<!-- 상세 -->
+<div class="content_page">	
+
+	<div class="content_info_wrap">
+		<span class="btn_wrap" id="folderInfoToggleBtn">
+			<span class="ic_classic ic_open"></span>
+		</span>
+		
+		<ul class="simple_info">
+			<li>
+				<strong>{{lang.addr}} :</strong>
+				<span class="txt_url">{{url}}</span>	 
+				<span class="btn_fn7" data-role="button">
+					<span id="copyUrl" class="txt">{{lang.copy}}</span>
+				</span>				
+			</li>
+			{{#folder.actions.managable}}
+			<li>
+				<span id="shareInfoBtn" class="btn_fn7" data-role="button">
+					<span class="ic_con ic_share"></span>
+					<span class="txt">
+						<strong>{{lang.showShareInfo}}</strong>
+					</span>
+				</span>
+			</li>
+			{{/folder.actions.managable}}
+		</ul>
+		<ul class="detail_info" style="display:none" id="detailFolderInfo">
+			{{#hasAdmin}}<li><strong>{{lang.admin}} :</strong> {{adminLabel}}</li>{{/hasAdmin}}
+			{{#folder.description}}<li>{{{description}}}</li>{{/folder.description}}
+		</ul>	
+	</div>
+	
+	<div id="taskListWapper"></div>
+	
+</div>

@@ -1,0 +1,1 @@
+(function(){define(["backbone"],function(e){var t=e.Collection.extend({url:function(){return["/api/board",this.boardId,"post",this.postId,"reader"].join("/")},setIds:function(e){this.boardId=e.boardId,this.postId=e.postId}});return{getCollection:function(e){var n=new t;return n.setIds(e),n.fetch({async:!1}),n}}})}).call(this);

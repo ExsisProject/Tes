@@ -1,0 +1,18 @@
+{{#data}}
+<li data-dept-id="{{id}}" class="dept-node jstree-leaf {{#isDeptLast}} jstree-last {{/isDeptLast}}">
+    <ins class="jstree-icon"> </ins>
+    <a title="" class="">
+        {{name}}
+    </a>
+    <ul style="">
+        <li data-group-id='' class='contact_group jstree-leaf {{^groups}} jstree-last {{/groups}}' data-loaded='false'>
+            <ins class='jstree-icon'></ins><a class=''>{{lang.totalContact}}</a>
+        </li>
+        {{#groups}}
+        <li data-group-id='{{id}}' data-name='{{name}}' class='contact_group jstree-leaf {{#isGroupLast}} jstree-last {{/isGroupLast}}' data-loaded='false'>
+            <ins class='jstree-icon'></ins><a class=''>{{name}} {{isLast}}</a>
+        </li>
+        {{/groups}}
+    </ul>
+</li>
+{{/data}}

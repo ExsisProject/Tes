@@ -1,0 +1,1 @@
+define("works/collections/actions",function(require){return Backbone.Collection.extend({initialize:function(e,t){this.options=t||{},this.appletId=t.appletId,this.docId=t.docId},url:function(){return GO.config("contextRoot")+"api/works/applets/"+this.appletId+"/docs/"+this.docId+"/actions"}})});

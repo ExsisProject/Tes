@@ -1,0 +1,65 @@
+<li>
+	<div><label for="">{{lang.이름}}</label></div>
+	<div><input type="text" name="label" value="{{model.label}}" class="txt_mini tool_txt" placeholder="{{lang.이름을 입력해주세요}}" title="{{lang.이름}}"></div>
+    <div class="wrap_input_sub">
+       <input type="checkbox" id="hideLabel" name="hideLabel" class="tool_chk" title="{{lang.이름숨기기}}" {{#model.hideLabel}}checked{{/model.hideLabel}}><label for="hideLabel">{{lang.이름숨기기}}</label>
+    </div>
+</li>
+<li>
+	<div><label for="">{{lang.설명}}</label></div>
+	<div><input type="text" name="guide" value="{{model.guide}}" class="txt_mini tool_txt" placeholder="{{lang.설명을 입력해주세요}}" title="{{lang.설명}}"></div>
+	<div class="wrap_input_sub">
+		<input type="checkbox" name="guideAsTooltip" id="guideAsTooltip" class="tool_chk" {{#model.guideAsTooltip}} checked="checked"{{/model.guideAsTooltip}}><label for="guideAsTooltip">{{lang.툴팁으로 표현}}</label>
+	</div>
+</li>
+<li>
+	<div class="wrap_input_sub">
+		<input type="checkbox" name="required" id="required" class="tool_chk" {{#model.required}} checked="checked"{{/model.required}}><label for="required">{{lang.필수 입력 컴포넌트}}</label>
+	</div>
+</li>
+<li>
+	<div><label for="">{{lang.기본값}}</label></div>
+	<div><input type="text" name="defaultValue" value="{{model.defaultValue}}" class="txt_mini tool_txt" title="{{lang.기본값}}"></div>
+</li>
+<!-- <li>
+	<div><label for="">{{lang.최소 입력 수}}</label></div>
+	<div class="wrap_attr_mini">
+		<div class="tool_number">
+			<input type="text" name="minLength" value="{{model.minLength}}" class="txt_mini tool_txt" title="{{lang.최소 입력 수}}">
+		</div>
+	</div>
+</li>
+<li>
+	<div><label for="">{{lang.최대 입력 수}}</label></div>
+	<div class="wrap_attr_mini">
+		<div class="tool_number">
+			<input type="text" name="maxLength" value="{{model.maxLength}}" class="txt_mini tool_txt" title="{{lang.최대 입력 수}}">
+		</div>
+	</div>
+</li> -->
+<li>
+	<div>{{lang.입력 너비 조절}}</div>
+	<div class="wrap_attr_mini">
+		<div class="tool_number">
+			<input type="text" name="width" value="{{model.width}}" class="txt_mini tool_txt" title="{{lang.입력 너비 조절}}">
+		</div>
+		<div class="wrap_input_sub">
+			<input type="radio" name="widthUnit" id="option-width-unit-px" value="px" class="tool_chk" {{#isWidthUnitPx}} checked="checked"{{/isWidthUnitPx}}><label for="option-width-unit-px">PX</label>
+		</div>
+		<div class="wrap_input_sub">
+			<input type="radio" name="widthUnit" id="option-width-unit-percent" value="percent" class="tool_chk" {{^isWidthUnitPx}} checked="checked"{{/isWidthUnitPx}}><label for="option-width-unit-percent">%</label>
+		</div>
+	</div>
+	<p>{{lang.퍼센트설명}}</p>
+</li>
+<li>
+	<div>{{lang.입력 높이 조절}}</div>
+	<div class="wrap_attr_mini">
+		<div class="tool_number">
+			<input type="text" name="rows" value="{{model.rows}}" class="txt_mini tool_txt" title="{{lang.입력 높이 조절}}">
+		</div>
+        <div class="wrap_input_sub">
+            <label>{{lang.줄}}</label>
+        </div>
+	</div>
+</li>

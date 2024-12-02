@@ -1,0 +1,11 @@
+<!-- 추가 된 멤버 -->
+<ul class="ui-shared-members list_share">
+    {{#model.members}}
+    <li>
+        {{> _member_button}}
+    </li>
+    {{/model.members}}
+</ul>
+<div class="btn_func">
+    <a href="#" class="btn-add-member btn_style1" data-bypass><span class="ic_board ic_plus"></span><span class="txt">{{label.add_member}}</span></a>
+</div>

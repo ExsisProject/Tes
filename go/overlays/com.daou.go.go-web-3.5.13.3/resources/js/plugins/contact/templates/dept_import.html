@@ -1,0 +1,89 @@
+<p class="desc">{{lang.dept_import_desc}}</p>
+<div class="tab_wrap">
+	<!-- jstree -->
+	<div class="mail_address_warp" id="mailAddressWrap">
+	<div class="content_tab_wrap">
+		<div id="org-tree" style="height:350px" class="jstree jstree-default">
+			<ul></ul>
+		</div>
+	</div>
+	<div class="content_list">
+		<div class="search_wrap">
+			<form>
+				<input id="contactSearch1" class="search" type="text" placeholder="{{lang.search}}">
+				<input id="contactSearch2" class="btn_search search_s" value="{{lang.search}}">
+			</form>
+		</div>
+		<div class="scroll_wrap">
+			<table class="symple" id="contactTable">
+				<thead>
+					<tr>
+						<th class="checkbox"><input type="checkbox" id="contactChkAll"/></th>
+						<th class="name">{{lang.name}}</th>
+						<th class="part">{{lang.dept}}</th>
+						<th class="position">{{lang.position}}</th>
+						<th class="email">{{lang.email}}</th>
+						<th class="company">{{lang.company}}</th>
+					</tr>
+				</thead>		
+				<tbody>
+				</tbody>
+			</table>
+			<div class="bottom_action" data-param>
+				<a class="btn_list_reload"><span class="ic"></span><span class="txt">{{lang.list_more}}</span></a>
+			</div>
+		</div>
+	</div><!-- END: div.content_list -->	
+	</div>
+</div>	
+	
+<div class="move_wrap" id="moveTab">
+	<ul class="contacts_b">
+		<li>
+			<span id="receiveGroup" class="btn_bg">
+				<span class="txt">{{lang.dept}}</span>
+				<span class="ic ic_next2"></span>
+			</span>
+		</li>
+		<li>
+			<span id="receiveUser" class="btn_bg">
+				<span class="txt">{{lang.user}}</span>
+				<span class="ic ic_next2"></span>
+			</span>	
+		</li>
+	</ul>		
+</div>
+
+
+<input type="checkbox" name="isSearchHierarchy" id="isSearchHierarchy" style="display:none">
+<div class="receive_wrap top">
+	<div id="mailReceive" class="receive_list add_box">	
+		<span class="title">{{lang.contact}}</span>
+		<ul class="contacts">
+			<!-- 비어있는 li 네개 지우면 안됨 -->
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+	<div class="overlap_wrap">
+	<span class="title">{{{lang.dup_addr}}}</span>
+		<ul class="overlap">
+		<li><input type="radio" name="writeType" id="addnew" value="ADDNEW" checked="checked"><label for="addnew">{{lang.all_new}}</label></li>
+		<li><input type="radio" name="writeType" id="overwrite" value="OVERWRITE"><label for="overwrite">{{lang.overwrite}}</label></li>
+		<li><input type="radio" name="writeType" id="ignore" value="IGNORE"><label for="ignore">{{lang.not_add}}</label></li>
+		<li class="ex_t">{{lang.import_desc}}</li>
+		</ul>
+	</div>
+	<div class="receive_group">
+	<span class="title">{{lang.contact_group}}</span>
+		<ul id="groupNameTag"  class="name_tag">
+			<li id="groupCreate" class="creat">
+					<span class="btn_wrap"><span class="ic_form ic_addlist"></span><span class="txt">{{lang.group_create}}</span></span>
+			</li>
+		</ul>			
+	</div>
+</div><!-- END: div.receive_wrap -->

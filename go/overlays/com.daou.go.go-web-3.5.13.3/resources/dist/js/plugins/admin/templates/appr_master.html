@@ -1,0 +1,106 @@
+<div class="container">			
+	<div class="header">
+		<h2>{{lang.전사 문서함 운영자 설정}}</h2>
+	</div>			
+	<div class="content">
+		<table class="detail tb_admin_doc_host">
+            <colgroup>
+                <col width="140">
+                <col width="*">
+            </colgroup>
+			<caption>{{lang.전사 문서함 운영자}}</caption>
+			<tbody>
+				<tr class="last">
+					<th><span class="title">{{lang.전사 문서함 운영자}}</span></th>
+					<td>
+						<ul class="name_tag" id="addComDocMasterEl">
+							{{#companyFolderMasterList}}
+								<li data-id="{{userId}}" data-name="members">
+									<span class="name">{{userName}} {{userPosition}}</span>
+									<span class="btn_wrap">
+										<input type="hidden" name="memberId" value="{{userId}}" />
+										<span class="ic_classic ic_del"></span>										
+									</span>
+								</li>
+							{{/companyFolderMasterList}}
+						<li class="creat">
+							<span class="btn_wrap">
+								<span class="ic ic_addlist"></span>
+								<span class="txt">{{lang.운영자 추가}}</span>
+							</span>
+						</li>							
+						</ul>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+<div class="container">			
+	<div class="header">
+		<h2>{{lang.결재문서 관리자 설정}}</h2>
+	</div>			
+	<div class="content">
+		<table class="detail tb_admin_doc_host">
+            <colgroup>
+                <col width="140">
+                <col width="*">
+            </colgroup>
+			<caption>{{lang.결재문서 관리자}}</caption>
+			<tbody>
+				<tr class="last">
+					<th><span class="title">{{lang.결재문서 관리자}}</span></th>
+					<td>
+                        <span id="addDocMaster" class="btn_wrap">
+                        	<span class="btn_s">{{lang.추가}}</span> 
+                        </span>
+                        <div id="addDocMasterTable"></div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+<div class="container">         
+    <div class="header">
+        <h2>{{lang.전사 공문 발송 관리자 설정}}</h2>
+    </div>          
+    <div class="content">
+        <table class="detail tb_admin_doc_host">
+            <colgroup>
+                <col width="140">
+                <col width="*">
+            </colgroup>
+            <caption>{{lang.전사 공문 발송 관리자}}</caption>
+            <tbody>
+                <tr class="last">
+                    <th><span class="title">{{lang.전사 공문 발송 관리자}}</span></th>
+                    <td>
+                        <ul class="name_tag" id="addOfficialDocMasterEl">
+                            {{#officialDocMasterList}}
+                                <li data-id="{{userId}}" data-name="members">
+                                    <span class="name">{{userName}} {{userPosition}}</span>
+                                    <span class="btn_wrap">
+                                        <input type="hidden" name="memberId" value="{{userId}}" />
+                                        <span class="ic_classic ic_del"></span>                                     
+                                    </span>
+                                </li>
+                            {{/officialDocMasterList}}
+                        <li class="creat">
+                            <span class="btn_wrap">
+                                <span class="ic ic_addlist"></span>
+                                <span class="txt">{{lang.관리자 추가}}</span>
+                            </span>
+                        </li>
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<!-- 버튼 -->
+<div class="page_action">
+	<span class="btn" id="btn_save_appr_master">{{lang.저장}}</span>
+	<span class="btn_nega" id="btn_cancel_appr_master">{{lang.취소}}</span>
+</div>

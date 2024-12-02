@@ -1,0 +1,45 @@
+{{#dataset}}
+<table class="tb_week_header tb_fix">
+	<thead class="type_normal">
+		<tr>
+			<th></th>
+			{{#selectDaily}}
+				<th class="{{dateMask}}"><span class="day txt">{{parseWeek}}</span></th>
+			{{/selectDaily}}
+			<th class="scroll_area" style="width:16px"></th>
+		</tr>
+	</thead>
+</table>
+<!-- 시간별 일정 -->
+<div class="week_body_wrap" style="height:500px;-webkit-user-select: none;-moz-user-select: none;-ms-user-select: none;user-select: none;" id="weekBodyWrap"><!-- 스크롤 -->
+	<table class="tb_week_body tb_fix" style="width:; height:500px ;" id="weekBody">
+	<tbody>
+		<tr style="height: 0px">
+			<th style="width: 70px; height: 0"></th>
+			<td colspan="{{weekColCnt}}">
+				<div class="timeline_wrap" id="timeWrap">
+					{{{parseTimeLine}}}
+				</div>
+			</td>
+		</tr>
+		<tr class="cols" id="weekWrap">
+			<th>
+				<div class="time_wrap">
+					{{{parseTimeTh}}}
+				</div>
+			</th>
+			{{#selectDaily}}
+			<td data-date="{{day}}" data-week="{{parseWeekDay}}" class="{{dateMask}}">
+				<div class="schedule_wrap">
+				</div>
+			</td>
+			{{/selectDaily}}			
+			
+		</tr>
+	</tbody>
+	</table>
+	<div id="dragBar" data-date="" data-starttime="" data-endtime="" style="cursor: s-resize;filter:alpha(opacity=55);text-align:left;display:none;position:absolute;opacity:0.5;background-color:#38a9b6;width:100px;height:28px;top:0px;left:70px;color:#fff;font-weight:bold">
+		<span class="time" style="top:3px;left:6px; position:relative"></span>
+	</div>
+</div>
+{{/dataset}}

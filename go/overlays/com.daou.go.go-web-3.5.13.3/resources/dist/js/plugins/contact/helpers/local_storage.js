@@ -1,0 +1,1 @@
+define(function(require){function t(e){var t=n(e);return t==undefined&&(t=!0),t}function n(t){var n="";return window.sessionStorage?n=e.store.sessionStorage(t):n=e.store(t),n}function r(t,n){return e.store(t,n,{type:window.sessionStorage?"sessionStorage":null})}var e=require("amplify");return{getStoredCategoryIsOpen:t,getStoredCategory:n,storeCategoryIsOpen:r}});

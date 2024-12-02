@@ -1,0 +1,1 @@
+define("works/components/formbuilder/core/models/adapter",function(require){var e=require("works/components/formbuilder/core/models/applet_form");return{toModel:function(t){return e.create(t)}}});

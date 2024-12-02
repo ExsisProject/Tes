@@ -1,0 +1,58 @@
+<div class="content_page">
+    <div class="dataTables_wrapper container">
+        <div class="" style="display: none" id="controlButtons">
+            <span class="btn_tool" id="btn_progress" data-status="progress">{{lang.progress}}</span>
+            <span class="btn_tool" id="btn_stop" data-status="stop">{{lang.label_stop}}</span>
+            <span class="btn_tool" id="btn_finished" data-status="finished">{{lang.label_finish}}</span>
+            <span class="btn_tool txt_caution" id="btn_delete">{{lang.label_delete}}</span>
+        </div>
+        <div class="content_tb">
+            <table class="chart size" id="surveyList">
+                <thead>
+                    <tr>
+                        <th class="sorting_disable">
+                            <span class="title_sort">
+                                <label>{{lang.label_no}}</label>
+                            </span>
+                        </th>
+                        <th class="sorting_desc">
+                            <span class="title_sort">
+                                <label>{{lang.label_status}}</label>
+                                <ins class="ic"></ins><span class="selected"></span>
+                            </span>
+                        </th>
+                        <th class="sorting_desc">
+                            <span class="title_sort">
+                                <label>{{lang.label_title}}</label>
+                                <ins class="ic"></ins><span class="selected"></span>
+                            </span>
+                        </th>
+                        <th class="sorting_disable">
+                            <span class="title_sort">{{lang.label_perior}}</span>
+                        </th>
+                        <th class="sorting last">
+                            <span class="title_sort">
+                                <label>{{lang.label_writer}}</label>
+                                <ins class="ic"></ins><span class="selected"></span>
+                            </span>
+                        </th>
+                    </tr>
+                </thead>
+            </table>
+            <div class="table_search">                
+                <select>
+                    <option value="title">{{lang.label_title}}</option>
+                    <option value="writer">{{lang.label_writer}}</option>
+                </select>        
+                
+                <span class="search_wrap" id="surveySearch">
+                    <input class="input" type="text" />
+                    <span id="search_survey" class="btn_search" title="{{lang.search}}"></span>
+                    <input class="submit" type="submit" value="" />
+                </span>
+            </div>                
+        </div>
+    </div>
+
+</div>
+

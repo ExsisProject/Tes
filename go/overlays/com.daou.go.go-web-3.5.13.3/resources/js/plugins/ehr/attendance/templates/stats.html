@@ -1,0 +1,129 @@
+        <header class="content_top">
+        </header> 		
+		
+		<div class="content_page">
+			<!-- attend_stats -->
+			<table class="form_type form_add04 attend_stats">
+				<tbody>
+					<tr id="calendar-list-row">
+						<th>
+							<span class="title">{{lang.label_stats_period}}</span>
+						</th>
+						<td>
+						
+							<section class="function_stats"><!--검색기간 '일' 선택시-->
+								<div class="current_date" style="text-align:left;">
+									<span class="date" id="statsStartDate"></span>
+									<span id="statsEndDateSpan" style="display:none;">
+										<span>~</span>
+										<span class="date" id="statsEndDate"></span>
+									</span>
+									
+									
+									<span class="btn_tool" style="vertical-align:bottom;" id="attndCalBtn">
+										<span class="wrap_date ic ic_calendar">
+											<input type="text" id="calendarDatepicker" style="border:0px;width:1px;height:1px">
+										</span>
+									</span>
+								
+								
+								</div>
+								<span class="horspace1"></span>
+								<div class="s_wrap_add stats_select" id="statsDayWeekMonth">
+									<a class="btn_minor_s day select" id="statsDay">
+										<span class="txt">{{lang.label_stats_day}}</span>
+									</a>
+									<a class="btn_minor_s week" id="statsWeek">
+										<span class="txt">{{lang.label_stats_week}}</span>
+									</a>
+									<a class="btn_minor_s month" id="statsMonth">
+										<span class="txt">{{lang.label_stats_month}}</span>
+									</a>
+								</div>
+							</section>
+							
+							
+						</td>
+					</tr>
+                    {{#hasDescendantSelect}}
+                    <tr>
+                        <th>
+                            <span class="title">{{lang.label_stats_target}}</span>
+                        </th>
+                        <td>
+                            <select id="descendant">
+                                <option value="{{dept.id}}">{{dept.name}}</option>
+                                {{#descendantDept}}
+                                <option value="{{id}}">{{name}}</option>
+                                {{/descendantDept}}
+                            </select>
+                        </td>
+                    </tr>
+                    {{/hasDescendantSelect}}
+					<tr id="targetTr">
+						<th>
+							<span class="title">{{lang.label_stats_target}}</span>
+						</th>
+						<td>
+							<select id="statsSearchTypes">
+								<option value="user">{{lang.label_dept_member}}</option>
+								<option value="dept">{{lang.label_dept_name}}</option>
+								<option value="group">{{lang.label_dept_group}}</option>
+							</select>
+							
+							<!--전사 근태통계에 추가되는 내용입니다, 부서 근태통계엔 안 들어감-->
+							
+								<input type="text" class="txt" id="statsSearchInput"></input>
+								
+								<select id="statsGroupSelect" style="display:none;">
+									 <option value="selectIng">{{lang.label_stats_group_select}}</option>
+									
+								</select>
+						</td>
+					</tr>
+					<tr>
+						<th>
+							<span class="title">{{lang.label_stats_state}}</span>
+						</th>
+						<td>
+							<table class="statsCheckTable">
+								<tbody id="statsStateTbody">
+									<tr>
+										<td class="statsTd">
+											<input type="checkbox" id="statsStateAll" checked="checked" value="all">
+											<span>{{lang.label_stats_all}}</span>
+										</td>
+										<td class="statsTd">
+											<input type="checkbox" name="stateCheck" value="lateCnt" data-name={{lang.label_stats_late}}>
+											<span>{{lang.label_stats_late}}</span>
+										</td>
+										<td class="statsTd">
+											<input type="checkbox" name="stateCheck" value="allNightCnt" data-name={{lang.label_stats_allnight}}>
+											<span>{{lang.label_stats_allnight}}</span>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</td>
+					</tr>
+					<tr class="line"><td colspan="2"><hr></td></tr>
+				</tbody>
+			</table>
+			<div class="page_action_wrap">
+				<a class="btn_major" data-role="button" data-bypass="" id="statsSearch"><span class="txt">{{lang.label_stats_search}}</span></a>
+			</div>
+			<section class="tool_bar calendar_tool_bar stats_tool_bar">
+				<!-- tab -->
+				<ul class="critical" id="downloadxlsx" style="display:none;">
+					<li>
+						<a class="btn_tool">
+							<span class="txt">{{lang.label_down_list}}</span>
+						</a>
+					</li>
+				</ul>
+			</section>
+			<div class="go_body go_stats" id="statsListInfo" >
+			</div>
+			<!-- //attend_stats -->
+		</div>
+

@@ -1,0 +1,21 @@
+<h1>
+	<div class="wrap_applet_tit"><img src="{{config.thumbSmall}}" alt="{{lang.appIcon}}"></div>
+	<div class="works_app_tit">
+		{{{pageTitle}}}
+	{{#useActionButton}}
+	<span class="btn_wrap">
+		<span id="applet-info-desc" class="ic ic_info btn-toggle-desc" title="{{lang.showAppDesc}}" el-backdrop-link backdrop-toggle="true">
+			<span class="layer_tail tooltip-desc" style="display:none;" el-backdrop>
+				<i class="ic ic_tail"></i>
+				<div>{{{infoDesc}}}</div>
+                {{#showOperatorList}}
+				<div>
+					{{lang.operator}} : {{operatorList}} <br>
+				</div>
+                {{/showOperatorList}}
+			</span>
+		</span>
+	</span>
+	{{/useActionButton}}
+    </div>
+</h1>

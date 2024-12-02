@@ -1,0 +1,27 @@
+<h2>
+	<span class="txt_ellipsis">
+	{{#isStream}}
+		{{{summaryParse}}}
+	{{/isStream}}
+	{{^isStream}}
+		{{{titleParse}}}
+	{{/isStream}}
+	</span>	
+	<span class="num">( {{dataset.commentsCount}} )</span>	
+	<!-- 
+	<span class="btn_wrap">
+		<span class="ic ic_reply_bubble"><span class="plus_num">999</span></span>
+	</span>
+	-->
+</h2>
+<div class="article_wrap">  
+	<div>
+		<span class="txt_ellip writer">{{dataset.writer.name}} {{dataset.writer.positionName}}</span>
+		{{#dataset.writer.name}}<span class="part">|</span>{{/dataset.writer.name}}
+		<span class="txt">{{dateformat}}</span>
+		{{^isStream}}
+		<span class="part">|</span>
+		<span class="txt">{{lang.read_count}} {{dataset.readCount}}</span>
+		{{/isStream}}
+	</div>
+</div>

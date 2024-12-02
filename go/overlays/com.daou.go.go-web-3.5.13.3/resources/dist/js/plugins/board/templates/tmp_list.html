@@ -1,0 +1,14 @@
+<ul class="list_line">
+	{{#dataset}}
+	<li>
+		<div>
+			<a data-bypass><span class="subject" data-tmpId="{{id}}" data-tmpContent="{{content}}">{{title}}</span></a>
+			<span class="date">{{dateParse}}</span>
+		</div>
+		<span class="btn_bdr"><span class="ic_classic ic_del" title="{{lang.delete}}" data-tmpId="{{id}}"></span></span>
+	</li>	
+	{{/dataset}}
+	{{^dataset}}
+	<p class="data_null">{{lang.no_more}}</p>
+	{{/dataset}}
+</ul>

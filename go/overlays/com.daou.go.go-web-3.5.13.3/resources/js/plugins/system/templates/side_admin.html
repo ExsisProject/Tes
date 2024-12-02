@@ -1,0 +1,15 @@
+<section class="lnb">
+	<ul class="admin">
+		{{#menus}}
+		<!--<li data-url="{{href}}" {{#isActive}} class="active"{{/isActive}}>-->
+		<li data-url="{{href}}" {{#isActive}} class="active"{{/isActive}}>
+			<a data-bypass href="{{href}}">
+			<ins class="ic_bullet"></ins>
+			<span>
+				<span class="txt">{{name}}</span>
+			</span>
+			</a>
+		</li>
+		{{/menus}}
+	</ul>
+</section>

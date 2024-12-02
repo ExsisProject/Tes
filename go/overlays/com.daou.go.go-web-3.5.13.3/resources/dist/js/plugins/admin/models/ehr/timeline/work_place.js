@@ -1,0 +1,1 @@
+define("admin/models/ehr/timeline/work_place",function(require){var e=require("backbone"),t=require("app"),n=e.Model.extend({urlRoot:t.contextRoot+"ad/api/timeline/workplace",getCreatedAt:function(){return t.util.shortDate(this.attributes.createdAt)}});return n});

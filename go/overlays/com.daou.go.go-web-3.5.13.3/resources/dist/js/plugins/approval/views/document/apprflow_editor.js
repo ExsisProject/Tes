@@ -1,0 +1,1 @@
+define("approval/views/document/apprflow_editor",["approval/components/apprflow_editor/apprflow_editor"],function(e){return e});

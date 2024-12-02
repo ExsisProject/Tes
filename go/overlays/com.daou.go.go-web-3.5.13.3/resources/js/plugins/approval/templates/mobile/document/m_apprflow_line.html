@@ -1,0 +1,105 @@
+<div class="wrap_approval_line">
+    {{#dataset}}
+    {{#activities}}
+    <dl class="approval_line {{#isComplete}}apr_finish{{/isComplete}}">
+        <dd>
+            {{^deptType}}<img src="{{thumbnail}}">{{/deptType}}
+            {{#deptType}}<div class="depart"><span class="txt">{{lang.부서}}</span></div>{{/deptType}}
+        </dd>
+        <dt>
+            <div class="person_info">
+                {{#userId}}<p class="name">{{userName}} {{userPosition}}</p>{{/userId}}
+                {{^userId}}<p class="name">{{deptName}}</p>{{/userId}}
+                {{#holdingActivity}}
+                <span class="info" style="display:inline-block">
+                    <span class="team">{{deptName}}</span>
+                    <span class="part">|</span>
+                    <span class="date">{{formattedCompletedAt}}({{lang.보류}})</span>
+                </span>
+                {{#comment}}
+                <div class="msg_wrap">
+                    <p class="subject">
+                        <span class="txt">{{comment}}</span>
+                    </p>
+                </div>
+                {{/comment}}
+                {{/holdingActivity}}
+                <span class="info">
+                    {{#userId}}
+                    {{^activityStatusName}}
+                    <span class="team">{{deptName}}</span>
+                    {{/activityStatusName}}
+                    {{/userId}}
+                    {{#completedAt}}
+                    {{#userId}}
+                    {{^activityStatusName}}
+                    <span class="part">|</span>
+                    {{/activityStatusName}}
+                    {{/userId}}
+                    <span class="date">{{formattedCompletedAt}} {{activityStatusName}}</span>
+                    {{/completedAt}}
+                </span>
+                {{#comment}}
+                <div class="msg_wrap">
+                    <p class="subject">
+                        <span class="txt">{{comment}}</span>
+                    </p>
+                </div>
+                {{/comment}}
+            </div>
+            <span class="state {{statusType}}">{{name}}{{#statusName}} {{statusName}} {{/statusName}}</span>
+        </dt>
+    </dl>
+    {{#deputyActivity}}
+    <dl class="approval_line {{#isComplete}}apr_finish{{/isComplete}}">
+        <dd>
+            <img src="{{thumbnail}}">
+        </dd>
+        <dt>
+            <div class="person_info">
+                {{#userId}}<p class="name">{{userName}} {{userPosition}}</p>{{/userId}}
+                {{^userId}}<p class="name">{{deptName}}</p>{{/userId}}
+                {{#holdingActivity}}
+                <span class="info" style="display:inline-block">
+                                <span class="team">{{deptName}}</span>
+                                <span class="part">|</span>
+                                <span class="date">{{formattedCompletedAt}}({{lang.보류}})</span>
+                            </span>
+                {{#comment}}
+                <div class="msg_wrap">
+                    <p class="subject">
+                        <span class="txt">{{comment}}</span>
+                    </p>
+                </div>
+                {{/comment}}
+                {{/holdingActivity}}
+                <span class="info">
+                            {{#userId}}
+                            {{^activityStatusName}}
+                            <span class="team">{{deptName}}</span>
+                            {{/activityStatusName}}
+                            {{/userId}}
+                            {{#completedAt}}
+                            {{#userId}}
+                            {{^activityStatusName}}
+                            <span class="part">|</span>
+                            {{/activityStatusName}}
+                            {{/userId}}
+                            <span class="date">{{formattedCompletedAt}} {{activityStatusName}}</span>
+                            {{/completedAt}}
+                        </span>
+                {{#comment}}
+                <div class="msg_wrap">
+                    <p class="subject">
+                        <span class="txt">{{comment}}</span>
+                    </p>
+                </div>
+                {{/comment}}
+            </div>
+            <span class="state {{statusType}}">{{name}}{{#statusName}} {{statusName}}{{/statusName}}</span>
+        <dt>
+    </dl>
+        {{/deputyActivity}}
+    {{/activities}}
+    {{/dataset}}
+</div>

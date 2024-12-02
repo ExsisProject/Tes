@@ -1,0 +1,1 @@
+define("timeline/collections/daily_stats",function(require){var e=require("backbone"),t=require("timeline/models/daily_stat"),n=e.Collection.extend({model:t,initialize:function(){}});return n});

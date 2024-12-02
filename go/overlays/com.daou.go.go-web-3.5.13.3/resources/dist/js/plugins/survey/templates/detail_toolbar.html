@@ -1,0 +1,68 @@
+<section class="tool_bar">
+	<ul class="critical">
+		{{#creator?}}{{^previewMode}}
+		{{#before_start?}}
+		<li><a href="{{context_root}}app/survey/{{survey_id}}/edit" class="btn_tool">
+            <span class="ic_toolbar modify"></span>
+            <span class="txt">{{label.modify_survey}}</span></a>
+        </li>
+		{{/before_start?}}
+		{{#started?}}
+		<li><a class="btn-change-status btn_tool" data-status="modify_progress">
+            <span class="ic_toolbar modify"></span>
+			<span class="txt">{{label.modify_survey}}</span>
+        </a></li>
+		{{/started?}}	
+		{{#stopped?}}
+		<li><a href="{{context_root}}app/survey/{{survey_id}}/edit" class="btn_tool">
+            <span class="ic_toolbar modify"></span>
+            <span class="txt">{{label.modify_survey}}</span>
+        </a></li>
+		{{/stopped?}}		
+		{{#progressing?}}	
+		<li><a class="btn-change-status btn_tool" data-status="{{status}}">
+            {{#started?}}
+            <span class="ic_toolbar stop"></span>
+            <span class="txt">{{label.stop_survey}}</span>
+            {{/started?}}
+            {{^started?}}
+            <span class="ic_toolbar play"></span>
+            <span class="txt">{{label.start_survey}}</span>
+            {{/started?}}
+        </a></li>
+		{{/progressing?}}
+        {{#started?}}
+        <li><a class="btn-change-status btn_tool" data-status="finished">
+            <span class="ic_toolbar end"></span>
+            <span class="txt">{{label.finished_survey}}</span>
+        </a></li>
+        {{/started?}}
+		<li><a class="btn-remove-survey btn_tool">
+            <span class="ic_toolbar del"></span>
+            <span class="txt_caution">{{label.remove_survey}}</span>
+        </a></li>
+        {{/previewMode}}{{/creator?}}
+        <li><a class="btn-copy-survey btn_tool">
+            <span class="ic_toolbar copy"></span>
+            <span class="txt">{{label.copy_survey}}</span>
+        </a></li>
+	</ul>
+
+    {{^previewMode}}
+	<ul class="optional">
+		<!-- li><a class="btn-prev btn_tool"><span class="ic_prev" title="{{label.previous}}"></span></a></li>
+		<li><a class="btn-next btn_tool"><span class="ic_next" title="{{label.next}}"></span></a></li -->
+        <li class="btn_tool" url-copy>
+            <span class="ic_toolbar copy_url"></span>
+            <span class="txt">{{label.copy}}</span>
+        </li>
+		<li>
+            <a class="btn-list btn_tool">
+                <span class="ic_toolbar list" title="{{label.list}}"></span>
+                <span class="txt">{{label.list}}</span>
+            </a>
+        </li>
+		<!-- li><a class="btn_tool"><span class="ic_print"></span></a></li -->
+	</ul>
+    {{/previewMode}}
+</section>

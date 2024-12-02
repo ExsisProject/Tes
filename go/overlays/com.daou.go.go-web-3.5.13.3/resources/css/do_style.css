@@ -1,0 +1,48 @@
+.dashboard_option_gadget {
+  scrollbar-face-color: red;
+  scrollbar-track-color: #fff;
+  scrollbar-arrow-color: none;
+  scrollbar-highlight-color: #e0e0e0;
+  scrollbar-3dlight-color: none;
+  scrollbar-shadow-color: #e0e0e0;
+  scrollbar-darkshadow-color: none;
+}
+/* common */
+.dashboard_option_gadget::-webkit-scrollbar {width: 10px; height: 10px}
+.dashboard_option_gadget::-webkit-scrollbar-track {background-color: lightblue}
+.dashboard_option_gadget::-webkit-scrollbar-track-piece {background-color: #eef1f6}
+.dashboard_option_gadget::-webkit-scrollbar-thumb {border-radius: 10px; background-color: #ccc}
+.dashboard_option_gadget::-webkit-scrollbar-button {background-color: #eef1f6; width: 10px; height: 10px}
+.dashboard_option_gadget::-webkit-scrollbar-button:start {background-color: #eef1f6}
+.dashboard_option_gadget::-webkit-scrollbar-button:end {background-color: #eef1f6}
+.dashboard_option_gadget::-webkit-scrollbar-button:vertical:increment {}
+.dashboard_option_gadget::-webkit-scrollbar-button:vertical:decrement {}
+.dashboard_option_gadget::-webkit-scrollbar-corner {background-color: violet}
+.dashboard_option_gadget::-webkit-resizer {background-color: green}
+	/* z-index */
+	.go_skin_advanced .go_header {z-index: 1}
+	.go_dashboard_ctrl {z-index: 10}
+	.go_skin_advanced .gnb {z-index: 20}
+
+/* layout */
+.critical {position: absolute; top: 0; left: 0}
+.optional {position: absolute; top: 0; right: 0}
+/* component */
+	/* icon */
+	.ic_do_gnb {display: inline-block; background:url(../images/ic_do_gnb.png) no-repeat 0 0; width: 20px; height: 20px}
+	.ic_do_gnb.mail {background-position: 0 0}
+/* go_skin_advanced */
+.go_skin_advanced .btn_major_s {border-radius: 20px; padding: 3px 16px 5px;}
+.go_skin_advanced .btn_minor_s {border-radius: 20px; padding: 3px 16px 5px;}
+.go_skin_advanced .gnb {position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: #25cad6; height: auto; width: 160px; min-width: auto}
+.go_skin_advanced .gnb nav ul li a  {color: #fff}
+.go_skin_advanced .go_body {margin: 0 0 0 64px}
+.go_skin_advanced .go-dashboard .go-gadget-content {border-radius: 4px}
+.go_skin_advanced header.go_header nav {float: inherit; margin: 0; min-width: auto; max-width: auto}
+.go_skin_advanced .go_wrap header.go_header nav ul li {float: inherit; text-align: left}
+.go_skin_advanced header.go_header nav ul li:hover {background: none}
+.go_skin_advanced header.go_header nav ul li a {padding: 0 10px}
+.go_skin_advanced header.go_header nav ul li a .wrap_ic_do_gnb {display: inline-block; vertical-align: top; padding: 12px; background: #25cad6; transition: 0.3s; border-radius: 50px; line-height: 0}
+.go_skin_advanced header.go_header nav ul li a:hover .wrap_ic_do_gnb {background: #1faeb8}
+.go_skin_advanced header.go_header nav ul li a .menu {font-size: 14px}
+.snb {border: 2px solid red; position: absolute; top: 0; right: 0}

@@ -1,0 +1,1570 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+
+<style>
+
+/* Swipe 2 required styles */
+
+.swipe {
+  overflow: hidden;
+  visibility: hidden;
+  position: relative;
+}
+.swipe-wrap {
+  overflow: hidden;
+  position: relative;
+}
+.swipe-wrap > div {
+  float:left;
+  width:100%;
+  position: relative;
+}
+
+/* END required styles */
+
+</style>
+
+
+    <meta charset="utf-8">
+    <title>메일 리스트</title>
+    <meta name = "gadget:name-ko" content="메일 리스트" />
+    <meta name = "gadget:name-en" content="Email List" />
+    <meta name = "gadget:name-ja" content="メールリスト" />
+    <meta name = "gadget:name-zhcn" content="邮件列表" />
+    <meta name = "gadget:name-zhtw" content="郵件列表" />
+    <meta name = "gadget:name-vi" content="Danh sách thư" />
+    <meta name = "gadget:description" content="메일 목록을 표시하는 가젯입니다." />
+    <meta name = "gadget:version" content="1.5.0" />
+    <meta name = "gadget:app-dependency" content="MAIL" />
+    <meta name = "gadget:thumbnail" content="gadget_mailList.png" />
+
+    <meta name = "locale" content="ko" />
+    <meta name = "contextRoot" content="/" />
+    <link rel="stylesheet" href="css/go-gadget-standalone.css" media="screen, print" />
+    <!--[if IE]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="js/go-gadget-standalone.js"></script>
+	<style>
+
+	/* Swipe 2 required styles */
+
+	.swipe {
+	  overflow: hidden;
+	  visibility: hidden;
+	  position: relative;
+	}
+	.swipe-wrap {
+	  overflow: hidden;
+	  position: relative;
+	}
+	.swipe-wrap > div {
+	  float:left;
+	  width:100%;
+	  position: relative;
+	}
+
+	/* END required styles */
+
+	</style>
+    <script type="text/javascript">
+    $.ajaxMock.register('/api/mail/message/gadget?count=5&folder=folder%2FInbox', {
+        responseText: {"dormant":false, "messageList":[{"id":12250,"subject":"[게시글등록] 2월1일 부터 다우기술 포탈 사용 추이\n\n점심 시간대 푹 떨어짐...","name":"송동수", "preview" : "미리보기", "folderName":"받은메일함","folderFullName":"Inbox","date":"2014-02-11 11:04", "dateUtc": "2014-02-11T11:04:22.000Z"},{"id":12249,"subject":"Your Daily Project Update","name":"TeamGantt","folderName":"받은메일함","folderFullName":"Inbox","date":"2014-02-11 09:09"},{"id":12248,"subject":"[게시글등록] ","name":"박상오","folderName":"받은메일함","folderFullName":"Inbox","date":"2014-02-10 20:22"},{"id":12247,"subject":"Re: 사원 정보 연동 오류","name":"이준","folderName":"받은메일함","folderFullName":"Inbox","date":"2014-02-10 18:28"},{"id":12246,"subject":"사원 정보 연동 오류","name":"임은진","folderName":"받은메일함","folderFullName":"Inbox","date":"2014-02-10 18:24"},{"id":12245,"subject":"스터디 하시는 분들?!","name":"조건희","folderName":"받은메일함","folderFullName":"Inbox","date":"2014-02-10 17:49"},{"id":12244,"subject":"Re: Fwd: 사원정보 연동 관련 문의 사항","name":"이준","folderName":"받은메일함","folderFullName":"Inbox","date":"2014-02-10 17:36"},{"id":12243,"subject":"[게시글등록] [긴급]인원 파악 - CJ파워캐스트(성남 황송공원)","name":"박의선","folderName":"받은메일함","folderFullName":"Inbox","date":"2014-02-10 15:15"},{"id":12242,"subject":"일본어 강좌 수강생 모집","name":"최형준","folderName":"받은메일함","folderFullName":"Inbox","date":"2014-02-10 11:16"},{"id":12241,"subject":"김은영 연구원이 전하는 2월 2째주 \"모바일 HOT뉴스\"","name":"김은영","folderName":"받은메일함","folderFullName":"Inbox","date":"2014-02-10 11:07"},{"id":12240,"subject":"[일정수정] 일일 5분 스피치 (2014-02-12(수) 08:30)","name":"조슬기","folderName":"받은메일함","folderFullName":"Inbox","date":"2014-02-10 09:10"},{"id":12239,"subject":"[일정수정] 일일 5분 스피치 (2014-02-11(화) 08:30)","name":"조슬기","folderName":"받은메일함","folderFullName":"Inbox","date":"2014-02-10 09:10"},{"id":12238,"subject":"Your Daily Project Update","name":"TeamGantt","folderName":"받은메일함","folderFullName":"Inbox","date":"2014-02-10 09:08"},{"id":12237,"subject":"[설문 알림] 12월 팀 커뮤니티 활동 투표 (2014-02-10(월) ~ 2014-02-10(월))","name":"조슬기","folderName":"받은메일함","folderFullName":"Inbox","date":"2014-02-10 08:52"},{"id":12236,"subject":"Your Daily Project Update","name":"TeamGantt","folderName":"받은메일함","folderFullName":"Inbox","date":"2014-02-08 09:09"}]},
+        statusCode: 200,
+        status:'OK',
+        type: 'GET'
+    });
+
+    $.ajaxMock.register(GO.contextRoot + 'api/mail/folder/all', {
+        responseText: {
+            "failMsg": "",
+            "userFolders": [{
+                "index": 0,
+                "newCnt": 0,
+                "parentid": null,
+                "depth": 0,
+                "encName": "Deleted Messages",
+                "id": "userFolder0",
+                "sharedUid": 0,
+                "share": false,
+                "name": "Deleted Messages",
+                "fullName": "Deleted Messages",
+                "unseenCnt": 0,
+                "totalCnt": 0,
+                "aging": -1
+            },
+            {
+                "index": 1,
+                "newCnt": 12,
+                "parentid": null,
+                "depth": 0,
+                "encName": "JIRA",
+                "id": "userFolder3",
+                "sharedUid": 0,
+                "share": false,
+                "name": "JIRA",
+                "fullName": "JIRA",
+                "unseenCnt": 4174,
+                "totalCnt": 4227,
+                "aging": -1
+            },
+            {
+                "index": 2,
+                "newCnt": 21,
+                "parentid": null,
+                "depth": 0,
+                "encName": "Jenkins",
+                "id": "userFolder4",
+                "sharedUid": 0,
+                "share": false,
+                "name": "Jenkins",
+                "fullName": "Jenkins",
+                "unseenCnt": 1794,
+                "totalCnt": 1802,
+                "aging": -1,
+                "child": [{
+        			"index": 3,
+        			"newCnt": 0,
+        			"parentid": "userFolder3",
+        			"depth": 1,
+        			"encName": "Jenkins.&yCDQqMKk- &wRy+DA-",
+        			"id": "userFolder5",
+        			"sharedUid": 0,
+        			"share": false,
+        			"name": "젠킨스 서브2-1",
+        			"fullName": "Jenkins.젠킨스 서브2-1",
+        			"unseenCnt": 0,
+        			"totalCnt": 0,
+        			"aging": -1,
+        			"child" : [{
+            			"index": 3,
+            			"newCnt": 0,
+            			"parentid": "userFolder3",
+            			"depth": 1,
+            			"encName": "Jenkins.&yCDQqMKk- &wRy+DA-",
+            			"id": "userFolder5",
+            			"sharedUid": 0,
+            			"share": false,
+            			"name": "젠킨스 서브3-1",
+            			"fullName": "Jenkins.젠킨스 서브2-1.젠킨스 서브3-1",
+            			"unseenCnt": 0,
+            			"totalCnt": 0,
+            			"aging": -1
+            		}]
+        		},
+        		{
+        			"index": 11,
+        			"newCnt": 0,
+        			"parentid": "userFolder3",
+        			"depth": 1,
+        			"encName": "Jenkins.&yCDQqMKk- &wRy+DA-",
+        			"id": "userFolder5",
+        			"sharedUid": 0,
+        			"share": false,
+        			"name": "젠킨스 서브2-2",
+        			"fullName": "Jenkins.젠킨스 서브2-2",
+        			"unseenCnt": 0,
+        			"totalCnt": 0,
+        			"aging": -1
+        		}]
+            },
+            {
+                "index": 3,
+                "newCnt": 4,
+                "parentid": null,
+                "depth": 0,
+                "encName": "News",
+                "id": "userFolder5",
+                "sharedUid": 0,
+                "share": false,
+                "name": "News",
+                "fullName": "News",
+                "unseenCnt": 182,
+                "totalCnt": 187,
+                "aging": -1
+            },
+            {
+                "index": 4,
+                "newCnt": 0,
+                "parentid": null,
+                "depth": 0,
+                "encName": "Notes",
+                "id": "userFolder6",
+                "sharedUid": 0,
+                "share": false,
+                "name": "Notes",
+                "fullName": "Notes",
+                "unseenCnt": 0,
+                "totalCnt": 11,
+                "aging": -1
+            },
+            {
+                "index": 5,
+                "newCnt": 0,
+                "parentid": null,
+                "depth": 0,
+                "encName": "Sent Messages",
+                "id": "userFolder10",
+                "sharedUid": 0,
+                "share": false,
+                "name": "Sent Messages",
+                "fullName": "Sent Messages",
+                "unseenCnt": 0,
+                "totalCnt": 11,
+                "aging": -1
+            },
+            {
+                "index": 6,
+                "newCnt": 0,
+                "parentid": null,
+                "depth": 0,
+                "encName": "&rBzHeLpUx3w-",
+                "id": "userFolder13",
+                "sharedUid": 0,
+                "share": false,
+                "name": "개인메일",
+                "fullName": "개인메일",
+                "unseenCnt": 344,
+                "totalCnt": 2249,
+                "aging": -1
+            },
+            {
+                "index": 7,
+                "newCnt": 0,
+                "parentid": null,
+                "depth": 0,
+                "encName": "&vPSwuA- &07jJwNVo-",
+                "id": "userFolder14",
+                "sharedUid": 0,
+                "share": false,
+                "name": "보낸 편지함",
+                "fullName": "보낸 편지함",
+                "unseenCnt": 0,
+                "totalCnt": 14,
+                "aging": -1
+            },
+            {
+                "index": 8,
+                "newCnt": 0,
+                "parentid": null,
+                "depth": 0,
+                "encName": "&xcW7NMw4rOA-",
+                "id": "userFolder15",
+                "sharedUid": 0,
+                "share": false,
+                "name": "업무참고",
+                "fullName": "업무참고",
+                "unseenCnt": 0,
+                "totalCnt": 3,
+                "aging": -1
+            },
+            {
+                "index": 9,
+                "newCnt": 0,
+                "parentid": null,
+                "depth": 0,
+                "encName": "&yBXQbA- &ulTHfA-",
+                "id": "userFolder16",
+                "sharedUid": 0,
+                "share": false,
+                "name": "정크 메일",
+                "fullName": "정크 메일",
+                "unseenCnt": 0,
+                "totalCnt": 0,
+                "aging": -1
+            },
+            {
+                "index": 10,
+                "newCnt": 0,
+                "parentid": null,
+                "depth": 0,
+                "encName": "&ycDGtA- &07jJwNVo-",
+                "id": "userFolder17",
+                "sharedUid": 0,
+                "share": false,
+                "name": "지운 편지함",
+                "fullName": "지운 편지함",
+                "unseenCnt": 0,
+                "totalCnt": 0,
+                "aging": -1
+            },
+            {
+                "index": 11,
+                "newCnt": 0,
+                "parentid": null,
+                "depth": 0,
+                "encName": "&ycDGtNO4ycDVaA-",
+                "id": "userFolder18",
+                "sharedUid": 0,
+                "share": false,
+                "name": "지운편지함",
+                "fullName": "지운편지함",
+                "unseenCnt": 0,
+                "totalCnt": 0,
+                "aging": -1
+            },
+            {
+                "index": 12,
+                "newCnt": 8,
+                "parentid": null,
+                "depth": 0,
+                "encName": "&0wDGJNU8wqQ- &xiS5WA-",
+                "id": "userFolder19",
+                "sharedUid": 0,
+                "share": false,
+                "name": "팀오피스 오류",
+                "fullName": "팀오피스 오류",
+                "unseenCnt": 11828,
+                "totalCnt": 11943,
+                "aging": -1
+            }],
+            "quotaInfo": {
+                "limit": "4.0GB",
+                "percent": 66,
+                "usage": "2.64GB"
+            },
+            "userSharedFolderList": [],
+            "isSuccess": true,
+            "userTags": [],
+            "defaultFolders": [{
+                "index": 0,
+                "newCnt": 0,
+                "parentid": null,
+                "depth": 0,
+                "encName": "Inbox",
+                "id": "defaultFolder0",
+                "sharedUid": 0,
+                "share": false,
+                "name": "받은메일함",
+                "fullName": "Inbox",
+                "unseenCnt": 3913,
+                "totalCnt": 7237,
+                "aging": -1
+            },
+            {
+                "index": 1,
+                "newCnt": 0,
+                "parentid": null,
+                "depth": 0,
+                "encName": "Sent",
+                "id": "defaultFolder1",
+                "sharedUid": 0,
+                "share": false,
+                "name": "보낸메일함",
+                "fullName": "Sent",
+                "unseenCnt": 0,
+                "totalCnt": 335,
+                "aging": -1
+            },
+            {
+                "index": 2,
+                "newCnt": 0,
+                "parentid": null,
+                "depth": 0,
+                "encName": "Drafts",
+                "id": "defaultFolder2",
+                "sharedUid": 0,
+                "share": false,
+                "name": "임시보관함",
+                "fullName": "Drafts",
+                "unseenCnt": 0,
+                "totalCnt": 0,
+                "aging": -1
+            },
+            {
+                "index": 3,
+                "newCnt": 0,
+                "parentid": null,
+                "depth": 0,
+                "encName": "Reserved",
+                "id": "defaultFolder3",
+                "sharedUid": 0,
+                "share": false,
+                "name": "예약메일함",
+                "fullName": "Reserved",
+                "unseenCnt": 0,
+                "totalCnt": 0,
+                "aging": -1
+            },
+            {
+                "index": 4,
+                "newCnt": 0,
+                "parentid": null,
+                "depth": 0,
+                "encName": "Spam",
+                "id": "defaultFolder4",
+                "sharedUid": 0,
+                "share": false,
+                "name": "스펨메일함",
+                "fullName": "Spam",
+                "unseenCnt": 0,
+                "totalCnt": 0,
+                "aging": -1
+            },
+            {
+                "index": 5,
+                "newCnt": 0,
+                "parentid": null,
+                "depth": 0,
+                "encName": "Trash",
+                "id": "defaultFolder5",
+                "sharedUid": 0,
+                "share": false,
+                "name": "휴지통",
+                "fullName": "Trash",
+                "unseenCnt": 7176,
+                "totalCnt": 7782,
+                "aging": -1
+            }]
+        },
+        statusCode: 200,
+        status:'OK',
+        type: 'GET'
+    });
+    </script>
+
+    <script type="text/javascript" id="go-gadget-script">
+    try{
+        $(function(){
+
+            function Resizer(delay) {
+                this.isIgnore = false;
+                this.resizeUID = 0;
+                this.delay = delay || 200;
+            }
+
+            Resizer.prototype = {
+                setDelay: function(delay) {
+                    this.delay = delay;
+                },
+
+                bind: function(callback) {
+                    var self = this,
+                        args = Array.prototype.slice.call( arguments, 1 );
+
+                    if(!this.isIgnore) {
+                        var uid = ++this.resizeUID;
+                        setTimeout(function() {
+                            if(uid == self.resizeUID && !self.isIgnore) {
+                                self.isIgnore = true;
+                                callback.apply(undefined, args);
+                                self.isIgnore = false;
+                            }
+                        }, this.delay);
+                    }
+                }
+            };
+
+            var _slice = Array.prototype.slice,
+                EventEmitter = {
+                    __category__: {},
+
+                    create: function(category) {
+                        if(!(category in this.__category__)) {
+                            this.__category__[category] = {};
+                            _.extend(this.__category__[category], Backbone.Events);
+                        }
+                        return this.__category__[category];
+                    },
+
+                    on: function(category, event, callback, context) {
+                        var emitter = this.create(category);
+                        return emitter.on.apply(emitter, _slice.call(arguments, 1));
+                    },
+
+                    bind: function(category, event, callback, context) {
+                        return this.on(category, event, callback, context);
+                    },
+
+                    off: function(category, event, callback, context) {
+                        var emitter = this.create(category);
+                        return emitter.off.apply(emitter, _slice.call(arguments, 1));
+                    },
+
+                    unbind: function(category, event, callback, context) {
+                        return this.off(category, event, callback, context);
+                    },
+
+                    trigger: function(category, event, args) {
+                        var emitter = this.create(category);
+                        return emitter.trigger.apply(emitter, _slice.call(arguments, 1));
+                    }
+                };
+
+            gadget.load({
+
+            	highlightable : true,
+
+                refreshable: true,
+
+                defaults: {
+                    "count": 5,
+                    "folder": "folder/Inbox"
+                },
+
+                events: {
+                    "click .btn-redirect-unlock" : "redirectUnlockPage"
+                },
+
+                langs: {
+                    "gadget-title": "메일 리스트",
+                    "reload": "새로고침 간격",
+                    "mail-count": "표시 개수",
+                    "folder": "메일함 종류",
+                    "folder-inbox": "받은메일함",
+                    "folder-sent": "보낸메일함",
+                    "folder-drafts": "임시보관함",
+                    "folder-reserved": "예약메일함",
+                    "folder-spam": "스팸메일함",
+                    "folder-trash": "휴지통",
+                    "folder-adv_box" : "광고 메일함",
+                    "folder-sns_box" : "소셜 메일함",
+                    "folder-bill_box" : "청구서 메일함",
+                    "none": "안함",
+                    "quick-flaged": "중요 메일함",
+                    "quick-attach": "첨부 메일함",
+                    "quick-unseen": "안읽은 메일함",
+                    "quick-seen": "읽은 메일함",
+                    "quick-yesterday": "어제온 메일함",
+                    "quick-today": "오늘온 메일함",
+                    "quick-reply": "답장한 메일함",
+                    "quick-myself": "내가쓴 메일함",
+                    "min": "분",
+                    "hour": "시간",
+
+                    "mail-folder-noselect":"메일함을 선택해 주십시요.",
+                    "mail-message-empty":"메시지가 없습니다.",
+                    "mail-subject-empty":"제목이 없습니다",
+                    "redirect-unlock-page": "휴면해제 페이지로 이동",
+                    "dormant-message": "현재 휴면 상태입니다.<br>휴면 상태에서는 아래의 서비스가 제한됩니다.",
+                    "dormant-message-1": "메일 송/수신 서비스 및 메일App 서비스 사용이 제한됩니다.",
+                    "dormant-message-2": "POP 서비스가 제한됩니다.",
+                    "dormant-message-3": "IMAP 서비스가 제한됩니다.",
+                    "next" : "다음",
+                    "prev" : "이전",
+                    "remove" : "삭제",
+                    "selectMailBoxAlert" : "메일함을 선택해주세요.",
+                    "selectMailBox" : "선택하세요.",
+                    "existMailBox" : "이미 추가된 메일함 입니다.",
+                    "mail-box" : "메일함",
+                    "add" : "추가",
+                    "important": "중요",
+
+                    "ja": {
+                        "gadget-title" : "メールリスト",
+                        "reload" : "更新間隔",
+                        "mail-count" : "表示件数",
+                        "folder" : "メールフォルダ",
+                        "folder-inbox" : "受信フォルダ",
+                        "folder-sent" : "送信フォルダ",
+                        "folder-drafts" : "下書き",
+                        "folder-reserved" : "予約フォルダ",
+                        "folder-spam" : "スパムフォルダ",
+                        "folder-trash" : "ゴミ箱",
+                        "folder-adv_box" : "広告フォルダ",
+                        "folder-sns_box" : "ソーシャルフォルダ",
+                        "folder-bill_box" : "請求書フォルダ",
+                        "none" : "更新しない",
+                        "quick-flaged" : "重要フォルダ",
+                        "quick-attach" : "添付付きフォルダ",
+                        "quick-unseen" : "未読フォルダ",
+                        "quick-seen" : "既読フォルダ",
+                        "quick-yesterday" : "昨日着フォルダ",
+                        "quick-today" : "本日着フォルダ",
+                        "quick-reply" : "返信済みフォルダ",
+                        "quick-myself" : "自分に送ったフォルダ",
+                        "min" : "分",
+                        "hour" : "時間",
+                        "mail-folder-noselect" : "メールフォルダを選択してください。",
+                        "mail-message-empty" : "メッセージがありません。",
+                        "mail-subject-empty" : "件名がありません。",
+                        "redirect-unlock-page": "休止解除ページへ移動",
+                        "dormant-message": "現在は休止状態です。<br>休止状態では以下のサービスの利用が制限されます。",
+                        "dormant-message-1": "メールの送受信ができません。",
+                        "dormant-message-2": "POPサービスの利用ができません。",
+                        "dormant-message-3": "IMAPサービスの利用ができません。",
+                        "next" : "次へ",
+                        "prev" : "前へ",
+                        "remove" : "削除",
+                        "selectMailBoxAlert" : "メールフォルダを選択してください。",
+                        "selectMailBox" : "選択してください。",
+                        "existMailBox" : "既に追加されているメールフォルダです。",
+                        "mail-box" : "メールフォルダ",
+                        "add" : "追加",
+                        "important": "重要度"
+                    },
+
+                    "en": {
+                        "gadget-title" : "Email List",
+                        "reload" : "Auto Refresh Cycle",
+                        "mail-count" : "Number of Emails",
+                        "folder" : "Mailbox",
+                        "folder-inbox" : "Inbox",
+                        "folder-sent" : "Sent",
+                        "folder-drafts" : "Drafts",
+                        "folder-reserved" : "Reserved",
+                        "folder-spam" : "Spam",
+                        "folder-trash" : "Trash",
+                        "folder-adv_box" : "Advertisement mailbox",
+                        "folder-sns_box" : "Social mailbox",
+                        "folder-bill_box" : "Bill mailbox",
+                        "none" : "None",
+                        "quick-flaged" : "Important",
+                        "quick-attach" : "Attached",
+                        "quick-unseen" : "Unread",
+                        "quick-seen" : "Read",
+                        "quick-yesterday" : "Yesterday",
+                        "quick-today" : "Today",
+                        "quick-reply" : "Reply",
+                        "quick-myself" : "To Myself",
+                        "min" : "min",
+                        "hour" : "hour",
+                        "mail-folder-noselect" : "Please select a mailbox.",
+                        "mail-message-empty" : "No Messages Found.",
+                        "mail-subject-empty" : "No Subjects Found.",
+                        "redirect-unlock-page": "Move to Active Account",
+                        "dormant-message": "Your account is currently inactive because you have not signed in for a few months. You are limited to below services.",
+                        "dormant-message-1": "In/outbound of mail and mail service are limited.",
+                        "dormant-message-2": "POP service is limited.",
+                        "dormant-message-3": "IMAP service is limited.",
+                        "next" : "Previous",
+                        "prev" : "Next",
+                        "remove" : "Delete",
+                        "selectMailBoxAlert" : "Please select a mailbox.",
+                        "selectMailBox" : "Select",
+                        "existMailBox" : "The mailbox was already added.",
+                        "mail-box" : "Mailbox",
+                        "add" : "Add",
+                        "important": "Important"
+                    },
+
+                    "zh_CN": {
+                        "gadget-title" : "邮件列表",
+                        "reload" : "更新间隔",
+                        "mail-count" : "显示数目",
+                        "folder" : "邮箱种类",
+                        "folder-inbox" : "收件箱",
+                        "folder-sent" : "已发送邮件",
+                        "folder-drafts" : "草稿箱",
+                        "folder-reserved" : "预约邮箱",
+                        "folder-spam" : "垃圾邮箱",
+                        "folder-trash" : "垃圾箱",
+                        "folder-adv_box" : "广告邮箱",
+                        "folder-sns_box" : "社会的邮箱",
+                        "folder-bill_box" : "法案邮箱",
+                        "none" : "不",
+                        "quick-flaged" : "重要邮箱",
+                        "quick-attach" : "附件邮箱",
+                        "quick-unseen" : "未读邮箱",
+                        "quick-seen" : "已读邮箱",
+                        "quick-yesterday" : "昨天到的邮箱",
+                        "quick-today" : "今天到的邮箱",
+                        "quick-reply" : "已回复的邮箱",
+                        "quick-myself" : "给自己发送的邮箱",
+                        "min" : "分",
+                        "hour" : "时间",
+                        "mail-folder-noselect" : "请选择邮箱",
+                        "mail-message-empty" : "没有信息。",
+                        "mail-subject-empty" : "没有主题。",
+                        "redirect-unlock-page": "移动到解除休止的页面",
+                        "dormant-message": "现已是休止状态。<br>休止状态时，以下的服务将受到限制。",
+                        "dormant-message-1": "邮件发送/接收服务以及邮件应用服务无法使用。",
+                        "dormant-message-2": "无法使用POP服务。",
+                        "dormant-message-3": "无法使用IMAP服务。",
+                        "next" : "下一頁",
+                        "prev" : "前一頁",
+                        "remove" : "刪除",
+                        "selectMailBoxAlert" : "请选择文件夹。",
+                        "selectMailBox" : "请选择。",
+                        "existMailBox" : "已添加的文件夹。",
+                        "mail-box" : "邮箱",
+                        "add" : "追加",
+                        "important": "重要"
+                    },
+
+                    "zh_TW": {
+                        "gadget-title" : "郵件列表",
+                        "reload" : "更新間隔",
+                        "mail-count" : "顯示數目",
+                        "folder" : "郵箱種類",
+                        "folder-inbox" : "收件箱",
+                        "folder-sent" : "已發送郵件",
+                        "folder-drafts" : "草稿箱",
+                        "folder-reserved" : "預約郵箱",
+                        "folder-spam" : "垃圾郵箱",
+                        "folder-trash" : "垃圾箱",
+                        "folder-adv_box" : "廣告郵箱",
+                        "folder-sns_box" : "社會的郵箱",
+                        "folder-bill_box" : "法案郵箱",
+                        "none" : "不",
+                        "quick-flaged" : "重要郵箱",
+                        "quick-attach" : "附件郵箱",
+                        "quick-unseen" : "未讀郵箱",
+                        "quick-seen" : "已讀郵箱",
+                        "quick-yesterday" : "昨天到的郵箱",
+                        "quick-today" : "今天到的郵箱",
+                        "quick-reply" : "已回复的郵箱",
+                        "quick-myself" : "給自己發送的郵箱",
+                        "min" : "分",
+                        "hour" : "時間",
+                        "mail-folder-noselect" : "請選擇郵箱",
+                        "mail-message-empty" : "沒有信息。",
+                        "mail-subject-empty" : "沒有主題。",
+                        "redirect-unlock-page": "移動到解除休止的頁面",
+                        "dormant-message": "現已是休止狀態。 <br>休止狀態時，以下的服務將受到限制。",
+                        "dormant-message-1": "郵件發送/接收服務以及郵件應用服務無法使用。",
+                        "dormant-message-2": "無法使用POP服務。",
+                        "dormant-message-3": "無法使用IMAP服務。",
+                        "next" : "下一页",
+                        "prev" : "前一页",
+                        "remove" : "删除",
+                        "selectMailBoxAlert" : "請選擇文件夾。",
+                        "selectMailBox" : "請選擇。",
+                        "existMailBox" : "已添加的文件夾。",
+                        "mail-box" : "郵箱",
+                        "add" : "追加",
+                        "important": "重要"
+                    },
+                    "vi": {
+                    	"gadget-title": "Danh sách thư",
+                        "reload": "Khoảng cách làm mới dữ liệu",
+                        "mail-count": "Số hiển thị",
+                        "folder": "Loại hộp thư",
+                        "folder-inbox": "Hộp thư nhận",
+                        "folder-sent": "Hộp thư gửi",
+                        "folder-drafts": "Hộp thư bảo quản tạm thời",
+                        "folder-reserved": "Hộp thư hẹn giờ",
+                        "folder-spam": "Spam",
+                        "folder-trash": "Thùng rác",
+                        "folder-adv_box" : "Hộp thư quảng cáo",
+                        "folder-sns_box" : "Hộp thư xã hội",
+                        "folder-bill_box" : "Hộp thư yêu cầu thanh toán",
+                        "none": "Không",
+                        "quick-flaged": "Hộp thư quan trọng",
+                        "quick-attach": "Hộp thư đính kèm",
+                        "quick-unseen": "Hộp thư chưa đọc",
+                        "quick-seen": "Hộp thư đã đọc",
+                        "quick-yesterday": "Hộp thư hôm qua",
+                        "quick-today": "Hộp thư hôm nay",
+                        "quick-reply": "Hộp thư đã trả lời",
+                        "quick-myself": "Hộp thư tôi viết",
+                        "min": "Phút",
+
+                        "mail-folder-noselect":"Vui lòng chọn hộp thư.",
+                        "mail-message-empty":"Không có tin nhắn.",
+                        "mail-subject-empty":"Không có tiêu đề",
+                        "redirect-unlock-page": "Di chuyển sang trang hủy trạng thái không hoạt động",
+                        "dormant-message": "Hiện tại ở trạng thái không hoạt động.<br>Trạng thái không hoạt động sẽ hạn chế các dịch vụ sau.",
+                        "dormant-message-1": "Giới hạn dịch vụ gửi / nhận thư và dịch vụ thư App.",
+                        "dormant-message-2": "Dịch vụ POP bị giới hạn.",
+                        "dormant-message-3": "Dịch vụ IMAP bị giới hạn.",
+                        "next" : "Tiếp theo",
+                        "prev" : "Trang trước",
+                        "remove" : "Xóa",
+                        "selectMailBoxAlert" : "Vui lòng chọn hộp thư.",
+                        "selectMailBox" : "Vui lòng chọn.",
+                        "existMailBox" : "Hộp thư đã thêm.",
+                        "mail-box" : "Hộp thư",
+                        "add" : "Thêm",
+                        "important": "Quan trọng"
+                    }
+                },
+
+                initialize : function(){
+                    console.info("initialize call!!");
+                },
+
+                url: function() {
+                    var url = GO.contextRoot + "api/mail/message/gadget",
+                        params = {
+                            "count": this.options.count || this.defaults.count,
+                        },
+                        folder = this.options.folder || this.defaults.folder
+
+                    if(_.isArray(folder)){
+                        params["folder"] = folder[0];
+                    }else{
+                        params["folder"] =  folder;
+                    }
+
+                    return url + "?" + $.param(params);
+                },
+
+                validate: function( el ) {
+                    if ($(el).find("input[name=folder]").length == 0) {
+                        return this.i18n.parse("mail-folder-noselect");
+                    }
+                    return false;
+                },
+
+                setTitle: function() {
+                    return this.getTitle();
+                },
+
+                getTitle: function() {
+                    return this.i18n.parse("mail-box");
+                },
+
+                renderConfig: function(el) {
+                    var configView = new MailConfigView({
+                        i18n : this.i18n,
+                        folders : this.options.folder || this.defaults.folder,
+                        count : this.options.count || this.defaults.count
+                    });
+
+                     $(el).append(configView.render().$el);
+                     configView.initSortable();
+                },
+
+                onSuccess: function(el, resp) {
+                     this.data = resp.data;
+                     this.render(el, this.data);
+                },
+
+                onMoved : function(el, data) {
+                    this.render(el, this.data);
+                },
+
+                render : function(el, data){
+                    var html = [];
+
+                    html.push('<div class="gadget_design_wrap gadget_board_wrap">');
+                        html.push('<div class="go_gadget_header">')
+                            html.push('<div class="gadget_h1">');
+                                html.push('<span class="type"><span class="ic_dashboard2 ic_type_mail" title="' + this.getTitle() + '"></span></span>');
+                                html.push('<span class="title">'+ this.getTitle() +'</span>');
+                            html.push('</div>');
+                        html.push('</div>');
+                        html.push('<div id="tab">');
+                        html.push('</div>');
+                        html.push('<div id="items">');
+                        html.push('</div>');
+                    html.push("<div>");
+
+                    var tabData = this.options.folder || this.defaults.folder,
+                        selectedTab = _.isArray(tabData) ? tabData[0] : tabData;
+
+                    this.tabView = new MailTabView({
+                        i18n : this.i18n,
+                        collection : this.options.folder || this.defaults.folder,
+                        selectedTab : selectedTab
+                    });
+
+
+                    this.view = new MailView({
+                        i18n : this.i18n,
+                        collection : data,
+                        selectedTab : selectedTab,
+                        template : this.template,
+                        count : this.options.count || this.defaults.count
+                    });
+
+                    $(el).html(html.join(""));
+                    $(el).find("#tab").html(this.tabView.$el);
+                    this.tabView.render();
+                    $(el).find("#items").html(this.view.render().$el);
+
+                    this.tabView.initResize();
+                },
+
+                goMessage : function(e) {
+                    var currentTarget = $(e.currentTarget);
+                    var messageInfo = currentTarget.closest("li");
+                    var folder = encodeURIComponent(messageInfo.attr('folder'));
+                    var uid = messageInfo.attr('uid');
+
+                    var url = GO.contextRoot + "app/mail?";
+                    var param = {"work":"read","folder":folder,"uid":uid};
+                    location.href = url + $.param(param);
+                },
+
+                redirectUnlockPage: function(e) {
+                    location.href = GO.contextRoot + "app/mail";
+                },
+            });
+
+            var MailView = Backbone.View.extend({
+                events : {
+                    "click div.tool_bar a.previous" : "prev",
+                    "click div.tool_bar a.next" : "next",
+                    "click ul.mailList a": "goMessage",
+    	    		"mouseover a[data-type='preview']" : "showTooltip",
+    	    		"mouseout a[data-type='preview']" : "hideTooltip"
+                },
+
+                initialize : function(){
+                    var self = this;
+
+                    this.i18n = this.options.i18n;
+                    this.template = this.options.template;
+                    this.count = this.options.count;
+                    this.page = 1;
+                    this.selectedTab = this.options.selectedTab
+                    this.$el.attr("data-cid", this.cid);
+
+                    EventEmitter.on("gadget:mail", "change:tab", function(tabData){
+                        self.selectedTab = tabData[0];
+                    	self.page = 1;
+                        self.reload();
+                    });
+                },
+
+                reload : function(options){
+                    var param = {
+                            folder : this.selectedTab,
+                            count : this.count,
+                            page : this.page
+                        },
+                        self = this;
+
+                        $.ajax({
+                            url : GO.contextRoot + "api/mail/message/gadget?" + $.param(param),
+                            type : "GET",
+                            async : true,
+                            statusCode: {
+                            	"401": function() {/*무시한다.*/}
+                            },
+                            success : function(resp) {
+                                self.collection = resp.data;
+                                self.render();
+                            }
+                        });
+                },
+
+                _escapeHtml: function (content) {
+                    if (!content) return content;
+                    content = content.replace(/</gi, "&lt;");
+                    content = content.replace(/>/gi, "&gt;");
+                    content = content.replace(/ /gi, "&nbsp;");
+                    return content;
+                },
+
+    	    	showTooltip : function(e){
+    	    		var self = this;
+    	    		var currentEl = $(e.currentTarget);
+        			var subject = this._escapeHtml(currentEl.text());
+        			var subjectWrap = currentEl.parents("p:first");
+        			var left = subjectWrap.offset().left;
+        			var top = subjectWrap.offset().top;
+        			var wtop = $(window).height();
+        			var preview = currentEl.attr("preview-data");
+
+        			if(!preview){
+        				preview = "";
+        			}
+        			top = ((top+100) < wtop)?top:top-100;
+
+      				if(!$("#previewContentLayer").length){
+    	   				this.preview = setTimeout(function(){
+    	   					if(!$("div[data-cid='" + self.cid + "']").length) return;
+        					var previewPane = jQuery("<dl id='previewContentLayer'></dl>").addClass("preview");
+        					previewPane.append(jQuery("<dt></dt>").append(subject));
+        					if(preview != ""){
+        						previewPane.append(jQuery("<dd></dd>").append(preview));
+        					}
+        					jQuery("body").append(previewPane.css({"position":"absolute","top":top+20,"left":left}));
+        					previewPane.css("z-index","3");
+        					previewPane.show();
+    	   				},500);
+    	    		}
+    	    	},
+
+    	    	hideTooltip : function(){
+    	    		$("dl.preview").remove();
+    	    		clearTimeout(this.preview);
+    	    	},
+
+
+                render : function(){
+
+                    var html = [];
+                    html.push("<ul class='mailList type_simple_list{{^dataset.dormant}} simple_list_mail{{/dataset.dormant}}'>");
+                    html.push("{{#dataset.dormant}}");
+                        html.push("<li class=\"null_data noti_data\">");
+                            html.push("<span class=\"ic_data_type ic_error_page\"></span>");
+                            html.push("<p class=\"desc\">" + this.i18n.parse("dormant-message") + "</p>");
+                            html.push("<ol>");
+                            html.push("<li>" + this.i18n.parse("dormant-message-1") + "</li>");
+                            html.push("<li>" + this.i18n.parse("dormant-message-2") + "</li>");
+                            html.push("<li>" + this.i18n.parse("dormant-message-3") + "</li>");
+                            html.push("</ol>");
+                        html.push("</li>");
+                    html.push("{{/dataset.dormant}}");
+                    html.push("{{^dataset.dormant}}");
+                        html.push("{{#dataset.messageList}}");
+                        html.push("<li folder='{{folderFullName}}' uid='{{id}}' {{^seen}}class='read_no'{{/seen}}>");
+                            html.push("<p class='name'><span>{{name}}</span></p>");
+                            html.push("<div class='info'>");
+                                html.push("<p class='{{^seen}}subject{{/seen}}'>{{#isHighPriority}}<span class='ic_con ic_exclamation'></span>{{/isHighPriority}} {{#isEmptySubject}}"+ "<a data-bypass='true' data-type='preview' preview-data='{{preview}}'>" + this.i18n.parse("mail-subject-empty") + "</a>"+"{{/isEmptySubject}}{{^isEmptySubject}}<a data-bypass='true' data-type='preview' preview-data='{{preview}}'>{{subject}}</a>{{/isEmptySubject}}</p>");
+                                html.push("<span class='date'>{{printDate}}</span>");
+                            html.push("</div>");
+                        html.push("</li>");
+                        html.push("{{/dataset.messageList}}");
+                        html.push("{{^dataset.messageList}}");
+                        html.push("<li class='null_data'>");
+                            html.push("<p class='desc'>"+this.i18n.parse("mail-message-empty")+"</p>");
+                        html.push("</li>");
+                        html.push("{{/dataset.messageList}}");
+                    html.push("{{/dataset.dormant}}");
+                    html.push("</ul>");
+                    html.push("{{#dataset.dormant}}");
+                       html.push("<div class=\"gadget_action action_c\">");
+                           html.push("<span class=\"btn_formal btn-redirect-unlock\"><span class=\"txt\">" + this.i18n.parse("redirect-unlock-page") + "</span></span>");
+                       html.push("</div>");
+                    html.push("{{/dataset.dormant}}");
+
+                    // content navigation
+                    html.push("{{^isEmpty}}");
+                    html.push("<div class='tool_bar tool_absolute'>");
+                        html.push("<div class='dataTables_paginate paging_full_numbers'>");
+                    		html.push("<a data-bypass='true' class='previous paginate_button {{#dataset.pageInfo.firstPage}} paginate_button_disabled {{/dataset.pageInfo.firstPage}}' title='"+ this.i18n.parse("prev") +"'></a>");
+                    		html.push("<a data-bypass='true' class='next paginate_button {{#dataset.pageInfo.lastPage}} paginate_button_disabled {{/dataset.pageInfo.lastPage}}' title='" + this.i18n.parse("next") + "'></a>");
+                    	html.push("</div>")
+                    html.push("</div>");
+                    html.push("{{/isEmpty}}");
+
+                    if(this.collection.messageList) {
+                    	_.map(this.collection.messageList, function(msg) {
+                    		msg.printDate = msg.date;
+
+                    		if(msg.dateUtc) {
+                    			var today = new Date();
+                    			var mdate = moment(msg.dateUtc);
+                    			var format;
+                    			if (mdate.isSame(today, 'day')) {
+                    				format = 'HH:mm';
+                    			} else if (mdate.isSame(today, 'year')){
+                    				format = 'MM-DD';
+                    			} else {
+                    				format = 'YY-MM-DD';
+                    			}
+                    			msg.printDate = mdate.format(format);
+                    		}
+                    	});
+                    }
+
+                    var tmpl = this.template(html.join("\n"), {
+                        "dataset": $.extend({}, {pageInfo : {firstPage : true, lastPage : true}}, this.collection),
+                        "isEmpty" : (this.collection.messageList == undefined) ? true : false,
+                        isEmptySubject : function() {
+                            if($.trim(this.subject) == '') {
+                                return true;
+                            } else {
+                                return false;
+                            }
+                        },
+                        isHighPriority : function() {
+                            return this.priority == 'HIGH';
+                        }
+                     });
+
+                    this.$el.html(tmpl);
+                    return this;
+                },
+
+                goMessage : function(e) {
+                	var currentTarget = $(e.currentTarget);
+                	var messageInfo = currentTarget.closest("li");
+                	var folder = encodeURIComponent(messageInfo.attr('folder'));
+                	var uid = messageInfo.attr('uid');
+        			var indexCount = this.count * this.page;
+
+
+        			var url = GO.contextRoot + "app/mail?";
+        			var param = {"work":"read","folder":folder,"uid":uid, "index":indexCount, "gadgetType":this.selectedTab};
+        			location.href = url + $.param(param);
+                },
+
+                prev : function(e){
+                    var targetEl = $(e.currentTarget);
+
+                    if(targetEl.hasClass("paginate_button_disabled")){
+                        return;
+                    }
+                    this.page = this.page - 1;
+                    this.reload();
+                },
+
+                next : function(e){
+                    var targetEl = $(e.currentTarget);
+
+                    if(targetEl.hasClass("paginate_button_disabled")){
+                        return;
+                    }
+                    this.page = this.page + 1;
+                    this.reload();
+                }
+            });
+
+            var MailTabView = Backbone.View.extend({
+                className : "design_content_header",
+                events : {
+                    "click li" : "changeTab",
+                    "click div.tab_btn_next" : "nextPage",
+                    "click div.tab_btn_prev" : "prevPage"
+                },
+
+                initialize : function(){
+                    var self = this;
+
+                    this.i18n = this.options.i18n;
+                    this.folders = _.isArray(this.options.collection) ? this.options.collection : [this.options.collection]
+                    this.selectedTab = this.options.selectedTab;
+                    this.currentPage = 1;
+                    this.totalPage = 1;
+                },
+
+                render : function(){
+                	if ($(this.$el).width() == 0) {
+                		return;
+                	}
+                    this.$el.html(this.makeItemGroup(this.selectedTab));
+                    this.swipe = Swipe(this.$el.find("#gadget_tabs")[0],{
+                    			startSlide : (this.currentPage - 1),
+                        		continuous : false,
+                        		speed : 300
+                            })
+                    return this;
+                },
+
+                makeItemGroup : function(baseTab){
+                    var html = [],
+                        self = this,
+                        tabGroupWidth = $(this.$el).width() - 54,
+                        tabItemWidth = tabGroupWidth < 250 ? 75 : 102,
+                        offset = parseInt(tabGroupWidth / tabItemWidth),
+                        totalSize = this.folders.length,
+                        totalPage = Math.ceil(this.folders.length / offset);
+
+                    this.totalPage = totalPage;
+
+                    if(baseTab != undefined){
+                    	this.currentPage = this._detectCurrentPage({
+                    		offset : offset,
+                    		totalSize : totalSize,
+                    		totalPage : totalPage,
+                    		baseTab : baseTab
+                    	});
+                    }
+
+                    if(this.totalPage == 1){
+                    	html.push("<div class='tab_control tab_btn_prev tab_disabled'>");
+                        	html.push("<span class='btn_wrap'><span class='ic_prev' title='" + this.i18n.parse("prev") + "'></span></span>");
+                        html.push("</div>");
+                    }else{
+                    	html.push("<div class='tab_control tab_btn_prev " + (this.currentPage == 1 ? "tab_disabled" : "tab_enabled") + "' style='z-index:100'>");
+                    		html.push("<span class='btn_wrap'><span class='ic_prev' title='" + this.i18n.parse("prev") + "'></span></span>");
+                    	html.push("</div>");
+                    }
+
+                    html.push("<div id='gadget_tabs' class='swipe gadget_tab_wrap'>");
+                        html.push("<div  class='swipe-wrap'>")
+                            for(var page=0 ; page < totalPage ; page++){
+                                html.push("<div>");
+                                    var itemsEl = this._makeItems({offset : offset,page : page,totalSize : totalSize})
+
+                                    html.push("<ul class='dashboard_tab gadget_tab'>");
+                                    html.push(itemsEl);
+                                	html.push("</ul>");
+                                html.push("</div>");
+                            }
+                        html.push("</div>");
+                    html.push("</div>");
+
+                    var isLastPage = (this.currentPage == totalPage) ? true : false;
+
+                    if(this.totalPage == 1){
+                    	html.push("<div class='tab_control tab_btn_next tab_disabled'>");
+                        	html.push("<span class='btn_wrap'><span class='ic_next' title='" + this.i18n.parse("next") + "'></span></span>");
+                        html.push("</div>");
+                    }else{
+                    	html.push("<div class='tab_control tab_btn_next " + (isLastPage ? "tab_disabled" : "tab_enabled") + "' style='z-index:100'>");
+                    		html.push("<span class='btn_wrap'><span class='ic_next' title='" + this.i18n.parse("next") + "'></span></span>");
+                    	html.push("</div>");
+                    }
+
+
+                    return html.join("");
+                },
+
+                _detectCurrentPage : function(options /*{totalPage, offset, totalSize, baseTab}*/){
+                    var breakFlag = false,
+                    	pageData = [],
+                    	currentPage = 0;
+
+	                // store page data
+	                for(var page = 0; page < options.totalPage ; page++){
+	                    var tabData = [];
+	                    for(var i = 0; i < options.offset ; i++){
+	                        var index = ((options.offset * page) + i);
+
+	                        if(index > (this.folders.length - 1)){
+	                            break;
+	                        }
+	                        tabData.push(this.folders[index]);
+	                    }
+	                    pageData.push(tabData);
+	                }
+
+	                // detect page
+	                for(var page = 0; page < options.totalPage ; page++){
+	                    if(breakFlag){
+	                        break;
+	                    }
+
+	                    if(_.indexOf(pageData[page], options.baseTab) > -1){
+	                        currentPage = page + 1;
+	                        breakFlag = true;
+	                        break;
+	                    }
+
+	                }
+
+	                return currentPage;
+                },
+
+                _makeItems : function(options /*{offset, page, totalSize}*/){
+                    var self = this,
+                    	html = [],
+                        getName = function(data){
+	                        var returnName = "",
+	                        	arr = data.split("/"),
+	                            prefix = arr[0],
+	                            name = arr[1],
+	                            nameArr = name.split(".");
+
+	                        if(nameArr.length > 1){
+	                        	name = nameArr[nameArr.length - 1];
+	                        }
+
+	                        returnName = self.i18n.parse(prefix + "-" + name.toLowerCase());
+
+	                        if(returnName == undefined){
+	                            returnName = name;
+	                        }
+
+	                        return returnName;
+                    	},
+                    	maxIndex = (options.offset * (options.page + 1));
+
+                    $.each(this.folders, function(i, value){
+                        var index = ((options.offset * options.page) + i);
+
+                        if( self._isCurrentPageIndex({index : index, maxIndex : maxIndex, totalSize : options.totalSize})){
+                            return false;
+                        }
+
+                        var data = self.folders[index],
+                       		displayName = getName(data);
+
+                        html.push("<li class='"+ (self.selectedTab == data ? "on" : "") +"' data-type='" + data + "'>");
+                            html.push("<a data-bypass title='"+ displayName +"'>");
+                                html.push(displayName);
+                            html.push("</a>");
+                    	html.push("</li>");
+                    });
+
+                    return html.join("");
+                },
+
+                _isCurrentPageIndex : function(options){
+                	return options.index >= options.maxIndex || options.index > (options.totalSize - 1);
+                },
+
+                changeTab : function(e){
+                    var currentEl = $(e.currentTarget),
+                        parentEl = currentEl.parents("#gadget_tabs:first");
+
+                    parentEl.find("li").removeClass("on");
+                    this.selectedTab = currentEl.attr("data-type");
+                    parentEl.find("li[data-type='" + this.selectedTab + "']").addClass("on");
+
+                    EventEmitter.trigger("gadget:mail", "change:tab", [this.selectedTab]);
+                },
+
+                initResize : function(){
+                    var winResizer = new Resizer(),
+                        self = this;
+
+                    //$(window).off('resize.dashboard_layout');
+
+                    $(window).on('activator', function(e) {
+	                	self.render();
+	                });
+
+                    $(window).on('resize.dashboard_layout', function(e) {
+                        winResizer.bind(function() {
+                            self.render(self.selectedTab);
+                        });
+                    });
+                },
+
+                nextPage : function(){
+                    var nextEl = this.$el.find("div.tab_btn_next"),
+                    	prevEl = this.$el.find("div.tab_btn_prev");
+
+                    if(nextEl.hasClass("tab_disabled")){
+                    	return;
+                    }
+
+                    this.swipe.next();
+                    this.currentPage = this.currentPage + 1;
+
+                    if(this.currentPage == this.totalPage){
+                        nextEl.removeClass("tab_enabled").addClass("tab_disabled");
+                    }else{
+                    	nextEl.removeClass("tab_disabled").addClass("tab_enabled");
+                    }
+
+                    prevEl.removeClass("tab_disabled").addClass("tab_enabled");
+                },
+
+                prevPage : function(){
+                    var prevEl = this.$el.find("div.tab_btn_prev"),
+                    	nextEl = this.$el.find("div.tab_btn_next");
+
+                    if(prevEl.hasClass("tab_disabled")){
+                    	return;
+                    }
+
+                    this.swipe.prev();
+                    this.currentPage = this.currentPage - 1;
+
+                    if(this.currentPage == 1){
+                    	prevEl.removeClass("tab_enabled").addClass("tab_disabled");
+                    }else{
+                    	prevEl.removeClass("tab_disabled").addClass("tab_enabled");
+                    }
+
+                    nextEl.removeClass("tab_disabled").addClass("tab_enabled");
+                }
+            });
+
+            var MailConfigView = Backbone.View.extend({
+                events : {
+                    "click #add_tab" : "addTab",
+                    "click span.ic_d_delete" : "removeTab"
+                },
+
+                initialize : function(){
+                    var self = this;
+                    this.i18n = this.options.i18n;
+                    this.collection = _.isArray(this.options.folders) ? this.options.folders : [this.options.folders];
+                    this.count = this.options.count;
+
+                    this.folders = [];
+                    $.ajax({
+                        url : GO.contextRoot + "api/mail/folder/all",
+                        type : "GET",
+                        async : false,
+                        statusCode: {
+                        	"401": function() {/*무시한다.*/}
+                        },
+                        success : function(resp) {
+                            var dataSet = resp.data;
+                            self.folders = _.union(dataSet.defaultFolders, dataSet.userFolders);
+                        }
+                    });
+                },
+
+                render : function(){
+                    var self = this,
+                        html = [];
+
+                    html.push("<ul class='static_style select_option_wrap'>")
+                    html.push(makeShowRowCount.call(this));
+                    html.push(makeTabItems.call(this));
+                    html.push(makeTabSelect.call(this));
+                    html.push("</ul");
+                    this.$el.html(html.join(""));
+
+                    return this;
+                },
+
+                addTab : function(){
+                    var selectEl = $("#tabSelect option:selected"),
+                        fullName = selectEl.val(),
+                        folders = [];
+
+                        if($.trim(fullName) == ""){
+                            $("span.error-msg-wrapper").text(this.i18n.parse("selectMailBoxAlert"));
+                            return;
+                        }
+
+                    $.each($("input[name=folder]"), function(){
+                        folders.push($(this).val());
+                    });
+
+                    if(folders.indexOf(fullName) > -1){
+                        $("span.error-msg-wrapper").text(this.i18n.parse("existMailBox"));
+                        return;
+                    }
+
+                    this.$el.find("#tab_list").append(makeTabItem.call(this, fullName));
+
+                    selectEl.find("option:first").attr("selected", "selected")
+                },
+
+                removeTab : function(e){
+                    var currentTarget = $(e.currentTarget),
+                        parentEl = currentTarget.parents("li:first");
+                    parentEl.remove();
+                },
+
+                initSortable : function(){
+                    $('#tab_list').sortable({
+                        opacity : '1',
+                        delay: 100,
+                        cursor : "move",
+                        items : "li",
+                        containment : '#tab_list',
+                        hoverClass: "move",
+                        placeholder : 'ui-sortable-placeholder',
+                        start : function (event, ui) {
+                            ui.placeholder.html(ui.helper.html());
+                            ui.placeholder.find('li').css('padding','5px 10px');
+                        }
+                    });
+                }
+            });
+
+            function makeShowRowCount(){
+                var html = [];
+                    isSelected = function(saveCount, value){
+                        return saveCount == value ? "selected='selected'" : "";
+                    };
+
+                html.push("<li>");
+                html.push("     <p class='title'>" + this.i18n.parse("mail-count") + "</p>");
+                html.push("     <select name='count'>");
+                html.push("         <option value='5'" + isSelected(this.count, 5) + ">5</option>");
+                html.push("         <option value='10'" + isSelected(this.count, 10) + ">10</option>");
+                html.push("         <option value='15'" + isSelected(this.count, 15) + ">15</option>");
+                html.push("         <option value='20'" + isSelected(this.count, 20) + ">20</option>");
+                html.push("         <option value='25'" + isSelected(this.count, 25) + ">25</option>");
+                html.push("         <option value='30'" + isSelected(this.count, 30) + ">30</option>");
+                html.push("     </select>");
+                html.push("</li>");
+
+                return html.join("");
+            }
+
+            function makeTabItems(){
+                var html = [],
+                    items = [],
+                    self = this;
+                html.push("<p class='title'>" + this.i18n.parse("folder") + "</p>");
+                html.push("<ul class='drag_option_wrap' id='tab_list' style='padding-top: 5px;padding-bottom: 5px;'>");
+                $.each(this.collection, function(index, data){
+                    items.push(makeTabItem.call(self, data));
+                });
+
+                html.push(items.join(""));
+                html.push("</ul>");
+                return html.join("");
+            }
+
+            function makeTabItem(data){
+                var html = [],
+                    self = this,
+                    getName = function(data){
+                        var returnName = "",
+                        	arr = data.split("/"),
+                            prefix = arr[0],
+                            name = arr[1],
+                            nameArr = name.split(".");
+
+                        if(nameArr.length > 1){
+                        	name = nameArr[nameArr.length -1];
+                        }
+
+                        returnName = self.i18n.parse(prefix + "-" + name.toLowerCase());
+
+                        if(returnName == undefined){
+                            returnName = name;
+                        }
+
+                        return returnName;
+                    };
+
+
+                html.push("<li class='' style='cursor:move'>")
+                    html.push("<span class='txt'>" + getName(data) + "</span>")
+                    html.push("<span class='btn_wrap'>")
+                        html.push("<span class='ic_dashboard2 ic_d_delete' style='' title='" + this.i18n.parse("remove") + "'></span>")
+                    html.push("</span>");
+                    html.push("<input type='hidden' name='folder' value='"+ data +"'></input>")
+            	html.push("</li>")
+
+                return html.join("");
+            }
+
+            function getChild(mailFolder, html){
+            	if(mailFolder.child && mailFolder.child.length > 0){
+            		$.each(mailFolder.child, function(i, data){
+            			html.push("<option value='folder/"+ data.fullName +"'>" + data.name + "</option>");
+            			getChild(data, html);
+            		})
+            	}
+            };
+
+            function makeTabSelect(){
+                var html = [],
+                	self = this,
+                	quickMenus = ["flaged", "unseen", "seen", "today", "yesterday", "attach", "reply", "myself"];
+
+                html.push("<div class='create_option'>")
+                html.push("    <select id='tabSelect'>")
+                html.push("         <option value=''> "+ this.i18n.parse("selectMailBox") +" </option>");
+                $.each(this.folders, function(index, data){
+                	html.push("         <option value='folder/"+ data.fullName +"'>" + data.name + "</option>");
+
+                	getChild(data, html);
+
+                	/* $.each(folderDescendant, function(index, descendant){
+
+	                    html.push("         <option value='folder/"+ descendant.fullName +"'>" + descendant.name + "</option>");
+                	}); */
+                });
+
+                html.push("         <option value=''>---------------------</option>");
+
+                //quick menu
+                $.each(quickMenus, function(index, data){
+                    html.push("         <option value='quick/"+data+"'>"+ self.i18n.parse("quick-" + data)+"</option>");
+                });
+
+                html.push("     </select>");
+                html.push("      <span class='btn_formal' id='add_tab'><span class='txt'>"+self.i18n.parse("add")+"</span></span>");
+                html.push("</div>")
+                return html.join("");
+            }
+
+        });
+    }catch(e){
+        console.info(e);
+    }
+    </script>
+</head>
+
+<body id="main" class="go_skin_home_default" data-role="main">
+    <div class="go-dashboard go-dashboard-editing go_dashboard_3_2">
+        <div class="go-gadget-column gadget-col-1" data-columnid="1">
+            <!-- empty -->
+        </div>
+
+        <div class="gripper"></div>
+
+        <div id="gadget-containter" class="go-gadget-column gadget-col-2" data-columnid="2">
+            <!-- empty -->
+        </div>
+
+        <div class="gripper"></div>
+
+        <div class="go-gadget-column gadget-col-3" data-columnid="3">
+            <!-- empty -->
+        </div>
+    </div>
+</body>
+</html>

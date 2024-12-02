@@ -1,0 +1,35 @@
+<header class="content_top">
+	<h1><span class="txt">{{lang.자산 예약 현황}}</span></h1>
+</header>
+
+<div data-matrix-area></div>
+
+<!--목록:-->
+<div class="content_page go_renew" >
+
+	<!-- 예약대시보드 -->
+
+	<div class="dashboard_asset">
+        <h1 class="s_title">{{lang.current}}</h1>
+		<div class="dataTables_wrapper">
+			<!-- 테이블 -->
+			<table class="type_border tb_myReserv">
+				<thead>
+					<tr>
+						<th class="sorting_disable equip"><span class="title_sort">{{lang.asset}}</span></th>
+						<th class="sorting_disable name"><span class="title_sort">{{lang.name}}</span></th>
+						<th class="sorting_disable sort"><span class="title_sort">{{lang.type}}</span></th>
+						<th class="sorting_disable date"><span class="title_sort">{{lang.use_time}}</span></th>
+						{{#isAvailableCal}}<th class="sorting use"><span class="title_sort">{{lang.use_calendar}}</span></th>{{/isAvailableCal}}
+						<th class="sorting_disable action"><span class="title_sort">{{lang.calcel_return}}</span></th>
+					</tr>
+				</thead>
+				<tbody id="myCondition">
+
+				</tbody>
+			</table>
+			<!-- //테이블 -->
+		</div>
+	</div>
+	<!-- //예약대시보드 -->
+</div>

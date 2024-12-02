@@ -1,0 +1,22 @@
+    <section class="search_wrap" {{^useDetailSearch}} style="margin-right:10px" {{/useDetailSearch}}>
+        <div class="search" id="simpleSearchTitle">
+            <span class="ic_cmm ic_cmm_search"></span>
+            <input type="search" id="commonSearchInput" class="input search" placeholder="{{lang.input_placeholder}}">
+            <a id="deleteSearchText" data-bypass><span class="btn btn_del_type1"></span></a>
+        </div>
+        <a href="" id="detailSearchTitle" class="btn_search_wrap" style="display:none"></a>
+    </section>
+    <div class="critical">
+        <a id="searchCloseButton" data-bypass><span class="ic_nav ic_nav_cancel"></span></a>
+    </div>
+    {{#useDetailSearch}}
+    <div class="optional">
+        <ul class="toolbar_list">
+            <li>
+                <a id="detailSearchToggle" class="check_detail">
+                    <span class="txt">{{lang.detail}}</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    {{/useDetailSearch}}

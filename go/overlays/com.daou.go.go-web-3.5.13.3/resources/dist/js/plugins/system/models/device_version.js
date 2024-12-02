@@ -1,0 +1,1 @@
+define(["backbone"],function(e){var t=null,n=e.Model.extend({url:function(){return"/ad/api/system/device/version/"+this.deviceId}},{get:function(e){return t==null&&(t=new n),t.deviceId=e,t.fetch({async:!1}),t}});return n});

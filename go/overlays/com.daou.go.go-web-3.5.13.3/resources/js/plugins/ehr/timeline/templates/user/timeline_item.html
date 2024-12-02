@@ -1,0 +1,27 @@
+
+
+<div class="time {{cName}}">
+    {{#viewHour}} {{hour}} {{/viewHour}}
+    {{^viewHour}} &nbsp;　{{/viewHour}}
+
+</div>
+{{#data}}
+<!--
+시간에 따른 간격 조정
+00분 : left:0
+01~15분 : left:20%
+16~30분 : leftL:40%
+31~45분 : leftL:60%
+46~59분 : leftL:80%
+-->
+<div class="time_schedule" style="left:{{leftPadding}}%;" data-id="{{id}}">
+    <span class="txt {{#editedCheckTime}} modify {{/editedCheckTime}}" style="{{^auth.editable}} cursor: auto {{/auth.editable}}">{{name}} {{#nextDayWork}} (+1) {{/nextDayWork}}</span>
+    <div class="tool_tip">
+        <p class="time">
+            <span class="ic_ehr ic_watch"></span>{{time}}
+        </p>
+        <p class="tit {{#editedCheckTime}} modify {{/editedCheckTime}}">{{name}} {{#nextDayWork}} (+1) {{/nextDayWork}}</p>
+        <p class="txt">{{content}}</p>
+    </div>
+</div>
+{{/data}}

@@ -1,0 +1,43 @@
+<td class="chk">
+    {{#viewCkbox}}
+    <input type="checkbox" class="sel_auth_item" id="{{contentKey}}_ck_box" value={{contentKey}}>
+    {{/viewCkbox}}
+</td>
+
+{{#isAppAuthView}}
+<td class="menu"><span class="txt">{{groupName}}</span></td>
+<td class="detail">
+	<span class="txt">{{name}}</span>
+	{{#hasTooltip}}
+	<span class="wrap_ic_s"> <span class="help">
+		<span class="tool_tip">{{{tooltip}}}<i class="tail_left"></i></span>
+	</span> </span>
+	{{/hasTooltip}}
+</td>
+
+{{/isAppAuthView}}
+
+{{#isContentAuthView}}
+<td class="detail"><span class="txt">{{contentName}}</span>
+	{{#isCompanyShare}}
+	<span class="ic_adm ic_share"></span>
+	{{/isCompanyShare}}
+</td>
+
+{{/isContentAuthView}}
+
+
+<td class="name" id="{{authId}}"></td>
+
+{{#isAppAuthView}}
+
+<td class="shortcut">
+	{{#isAccessible}}
+	<span class="btn_tool light">
+		<span class="ic_adm ic_shortcut"></span>
+		<span class="txt">{{linkName}}</span>
+	</span>
+	{{/isAccessible}}
+</td>
+{{/isAppAuthView}}
+

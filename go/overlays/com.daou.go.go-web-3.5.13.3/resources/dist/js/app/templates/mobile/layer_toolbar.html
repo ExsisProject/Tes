@@ -1,0 +1,22 @@
+<div id="headerMenu">
+    <h1>{{title}}</h1>
+    <div class="critical">
+        <a href="javascript:;" id="btnClose"><span class="ic_nav ic_nav_cancel"></span></a>
+    </div>
+    <div class="optional">
+
+        <ul class="toolbar_list">
+            {{#rightButton}}
+            <li>
+                <a data-role="layerConfirm" href="javascript:;" id="{{rightButton.id}}">{{rightButton.text}}</a>
+            </li>
+            {{/rightButton}}
+            {{#rightButtonOther}}
+            <li>
+                <a data-role="layerConfirmOther" href="javascript:;" id="{{rightButtonOther.id}}">{{rightButtonOther.text}}</a>
+            </li>
+            {{/rightButtonOther}}
+        </ul>
+
+    </div>
+</div>

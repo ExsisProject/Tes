@@ -1,0 +1,27 @@
+{{#dataset}}	
+		<tr data-id="{{id}}">
+			<td><span class="name">{{code}}</span></td>
+			<td><span class="date">{{name}}</span></td>
+			{{#assetRecurrence}}
+				{{#useRecurrence}}
+				<td><span class="date">{{lang.use}}</span></td>
+				{{/useRecurrence}}
+				{{^useRecurrence}}
+				<td><span class="date">{{lang.not_use}}</span></td>
+				{{/useRecurrence}}
+			{{/assetRecurrence}}
+			{{#properties}}
+			<td><span class="date">{{content}}</span></td>
+			{{/properties}}			
+			<td>
+               <span class="ic_setting" data-btntype="settingItem" data-id="{{id}}"></span>
+			</td>
+		</tr>	
+{{/dataset}}
+{{^dataset}}
+<tr class="null">
+	<td colspan="{{attributesLen}}">
+		{{lang.no_asset}}
+	</td>
+</tr>
+{{/dataset}}

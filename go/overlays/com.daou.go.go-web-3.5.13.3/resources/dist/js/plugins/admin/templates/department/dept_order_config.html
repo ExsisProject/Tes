@@ -1,0 +1,33 @@
+<form id="frmDeptOrderConfig" name="frmDeptOrderConfig">
+    <ul>      
+        <li>
+            <p class="desc">{{lang.allDeptApply}}</p>
+        </li>
+        <li id="divOrderPriority">
+            <div class="person_order">
+                <p class="title">{{lang.orderPriority}}</p>
+                <ul id="ulSelectedOrderPriority" class="drag_option_wrap">
+                    {{#config.orderItems}}
+                    <li id="li{{.}}">
+                        <input name="orderItems" type="hidden" value="{{.}}" />
+                        <span class="txt">{{getItemValue}}</span>
+                        <span class="btn_wrap"><span id="btnDeleteOrderItem" class="ic_dashboard2 ic_d_delete" title="{{lang.remove}}"></span></span>
+                    </li>
+                    {{/config.orderItems}}
+                </ul>
+                <div id="divAddOrderItem" class="create_option">
+                    <select id="selAddOrderItem">
+                        <option value="memberType">{{lang.memberType}}</option>
+                        <option value="positionCode">{{lang.positionCode}}</option>
+                        <option value="titleCode">{{lang.titleCode}}</option>
+                        <option value="gradeCode">{{lang.gradeCode}}</option>
+                        <option value="empCode">{{lang.empCode}}</option>
+                        <option value="email">{{lang.email}}</option>
+                    </select>
+                    <span class="btn_formal"><span id="btnAddOrderItem" class="txt">{{lang.add}}</span></span>
+                </div>
+                <p id="message" class="desc" style="display:hidden;"></p>
+            </div>
+        </li>
+    </ul>
+</form>

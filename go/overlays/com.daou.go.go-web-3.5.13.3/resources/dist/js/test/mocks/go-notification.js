@@ -1,0 +1,1 @@
+var GONotification=function(){function e(){}return e.prototype={run:function(){console.info("GONotification Mock Run Call!!")}},e}();

@@ -1,0 +1,1 @@
+define(["backbone"],function(e){var t=e.Model.extend({url:function(){var e=[];return this.typeUrl=this.get("typeUrl"),this.typeId=this.get("typeId"),e=["/api",this.typeUrl,this.typeId,"comment"],this.id&&e.push(this.id),e.join("/")},setUrl:function(e){this.url=e.url}});return t});

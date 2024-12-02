@@ -1,0 +1,178 @@
+/* body, input, textarea, select, a, p, span, div,ul,h1,h1 span.txt,ul.briefing_list li p.title span.date,a.btn_bk,.go_intro p.title,span.title,span.btn_feedwrite span.txt ,div.current_date span.date span.week,div.layer_mail_popup h2 span.title,ul.briefing_list li p.title span.date{font-family: times New roman, arial, tahoma, verdana, sans-serif, malgum-gothic, dotum, gulim, MS PGothic !important} */
+*{font-family: verdana, times New roman, arial, 'Noto Sans KR', arial, verdana, sans-serif, "Apple SD Gothic Neo", 'Malgun Gothic', dotum, gulim, MS PGothic !important}
+
+/* body,input, textarea, select {font-size:12px; font-family:돋움,dotum,AppleGothic,arial,Helvetica,sans-serif; color:#3b3b3b} */
+table.form_type.mail_write div.div_ipt_wrap div.div_ipt {margin-right:190px}
+table.form_type.mail_write div.div_ipt_wrap select.date_list {right:92px}
+
+a.zero span.plus, a.plus_wrap span.plus {letter-spacing:0}
+
+div.layer_item_move dt {width:70px !important}
+div.layer_item_move dd {margin-left:70px}
+div.mail_search_wrap {width:550px}
+div.mail_search_wrap div.content table {width:530px}
+
+ul.side_depth li p.on > a > span.txt, section.lnb ul.side_depth li p.on:hover > a > span.txt {}
+ul.side_depth li p.on span.num,
+ul.side_depth li p span.num {font-family:tahoma !important}
+ul.side_depth li p span.num {margin-top:3px}
+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+ ul.side_depth li p span.num {margin-top:5px!important}
+}
+
+.form_mail001 .label {width:110px !important}/*메일 서명 관리 */
+.form_mail001 .form  {}
+
+.form_mail002 .label {width:134px !important}/*메일 상세검색 */
+.form_mail002 .form  {}
+
+.lsit_storage001 .check {width:40px}/*자료실목록 */
+.lsit_storage001 .name  {min-width:330px}
+.lsit_storage001 .size  {width:100px}
+.lsit_storage001 .extension {width:120px}
+.lsit_storage001 .date  {width:130px}
+
+.list_comm001 .name     {min-width:410px !important}/*가입 커뮤니티 리스트 */
+.list_comm001 .posts    {width:90px !important}
+.list_comm001 .members  {width:90px !important}
+.list_comm001 .newposts {width:110px !important}
+.list_comm001 .action   {width:50px !important}
+
+.list_comm002 .name     {min-width:250px !important}/* 전체 커뮤니티 리스트 */
+.list_comm002 .posts    {width:90px !important}
+.list_comm002 .members  {width:90px !important}
+.list_comm002 .newposts {width:110px !important}
+.list_comm002 .join     {width:60px !important}
+.list_comm002 .action   {width:50px !important}
+
+table.form_mail003 {} /* 메일 > 메일보내기 */
+table.form_mail003 tbody th {width:190px}
+table.form_mail003 tbody td {}
+
+ul.nav_layer li.ui-state-active {font-weight:normal}/* 메일쓰기 주소록팝업 */
+div.move_wrap ul li:nth-child(2) span.btn_bg span.txt {text-indent:-8px}
+div.move_wrap span.btn_bg span.txt {vertical-align:baseline}
+dl.normal_list dt {min-width:90px}
+dl.normal_list dd {margin-left:95px}
+.list_survey001 .state {width:70px; font-weight:normal; letter-spaicng:0}
+header.content_top h1 span.txt {letter-spacing:0}
+
+/*task*/
+ul.task_list > li div.meta_wrap th {width: 80px}
+ul.task_list > li div.meta_wrap span.member span.txt {max-width: 130px;}
+table.form_task001 tbody th {width: 140px}
+.option_task_share table.in_table th.delete{min-width:40px!important}
+
+.list_approval .check {width:20px}
+.list_approval .date {width: 104px;}
+.list_approval .doc {width: 150px}
+.list_approval .state_wrap {width:100px}
+.list_approval .deadline {width: 100px}
+.list_approval .doc_num {width:100px}
+.list_approval .attach {width: 42px}
+.list_approval .attach span.ic_file_s {margin-left:0}
+.list_approval .writer {width:60px}
+.list_approval .state_wrap {width: 80px}
+
+section.combine_search .c_search_wrap a.c_btn_detail .txt {letter-spacing:0}
+/* overried */
+div.layer_approval table.form_type tbody tr th {width: 110px}
+div.layer_doc_choice table.tb_doc_info tbody th {width: 155px!important}
+.layer_todo_card .detail_content_wrap .content_optional a.btn_flat_normal {width: 120px;}
+.layer_transition {width: 400px;}
+.ui-datepicker td span, .ui-datepicker td a {padding: 5px}
+table.form_type>tbody>tr>th {width: 140px}
+.survey_form table.form_type>tbody>tr>th {width: 210px}
+/* section.lnb h1 .txt {margin-right: 75px} */
+section.lnb ul.side_depth li p>a {max-width: 145px;}
+table.form_type.mail_write div.div_ipt_wrap select.date_list {right: 110px;}
+table.form_type.mail_write div.div_ipt_wrap div.div_ipt {margin-right: 210px;}
+div.layer_address ul.nav_layer li {width: auto!important;}
+div.sort_wrap {margin-top: 0}
+div.layer_address div.content_tab_wrap {height: 530px}
+div.layer_address div.content_list {height: 510px;}
+div.layer_address div.content_list {width: 355px;}
+div.layer_address div.tab_wrap {width: 560px;}
+div.layer_address div.move_wrap span.btn_bg {width: 78px;}
+div.layer_address .scroll_wrap {height: 484px;}
+div.mail_write table span.priority {margin-left: 10px;}
+div.btn_submenu div.array_option {min-width: 130px;}
+table.form_type th span.title, table.form_type th span.txt {white-space: nowrap;}
+.reply_create span.btn_fn7 {right: 100px;}
+.reply_wrap .form_wrap {margin-right: 143px!important}
+ul.reply li.depth_in span.posi1 {right: 100px!important;}
+
+@media (min-width: 1420px) {
+div.wrap_container .aside_wrapper .tb_doc_info th {word-break:break-word; width:90px}
+}
+/* IE8 hack */
+@media \0screen {
+div.wrap_container .aside_wrapper .tb_doc_info th {word-break:break-word; width:165px; line-height:1.6}
+}
+
+.content_page.profile fieldset  table.form_type span.column_wrap span.option_wrap label {max-width:300px; height:80px}
+.gadget_login_info thead th span.title_sort {height:34px!important; line-height:18px!important; white-space:normal!important; }
+ul.tab_menu {margin-left:12px; padding-right:40px!important;}
+ul.tab_menu li:first-child {margin-left:0!important;}
+.ehr_personal div.tab_menu_wrap ul li {margin-top:4px;}
+.mail_search_wrap div.array span.title {width:152px!important; padding:6px 22px 4px 6px!important;}
+.mail_search_wrap div.array span.title ins.ic_bul2 {top:12px;}
+.mail_search_wrap div.array:hover ul.array_condition {width:180px!important;}
+div.mail_search_wrap div.array ul.array_type li>span:first-child {width:170px!important;}
+section.form_admin header h3 {display:inline; margin-right:50px;}
+section.form_admin div.optional_posi {display:inline; position:relative!important; top:0!important; left:0!important;}
+/* table.form_type.mail_write div.div_ipt_wrap div.div_ipt {margin-right:240px!important;} */
+/* table.form_type.mail_write div.div_ipt_wrap select.date_list {right:113px!important; width:120px!important;} */
+div.mail_write table span.priority {margin-left:0!important;}
+
+.content_page.profile fieldset table.form_type span.column_wrap label {display:inline}
+.go-gadget-content table.list_approval th, .go-gadget-content table.list_task th, .go-gadget-content table.gadget_login_info th {word-break:keep-all}
+
+.module_drop .module_drop_body .list_property .item .wrap .tit {max-width:130px; margin-left: -130px}
+.module_drop .module_drop_body .list_property .item .wrap {padding-left: 130px}
+
+/*3.0*/
+.go-gadget-content div.layer_calendar table.tb_calendar_mini thead tr th {font-size: 11px; letter-spacing: -1px;}
+.go-dashboard .go-gadget .gadget_birthday_wrap .tab_title .txt {font-weight: bold; font-weight: 400}
+.go-dashboard ul.briefing_list li .title {width: 70px; position: relative; left: -6px;}
+.go-dashboard ul.briefing_list li ul.item {margin-left: 70px;}
+
+/* section.lnb h1 .txt {margin-right: 75px} */
+
+div.mail_search_wrap {width:570px} /*메일상세검색레이어*/
+
+table.form_type.mail_write div.div_ipt_wrap div.div_ipt {margin-right:108px} /*메일 최근보낸 주소 마진값*/
+table.form_type.mail_write div.div_ipt_wrap select.date_list {right:113px!important; width:130px!important;}
+
+/* div.move_wrap ul li:nth-child(2) span.btn_bg span.txt {text-indent:-8px} */ /*메일 주소록 그룹/유저 이동 버튼*/
+
+.dd_attach .area_txt .msg .btn_file {width: 80px} /*메일 파일 드래그*/
+
+input.tit[type="text"] {font-weight: bold; font-weight: 500}
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {font-weight: bold; font-weight: 400}/*jquery-ui*/
+.ui-datepicker .ui-datepicker-title select {font-size: 12px; height: 27px; vertical-align:baseline; }/*jquery-ui calendar UI*/
+
+table.tb_admin_favorCalendar .state {width: 150px!important; min-width: 120px!important} /*캘린더 즐겨찾기 상세*/
+
+.works_info_table tr th {width: 120px}/*works 차트관리*/
+
+.wrap_works.app_admin_card ul li .wrap_works_info {height: 300px !important;} /*works 관리 홈*/
+.app_admin_card+.sub_app_menu {margin-top: 40px}
+
+.activity_type .box_sub_h .build_situation .tool_bar .optional {margin: 3px 24px 0 0}/*works활동기록 헤더 버튼*/
+
+.go_side section.side_nav span.select_nav {width: 170px}/*works 앱이동 셀렉트*/
+
+.tb_stair .set {width: 85px}/*게시판 트리구조 설정*/
+
+.in_table td.mgmt .wrap_btn_m .ic_setting {width: 19px; height:19px; vertical-align: inherit;}/*업무 폴더 추가*/
+
+.ehr_stat_data.detail .type_flexible_detail .wrap_title {width: 205px} /*내근태 현황*/
+
+.wrap_tb_box .marker2 ul li {margin-right: 20px} /*내 근태 상세*/
+
+div.layer_reading {width: 550px!important} /*전자결재 상태버튼 레이어 탭*/
+section.my_info .btn_docare .txt,
+.layer_docare_alarm {display: none}
+.approval_home_card .form .form_tr .form_th {width: 145px}

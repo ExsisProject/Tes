@@ -1,0 +1,17 @@
+{{#menulist}}
+<div class="row_wrap menuitem {{classname}}{{#has_child}} foldable{{/has_child}}"{{#has_child}} style="display:none"{{/has_child}}>
+    <div class="menuitem-title row_tit">
+        <a href="#" class="row" data-next="{{next_view}}" data-bypass>
+            <span class="ic_board {{icon_class}}"></span>
+            <span class="txt">{{menu_name}}</span>
+        </a>
+        {{#has_child}}
+        <span class="btn_wrap"><span class="btn-arrow ic_board ic_hide_up" title="{{label.close}}"></span></span>
+        {{/has_child}}
+    </div>
+    {{#has_child}}
+    <ul class="submenu-list"></ul>
+    {{/has_child}}
+</div>
+<hr />
+{{/menulist}}

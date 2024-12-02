@@ -1,0 +1,17 @@
+<li class="{{iconType}}" data-type="{{nodeType}}" data-id="{{nodeId}}">
+    <p class="title folder" {{#isWritable}} data-writable="true" {{/isWritable}}>
+        {{#hasChild}}
+        <span class="btnToggleNode {{#close}}close{{/close}}{{^close}}open{{/close}}" title="" id="toggleFolder"></span>
+        {{/hasChild}}
+        <a class="node-value" {{^isMovePopup}}{{^isAccessible}} style="cursor:default;" {{/isAccessible}}{{/isMovePopup}} {{#linkUrl}}href="{{linkUrl}}"{{/linkUrl}} data-id="{{nodeId}}" data-readable="{{isAccessible}}" title="{{nodeValue}}" data-bypass>
+            <ins class="ic"></ins>
+            {{#isPrivateBoard}}
+            <span class="ic_side ic_private"></span>
+            {{/isPrivateBoard}}
+            <span class="txt" data-folderid="{{nodeId}}" title="{{nodeValue}}">{{nodeValue}}</span>
+        </a>
+        {{#isNew}}
+        <span class="ic_classic ic_new2"></span>
+        {{/isNew}}
+    </p>
+</li>

@@ -1,0 +1,91 @@
+<form>
+	<table class="form_type">
+		<tbody>
+			<tr>
+				<th>
+					<span class="title">{{lang.to}}</span>
+					<ins class="asterisk">*</ins>
+				</th>
+				<td>
+					<div class="div_ipt_wrap">	
+					<span id="writeStrWidth" style="visibility:hidden; position:absolute; top:-10000;"></span>
+					<div id="toAddrWrap" class="div_ipt" style="margin-right:80px;overflow-y:auto;height:50px">
+						<ul class="name_tag">
+							<li class="creat">
+								<div class="addr_input">
+									<textarea id="to" name="to" type="text" style="display:inline;white-space:nowrap;background-color:#fff"></textarea>
+								</div>
+							</li>
+						</ul>
+					</div>
+					<span class="btn_wrap btn_add" id="writeAddAddress">
+						<span class="ic_form ic_addlist"></span>
+						<span class="txt">{{lang.addr}}</span>
+					</span>
+					<span class="txt_error" id="addrErrorWrap" style="display:none"></span>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<th>
+					<span class="title">{{lang.subject}}</span>
+					<ins class="asterisk">*</ins>
+				</th>
+				<td>
+					<input class="input w_max txt" type="text" id="subject">
+					<span class="txt_error" id="subjectErrorWrap" style="display:none"></span>
+				</td>
+			</tr>
+            {{^isApproval}}
+			<tr>
+				<th><span class="title">{{lang.memo}}</span></th>
+				<td>
+					<div class="wrap_txtarea "><textarea id="memo" name="description" class="w_max textarea" rows="3"></textarea></div>
+					<span class="txt_error" id="memoErrorWrap" style="display:none"></span>
+				</td>
+			</tr>
+            {{/isApproval}}
+			<tr>
+				<th><span class="title">{{lang.content}}</span></th>
+				<td>
+                    {{^isApproval}}
+					<div class="m_contents" id="boardContent">
+						{{{content}}}
+					</div>
+                    {{/isApproval}}
+                    {{#isApproval}}
+                    <div class="wrap_txtarea" id="boardContent">
+                        <textarea id="mail_content" name="mail_content" class="w_max textarea"></textarea>
+                    </div>
+                    <span class="txt_error" id="memoErrorWrap" style="display:none"></span>
+                    {{/isApproval}}
+				</td>
+			</tr>
+			{{#existFile}}
+			<tr>
+				<th><span class="title">{{lang.attach}}</span></th>
+				<td id="fileWrap">
+					<div class="layer_mail_attach">
+						{{#fileList}}	
+						<span class="attach_wrap" data-id="{{attachId}}">
+							<span class="name">{{fileName}}</span>
+							<span class="size">({{fileSize}})</span>
+						</span>
+						{{/fileList}}	
+					</div>
+				</td>
+			</tr>
+			{{/existFile}}
+            {{#isApproval}}
+            <tr>
+                <th></th>
+                <td>
+                    <span class="wrap_desc_btm">
+                        <span class="desc">{{lang.appr_desc}}</span>
+                    </span>
+                </td>
+            </tr>
+            {{/isApproval}}
+		</tbody>
+	</table>	
+</form>

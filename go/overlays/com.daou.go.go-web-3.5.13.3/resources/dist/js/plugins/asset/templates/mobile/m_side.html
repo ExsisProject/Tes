@@ -1,0 +1,17 @@
+<h3>
+	<span class="btn_wrap">
+		<span class="txt_ellipsis">{{lang.company_asset}}</span>
+	</span>
+</h3>
+<ul>
+	{{#dataset}}
+	<li data-type="{{useRental}}" data-assetid="{{id}}" btn-type='assetItemList'>
+		<a data-bypass >
+			<span class="btn_wrap">
+				<span class="ic_side ic_classic"></span>
+				<span class="txt_ellipsis">{{name}}</span>
+			</span>
+		</a>
+	</li>
+	{{/dataset}}
+</ul>

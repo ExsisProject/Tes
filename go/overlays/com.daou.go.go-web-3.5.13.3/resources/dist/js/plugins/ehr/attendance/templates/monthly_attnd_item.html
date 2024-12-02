@@ -1,0 +1,28 @@
+<div class="month_title">
+	<table class="type_normal tb_agenda tb_attend">
+		<tbody>
+			<tr>
+				<td class="department">
+					<div data-id="{{userId}}">
+						<p class="team">{{deptNames}}</p>
+						<p class="name">
+							<a class="detail">{{userName}}</a>
+							<a class="popup">
+								<span class="ic_classic ic_blank"></span>
+							</a>
+						</p>
+						{{#hasLateCount}}
+						<p class="late">{{lang.지각}} : {{lateCount}}</p>
+						{{/hasLateCount}}
+					</div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div class="tb_month_line_wrap month_time">
+	<table class="type_normal tb_agenda tb_attend record_data">
+		<tbody>
+		</tbody>
+	</table>
+</div>

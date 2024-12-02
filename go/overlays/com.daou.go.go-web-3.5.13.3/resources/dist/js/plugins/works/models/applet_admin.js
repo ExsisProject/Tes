@@ -1,0 +1,1 @@
+define("works/models/applet_admin",function(require){var e=require("backbone"),t=require("app"),n=e.Model.extend({url:function(){return t.config("contextRoot")+"api/works/checkadmin"},isWorksAdmin:function(){return!_.isUndefined(this)&&this.get("true")}});return n});

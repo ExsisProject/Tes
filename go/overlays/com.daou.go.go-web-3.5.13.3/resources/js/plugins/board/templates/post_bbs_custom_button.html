@@ -1,0 +1,34 @@
+<div id="customButtons">
+    {{#writable}}
+    <a href="{{writeUrl}}" class="btn_tool" data-role="button">
+        <span class="ic_toolbar write"></span>
+        <span class="txt">{{lang.post_write}}</span>
+        </a>
+    {{/writable}}
+    {{#manageable}}
+        {{^anonymFlag}}
+        <a class="btn_tool" data-role="button" data-btntype="move" data-btngroup="checked" data-bypass style="display: block;">
+            <span class="ic_toolbar move"></span>
+            <span class="txt">{{lang.move}}</span>
+        </a>
+        <a class="btn_tool" data-role="button" data-btntype="copy" data-btngroup="checked" data-bypass style="display: block;">
+            <span class="ic_toolbar copy"></span>
+            <span class="txt">{{lang.copy}}</span>
+        </a>
+        {{/anonymFlag}}
+        <a class="btn_tool" data-role="button" data-btntype="delete" data-btngroup="checked" data-bypass style="display: block;">
+            <span class="ic_toolbar del"></span>
+            <span class="txt_caution">{{lang.delete}}</span>
+        </a>
+        {{^anonymFlag}}
+        <a class="btn_tool" data-role="button" data-btntype="notice" data-btngroup="checked" data-bypass style="display: block;">
+            <span class="ic_toolbar noti"></span>
+            <span class="txt">{{lang.add_stickable}}</span>
+        </a>
+        {{/anonymFlag}}
+        <a class="btn_tool" data-role="button" data-btntype="download" data-btngroup="checked" data-bypass style="display: block;">
+            <span class="ic_toolbar download"></span>
+            <span class="txt">{{lang.download}}</span>
+        </a>
+    {{/manageable}}
+</div>

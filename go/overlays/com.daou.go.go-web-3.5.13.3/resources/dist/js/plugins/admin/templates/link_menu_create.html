@@ -1,0 +1,221 @@
+<div class="content linkMenuCreate" id="linkMenuCreate">
+    <form name="formCreateLinkMenu" onsubmit="return false;">
+        <table class="detail">
+        	<colgroup>
+				<col width="135px"/>
+				<col width="*" />
+			</colgroup>
+            <tbody>
+            <tr>
+			    <th><span class="title">{{lang.label_icon}}</span></th>
+            	<td>
+                	<span class="img_appicon" style="overflow:hidden">
+                        <img src="{{icon}}" id="thumbnail_image" />
+                    </span>
+                    <span class="desc">{{lang.label_img_size_info}} <br>
+                    	<!-- <span class="btn_edit_photo" style="color:red" id="swfupload-control">
+                        	<span class="txt" id="button"></span>
+                        </span> -->
+                        <span class="btn_tool" id="swfupload-control" style="padding: 0px; !important"></span>
+                        <span class="btn_tool" id="">{{lang.label_delete}}</span>
+                    </span>
+                </td>
+            </tr>
+        {{#isKoLocale}}
+            <tr>
+                <th><span class="title"><ins class="asterisk">*</ins>{{lang.label_button}}({{lang.label_ko}})</span></th>
+                <td>
+                    <input class="input w_space_r " id="koname" name="koname" data-locale="ko"/>
+                    <span class="alphabetCount">0/16</span>
+                    <p><span class="go_alert" id="konameValidate"></span></p>
+                </td>
+            </tr>
+        {{/isKoLocale}}
+        {{#isJpLocale}}
+            <tr>
+                <th><span class="title"><ins class="asterisk">*</ins>{{lang.label_button}}({{lang.label_jp}})</span></th>
+                <td>
+                    <input class="input w_space_r " id="jpname" name="jpname" data-locale="jp"/>
+                    <span class="alphabetCount">0/16</span>
+                    <p><span class="go_alert" id="jpnameValidate"></span></p>
+                </td>
+            </tr>
+        {{/isJpLocale}}
+        {{#isEnLocale}}
+            <tr>
+                <th><span class="title"><ins class="asterisk">*</ins>{{lang.label_button}}({{lang.label_en}})</span></th>
+                <td>
+                    <input class="input w_space_r " id="enname" name="enname" data-locale="en"/>
+                    <span class="alphabetCount">0/16</span>
+                    <p><span class="go_alert" id="ennameValidate"></span></p>
+                </td>
+            </tr>
+        {{/isEnLocale}}
+        {{#isZhcnLocale}}
+            <tr>
+                <th><span class="title"><ins class="asterisk">*</ins>{{lang.label_button}}({{lang.label_zhcn}})</span></th>
+                <td>
+                    <input class="input w_space_r " id="zhcnname" name="zhcnname" data-locale="zhcn"/>
+                    <span class="alphabetCount">0/16</span>
+                    <p><span class="go_alert" id="zhcnnameValidate"></span></p>
+                </td>
+            </tr>
+        {{/isZhcnLocale}}
+        {{#isZhtwLocale}}
+            <tr>
+                <th><span class="title"><ins class="asterisk">*</ins>{{lang.label_button}}({{lang.label_zhtw}})</span></th>
+                <td>
+                    <input class="input w_space_r " id="zhtwname" name="zhtwname" data-locale="zhtw"/>
+                    <span class="alphabetCount">0/16</span>
+                    <p><span class="go_alert" id="zhtwnameValidate"></span></p>
+                </td>
+            </tr>
+        {{/isZhtwLocale}}
+        {{#isViLocale}}
+        <tr>
+            <th><span class="title"><ins class="asterisk">*</ins>{{lang.label_button}}({{lang.label_vi}})</span></th>
+            <td>
+                <input class="input w_space_r " id="viname" name="viname" data-locale="vi"/>
+                <span class="alphabetCount">0/16</span>
+                <p><span class="go_alert" id="vinameValidate"></span></p>
+            </td>
+        </tr>
+        {{/isViLocale}}
+        {{^isKoLocale}}
+            <tr data-id="konameInput" style="display: none">
+                <th><span class="title">{{lang.label_button}}({{lang.label_ko}})</span></th>
+                <td>
+                    <input class="input w_space_r " id="koname" name="koname"  />
+                    <span class="alphabetCount">0/16</span>
+                    <p><span class="go_alert" id="konameValidate"></span></p>
+                </td>
+            </tr>
+         {{/isKoLocale}}
+         {{^isJpLocale}}   
+            <tr data-id="jpnameInput" style="display: none">
+                <th><span class="title">{{lang.label_button}}({{lang.label_jp}})</span></th>
+                <td>
+                    <input class="input w_space_r " id="jpname" name="jpname" />
+                    <span class="alphabetCount">0/16</span>
+                    <p><span class="go_alert" id="jpnameValidate"></span></p>
+                </td>
+            </tr>
+           {{/isJpLocale}}
+           {{^isEnLocale}}
+                <tr data-id="ennameInput" style="display: none">
+                    <th><span class="title">{{lang.label_button}}({{lang.label_en}})</span></th>
+                    <td>
+                        <input class="input w_space_r " id="enname" name="enname" />
+                        <span class="alphabetCount">0/16</span>
+                        <p><span class="go_alert" id="ennameValidate"></span></p>
+                    </td>
+                </tr>
+           {{/isEnLocale}}
+           {{^isZhcnLocale}}
+                <tr data-id="zhcnnameInput" style="display: none">
+                    <th><span class="title">{{lang.label_button}}({{lang.label_zhcn}})</span></th>
+                    <td>
+                        <input class="input w_space_r " id="zhcnname" name="zhcnname" />
+                        <span class="alphabetCount">0/16</span>
+                        <p><span class="go_alert" id="zhcnnameValidate"></span></p>
+                    </td>
+                </tr>
+            {{/isZhcnLocale}}  
+            {{^isZhtwLocale}}  
+            <tr data-id="zhtwnameInput" style="display: none">
+                <th><span class="title">{{lang.label_button}}({{lang.label_zhtw}})</span></th>
+                <td>
+                    <input class="input w_space_r " id="zhtwname" name="zhtwname" />
+                    <span class="alphabetCount">0/16</span>
+                    <p><span class="go_alert" id="zhtwNameValidate"></span></p>
+                </td>
+            </tr>
+            {{/isZhtwLocale}}
+            {{^isViLocale}}
+            <tr data-id="vinameInput" style="display: none">
+                <th><span class="title">{{lang.label_button}}({{lang.label_vi}})</span></th>
+                <td>
+                    <input class="input w_space_r " id="viname" name="viname" />
+                    <span class="alphabetCount">0/16</span>
+                    <p><span class="go_alert" id="viNameValidate"></span></p>
+                </td>
+            </tr>
+            {{/isViLocale}}
+            <tr data-id="addMenuName">
+                <th><span class="title">{{lang.label_add_btn_name}}</span></th>
+                <td>
+                    <select id="more_link_name">
+                        <option value="">{{lang.label_info_add_select}}</option>
+                        {{^isKoLocale}}<option value="koname">{{lang.label_ko}} {{lang.label_name}}</option>{{/isKoLocale}}
+                        {{^isEnLocale}}<option value="enname">{{lang.label_en}} {{lang.label_name}}</option>{{/isEnLocale}}
+                        {{^isJpLocale}}<option value="jpname">{{lang.label_jp}} {{lang.label_name}}</option>{{/isJpLocale}}
+                        {{^isZhcnLocale}}<option value="zhcnname">{{lang.label_zhcn}} {{lang.label_name}}</option>{{/isZhcnLocale}}
+                        {{^isZhtwLocale}}<option value="zhtwname">{{lang.label_zhtw}} {{lang.label_name}}</option>{{/isZhtwLocale}}
+                        {{^isViLocale}}<option value="viname">{{lang.label_vi}} {{lang.label_name}}</option>{{/isViLocale}}
+                    </select>
+                </td>
+            </tr>
+            
+            <tr data-id="locations">
+                <th><span class="title">{{lang.label_location}}</span></th>
+                <td>
+                	<div class="vertical_wrap_s">
+	                    <span class="option_wrap">
+	                        <input type="radio" id="self" name="location" value="new" checked="checked"/>
+	                        <label for="self">{{lang.label_new}}</label>
+	                    </span><br>
+                    </div>
+                    <div class="vertical_wrap_s">
+	                    <span class="option_wrap">
+	                        <input type="radio" id="new" name="location" value="popup" />
+	                        <label for="new">{{lang.label_popup}}</label>
+	                    </span>
+                    </div>
+                    <div class="vertical_wrap_s">
+	                    <span class="option_wrap">
+	                        <input type="radio" id="exe" name="location" value="exe" />
+	                        <label for="exe">{{lang.label_exe}}</label>
+	                    </span>
+                    </div>
+                    <div class="vertical_wrap_s" id="popupSize" style="display:none">
+	                    <span class="option_wrap">
+		                    <input class="input" id="popupWidth" name="popupWidth" value="800"/> X
+		                    <input class="input" id="popupHeight" name="popupHeight" value="600"/>
+		                </span>
+	                </div>
+	                <p><span class="go_alert" id="popupWidthValidate"></span></p>
+	                <p><span class="go_alert" id="popupHeightValidate"></span></p>
+	                <p><span>{{lang.label_popup_size_exam}}</span></p>
+                </td>
+            </tr>
+            
+            <tr data-id="inputUrl">
+                <th>
+                	<span class="title" id="urlLabel"><ins class="asterisk">*</ins>{{lang.label_url}}</span>
+                	<span class="title" id="exeLabel" style="display:none"><ins class="asterisk">*</ins>{{lang.label_exe_name}}</span>
+                </th>
+                <td>
+                    <input class="input w_full" id="url" name="url" value=""/>
+                    <p><span class="go_alert" id="urlValidate"></span></p>
+                    <p><span class="go_alert" id="exeValidate"></span></p>
+                    <p id="urlDesc"><span>{{lang.label_locaion_exam}}</span></p>
+                </td>
+            </tr>
+            
+            <tr class="last">
+                <th><span class="title">{{lang.label_status}}</span></th>
+                <td>
+                    <span class="option_wrap">
+                        <input type="radio" id="useQuickLink_true" name="useQuickLink" value="true" checked="checked" /> 
+                        <label for=useQuickLink_true>{{lang.label_use}}</label>
+                    </span>
+                    <span class="option_wrap">
+                        <input type="radio" id="useQuickLink_false" name="useQuickLink" value="false" /> 
+                        <label for="useQuickLink_false">{{lang.label_notuse}}</label>
+                    </span>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </form>
+</div>

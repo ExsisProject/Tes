@@ -1,0 +1,15 @@
+<span class="ic_board ic_list"></span>
+<h2>{{model.title}}</h2>
+<a href="#" class="ic ic_del" title="{{label.remove}}" data-bypass></a>
+<div class="todo_check_list">
+    {{#model.checklistItems}}
+    <div class="check_item">
+        <input type="checkbox" name="checked" value="{{id}}">
+        <span class="txt">{{title}}</span>
+    </div>
+    {{/model.checklistItems}}
+    
+    <a class="create">
+        <span class="ic_board ic_plus" title="{{label.add_checklist_item}}"></span>
+    </a>
+</div>

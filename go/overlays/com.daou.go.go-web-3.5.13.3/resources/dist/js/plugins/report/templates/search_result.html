@@ -1,0 +1,57 @@
+		<header class="content_top">
+		</header>	
+
+
+	<div class="content_page">
+	<!-- 검색결과 요약 정보  -->		
+		<div class="content_search_wrap">
+			<h1><ins class="bullet"></ins><span class="title">{{lang.search}} :</span></h1>
+				{{^searchParam.isDetail}}
+			<span class="info">
+				{{searchParam.keyword}}
+			</span>
+				{{/searchParam.isDetail}}
+				{{#searchParam.isDetail}}
+				<dl class="info"><!-- 상세 검색 요약정보 -->	
+						<dt>[{{lang.location}}]</dt>
+						<dd>{{searchParam.folder}}</dd>
+						<dt>[{{lang.content}}]</dt>
+						<dd>{{searchParam.content}}</dd>
+						<dt>[{{lang.comment}}]</dt>
+						<dd>{{searchParam.comment}}</dd>
+						<dt>[{{lang.attach_name}}]</dt>
+						<dd>{{searchParam.attachFileNames}}</dd>
+                        <dt>[{{lang.attach_content}}]</dt>
+                        <dd>{{searchParam.attachFileContents}}</dd>
+						<dt>[{{lang.writer}}]</dt>
+						<dd>{{searchParam.reporter}}</dd>
+						<dt>[{{lang.term}}]</dt>
+						{{#searchParam.isAllTerm}}
+						<dd><span class="date">{{lang.all_term}}</span></dd>
+						{{/searchParam.isAllTerm}}
+						{{^searchParam.isAllTerm}}
+						<dd><span class="date">{{searchParam.fromDate}} ~ {{searchParam.toDate}}</span></dd>
+						{{/searchParam.isAllTerm}}
+					</dl>
+				{{/searchParam.isDetail}}
+		</div>
+		<section class="comm_list">
+			<ul class="article_list post_result" id="reportResult">
+				{{#isEmpty}}
+				<li class="no_result">
+					<p class="data_null">
+						<span class="ic_classic ic_no_result"></span>
+						<span class="txt">{{lang.no_search_result}}</span>							
+					</p>
+				</li>
+				{{/isEmpty}}
+				{{^isEmpty}}
+					{{> result_item}}
+				{{/isEmpty}}
+				
+			</ul>
+			<div class="bottom_action" id="searchMoreButton">
+				<a class="btn_list_reload" data-bypass><span class="ic"></span><span class="txt">{{lang.more}}</span></a>
+			</div>
+		</section>
+	</div>

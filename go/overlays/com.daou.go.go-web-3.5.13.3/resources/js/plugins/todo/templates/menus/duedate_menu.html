@@ -1,0 +1,16 @@
+<form class="form_static">
+    <div class="form_static_wrap">
+        <span class="wrap_date"><input class="txt wfix_small" type="text" name="date" value="{{date}}"><!-- <span class="ic_board ic_calendar"></span> --></span>
+    </div>
+    <div class="form_static_wrap">
+        <span class="wrap_date"><input class="txt wfix_small" type="text" name="time" value="{{time}}"><!-- <span class="ic_board ic_time"></span> --></span>
+    </div>
+</form>
+<div class="ui-datepicker-container ui-datepicker"></div>
+
+<footer class="btn_layer_wrap">
+    <a class="btn-confirm btn_major_s" data-bypass><span class="txt">{{label.confirm}}</span></a>
+    {{#hasDuedate?}}
+    <a class="btn-cancel btn_minor_s" data-bypass><span class="txt">{{label.cancel}}</span></a>
+    {{/hasDuedate?}}
+</footer>

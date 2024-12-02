@@ -1,0 +1,1 @@
+(function(){define(["app"],function(e){var t=e.BaseModel.extend({url:function(){return e.config("contextRoot")+"api/calendarconfig"},isForceOpen:function(){return this.get("openAuthority")===!1}},{__instance__:null,create:function(){return this.__instance__===null&&(this.__instance__=new this.prototype.constructor,this.getData({async:!1})),this.__instance__}});return t})})();

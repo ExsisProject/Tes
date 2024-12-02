@@ -1,0 +1,90 @@
+<header class="content_top">
+	<h1><span class="txt" id="assetName"></span></h1>
+</header>	
+	
+<!--목록:-->		
+<div class="content_page go_renew asset" >			
+	<div class="content_info_wrap">
+		<span class="btn_wrap">			
+			<span class="ic_classic ic_close" title="{{lang.close}}" ></span>
+		</span>
+		<ul class="simple_info">
+			<li>
+				<div class="editor_overriding"><p id="guideDescription" class="editor_view"></p></div>
+				<span class="date" id="guideModifiedAt"></span>
+			</li>				
+		</ul>
+		<!-- ul class="detail_info"--> <!-- 자세히보기를 닫을 경우 이 ul을 display:none 처리  -->
+		<ul class="detail_info">
+			<!-- li class="conference"-->	
+			<li class="conference">
+				<span class="txt">
+				</span>												
+				<ul class="file_wrap" id="fileWrap">
+					
+				</ul>
+			</li>
+		</ul>	
+	</div>
+
+    <div data-matrix-area></div>
+
+	<div class="dataTables_wrapper">
+		<!-- 테이블 -->		
+		<table class="type_normal list_reser001" id="assetItemDataTable">	
+			<thead>
+				<tr>
+					<!-- 아래 클래스명은 유지해주세요~
+						* sorting 			- 정렬을 지원하는 항목 배경
+						* sorting_disabled 	- 정렬을 지원하지 않는 항목
+						* sorting_desc 		- 내림차순 정렬 선택됨
+						* sorting_asc 		- 오름차순 정렬 선택됨
+					-->
+					{{#dataset}}
+					<th class="sorting name"><span class="title_sort">{{lang.name}}<ins class="ic"></ins></span></th>
+                    {{#useCodeVisibility}}
+                    <th class="sorting code"><span class="title_sort">{{lang.code}}<ins class="ic"></ins></span></th>
+                    {{/useCodeVisibility}}
+					{{#attributes}}
+					{{#visibility}}
+					<th class="sorting_disable col3"><span class="title_sort">{{name}}</span></th>
+					{{/visibility}}
+					{{/attributes}}
+					{{^isRental}}
+					<th class="sorting_disable action"><span class="title_sort">{{lang.reservation}}</span></th>
+					{{#isManage}}
+					<th class="sorting_disable action"><span class="title_sort">{{lang.setting}}</span></th>
+					{{/isManage}}
+					{{/isRental}}
+					{{#isRental}}
+					<th class="sorting_disable action th_article_head">
+						<div class="action_head_wrap">
+							<select class="action_head" id="rentalSelect">
+								<option value="ALL">{{lang.all}}</option>
+								<option value="RENTABLE">{{lang.rent}}</option>
+								<option value="NORENTABLE">{{lang.no_rent}}</option>
+								<option value="RETURN">{{lang.return}}</option>
+							</select>
+						</div>
+					</th>
+					{{/isRental}}
+					{{/dataset}}
+				</tr>
+			</thead>
+			<tbody>		
+			</tbody>
+		</table>
+		<!-- //테이블 -->	
+	</div>		
+	<div class="table_search">
+		<select>
+			<option value="name">{{lang.name}}</option>
+		</select>			
+		<section class="search2">
+			<div class="search_wrap"><!--focus되면 "search_focus" multi class로 추가해주세요.-->
+				<input id="keyword" class="search2" type="text" placeholder="{{lang.search}}">								
+				<span class="btn_search2" title="{{lang.search}}"></span>								
+			</div>
+		</section>				
+	</div>
+</div>

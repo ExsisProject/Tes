@@ -1,0 +1,1 @@
+(function(){define(["jquery","backbone","app"],function(e,t,n){var r=t.Model.extend({idAttribute:"email"});return r})}).call(this);

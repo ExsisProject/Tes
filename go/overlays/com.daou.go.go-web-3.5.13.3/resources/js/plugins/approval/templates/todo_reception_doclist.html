@@ -1,0 +1,78 @@
+<header class="content_top">
+</header>
+<!--목록-->
+<div class="content_page" >
+    <div class="dataTables_wrapper">
+        <!-- 툴바  -->
+        {{#authBulkReceive}}
+        <div class="tool_bar" id="receive_toolbar" {{^useToolbarType}}style="display: none"{{/useToolbarType}}>
+            <div class="critical">
+                <div id="waitingStatus" {{^isWaitingStatus}}style="display: none"{{/isWaitingStatus}}>
+                    <a id="bulkReceive" class="btn_tool" data-role="button">
+                        <span class="ic_toolbar check_all"></span>
+                        <span class="txt">{{lang.일괄 접수}}</span>
+                    </a>
+                    <a id="bulkChangeReceiver" class="btn_tool" data-role="button">
+                        <span class="ic_toolbar member"></span>
+                        <span class="txt">{{lang.담당자 지정}}</span>
+                    </a>
+                </div>
+                <div id="receiveStatus" {{^isReceiveStatus}} style="display: none"{{/isReceiveStatus}}>
+                    <a id="bulkReceiveCancel" class="btn_tool" data-role="button">
+                        <span class="ic_toolbar cancel"></span>
+                        <span class="txt">{{lang.일괄 접수 취소}}</span>
+                    </a>
+                    <a id="bulkDraft" class="btn_tool" data-role="button">
+                        <span class="txt">{{lang.결재 정보 설정 및 요청}}</span>
+                    </a>
+                </div>
+            </div>
+            
+        </div>
+        {{/authBulkReceive}}
+        <div class="tool_bar tool_bar_second">
+            <!-- 탭 -->
+            <div class="critical_bottom">
+                <ul class="tab_nav">
+                    <li id="tab_all" class="first"><span>{{lang.전체}}</span></li>
+                    <li id="tab_waiting"><span>{{lang.접수대기}}</span></li>
+                    <li id="tab_received" class="last"><span>{{lang.접수}}</span></li>
+                </ul>
+            </div>
+            <!-- 리스트 갯수 선택 select box (마크업 유지) -->
+            <div class="dataTables_length">
+            </div>
+			<div class="optional" id="docFieldArea">
+            </div>
+        </div>
+        <!-- 테이블 -->        
+        <table class="type_normal list_approval">
+            <thead id ="doclist_field_header">
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        <div class="tool_bar tool_absolute">
+            <!--  상단 메뉴와 동일 -->
+            <div class="dataTables_length">
+            </div>
+        </div>
+    </div>
+    <div class="table_search">                    
+        <select id="searchtype">
+            <option value="title">{{lang.제목}}</option>
+            <!-- <option value="drafterName">{{lang.담당자}}</option> -->
+            <option value="receiverName">{{lang.담당자}}</option>
+            <option value="receptionOriginDrafterName">{{lang.기안자}}</option>
+            <option value="receptionOriginDrafterDeptName">{{lang.기안부서}}</option>
+            <option value="formName">{{lang.결재양식}}</option>
+            <option value="activityUserName">{{lang.결재선}}</option>
+        </select>
+        <section class="search2">
+            <div class="search_wrap"><!--focus되면 "search_focus" multi class로 추가해주세요.-->
+                <input id="keyword" class="search2" type="text" placeholder="{{lang.placeholder_search}}">
+                <span class="btn_search2" title="{{lang.검색}}"></span>                                
+            </div>
+        </section>                  
+    </div>
+</div>

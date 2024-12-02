@@ -1,0 +1,163 @@
+[
+  {
+    "code": "printrobo",
+    "description": "기업 전용 '명함 자동주문 솔루션'. 온라인으로 비대면 명함신청부터 주문/배송까지!",
+    "tags": {
+      "category": "기업명함",
+      "partnerName": "(주)프린트로보"
+    },
+    "logoUrl": "printrobo_logo.png",
+    "thumbUrl": "printrobo_thum.png"
+  },
+  {
+    "code": "systemever",
+    "description": "시스템에버는 영림원소프트랩의 28년 노하우가 담긴 중소기업을 위한 클라우드 SaaS ERP입니다.",
+    "tags": {
+      "category": "ERP",
+      "partnerName": "(주)영림원소프트랩"
+    },
+    "logoUrl": "systemever_logo.png",
+    "thumbUrl": "systemever_thum.png"
+  },
+  {
+    "code": "salesinsight",
+    "description": "업종별 대표 기업에서 검증된 CRM 솔루션. 영업 관리부터 고객지원 관리까지!",
+    "tags": {
+      "category": "CRM",
+      "partnerName": "세일즈인사이트(주)"
+    },
+    "logoUrl": "salespoint_logo.png",
+    "thumbUrl": "salespoint_thum.png"
+  },
+  {
+    "code": "exosphere",
+    "description": "백신이 이런 것도 되나요? 기능 많은 맞춤형 PC백신, 보안담당자 지원, 5개월 무료체험.",
+    "tags": {
+      "category": "PC보안",
+      "partnerName": "(주)엑소스피어랩스"
+    },
+    "logoUrl": "exosphere_logo.png",
+    "thumbUrl": "exosphere_thum.png"
+  },
+  {
+    "code": "kttelecop",
+    "description": "최적 설계된 방범센서와 Full HD급 고화질 영상을 동시에 제공하는 고객맞춤형 출동보안 서비스",
+    "tags": {
+      "category": "출입통제",
+      "partnerName": "케이티텔레캅(주)"
+    },
+    "logoUrl": "kttelecop_logo.png",
+    "thumbUrl": "kttelecop_thum.png"
+  },
+  {
+    "code": "signok",
+    "description": "20년 전자서명 노하우! 대기업과 공공기관에 공급중인 비대면 프리미엄 전자계약 서비스",
+    "tags": {
+      "category": "전자계약",
+      "partnerName": "한국정보인증(주)"
+    },
+    "logoUrl": "signok_logo.png",
+    "thumbUrl": "signok_thum.png"
+  },
+  {
+    "code": "yesform",
+    "description": "대한민국 최대 최고 문서서식 사이트 예스폼에서 비즈니스 업무의 혁신을 만나세요.",
+    "tags": {
+      "category": "문서양식",
+      "partnerName": "(주)예스폼"
+    },
+    "logoUrl": "yes_logo.png",
+    "thumbUrl": "yes_thum.png"
+  },
+  {
+    "code": "letuin",
+    "description": "법정의무교육부터 재직자 직무능력 향상을 위한 직무교육까지, 렛유인 엑스퍼트에서 한 번에 해결!",
+    "tags": {
+      "category": "법정의무교육",
+      "partnerName": "㈜렛유인"
+    },
+    "logoUrl": "letuin_logo.png",
+    "thumbUrl": "letuin_thum.png"
+  },
+  {
+    "code": "alpha",
+    "description": "문구/아트의 선두주자 알파몰은 오피스/생활/화방/학용 등 15만여가지의 다양한 상품과 고객맞춤 서비스를 제공해드립니다.",
+    "tags": {
+      "category": "문구/사무용품",
+      "partnerName": "알파㈜"
+    },
+    "logoUrl": "alpha_logo.png",
+    "thumbUrl": "alpha_thum.png"
+  },
+  {
+    "code": "goodtoluck",
+    "description": "기업을 위한 화물 운송 전문 서비스로써, 온라인 예약·배차·운송까지 한 번에 해결 가능합니다.",
+    "tags": {
+      "category": "화물운송",
+      "partnerName": "굿투럭㈜"
+    },
+    "logoUrl": "goodtruck_logo.png",
+    "thumbUrl": "goodtruck_thum.png"
+  },
+  {
+    "code": "weltree",
+    "description": "다우오피스 고객사 임직원에게 제공되는 이지웰(ezwel)복지몰 입니다.",
+    "tags": {
+      "category": "기업복지몰",
+      "partnerName": "이지웰(주)"
+    },
+    "logoUrl": "ezwel_logo.png",
+    "thumbUrl": "ezwel_thum.png"
+  },
+  {
+    "code": "donutbook",
+    "description": "스마트한 모바일쿠폰 서비스 '도넛북'에서 최대 15% 저렴하게 발송해 보세요.",
+    "tags": {
+      "category": "모바일쿠폰",
+      "partnerName": "㈜다우기술"
+    },
+    "logoUrl": "donutbook_logo.png",
+    "thumbUrl": "donutbook_thum.png"
+  },
+  {
+    "code": "egemco",
+    "description": "국내 최초 CGMP 및 법규를 기반으로 연구개발 관리부터 제품 출하까지의 TOTAL 시스템을 제공합니다. ",
+    "tags": {
+      "category": "ERP",
+      "partnerName": "㈜이젬코"
+    },
+    "logoUrl": "egem_logo.png",
+    "thumbUrl": "egem_thum.png"
+  },
+  {
+    "code": "kinkos",
+    "description": "비즈니스 가치를 높이는 성공 파트너 킨코스코리아의 원스톱 프린팅서비스를 경험해보세요",
+    "tags": {
+      "category": "인쇄/출판",
+      "partnerName": "킨코스코리아(주)"
+    },
+    "logoUrl": "kinkos_logo.png",
+    "thumbUrl": "kinkos_thum.png"
+  },
+  {
+    "code": "biostar2",
+    "description": "국내 시장 점유율 1위, 글로벌 시장 점유율 2위 바이오인식 기반 출입통제 및 근태관리 솔루션",
+    "tags": {
+      "category": "출입통제보안",
+      "partnerName": "(주)슈프리마"
+    },
+    "logoUrl": "suprema_logo.png",
+    "thumbUrl": "suprema_thum.png"
+  },
+  {
+    "code": "imarket",
+    "description": "중소기업, 소상공인, 개인사업자에게 필요한 모든 상품을 가장 저렴하고 빠르게 제공하는 온라인 쇼핑몰",
+    "tags": {
+      "category": "MRO",
+      "partnerName": "(주)아이마켓코리아"
+    },
+    "logoUrl": "imarket_logo.png",
+    "thumbUrl": "imarket_thum.png"
+  }
+]
+

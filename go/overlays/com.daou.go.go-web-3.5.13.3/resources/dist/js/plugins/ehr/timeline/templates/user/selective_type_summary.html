@@ -1,0 +1,140 @@
+<div class="tool_bar">
+    <div class="critical">
+
+        <span class="info_group">
+            <span class="tit">{{groupName}}</span>
+            <span class="txt">{{workingTimeRange}}</span>
+        </span>
+
+        <span class="btn_wrap">
+            <span class="ic ic_info" title="{{TimelineLang.근무그룹 상세보기}}" id="timeline_info">
+                <!--@display:none : guide start-->
+                <span class="layer_tail" style="display:none;" id="timeline_info_desc">
+                    <i class="ic ic_tail"></i>
+                    <div>
+                        {{#groupDesc}}
+                            {{{groupDesc}}}<br><br>
+                        {{/groupDesc}}
+                        [{{TimelineLang.그룹 변경 내역}}]
+                        <br> <br>
+
+                        {{#groupHistories}}
+                         {{day}} : {{timelinGroup.thumbnailText}} <br>
+                        {{/groupHistories}}
+
+                    </div>
+                    <div>
+                        {{TimelineLang.근태그룹설명1}}<br/>
+                        {{TimelineLang.근태그룹설명2}}<br/>
+                        {{TimelineLang.근태그룹설명3}}<br/>
+                    </div>
+                </span>
+                <!--//@display:none : guide end-->
+            </span>
+        </span>
+    </div>
+    <div class="optional">
+        {{#canApplyOvertimeAppr}}
+        <a class="btn_tool" id="overtime" data-bypass="">
+            <span class="ic_toolbar doc"></span>
+            <span class="txt">{{TimelineLang.연장근무신청}}</span>
+        </a>
+        {{/canApplyOvertimeAppr}}
+        <a class="btn_tool" id="download" data-bypass="">
+            <span class="ic_toolbar download"></span>
+            <span class="txt">{{CommonLang.목록 다운로드}}</span>
+        </a>
+    </div>
+</div>
+<!--@선택적근무제 start
+
+
+-->
+<div class="wrap_ehr_data type_flexible">
+    <p class="stat_tit">
+        <span class="tit">{{월}}{{TimelineLang.월}} <span class="info">({{Lang.선택적근로제 근무가능시간 설명}})</span></span>
+    </p>
+    <div class="ehr_stat_data summary">
+        <p class="stat_tit">{{총근무Hour}}<b>h</b> {{총근무Min}}<b>m</b></p>
+        <div class="type_flexible_summary">
+            <div class="wrap_progress">
+                <div class="min_today" style="left:{{금일최소근무율}}%" title="{{Lang.오늘최소근무시간 안내}}"></div>
+
+                <div class="time min"  title="{{Lang.최소근무시간 안내}}" style="left:{{월최소근무율}}%">{{CommonLang.최소}} {{월최소근무시간}}</div>
+                <div class="bar" style="left:{{월최소근무율}}%"></div>
+                <div class="time max" title="{{Lang.최대근무시간 안내}}">{{CommonLang.최대}} {{월최대근무시간}}</div>
+                <div class="progress">
+                    <div class="part_default" title="{{TimelineLang.선택근무}}" style="width:{{{선택근무율}}}%"></div><div class="part_overtime" title="{{TimelineLang.초과근무}}({{TimelineLang.연장}})" style="width:{{초과근무율}}%"></div><div class="part_approval" title="{{TimelineLang.승인근무}}({{TimelineLang.연장}})" style="width:{{승인근무율}}%"></div>
+                </div>
+            </div>
+            <ul class="wrap_meta">
+                <li class="txt">{{TimelineLang.남은 근무시간}} : {{CommonLang.최소}} <b>{{잔여근무최소}}</b> ~ {{CommonLang.최대}} <b>{{잔여근무최대}}</b>
+                <li class="txt">{{TimelineLang.남은 연장 근무시간}} : <b>{{잔여연장근무}}</b>
+                <li class="txt">{{TimelineLang.앞으로 매일 평균}} : <b>{{잔여평균근무}}</b>  {{CommonLang.필요}}
+                 ( {{TimelineLang.남은 근무일}} : {{남은근무일}} <b>{{TimelineLang.일}}</b> ) </li>
+            </ul>
+        </div>
+    </div>
+    <span class="divide_bar"></span>
+    <div class="ehr_stat_data detail">
+        <ul class="type_flexible_detail">
+            <li>
+                <span class="wrap_title">
+                    <span class="chip part_default"></span>
+                    <span class="tit">{{TimelineLang.선택근무}}</span>
+                    <span class="btn_wrap wrap_ic_info">
+                        <span class="ic ic_info" title="{{CommonLang.상세보기}}" id="selectiveTimeToolTipBtn">
+                            <span class="layer_tail" style="display:none;" id="selectiveTimeToolTip">
+                            {{TimelineLang.선택근무 툴팁}}
+                            </span>
+                        </span>
+                    </span>
+                </span>
+                <span class="wrap_progress_detail">
+                    {{#선택근무율}}
+                    <span class="wrap_progress" style="width:{{선택근무율}}%"></span>
+                    {{/선택근무율}}
+                    <span class="txt">{{선택근무시간}}</span>
+                </span>
+            </li>
+            <li>
+                <span class="wrap_title">
+                    <span class="chip part_overtime"></span>
+                    <span class="tit">{{TimelineLang.초과근무}} ({{TimelineLang.연장}})</span>
+                    <span class="btn_wrap wrap_ic_info">
+                        <span class="ic ic_info" title="{{CommonLang.상세보기}}" id="overTimeToolTipBtn">
+                            <span class="layer_tail" style="display:none;" id="overTimeToolTip">
+                            {{TimelineLang.초과근무 툴팁}}
+                            </span>
+                        </span>
+                    </span>
+                </span>
+                <span class="wrap_progress_detail">
+                    {{#초과근무율}}
+                    <span class="wrap_progress" style="width:{{초과근무율}}%"></span>
+                    {{/초과근무율}}
+                    <span class="txt">{{초과근무시간}}</span>
+                </span>
+            </li>
+            <li>
+                <span class="wrap_title">
+                    <span class="chip part_approval"></span>
+                    <span class="tit">{{TimelineLang.승인근무}} ({{TimelineLang.연장}}) </span>
+                    <span class="btn_wrap wrap_ic_info">
+                        <span class="ic ic_info" title="{{CommonLang.상세보기}}" id="approvalTimeToolTipBtn">
+                            <span class="layer_tail" style="display:none;" id="approvalTimeToolTip">
+                            {{TimelineLang.승인근무 툴팁}}
+                            </span>
+                        </span>
+                    </span>
+                </span>
+                <span class="wrap_progress_detail">
+                    {{#승인근무율}}
+                    <span class="wrap_progress" style="width:{{승인근무율}}%"></span>
+                    {{/승인근무율}}
+                    <span class="txt">{{승인근무시간}}</span>
+                </span>
+            </li>
+        </ul>
+    </div>
+</div>

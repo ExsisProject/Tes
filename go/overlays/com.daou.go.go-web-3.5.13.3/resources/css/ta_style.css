@@ -1,0 +1,878 @@
+@charset "UTF-8";
+
+/* //component */
+
+/* common */
+	.slt_day {min-width: 44px}
+	.appointUser span.vertical_wrap label.tit {display: inline-block; width: 100px; cursor: default}
+	.horspace1 {display: inline-block; width: 15px; height:10px}
+	.wrap_slt {display: inline-block; padding: 2px 0}
+	.inactive span.photo {opacity: 0.5}
+	span.part {color: #d7d7d7}
+	img.tit_graph {vertical-align: top; margin: 110px 10px 0 0}
+	div.vertical_tit_wrap div.vertical_wrap_s {display: inline-block}
+	/* div.vertical_tit_wrap span.tit {display: inline-block; margin-right: 4px} */
+
+	.td_center {text-align: center}
+
+	
+	header.content_top h1 span.option_wrap label {font-size: 12px; font-weight: normal}
+	header.content_top h1 span.option_wrap input {margin-top: 3px }
+	.depth1 {padding-left:20px!important}
+	.depth2 {padding-left:40px!important}
+	.depth3 {padding-left:60px!important}
+	.depth4 {padding-left:80px!important}
+	span.logo_preview_login img {width: 300px; height: 150px}
+	span.logo_preview_m img {width: 80px; height: 80px}
+	span.img_logo.logo_preview_web {width: 200px; height: 40px}
+	span.logo_preview_web img {max-width: 180px; max-height: 40px; width: auto}
+	div.layer_logo_preview div.upload_action {text-align: center; margin-bottom: 20px}
+	div.layer_logo_preview div.wrap_action {display: block; border: 1px solid red; height: 20px}
+	/* modal_loading_type */
+	.overlay {width:100%;height:100%;position:fixed;top:0;left:0;opacity:0.3;filter: alpha(opacity = 30);background:#777;
+	 z-index:98}
+	.overlay .processing {position:absolute; left:50%; top:50%; width:60px; height:60px; line-height:50px; text-align:center; background:#161616 url(../images/img_loader_w.gif) no-repeat center center ; color:#fff; font-family:arial; font-size:14px; border-radius:5px; margin:-30px 0 0 -30px}
+	/* input size */
+	.wDate {width:100px}
+	.wNum {width:50px; text-align:right}
+	.wShort {width:70px}
+	.wNormal {width:150px}
+	.wLong {width:300px}
+	.wMax {width:100% !important}
+
+	/* File Upload jQuery css */
+	.wrap_btn {display:inline-block; padding:2px 0}
+	.wrap_btn:hover {cursor:pointer}
+	.wrap_file_upload .btn_minor_s,
+	.wrap_file_upload .btn_fn7 {position:relative}
+/* //common */
+
+
+/* add file list */
+span.size {font-family: tahoma, dotum;color: #999;font-size: 11px;margin-left: 3px}
+.btn_fn4 {cursor: pointer;display: inline-block;padding: 2px;color: #fff!important;font-weight: bold;font-size: 12px;line-height: 12px;background: #bebebe;border-radius: 2px;}
+.file_wrap .btn_fn4 span.txt {color:#999!important}
+span.item_file {position: relative;overflow: hidden;display: block!important}
+span.item_file .btn_fn4 {padding:2px 4px; margin-right: 4px}
+span.item_file .btn_fn4 span.txt {margin-left:0; letter-spacing:-1px; font:normal 11px arial,dotum; height:11px; line-height: 1}
+:root span.item_file .btn_fn4 span.txt {line-height: 1.3\9}
+ul.file_wrap li {position: relative;line-height: 1;margin-top: 5px;}
+ul.file_wrap span {vertical-align:middle; display:inline-block}
+ul.file_wrap li span.item_file span.optional {margin:0 0 0 5px; line-height:1; height:18px}
+ul.file_wrap span.size {line-height:16px}
+ul.file_wrap li span.name {display: inline;font-weight: normal;cursor: pointer;line-height: 16px;}
+
+/*jQuery btn*/
+.img_profile .wrap_file_upload {cursor:pointer; position: absolute;left: 0;bottom: 0;width: 100%;cursor: pointer;display: block;background: #222;color: #fff;text-align: center;padding: 3px 0;border-radius: 0 0 3px 3px;filter: Alpha(Opacity=40);opacity: 0.4;}
+.img_profile .wrap_file_upload:hover  {filter: Alpha(Opacity=70);opacity: 0.7;}
+.img_profile .wrap_file_upload:hover .text {color:#fff}
+.img_profile .wrap_file_upload .btn_file_form  {display:inline; line-height:1; padding:3px 0; border:1px solid red;font-weight:normal;border:0; background:none; color:#fff; }
+.img_logo .wrap_file_upload {cursor:pointer; position: absolute;left: 0;bottom: 0;width: 100%;cursor: pointer;display: block;background: #222;color: #fff;text-align: center;padding: 3px 0;border-radius: 0 0 3px 3px;filter: Alpha(Opacity=40);opacity: 0.4;}
+.img_logo .wrap_file_upload:hover  {filter: Alpha(Opacity=70);opacity: 0.7;}
+.img_logo .wrap_file_upload:hover .text {color:#fff}
+.img_logo .wrap_file_upload .btn_file_form  {display:inline; line-height:1; padding:3px 0; border:1px solid red;font-weight:normal;border:0; background:none; color:#fff; }
+
+.wrap_file_upload {cursor:pointer; position:relative}
+.wrap_file_upload input {position: absolute;top: 0;right: 0;margin: 0;cursor: pointer;opacity: 0;filter: alpha(opacity=0);width: 100%;height:100%}
+/* ====== Layout ===== */
+
+div.tTabWrap {margin:20px 20px 0}
+div.tLnb {width:230px; float:left}
+div.tPage {margin-left:232px; position:relative; padding:10px 15px 50px}
+div.tPage h1 {border-bottom:1px solid #d6d6d6; padding: 0 0 10px; line-height:100%; margin-top:20px}
+div.tPage h1:first-child {margin-top:0px}
+div.tPage h1 span.txt {font-size:16px; font-family:맑은고딕,malgun gothic,dotum,AppleGothic,Helvetica,sans-serif; letter-spacing:-1px}
+
+/* ===== Breadcrumb ===== */
+div.breadcrumb {margin-left:232px; background:#e6e6e6; height:29px; line-height:29px; border-bottom:1px solid #c7c7c7; border-top:1px solid #fff; padding-left:20px; background:#e6e6e6 url(../images/admin/bullets.png) no-repeat 11px -237px}
+div.breadcrumb span {color:#777; font: 11px dotum}
+
+
+@media \0screen {
+ .language select  {height:20px; padding:0!important}
+}
+
+/* ===== Left Navigation Menu ===== */
+ul.menu {}
+ul.menu > li {border-bottom:1px solid #c4cfdc; border-top:1px solid #fff}
+ul.menu li p.title {cursor:pointer; margin:0; font-size:12px; height:29px; line-height:29px; background:#f9f9f9 url(../images/admin/bullets.png) no-repeat 0 -1000px; font-weight:normal}
+ul.menu li p:hover {background-color:#e8eaf0}
+ul.menu > li > p.title {font-weight: bold; padding-left:16px}
+ul.menu > li.expandable > p {background-position: 5px -89px}
+ul.menu > li.expandable > p.open {background-position: 5px -188px}
+ul.menu li p.on {background-color:#E2E8F8}
+ul.menu ul p.title {padding-left:28px; height:25px; line-height: 25px}
+ul.menu ul > li.expandable > p.title {background-position: 16px -542px}
+ul.menu ul > li.expandable > p.open {background-position: 16px -592px}
+ul.menu ul ul p.title {padding-left:46px; background-position:35px -495px}
+ul.menu ul ul > li.expandable > p.title {background-position: 33px -542px}
+ul.menu ul ul > li.expandable > p.open {background-position: 33px -592px}
+ul.menu ul ul ul p.title {padding-left:64px; background-position:53px -495px}
+
+/* ===== Top Button ===== */
+span.topButton {border:1px solid #000; background:#2c2c2c; box-shadow: inset 1px 1px 0 rgba(255,255,255,0.1); padding:5px 12px; font-size:12px}
+span.topButton span.txt {color:#b3b2b2; letter-spacing:-1px}
+
+
+@media \0screen {.btn_fn7 {padding:2px 4px 3px}}/* IE8 hack */
+:root .btn_fn7 {padding:4px 4px 2px\9}/* IE9 hack */
+.btn_fn11 {cursor:pointer; display:inline-block; padding:3px 4px; color:#fff; font-weight:normal; font-size:12px; line-height:12px; background:#00b6c2; border:1px solid #37a1ac; border-radius:2px; letter-spacing:-1px}
+.btn_fn11:hover{ background:#1c8691; border-color:#18808a}
+.btn_fn11 span.txt {height:12px; line-height:1.1}
+@media \0screen {.btn_fn11 {padding:2px 4px 3px}}/* IE8 hack */
+:root .btn_fn11 {padding:4px 4px 2px\9}/* IE9 hack */
+
+
+div.tit_type3 {
+    position: relative;
+}
+ div.tit_type3 .ic_open_s, div.tit_type3 .ic_close_s {vertical-align: middle; cursor: pointer}
+div.tit_type3 .ic_fail {vertical-align:top; cursor: pointer; margin:6px 0 0 0}
+div.tit_type3 .date {position: absolute; top: 6px; right: 10px}
+
+/* ====== layer_individual_style ====== */
+div.layer_addMenu {width:560px}
+div.layer_addMenu table th {width:160px; vertical-align:top; padding-top:8px}
+div.layer_addMenu table td {padding:7px 5px}
+div.layer_addMenu table td input {box-sizing:border-box}
+div.layer_addMenu table td p {margin:0; padding-bottom:10px}
+div.layer_addMenu table td .option_wrap {padding:5px 0}
+
+
+
+
+/* =============================================================== */
+/* ===== Components, TA_style 2013-05-18 DAOU TECHNOLOGY INC. ===== */
+/* =============================================================== */
+
+h2.subTitle {margin-top:20px; line-height:1}
+h2.subTitle + div.listWrap {margin-top:10px; border:none}
+h2.subTitle ins {background: url(../images/admin/bullets.png) no-repeat 0 -450px; display:inline-block; width:12px; height:15px; vertical-align:top}
+h2.subTitle span.txt {vertical-align:top; padding-top:1px; font-size:14px; margin-left:4px; letter-spacing:-1px}
+
+
+.bgcolor13  {background-color:#f691b2; border:1px solid #de809f}
+.bgcolor17  {background-color:#6691e5; border:1px solid #537dce}
+.bgcolor5   {background-color:#ff7537; border:1px solid #e8692f}
+.bgcolor9   {background-color:#7bd148; border:1px solid #6fbe3f}
+.bgcolor14  {background-color:#cd74e6; border:1px solid #b966d0}
+.bgcolor18  {background-color:#9fc6e7; border:1px solid #8cb3d3}
+.bgcolor12  {background-color:#fad165; border:1px solid #deb852}
+.bgcolor8   {background-color:#16a765; border:1px solid #13955a}
+
+ul.descList {margin:10px 0}
+ul.descList li {margin:6px 10px; padding-left:16px; background: url(../images/admin/bullets.png) no-repeat 4px -244px}
+ul.descList li span.title {font:bold 11px/1.4 dotum, malgun gothic; padding: 0; }
+ul.descList li span.txt {font: 11px/1.4 dotum, malgun gothic; color:#888; padding: 0 !important}
+
+
+div.alert_bottom {position:fixed; top:auto; bottom:29px; height:55px; background:#fffde4 url(../images/bg_y_2.jpg) repeat-x 0 top;}
+div.alert_bottom ins.ic + span.txt {color:red; margin-right:5px}
+div.alert_bottom span.txt, div.alert_bottom span.txt_caution {display:inline-block; color:#444; font:bold 12px dotum; padding-top:22px}
+div.alert_bottom span.txt_caution {color:red}
+div.alert_bottom span.btn_formal {padding:0 8px; margin-top:17px}
+div.alert_bottom span.btn_formal>span {font-weight:normal; padding:0; vertical-align:top;line-height:100%; padding-top:5px}
+div.alert_bottom ins.ic {margin-top:20px}
+div.alert_bottom span {vertical-align:top}
+
+table.listStd {border:1px solid #e0e0e0; border-top:1px solid #d1d1d1}
+table.listStd thead th {padding:1px 0; background:#f8f8f8; border-bottom:1px solid #eaeaea; border-right:1px solid #eaeaea; text-align:left}
+table.listStd thead th span.ic {margin-left:3px; cursor:pointer}
+table.listStd thead th.last {border-right:none}
+table.listStd thead th span.optionInline {display:block; text-align:center}
+table.listStd thead th span.txt {display:inline-block; padding:8px 0 7px 7px; font-size:13px; font-family: malgun gothic,dotum,AppleGothic,Helvetica,sans-serif; letter-spacing:-1px}
+table.listStd td {padding:1px 0; background:#fff; border-bottom:1px solid #eaeaea; border-right:1px solid #eaeaea; color:#666; vertical-align:top}
+table.listStd td.tdWrap {padding:0}
+td.tdWrap table.listStd {border:none}
+td.tdWrap table.listStd tbody tr:hover td {background-color:#f6f6f6}
+td.tdWrap table.listStd tbody tr td {background-color:#fff}
+td.tdWrap td {padding:0}
+table.listStd td.last {border-right:none}
+table.listStd td span.txt {display:inline-block; line-height:120%; padding:8px 0 8px 7px}
+table.listStd td span.dump {display:inline-block; line-height:120%; padding:6px 0 6px 7px; min-width:193px}
+table.listStd td span.wrapInput, table.listStd td span.wrapBtn, table.listStd td span.optionMulti {margin-left:7px; margin-right:7px}
+table.listStd td span.gageWrap {padding:8px 0 3px}
+table.listStd td span.blank {display:inline-block; height:27px}
+table.listStd td.check {text-align:center}
+table.listStd td.status {text-align:center}
+table.listStd td.date span.text {font-size:11px; font-family:verdana}
+table.listStd tr.last td {border-bottom:1px solid #e0e0e0}
+table.listStd td.action span.wrapBtn>span {margin-right:4px}
+table.listStd td.action span.wrapBtn>span:last-child {margin-right:0}
+table.listStd tbody tr:hover th, table.listStd tbody tr:hover td {background-color:#f6f6f6}
+table.listStd tr.moving {position:absolute; width:99%; height:33px; background:#ffffaf url(../images/t_admin/bg_move.png) repeat-y 3px 4px; border:1px solid #e3dc86; box-shadow:1px 1px 1px rgba(0,0,0,0.1); cursor:move}
+table.listStd tr.moving td {background:transparent; border:none; padding-left:10px}
+table.listStd tr.moving:hover {background:#ffffaf url(../images/admin/bg_move.png) repeat-y 3px 4px; }
+table.listStd tr.moving:hover td {background:transparent}
+table.listStd tr.landing_position {height:25px; background:#ffffcf}
+table.listStd tr.landing_position td {background:#ffffcf;}
+table.listStd tr.landing_position:hover td {background:#ffffcf}
+table.listStd td.num {text-align:right}
+table.listStd td.num span.txt {padding-right:10px}
+table.listStd span.wrapSelect {padding-left:3px}
+
+table.listSub {border:1px solid #dcdcdc; width:auto}
+table.listSub.depth {margin-top:5px}
+table.listSub tr {border-bottom:1px solid #e4ecf0}
+table.listSub th {padding:1px 0; background:#eeeeee; width:80px; border:0; text-align:left; vertical-align:top}
+table.listSub th span.txt {font-weight:normal; padding:8px 0 6px 7px}
+table.listSub td {padding:1px 0; width:100px}
+table.listSub td span.txt {color:#777; padding:8px 0 6px 7px}
+table.listSub td span.optionWrap {margin-left:7px}
+
+table.tb_inner td {border-right:0 !important}
+.content_tb>table.tb_innder tr td {border-left:1px solid #ddd!important}
+.content_tb>table.tb_innder tr td:first-child {border-left:0!important}
+
+table.contentTable table.listSub th {padding:10px 8px!important}
+table.contentTable table.listSub td {padding:8px!important}
+
+span.gageWrap {display:inline-block;padding:10px 0 5px}
+span.gageBox {position:relative;display:inline-block; width:200px; height:12px;background:#ddd; box-shadow: inset 0 0 4px rgba(100,100,100,0.3)}
+span.percent {position:absolute;display:inline-block; height:12px;background:#91a1e4; box-shadow: inset 0 0 4px rgba(100,100,100,0.3)}
+
+span.btn_mini {margin:3px 0; cursor:pointer; display:inline-block; vertical-align:top}
+span.btn_tiny {margin:5px 0; cursor:pointer; display:inline-block; vertical-align:top}
+
+span.btn_page {display:inline-block;  border-radius:3px; padding:10px 20px; border:1px solid #444; border-bottom-color:#222; border-top-color:#454545;background:#565656}
+span.btn_page span.txt {color:#fff; font: bold 14px dotum}
+span.btn_page:hover {box-shadow: 0 1px 2px rgba(0,0,0,0.4); border-radius:3px; background:#353535}
+span.btn_page:hover span.txt {}
+
+span.btn_pageNega {display:inline-block; border-radius:3px; padding:10px 20px; border:1px solid #9a9a9a; background:#f4f4f4 url(../images/t_admin/bg_toolboxbtn.png) repeat-x 0 -160px}
+span.btn_pageNega span.txt {color:#666;font: bold 14px dotum}
+span.btn_pageNega:hover {box-shadow: 0 1px 2px rgba(0,0,0,0.2); border-radius:3px;background:#d2d2d2;border:1px solid #a5a5a5}
+span.btn_pageNega:hover span.txt {color:#333}
+
+span.btn_sub {padding:0 8px; line-height:24px; color:#666; font-weight:normal; font-size:12px; border:1px solid #bbb; border-radius:2px; background:#f3f3f3; box-shadow: inset 0 1px 2px rgba(255,255,255,1)}
+span.btn_sub span.txt {margin:0; font-weight:bold; padding-top:6px}
+span.btn_sub:hover {background:#f8f8f9;border-color:#b1b1b1;border-radius:2px;box-shadow: inset 0 1px 2px rgba(255,255,255,1)}
+span.btn_sub:hover span.txt {color:#222}
+
+
+span.btnLayerClose {background: url(../images/admin/ic_common.png) no-repeat 0 -300px; width:28px; height:28px}
+span.btnLayerClose:hover {background-position:-50px -300px}
+
+/*adm_style로 이동시킴*/
+
+div.csvFileLayout span, div.csvFileLayout a {vertical-align:middle}
+
+
+
+span.wrapOption {display:inline-block; padding:8px 0 6px; vertical-align:top}
+br + span.wrapOption {padding-top:2px}
+span.wrapLabel {padding-top:8px !important}
+span.wrapInput, span.wrapBtn, span.wrapSelect, span.wrapDate {display:inline-block; padding:2px 0; vertical-align:top}
+span.wrapBtn span.btn, span.wrapBtn span.btn_mini {margin-left:4px}
+span.wrapBtn span.btn:first-child, span.wrapBtn span.btn_mini:first-child {margin-left:0px}
+span.wrapDate {position:relative}
+
+span.wrapInput span.txt, span.wrapSelect span.txt {padding:8px 0 6px 2px}
+span.wrapTArea {position:relative; display:inline-block; padding:2px 0 2px; vertical-align:top; }
+textarea {vertical-align:top; padding:5px 4px; min-height:100px; -moz-box-sizing:border-box; box-sizing:border-box}
+
+span.wrapBtn span.txt {color:#666}
+span.wrapBtn span.ic_com {margin:0 2px}
+
+.space {display:inline-block; width:10px; vertical-align:top}
+.desc.publicAdd {font-size:12px}
+span.val_check {display:inline-block; margin-left:5px; padding:9px 0 0; vertical-align:top; font:11px dotum}
+br + span.val_check {margin:0; padding-top:3px}
+
+.important {color:#5083c1 !important}
+.valid {color:#5083c1}
+.invalid {color:#ee3b4c}
+.option_group {margin:10px 15px}
+
+div.optional span.btn_wrap {position: static !important}
+.org_mail, .org_code {display:inline-block; margin-left:10px}
+span.domain {font:bold 12px tahoma, dotum; color:#8f8f8f}
+
+/* monitoring table chart */
+.chart_intb_wrap {width:400px}
+.chart_intb_wrap .chart_import {}
+.chart_intb_wrap .label_y {position:relative; display:inline-block; width:20px; text-align:left;}
+.chart_intb_wrap .label_y img {vertical-align:top; padding-top:10px; padding-left:5px}
+.chart_intb_wrap .label_x {display:inline-block; width:100%; text-align:right; height:40px}
+.chart_intb_wrap .label_x img {text-align:right; margin-right:70px; margin-top:6px}
+.label_wrap {width:100%; margin-left:58px}
+.label_wrap input {width:11px; height:11px; border:1px solid #e0e0e0; vertical-align:middle}
+.label_wrap span {color:#555; margin-right:5px; letter-spacing:-1px; vertical-align:middle}
+
+div.layer {position:absolute; background:#f9f9f9; border:1px solid #a0a0a0; box-shadow: 0 0 7px rgba(0,0,0,0.3); padding:20px; border-radius:3px; width:420px}
+div.optionLayer {position:absolute;padding:0; border:1px solid #bdbdbd; box-shadow: 0 0 4px rgba(0,0,0,0.1); background:#fff; border-radius:5px}
+div.layer span.btnLayerClose {position:absolute; right:-7px; top:-6px}
+div.layer span.btn_page, div.layer span.btn_pageNega {padding:6px 12px}
+
+div.pageBtnLayer {text-align:center; margin:15px 0 0}
+
+
+div.layer_addr_import div.content table.table_form_mini th {width:110px!important}
+div.layer_addr_import div.content table.table_form_mini td .option_wrpa {padding-top:7px}
+
+
+
+
+/* ====== OVERRIDE : TMS7 ====== */
+
+div.jqpopup {position:absolute; background:#f9f9f9; border:1px solid #a0a0a0; box-shadow: 0 0 7px rgba(0,0,0,0.3); padding:20px 20px 0; border-radius:3px}
+div.jqpopup div.jq_title {margin-bottom:15px}
+div.jqpopup div.jq_title span {font:bold 14px dotum; color:#666}
+div.jqpopup a.btn_X {position:absolute; right:-7px; top:-6px; display:block; text-indent:-3000px; background: url(../images/admin/ic_common.png) no-repeat 0px -300px; width:28px; height:28px}
+div.jqpopup a.btn_X:hover {background-position: -50px -300px; width:28px; height:28px}
+div.jqpopup table.popup_table td {padding:3px 0}
+div.jqpopup div.btnArea {text-align:center}
+div.jqpopup div.btnArea a {cursor:pointer; display:inline-block; vertical-align:top; border-radius:3px; padding:6px 12px; border:1px solid #9a9a9a; background:#f4f4f4; font:bold 14px dotum; color:#666}
+div.jqpopup div.btnArea a:hover {color:#333; box-shadow: 0 1px 2px rgba(0,0,0,0.2); border-radius:3px;background:#d2d2d2;border:1px solid #a5a5a5}
+
+div.tPage h1:first-child {margin-bottom:20px}
+table.contentTable tr td>table td {padding:5px !important}
+
+
+/* ====== OVERRIDE : go_admin  ====== */
+div.admin_side {width:230px; float:left}
+section.lnb ul.admin li {background:#f9f9f9}
+section.lnb ul.admin ins {display:none}
+section.lnb ul.admin > li {border-bottom: 1px solid #c4cfdc; border-top:1px solid #fff}
+section.lnb ul.admin span {display:block}
+section.lnb ul.admin span span.txt {display:block; cursor:pointer; margin:0; font-size:12px; height:29px; line-height:29px; background-image:url(../images/admin/bullets.png); background-repeat:no-repeat; background-position:0 -1000px}
+section.lnb ul.admin span span.txt:hover {background-color:#e8eaf0}
+section.lnb ul.admin span.txt {font-weight: bold; padding-left:16px}
+section.lnb ul.admin li.active {background-color:#E2E8F8}
+
+section.lnb ul.admin p.title {cursor:pointer; margin:0; font-size:12px; height:29px; line-height:29px; background:#f9f9f9 url(../images/admin/bullets.png) no-repeat 0 -1000px}
+section.lnb ul.admin p.title:hover {background-color:#e8eaf0}
+section.lnb ul.admin p.title {font-weight: bold; padding-left:16px}
+section.lnb ul.admin p.on {background-color:#E2E8F8}
+
+section.lnb ul.admin > li.expandable > p.title {background-position: 5px -89px}
+section.lnb ul.admin > li.expandable > p.open {background-position: 5px -188px}
+section.lnb ul.admin ul p.title {padding-left:28px; height:25px; line-height: 25px}
+section.lnb ul.admin ul ul p.title {padding-left:46px; background-position:35px -495px}
+
+section.lnb ul.admin p.title span.txt {padding:0; display:inline; font-weight:normal; background-position:0 -1000px}
+td.ipAddress input[type="text"] {width:40px}
+
+
+/* ====== OVERRIDE : system admin ====== */
+div.tPage h1:first-child {margin-bottom:20px}
+table.contentTable td table td {padding:8px 10px 6px !important}
+
+span.processInfoBold {font:bold 14px dotum; color:#666}
+ul.descList {margin:10px 0}
+ul.descList li {margin:6px 0; padding-left:16px; background: url(http://tms8.daou.co.kr:8000/design/common/images/admin/bullets.png) no-repeat 4px -244px}
+ul.descList li span.title {display:inline-block;font:bold 12px/1.4 dotum, malgun gothic; padding: 0; color:#666; min-width:90px}
+ul.descList li span.txt {display:inline-block;font: 12px/1.4 dotum, malgun gothic; color:#888; padding: 0 !important}
+
+/* ============================================================================== */
+/* ===== table column size custom, TA_style 2013-05-21 DAOU TECHNOLOGY INC. ===== */
+/* ============================================================================== */
+
+table.tb_list_001 {min-width:882px}
+table.tb_list_001 .check {text-align:center; width:16px}
+table.tb_list_001 .name  {width:130px}
+table.tb_list_001 .email {width:160px}
+table.tb_list_001 .position {width:160px}
+table.tb_list_001 .loginfo  {text-align:center; width:140px}
+table.tb_list_001 .membertype {width:130px}
+div.dataTables_scrollHead table.tb_list_001 .check  {text-align:center; width:36px}
+div.dataTables_scrollHead table.tb_list_001 .name   {width:150px}
+div.dataTables_scrollHead table.tb_list_001 .email  {width:180px}
+div.dataTables_scrollHead table.tb_list_001 .position  {width:180px}
+div.dataTables_scrollHead table.tb_list_001 .loginfo   {text-align:center; width:160px}
+div.dataTables_scrollHead table.tb_list_001 .membertype {width:150px}
+div.dataTables_scrollHead table.tb_list_001 .check input[type=checkbox], div.dataTables_scrollBody table.tb_list_001 .check input[type=checkbox] {margin-right:0}
+
+table.form_mail01 th {width:150px}
+table.form_mail01 td {}
+
+table.form_mail02 th {width:150px}
+table.form_mail02 td {}
+
+table.form_mail03 th {width:150px}
+table.form_mail03 td {}
+
+table.form_org01 th {width:105px}
+table.form_org01 td {}
+
+table.list_menu01 {}
+table.list_menu01 th, table.list_menu01 td {box-sizing:border-box}
+table.list_menu01 .check {width:40px}
+table.list_menu01 .menu  {min-width:160px; max-width:300px}
+table.list_menu01 .url   {width:170px}
+table.list_menu01 .type  {width:90px}
+table.list_menu01 .view  {width:100px}
+table.list_menu01 .onoff {width:130px}
+table.list_menu01 .set   {width:70px}
+
+table.list_intb_001 th, table.list_intb_001 td {box-sizing:border-box}
+
+table.tb_admin_doc_host tr th {width: 125px}
+table.tb_admin_doc_folder tr th {width:100px}
+table.tb_admin_account_add tr th {width:130px}
+
+table.tb_seculity_grade tr .num {width: 60px; text-align: center}
+table.tb_seculity_grade tr .use {width: 60px; text-align: center}
+
+
+table.chart tr.default td {background:rgb(176, 196, 222)}
+
+
+/* =====  z-index ====== */
+div.tFooter {z-index:1001}
+div.alert_wrap {z-index:99999}
+
+table.listStd tr.moving {z-index:1000}
+
+/* 130723 seoungjin */
+div.content_body {min-width:0 !important}
+
+
+
+.in_table.tb_approval_line tbody tr td {vertical-align: top; padding: 5px}
+.in_table.tb_approval_line tbody tr td .option_wrap {margin-top: 3px}
+.tb_approval_line .tb_approval_line tbody tr td {border-bottom: 0!important; padding: 2px 0}
+
+
+
+
+.version {font-family:tahoma; font-size:12px; color:#777}
+
+.tb_approval_line th {cursor:default}
+.tb_approval_line .other {width: 40px; text-align:center}
+.tb_approval_line .title {width: 100px; text-align: left}
+.tb_approval_line .approver_max {width: 80px; text-align: left}
+.tb_approval_line .approver_max select {min-width: auto}
+.tb_approval_line .approver_type_set {width: 80px; text-align: left}
+.tb_approval_line .approver_appoint {width: auto; text-align:left}
+
+table.chart .caheck {width: 40px; text-align: center}
+table.chart .uploader {width: 100px}
+table.chart .power {width: 80px}
+table.chart .status {width: 60px}
+
+table.tb_admin_stemp tr th {width: 140px}
+
+span.tag_wrap {display:inline-block;vertical-align:middle}
+ul.name_tag li.invalid {border-color: #f4c5b7; background: #fddddb; color: #e96e5e}
+ul.list_option li.first {margin-top:0}
+ul.list_option li .sub_depart input {display: inline-block; vertical-align: top; margin-top: 4px}
+
+
+div.content_tb table.detail tr th, 
+div.content_tb table.detail tr td {background:#fff; border-right:0}
+
+span.ic_file_s {background-position: -50px -800px; width: 7px; height: 14px}
+td span.num {margin: 0 0 0 3px; display: inline-block; color: #999; font-size: 12px; font-weight: normal; vertical-align: middle}
+
+div.tab_type3 span {display:inline-block; background: #f4f4f4 url(../img/bg_text_tool.gif) 0 0 repeat-x; border:1px solid #B5B5B5; height:29px; margin-right:-1px; padding:0 5px; line-height:29px; text-align:center; cursor:pointer}
+div.tab_type3 span a {color:#999}
+div.tab_type3 {height:27px}
+div.tab_type3 span.selected {background:#fafafa; border-bottom-color:#e7e7e7; cursor:default}
+div.tab_type3 span.selected a {color:#333; font-weight:bold; cursor:default}
+
+div.layer_approval_line {width: 900px}
+div.layer_normal div.set_nav {float: left; width: 230px; border: 1px solid #b5b5b5}
+div.layer_normal div.set_data {margin-left: 240px; border: 1px solid #b5b5b5}
+div.layer_normal div.set_nav div.tab_type3 > span {width: 66px; border-top: 0}
+div.layer_normal div.set_nav div.tab_type3 span.last {border-right: 0}
+div.layer_normal div.set_nav div.tab_type3 span.first {border-left: 0}
+div.layer_normal div.content section.search {padding: 7px 6px 5px; border-bottom: 1px solid #dedede; background: #fafafa}
+
+div.layer_approval_line div.set_nav div.content_tab_wrap {height: 412px; border: 0; overflow: auto}
+div.layer_approval_line div.content section.search div.search_wrap {width: 100%}
+div.layer_approval_line div.content section.search div.search_wrap input.search {width: 185px}
+
+div.tit_type3 {padding: 0 7px; height: 25px; line-height: 27px; border-bottom: 1px solid #E6E6E6; background: #ececec; text-align: center;
+background-image: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ececec));
+background-image: -webkit-linear-gradient(270deg,#fff 0%, #ececec 100%);
+background-image: -moz-linear-gradient(270deg,#fff 0%, #ececec 100%);
+background-image: -o-linear-gradient(270deg,#fff 0%, #ececec 100%);
+background-image: linear-gradient(top,#fff 0%,#ececec 100%);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#ececec',GradientType=0 )}
+
+
+div.layer_approval_line div.content div.set_data div.list_approval_line_wrap {height: 392px; overflow-x: hidden; overflow-y: auto}
+div.layer_approval_line div.content div.set_data div.list_approval_line_wrap div.approval_line {position: relative }
+table.tb_approval_line td {min-height: 28px; padding: 2px 10px;}
+
+div.layer_normal .tool_bar .btn_tool {float: left; margin: 0px 2px 3px 0; padding: 0 7px; background: #f5f5f5 url(../images/btn_bg_tool.gif) 0 0 repeat-x; border: 1px solid #c9c9c9; border-radius: 3px; white-space: nowrap; opacity: 0.8; height: 24px; font-weight:normal}
+div.layer_normal .tool_bar .btn_tool span.txt {line-height:24px}
+span.ic_file_drag {display: inline-block; background: url(../images/ic_gnb.png) no-repeat -550px -200px; width: 40px; height: 40px}
+div.layer_approval_line div.content div.set_data div.tit_type2 {border-bottom: 0}
+div.tit_type2 {background: #ededed; height: 28px; line-height: 28px; border-top: 1px solid #c2c9cf; border-bottom: 1px solid #c2c9cf; padding: 0 8px}
+
+
+div.tit_type3 span.txt {font-family: malgun gothic; font-weight: bold; color: #999}
+
+
+
+ul.list_nude {max-height: 200px; overflow-y: auto; overflow-x: hidden}
+ul.list_nude li {padding: 3px 0}
+
+
+/* list */
+	/* */
+	.name_tag.basic_tag li {display: block; float: none; background: none; border: 0; padding: 0}
+	.name_tag.basic_tag li > span {display: inline-block; position: relative; padding: 4px 25px 4px 10px; line-height: 1.3; background: #e2f5f6; border-radius: 13px; border: 1px solid #c2dde6; color: #777; cursor: move}
+	.name_tag.basic_tag li span.btn_wrap {display: inline-block; background: none; border: 0}
+	.name_tag.basic_tag li > span .btn_wrap {position: absolute; top: 4px; right: 5px}
+	/* ul.list_line */
+	ul.list_line li {border-bottom: 1px solid #e3e3e3;	padding: 8px 10px}
+	ul.list_line li.last {border-bottom: 0}
+	.list_count li {position: relative}
+	.list_count .name {display: block; margin-right: 130px}
+	.list_count .date {position: absolute; top: 7px; right: 0}
+
+
+/* table */
+	.tb_admin_addr_public th {width: 80px}
+	table.tb_ehr_ip tbody tr th {width: 160px}
+	/* tb_choice */
+	table.tb_select {table-layout: fixed}
+	table.tb_select tr td {padding: 0; vertical-align: bottom; border:0}
+	table.tb_select tr td div.wrap_list {height: 200px; border: 1px solid #D9D9D9; overflow-x:auto}
+	table.tb_select tr td div.wrap_list ul {margin: 5px 0}
+	table.tb_select tr td div.wrap_list ul li {padding: 4px 6px}
+	table.tb_select tr td div.wrap_list ul li.on {background: #E2E8F8}
+	table.tb_select tr td div.wrap_list ul li.on:hover {background: #E2E8F8; cursor: default}
+	table.tb_select tr td div.wrap_list ul li:hover {background: #eee; cursor: pointer}
+	table.tb_select tr td select option {padding: 4px;}
+	table.tb_select tr td p.tit {background: #F0F0F0; border: 1px solid #D9D9D9; border-bottom: 0; height: 26px; line-height: 26px; padding: 0 5px; margin:0; color: #888; font-weight: bold}
+	table.tb_select .action {width: 50px; text-align: center; vertical-align: middle}
+	table.tb_select .wrap_site {width:40%}
+	table.tb_admin tr th, table.tb_admin tr td {text-align: left}
+	table.tb_admin span.ic_appr_receive {margin: 0 4px 0 0}
+	/* tb_partDoc */
+	table.tb_partDoc {}
+	/* tb_detailSearch */
+	table.tb_detailSearch tbody tr th {background: #fff; text-align: left; padding: 7px 5px 7px 13px}
+	table.tb_detailSearch tbody tr th span.title {vertical-align: top}
+	table.tb_detailSearch tbody tr th, table.tb_detailSearch tbody tr td {border: 0}
+	table.tb_detailSearch tbody tr th {width: 100px}
+
+
+	table.tb_delete .depart {width: 200px}
+
+
+
+
+	table.tb_depart_list td, table.tb_depart_list td th { min-width: 60px; }
+	table.tb_depart_list tr th:first-child, table.tb_depart_list tr td:first-child { min-width: 30px; }
+
+	table.tb_servey_list .num{ width: 80px; }
+	table.tb_servey_list .type { width: 120px; }
+	table.tb_servey_list .date { width: 180px; }
+
+	table.tb_form_list .date { width: 180px; }
+
+table.TB_line .opt {text-align: left; width: 80px}
+table.TB_line tr td {padding: 2px 0}
+
+
+
+
+/* page */
+
+
+/*gnb_top_menu*/
+.tWrap .my_info ul.ctrl  li.on {background:#2f2f2f}
+.tWrap .gnb_top_menu {z-index:50; position:absolute; right:33px; top:40px; min-width:110px; background:#2f2f2f;  border-radius:0 0 2px 2px}
+.tWrap .gnb_top_menu ul li {text-align:left; height:28px; line-height:22px;}
+.tWrap .gnb_top_menu ul li a{display:block; padding:3px 10px; text-align:left!important}
+.tWrap .gnb_top_menu ul li:hover {background:#0b99a1;}
+.tWrap .gnb_top_menu ul li.last,
+.tWrap .gnb_top_menu ul li.last:hover{border-radius:0 0 2px 2px}
+.tWrap .gnb_top_menu ul li.bar {border-top:1px solid #1f1f1f; border-bottom:1px solid #3d3d3d; height:0px; font-size:0}
+.tWrap .gnb_top_menu ul li.bar:hover {background:none}
+.tWrap .gnb_top_menu a {color:#cecece}
+
+
+span.sub_depart {color: #999; vertical-align: top}
+
+/*scroll*/
+.box_scroll {max-height: 400px;overflow-y: auto;overflow-x: hidden;}
+
+/* btn_sub_menu */
+ul.array_type li {position: relative; padding:4px 5px 4px 5px; color:#666; border-top:none}
+ul.array_type li:first-child {border-top:none}
+ul.array_type li:hover {cursor:pointer; color:#222; background-color:#e9f2fb}
+
+table.chart thead th div.btn_submenu {display:inline-block}
+
+/* form_doc_editor */
+form.form_doc_editor table tbody tr td {height:23px; padding: 4px 5px!important}
+form.form_doc_editor table.tb_sign_type1 tbody tr td {padding: 0!important}
+
+/* popup */
+div.popup {width: 100%}
+div.popup {border: none; border-radius:0; position:static; margin:0; padding:0}
+div.popup>header, div.popup>header a.btn_layer_x {border-radius:0}
+
+ul.list_normal li span.tit {display: inline-block; width: 80px; height: 22px; line-height: 22px}
+
+/* 사이트 어드민 최초등록 안내 */
+.admin_setting {background:#fff url(../images/admin/setting_bg.png) repeat 0 0;font-family:맑은고딕,Malgun Gothic,돋움,dotum,AppleGothic,arial,Helvetica,sans-serif;letter-spacing:-1px}
+.admin_setting div.footer_color {background:#20242}
+.admin_setting div.progress {position:relative;background:#202427;height:135px;padding:50px 0 0 0;}
+.admin_setting div.progress ul {position:relative;width:610px;margin:0 auto;height:100px;}
+.admin_setting div.progress li.pro_step {float:left;width:122px}
+.admin_setting div.progress span {text-align:center;}
+.admin_setting div.progress span.pro01_ing,
+.admin_setting div.progress span.pro02_ing,
+.admin_setting div.progress span.pro03_ing,
+.admin_setting div.progress span.pro04_ing,
+.admin_setting div.progress span.pro05_ing,
+.admin_setting div.progress span.pro06_ing,
+.admin_setting div.progress span.pro01_compl,
+.admin_setting div.progress span.pro02_compl,
+.admin_setting div.progress span.pro03_compl,
+.admin_setting div.progress span.pro04_compl,
+.admin_setting div.progress span.pro05_compl {margin-left:35px;display:block;width:52px;height:52px}
+.admin_setting div.progress span.pro01_ing {background: url(../images/admin/progress_01_ing.png) no-repeat;}
+.admin_setting div.progress span.pro02_ing {background: url(../images/admin/progress_02_ing.png) no-repeat;}
+.admin_setting div.progress span.pro03_ing {background: url(../images/admin/progress_03_ing.png) no-repeat;}
+.admin_setting div.progress span.pro04_ing {background: url(../images/admin/progress_04_ing.png) no-repeat;}
+.admin_setting div.progress span.pro05_ing {background: url(../images/admin/progress_05_ing.png) no-repeat;}
+.admin_setting div.progress span.pro06_ing {background: url(../images/admin/progress_06_ing.png) no-repeat;}
+.admin_setting div.progress span.pro01_compl {background: url(../images/admin/progress_01_compl.png) no-repeat;}
+.admin_setting div.progress span.pro02_compl {background: url(../images/admin/progress_02_compl.png) no-repeat;}
+.admin_setting div.progress span.pro03_compl {background: url(../images/admin/progress_03_compl.png) no-repeat;}
+.admin_setting div.progress span.pro04_compl {background: url(../images/admin/progress_04_compl.png) no-repeat;}
+.admin_setting div.progress span.pro05_compl {background: url(../images/admin/progress_05_compl.png) no-repeat;}
+.admin_setting div.progress span.pro_txt {color:#fff;display:block;margin:0 auto;padding:22px 0;font-size:16px;text-align:center;}
+.admin_setting div.progress li.pro_dot1 {position:absolute;top:0px;left:89px;padding:20px 14px}
+.admin_setting div.progress li.pro_dot2 {position:absolute;top:0px;left:211px;padding:20px 14px}
+.admin_setting div.progress li.pro_dot3 {position:absolute;top:0px;left:333px;padding:20px 14px}
+.admin_setting div.progress li.pro_dot4 {position:absolute;top:0px;left:455px;padding:20px 14px}
+.admin_setting div.progress span.dot {display:inline-block;background: url(../images/admin/progress_dot.png) no-repeat;width:5px;height:5px;padding-right:4px}
+.admin_setting div.progress span.last {padding-right:0}
+.admin_setting div.contents {width:900px;margin:0 auto;padding:90px 0 0 0 }
+.admin_setting div.contents .txt_big {font-size:41px;font-weight:nomal;text-align:center}
+.admin_setting div.contents .txt_small {font-size:19px;padding-top:30px;line-height:30px;text-align:center}
+.admin_setting div.contents .txt span {display:block}
+.admin_setting div.contents .s_btn_g {text-align:center;display:block;margin-bottom:80px}
+.admin_setting div.contents .s_btn_g .mr {margin-right:8px}
+.admin_setting div.contents .s_btn {text-align:center;margin:50px 0;display:inline-block}
+.admin_setting div.contents .s_btn a {display:inline-block;height:43px;padding:0 38px;background:#0fc9da;border-radius:5px;line-height:41px;color:#fff;font-size:16px}
+.admin_setting div.contents .start a {background:#0fc9da;box-shadow:0 3px 0 #1ea9b2}
+.admin_setting div.contents .start a:hover {background:#0bbdcd;}
+.admin_setting div.contents .compl a {background:#0b80d4;box-shadow:0 3px 0 #0971bc}
+.admin_setting div.contents .compl a:hover {background:#0978c7;}
+.admin_setting div.contents .cancel a {background:#acacac;box-shadow:0 3px 0 #8b8888}
+.admin_setting div.contents .cancel a:hover {background:#9e9e9e;}
+.admin_setting div.contents .save1 a {background:#0abede;box-shadow:0 3px 0 #07a7c3}
+.admin_setting div.contents .save1 a:hover {background:#08b3d1;}
+.admin_setting div.contents .save2 a {background:#258ed9;box-shadow:0 3px 0 #197cc3}
+.admin_setting div.contents .save2 a:hover {background:#2086ce}
+.admin_setting div.contents .save3 a {background:#0ca2d3;box-shadow:0 3px 0 #068ebb}
+.admin_setting div.contents .save3 a:hover {background:#0b99c7;}
+
+.admin_setting div.content_body h5 {padding-left:10px;background:#0abede;color:#fff}
+.admin_setting div.content_body table td {background:#fff}
+.admin_setting div.contents span.txt_line {padding-top:5px;display:block}
+.admin_setting div.container div.header {background:#258ed9}
+.admin_setting div.container div.h_color {background:#0ca2d3}
+.admin_setting div.container div.header h2 {color:#fff}
+.admin_setting div.container div.content {background:#fff}
+
+/* layer */
+
+
+	/* layer_reading */
+	.layer_reading .tb_doc_info tbody th {width:70px !important; height: 26px; padding: 7px 5px; text-align:left}
+	/* layer_admin_sideJob */
+	div.layer_admin_sideJob {width: 600px}
+	div.layer_admin_sideJob div.wrap_oganization {height: 233px; border: 1px solid #ddd; background: #f2f2f2}
+	div.layer_admin_sideJob table.tb_select tr td div.wrap_list {height: 176px}
+	div.layer_admin_sideJob table.tb_select tr td {vertical-align: top}
+	div.layer_admin_sideJob div.tool_bar {padding: 0}
+	div.layer_admin_sideJob table.tb_select tr td.action {vertical-align: middle}
+	div.layer_admin_sideJob section.search .search_wrap {width: 100%}
+	div.layer_admin_sideJob section.search .search_wrap input.search {width: 200px}
+	div.layer_admin_sideJob div.content_tab_wrap {border: 0}
+	div.layer_admin_sideJob div.div_scroll {height: 193px}
+	div.layer_admin_sideJob div.content section.search {padding: 5px 6px}
+	div.layer_admin_sideJob .search_wrap input {padding: 4px}
+	div.layer_admin_sideJob div.layer_normal div.tool_bar {min-height: 32px}
+	div.layer_admin_sideJob p.desc {margin-bottom: 10px}
+	/* layer org */
+	div.layer_normal ul.group_set li.group a ins.ic,
+	div.layer_normal ul.data_set li.data a ins.ic,
+	div.array_option ul.group_set li.group a ins.ic
+	{vertical-align:middle}
+	.approval_history {position: relative; padding: 0 7px 0 46px; border-bottom: 1px solid #E6E6E6;  background: #fafafa;}
+	.approval_history .btn_minor_s {position: absolute;top: 4px;right: 4px;padding: 3px 8px 2px;vertical-align: middle;}
+	.approval_history select {height: 26px; line-height: 25px;}
+
+table.list_partDoc tbody tr th {width: 150px; text-align: left}
+
+/* layout */
+div.container div.content .culumn {margin: -20px}
+div.content_page form.form_type {margin: 7px 0;}
+table.form_type>tbody>tr>th {height: 26px}
+table.form_type th span.title, table.form_type th span.txt {display: inline-block; margin: 0; padding: 6px 0; color: #3b3b3b; font-weight: bold; font-size: 12px}
+
+.btn_nega, .btn {padding: 10px 15px}
+form.form_detailSearch div.page_action {border-top: 1px solid #ddd; padding: 15px 0; margin-top:10px; margin-bottom: 10px}
+form.form_detailSearch {padding: 10px 0}
+
+span.ic_ta			{display: inline-block; background: url(../images/icon_classic.png) no-repeat 0 0}
+span.ic_ta.ic_open	{background-position: 0 -80px; width: 20px; height: 20px}
+span.ic_close			{background-position: 0 -60px; width: 20px; height: 20px}
+
+/* div.container div.content_tb div.col1 div.tool_bar, div.container div.content_tb div.col2 div.tool_bar {padding-right: 15px; padding-top: 15px} */
+div.container div.content_tb div.col2 div.dataTables_length {margin: 0}
+
+div.layer_doc_type_select div.list_wrap {
+height: 200px;
+padding: 8px 0;
+border: 1px solid #ccc;
+}
+div.list_wrap {
+padding: 8px;
+border: 1px solid #ccc;
+background: #f4f4f4;
+box-shadow: inset 1px 1px 1px rgba(88,88,88,0.1);
+}
+div.layer_doc_type_select ul.side_depth li > p.title {
+padding-left: 10px;
+}
+
+div.content table.detail div.sign_type_new table.tb_sign_type1 tbody tr td {border-bottom: 1px solid #666 }
+div.content table.detail div.sign_type_new {margin-bottom: 4px}
+
+
+.ic.ic_drag {background-position:0px -650px; width:6px; height:10px}
+.ic_stair_open {display: inline-block; background:url(../images/ic.png) no-repeat 4px -548px; width:14px; height:14px; cursor:pointer}
+.ic_stair_close {display: inline-block; background:url(../images/ic.png) no-repeat 4px -496px; width:14px; height:14px; cursor:pointer}
+li.folder .item .tit .ic {background-position:-50px -550px; width:16px; height:14px}
+li.board .item .tit .ic {background-position:-50px -600px; width:13px; height:14px}
+
+
+/*admin 팝업공지 하단 버튼 영역 수정*/
+/* .btn_fn6 {cursor:pointer; display:inline-block; padding:2px 5px 1px 5px; color:#fff; font-weight:normal; font-size:11px;line-height:1.5;background:#a9a9a9; border-radius:2px; font-family:돋움,dotum,AppleGothic,arial,Helvetica,sans-serif;letter-spacing:-1px; vertical-align:middle} */
+
+
+.set_fieldName .header h2 {top: 4px!important}
+
+.type_nohead { }
+.type_nohead tbody tr th { height: 24px; border-top:solid 1px #eee; }
+.type_nohead tbody tr td { height: 24px; border-top:solid 1px #eee; padding: 5px 0px;  }
+.type_nohead tr:first-child th,
+.type_nohead tr:first-child td { border-top: none; }
+.type_nohead tr td:first-child { width: 100px;  }
+.type_nohead tr td:first-child + td { text-align: center !important; }
+.type_nohead .dataTables_empty {text-align: center}
+
+span.img_profile.approval_sign {width:80px; height:80px;}
+span.img_profile.approval_sign img {width:80px}
+
+/* alert_box */
+.alert_box {display:block; background: #d8f4f5; border: 1px solid #b5d2d3; padding: 2px 8px; font: bold 12px dotum; color: #333; min-width: 75px}
+.alert_box .txt {padding: 4px 0 2px; line-height: normal}
+.alert_box span {vertical-align: top; display: inline-block}
+
+.opt_repeat > div {position: relative; margin: 4px 0}
+.opt_repeat .opt {margin: 0 0 0 64px}
+.opt_repeat .tit {display: inline-block; position: absolute; top: 9px; left: 0}
+.opt_repeat .opt_repeatDay .tit {top: 6px}
+
+
+
+div.search_option {
+    display: inline-block;
+    margin-right: 15px;
+}
+
+div.container div.content .drag_option_wrap {max-width: 240px;}
+
+
+.go-editor {background: #fff; padding-bottom: 10px}
+
+	/* form */
+
+/* 	
+	.wrap_txt {display: inline-block; padding: 2px 0; height: 32px; line-height: 32px; vertical-align: top;} */
+
+	.w_mini {width:15%}
+	.w_small {width:31%}
+	.w_medium {width:48%}
+	.w_large {width:85%}
+	.w_max {width:100%}
+	.wfix_mini {width: 40px; min-width: 0}
+	.wfix_small {width:90px}
+	.wfix_medium {width:120px}
+	.wfix_large {width:200px}
+	.wfix_max {width:300px}
+
+.notice {margin: 10px 0 0 0}
+.notice .tit {margin: 0 0 10px 0}
+.notice .list_notice li {padding: 4px 0}
+
+
+
+
+
+table.type_normal td span {}
+/* hack */
+	/* Safari and Chrome hack*/
+	@media screen and (-webkit-min-device-pixel-ratio:0) {
+	ul.list_option li .sub_depart input {margin-top: 5px}
+	ul.list_option li .sub_depart label {margin-top: 5px}
+	}
+	/* firefox hack*/
+	@-moz-document url-prefix() {
+	ul.list_option li .sub_depart input {margin-top: 5px; border: 1px solid red}
+	ul.list_option li .sub_depart label {margin-top: 5px}
+	}
+
+/* IE11 */
+ @media all and (-ms-high-contrast:none) {
+	.wrap_btn_toggle .btn_toggle {line-height: 30px}
+	 }
+
+
+
+/* guide : 용도는? */
+.wrap_help a {color: #2949bf}
+.wrap_help a:hover {text-decoration: underline}
+.wrap_help {background: #fff; min-width: 0; font-family: "나눔고딕","Nanum Gothic","NanumGothicWebFont","Dotum","돋움","Helvetica","Apple SD Gothic Neo","sans-serif"; font-weight: normal; font-size: 13px}
+.wrap_help .header {background: #222; height: 70px}
+.wrap_help .header h1 {font-size: 20px; color: #fff; font-weight: normal; text-align: center; height: 70px; line-height: 70px}
+.help {width: 800px; margin: 0 auto; line-height: 1.8}
+.help .sec {border-top: 10px solid #e6e6e6; padding: 40px 30px}
+.help .sec:first-child {border-top: 0}
+.help .sec h2 {font-size: 30px; letter-spacing: -3px; font-weight: normal}
+.help .sec h3 {font-size: 24px; letter-spacing: -3px; font-weight: normal}
+.help .sec .desc {margin: 10px 0}
+.help .sec .shot {margin: 20px 0}
+.help .sec .list_disc, .help .sec .list_decimal  {margin: 20px 0 0 20px}
+.help .sec .list_map li a {color: #2949bf; font-size: 15px; letter-spacing: -1px}
+.help .sec .list_map li a:hover {text-decoration: underline}
+
+/*table.article_head table.tb_article_head {margin: 0}*/
+/*.option_wrap {min-width: auto}*/
+/*table.detail tr th span.title {margin-top: 2px}*/
+.list_disc {list-style-type: disc;}
+.list_decimal {list-style-type: decimal}
+.noti_caution .tit {border-top: 8px solid #f53535; font-size: 14; letter-spacing: -1px; font-weight: bold}
+.noti_caution .tit {padding: 5px 0 2px; color: red}
+.noti_caution .txt {color: #888}
+.noti_caution.normal .tit {border-top: 8px solid #999}
+.noti_caution.normal .tit {color: #999}
+.noti_caution .txt .list_decimal {margin-top: 0}
+.help .sec .noti_caution {margin: 20px 0 0 0}
+.help .sec .wrap_culum {margin: 20px 0}
+.help .sec .wrap_culum:after {display: block; content: ''; overflow: hidden; clear: left}
+.help .sec .wrap_culum .culum {float: left; width: 350px; margin-left: 40px}
+.help .sec .wrap_culum .culum img {margin: 45px}
+.help .sec .wrap_culum .culum:first-child {margin-left: 0}
+.help .sec .wrap_culum .culum .shot {width: 350px; height: 350px; background: #f5f5f5}
+.help .sec .wrap_culum .culum .shot + ul .list_decimal{margin-top: 0}
+.help .posi {color: #888}
+
+.shot+.posi {margin-top:40px}
+
+
+

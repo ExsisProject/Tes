@@ -1,0 +1,104 @@
+<header class="content_top">
+</header>
+<!--목록-->
+<div class="content_page go_renew go_alarm" >        
+	<form>
+	    <fieldset>
+	        <table class="form_type form_add04">
+	            <tbody>
+	               <tr>
+                        <th class="sorting_disabled">
+                            <span class="title">{{lang.검색 기간}}</span>
+                        </th>
+                        <td>
+                            <span class="wrap_date"><input id="startDate" class="txt wfix_small" type="text" value="" readonly /><span class="ic ic_calendar"></span></span>                                    
+                            <span class="wrap_date"><input id="endDate" class="txt wfix_small" type="text" value="" readonly /><span class="ic ic_calendar"></span></span>                                                                        
+                        </td>
+                    </tr>
+	                <tr>
+	                    <th class="sorting_disabled">
+	                        <span class="title">{{lang.관리자}}</span>
+	                    </th>
+	                    <td>                                    
+	                        <div class="wrap_txt "><input id="accessUserName" class="txt w_max" type="text"></div>
+	                    </td>
+	                </tr>
+	                <tr>
+	                    <th class="sorting_disabled"><span class="title">{{lang.작업구분}}</span></th>
+	                    <td>
+	                        <span class="wrap_option">
+	                            <input type="checkbox" name="allCheck" id="allCheck"><label for="allCheck">{{lang.전체}}</label>
+	                        </span>
+	                        <span class="horspace1"></span>
+	                        <span class="wrap_option">                          
+	                            <input type="checkbox" name="list" id="list"><label for="list">{{lang.목록}}</label>
+	                        </span>
+	                        <span class="horspace1"></span>
+                            <span class="wrap_option">                          
+                                <input type="checkbox" name="view" id="view"><label for="view">{{lang.조회}}</label>
+                            </span>
+	                        <span class="horspace1"></span>
+	                        <span class="wrap_option">                          
+	                            <input type="checkbox" name="bodymodify" id="bodymodify"><label for="bodymodify">{{lang.내용 수정}}</label>
+	                        </span>
+	                        <span class="horspace1"></span>
+	                        <span class="wrap_option">                          
+	                            <input type="checkbox" name="flowmodify" id="flowmodify"><label for="flowmodify">{{lang.결재선 수정}}</label>
+	                        </span>
+	                        <span class="horspace1"></span>
+                            <span class="wrap_option">                          
+                                <input type="checkbox" name="forcereturn" id="forcereturn"><label for="forcereturn">{{lang.강제반려}}</label>
+                            </span>
+                            <span class="horspace1"></span>
+                            <span class="wrap_option">
+                                <input type="checkbox" name="forcerecvreturned" id="forcerecvreturned"><label for="forcerecvreturned">{{lang.강제반송}}</label>
+                            </span>
+                            <span class="horspace1"></span>
+                            <span class="wrap_option">
+                                <input type="checkbox" name="withdraw" id="withdraw"><label for="withdraw">{{lang.접수취소}}</label>
+                            </span>
+                            <span class="horspace1"></span>
+                            <span class="wrap_option">                          
+                                <input type="checkbox" name="delete" id="delete"><label for="delete">{{lang.삭제}}</label>
+                            </span>
+	                    </td>
+	                </tr>
+	                <tr class="line"><td colspan="2"><hr></td></tr>
+	            </tbody>
+	        </table>                    
+	    </fieldset>
+	</form>
+	<!-- // 관리자 작업기록 검색 -->
+	<div class="page_action_wrap">
+        <a id="btn_search_manage_log" class="btn_major" data-role="button"><span class="txt">{{lang.검색}}</span></a>
+	</div>
+	
+	<!-- // 관리자 작업기록 리스트 -->
+    <div class="dataTables_wrapper">
+        <!-- 툴바  -->
+        <div class="tool_bar">             
+            <!-- 리스트 갯수 선택 select box (마크업 유지) -->
+            <div class="dataTables_length">
+            </div>
+        </div>
+        <!-- 테이블 -->        
+        <table class="type_normal list_manager_record">   
+            <thead>
+                <tr>
+                    <th id="header_accessAt_at" sort-id="accessAt" class="sorting date"><span class="title_sort">{{columns.일시}}<ins class="ic"></ins><span class="selected"></span></span></th>
+                    <th id="header_access_type" sort-id="type" class="sorting work"><span class="title_sort">{{columns.작업구분}}<ins class="ic"></ins><span class="selected"></span></span></th>
+                    <th id="header_user_name" sort-id="accessUser" class="sorting manager"><span class="title_sort">{{columns.이름}}<ins class="ic"></ins><span class="selected"></span></span></th>
+                    <th id="header_form_name" sort-id="docFormName" class="sorting doc_type"><span class="title_sort">{{columns.결재양식}}<ins class="ic"></ins><span class="selected"></span></span></th>
+                    <th id="header_title" sort-id="docTitle" class="sorting name"><span class="title_sort">{{columns.문서명}}<ins class="ic"></ins><span class="selected"></span></span></th>
+                    <th id="header_drafter_name" sort-id="docDrafterName" class="sorting writer"><span class="title_sort">{{columns.기안자}}<ins class="ic"></ins><span class="selected"></span></span></th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        <div class="tool_bar tool_absolute">
+            <!--  상단 메뉴와 동일 -->
+            <div class="dataTables_length"></div>                 
+        </div>
+    </div>
+</div>

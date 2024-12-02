@@ -1,0 +1,72 @@
+<div class="reportInputForm reportCreateArea">
+	<header>
+		<div class="reporter">
+			<span class="name">{{data.reporter.name}} {{data.reporter.position}}</span>
+			<input type="hidden" value="{{data.id}}" id="reportId">
+			<input type="hidden" value="{{data.status}}" id="reportStatus">
+		</div>
+		<div class="tool_bar">
+			<ul class="optional">
+				<li><a class="btn_tool"><span class="ic_toolbar receive"></span><span class="txt" id="callPrevSeries">{{lang.callPrevSeries}}</span></a></li>
+			</ul>
+		</div>
+		<a class="btn_layer_x" title="{{lang.close}}"  id="closeCreateForm"><span class="ic"></span><span class="txt">{{lang.close}}</span></a>
+	</header>
+<!--보고내용-->
+	<div class="report_import">
+		<form class="form_doc_editor report_import createForm ie9-scroll-fix" id="editorForm" style="min-height:300px">
+			<div id="editor" style="width: 100%"></div>
+		</form>
+<!--//보고내용-->
+		<div class="bar"></div>
+		<table class="form_type">
+			<colgroup>
+				<col width="120px">
+				<col width="*">
+			</colgroup>
+			<tbody>
+				<tr>
+					<th>
+						<span class="title">{{lang.파일첨부}}</span>
+						{{#isSaaS}}
+						<span class="help">
+							<span class="tool_tip top" style="width:210px">{{lang.첨부파일 1개의 최대 용량은 NNN MB 이며 최대 N개 까지 등록 가능합니다}}
+								<i class="tail_left"></i>
+							</span>
+						</span>
+						{{/isSaaS}}
+					</th>
+					<td>
+						<div id="fileComplete">
+							<!-- 첨부파일 default -->
+							<div id="dropZone" class="dd_attach">
+								<p class="drag_txt">{{lang.이 곳에 파일을 드래그 하세요}}</p>
+								<div class="area_txt">
+									<span class="ic_attach ic_upload"></span>
+									<span class="msg">{{lang.이 곳에 파일을 드래그 하세요 또는}}
+										<span class="btn_file" id="swfupload-control"></span>
+										<span id="total_size" class="size"></span>
+									</span>
+								</div>
+								<div class="progress">
+								</div>
+								<div class="wrap_attach">
+									<!-- 파일 첨부 스타일  -->
+									<ul class="file_wrap" id="fileWrap"></ul>
+									<!-- 이미지 첨부 스타일  -->
+									<ul class="img_wrap" id="imgWrap"></ul>
+								</div>
+							</div>
+						</div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<div class="bar"></div>
+		<div class="page_action_wrap">
+			<span class="btn_major" data-role="button" id="btnSave"><span class="txt">{{lang.submitReport}}</span></span>
+			<span class="btn_minor" data-role="button" id="btnTempSave"><span class="txt">{{lang.tempSave}}</span></span>
+		</div>
+	</div>
+</div>

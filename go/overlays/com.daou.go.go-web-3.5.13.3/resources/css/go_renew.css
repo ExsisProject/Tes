@@ -1,0 +1,177 @@
+@charset "UTF-8";
+
+/* form component */
+.go_renew input,.go_renew label,.go_renew select {display:inline-block}
+.go_renew input.txt, .go_renew textarea {border:1px solid #ddd; border-radius:2px;box-sizing:border-box; -moz-box-sizing:border-box}
+.go_renew input.txt {padding: 0 8px; height: 26px}
+.go_renew select {border:1px solid #ddd; height: 26px; padding: 0; min-width: 44px}
+.go_renew .wrap_single_form input[type="radio"],.go_renew .wrap_single_form input[type="checkbox"] {margrin:0}
+.go_renew input.txt {min-width:40px}
+.go_renew textarea {min-height:50px; max-height:200px; padding: 0 4px; margin:0; line-height:normal}
+.go_renew span.wrap_select_list {height:26px}
+.go_renew span.wrap_select_list input.txt {height:26px}
+.go_renew input[type="text"].comp,
+.go_renew textarea.comp {box-shadow:none; border-color:#ddd}
+.go_renew input.enter, .go_renew textarea.error {}
+.go_renew input.error,
+.go_renew input.error:focus,
+.go_renew input.error:hover,
+.go_renew textarea.error,
+.go_renew textarea.error:hover {border-color:red; color:red;}
+.go_renew span.btn_select {width:22px !important}
+.go_renew ul.select_list li.last {border-bottom-color:#cacaca}
+.go_renew .date_wave {display:inline-block}
+.go_renew .desc {line-height:1.5; margin: 0}
+.go_renew .caution {color:#ee3b4c}
+.go_renew .import  {color:#5083c1}
+.go_renew span.wrap_select_list input[type=text]:hover {border-color:#cacaca; border-radius:2px 2px 0 0}
+.go_renew input.txt:hover,
+.go_renew input[type=password]:hover,
+.go_renew textarea:hover,
+.go_renew select:hover {border:1px solid #ddd}
+
+.go_renew input.comp:hover,
+.go_renew input.comp[type=password]:hover,
+.go_renew textarea.comp:hover,
+.go_renew select.comp:hover
+{border:1px solid #969696; box-shadow:none}
+
+.go_renew input.txt:focus,
+.go_renew input[type=password]:focus,
+.go_renew textarea:focus,
+.go_renew input.comp:focus,
+.go_renew input.comp[type=password]:focus,
+.go_renew textarea.comp:focus
+{border:1px solid #1c99a0; box-shadow:inset 1px 1px 1px rgba(150,150,150,0.1)}
+
+.go_renew input.readonly:focus,
+.go_renew textarea.readonly:focus,
+.go_renew input.readonly:focus,
+.go_renew input.readonly[type=password]:focus,
+.go_renew textarea.readonly:focus
+{border-color:transparent; background-color:transparent; box-shadow:none}
+
+.go_renew input.readonly, .go_renew textarea.readonly {border-color:transparent; box-shadow:none; background:transparent; padding-left:0}
+.go_renew input.readonly:hover , .go_renew textarea.readonly:hover {border-color:transparent; box-shadow:none; cursor:default}
+
+input.tit[type="text"] {display:inline-block; width:auto; padding:5px 4px; border:1px solid #ededed; box-shadow:none; border-radius:2px; font:bold 17px dotum; min-width:570px}
+input.tit[type="text"]:hover {background-color:#f1f1f1}
+input.tit[type="text"]:focus {box-shadow: inset 1px 1px 1px rgba(150,150,150,0.1); border:1px solid #1c99a0}
+input.tit.error[type="text"]:hover {border:1px solid red}
+input.tit.error[type="text"]:focus {box-shadow: inset 1px 1px 1px rgba(150,150,150,0.1); border:1px solid red}
+
+input.ipt_tit[type="text"] {display: inline-block; width: auto; padding: 5px 4px; border: 1px solid #cacaca; border-top-color: #bcbcbc; border-bottom-color: #d9d9d9; box-shadow: none; border-radius: 2px; font: bold 17px dotum; min-width: 570px}
+
+/* spacer */
+.verspace1, .verspace2, .horspace1, .horspace2 {width:10px; height:10px}
+.verspace1 {display:block; height:12px}
+.verspace2 {display:block; height:50px}
+.horspace1 {display:inline-block; width:10px}
+.horspace2 {display:inline-block; width:50px}
+
+/* form size */
+.w_mini {width:15%}
+.w_small {width:31%}
+.w_medium {width:48%}
+.w_large {width:85%}
+.w_max {width:100%}
+.wfix_mini {width:30px}
+.wfix_small {width:95px}
+.wfix_medium {width:120px}
+.wfix_large {width:200px}
+.wfix_max {width:300px}
+
+.repeat_schedule .tab_nav li {height: 25px}
+/* wrapper component */
+.wrap_txt, .wrap_select, .wrap_label, .wrap_date,
+.go_renew .wrap_btn,
+.wrap_btn_m, .wrap_btn_s, .wrap_inbtn, span.wrap_txtarea {display:inline-block; padding:2px 0}
+div.wrap_txt {display:block}
+.wrap_txtarea {padding:2px 0; vertical-align:top}
+.wrap_btn_s {padding:7px 0}
+.wrap_btn_m {padding:5px 0}
+.wrap_btn_m .ic_setting {width:15px; height:15px;}
+.wrap_btn:hover, .wrap_btn_s:hover, .wrap_btn_m:hover  {cursor:pointer}
+.wrap_option {display:inline-block; padding:4px 0; vertical-align:middle;}
+.wrap_date  {position:relative}
+.wrap_date input.txt, .wrap_date input.txt[type="text"] {padding-left:26px !important; vertical-align:top; width:110px; box-sizing:border-box;}
+.wrap_date .ic_calendar {position:absolute; left:5px; top:5px}
+.wrap_date .ic_reset {position:absolute; left: initial; top: 7px; right: 4px}
+.wrap_btn ic_form {margin-right:3px}
+.wrap_option span.txt, .wrap_label span.txt, .wrap_txt span.txt, .wrap_btn span.txt,.wrap_date span.txt {line-height:normal; display:inline-block;padding:8px 0 6px 2px}
+.wrap_name_tag {padding:2px 0}
+.wrap_name_tag ul.name_tag {margin-top:0 !important; display:inline-block}
+.wrap_name_tag span.wrap_btn {padding:0;}
+.wrap_name_tag ul.name_tag li {margin:2px 4px 2px 0}
+.wrap_name_tag ul.name_tag li + .creat {margin-left: 8px}
+.wrap_name_tag ul.name_tag li .ic_part {vertical-align: top; margin: 3px 4px 0 0}
+.wrap_txt > span.wrap_btn {padding:0}
+.wrap_txt > input.sm {width: 64px;}
+
+span.wrap_opt {display: inline-block; position: relative; padding: 4px 0}
+span.wrap_opt input {position: absolute; top: 8px !important; left: 0}
+span.wrap_opt label {display: inline-block; margin: 0 0 0 24px; line-height: 1.5}
+
+.go_renew .btn_creat {}
+.go_renew .btn_creat .ic_form {margin-right:3px}
+.go_renew .btn_creat span.txt  {padding:6px 0; line-height:normal}
+.btn_creat .txt {font-size: 13px; color: #555}
+br + .wrap_option  {padding:6px 0}
+.wrap_option > span.desc {padding:0; line-height:1.2}
+.wrap_ic {display:inline-block;padding:2px 0}
+.wrap_ic .num {font-size: 13px; color: #999}
+.wrap_ic_m {display:inline-block; padding:5px 0; vertical-align:top}
+.wrap_ic_s {display:inline-block; padding:7px 0; vertical-align:top}
+.wrap_desc {display:block;padding:6px 0; vertical-align:top}
+.wrap_desc_top {display:block;padding:1px 0 6px; vertical-align:top}
+.wrap_desc_btm {display:block;padding: 8px 0}
+div.wrap_desc  {display:block}
+div.wrap_txt {display:block}
+.wrapper_multi {display:inline-block}
+.cus_select_list {display:inline-block; position:relative; display:block; max-height:150px; overflow-y:auto}
+.wrap_btn_txt {}
+.go_renew table.form_type>th {padding:7px 5px 7px 13px}
+.go_renew form.editor_form table.form_type>td {padding:5px}
+.go_renew form.editor_form table.form_article td {vertical-align:top; padding:0}
+table.tb_article_head thead th.action {text-align:center}
+table.tb_article_head tbody td.action {text-align:center}
+
+.go_renew ul.type_style li {padding:2px 0}
+.go_renew table.form_type th span.title span.help {margin-top:-1px}
+.form_type table.in_table tbody td span.wrap_btn_m {padding:2px 0}
+.form_type table.in_table tbody th span.txt {color:#777}
+.go_renew div.option_display {line-height:1.2}
+.go_renew div.basic_info {padding:0 24px}
+.go_renew div.basic_info .title_wrap .wrap_option {margin: 0 0 0 8px}
+.go_renew div.basic_info div.title_wrap {margin-bottom: 6px}
+.go_renew div.basic_info div.date_wrap {margin-bottom: -2px}
+.go_renew div.basic_info div.date_wrap .wrap_alert {margin: 8px 0 0 0}
+.go_renew div.basic_info span.wrap_ic_s {margin: 0 0 0 4px}
+
+.go_renew table.form_type td div.wrap_txtarea.single  {margin:0 24px}
+.go_renew table.form_type td div.wrap_txtarea.single textarea {min-height:120px}
+.go_renew .tab_menu_wrap + .content_page.go_renew > p.desc {padding:0 24px 10px;}
+.tool_bar.custom_bottom {padding-top: 8px}
+.go_renew .layer_normal table.form_type th {padding:}
+.go_renew .layer_normal table.form_type td {padding:5px 10px 5px 0}
+
+.go_renew div.option_display {margin:0}
+.go_renew div.main + div.option_display {margin-top:4px;}
+.go_renew div.option_display > div.option_group {padding-top: 2px}
+.go_renew div.option_display > div.option_group span.wrap_option:first-child {padding: 0px}
+
+.go_renew div.option_display.option_asset_add {padding:10px 24px;}
+.go_renew table.form_type>tbody td {padding:4px 24px 4px 0}
+
+.go_renew table.tb_list_sub tbody td {padding:0}
+
+
+/* IE HACK */
+@media \0screen {
+ .go_renew .wrap_date .ic_calendar{top: 4px}
+ .go_renew .article_head_wrap select {height:21px}
+ .go_renew input.txt  {height:26px}
+}
+/* overide */
+div.go_renew div.detail_search table.form_type th span.title {margin-top:0}
+/*div.go_renew div.reply_wrap div.wrap_txtarea textarea.txtarea {min-height:26px}*/

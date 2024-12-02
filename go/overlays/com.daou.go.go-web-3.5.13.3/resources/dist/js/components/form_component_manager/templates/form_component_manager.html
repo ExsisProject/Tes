@@ -1,0 +1,535 @@
+<div class="prototype">
+    <div class="gnb">
+        <div class="subject">
+            {{#useTitle}}
+            <input id="formName" class="ipt_prototype w_max" type="text" value="{{title}}" placeholder="{{lang.제목을 입력하세요}}">
+            {{/useTitle}}
+        </div>
+        <!--<div class="opt_docSize">
+            <a class="ic_prototype ic_prototype_h on" data-layout-button="vertical">
+                <span class="tooltip_type2" style="left: -88px; display: none; opacity: 1;">
+                    <span class="tit">{{lang.세로 모드}}</span>
+                    <span class="desc">{{{lang.세로 모드 설명}}}</span>
+                    <i class="tail"></i>
+                </span>
+            </a>
+            <a class="ic_prototype ic_prototype_w" data-layout-button="wide">
+                <span class="tooltip_type2" style="left: -85px; display: none; opacity: 1;">
+                    <span class="tit">{{lang.전체 모드}}</span>
+                    <span class="desc">{{{lang.전체 모드 설명}}}</span>
+                    <i class="tail"></i>
+                </span>
+            </a>
+            <a class="ic_prototype ic_prototype_n" data-layout-button="custom">
+                <span class="tooltip_type2" style="left: -100px; display: none; opacity: 1;">
+                    <span class="tit">{{lang.사용자 설정}}</span>
+                    <span class="desc">{{{lang.사용자 설정 설명}}}</span>
+                    <i class="tail"></i>
+                </span>
+            </a>
+            <span class="mode_custom_wrap" style="display: none;" data-custom-wrapper>
+                <span class="mode_custom ">
+                    <span class="ic_prototype ic_prototype_n on"></span>
+                    <input class="ipt_prototype w_fix_m" type="text" data-layout-input>
+                    <span class="validation_wrap" style="display: none">
+                        <span class="validation">
+                            <span class="btn_validation">!</span>
+                            <span class="msg" data-alert>{{lang.100 ~ 2000 값을 입력 할 수 있습니다}}</span>
+                        </span>
+                    </span>
+                </span>
+            </span>
+        </div>-->
+        <div class="nav">
+            {{#useLoadForm}}
+            <a id="loadForm">{{lang.다른 양식 불러오기}}</a>
+            {{/useLoadForm}}
+            <a class="btn_preview" id="formEditorPrevie">{{lang.미리보기}}</a>
+            <a class="" id="formEditorCancel">{{lang.취소}}</a>
+            <a class="btn_save" id="formEditorSave">
+                <span class="ic_prototype ic_prototype_save"></span>
+            </a>
+        </div>
+    </div>
+    <div class="contents">
+        <div class="comp">
+            <div class="panel">
+                <a class="panel_tit" data-left-panel="base">
+                    <span class="label">{{lang.기본 항목}}</span>
+                    <span class="ic_prototype ic_prototype_up"></span>
+                </a>
+                <div class="panel_contents" data-left-panel-contents="base">
+                    <ul class="list_comp" id="base"></ul>
+                </div>
+            </div>
+            {{#hasAuto}}
+            <div class="panel">
+                <a class="panel_tit" data-left-panel="auto">
+                    <span class="label">{{lang.자동 항목}}</span>
+                    <span class="ic_prototype ic_prototype_up"></span>
+                </a>
+                <div class="panel_contents" data-left-panel-contents="auto" style="display: none;">
+                    <ul class="list_comp" id="auto" ></ul>
+                </div>
+            </div>
+            {{/hasAuto}}
+            {{#hasAdvanced}}
+            <div class="panel">
+                <a class="panel_tit" data-left-panel="advanced">
+                    <span class="label">{{lang.고급 항목}}</span>
+                    <span class="ic_prototype ic_prototype_up"></span>
+                </a>
+                <div class="panel_contents" data-left-panel-contents="advanced" style="display: none;">
+                    <ul class="list_comp" id="advanced"></ul>
+                </div>
+            </div>
+            {{/hasAdvanced}}
+        </div>
+        <div class="ruler_w" style="display: none;">
+            <span></span><span>0</span><span>50</span><span>100</span><span>150</span><span>200</span><span>250</span><span>300</span><span>350</span><span>400</span><span>450</span><span>500</span><span>550</span><span>600</span><span>650</span><span>700</span><span>750</span><span>800</span><span>850</span><span>900</span><span>950</span><span>1000</span><span>1050</span><span>1100</span><span>1150</span><span>1200</span><span>1250</span><span>1300</span><span>1350</span><span>1400</span><span>1450</span><span>1500</span><span>1550</span><span>1600</span><span>1650</span><span>1700</span><span>1750</span><span>1800</span><span>1850</span><span>1900</span><span>1950</span><span>2000</span><span>2050</span><span>2100</span><span>2150</span><span>2200</span><span>2250</span><span>2300</span><span>2350</span><span>24500</span><span>2450</span><span>2500</span><span>2550</span><span>2600</span><span>2650</span><span>2700</span><span>2750</span><span>2800</span><span>2850</span><span>2900</span><span>2950</span><span>3000</span>
+        </div>
+        <div class="doc">
+            <div id="formEditor" class="editorBox" style="margin-top: 0px; width: 100%;"></div>
+        </div>
+        <div class="attr" style="overflow-y: scroll;">
+            <div class="attr_null" data-not-selected>
+                <span class="attr_null_ic">!</span>
+                <div class="attr_null_tit">{{lang.선택된 항목이 없습니다}}</div>
+                <div class="attr_null_desc">{{lang.항목을 선택하면 각 항목에서 설정할 수 있는 속성들을 적용할 수 있습니다}}</div>
+            </div>
+            <div class="panel" data-attribute-area="component" style="display: none;">
+                <a class="panel_tit" data-right-panel="componentNormal">
+                    <span class="label">
+                        <span class="txt" data-component-label="component"></span>
+                    </span>
+                    <span class="ic_prototype ic_prototype_up"></span>
+                </a>
+                <div class="panel_contents" data-right-panel-contents="componentNormal">
+                    <div class="panel_desc" data-desc-area="component">desc</div>
+                    <ul class="list_attr">
+                        <li id="requireSettingArea">
+                            <div class="tit">
+                                <span class="txt">{{lang.필수 입력}}</span>
+                            </div>
+                            <div class="data">
+                                <span class="wrap_attr_toggle">
+                                    <input type="checkbox" value="isRequire" id="isRequire" name="isRequire" data-listen-form="change">
+                                    <span data-cover="toggle" class="ic_prototype ic_attr_toggle_off"></span>
+                                </span>
+                            </div>
+                        </li>
+                        <li id="maxLengthSettingArea">
+                            <div class="tit">
+                                <span class="txt" data-custom-label="maxLength">{{lang.최대 입력값}}</span>
+                            </div>
+                            <div class="data">
+                                <span class="wrap_attr_ipt w_max attr_max">
+                                    <input class="ipt_prototype w_max" type="text" id="maxlength" name="maxlength" data-listen-form="change">
+                                    <span class="figure"></span>
+                                </span>
+                            </div>
+                        </li>
+                        <li id="widthSettingArea">
+                            <div class="tit">
+                                <span class="txt">{{lang.입력 너비 조정}}</span>
+                            </div>
+                            <div class="data">
+                                <span class="wrap_attr_ipt">
+                                    <input class="ipt_prototype attr_size" type="text" id="width" name="width" data-listen-form="change">
+                                </span>
+                            </div>
+                        </li>
+                        <li id="defaultStrSettingArea">
+                            <div class="tit">
+                                <span class="txt">{{lang.기본값}}</span>
+                            </div>
+                            <div class="data">
+                                <span class="wrap_ipt w_max">
+                                    <input class="ipt_prototype w_max" type="text" id="defaultstr" name="defaultstr" data-listen-form="change">
+                                </span>
+                            </div>
+                        </li>
+                        <li id="digitsSettingArea">
+                            <div class="tit">
+                                <span class="txt">{{lang.소수점 자리 수}}</span>
+                            </div>
+                            <div class="data">
+                                <span class="wrap_ipt w_max">
+                                    <input class="ipt_prototype w_max" type="text" id="currencyDigits" name="currencyDigits" data-listen-form="change">
+                                </span>
+                            </div>
+                        </li>
+                        <li data-option-area>
+                            <div class="tit">
+                                <span class="txt">{{lang.세부 항목}}</span>
+                            </div>
+                            <div class="data">
+                                <ul class="attr_move_list" id="options">
+                                    <li>
+                                        <i class="ic_prototype ic_prototype_move"></i>
+                                            <span class="attr_optipt_wrap">
+                                                <input class="ipt_prototype" type="text" data-option-name>
+                                            </span>
+                                        <i class="ic_prototype ic_prototype_del_s" data-delete-option ></i>
+                                    </li>
+                                    <li>
+                                        <i class="ic_prototype ic_prototype_move"></i>
+                                            <span class="attr_optipt_wrap">
+                                                <input class="ipt_prototype" type="text" data-option-name>
+                                            </span>
+                                        <i class="ic_prototype ic_prototype_del_s" data-delete-option></i>
+                                    </li>
+                                    <li class="btn_func" data-add-option>
+                                        <span class="txt">+ {{lang.추가}}</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li id="componentDocTypeArea">
+                            <div class="tit">
+                                <span class="txt">{{lang.문서번호 타입}}</span><span class="btn_help">?</span>
+                                <p class="help" style="display: none;">{{{lang.문서번호 타입 설명}}}</p>
+                            </div>
+                            <div class="data">
+                                <span class="wrap_attr_chk">
+                                    <input type="radio" id="origin" name="componentDocType" value="origin" data-listen-form="change">
+                                    <i data-cover="radio" class="ic_prototype ic_prototype_radio_selected"></i>
+                                    <label for="origin">{{lang.원본문서번호}} </label>
+                                </span>
+                                <span class="horspace1"></span>
+                                <span class="wrap_attr_chk">
+                                    <input type="radio" id="reception" name="componentDocType" value="reception" data-listen-form="change">
+                                    <i data-cover="radio" class="ic_prototype ic_prototype_radio"></i>
+                                    <label for="reception">{{lang.수신문서번호}}</label>
+                                </span>
+                            </div>
+                        </li>
+                        <!--<li id="fontSizeSettingArea">-->
+                            <!--<div class="tit">-->
+                                <!--<span class="txt">{{lang.글씨 크기}}</span>-->
+                            <!--</div>-->
+                            <!--<div class="data">-->
+                                <!--<span class="wrap_attr_slt w_max">-->
+                                    <!--<select id="fontSize" name="fontSize" class="w_max" data-listen-form="change">-->
+                                        <!--<option value="9">9pt</option>-->
+                                        <!--<option value="10">10pt</option>-->
+                                        <!--<option value="11">11pt</option>-->
+                                        <!--<option value="12">12pt</option>-->
+                                        <!--<option value="14">14pt</option>-->
+                                        <!--<option value="16">16pt</option>-->
+                                        <!--<option value="20">20pt</option>-->
+                                        <!--<option value="24">24pt</option>-->
+                                        <!--<option value="30">30pt</option>-->
+                                        <!--<option value="36">36pt</option>-->
+                                    <!--</select>-->
+                                    <!--<span class="attr_slt w_max" data-select-custom="fontSize">-->
+                                        <!--<span class="txt" data-select-custom-value="fontSize" data-value="10">10pt</span>-->
+                                        <!--<i class="ic_prototype ic_prototype_slt"></i>-->
+                                        <!--<dl style="display:none" data-select-custom-layer="fontSize">-->
+                                            <!--<dd data-value="9">9pt</dd>-->
+                                            <!--<dd data-value="10">10pt</dd>-->
+                                            <!--<dd data-value="11">11pt</dd>-->
+                                            <!--<dd data-value="12">12pt</dd>-->
+                                            <!--<dd data-value="14">14pt</dd>-->
+                                            <!--<dd data-value="16">16pt</dd>-->
+                                            <!--<dd data-value="20">20pt</dd>-->
+                                            <!--<dd data-value="24">24pt</dd>-->
+                                            <!--<dd data-value="30">30pt</dd>-->
+                                            <!--<dd data-value="36">36pt</dd>-->
+                                        <!--</dl>-->
+                                    <!--</span>-->
+                                <!--</span>-->
+                            <!--</div>-->
+                        <!--</li>-->
+                    </ul>
+                </div>
+            </div>
+            <div class="panel" data-attribute-area="room" style="display: none;" data-common-room-area>
+                <a  class="panel_tit" data-right-panel="roomCommon">
+                    <span class="label">
+                        <span class="txt">{{lang.결재선 공통 속성}}</span>
+                    </span>
+                    <span class="ic_prototype ic_prototype_up"></span>
+                </a>
+                <div class="panel_contents" data-right-panel-contents="roomCommon" style="display: none;">
+                    <ul class="list_attr">
+                        <li>
+                            <div class="tit">
+                                <span class="txt">{{lang.결재선 순서 설정}}</span><span class="btn_help">?</span>
+                                <p class="help" style="display: none;">
+                                    {{lang.결재선 순서 설정 도움말}}
+                                </p>
+                            </div>
+                            <div class="data">
+                                <ul class="attr_move_list" data-sortable-area></ul>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="tit">
+                                <span class="txt">{{lang.결재선 기본 설정}}</span><span class="btn_help">?</span>
+                                <p class="help" style="display: none;">
+                                    {{lang.결재선 기본 설정 도움말}}
+                                </p>
+                            </div>
+                            <div class="data">
+                                <span class="wrap_attr_chk">
+                                    <input data-room-default type="checkbox" id="assignedActivityDeletable" name="assignedActivityDeletable" {{#assignedActivityDeletable}}checked="checked"{{/assignedActivityDeletable}}>
+                                    <i data-cover="check" class="ic_prototype ic_prototype_chk"></i>
+                                    <label for="assignedActivityDeletable">{{lang.사용자가 지정 결재자를 삭제할 수 있음}}</label>
+                                </span>
+                                <br>
+                                <span class="wrap_attr_chk">
+                                    <input data-room-default type="checkbox" id="useDisplayDrafter" name="useDisplayDrafter" {{#useDisplayDrafter}}checked="checked"{{/useDisplayDrafter}}>
+                                    <i data-cover="check" class="ic_prototype ic_prototype_chk"></i>
+                                    <label for="useDisplayDrafter">{{lang.기안자 표시(체크를 해제하더라도 문서 상세정보에서는 기안자가 표시 됨)}}</label>
+                                </span>
+                                <br>
+                                <span class="wrap_attr_chk">
+                                    <input data-room-default type="checkbox" id="useIncludeAgreement" name="useIncludeAgreement" {{#useIncludeAgreement}}checked="checked"{{/useIncludeAgreement}}>
+                                    <i data-cover="check" class="ic_prototype ic_prototype_chk"></i>
+                                    <label for="useIncludeAgreement">{{lang.결재선에 결재와 합의를 같이 표시 함}}</label>
+                                </span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="panel" data-attribute-area="room" style="display: none;">
+                <a  class="panel_tit" data-right-panel="roomNormal">
+                    <span class="label">
+                        <span class="txt" data-component-label="room">{{lang.속성}}</span>
+                    </span>
+                    <span class="ic_prototype ic_prototype_up"></span>
+                </a>
+                <div class="panel_contents" data-right-panel-contents="roomNormal">
+                    <div class="panel_desc" data-desc-area="room">desc</div>
+                    <ul class="list_attr" data-normal-room-area>
+                        <li>
+                            <div class="tit">
+                                <span class="txt">{{lang.결재방 이름}}</span><span class="btn_help">?</span>
+                                <p class="help" style="display: none;">
+                                    {{lang.결재방 이름 도움말}}
+                                </p>
+                            </div>
+                            <div class="data">
+                                <span class="wrap_ipt w_max">
+                                    <input class="ipt_prototype w_max" type="text" id="roomName" data-listen-form="change">
+                                </span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="tit">
+                                <span class="txt">{{lang.최대 결재자}}</span><span class="btn_help">?</span>
+                                <p class="help" style="display: none;">
+                                    {{lang.최대 결재자 도움말}}
+                                </p>
+                            </div>
+                            <div class="data">
+                                <span class="wrap_attr_slt w_max">
+                                    <select id="maxApprovalCount" class="w_max" data-listen-form="change">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10">10</option>
+                                    </select>
+                                    <span class="attr_slt w_max" data-select-custom="maxApprovalCount">
+                                        <span class="txt" data-select-custom-value="maxApprovalCount" data-value="5">5</span>
+                                        <i class="ic_prototype ic_prototype_slt"></i>
+                                        <dl style="display:none" data-select-custom-layer="maxApprovalCount">
+                                            <dd data-value="1">1</dd><dd data-value="2">2</dd>
+                                            <dd data-value="3">3</dd><dd data-value="4">4</dd>
+                                            <dd data-value="5">5</dd><dd data-value="6">6</dd>
+                                            <dd data-value="7">7</dd><dd data-value="8">8</dd>
+                                            <dd data-value="9">9</dd><dd data-value="10">10</dd>
+                                        </dl>
+                                    </span>
+                                </span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="tit">
+                                <span class="txt">{{lang.결재 타입}}</span><span class="btn_help">?</span>
+                                <p class="help" style="display: none;">
+                                    {{lang.결재 타입 도움말}}
+                                </p></div>
+                            <div class="data">
+                                <span class="wrap_attr_chk">
+                                    <input type="checkbox" id="typeOpApproval" name="approvalType" value="approval">
+                                    <i data-cover="check" class="ic_prototype ic_prototype_chk"></i>
+                                    <label for="typeOpApproval">{{lang.결재}}</label>
+                                </span>
+                                <span class="horspace1"></span>
+                                {{#config.useAgreement}}
+                                <span class="wrap_attr_chk">
+                                    <input type="checkbox" id="typeOpAgreement" name="approvalType" value="agreement">
+                                    <i data-cover="check" class="ic_prototype ic_prototype_chk"></i>
+                                    <label for="typeOpAgreement">{{lang.합의}}</label>
+                                </span>
+                                {{/config.useAgreement}}
+                                <span class="horspace1"></span>
+                                {{#config.useCheckActivity}}
+                                <span class="wrap_attr_chk">
+                                    <input type="checkbox" id="typeOpCheck" name="approvalType" value="check">
+                                    <i data-cover="check" class="ic_prototype ic_prototype_chk"></i>
+                                    <label for="typeOpCheck">{{lang.확인}}</label>
+                                </span>
+                                {{/config.useCheckActivity}}
+                                {{#config.useInspectionActivity}}
+                                <span class="wrap_attr_chk">
+                                    <input type="checkbox" id="typeOpInspection" name="approvalType" value="inspection">
+                                    <i data-cover="check" class="ic_prototype ic_prototype_chk"></i>
+                                    <label for="typeOpInspection">{{lang.감사}}</label>
+                                </span>
+                                {{/config.useInspectionActivity}}
+                            </div>
+                        </li>
+                        <li>
+                            <div class="tit">
+                                <span class="txt">{{lang.지정결재자}}</span><span class="btn_help">?</span>
+                                <p class="help" style="display: none;">
+                                    {{lang.지정결재자 도움말}}
+                                </p></div>
+                            <div class="data">
+                                <ul class="attr_default_list" data-approval-members="approval" style="display: none;">
+                                    <li class="btn_func" data-add-activity="approval">
+                                        <span class="txt">+ {{lang.결재 추가}}</span>
+                                    </li>
+                                </ul>
+                                {{#config.useAgreement}}
+                                <ul class="attr_default_list" data-approval-members="agreement" style="display: none;">
+                                    <li class="btn_func" data-add-activity="agreement">
+                                        <span class="txt">+ {{lang.합의 추가}}</span>
+                                    </li>
+                                </ul>
+                                {{/config.useAgreement}}
+                                {{#config.useCheckActivity}}
+                                <ul class="attr_default_list" data-approval-members="check" style="display: none;">
+                                    <li class="btn_func" data-add-activity="check">
+                                        <span class="txt">+ {{lang.확인 추가}}</span>
+                                    </li>
+                                </ul>
+                                {{/config.useCheckActivity}}
+                                {{#config.useInspectionActivity}}
+                                <ul class="attr_default_list" data-approval-members="inspection" style="display: none;">
+                                    <li class="btn_func" data-add-activity="inspection">
+                                        <span class="txt">+ {{lang.감사 추가}}</span>
+                                    </li>
+                                </ul>
+                                {{/config.useInspectionActivity}}
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="panel" data-attribute-area="room" style="display: none;">
+                <a  class="panel_tit" data-right-panel="roomAdvanced">
+                    <span class="label">{{lang.고급 설정}}</span>
+                    <span class="ic_prototype ic_prototype_up"></span>
+                </a>
+                <div class="panel_contents" data-right-panel-contents="roomAdvanced" style="display: none;">
+                    <ul class="list_attr">
+                        <li data-normal-room-area>
+                            <div class="tit">
+                                <span class="txt">{{lang.자동 결재선}}</span>
+                                <span class="btn_help">?</span>
+                                <p class="help" style="display: none;">
+                                    {{lang.자동 결재선 도움말}}
+                                </p>
+                            </div>
+                            <div class="data">
+                                <span class="wrap_attr_toggle">
+                                    <input type="checkbox" id="typeOpAuto" name="approvalType" value="apprLineRule">
+                                    <span data-cover="toggle" class="ic_prototype ic_attr_toggle_off"></span>
+                                </span>
+                                <ul class="attr_default_list" data-approval-members="apprLineRule" style="display: none;">
+                                    <li class="btn_func" data-add-activity="apprLineRule">
+                                        <span class="txt">{{lang.자동 결재선}}</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="tit">
+                                <span class="txt">{{lang.결재방 표시 타입}}</span><span class="btn_help">?</span>
+                                <p class="help" style="display: none;">
+                                    {{lang.결재방 표시 타입 도움말}}
+                                </p>
+                            </div>
+                            <div class="data">
+                                <span class="wrap_attr_chk">
+                                    <input type="radio" id="type1" name="roomType" value="type1" data-listen-form="change">
+                                    <i data-cover="radio" class="ic_prototype ic_prototype_radio"></i>
+                                    <label for="type1">Type 1</label>
+                                </span>
+                                <span class="horspace1"></span>
+                                <span class="wrap_attr_chk">
+                                    <input type="radio" id="type2" name="roomType" value="type2" data-listen-form="change">
+                                    <i data-cover="radio" class="ic_prototype ic_prototype_radio"></i>
+                                    <label for="type2">Type 2</label>
+                                </span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="panel" data-attribute-area="component" style="display: none;">
+                <a  class="panel_tit" data-right-panel="componentNormal">
+                    <span class="label">{{lang.고급 설정}}</span>
+                    <span class="ic_prototype ic_prototype_up"></span>
+                </a>
+                <div class="panel_contents" data-right-panel-contents="componentNormal" style="display: none;">
+                    <ul class="list_attr">
+                        <li id="autoCalArea">
+                            <div class="tit">
+                                <span class="txt">{{lang.합계 사용 설정}}</span><span class="btn_help">?</span>
+                                <p class="help" style="display: none;">
+                                    {{lang.합계 사용 설정 설명}}
+                                </p>
+                            </div>
+                            <div class="data">
+                                <span class="wrap_attr_slt w_max">
+                                    <select id="numberType" class="w_max">
+                                        <option value="number">{{lang.일반 숫자}}</option>
+                                        <option value="cSum">{{lang.합계 입력}}</option>
+                                        <option value="rSum">{{lang.합계 표시}}</option>
+                                    </select>
+                                    <span class="attr_slt w_max" data-select-custom="numberType">
+                                        <span class="txt" data-select-custom-value="numberType" data-value="number">{{lang.일반 숫자}}</span>
+                                        <i class="ic_prototype ic_prototype_slt"></i>
+                                        <dl style="display:none" data-select-custom-layer="numberType">
+                                            <dd data-value="number">{{lang.일반 숫자}}</dd>
+                                            <dd data-value="cSum">{{lang.합계 입력}}</dd>
+                                            <dd data-value="rSum">{{lang.합계 표시}}</dd>
+                                        </dl>
+                                    </span>
+                                </span>
+                            </div>
+                        </li>
+                        <li id="idSettingArea">
+                            <div class="tit">
+                                <span class="txt">ID</span><span class="btn_help">?</span>
+                                <p class="help" style="display: none;">
+                                    {{lang.아이디 도움말}}
+                                </p>
+                            </div>
+                            <div class="data">
+                                <span class="wrap_ipt w_max">
+                                    <input class="ipt_prototype w_max" type="text" id="id" name="id" data-listen-form="change" maxlength="250">
+                                </span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <a class="attr_btn_hide">
+                <span class="ic_prototype ic_prototype_hide"></span>
+            </a>
+        </div>
+    </div>
+</div>

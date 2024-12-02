@@ -1,0 +1,1 @@
+define("works/models/workflow_stat",function(require){var e=require("backbone"),t=require("app"),n=require("when"),r=e.Model.extend({});return r});

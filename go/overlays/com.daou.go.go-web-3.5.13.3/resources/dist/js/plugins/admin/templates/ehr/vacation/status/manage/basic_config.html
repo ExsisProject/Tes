@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="header">
+        <h2>{{lang.기본 설정}}</h2>
+    </div>
+    <div class="content">
+        <table class="detail tb_annual_set">
+            <tbody>
+                <tr>
+                    <th><span class="title">{{lang.연차 데이터 메뉴연동}}</span>
+                        <span class="help">
+                            <span class="tool_tip" style="width:430px">{{lang.연차연동 설명}}<i class="tail_left"></i></span>
+                        </span>
+                    </th>
+                    <td>
+                        <span class="wrap_btn_toggle t3 apps">
+                            <button id="timelineLinkage" class="btn_toggle t3{{#data.timelineLinkageOn}} on{{/data.timelineLinkageOn}}" type="button" title="">{{lang.근태관리}}</button>
+                            <button id="calendarLinkage" class="btn_toggle t2{{#data.calendarLinkageOn}} on{{/data.calendarLinkageOn}}" type="button" title="">{{lang.캘린더}}</button>
+                            <button id="messengerLinkage" class="btn_toggle t1{{#data.messengerLinkageOn}} on{{/data.messengerLinkageOn}}" type="button" title="" style="display:none;">{{lang.메신저}}</button>
+                        </span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="page_action mini">
+        <span id="saveBasicConfig" class="btn">{{lang.저장}}</span>
+        <span id="cancelBasicConfig" class="btn_nega">{{lang.취소}}</span>
+    </div>
+</div>

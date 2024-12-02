@@ -1,0 +1,140 @@
+<div class="critical" id="xlsxDownBtn" style="display:none;">
+	<a class="btn_tool">
+		<span class="txt">{{lang.label_down_list}}</span>
+	</a>
+</div>
+<div class="current_date" id="dateBtns" style="display:none;">
+	<span class="btn_ic_prev2 btn_border" title="{{lnag.label_pre}}" id="preDate" data-date="{{preDate}}"><span class="ic ic_prev2"></span></span>						
+	<span class="date" id="searchDate" data-date="{{searchdate}}">{{searchdate}}</span>					
+	<span class="btn_ic_next2 btn_border" title="{{lang.label_next}}" id="nextDate" data-date="{{nextDate}}"><span class="ic ic_next2"></span></span>
+	<span class="btn_tool" alt="{{lang.label_move_date}}" id="attndCalBtn"><span class="ic_gnb ic_cal_mini"><input type="text" id="deptAttndCalendar" style="border:0px;width:1px;height:1px"/></span></span>
+	<span class="btn_tool" id="todayBtn"><span class="txt">{{lang.label_today}}</span></span>
+</div>
+<div class="critical" id="attnd_tab" style="margin-bottom:0;display: none">
+	<ul class="tab_nav">
+		<li class="on first daily" data-type="daily"><span>{{lang.label_daily}}</span></li>          
+		<li class="last monthly" data-type="monthly"><span>{{lang.label_monthly}}</span></li>
+	</ul>
+    {{#hasDescendantSelect}}
+    <select class="slt_team" id="attnd_descendant_dept">
+        <option value="{{dept.id}}">{{dept.name}}</option>
+        {{#descendantDept}}
+        <option value="{{id}}">{{name}}</option>
+        {{/descendantDept}}
+    </select>
+    {{/hasDescendantSelect}}
+</div>
+<div class="optional" id="subDeptBtn" style="display:none;">
+	<!-- 전사 근태 관리 - 하위부서 포함 없음, 부서 근태 관리 - 하위부서 포함 있음 -->
+	<span class="wrap_option">
+		<input type="checkbox" id="subDeptCheck"><label>{{lang.label_include_sub_dept}}</label>
+	</span>
+	<!-- // 전사 근태 관리 - 하위부서 포함 없음, 부서 근태 관리 - 하위부서 포함 있음 2015.05.28 확인 요청 -->
+</div>
+<div class="critical">
+	<div  id="attndLabel" style="display:none;">
+		<section class="marker">
+			<ul>
+				<li class="normal"><span></span>{{lang.label_normal}}</li>
+				<li class="late"><span></span>{{lang.label_late}}</li>
+				<li class="modify"><span></span>{{lang.label_modify}}</li>
+			</ul>
+		</section>
+		<div class="btn_down">
+			<a class="btn_tool" id="xlsxDownBtn">
+				<span class="ic_toolbar download"></span>
+				<span class="txt">{{lang.label_down_list}}</span>
+			</a>
+		</div>
+	</div>
+</div>
+<div class="go_body ">
+	<table class="type_normal tb_agenda tb_attend" id="deptAttndListWapper">
+		<thead>
+			<tr>
+				<th class="sorting_desc name">
+					<span class="title_sort">
+						{{lang.label_dept_member}}<ins class="ic"></ins>
+					</span>
+				</th>
+				<th class="sorting_desc department">
+					<span class="title_sort">
+						{{lang.label_dept_name}}<ins class="ic"></ins>
+					</span>
+				</th>
+				<th class="sorting_desc go">
+					<span class="title_sort">
+						{{lang.label_go_to_work}}<ins class="ic"></ins>
+					</span>
+				</th>
+				<th class="sorting_desc go_ip">
+					<span class="title_sort">
+						{{lang.label_IP}}<ins class="ic"></ins>
+					</span>
+				</th>
+				{{#isUseGPS}}
+				<th class="sorting_desc go_gps">
+					<span class="title_sort">
+						{{lang.label_GPS}}<ins class="ic"></ins>
+					</span>
+				</th>
+                {{/isUseGPS}}
+				<th class="sorting_desc leave">
+					<span class="title_sort">
+						{{lang.label_go_home}}<ins class="ic"></ins>
+					</span>
+				</th>
+				<th class="sorting_desc leave_ip">
+					<span class="title_sort">
+						{{lang.label_IP}}<ins class="ic"></ins>
+					</span>
+				</th>
+                {{#isUseGPS}}
+                <th class="sorting_desc leave_gps">
+					<span class="title_sort">
+						{{lang.label_GPS}}<ins class="ic"></ins>
+					</span>
+                </th>
+                {{/isUseGPS}}
+				<th class="sorting_desc time">
+					<span class="title_sort">
+						{{lang.label_working_hour}}<ins class="ic"></ins>
+					</span>
+				</th>
+				<th class="sorting_desc status">{{lang.label_status}}</th>
+			</tr>
+		</thead>
+		<tbody>
+		</tbody>
+	</table>
+	{{#isCompanyAttnd}}
+	<div class="table_search table_new_search">
+			<select id="searchTypes">
+				<option value="deptMember">{{lang.label_dept_member}}</option>
+				<option value="status">{{lang.label_status}}</option>
+				<option value="deptName">{{lang.label_dept_name}}</option>
+				<option value="group">{{lang.label_group}}</option>
+				<!--  <option value="memo">{{lang.label_memo}}</option> -->
+			</select>
+			<select id="search_group_filter" style="display: none">
+				<option value="">{{lang.label_select}}</option>
+				{{#groups}}
+				<option value="{{id}}">{{name}}</option>
+				{{/groups}}
+			</select>
+			<select id="search_status_filter" style="display: none; min-width: 130px">
+                <option value="">{{lang.label_select}}</option>
+				<option value="late">{{lang.label_late}}</option>
+				{{#companyStatus}}
+				<option value="{{id}}">{{name}}</option>
+				{{/companyStatus}}
+			</select>
+			<section class="search2" id="keyword_section">
+				<div class="search_wrap">
+					<input id="searchKeyword" class="search2" type="text" placeholder="">								
+					<span id="searchBtn" class="btn_search2"></span>								
+				</div>
+			</section>
+		</div>
+	{{/isCompanyAttnd}}
+</div>

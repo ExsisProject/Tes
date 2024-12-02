@@ -1,0 +1,22 @@
+<span class="box_label_wrap">
+    {{^model.hideLabel}}
+	<label for="">{{{label}}}</label>
+    {{/model.hideLabel}}
+</span>
+<div class="build_box_data">
+    <span class="txt">
+        {{#isPrefix}}
+           {{#userData}}
+              {{model.unitText}}
+           {{/userData}}
+        {{/isPrefix}}
+
+        {{userData}}
+
+        {{^isPrefix}}
+           {{#userData}}
+              {{model.unitText}}
+           {{/userData}}
+        {{/isPrefix}}
+    </span>
+</div>

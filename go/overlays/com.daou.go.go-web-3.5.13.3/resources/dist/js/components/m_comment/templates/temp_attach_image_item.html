@@ -1,0 +1,36 @@
+<li data-path="{{filePath}}" data-name="{{fileName}}" data-id="{{id}}">
+    {{#isImage}}
+      <span class="item_image">
+          <span class="thumb">
+              <img src="{{thumbnail}}" alt="{{fileName}}">
+          </span>
+          <span class="img_tit">{{fileName}}</span>
+          <span class="txt">{{fileSize}}</span>
+          <a class="iscroll-tap-highlight">
+              <span class="btn_wrap" data-btntype="attachDelete">
+                  <span class="ic_cmm ic_del"></span>
+              </span>
+          </a>
+      </span>
+    {{/isImage}}
+    {{^isImage}}
+    <span class="item_file">
+        <span class="ic_file {{icon_class}}"></span>
+        <span class="name">
+            <a href="javascript:;" class="btn-download" data-bypass>{{fileName}}</a>
+        </span>
+        <span class="size">({{fileSize}})</span>
+        <span class="optional">
+            <a class="btn-download wrap_ic_file btn_fn4" href="{{download_url}}" data-bypass style="display: inline-block;">
+                <span class="btn-text txt">{{lang.download}}</span>
+            </a>
+            <a href="javascript:;" class="btn-file-remove">
+                <span class="btn-text ic_classic ic_del"></span>
+            </a>
+            <a href="javascript:;" data-bypass class="wrap_ic_file">
+                <span class="txt ic ic_file_del"></span>
+            </a>
+        </span>
+    </span>
+    {{/isImage}}
+</li>

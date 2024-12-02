@@ -1,0 +1,1 @@
+define(["jquery","underscore","backbone"],function(e,t,n){var r=n.View.extend({initialize:function(e){this.mode,this.contents,this.activityGroups=[]},render:function(){}});return r});

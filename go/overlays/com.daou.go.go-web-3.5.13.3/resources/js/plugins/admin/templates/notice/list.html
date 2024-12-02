@@ -1,0 +1,45 @@
+		<div class="content_page">
+			<div class="dataTables_wrapper container">				
+				<div id="controlButtons" style="display: none">
+					<span class="btn_tool" id="add_notice">{{lang.add_notice}}</span>
+					<span class="btn_tool txt_caution" id="remove_notice">{{lang.remove_notice}}</span>
+				</div>
+				
+				<div class="content_tb">			
+					<table class="chart size popup_list" id="notice_table">
+						<thead>							
+							<tr>
+								<th class="sorting subject"><span class="title_sort">{{lang.name}}<ins class="ic"></ins><span class="selected"></span></span></th>
+								<th class="sorting period"><span class="title_sort">{{lang.term}}<ins class="ic"></ins><span class="selected"></span></span></th>
+								<th class="sorting device"><span class="title_sort">{{lang.device}}<ins class="ic"></ins><span class="selected"></span></span></th>
+								<th class="sorting_disable state">
+										<select id="type_select">
+											<option value="all">{{lang.state}}</option>
+											<option value="normal">{{lang.normal}}</option>
+											<option value="hidden">{{lang.hidden}}</option>											
+										</select>
+									</th>
+								<th class="sorting name"><span class="title_sort">{{lang.creator}}<ins class="ic"></ins><span class="selected"></span></span></th>
+								<th class="sorting date"><span class="title_sort">{{lang.createdAt}}<ins class="ic"></ins><span class="selected"></span></span></th>								
+								<th class="sorting_disable action"><span class="title_sort">{{lang.read}}</span></th>
+                                <th class="sorting_disable last action"><span class="title_sort">{{lang.config}}</span></th>
+							</tr>
+						</thead>	
+					</table>	
+					<div class="table_search">				
+						<select>
+							<option value="title">{{lang.name}}</option>
+							<option value="writer">{{lang.creator}}</option>
+						</select>		
+						
+						<span class="search_wrap">
+							<input class="input" type="text">
+							<span class="btn_search" title="{{lang.search}}"></span>
+							<input class="submit" type="submit" value="">
+						</span>
+					</div>
+
+				</div>
+			</div>
+					
+		</div>	

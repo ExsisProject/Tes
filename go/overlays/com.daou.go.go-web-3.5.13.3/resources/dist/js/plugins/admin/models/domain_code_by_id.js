@@ -1,0 +1,1 @@
+define(["backbone"],function(e){var t=null,n=e.Model.extend({url:function(){return"/ad/api/domaincode/"+this.id}},{get:function(e){return t=new n,t.set("id",e,{silent:!0}),t.fetch({async:!1}),t}});return{read:function(e){return DomainCodeByIdModel=n.get(e)}}});

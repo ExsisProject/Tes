@@ -1,0 +1,50 @@
+		<header class="content_top">
+		</header>
+		
+		<div class="tab_conent_wrap">
+			<div class="tool_bar" id="controlButtons">		
+				<div class="critical">						
+					<a class="btn_tool sort" data-role="button">
+						<span class="ic_toolbar change"></span>
+						<span class="txt">{{lang.sort}}</span>
+					</a>
+					<a class="btn_tool add_separate" data-role="button">
+						<span class="ic_toolbar dotline"></span>
+						<span class="txt">{{lang.add_separate}}</span>
+					</a>
+					<a class="btn_tool close" data-role="button">
+						<span class="ic_toolbar end"></span>
+						<span class="txt">{{lang.stop}}</span>
+					</a>
+					<a class="btn_tool delete" data-role="button">
+						<span class="ic_toolbar del"></span>
+						<span class="txt_caution">{{lang.remove}}</span>
+					</a>
+					<a class="btn_tool move" data-role="button">
+						<span class="ic_toolbar move"></span>
+						<span class="txt">{{lang.move_folder}}</span>
+					</a>
+				</div>			
+			</div>
+
+			<table class="type_normal tb_report_folder_mgmt" id="folders_table">	
+				<colgroup>
+					<col />
+					<col />
+					<col />
+					<col />
+					<col />
+				</colgroup>
+				<thead>
+					<tr>
+						<th class="sorting_disabled checkbox"><input type="checkbox" id="checkedAll"></th>
+						<th class="subject"><span class="txt">{{lang.report_title}}</span></th>
+						<th class="name "><span class="txt">{{lang.type}}</span></th>
+						<th class="date"><span class="txt">{{lang.created_at}}</span></th>
+						<th class="setting"><span class="txt">{{lang.config}}</span></th>
+					</tr>
+				</thead>
+				<tbody id="folder_items">
+				</tbody>
+			</table>
+		</div>

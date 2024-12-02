@@ -1,0 +1,99 @@
+<header class="content_top">
+	<h1>
+		<span id=groupInfoName class="txt">{{lang.searchresult}}
+			<span id="contactCount" class="num"></span>
+		</span>		
+	</h1>
+</header>
+
+{{#isOneItem}}
+<div class="content_search_wrap">
+	<h1><ins class="bullet"></ins><span class="title">{{lang.searchword}} :</span></h1>
+	{{#data}}
+		<span class="info">{{name}}</span>
+	{{/data}}
+</div>
+{{/isOneItem}}
+
+{{^isOneItem}}
+<div class="content_search_wrap">
+	<h1><ins class="bullet"></ins><span class="title">{{lang.searchword}} :</span></h1>
+	{{#data}}
+	<dl class="info">	
+		<dt>[{{lang.name}}]</dt><dd>{{name}}</dd>
+		<dt>[{{lang.email}}]</dt><dd>{{email}}</dd>		
+		<dt>[{{lang.mobileno}}]</dt><dd>{{mobileNo}}</dd>
+		<dt>[{{lang.companyname}}]</dt><dd>{{companyName}}</dd>
+		<dt>[{{lang.tel}}]</dt><dd>{{officeTel}}</dd>
+		<dt>[{{lang.contacttype}}]</dt><dd>{{getContactType}}</dd>
+	</dl>
+	{{/data}}
+</div>
+{{/isOneItem}}
+
+<div class="content_page"><!--목록:-->
+	<form name="formContacts">
+	<table id="contacts" class="type_normal tb_addr_list">	
+		<thead>
+			<tr>
+				{{#isName}}
+				<th class="name" style="min-width: 100px"><span class="title_sort">{{lang.name}}<ins class="ic"></ins><span class="selected"></span></span></th>
+				{{#isLocaleJp}}
+				<th class="name" style="min-width: 100px"><span class="title_sort">{{lang.hurigana}}<ins class="ic"></ins><span class="selected"></span></span></th>
+				{{/isLocaleJp}}
+				{{/isName}}
+
+				{{#isPosition}}
+				<th class="position" style="min-width: 50px"><span class="title_sort">{{lang.position}}<ins class="ic"></ins></span></th>
+				{{/isPosition}}
+
+				{{#isMobile}}
+				<th class="hp" style="min-width: 80px"><span class="title_sort">{{lang.mobileno}}<ins class="ic"></ins></span></th>
+				{{/isMobile}}
+
+				{{#isEmail}}
+				<th class="email" style="min-width: 90px"><span class="title_sort">{{lang.email}}<ins class="ic"></ins><span class="selected"></span></span></th>
+				{{/isEmail}}
+
+				{{#isDepartment}}
+				<th class="department" style="min-width: 50px"><span class="title_sort">{{lang.department}}<ins class="ic"></ins></span></th>
+				{{/isDepartment}}
+
+				{{#isCompany}}
+				<th class="company" style="min-width: 55px"><span class="title_sort">{{lang.companyname}}<ins class="ic"></ins><span class="selected"></span></span></th>
+				{{/isCompany}}
+
+				{{#isCompanyPhone}}
+				<th class="tel" style="min-width: 80px"><span class="title_sort">{{lang.company_tel}}<ins class="ic"></ins></span></th>
+				{{/isCompanyPhone}}
+
+				{{#isCompanyAddress}}
+				<th class="company_address" style="min-width: 100px"><span class="title_sort">{{lang.company_address}}<ins class="ic"></ins></span></th>
+				{{/isCompanyAddress}}
+
+				{{#isMemo}}
+				<th class="memo" style="min-width: 100px"><span class="title_sort">{{lang.memo}}<ins class="ic"></ins></span></th>
+				{{/isMemo}}
+
+				{{#isShowGroup}}
+				<th class="group"><span class="title_sort">{{lang.group}}<ins class="ic"></ins></span></th>
+				{{/isShowGroup}}
+			</tr>
+		</thead>
+	</table>
+	</form>
+</div>	
+<div style="display:none;" id="contactSearchTool">
+	<a id="contactMail" data-bypass class="btn_tool">
+		<span class="ic_toolbar mail"></span>
+		<span class="txt">{{lang.mail}}</span>
+	</a>
+	<a id="groupModify" data-bypass class="btn_tool">
+		<span class="ic_toolbar group"></span>
+		<span class="txt">{{lang.addgroup}}</span>
+	</a>
+	<a id="contactDelete" data-bypass class="btn_tool">
+		<span class="ic_toolbar del"></span>
+		<span class="txt_caution">{{lang.delete}}</span>
+	</a>
+</div>

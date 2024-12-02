@@ -1,0 +1,1 @@
+define(["backbone","report/models/series_report"],function(e,t){var n=e.Collection.extend({url:GO.contextRoot+"api/report/department",model:t},{get:function(e){var t=new n;return t.fetch({async:!1}),t},create:function(e){var t=new n(e);return t}});return n});

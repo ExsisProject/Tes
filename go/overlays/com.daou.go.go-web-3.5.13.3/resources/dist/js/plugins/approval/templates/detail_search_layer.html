@@ -1,0 +1,113 @@
+<span id="searchMessage"></span>
+<form id="approvalDetailSearch" onsubmit="return false;">
+	<fieldset>
+		<table class="form_type">
+			<colgroup>
+				<col width="100px">
+				<col width="">
+			</colgroup>
+			<tbody>
+			<tr>
+				<th>
+					<span class="title">{{label.양식제목}}</span>
+				</th>
+				<td>
+					<input id="formName" class="txt_mini w_max" type="text">
+				</td>
+			</tr>	
+			<tr>
+				<th><span class="title">{{label.검색 기간}}</span></th>
+				<td>
+					<span class="wrap_select">
+						<span class="wrap_select_list">
+							<span class="btn btn_select"></span>
+								<input id="dateType" type="text" class="txt wfix_small" value="{{label.기안일}}" data-list="draftedAt" data-name="{{label.기안일}}" readonly>
+								<ul class="select_list" style="display:none">
+									<li><span id="draftedAt" class="txt" data-list>{{label.기안일}}</span></li>
+									<li><span id="completedAt" class="txt" data-list>{{label.완료일}}</span></li>
+								</ul>
+						</span>
+					</span>
+					<span class="btn_minor_s" data-role="button" data-term="all" id="termAll"><span class="txt">{{label.전체}}</span></span>
+					<span class="btn_minor_s" data-role="button" data-term="today"><span class="txt">{{label.오늘}}</span></span>
+					<span class="btn_minor_s" data-role="button" data-term="week"><span class="txt"></span><span class="txt">1{{label.주일}}</span></span>
+					<span class="btn_minor_s" data-role="button" data-term="month"><span class="txt"></span><span class="txt">1{{label.개월}}</span></span>
+					<span class="btn_minor_s" data-role="button" data-term="year"><span class="txt"></span><span class="txt">1{{label.년}}</span></span>
+					<span class="btn_minor_s" data-role="button" data-term="specify"><span class="txt"></span><span class="txt">{{label.직접선택}}</span></span><br/>
+					<ul class="select_option" id="term_select">
+						<li>
+							<span class="noti_date_wrap option_wrap">
+								<input id="detailFromDate" class="txt_mini wfix_small" name="fromDate" type="text" value="" readonly />
+								<span class="ic ic_calendar"></span>
+							</span>
+							~
+							<span class="noti_date_wrap option_wrap">
+								<input id="detailToDate" class="txt_mini wfix_small" name="toDate" type="text" value="" readonly />
+								<span class="ic ic_calendar"></span>
+							</span>
+						</li>
+					</ul>
+				</td>
+			</tr>
+			<tr>
+				<th>
+					<span class="title">{{label.기안자}}</span>
+				</th>
+				<td>
+					<input id="drafterName" class="txt_mini w_max" type="text">
+				</td>
+			</tr>
+            <tr>
+                <th>
+                    <span class="title">{{label.기안부서}}</span>
+                </th>
+                <td>
+                    <input id="drafterDeptName" class="txt_mini w_max" type="text">
+                </td>
+            </tr>
+			<tr>
+                <th>
+                    <span class="title">{{label.결재선}}</span>
+                </th>
+                <td>
+                    <input id="activityUserNames" class="txt_mini w_max" type="text">
+                </td>
+            </tr>
+			<tr>
+                <th>
+                    <span class="title">{{label.문서번호}}</span>
+                </th>
+                <td>
+                    <input id="docNum" class="txt_mini w_max" type="text">
+                </td>
+            </tr>
+			<tr>
+				<th><span class="title">{{label.검색어}}</span></th>
+				<td>
+					<span class="vertical_option">
+						<span class="wrap_option"><input id="title" name="title" type="checkbox"><label for="title">{{label.제목}}</label></span>
+						<span class="horspace1"></span>
+						<span class="wrap_option"><input id="docBody" name="docBody" type="checkbox"><label for="docBody">{{label.내용}}</label></span>
+						<span class="horspace1"></span>
+						<span class="wrap_option"><input id="attachFileNames" name="attachFileNames" type="checkbox"><label for="attachFileNames">{{label.첨부파일명}}</label></span>
+                        <span class="horspace1"></span>
+                        <span class="wrap_option"><input id="attachFileContents" name="attachFileContents" type="checkbox"><label for="attachFileContents">{{label.첨부파일내용}}</label></span>
+					</span>
+					<input id="stext" class="txt_mini w_max" type="text">
+				</td>
+			</tr>
+			<tr>
+				<th>
+					<span class="title">{{label.검색 조건}}</span>
+				</th>
+				<td>
+					<input id="searchOptionAND" name="searchOption"  type="radio" value="AND" ><label for="searchOptionAND">{{label.모두 만족}}</label>
+                    <input id="searchOptionOR" name="searchOption" type="radio" value="OR" checked="checked"><label for="searchOptionOR">{{label.하나만 만족}}</label>
+					<span class="txt">{{label.설정된 기간에만 검색}}</span>
+				</td>
+			</tr>
+			</tbody>
+		</table>						
+	</fieldset>
+	<input type="submit" value="search" style="visibility: hidden;" />
+</form>	

@@ -1,0 +1,102 @@
+<!--data_display_control-->
+{{#dataset}}
+<li class="org" data-deptId="{{id}}">
+	<p class="title">
+		<a>
+			<ins class="ic"></ins><span class="txt" title="{{deptName}}">{{deptName}}</span>
+		</a>
+	</p>
+	{{#subscribeMaster}}
+	<span class="btn_wrap" title="{{lang.dept_admin}}">
+		<span btn-type="deptAdmin" data-deptid="{{deptId}}" class="ic_side ic_side_setting" title="{{lang.admin_dept_folder}}"></span>
+	</span>
+	{{/subscribeMaster}}
+	<ul class="data_set" data-deptId="{{deptId}}">
+		<li class="delimiter">
+			<p class="title">
+			<ins class="ic"></ins><span class="txt" title="{{lang.base_docfolder}}">&lt;{{lang.base_docfolder}}&gt;</span>
+			</p>
+		</li>
+		<li class="appr_compl">
+            <p class="title">
+                <a class="go_boards" data-deptId="{{deptId}}" data-navi="deptdraft" data-bypass>
+                    <ins class="ic"></ins><span class="txt" title="{{lang.dept_draft}}">{{lang.dept_draft}}</span>
+                </a>
+            </p>
+        </li>
+        <li class="appr_cc">
+            <p class="title">
+                <a class="go_boards" data-deptId="{{deptId}}" data-navi="deptreference" data-bypass>
+                    <ins class="ic"></ins><span class="txt" title="{{lang.dept_ref}}">{{lang.dept_ref}}</span>
+                </a>
+            </p>
+        </li>
+        {{#useReception}}
+	        {{#subscribeMaster}}
+	        <li class="appr_reception">
+	            <p class="title">
+	                <a class="go_boards" data-deptId="{{deptId}}" data-navi="deptreceive" data-bypass>
+	                    <ins class="ic"></ins><span class="txt" title="{{lang.dept_rcpt}}">{{lang.dept_rcpt}}</span>
+	                </a>
+	            </p>
+	        </li>
+	        {{/subscribeMaster}}
+		{{/useReception}}
+		{{#useOfficialDocSend}}
+        <li class="appr">
+            <p class="title">
+                <a class="go_boards" data-deptId="{{deptId}}" data-navi="deptofficial" data-bypass>
+                    <ins class="ic"></ins><span class="txt" title="{{lang.dept_official}}">{{lang.dept_official}}</span>
+                </a>
+            </p>
+        </li>
+        {{/useOfficialDocSend}}
+        {{#addedFolder}}
+        <li class="delimiter">
+			<p class="title">
+			<ins class="ic"></ins><span class="txt" title="{{lang.added_docfolder}}">&lt;{{lang.added_docfolder}}&gt;</span>
+			</p>
+		</li>
+		{{/addedFolder}}
+		{{#deptFolders}}
+		<li class="appr">
+			<p class="title">
+				<a class="go_boards" data-id="{{folderId}}" data-deptId="{{deptId}}" data-navi="deptdoc" data-bypass>
+					<ins class="ic"></ins><span class="txt" title="{{folderName}}">{{folderName}}</span>
+				</a>
+			</p>
+		</li>
+		{{/deptFolders}}
+		
+		{{#sharedFolder}}
+        <li class="delimiter">
+			<p class="title">
+			<ins class="ic"></ins><span class="txt">&lt;{{lang.shared_docfolder}}&gt;</span>
+			</p>
+		</li>
+		{{/sharedFolder}}
+        {{#sharedDocFolders}}
+		<li class="appr">
+			<p class="title">
+				<a class="go_boards" data-id="{{folderId}}" {{#isfolderTypeUser}}data-navi="shareuserdoc"{{/isfolderTypeUser}}{{^isfolderTypeUser}}data-navi="sharedeptdoc"{{/isfolderTypeUser}} data-belong="indept" data-deptid="{{deptId}}" data-bypass>
+					<ins class="ic"></ins><span class="txt" title="{{folderName}}">{{folderName}}</span>
+				</a>
+			</p>
+		</li>
+		{{/sharedDocFolders}}
+	</ul>
+</li>
+{{/dataset}}
+{{#containsSubDept}}
+<li class="assigned">
+	<p class="title">
+		<a href="{{contextRoot}}app/approval/deptfolder/subfolder"><ins class="ic"></ins><span class="txt" title="{{lang.sub_dept_folder}}">{{lang.sub_dept_folder}}</span></a>
+	</p>
+</li>
+{{/containsSubDept}}
+{{^dataset}}
+<section class="intro">
+<span class="ic ic_comm_symbol"><span class="txt"></span></span>
+<p class="desc">{{{lang.no_dept}}}</p>
+</section>
+{{/dataset}}

@@ -1,0 +1,1 @@
+define(["backbone","community/models/members"],function(e,t){var n=null,r=e.Collection.extend({model:t,url:function(){return"/api/community/"+this.communityId+"/joinmembers"},setVariables:function(e){this.communityId=e}});return{getCollection:function(e){return n=new r,n.setVariables(e.communityId),n.fetch({async:!1}),n},create:function(){return new r}}});

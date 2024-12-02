@@ -1,0 +1,1 @@
+define(function(require){var e=require("backbone"),t=e.Model.extend({urlRoot:function(){return"/api/contact/dept/"+this.deptId+"/contact"},setDeptId:function(e){this.deptId=e}});return t});

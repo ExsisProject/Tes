@@ -1,0 +1,36 @@
+
+	<div class="container">
+        <div class="header">
+            <h2>{{lang.label_welfareActive}}</h2>
+        </div>          
+        <div class="content">
+            <table class="detail">
+                <colgroup>
+                    <col width="140px">
+                    <col width="*">
+                </colgroup>
+                <tbody>
+                    <tr class="last">
+                        <th><span class="title access_class_label">{{lang.label_menuActive}}</span></th>
+                        <td>
+                            <span class="option_wrap">
+                                <input type="radio" name="menuActive" value="true" {{#menuActive}}checked{{/menuActive}} id="menuActive_true"/>
+                                <label for="menuActive_true">{{lang.label_menuActiveDesc}}</label>
+                            </span>
+                            <span class="option_wrap">
+                                <input type="radio" name="menuActive" value="false" {{^menuActive}}checked{{/menuActive}} id="menuActive_false"/>
+                                <label for="menuActive_false">{{lang.label_menuDectiveDesc}}</label>
+                            </span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="content_page">
+    
+    <div class="page_action">
+        <span class="btn" id="btn_ok">{{lang.label_ok}}</span> <span
+            class="btn_nega" id="btn_cancel">{{lang.label_cancel}}</span>
+    </div>
+</div>

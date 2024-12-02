@@ -1,0 +1,25 @@
+{{^withoutCover}}
+<span unselectable="on" contenteditable="false" class="comp_wrap" data-wrapper style="width: 100%;">
+{{/withoutCover}}
+    <span class="sign_type2" data-group-seq="{{seq}}" data-group-name="{{name}}" data-group-max-count="{{maxApprovalCount}}"
+          data-group-type="{{roomType}}" {{^isAgreement}}data-is-reception="{{#isReception}}true{{/isReception}}"{{/isAgreement}} {{#isAgreement}}data-is-agreement="true" id="agreementWrap"{{/isAgreement}}>
+        {{#activities}}
+        <span class="sign_member">
+            <span class="department"></span>
+            <span class="part">|</span>
+            <span class="name"></span>
+            <span class="status"></span>
+            <span class="date"></span>
+        </span>
+        {{/activities}}
+    </span>
+    {{^withoutCover}}
+    <span contenteditable="false" class="comp_active" style="display:none;">
+        <span class="Active_dot1"></span><span class="Active_dot2"></span>
+        <span class="Active_dot3"></span><span class="Active_dot4"></span>
+    </span>
+    <span contenteditable="false" class="comp_hover" data-content-protect-cover="true">
+        <a contenteditable="false" class="ic_prototype ic_prototype_trash" data-content-protect-cover="true" data-component-delete-button="true"></a>
+    </span>
+</span>
+{{/withoutCover}}

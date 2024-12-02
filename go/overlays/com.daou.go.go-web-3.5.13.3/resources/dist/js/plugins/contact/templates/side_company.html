@@ -1,0 +1,16 @@
+<h1 class="org {{^isToggleOpen}}folded{{/isToggleOpen}}">
+    <a data-bypass="" class="side_toggle">
+        <ins class="ic"></ins>
+        <span class="ic_side ic_hide_up"
+              title="{{#isToggleOpen}}{{lang.fold}}{{/isToggleOpen}}{{^isToggleOpen}}{{lang.open}}{{/isToggleOpen}}"></span>
+        <span class="txt" title="{{lang.COMPANY}}">{{lang.COMPANY}}</span>
+    </a>
+    <span class="btn_wrap">
+        {{#isManager}}<span class="ic_side ic_side_setting" title="{{lang.group_manage}}"></span>{{/isManager}}
+    </span>
+</h1>
+<div class="div_scroll">
+    <!-- depth 추가 -->
+    <ul class="side_depth" id="company_side" {{^isToggleOpen}} style="display: none;" {{/isToggleOpen}}>
+    </ul>
+</div>

@@ -1,0 +1,1 @@
+function searchSGObject(){SG=parent.frames[frameName],typeof SG=="undefined"&&(SG=this)}var SG,frameName="TOP",sgObj;searchSGObject();

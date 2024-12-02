@@ -1,0 +1,12 @@
+{
+    "알림" : "Notification",
+    "전체 알림" : "All Notifications",
+    "안읽은 알림" : "Unread Notifications",
+    "메일" : "Mail",
+    "게시판" : "Boards",
+    "커뮤니티" : "Community",
+    "캘린더" : "Calendar",
+    "홈으로 돌아가기" : "Go Home",
+    "바탕화면 알림 사용 안내" : "Desktop Notification",
+    "바탕화면 알림 사용 확인 메시지" : "You can use a desktop notification of a browser. Would you like to enable it?"
+}

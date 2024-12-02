@@ -1,0 +1,185 @@
+<div class="content_info" id="count_info">
+	<ul class="info_summary">
+		<li class="first">
+			<span class="tit">{{type.current_member_cnt}}</span>
+			<span class="txt"><strong>{{usedAccount}}</strong> {{type.cnt}}</span>
+			<span class="desc">
+				{{type.online}} ({{accounts_cnt.onlineUserCount}}{{type.cnt}} /
+				{{type.dormant}} {{accounts_cnt.waitUserCount}}{{type.cnt}})
+				{{type.stopped_member}} {{accounts_cnt.stopUserCount}}{{type.cnt}}
+			</span>
+		</li>
+		<li style="display: none;">
+			<span class="tit">{{type.available_added_cnt}}</span>
+			<span class="txt"><strong>{{accounts_cnt.available_added_cnt}}</strong> {{type.cnt}}</span>
+		</li>
+		<li style="display: none;">
+			<span class="tit">{{type.label_total_account_quota}}</span>
+			<span class="txt"><strong>{{baseCompanyConfigModel.totalAccountQuota}}</strong></span>
+		</li>
+		<li id="availableAccountQuota" style="display: none;">
+			<span class="tit">{{type.label_available_account_quota}}</span>
+			<span class="txt"><strong>{{availableAccountQuota}}</strong></span>
+		</li>
+
+	</ul>
+	<span class="wrap_action">
+        <span class="ic_adm ic_accordion_open" title="펼치기"></span>
+    </span>
+	<span class="wrap_action" style="display: none;">
+        <span class="ic_adm ic_accordion_close" title="접기"></span>
+    </span>
+</div>
+<div class="dataTables_wrapper container" >
+	<div id="controlButtons" style="display: none">
+		<span class="btn_tool" id="createNewMember">
+			<span class="ic_adm ic_plus"></span>
+			<span class="txt">{{type.add_member}}</span>
+		</span>
+		<div class="btn_submenu">
+			<a class="btn_tool btn_tool_multi changePosition" data-type="position">
+				<span class="ic_adm ic_person"></span>
+				<span class="txt">{{type.modify_position}}</span>
+			</a>
+			<span class="btn_func_more" id="positionCtr">
+				 <span class="ic_adm ic_accordion_s"></span>
+			</span>
+			<div id="subPositionMenu" class="array_option reply" style="display:none;">
+				<ul class="array_type">
+					<li data-type="position" class="changePosition"><span>{{type.modify_position}}</span></li>
+					<li data-type="grade" class="changePosition"><span>{{type.modify_grade}}</span></li>
+					<li data-type="user_group" class="changePosition"><span>{{type.modify_user_group}}</span></li>
+					<li data-type="mail_group" class="changePosition"><span>{{type.modify_mail_group}}</span></li>
+					<li data-type="status" class="changePosition"><span>{{type.modify_status}}</span></li>
+				</ul>
+			</div>
+		</div>
+
+		<span class="btn_tool" id="deleteMembers">
+			<span class="ic_adm ic_delete"></span>
+			<span class="txt">{{type.delete_member}}</span>
+		</span>
+		{{#isUseResetPwd}}<span class="btn_tool reset_pwd">{{type.reset_pwd}}</span>{{/isUseResetPwd}}
+	</div>
+
+	<div class="content_tb over_visi">
+		<table class="chart size list_account" id="account_list">
+			<thead>
+				<tr>
+					<th class="name"><span class="title_sort">{{type.name}}<ins class="ic"></ins><span class="selected"></span></span></th>
+					<th class="position">
+						<div class="btn_submenu">
+							<a class="btn_tool" data-role="button" evt-rol="toolbar" sub="on" menu="move"><span class="txt">{{type.position}}</span><span class="ic ic_arrow_down_s"></span></a>
+							<div id="position" class="array_option" style="display:none; left:0">
+								<ul class="array_type">
+									<li data-id="0">
+										<span>{{type.position}}</span>
+									</li>
+									{{#positions}}
+									<li data-id="{{id}}">
+										<span>{{name}}</span>
+									</li>
+									{{/positions}}
+								</ul>
+							</div>
+						</div>
+					</th>
+					<th class="grade">
+						<div class="btn_submenu">
+							<a class="btn_tool" data-role="button" evt-rol="toolbar" sub="on" menu="move"><span class="txt">{{type.grade}}</span><span class="ic ic_arrow_down_s"></span></a>
+							<div id="grade" class="array_option" style="display:none; left:0">
+								<ul class="array_type">
+									<li data-id="0">
+										<span>{{type.grade}}</span>
+									</li>
+									{{#grades}}
+									<li data-id="{{id}}">
+										<span>{{name}}</span>
+									</li>
+									{{/grades}}
+								</ul>
+							</div>
+						</div>
+					</th>
+					<th class="user_group">
+						<div class="btn_submenu">
+							<a class="btn_tool" data-role="button" evt-rol="toolbar" sub="on" menu="move"><span class="txt">{{type.account_group}}</span><span class="ic ic_arrow_down_s"></span></a>
+							<div id="userGroup" class="array_option" style="display:none; left:0">
+								<ul class="array_type">
+									<li data-id="0">
+										<span>{{type.account_group}}</span>
+									</li>
+									{{#userGroups}}
+									<li data-id="{{id}}">
+										<span>{{name}}</span>
+									</li>
+									{{/userGroups}}
+								</ul>
+							</div>
+						</div>
+					</th>
+					<th class="email">
+						<span class="title_sort">{{type.email}}<ins class="ic"></ins><span class="selected"></span></span>
+					</th>
+					<th class="mail_qt">
+						<span class="title_sort">{{type.mail_quota}}<ins class="ic"></ins><span class="selected"></span></span>
+					</th>
+					<th class="data_qt">
+						<span class="title_sort">{{type.webfolder_quota}}<ins class="ic"></ins><span class="selected"></span></span>
+					</th>
+					<th class="group">
+						<div class="btn_submenu">
+							<a class="btn_tool" data-role="button" evt-rol="toolbar" sub="on" menu="move"><span class="txt">{{type.mail_group}}</span><span class="ic ic_arrow_down_s"></span></a>
+							<div id="mailGroup" class="array_option" style="display:none; left:0">
+								<ul class="array_type">
+									<li data-id="">
+										<span>{{type.mail_group}}</span>
+									</li>
+									{{#mailGroups}}
+									<li data-id="{{group}}">
+										<span>{{group}}</span>
+									</li>
+									{{/mailGroups}}
+								</ul>
+							</div>
+						</div>
+					</th>
+					<th class="state last">
+						<div class="btn_submenu">
+							<a class="btn_tool" data-role="button" evt-rol="toolbar" sub="on" menu="move"><span class="txt">{{type.account_status}}</span><span class="ic ic_arrow_down_s"></span></a>
+							<div id="status" class="array_option" style="display:none; left:0">
+								<ul class="array_type">
+									<li data-id="0">
+										<span>{{type.account_status}}</span>
+									</li>
+									<li data-id="online">
+										<span>{{type.online}}</span>
+									</li>
+									<li data-id="dormant">
+										<span>{{type.dormant}}</span>
+									</li>
+									<li data-id="stop">
+										<span>{{type.stop}}</span>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</th>
+				</tr>
+			</thead>
+		</table>
+		<div class="table_search">
+			<select>
+				<option value="nameAndEmail">{{type.name_and_email}}</option>
+				<option value="name">{{type.name}}</option>
+				<option value="email">{{type.email}}</option>
+				<option value ="employeeNumber">{{type.user_number}}</option>
+			</select>
+			<span class="search_wrap" id="accountSearch">
+				<input class="input" type="text" />
+				<span class="btn_search" title="{{type.search}}"></span>
+				<input class="submit" type="submit" value="" />
+			</span>
+		</div>
+	</div>
+</div>

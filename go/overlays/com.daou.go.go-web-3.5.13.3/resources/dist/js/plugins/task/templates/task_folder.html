@@ -1,0 +1,325 @@
+<header class="content_top"></header>	
+
+<div class="content_page" >			
+
+	<table class="form_type form_taskfolder_add">
+		<tbody>
+			<tr>
+				<th><span class="title">{{lang.department}}</span></th>
+				<td>
+					<span class="wrap_select" id="deptSelectArea">
+						<select id="deptId" name="" value="{{data.deptId}}" {{^isCreate}}disabled="disabled"{{/isCreate}}>
+							{{{departmentList}}}
+						</select>
+					</span>
+				</td>
+			</tr>
+			<tr>
+				<th><span class="title">{{lang.title}}</span><ins class="asterisk">*</ins></th>
+				<td>
+					<div class="wrap_txt">
+						<input id="name" class="txt w_max" type="text" value="{{data.name}}" />
+					</div>				
+				</td>
+			</tr>			
+			<tr>
+				<th><span class="title">{{lang.description}}</span></th>
+				<td>
+					<div class="wrap_txtarea">
+						<textarea id="description" name="description" class="w_max txtarea" rows="5">{{data.description}}</textarea>
+					</div>		
+				</td>
+			</tr>
+			<tr>
+				<th><span class="title">{{lang.taskType}}</span></th>
+				<td>
+					{{#isCreate}}
+						{{#taskTypes}}
+						<span class="wrap_option">
+							<input id="type{{id}}" type="radio" value="{{id}}" data-type="taskType" name="taskType" data-approver="{{isApprover}}" {{#checked}}checked{{/checked}}/>
+							<label for="type{{id}}">{{name}}</label>
+							<span class="help">&nbsp;
+								<span class="tool_tip">{{description}}<i class="tail_left"></i></span>
+							</span>
+						</span>
+						<br>
+						{{/taskTypes}}
+					{{/isCreate}}
+					{{^isCreate}}
+						{{#data.types}}
+						<span class="wrap_option" id="typeError">
+							<input id="type{{id}}" type="radio" value="{{id}}" data-type="taskType" data-approver="{{approver}}" checked disabled="disabled" style="display:none"/>
+							<label for="type{{id}}">{{name}}</label>
+							<span class="help">&nbsp;
+								<span class="tool_tip">{{description}}<i class="tail_left"></i></span>
+							</span>
+						</span>
+						<br>
+						{{/data.types}}
+					{{/isCreate}}
+					<span class="wrap_desc" id="typeError"><span class="desc">※ {{lang.typeDesc}}</span></span>
+				</td>
+			</tr>	
+			<tr class="line"><td colspan="2"><hr></td></tr>								
+			<tr>
+				<th>
+					<span class="title">{{lang.tag}}</span>
+					<span class="help">&nbsp;
+						<span class="tool_tip">{{lang.tagTooltip}} <i class="tail_left"></i></span>
+					</span>
+				</th>
+				<td>
+					<span class="wrap_option">
+						<input id="allowed-use" type="radio" name="tag" value="true" {{#data.tagAllowed}}checked{{/data.tagAllowed}}/>
+						<label for="allowed-use">{{lang.use}}</label>
+					</span>
+					<span class="horspace2"></span>
+					<span class="wrap_option">
+						<input id="allowed-none" type="radio" name="tag" value="false" {{^data.tagAllowed}}checked{{/data.tagAllowed}}/>
+						<label for="allowed-none">{{lang.notUse}}</label>
+					</span>
+					<br>
+					<span id="tagRequired" class="wrap_option" {{^data.tagAllowed}}style="display:none"{{/data.tagAllowed}}>
+						<input id="tag-required" type="checkbox" {{#data.tagRequired}}checked{{/data.tagRequired}} />
+						<label for="tag-required">{{lang.tagRequired}}</label>
+					</span>
+					<!-- 분류명입력 -->
+					<div id="tagView" class="option_display option_task_category" {{^data.tagAllowed}}style="display:none"{{/data.tagAllowed}}>
+						<div id="tagError" class="wrap">
+							<input id="tagInput" data-type="lengthCheck" class="input wfix_large" type="text" placeholder="{{lang.inputTag}}">
+							<a id="addTag" class="btn_fn10">{{lang.add}}</a>
+							<span class="byte"><strong id="tagInputLength">0</strong> / 40{{lang.letters}}</span>
+						</div>	
+						<div class="vertical_wrap_s" style="display:">					
+																
+							<table class="in_table">
+								<caption>{{lang.addTag}}</caption>
+								<colgroup>
+									<col/>
+									<col/>									
+								</colgroup>
+								<thead>
+									<tr>
+										<th class="subject">{{lang.tagName}}</th>
+										<th class="delete">{{lang.delete}}</th>
+									</tr>
+								</thead>
+								<tbody id="tagList">
+								</tbody>								
+							</table>	
+							<span class="wrap_desc_top"><span class="desc">※ {{lang.tagDesc}}</span></span>
+						</div>		
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<th>
+					<span class="title">{{lang.addedField}}
+						<span class="help">&nbsp;
+							<span class="tool_tip">{{lang.addedFieldTooltip}}<i class="tail_left"></i></span>
+						</span>
+					</span>
+				</th>
+				<td>
+					<div class="option_display option_task_additem">
+						<div id="fieldError" class="wrap">
+							<span class="wrap_txt">
+								<input id="fieldInput" data-type="lengthCheck" class="txt wfix_large" type="text" name="summary" maxlength="500" value="" placeholder="{{lang.addFieldName}}">
+							</span>
+							<span class="wrap_select ">
+								<select id="fieldType" name="" class="wfix_medium">
+									<option value="" selected="selected">{{lang.typeSelect}}</option>
+									<option value="SELECT">{{lang.selectType}}</option>
+									<option value="BOOLEAN">{{lang.confirmType}}</option>
+									<option value="TEXT">{{lang.textType}}</option>
+								</select>
+							</span>
+							<a id="addField" class="btn_fn10">{{lang.add}}</a>
+							<span class="byte"><strong id="fieldInputLength">0</strong> / 40{{lang.letters}}</span>
+						</div>
+						<div class="vertical_wrap_s" style="display:">																						
+							<table class="in_table ">
+								<caption>{{lang.inputAddedField}}</caption>
+								<colgroup>
+									<col/>
+									<col/>									
+									<col/>									
+									<col/>									
+									<col/>									
+								</colgroup>
+								<thead>
+									<tr>
+										<th class="subject">{{lang.fieldName}}</th>
+										<th class="type">{{lang.type}}</th>
+										<th class="essential">{{lang.inputOption}}</th>
+										<th class="detail">{{lang.detail}}</th>
+										<th class="mgmt">{{lang.management}}</th>
+									</tr>
+								</thead>
+								<tbody id="fieldList">
+								</tbody>								
+							</table>	
+						</div>	
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<th>
+					<span class="title">{{lang.taskPrivate}}
+						<span class="help">&nbsp;
+						<span class="tool_tip">{{lang.taskPrivateTooltip}}<i class="tail_left"></i></span>
+					</span>
+					</span>
+				</th>
+				<td>
+					<span class="wrap_option">
+						<input id="private-task-true" type="radio" name="private" value="false" {{^data.privateTask}}checked{{/data.privateTask}}/>
+						<label for="private-task-true">{{lang.selectPrivate}}</label>
+					</span>
+					<span class="horspace2"></span>
+					<span class="wrap_option">
+						<input id="private-task-false" type="radio" name="private" value="true" {{#data.privateTask}}checked{{/data.privateTask}}/>
+						<label for="private-task-false">{{lang.always}}</label>
+					</span>
+				</td>
+			</tr>
+			<tr>
+				<th>
+					<span class="title">{{lang.referer}}
+						<span class="help">&nbsp;
+							<span class="tool_tip">{{lang.refererDesc}} <i class="tail_left"></i></span>
+						</span>
+					</span>
+				</th>
+				<td>
+					<span class="wrap_option">
+						<input id="referer-true" type="radio" name="referer" value="true" {{#data.referersAllowed}}checked{{/data.referersAllowed}}/>
+						<label for="referer-true">{{lang.use}}</label>
+					</span>
+					<span class="horspace2"></span>
+					<span class="wrap_option">
+						<input id="referer-false" type="radio" name="referer" value="false" {{^data.referersAllowed}}checked{{/data.referersAllowed}}/>
+						<label for="referer-false">{{lang.notUse}}</label>
+					</span>
+				</td>
+			</tr>
+			<tr class="line"><td colspan="2"><hr></td></tr>								
+			<tr>
+				<th>
+					<span class="title">{{lang.share}}
+						<span class="help">&nbsp;
+							<span class="tool_tip">{{lang.shareDesc}}<i class="tail_left"></i></span>
+						</span>
+					</span>
+				</th>
+				<td>
+					<span class="wrap_option">
+						<input id="share-department" type="radio" name="share" value="false" {{^data.publicShare}}checked{{/data.publicShare}}/>
+						<label for="share-department">{{lang.departmentShare}}</label>
+					</span>
+					<span class="horspace2"></span>
+					<span class="wrap_option">
+						<input id="share-company" type="radio" name="share" value="true" {{#data.publicShare}}checked{{/data.publicShare}}/>
+						<label for="share-company">{{lang.companyShare}}</label>
+					</span>
+					<div id="department" class="option_display option_task_share" {{#data.publicShare}}style="display:none"{{/data.publicShare}}>	
+						<div class="vertical_wrap_s" style="display:">																						
+							<table class="in_table ">
+								<caption>{{lang.setShare}}</caption>
+								<colgroup>
+									<col/>									
+									<col/>									
+									<col/>									
+									<col/>									
+								</colgroup>
+								<thead>
+									<tr>
+										<th class="subject">{{lang.departmentName}}</th>
+										<th class="share">{{lang.shareSubDepartment}}</th>
+										<th class="read">{{lang.range}}</th>
+										<th class="delete">{{lang.delete}}</th>
+									</tr>
+								</thead>
+								<tbody id="shareDeptList">
+								</tbody>								
+							</table>	
+						</div>
+						{{#isOrgServiceOn}}<span id="addShareDept" class="btn_wrap creat">
+							<span class="ic_form ic_addlist"></span><span class="txt txt_bold">{{lang.addShareDept}}</span>												
+						</span>{{/isOrgServiceOn}}								
+					</div>
+					<div id="company" class="option_display option_task_share2" {{^data.publicShare}}style="display:none"{{/data.publicShare}}>
+						<span class="s_title">{{lang.limit}}</span>
+						<span class="wrap_option">
+							<input id="limit-none" name="limit" type="radio" value="false" {{^isDomainCodeShare}}checked{{/isDomainCodeShare}}/>
+							<label for="limit-none">{{lang.companyShare}}</label>
+						</span>
+						<span class="horspace2"></span>
+						<span class="wrap_option">
+							<input id="limit-partial" name="limit" type="radio" value="true" {{#isDomainCodeShare}}checked{{/isDomainCodeShare}}/>
+							<label for="limit-partial">{{lang.partiallyOpen}}</label>
+						</span>
+						<div id="domainCodeSelect" class="vertical_wrap_s" {{^isDomainCodeShare}}style="display:none"{{/isDomainCodeShare}}>																						
+							<span class="wrap_select ">
+								<select id="changeDomainCode" name="" class="wfix_medium">
+									<option value="position">{{lang.position}}</option>
+									<option value="grade">{{lang.grade}}</option>
+									<option value="duty">{{lang.duty}}</option>
+									<option value="usergroup">{{lang.usergroup}}</option>
+								</select>
+								<select id="domainCodes" name="" class="wfix_medium">
+                                    <option value="">{{lang.select_default}}</option>
+								{{#domainCode}}
+									<option value={{id}} data-code={{code}}>{{name}}</option>
+								{{/domainCode}}
+								</select>
+							</span>
+							<a id="addDomainCodeLabel" class="btn_fn10">{{lang.add}}</a>
+						</div>
+						<ul id="domainCodeView" class="list_option" {{^isDomainCodeShare}}style="display:none"{{/isDomainCodeShare}}>
+						</ul>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<th>
+					<span class="title">{{lang.assignee}}</span>
+					<span class="help">&nbsp;
+						<span class="tool_tip">{{lang.assigneeDescription}}<i class="tail_left"></i></span>
+					</span>
+				</th>
+				<td>
+					<div id="nameTag_assignee" class="wrap_name_tag" style="display:">
+					</div>
+					<span class="wrap_option"><input type="checkbox" name="assignee" id="assignee"><label for="assignee">{{lang.assgineeDesc}}</label></span>
+				</td>
+			</tr>
+			<tr id="approverDiv">				
+				<th>
+					<span class="title">{{lang.approver}}</span>
+					<span class="help">&nbsp;
+						<span class="tool_tip">{{lang.approverDescription}}<i class="tail_left"></i></span>
+					</span>
+				</th>
+				<td>
+					<div id="nameTag_approver" class="wrap_name_tag" style="display:">
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<th><span class="title">{{lang.admin}}</span></th>
+				<td>
+					<div id="nameTag" class="wrap_name_tag" style="display:">
+					</div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<div class="page_action_wrap">
+		<a id="submit" class="btn_major" data-role="button"><span class="txt">{{lang.ok}}</span></a>
+		<a id="goBackFolder" class="btn_minor" data-role="button"><span class="txt">{{lang.cancel}}</span></a>
+        <a id="delete" class="btn_minor" data-role="button"><span class="txt">{{lang.delete}}</span></a>  
+	</div>
+
+</div>

@@ -1,0 +1,1 @@
+define(function(require){var e=require("asset/models/reservation_asset"),t=require("backbone");return t.Collection.extend({model:e,url:function(){return GO.contextRoot+"api/asset/reservation"}})});

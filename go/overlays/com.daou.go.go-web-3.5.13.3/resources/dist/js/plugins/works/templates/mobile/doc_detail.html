@@ -1,0 +1,35 @@
+<div class="content_page">
+    <div class="content" id="taskArea">
+        <div id="iScrollContentWrap">
+            <div class="build_prev_wrap works_detail">
+                <div class="build_content_inner">
+                    <div class="build_prev_header">
+                        <div class="critical">
+							<span class="box_label_wrap">
+                                <span class="state" id="stateArea"></span>
+								<label id="subject" >{{subject}}</label>
+							</span>
+                            <div class="build_box_data" id="needToSetProcess" style="display: none"><span class="txt">{{lang.needToSetProcess}}</span></div>
+                            <div class="build_box_data">
+                                <span class="docu_form_name">
+                                    <span class="txt">{{formName}}</span>{{#mainForm}}<span class="label_state normal">main</span>{{/mainForm}}
+                                </span>
+                                <span class="docu_num" id=docNo></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="fb-canvas" class="build_prev_content">
+                        <p class="data_null">
+                            <span class="ic_data_type ic_no_contents"></span>
+                            <span class="txt">{{lang.loading}}</span>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="build_content_inner wrap_appInterlock" id="consumerArea">
+                    <!-- TODO Template 구성 -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

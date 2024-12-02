@@ -1,0 +1,15 @@
+<li data-id="{{doc.id}}" data-type="doc">
+    <input type="checkbox" value="{{doc.id}}" {{#doc.selected}} checked {{/doc.selected}} >
+    <a class="tit">
+        <span class="subject">{{{doc.titleText}}}</span>
+        <ul class="info">
+            {{#doc.columns}}
+            {{#visible}}
+            <li>
+                <span class="txt">- {{label}} : {{{data}}}<br></span>
+            </li>
+            {{/visible}}
+            {{/doc.columns}}
+        </ul>
+    </a>
+</li>

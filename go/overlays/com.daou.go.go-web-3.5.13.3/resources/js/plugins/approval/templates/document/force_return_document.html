@@ -1,0 +1,43 @@
+<form onsubmit="return false;">
+    <fieldset>
+    <table class="form_type">
+        <tbody>
+            <tr>
+                <th>
+                    <span class="title">{{lang.결재문서명}}</span>
+                </th>
+                <td>
+                    <span class="txt" id="title">{{documentTitle}}</span>
+                </td>
+            </tr>
+            <tr>
+                {{#useForceReturn}}
+                <th><span class="title">{{lang.반려자}}</span></th>
+                {{/useForceReturn}}
+                {{#useForceRecvReturned}}
+                <th><span class="title">{{lang.반송자}}</span></th>
+                {{/useForceRecvReturned}}
+                <td>
+                    <span class="txt">{{userName}}<br>{{userDept}}</span>
+                </td>
+            </tr>
+            <tr>
+                {{#useForceReturn}}
+                <th><span class="title">{{lang.반려댓글}}</span></th>
+                {{/useForceReturn}}
+                {{#useForceRecvReturned}}
+                <th><span class="title">{{lang.반송댓글}}</span></th>
+                {{/useForceRecvReturned}}
+                <td>
+                    {{#useForceReturn}}
+                    <div class="wrap_txtarea"><textarea id="textarea-desc" name="description" class="w_max textarea" rows="7" placeholder="{{lang.강제 반려 시 댓글을 필수로 입력해야 하며 해당 결재문서의 댓글에 기록됩니다}}"></textarea></div>
+                    {{/useForceReturn}}
+                    {{#useForceRecvReturned}}
+                    <div class="wrap_txtarea"><textarea id="textarea-desc" name="description" class="w_max textarea" rows="7" placeholder="{{lang.강제 반송 시 댓글을 필수로 입력해야 하며 해당 수신문서의 댓글에 기록됩니다}}"></textarea></div>
+                    {{/useForceRecvReturned}}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    </fieldset>
+</form>

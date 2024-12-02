@@ -1,0 +1,1 @@
+define("works/collections/similar_docs",function(require){var e=require("works/collections/base_docs");return e.extend({makeParam:function(){return"offset=10"}})});

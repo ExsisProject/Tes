@@ -1,0 +1,70 @@
+<div class="dataTables_wrapper container" >
+   <div class="critical" id="controlButtons1" style="display: none">
+      <span class="btn_tool" id="noti_delete">알림 삭제</span>
+      <span class="btn_tool" id="login_history_delete">로그인 히스토리 삭제</span>     
+   </div>
+   <div class="content_tb over_visi">
+      <table class="chart size list_account" id="admin_job_list">
+         <thead>
+            <tr>
+               <th class="sorting_asc">
+                  <span class="title_sort">
+                  <label>id</label>                                
+                  <ins class="ic"></ins><span class="selected"></span>
+                  </span>
+               </th>
+               <th class="sorting_asc">
+                  <span class="title_sort">
+                  <label>domainName</label>
+                  <ins class="ic"></ins><span class="selected"></span>                                
+                  </span>
+               </th>
+               <th class="sorting_asc">
+                  <span class="title_sort">
+                  <label>name</label>
+                  <ins class="ic"></ins><span class="selected"></span>
+                  </span>
+               </th>
+               <th class="sorting_asc">
+                  <span class="title_sort">
+                  <label>siteUrl</label>
+                  <ins class="ic"></ins><span class="selected"></span>
+                  </span>
+               </th>
+            </tr>
+         </thead>
+      </table>
+   </div>
+</div>
+<header class="content_top">
+   <h1><span class="title" id="layoutTitle">전자결재 삭제</span></h1>
+</header>
+
+   <div class="container">
+      <div class="header">
+         <h2>각각의 항목은 ; 로 구분해주세요 (ex : 1111;2222;3333;4444)</h2>
+      </div>
+      <div class="content">
+         <table class="detail">
+            <colgroup>
+               <col width="110px">
+               <col width="*">
+            </colgroup>
+            <tbody>
+               <tr>
+                  <th>
+                     <span class="title">문서번호로 삭제</span>
+                  </th>
+                  <td>
+                     <span data-formname="documentIds" >
+                     <input type="input" name="documentIds" class="input w_mini" value="">
+                     </span>
+                  </td>
+               </tr>
+            </tbody>
+         </table>
+      </div>
+      <div class="page_action">
+         <span class="btn" id="delete_document">삭제</span>
+      </div>
+   </div>

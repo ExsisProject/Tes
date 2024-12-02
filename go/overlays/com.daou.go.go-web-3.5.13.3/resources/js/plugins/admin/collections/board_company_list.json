@@ -1,0 +1,7 @@
+{
+	"data" : [
+	    {"id":"1","name":"전사게시판1","type":"BBS","createdAt":"2012/11/11","postcount":"111"},
+	    {"id":"2","name":"전사게시판2","type":"STREAM","createdAt":"2013/01/21","postcount":"22"},
+	    {"id":"3","name":"전사게시판3","type":"BBS","createdAt":"2014/10/23","postcount":"54"}
+	]
+}

@@ -1,0 +1,19 @@
+<ul class="side_depth mail_folder">
+	<li class="folder_sys">
+		<p class="title">
+		<a><ins class="ic"></ins><span class="txt">{{name}}</span></a>
+		</p>
+		<ul id="folderList">
+			{{#collection}}
+			<li class="folder">
+				<p class="title folder" data-folderId={{id}}>
+					<a>
+						<ins class="ic"></ins>
+						<span data-folderid="1" class="txt">{{folderName}}</span>
+					</a>
+				</p>
+			</li>
+			{{/collection}}
+		</ul>
+	</li>						
+</ul>

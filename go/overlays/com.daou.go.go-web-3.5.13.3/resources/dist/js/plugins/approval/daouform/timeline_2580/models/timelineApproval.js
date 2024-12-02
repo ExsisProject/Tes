@@ -1,0 +1,1 @@
+define(function(require){var e=require("jquery"),t=require("backbone"),n=t.Model.extend({url:GO.contextRoot+"api/timeline/approval/validate"});return n});

@@ -1,0 +1,49 @@
+			<header class="content_top">
+			</header>
+<!-- content -->
+			<div class="content_page">
+<!-- 탭 메뉴  -->
+				<div class="tab_menu_wrap">
+					<ul class="tab_menu">
+						<li id = "tab_user_config" ><span class="txt" >{{lang.기본 설정}}</span></li>
+						<li id = "tab_user_deputy" class="active"><span class="txt" >{{lang.부재/위임 설정}}</span></li>
+					</ul>
+				</div>
+				<section class="form_admin">
+					<div class="dataTables_wrapper">
+						<div class="tool_bar">
+							<div class="critical">
+								<a class="btn_tool" data-id="btn_regist_deputy">
+									<span class="ic_toolbar plus"></span>
+									<span class="txt">{{lang.부재 추가}}</span>
+								</a>
+                                <a class="btn_tool" data-id="btn_delete_deputy">
+									<span class="ic_toolbar del"></span>
+									<span class="txt">{{lang.삭제}}</span>
+								</a>
+                            </div>
+							<div class="dataTables_length">
+							</div>
+						</div>
+						<div class="tb_sub_wrap">
+							<table class="type_normal tb_config_absence">
+								<thead>
+									<tr>
+                                        <th class="sorting_disabled hp check"><input type="checkbox" id="checkedAllAbsence" name="checkedAllAbsence"></th>
+										<th class="sorting_disabled hp absence_start"><span class="title_sort">{{lang.부재 시작}}<ins class="ic"></ins><span class="selected"></span></span></th>
+                                        <th class="sorting_disabled absence_end"><span class="title_sort">{{lang.부재 종료}}<ins class="ic"></ins></span></th>
+                                        <th class="sorting_disabled people"><span class="title_sort">{{lang.대결자}}<ins class="ic"></ins></span></th>
+                                        <th class="sorting_disabled absence_reason"><span class="title_sort">{{lang.부재 사유}}<ins class="ic"></ins></span></th>
+                                        <th class="sorting_disabled kind"><span class="title_sort">{{lang.사용 여부}}<ins class="ic"></ins></span></th>
+									</tr>
+								</thead>
+								<tbody></tbody>
+							</table>
+						</div>
+						<div class="tool_bar tool_absolute">
+							<div class="dataTables_length">
+							</div>
+						</div>
+					</div>
+				</section>
+			</div>

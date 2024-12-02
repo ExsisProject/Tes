@@ -1,0 +1,28 @@
+{{#isAppletDocsType}}
+<div el-applet-docs-form-wrapper>
+	<div el-applet-docs-form>
+	</div>
+</div>
+{{/isAppletDocsType}}
+{{#isDateType}}
+<div el-date-form-wrapper>
+	<table class="form_type go_form_basic">
+		<tbody>
+			<tr>
+				<td el-date-form>
+				</td>			
+			</tr>
+		</tbody>
+	</table>
+</div>
+{{/isDateType}}
+{{#useFooter}}
+<footer class="btn_layer_wrap">
+	<a class="btn_major_s" el-type="submit">
+		<span class="ic"></span><span class="txt">{{lang.확인}}</span>
+	</a>
+	<a class="btn_minor_s" el-type="cancel">
+		<span class="ic"></span><span class="txt">{{lang.취소}}</span>
+	</a>
+</footer>
+{{/useFooter}}

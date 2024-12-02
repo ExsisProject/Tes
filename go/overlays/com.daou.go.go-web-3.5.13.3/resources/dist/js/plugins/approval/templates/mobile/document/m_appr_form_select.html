@@ -1,0 +1,16 @@
+<ul class="list_box" id="apprFormUl">
+    {{#data}}
+    <li>
+        <a class="tit" href="javascript:;" data-formid="{{metadata.id}}">
+            <span class="subject">
+                <span class="txt">{{metadata.name}}</span>
+            </span>
+        </a>
+    </li>
+    {{/data}}
+    {{^data}}
+    <li>
+        <div class="data_null">{{empty_msg}}</div>
+    </li>
+    {{/data}}
+</ul>

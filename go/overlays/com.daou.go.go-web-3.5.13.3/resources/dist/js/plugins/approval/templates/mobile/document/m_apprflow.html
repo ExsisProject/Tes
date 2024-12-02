@@ -1,0 +1,90 @@
+<ul class="list_reply list_approval_reply">
+	{{#dataset}}
+	<input type="hidden" class="activityGroup"  data-groupSeq="{{seq}}" data-groupId="{{id}}" data-groupCount="{{activities.length}}"/>
+		{{#activities}}
+			<li {{#isCurrent}} class="current" {{/isCurrent}}>
+				<div class="msg_wrap">
+				 {{#isCurrent}}<div class="bar_current"></div>{{/isCurrent}}<!-- 현재 결재 위치 표시 -->		
+					<p class="subject">
+						{{#userId}}<span class="txt">{{userName}} {{userPosition}}</span>{{/userId}}
+						{{^userId}}<span class="txt">{{deptName}}</span>{{/userId}}
+					</p>
+					{{#holdingActivity}}
+					<div class="info apprflow">
+						<span class="name txt_ellipsis {{#statusNotable}}notable_activity{{/statusNotable}}"> {{lang.보류}} </span>
+	                    {{#completedAt}}
+	                    <span class="part">|</span>
+	                    <span class="date">{{fCompletedAt}}</span>
+	                    {{/completedAt}}
+					</div>
+						{{#isNotEmptyHoldingComment}}
+							<ul class="list_reply list_approval_reply ">
+							<li class="depth1">
+								<span class="ic ic_reply"></span>
+								<div class="msg_wrap">
+									<p class="subject">
+										<span class="txt">{{{comment}}}</span>
+									</p>
+								</div>					
+							</li>
+							</ul>
+						{{/isNotEmptyHoldingComment}}
+					{{/holdingActivity}}
+					<div class="info apprflow">
+						<span class="name txt_ellipsis {{#statusNotable}}notable_activity{{/statusNotable}}">{{name}}{{#statusName}} {{statusName}} {{/statusName}}</span>
+	                    {{#completedAt}}
+	                    <span class="part">|</span>
+	                    <span class="date">{{fCompletedAt}}</span>
+	                    {{/completedAt}}
+					</div>
+					{{#isNotEmptyComment}}
+					<ul class="list_reply list_approval_reply ">
+					<li class="depth1">
+						<span class="ic ic_reply"></span>
+						<div class="msg_wrap">
+							<p class="subject">
+								<span class="txt">{{{comment}}}</span>
+							</p>
+						</div>					
+					</li>
+					</ul>
+					{{/isNotEmptyComment}}
+				</div>					
+			</li>
+			{{#deputyActivity}}
+			<li {{#isCurrent}} class="current" {{/isCurrent}}>
+            <div class="msg_wrap">
+             {{#isCurrent}}<div class="bar_current"></div>{{/isCurrent}}<!-- 현재 결재 위치 표시 -->        
+                <p class="subject">
+                    {{#userId}}<span class="txt">{{userName}} {{userPosition}}</span>{{/userId}}
+                    {{^userId}}<span class="txt">{{deptName}}</span>{{/userId}}
+                </p>
+                
+                <div class="info apprflow">
+                    <span class="name txt_ellipsis notable_activity">{{name}}{{#statusName}} {{statusName}} {{/statusName}}</span>
+                    {{#completedAt}}
+                    <span class="part">|</span>
+                    <span class="date">{{fCompletedAt}}</span>
+                    {{/completedAt}}
+                </div>
+                {{#isNotEmptyDeputyComment}}
+					<ul class="list_reply list_approval_reply ">
+					<li class="depth1">
+						<span class="ic ic_reply"></span>
+						<div class="msg_wrap">
+							<p class="subject">
+								<span class="txt">{{{comment}}}</span>
+							</p>
+						</div>					
+					</li>
+					</ul>
+				{{/isNotEmptyDeputyComment}}
+            </div>                  
+            </li>
+			{{/deputyActivity}}
+		{{/activities}}
+	{{/dataset}}
+	{{^dataset}}
+		<li class="inactive last">{{lang.noApprline}}</li>
+	{{/dataset}}
+</ul>

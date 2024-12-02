@@ -1,0 +1,132 @@
+<div class="content">
+<div class="content board" id="" style="position:relative;">
+		<section class="classic_detail{{#isStream}} feed_contents_wrap{{/isStream}}" style="margin-top:0px">
+		<header id="doc_header" class="article_header" style="padding-top:10px;margin-top:0px">
+			{{#isStream}}
+			<span class="photo">
+					<a>
+						<img alt="{{dataset.writer.name}} {{dataset.writer.positionName}}" title="{{dataset.writer.name}} {{dataset.writer.positionName}}" src="{{dataset.writer.thumbSmall}}">
+					</a>
+				</span>
+			<div class="info">
+				<span class="name txt_ellipsis {{#dataset}}{{#writer}}{{#otherCompanyUser}}multi_user{{/otherCompanyUser}}{{/writer}}{{/dataset}}">{{dataset.writer.name}} {{dataset.writer.positionName}}</span>
+				<span class="date">{{dateformat}}</span>
+			</div>
+			<div id="fontResizeWrap" style="display:none"></div>
+			{{/isStream}}
+			{{^isStream}}
+			<h2>
+				{{#dataset.orphanFlag}}
+				<strong>[{{lang.post_orphan_msg}}]</strong>&nbsp;
+				{{/dataset.orphanFlag}}
+				{{#dataset.header}}[{{dataset.header.name}}] {{/dataset.header}}
+				{{#isClose}}<span class="ic ic_lock"></span>{{/isClose}}
+				{{{postTitle}}}
+				{{#dataset.commentFlag}}
+				<span class="num">[{{dataset.commentsCount}}]</span>
+				{{/dataset.commentFlag}}
+			</h2>
+			<div class="article_wrap">
+				<div class="info">
+					<span class="txt">{{dateformat}}</span>
+					<span class="part">|</span>
+					<span class="txt">{{lang.read_count}} {{dataset.readCount}}</span>
+				</div>
+				<div class="info">
+					<span class="name">{{dataset.writer.name}} {{dataset.writer.positionName}}</span>
+				</div>
+				<div id="fontResizeWrap" style="display:none"></div>
+                <a href="javascript:;" class="btn_share" id="copyUrl">
+                    <span class="ic ic_link"></span>
+                </a>
+                <!-- <div>
+                    <span class="txt">사내 중고거래</span>
+                </div> -->
+			</div>
+			{{/isStream}}
+		</header>
+		<article id="postDetailWrapper" class="article_view" style="padding:0">
+			<div id="iScrollContentWrap" class="scroll">
+				<div id="postContentWrapper" style="width:100%">
+				<div id="postContent" class="editor_view" style="display:inline-table">
+					<p class="txt" >
+						{{#isStream}}
+						<span class="expander">
+						{{{renderStreamContent}}}
+						</span>
+						{{/isStream}}
+						{{^isStream}}
+						{{{renderClassicContent}}}
+						{{/isStream}}
+
+					</p>
+
+					{{#dataset.links}}
+					<div class="meta_info_wrap"><!-- 링크 동영상 등의 메타 정보  -->
+						<ul>
+							<li class="url">
+								<a class="url_type" data-url="{{url}}" href="{{url}}" target="_blank" data-bypass>{{url}}</a>
+							</li>
+							{{#imageSrc}}
+							<li class="thumb">
+								<a class="meta_thumb" data-url="{{url}}" href="{{url}}" target="_blank" data-bypass>
+									<img class="" src="{{imageSrc}}" alt="{{lang.meta_img}}" title="{{lang.link_meta}}" />
+								</a>
+							</li>
+							{{/imageSrc}}
+							<li>
+								<a class="title" data-url="{{url}}" href="{{url}}" target="_blank" data-bypass>{{title}}</a>
+								<p class="meta_contents">{{description}}</p>
+							</li>
+						</ul>
+					</div>
+					{{/dataset.links}}
+				</div>
+				<div id="attaches{{dataset.id}}"></div>
+                </div>
+                <ul id="detailTinyList" class="list_normal list_single list_short"></ul>
+                <div class="wrap_btn_heart">
+					 <span class="btn_heart">
+						<span data-btntype="recommend" id="recommendHeart" class="wrap_heart {{#dataset.recommendCount}}{{#dataset.recommend}}on{{/dataset.recommend}}{{/dataset.recommendCount}}" title="{{#dataset.recommend}}{{lang.recommend_cancel}}{{/dataset.recommend}}{{^dataset.recommend}}{{lang.recommend}}{{/dataset.recommend}}">
+							<img id="heartImg" alt="{{lang.label_like}}" title="{{lang.label_like}}" src="/resources/images/mobile/ic_heart{{#dataset.recommendCount}}{{#dataset.recommend}}_on{{/dataset.recommend}}{{/dataset.recommendCount}}.png" style="width:45px; height:40px;">
+							<span class="txt">{{dataset.recommendCount}}</span>
+						</span>
+                    </span>
+					<span data-bypass id="recommendUserList" class="btn_heartNum wrap_plus" data-role="button" style="text-decoration: underline">
+                        <span class="txt">{{lang.plus_user}}</span>
+                        <span class="num">{{dataset.recommendCount}}</span>
+                    </span>
+                </div>
+            </div>
+		</article>
+
+	</section>
+
+</div>
+
+<div class="tool_bar tool_bar_bottom" id="postBottomToolbar" style="display:none">
+	<div class="critical">
+		<a href="javascript:;" class="btn_tool btn_go_list" data-role="button" title="{{lang.list}}"><span class="txt">{{lang.list}}</span></a>
+		{{^isStream}}
+			{{#dataset.actions.writable}}
+			<a class="btn_tool" data-role="button" href="{{replyUrl}}"><span class="txt">{{lang.post_reply}}</span></a>
+			{{/dataset.actions.writable}}
+		{{/isStream}}
+		{{#dataset.commentFlag}}
+		<a href="javascript:;" class="btn_tool btn_comments" data-role="button">
+			<span class="txt">{{lang.comments}}</span>
+			<span class="num">{{dataset.commentsCount}}</span>
+		</a>
+		{{/dataset.commentFlag}}
+	</div>
+	
+	<div class="optional">
+		{{#dataset.actions.updatable}}
+		<a href="javascript:;" class="btn_tool post_update" data-role="button" alt="{{lang.modify}}"><span class="txt">{{lang.modify}}</span></a> 
+		{{/dataset.actions.updatable}}
+		{{#dataset.actions.removable}}
+		<a href="javascript:;" class="btn_tool post_delete" data-role="button" alt="{{lang.delete}}"><span class="txt_caution">{{lang.delete}}</span></a>
+		{{/dataset.actions.removable}}
+	</div>
+</div>
+</div>

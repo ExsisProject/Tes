@@ -1,0 +1,10 @@
+<li class="folder"  rel="{{rel}}" data-id = "{{model.id}}" data-auth="{{model.auth}}">
+    <p class="title">
+        {{#hasChildren}}
+            <span evt-rol="toggle-folder" class="{{toggleIconCloseClassName}}" status="closed" childrenLoaded="0"></span>
+        {{/hasChildren}}
+        <a class = "{{^model.auth}}{{disabledClassName}}{{/model.auth}}" data-navi="companydoc"><ins class="ic"></ins>
+            <span class="txt" title="{{model.name}}">{{model.name}}</span>
+        </a>
+    </p>
+</li>

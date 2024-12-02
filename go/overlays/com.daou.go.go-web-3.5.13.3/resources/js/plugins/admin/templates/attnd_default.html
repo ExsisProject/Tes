@@ -1,0 +1,288 @@
+<div class="container">
+    <div class="header">
+        <h2>{{lang.label_attendanceActive}}</h2>
+    </div>
+    <div class="content">
+        <table class="detail">
+            <colgroup>
+                <col width="160px">
+                <col width="*">
+            </colgroup>
+            <tbody>
+                <tr class="last">
+                    <th><span class="title access_class_label">{{lang.label_menuActive}}</span></th>
+                    <td>
+                        <span class="option_wrap">
+                        <input type="radio" {{#data.menuActive}}checked{{/data.menuActive}} id="activeMenu" name="radioActiveMenu">
+                        <label for="activeMenu">{{lang.label_menuActiveDesc}}</label>
+                        </span>
+                        <span class="option_wrap">
+                        <input type="radio" {{^data.menuActive}}checked{{/data.menuActive}} id="deactivateMenu" name="radioActiveMenu"> 
+                        <label for="deactivateMenu">{{lang.label_menuDectiveDesc}}</label>                                       
+                        </span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+<div class="container" id="syncActiveMode">
+    <div class="header">
+        <h2>{{lang.label_restrict_active}}
+            <span class="btn_minor_s" id="restrictGuide">{{lang.label_restrict_guide}}</span>
+        </h2>
+    </div>
+    <div class="content">
+        <table class="detail">
+            <colgroup>
+                <col width="160px">
+                <col width="*">
+            </colgroup>
+            <tbody>
+                <tr class="last">
+                    <th><span class="title access_class_label">{{lang.label_restrict_txt}}</span>
+                        <span class="wrap_ic_s">
+            				<span class="help">
+            					<span class="tool_tip">{{lang.label_restrict_tooltip}}<i class="tail_left"></i></span>
+            				</span>
+            			</span>
+                    </th>
+                    <td>
+                    	<div>
+	                        <span class="option_wrap">
+	                        <input type="radio" {{#data.syncActive}}checked{{/data.syncActive}} id="activeSync" name="radioActiveSync">
+	                        <label for="activeSync">{{lang.label_use}}</label>
+	                        </span>
+	                        <span class="option_wrap">
+	                        <input type="radio" {{^data.syncActive}}checked{{/data.syncActive}} id="deactivateSync" name="radioActiveSync"> 
+	                        <label for="deactivateSync">{{lang.label_unuse}}</label>                                       
+	                        </span>
+                    	</div>
+                    	<br/>
+						<div>
+							<span class="desc">{{lang.label_restrict_desc}}</span>
+						</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="header" id="attndDefaultSetting" data-id="{{group.id}}">
+        <h2>{{lang.label_defaultSetting}}</h2>
+    </div>
+    <div class="content">
+        <table class="detail">
+            <colgroup>
+                <col width="160px">
+                <col width="*">
+            </colgroup>
+            <tbody>
+                <tr>
+                    <th><span class="title">{{lang.label_allow_mobile}}</span></th>
+                    <td>
+                        <span class="option_wrap">
+                        <input type="checkbox" checked = "checked" id="allowWeb" name="allowWeb" disabled="disabled">
+                        <label for="allowWeb">{{lang.label_webservice}}</label>
+                        </span>
+                        <span class="option_wrap">
+                        <input type="checkbox" {{#data.allowMobile}}checked{{/data.allowMobile}} id="allowMobile" name="allowMobile"> 
+                        <label for="allowMobile">{{lang.label_mobileapp}}</label>                                       
+                        </span>
+                    </td>
+                </tr>
+                <tr id="mobileAppEhr">
+                    <th><span class="title">{{lang.label_mobile_app_ehr}}</span></th>
+                    <td>
+                        <span class="tit">{{lang.label_record_gps}}</span>
+                        <span class="help">
+                            <span class="tool_tip">{{lang.label_gps_desc}}<i class="tail_left"></i></span>
+                        </span>
+                        <span class="option_wrap">
+                        <input type="radio" {{#data.recordGps}}checked{{/data.recordGps}} id="recordGps_use" name="radioRecordGps">
+                        <label for="recordGps_use">{{lang.label_use}}</label>
+                        </span>
+                        <span class="option_wrap">
+                        <input type="radio" {{^data.recordGps}}checked{{/data.recordGps}} id="recordGps_unuse" name="radioRecordGps"> 
+                        <label for="recordGps_unuse">{{lang.label_unuse}}</label>                                       
+                        </span>                             
+                    </td>
+                </tr>
+                <tr>
+                    <th><span class="title access_class_label">{{lang.label_workingDay}}</span></th>
+                    <td>
+                        {{#timelineWorkDay}}
+                        <div class="week_option" id="DayOfWeek">
+                            <span class="option_wrap">
+                            <input type="checkbox" id="labelSun" {{#Sun}}checked="checked"{{/Sun}}> 
+                            <label for="labelSun">{{lang.label_workingDaySun}}</label>										
+                            </span>
+                            <span class="option_wrap">
+                            <input type="checkbox" id="labelMon" {{#Mon}}checked="checked"{{/Mon}}> 
+                            <label for="labelMon">{{lang.label_workingDayMon}}</label>										
+                            </span>
+                            <span class="option_wrap">
+                            <input type="checkbox" id="labelTue" {{#Tue}}checked="checked"{{/Tue}}>
+                            <label for="labelTue">{{lang.label_workingDayTue}}</label>										
+                            </span>
+                            <span class="option_wrap">
+                            <input type="checkbox" id="labelWed" {{#Wed}}checked="checked"{{/Wed}}>
+                            <label for="labelWed">{{lang.label_workingDayWed}}</label>										
+                            </span>
+                            <span class="option_wrap">
+                            <input type="checkbox" id="labelThu" {{#Thu}}checked="checked"{{/Thu}}>
+                            <label for="labelThu">{{lang.label_workingDayThu}}</label>										
+                            </span>
+                            <span class="option_wrap">
+                            <input type="checkbox" id="labelFri" {{#Fri}}checked="checked"{{/Fri}}>
+                            <label for="labelFri">{{lang.label_workingDayFri}}</label>										
+                            </span>
+                            <span class="option_wrap">
+                            <input type="checkbox" id="labelSat" {{#Sat}}checked="checked"{{/Sat}}>
+                            <label for="labelSat">{{lang.label_workingDaySat}}</label>										
+                            </span>
+                        </div>
+                        {{/timelineWorkDay}}
+                    </td>
+                </tr>
+                <tr>
+                    <th><span class="title">{{lang.label_clockInOutTime}}</span></th>
+                    <td>
+                        <span class="option_wrap">
+                        <input type="checkbox" id="useFlexibleTime" name="flexibleTimeActive"{{#data.group.useFlexibleTime}}checked="checked"{{/data.group.useFlexibleTime}}>
+                        <label for="useFlexibleTime">{{lang.label_useFlexibleTime}}</label>
+                        </span>
+                        <br>
+                        <span class="desc">{{lang.label_flexibleTime_desc}}</span>
+                        <div class="option_display" id="clockInOutContainer">
+                            <div class="vertical_wrap_s">
+                                <span class="tit">{{lang.label_clockInTime}}</span>    	
+                                <select class="attend_select" id="inTimeHour">
+                                    {{#time_hour}}
+                                    <option value="{{value}}">{{text}}</option>
+                                    {{/time_hour}}
+                                </select>
+                                :
+                                <select class="attend_select" id="inTimeMin">
+                                    {{#time_second}}
+                                    <option value="{{value}}">{{text}}</option>
+                                    {{/time_second}}
+                                </select>
+                                :
+                                <select class="attend_select" id="inTimeSec">
+                                    {{#time_second}}
+                                    <option value="{{value}}">{{text}}</option>
+                                    {{/time_second}}
+                                </select>
+                            </div>
+                            <div class="vertical_wrap_s">
+                                <span class="tit">{{lang.label_clockOutTime}}</span>
+                                <select class="attend_select" id="outTimeHour">
+                                    {{#time_hour}}
+                                    <option value="{{value}}">{{text}}</option>
+                                    {{/time_hour}}
+                                </select>
+                                :
+                                <select class="attend_select" id="outTimeMin">
+                                    {{#time_second}}
+                                    <option value="{{value}}">{{text}}</option>
+                                    {{/time_second}}
+                                </select>
+                                :
+                                <select class="attend_select" id="outTimeSec">
+                                    {{#time_second}}
+                                    <option value="{{value}}">{{text}}</option>
+                                    {{/time_second}}
+                                </select>
+                            </div>
+                            <span class="go_alert" id="inOutValidate"></span>
+                        </div>
+                    </td>
+                </tr>
+                <tr id="clockAllNightContainer">
+                    <th><span class="title">{{lang.label_all_night_time}}</span></th>
+                    <td>
+                        <div class="vertical_wrap_s">
+                            <span class="tit">{{lang.label_day_after}}</span>
+                            <select class="attend_select" id="allNightTimeHour">
+                                {{#time_hour}}
+                                <option value="{{value}}">{{text}}</option>
+                                {{/time_hour}}
+                            </select>
+                            :
+                            <select class="attend_select" id="allNightTimeMin">
+                                {{#time_second}}
+                                <option value="{{value}}">{{text}}</option>
+                                {{/time_second}}
+                            </select>
+                            :
+                            <select class="attend_select" id="allNightTimeSec">
+                                {{#time_second}}
+                                <option value="{{value}}">{{text}}</option>
+                                {{/time_second}}
+                            </select>
+                            <span class="tit">{{lang.label_until}}</span>
+                        </div>
+                        <span class="desc">{{lang.label_all_night_desc}}</span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="header">
+        <h2>{{lang.label_attendanceSetting}}</h2>
+    </div>
+    <div class="content">
+        <table class="detail">
+            <colgroup>
+                <col width="160px">
+                <col width="*">
+            </colgroup>
+            <tbody>
+                <tr class="last">
+                    <th><span class="title access_class_label">{{lang.label_policySetting}}</span></th>
+                    <td>
+                        <span class="action" style="left: 200px;" id="selectAccessPolicy">
+                            <div class="vertical_wrap_s">
+                                <span class="wrap_opt">
+                                <input type="radio" id="black" name="accessSetting" value="BLACK" {{#isBlackGroup}}checked="checked"{{/isBlackGroup}}>
+                                <label for="black">{{lang.label_blackDesc}}</label>
+                                </span>
+                            </div>
+                            <div class="vertical_wrap_s">
+                                <span class="wrap_opt">
+                                <input type="radio" id="white" name="accessSetting" value="WHITE" {{^isBlackGroup}}checked="checked"{{/isBlackGroup}}>
+                                <label for="white">{{lang.label_whiteDesc}}</label>
+                                </span>
+                            </div>
+                        </span>
+                    </td>
+                </tr>
+                <tr class="last">
+                    <th><span class="title access_class_label">{{lang.label_excludeClass}}</span></th>
+                    <td>
+                        <div class="vertical_tit_wrap">				
+                            <span class="tit">{{lang.label_selectClass}}</span>
+                            <span id="accessUser"></span>
+                            <span class="tit">{{lang.label_addExceptionClass}}</span>
+                            <span id="exceptionUser"></span>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="page_action">
+    <span class="btn" id="attndDefaultSubmit">{{lang.label_ok}}</span>
+    <span class="btn_nega" id="attndDefaultCancel">{{lang.label_cancel}}</span>
+</div>

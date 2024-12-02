@@ -1,0 +1,72 @@
+<header class="content_top">
+</header>   
+<!--목록-->       
+<div class="content_page" >         
+    <div class="dataTables_wrapper">
+        <!-- 툴바  -->
+        <!-- 툴바  -->
+		<div id="docToolbar" class="tool_bar">
+			<div class="critical">				
+				<a id="companyDocMove" class="btn_tool" data-role="button"><span class="txt">{{lang.이동}}</span></a>
+				<a id="companyDocDelete"class="btn_tool" data-role="button"><span class="txt">{{lang.삭제}}</span></a>
+			</div>
+            <!-- 리스트 갯수 선택 select box (마크업 유지) -->
+            <div class="dataTables_length"></div>
+        </div>
+        <!-- 테이블 -->        
+        <table class="type_normal list_approval">   
+            <thead>
+                <tr>{{#columns.선택}}
+					<th id="header_checkbox" class="sorting_disabled" style="width: 35px;">
+						<input type="checkbox" id="checkedAllCompanyDoc" name="checkedAllDeptDoc">
+					</th> 
+					{{/columns.선택}}
+                    {{#columns.기안일}}
+                    <th id="header_drafted_at" sort-id="draftedAt" class="date sorting first"><span class="title_sort">{{columns.기안일}}<ins class="ic"></ins><span class="selected"></span></span></th>
+                    {{/columns.기안일}}
+                    {{#columns.결재양식}}
+                    <th id="header_form_name" sort-id="formName" class="doc sorting"><span class="title_sort">{{columns.결재양식}}<ins class="ic"></ins><span class="selected"></span></span></th>
+                    {{/columns.결재양식}}
+                    {{#columns.제목}}
+                    <th id="header_title" sort-id="title" class="subject sorting"><span class="title_sort">{{columns.제목}}<ins class="ic"></ins><span class="selected"></span></span></th>
+                    {{/columns.제목}}
+                    {{#columns.첨부}}
+                    <th id="header_attach" class="attach sorting_disabled"><span class="title_sort">{{columns.첨부}}</span></th>
+                    {{/columns.첨부}}
+                    {{#columns.기안자}}
+                    <th id="header_drafter_name" sort-id="drafterName" class="writer sorting"><span class="title_sort">{{columns.기안자}}<ins class="ic"></ins><span class="selected"></span></span></th>
+                    {{/columns.기안자}}
+                    {{#columns.결재상태}}
+                    <th id="header_doc_status" sort-id="docStatus" class="state_wrap sorting"><span class="title_sort">{{columns.결재상태}}<ins class="ic"></ins><span class="selected"></span></span></th>
+                    {{/columns.결재상태}}
+                    {{#columns.문서번호}}
+                    <th id="header_doc_no" sort-id="docNum" class="doc_num sorting"><span class="title_sort">{{columns.문서번호}}<ins class="ic"></ins><span class="selected"></span></span></th>
+                    {{/columns.문서번호}}
+                    {{#columns.결재일}}
+                    <th id="header_end_at" sort-id="completedAt" class="deadline sorting"><span class="title_sort">{{columns.결재일}}<ins class="ic"></ins><span class="selected"></span></span></th>
+                    {{/columns.결재일}}
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        <div class="tool_bar tool_absolute">
+            <!--  상단 메뉴와 동일 -->
+            <div class="dataTables_length">
+            </div>                 
+        </div>
+    </div>
+    <div class="table_search">                    
+        <select id="searchtype">
+            <option value="title">{{lang.제목}}</option>
+            <option value="drafterName">{{lang.기안자}}</option>
+            <option value="formName">{{lang.결재양식}}</option>
+        </select>
+        <section class="search2">
+            <div class="search_wrap"><!--focus되면 "search_focus" multi class로 추가해주세요.-->
+                <input id="keyword" class="search2" type="text" placeholder="{{lang.placeholder_search}}">                               
+                <span class="btn_search2" title="{{lang.검색}}"></span>                                
+            </div>
+        </section>                  
+    </div>
+</div>

@@ -1,0 +1,1 @@
+define(["backbone"],function(e){var t=null,n=e.Model.extend({url:function(){var e="/api/board/favorite";return this.get("boardId")&&(e=["/api/board",this.get("boardId"),"favorite"].join("/")),e}},{get:function(){return t==null&&(t=new n),t.fetch({data:{page:"0",offset:"1000"},async:!1}),t}});return n});

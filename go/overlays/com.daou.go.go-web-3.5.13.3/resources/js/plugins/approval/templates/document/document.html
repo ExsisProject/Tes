@@ -1,0 +1,109 @@
+<!--전자결재 내용-->
+<div class="approval_import ie9-scroll-fix">
+    <!-- 문서 내용 표시 테스트 -->
+    <form id="document_content" class="form_doc_editor editor_view" onsubmit="return false;"></form>
+</div>
+<div id="attachView"></div>
+<div id="editView">
+    <form>
+        <fieldset>
+            <table class="form_type form_report_nonscheduled">
+                <tbody>
+                <tr id="attachPart">
+                    <th>
+                        <span class="title">{{lang.file_attach}}</span>
+                        {{#isSaaS}}
+                        <span class="help">
+                            <span class="tool_tip top" style="width:210px">{{lang.첨부파일 1개의 최대 용량은 NNN MB 이며 최대 N개 까지 등록 가능합니다}}
+                                <i class="tail_left"></i>
+                            </span>
+                        </span>
+                        {{/isSaaS}}
+                    </th>
+                    <td>
+                        <!-- 첨부파일 default -->
+                        <div id="dropZone" class="dd_attach">
+                            <p class="drag_txt">{{lang.이 곳에 파일을 드래그 하세요}}</p>
+                            <div class="area_txt">
+                                <span class="ic_attach ic_upload"></span>
+                                <span class="msg">{{lang.이 곳에 파일을 드래그 하세요 또는}}
+                                    <span class="btn_file" id="swfupload-control"></span>
+                                    <span id="total_size" class="size"></span>
+                                </span>
+                            </div>
+                            <div class="progress">
+                            </div>
+                            <div class="wrap_attach">
+                                <!-- 파일 첨부 스타일  -->
+                                <ul class="file_wrap" id="fileWrap"></ul>
+                                <!-- 이미지 첨부 스타일  -->
+                                <ul class="img_wrap" id="imgWrap"></ul>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr id="refDocPart">
+                    <th class="title"><span class="txt">{{lang.ref_doc}}</span></th>
+                    <td>
+							<span class="wrap_btn wrap_file_upload">
+								<span class="btn_minor_s fileinput-button" id="addRelatedDocument">
+									<span class="buttonText">{{lang.doc_search}}</span>
+								</span>									
+							</span>
+                        <div class="file_wrap feed">
+                            <ul class="file_wrap">
+                                {{#refDocs}}
+                                <li data-id="{{id}}" data-name="{{title}}">
+										<span class="item_file">
+											<span class="name">[{{docNum}}] {{title}}</span>
+											<span class="optional">
+                                                <a class="btn_fn4"><span class="txt">{{lang.preview}}</span></a>
+                                                <span class="btn_wrap" title="{{lang.del}}">
+                                                    <span class="ic_classic ic_del"></span>
+                                                </span>
+                                            </span>
+										</span>
+                                </li>
+                                {{/refDocs}}
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
+                {{^isDraftType}}
+                {{#data.receptionOrigin}}
+                <tr id="receptionOriginDocPart">
+                    <th class="title"><span class="txt">{{lang.원본문서}}</span></th>
+                    <td>
+                        {{^recpOriginInRefDocs}}
+                        <span class="wrap_btn wrap_file_upload">
+								<span class="btn_minor_s fileinput-button" id="addReceptionOriginDocument">
+									<span class="buttonText">{{lang.문서추가}}</span>
+								</span>
+							</span>
+                        {{/recpOriginInRefDocs}}
+                        <div class="file_wrap feed">
+                            <ul class="file_wrap">
+                                {{#recpOriginInRefDocs}}
+                                <li data-id="{{id}}" data-name="{{title}}">
+										<span class="item_file">
+											<span class="name">[{{docNum}}] {{title}}</span>
+											<span class="optional">
+                                                <a class="btn_fn4"><span class="txt">{{lang.preview}}</span></a>
+                                            </span>
+										</span>
+                                </li>
+                                {{/recpOriginInRefDocs}}
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
+                {{/data.receptionOrigin}}
+                {{/isDraftType}}
+
+                </tbody>
+            </table>
+        </fieldset>
+    </form>
+</div>
+
+<section class="article_reply"></section>

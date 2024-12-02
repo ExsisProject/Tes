@@ -1,0 +1,1 @@
+define("admin/collections/ehr/vacation/status_list",function(require){var e=require("backbone"),t=require("admin/models/ehr/vacation/status");return e.Collection.extend({model:t,url:function(){return GO.contextRoot+"ad/api/ehr/vacation/statuses/all"}})});

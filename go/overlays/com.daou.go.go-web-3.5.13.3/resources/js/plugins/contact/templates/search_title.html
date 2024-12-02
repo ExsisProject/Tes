@@ -1,0 +1,25 @@
+<!-- <section id="search" class="search">
+	<select id="searchType">
+		<option value="appSearch">{{lang.app_search}}</option>
+		<option value="totalSearch">{{lang.unified_search}}</option>
+	</select>
+	<div class="search_wrap">
+		<input class="search" type="text" id="simpleContactInput" placeholder="{{lang.placeholder_search}}">
+		<a class="btn_detail" id="detailContactSearch" title="{{lang.search_detail}}" data-bypass></a>
+		<input class="btn_search" id="simpleContactSearch" value="" title="{{lang.search}}">
+		<input type="hidden" name="hiddenInput"/>
+	</div>
+</section> -->
+
+<section class="combine_search" id="search">
+	<div class="c_search_wrap"><!--focus되면 "search_focus" multi class로 추가해주세요.-->
+		<select class="search_op" id="searchType">
+			<option value="appSearch">{{lang.contact}}</option>
+			<option value="totalSearch">{{lang.unified_search}}</option>
+		</select>
+		<input class="c_search" type="text" id="simpleContactInput" placeholder="{{lang.placeholder_search}}">
+		<a class="c_btn_detail" id="detailContactSearch" title="{{lang.search_detail}}" ><span class="txt">{{lang.detail}}</span><span class="ic ic_cs_detail_arrow  "></span></a>
+		<input class="btn_c_search" type="button" id="simpleContactSearch" value="" title="{{lang.search}}">
+		<input type="hidden" name="hiddenInput"/>
+	</div>
+</section>

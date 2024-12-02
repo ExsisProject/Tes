@@ -1,0 +1,6 @@
+<ul class="tab_nav">            
+    <li id="recurrence-tab-daily" class="first{{#is_freq_daily?}} on{{/is_freq_daily?}}" data-freq="DAILY"><span>{{label.everyday}}</span></li>
+    <li id="recurrence-tab-weekly"{{#is_freq_weekly?}} class="on"{{/is_freq_weekly?}} data-freq="WEEKLY"><span>{{label.everyweek}}</span></li>
+    <li id="recurrence-tab-monthly"{{#is_freq_monthly?}} class="on"{{/is_freq_monthly?}} data-freq="MONTHLY"><span>{{label.everymonth}}</span></li>
+    <li id="recurrence-tab-yearly" class="last{{#is_freq_yearly?}} on{{/is_freq_yearly?}}" data-freq="YEARLY"><span>{{label.everyyear}}</span></li>
+</ul>

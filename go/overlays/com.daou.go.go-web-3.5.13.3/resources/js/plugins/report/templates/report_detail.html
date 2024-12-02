@@ -1,0 +1,84 @@
+		<header class="content_top">
+		</header>	
+<!--상세-->		
+		<div class="content_page go_renew" id="report_detail">		
+			<section class="tool_bar">
+				<ul class="critical">
+					{{#data.actions.removable}}
+					<li>
+						<a class="btn_tool remove">
+							<span class="ic_toolbar del"></span>
+							<span class="txt_caution">{{lang.remove}}</span>
+						</a>
+					</li>
+					{{/data.actions.removable}}
+					{{#data.actions.updatable}}
+					<li>
+						<a class="btn_tool update">
+							<span class="ic_toolbar modify"></span>
+							<span class="txt_caution">{{lang.edit}}</span>
+						</a>
+					</li>
+					{{/data.actions.updatable}}
+				</ul>
+				
+				<ul class="optional controlButton">
+					<li class="viewPopup">
+						<a class="btn_tool"><span class="ic_toolbar popup" title="{{lang.viewPopup}}"></span><span class="txt">{{lang.viewPopup}}</span></a></li>
+					<li class="next" data-id="{{data.nextReportId}}"><a class="btn_tool"><span class="ic_toolbar up" title="{{lang.next}}"></span><span class="txt">{{lang.next}}</span></a></li>
+					<li class="prev" data-id="{{data.prevReportId}}"><a class="btn_tool"><span class="ic_toolbar down" title="{{lang.perv}}"></span><span class="txt">{{lang.prev}}</span></a></li>
+					<li class="copy" url-copy><a class="btn_tool"><span class="ic_toolbar copy_url" title="{{lang.copy}}"></span><span class="txt">{{lang.copy}}</span></a></li>
+					<li class="list"><a class="btn_tool"><span class="ic_toolbar list" title="{{lang.list}}"></span><span class="txt">{{lang.list}}</span></a></li>
+					<li class="print"><a class="btn_tool"><span class="ic_toolbar print" title="{{lang.print}}"></span><span class="txt">{{lang.print}}</span></a></li>
+				</ul>
+			</section>
+<!-- 3단 래퍼 -->
+			<span id="report_detail_content"></span>
+		<!-- Wrap container -->		
+			<div class="dataTables_wrapper">
+				<section class="tool_bar">
+					<ul class="critical">
+						{{#data.actions.removable}}
+						<li>
+							<a class="btn_tool remove">
+								<span class="ic_toolbar del"></span>
+								<span class="txt_caution">{{lang.remove}}</span>
+							</a>
+						</li>
+						{{/data.actions.removable}}
+						{{#data.actions.updatable}}
+						<li>
+							<a class="btn_tool update">
+								<span class="ic_toolbar modify"></span>
+								<span class="txt_caution">{{lang.edit}}</span>
+							</a>
+						</li>
+						{{/data.actions.updatable}}
+					</ul>
+					
+					<ul class="optional controlButton">
+					   <li class="next" data-id="{{data.nextReportId}}"><a class="btn_tool"><span class="ic_toolbar up" title="{{lang.next}}"></span><span class="txt">{{lang.next}}</span></a></li>
+					   <li class="prev" data-id="{{data.prevReportId}}"><a class="btn_tool"><span class="ic_toolbar down" title="{{lang.perv}}"></span><span class="txt">{{lang.prev}}</span></a></li>
+					   <li class="list"><a class="btn_tool"><span class="ic_toolbar list" title="{{lang.list}}"></span><span class="txt">{{lang.list}}</span></a></li>
+					   <li class="print"><a class="btn_tool"><span class="ic_toolbar print" title="{{lang.print}}"></span><span class="txt">{{lang.print}}</span></a></li>
+					</ul>
+				</section>				
+
+				<table class="type_normal tb_lately_report_anytime" id="report_list">	
+					<colgroup>
+						<col>
+						<col>
+						<col>
+					</colgroup>
+					<thead>
+						<tr>
+							<th class="date sorting_disabled "><span class="title_sort">{{lang.created_at}}</span></th>
+							<th class="subject sorting_disabled"><span class="title_sort">{{lang.report_title}}</span></th>
+							<th class="reporter sorting_disabled"><span class="title_sort">{{lang.reporter}}</span></th>
+						</tr>
+					</thead>
+					<tbody>	
+				</tbody>
+				</table>				
+			</div>				
+		</div>

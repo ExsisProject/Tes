@@ -1,0 +1,54 @@
+@charset "UTF-8";
+
+/*------------------  go_organogram  -----------------*/
+/*
+aside.go_organogram {z-index:90; position:fixed; left:0; bottom:0; width:250px; padding:10px 0px; background:#f3f3f3; border-radius:10px 10px 0 0; border-top:2px solid #888; border-left:1px solid #999; border-right:2px solid #999; box-shadow:inset 1px 2px 2px rgba(255,255,255,1), 0 0 6px rgba(0, 0, 0, 0.2) }
+
+aside.go_organogram>h1 {padding:0 10px 3px 10px}
+aside.go_organogram>h1 {position:relative; vertical-align:middle; line-height:22px}
+aside.go_organogram>h1 a {line-height:22px}
+aside.go_organogram>h1 span.txt {font-size:14px; line-height:14px}
+aside.go_organogram ins.ic {padding-right:3px; vertical-align:middle}	
+aside.go_organogram>h1 a ins.ic {display:inline-block; width:22px; height:22px; background:url(../images/sample/22x22/actions/wallet_open.png) no-repeat 0 0; margin-right:3px}
+aside.go_organogram>h1 span.btn_wrap {position:absolute; right:6px; top:2px}
+aside.go_organogram>h1 span.btn_wrap a.btn_close {display:inline-block; width:22px; height:22px; background:url(../images/sample/22x22/actions/1uparrow.png) no-repeat 0 0}
+aside.go_organogram>h1 span.btn_wrap a.btn_close span.txt {display:none}
+aside.go_organogram>h1 span.btn_wrap a.btn_open {display:inline-block; width:22px; height:22px; background:url(../images/sample/22x22/actions/1downarrow.png) no-repeat 0 0}
+aside.go_organogram>h1 span.btn_wrap a.btn_open span.txt {display:none}
+aside.go_organogram>h1 span.btn_wrap a.btn_resize {display:inline-block; width:22px; height:22px; background:url(../images/sample/22x22/actions/transform_move.png) no-repeat 0 0}
+aside.go_organogram>h1 span.btn_wrap span.txt {display:none}
+
+aside.go_organogram .desc {margin-left:10px; font-size:11px; letter-spacing:-1px}
+aside.go_organogram .tab_wrap {margin:0 10px}
+aside.go_organogram ul.tab_nav {position:relative; top:1px; margin:7px 0 0 0 ; height:26px; }
+aside.go_organogram ul.tab_nav li {height:25px; border:none; background:none; margin-right:2px!important; padding:0 10px}
+aside.go_organogram ul.tab_nav li.ui-state-active {border:1px solid #bbb; border-radius:5px 5px 0 0; border-bottom-color:#fefefe; background:#fefefe}
+aside.go_organogram ul.tab_nav li:hover a {color:#444}
+aside.go_organogram ul.tab_nav li.ui-state-active:hover {border:1px solid #bbb; border-radius:5px 5px 0 0; border-bottom-color:#fefefe}
+aside.go_organogram ul.tab_nav li a {color:#999; line-height:22px}
+aside.go_organogram ul.tab_nav li.ui-state-active a {color:#3b3b3b; font-weight:bold}
+aside.go_organogram div.search_wrap + div.desc {padding:6px 0 1px}
+
+aside.go_organogram .search_wrap {margin:5px 10px; width:auto; padding-right:40px}
+aside.go_organogram .search_wrap input.search { width:100% }
+aside.go_organogram .search_wrap input.search[placeholder] {background:url(../images/icon_classic.png) no-repeat 6px -106px; text-indent:25px}
+
+.go_organogram .bottom_action {margin:10px 0}
+.go_organogram a.btn_list_reload {min-width:200px; padding:5px 0px; font-weight:bold; text-align:center; font-weight:normal}
+
+.layer_organogram p.data_null {margin-top:30px}
+.layer_side p.desc {margin:0 10px; line-height:1.5; letter-spacing:-1px}
+.layer_side a.btn_layer_x {border:none; border-radius:0}
+*/
+
+
+/* layer_organogram 
+.layer_side {position:fixed; right:0; top:59px; width:250px; height:1800px; border:1px solid #c9c9c9; border-top:none; background:#fff; background: #F3F3F3}
+.layer_organogram aside.go_organogram {position:static; background:none; border:none; border-radius:0;width:100%}
+.layer_organogram aside.go_organogram header {position:static; margin-bottom:10px; padding:15px 0 10px 0 ;background:none; border:none; height:30px; border-bottom:1px solid #C9C9C9}
+.layer_organogram aside.go_organogram header h1 {margin-left:5px}
+.layer_organogram div.vertical_wrap {margin: 15px 0}
+div.content_tab_wrap {width:100%; min-height:110px;  border:1px solid #bbb; border-radius:0 0 5px 5px; overflow-y:auto; margin:0; background-color:#FEFEFE}
+div.content_wrap {margin:5px 10px 0 10px; min-height:110px; background-color:#FEFEFE; border:1px solid #bbb; border-radius:2px; overflow-y:auto}
+*/
+/* layer_organogram */

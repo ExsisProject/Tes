@@ -1,0 +1,84 @@
+                    <table class="detail">
+                        <caption>부서 기본정보</caption>
+                        <colgroup>
+                            <col width="100px"><!-- 개발쪽에서 width값을 받아가서 재설정 후 삭제  -->
+                            <col width="*">
+                        </colgroup>
+                        <tbody>
+                        <tr>
+                            <th><span class="title">{{lang.dept_name}}</span></th>
+                            <td>
+                                <span class="user_data editable">
+                                    {{data.name}}
+                                </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th><span class="title">{{lang.created_at}}</span></th>
+                            <td>
+                                <span class="user_data">{{data.createdAt}}</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th><span class="title">{{lang.deleted_at}}</span></th>
+                            <td>
+                                <span class="user_data">{{data.deletedAt}} ({{data.deleteDeptUser}})</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th><span class="title">{{lang.dept_code}}</span></th>
+                            <td>
+                            <span class="user_data" data-type="code">
+                                <div data-form="view">
+                                    <span data-value={{data.code}}>{{data.code}}</span>
+                                    <span class='btn_box' data-btntype='changeform'>
+                                        <span class='ic ic_edit' title='수정'></span>
+                                    </span>
+                                </div>
+                                <div data-form="edit" style="display: none">
+                                    <input type="input" value="{{data.code}}" data-event="onfocusout" />
+                                </div>
+                            </span>
+                            </td>
+                        </tr>
+                        <tr>
+                          <th><span class="title">{{lang.email}}</span></th>
+                          <td>
+                            <span class="user_data" data-type="email">
+                                <div data-form="view">
+                                    <span data-value={{data.email}}>{{data.email}}</span>
+                                    <span class='btn_box' data-btntype='changeform'>
+                                        <span class='ic ic_edit' title='수정'></span>
+                                    </span>
+                                </div>
+                                <div data-form="edit" style="display: none">
+                                    <input type="input" value="{{data.email}}" data-event="onfocusout" />
+                                </div>
+                            </span>
+                          </td>
+                        </tr>
+                        <tr class="last">
+                            <th><span class="title">{{lang.attach_size}}</span></th>
+                            <td id="attach_info">
+                            	{{^data.isAttachDeleted}}
+                                <span class="txt">{{data.attachSize}} MB</span>
+                                <span class="space"></span>
+                                <span class="btn_wrap">
+                                    <a class="btn_s" id="remove_attach">
+                                        <span class="ic_adm ic_delete"></span>
+                                        <span class="txt">{{lang.delete_attach}}</span>
+                                    </a>
+                                    <a class="btn_s" id="remove_complete">
+                                        <span class="ic_adm ic_delete"></span>
+                                        <span class="txt">{{lang.complete_delete}}</span>
+                                    </a>
+                                </span>
+                                {{/data.isAttachDeleted}}
+                                
+                                {{#data.isAttachDeleted}}
+                                    <span class="user_data">{{data.deleteAttachUser}}</span>
+                                {{/data.isAttachDeleted}}
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>

@@ -1,0 +1,187 @@
+<div class="linkplus_detail_header">
+    <img class="service_logo" src="{{baseImgUrl}}donutbook_logo.png" alt="">
+    <div class="info">
+        <p class="name">
+            도넛북
+
+            {{#isApply}}
+            <span class="linkplus_request">
+                <span class="txt">{{storeLang.신청중}}</span>
+                <span class="tooltip">
+                    {{storeLang.제휴사로 연결을 요청중입니다}}<br>
+                    {{storeLang.연결이 완료되면 사용하실 수 있습니다}}
+                </span>
+            </span>
+            {{/isApply}}
+
+            {{#inUse}}
+            <span class="linkplus_using">{{storeLang.사용중}}</span>
+            {{/inUse}}
+
+        </p>
+        <p class="desc">국내 최대규모 모바일쿠폰 서비스 도넛북에서는 정가보다 7~15% 저렴하게 모바일쿠폰 구매가 가능 합니다.
+            (개인/기업 모두 가능)</p>
+        <div class="meta">
+            <div class="critical">
+                <div class="list_album_meta">
+                    <span class="state ghost category">모바일쿠폰</span>
+                    <span class="state ghost service">(주)다우기술</span>
+                </div>
+            </div>
+            <div class="optional">
+                <a class="btn_minor" id="goToList">
+                    <span class="txt">{{commonLang.목록}}</span>
+                </a>
+
+                {{#canUse}}
+                <a class="btn_major " id="useService">
+                    <span class="txt">{{storeLang.사용하기}}</span>
+                </a>
+                {{/canUse}}
+
+                {{#canRegister}}
+                <a class="btn_major" id="register">
+                    <span class="txt">{{commonLang.신청하기}}</span>
+                </a>
+                {{/canRegister}}
+            </div>
+        </div>
+    </div>
+</div>
+<div class="linkplus_detail_display">
+    <div class="banner_rolling">
+        <div class="wrap_img" id="banner_container" style="width:801px; overflow:hidden; position:relative;">
+            <div id="banner_wrapper" style="width:2403px;position:absolute;">
+                <img src="{{baseImgUrl}}donutbook_thum1.png" style="float:left;" alt="">
+                <img src="{{baseImgUrl}}donutbook_thum2.png" style="float:left;" alt="">
+                <img src="{{baseImgUrl}}donutbook_thum3.png" style="float:left;" alt="">
+            </div>
+        </div>
+        <a class="btn_banner_rolling prev" data-type="prev" data-rol="button">
+            <span class="ic_dashboard2 ic_prev" title="다음"></span>
+        </a>
+        <a  class="btn_banner_rolling next" data-type="next" data-rol="button">
+            <span class="ic_dashboard2 ic_next" title="다음"></span>
+        </a>
+        <div class="banner_rolling_page">
+            <span class="on"></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+</div>
+<div class="linkplus_detail_container">
+    <h2>모바일쿠폰을 더 스마트하게 발송하는 방법 '도넛북'</h2>
+    <p class="desc">
+        마케팅/영업부서에서 고객대상으로 이벤트 진행 시, 많이 사용하시는 모바일쿠폰!<br>
+        귀사에서는 어떻게 구매하시고 운영하시고 계신가요?<br>
+        매 번 최저가 상품을 찾아다니는데 시간을 헛되이 보내신다면,<br>
+        혹은 구매사이트에 접속해서도 수신자를 매 번 등록하는 불편한 업무를 계속 반복중이시라면,<br>
+        기업을 위한 모바일쿠폰 서비스인 ‘도넛북’을 만나보시기 바랍니다.<br>
+        ‘도넛북’은 기업을 위한 모바일쿠폰 서비스로써 3,000여개의 최저가 상품 제공은 물론, <br>
+        구매부터 발송, 그 이후 이력관리까지! 모바일쿠폰 관련 모든 업무를 한 번에 해결할 수 있는 솔루션을 제공합니다.
+    </p>
+    <h2>가입/연동/혜택</h2>
+    <ul class="list_accordion">
+        <li>
+            <div class="subject">
+                <span class="txt">1. 서비스 상세 소개</span>
+                <div class="optional">
+                    <span class="ic24 arrow_t"></span>
+                </div>
+            </div>
+            <div class="desc on">
+                도넛북은 국내 최대의 모바일쿠폰 발송 서비스이며, 100여개 브랜드의 3,000여개 모바일 쿠폰 구매가 가능 합니다. <br>
+                PC 및 Mobile을 통해 서비스 이용이 가능하며, 도넛북만의 발송 솔루션으로 안정적인 모바일쿠폰 대량발송을 지원 합니다<br>
+                <a class="serviceLink" data-url="https://www.donutbook.co.kr/index.do">www.donutbook.co.kr</a>
+            </div>
+        </li>
+        <li>
+            <div class="subject">
+                <span class="txt">2. 기업에서 사용하면 어떤 점이 좋을까요.</span>
+                <div class="optional">
+                    <span class="ic24 arrow_d"></span>
+                </div>
+            </div>
+            <div class="desc">
+                1) 편리한 구매, 구매내역관리, 비용정산까지 가능하여 모바일쿠폰 구매/운영 업무가 최소화 됩니다.<br>
+                2) 모바일쿠폰 전용 발송솔루션 사용으로, 발송담당자 누구나 편리하게 발송업무를 이행할 수 있습니다.<br>
+                3) 자주 발송하는 주소록 관리가 가능하여, 마케팅 업무에 활용 시 중복 업무를 최대한 줄일 수 있습니다.<br>
+                4) 대량발송이 필요한 마케팅/영업부서 뿐만 아니라 전 직원 모두 개인사용을 위한 할인가격의 모바일 쿠폰 구매가 가능합니다.
+
+            </div>
+        </li>
+        <li>
+            <div class="subject">
+                <span class="txt">3. 서비스의 특징과 장점은 무엇일까요</span>
+                <div class="optional">
+                    <span class="ic24 arrow_d"></span>
+                </div>
+            </div>
+            <div class="desc">
+                1) 모든 회원 참여 가능한 매일매일 100% 선물당첨되는 룰렛이벤트를 제공해드립니다.<br>
+                2) 국내 최대 할인율을 제공하는 적립플러스(+)샵을 통해 정가보다 7~15% 저렴한 가격으로 모바일쿠폰 구매 가능합니다. (개인/기업 모두 가능 )<br>
+                3) 대량발송 가능한 상품들이 구비되어, 추가 가격할인 혜택으로 구매 부담을 최소화할 수 있습니다.
+            </div>
+        </li>
+        <li>
+            <div class="subject">
+                <span class="txt">4. 다우오피스와는 어떻게 연동되나요.</span>
+                <div class="optional">
+                    <span class="ic24 arrow_d"></span>
+                </div>
+            </div>
+            <div class="desc">
+                다우오피스와는 가입 및 SSO (Single Sign On, 한 번의 로그인으로 여러 서비스 로그인 가능) 가 연동되고 있습니다.<br>
+                * 가입 연동 : 다우오피스를 통해서 도넛북 사용 신청 시, 도넛북으로 자동으로 넘어가 가입이 가능합니다.<br>
+                * SSO (Single Sign On)  : 다우오피스 Link+를 통해서, 별도의 로그인 없이 자동으로 도넛북의 다양한 혜택을 이용할 수 있습니다.
+            </div>
+        </li>
+        <li>
+            <div class="subject">
+                <span class="txt">5. 어떻게 가입하고 사용하나요.</span>
+                <div class="optional">
+                    <span class="ic24 arrow_d"></span>
+                </div>
+            </div>
+            <div class="desc">
+                1) 다우오피스 ‘Link+’ 에서 ‘도넛북’ 클릭 후 ‘신청하기’ 버튼 클릭<br>
+                2) 이동한 가입페이지에서 가입 진행 (※ 다우오피스를 통한 가입의 경우만, 다우오피스와 연동되오니 참고 부탁드립니다.)<br>
+                3) 도넛북에서 본인인증 및 가입정보 입력 후 가입완료<br>
+                4) 다우오피스 Link+를 통해 전 직원이 100여개 브랜드 3,000여개 상품의 모바일쿠폰 서비스 이용<br>
+                <a class="serviceLink" data-url="https://youtu.be/O9dy68-iizk">가입 및 사용 가이드 영상</a>
+            </div>
+        </li>
+        <li>
+            <div class="subject">
+                <span class="txt">6. 다우오피스를 통해 사용하면 드리는 혜택</span>
+                <div class="optional">
+                    <span class="ic24 arrow_d"></span>
+                </div>
+            </div>
+            <div class="desc">
+                1)  다우오피스와 연동이 무료!<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;: 별도의 개발인력 비용이 소요되는 SSO (Single Sign On) 연동을 귀사의 부담으로 진행하시나요?
+                타사에서 볼 수 없는 ‘다우오피스 - 도넛북’간의 SSO 연동비용이 무료입니다. <br>
+
+                2) 선착순 500명 포인트 혜택<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;: 다우오피스를 통해 도넛북에 가입하시는 고객 500분께, 도넛북에서 현금처럼 사용 가능한 도넛포인트 3,000원을 지급해드립니다.
+
+            </div>
+        </li>
+    </ul>
+    <h2>필수 확인사항</h2>
+    <p class="desc">
+        1.  다우오피스를 통해 가입한 기업만 해당 제휴서비스와 다우오피스간의 SSO (Single Sign On) 연동기능을 사용하실 수 있습니다.<br>
+        기존 도넛북을 사용중인 고객 대상의 연동은 향후 지원 예정이니 양해 부탁드립니다.<br>
+        2. 해당 제휴서비스는 다우오피스에서 연동만 지원하며,  가입 및 결제, 고객지원 모두 제휴서비스인 ‘도넛북’에서 진행됩니다. <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;- ‘도넛북’ 가입 및 고객지원 문의 : 1599-3785 / donutbook@daou.co.kr<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;- 고객지원센터 운영시간 <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: 평일 09:00 ~ 18:00 (점심시간 12:00 ~ 13:00) / 토,일요일 및 공휴일 휴무<br>
+    </p>
+    <div class="box linkplus_question">
+        <span class="ic_link ic_tooltip"></span>
+        {{storeLang.사이트 관리자에게 문의}}
+    </div>
+</div>
+

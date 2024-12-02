@@ -1,0 +1,152 @@
+{{>toolbar}}
+
+{{#use_comment?}}
+<div class="wrap_container">
+{{/use_comment?}}
+	<section class="content_wrapper classic_detail survey_detail">
+		<header class="article_header">
+			<h1>{{title}}<span class="num"></span></h1>
+
+			<table class="list_report">
+				<tbody>
+				<tr>
+					<th>
+						<div class="default_info">
+							<span class="btn_wrap toggle_detail">
+								<span class="ic ic_arrow_up_type4" title="{{label.close}}"></span>
+							</span>
+							<span class="title">{{label.creator}} :</span>
+						</div>
+					</th>
+					<td>
+					{{#creator.thumbnail}}
+					<span class="photo">
+						<a class="creator-info" data-userid="{{creator.id}}">
+							<img alt="{{creator.display_name}}" title="{{creator.display_name}}" src="{{creator.thumbnail}}">
+						</a>
+					</span>
+					{{/creator.thumbnail}}
+					<span class="creator-info txt" {{#creator.thumbnail}}data-userid="{{creator.id}}"{{/creator.thumbnail}}>{{creator.display_name}}</span>
+					</td>
+				</tr>
+				</tbody>
+			</table>
+
+			<div class="sub_report">
+				<table class="list_report">
+					<tbody>
+					<tr>
+						<th><span class="title">{{label.created_date}} :</span></th>
+						<td><span class="date">{{updated_at}}</span></td>
+					</tr>
+					<tr>
+						<th><span class="title">{{label.period}} :</span></th>
+						<td><span class="txt">{{survey_period}}</span></td>
+					</tr>
+					<tr>
+						<th><span class="title">{{label.editable}} :</span></th>
+						<td><span class="txt">{{editable_text}}</span></td>
+					</tr>
+					<tr>
+						<th><span class="title">{{label.result}} :</span></th>
+						<td><span class="txt">{{private_text}}</span></td>
+					</tr>
+					</tbody>
+				</table>
+			</div>
+
+			<div class="meta_wrap">
+				<a class="btn_ic24 btn_more">
+					<span class="ic24 more_v"></span>
+					<div el-backdrop class="array_option" style="display: none">
+						<ul class="array_type">
+							{{#availableResultDownload}}
+							{{^before_start?}}
+							<li id="btn-down-result">
+								<span>{{label.download_result}}</span>
+								<span class="help">
+									<span class="tool_tip top">{{label.send_mail_desc}}<i class="tail_left"></i></span>
+								</span>
+							</li>
+							{{/before_start?}}
+							{{#creator?}}{{^previewMode}}{{^finished?}}{{#isAvailableMail?}}{{^isReady?}}
+							<li id="btn-send-mail">
+								<span>{{label.send_mail}}</span>
+							</li>
+							{{/isReady?}}{{/isAvailableMail?}}{{/finished?}}{{/previewMode}}{{/creator?}}
+							{{/availableResultDownload}}
+						</ul>
+					</div>
+				</a>
+			</div>
+		</header>
+
+		{{#availableResultDownload}}
+		<div class="info_survey">
+			<div class="info_wrap">
+				<span class="txt">{{label.target_all}} <strong>{{target_count}}</strong></span>
+				<span class="horspace1"></span>
+				<span class="txt">{{label.respondent}} <strong>{{response_count}}</strong></span>
+				<span class="horspace1"></span>
+				<span class="txt">{{label.no_respondent}} <strong>{{no_response_count}}</strong></span>
+			</div>
+		</div>
+		{{/availableResultDownload}}
+		
+		<article class="article_view article_survey go_renew">
+			{{#accessible?}}
+			<div class="survey_guide">	
+				<p class="guide_txt">{{{guidance}}}</p>
+				<div id="survey-attach-placeholder"></div>
+			</div>
+			
+			<div class="queryview-placeholder"></div>
+			{{/accessible?}}
+			
+			{{^accessible?}}
+			<div class="survey_finish">						
+				<h2 class="title">
+				{{#responded?}}
+				{{{msg.responded}}}
+				{{/responded?}}
+				
+				{{^responded?}}
+				{{{msg.not_accessible}}}
+				{{/responded?}}
+				</h2>						
+			</div>
+			
+			<div class="survey_action">
+				{{#editable?}}
+                {{^finished?}}
+				<a class="btn-modify-resp btn_major" data-role="button"><span class="txt">{{label.modify_response}}</span></a>
+				{{/finished?}}
+                {{/editable?}}
+				<a href="{{context_root}}app/survey/dashboard" class="btn-dashboard btn_{{#editable?}}minor{{/editable?}}{{^editable?}}major{{/editable?}}" data-role="button"><span class="txt">{{label.go_home}}</span></a>
+			</div>
+			{{/accessible?}}
+
+		</article>
+	</section>
+	
+	{{#use_comment?}}
+	{{^previewMode}}
+	<section class="aside_wrapper article_reply">
+		<div class="reply_wrap">
+			<ul class="reply">			
+				<li class="view_option">
+					<span class="ic_classic ic_reply"></span>
+					<span class="txt_b">{{label.reply}}<span class="reply-count num">0</span></span>
+				</li>			
+			</ul>
+		</div>
+				
+		<div data-replies-wrapper class="reply_wrap" id="comment-placeholder"></div>
+	</section>
+	{{/previewMode}}
+	{{/use_comment?}}
+{{#use_comment?}}
+</div>
+{{/use_comment?}}
+
+{{>toolbar}}

@@ -1,0 +1,12 @@
+<table id="boardSubscribers" class="type_normal">	
+	<thead>
+		<tr>
+			<th class="no_indent">{{lang.dept_name}}</th>
+			<th class="no_indent">{{lang.email_subscriber_name}}</th>
+			{{#mailExposure}}<th class="no_indent">{{lang.user_email}}</th>{{/mailExposure}}
+			<th><span class="title_sort">{{lang.email_admin_name}}<ins class="ic"></ins><span class="selected"></span></span></th>
+			<th class="no_indent">{{#managable}}{{/managable}}{{lang.delete}}</th>
+		</tr>
+	</thead>
+</table>
+{{#managable}}<a id="btnSubscritersDeleteAll" class="btn_tool" data-role="button" data-bypass><span class="txt_caution">{{lang.delete}}</span></a>{{/managable}}

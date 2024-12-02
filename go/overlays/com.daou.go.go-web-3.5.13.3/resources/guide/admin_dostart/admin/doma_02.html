@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>다우오피스 시작하기 : sub</title>
+	<script type="text/javascript" src="/go/resources/js/vendors/jquery/jquery-1.7.2.min.js"></script>
+	<script type="text/javascript">$=jQuery;</script>
+	<!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script> -->
+	<script type="text/javascript" src="/go/resources/js/vendors/jquery/plugins/jstree/jquery.jstree.js"></script>
+<!--	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.3.10/jstree.min.js"></script>-->
+	<script src="banner.js"></script>
+	<link rel="stylesheet" href="../stylesheets/fonts/notosans.css" media="all">
+	<link rel="stylesheet" href="../stylesheets/adm_style.css" media="all" />
+</head>
+<body  class="adm_skin">
+	<!-- 다우오피스 시작하기 : sub -->
+	<div class="sec_dostart" style="right: 200px">
+		<div class="sec_header">
+			<div class="critical">
+				<a href="main_03.html" class="btn_ic16" title="메뉴">
+					<span class="ic_adm ic_list_w"></span>
+				</a>
+			</div>
+			<h1>메일 도메인 연결</h1>
+			<div class="optional">
+				<a class="btn_ic16" title="닫기">
+					<span class="ic_adm ic_cancel3"></span>
+				</a>
+			</div>
+		</div>
+		<div class="sec_contents">
+			<div class="sec_contents_header">
+				<h2>2. SPF레코드 설정</h2>
+				<div class="optional">
+					<div class="com_page_num">	
+						<a href="doma_01.html" class="btn_ic16">
+							<span class="ic_adm ic_prev"></span>
+						</a>
+						<span class="txt">2 - 3</span>
+						<a href="doma_03.html" class="btn_ic16">
+							<span class="ic_adm ic_next"></span>
+						</a>
+					</div>
+				</div>
+			</div>
+			<div class="sec_contents_body">
+				<div class="txt">
+					고객사 메일계정에서 발송한 상대방측에 전달될때, <br>
+ 상대방측에서 스팸으로 오인되지 않기위해서는<br> SPF레코드 등록을 권장합니다.<br>
+
+				</div>
+				<h3>용어</h3>
+				<ul class="com_list_disc com_list_word">
+					<li>
+						<span class="tit">SPF레코드 :</span>
+						<span class="txt">메일발송서버 정보를 네임서버에 등록함으로써</span>
+						<span class="txt">발송하는 메일이 정상메일임을 보증하는 정보</span>						
+					</li>
+				</ul>
+				<!-- 배너 -->
+				<div class="com_banner_sliding">
+					<div class="banner">
+						<!-- 스크린샷 -->
+						<div class="wrap_img"><img src="../images/admin/dostart/guide_start_doma_02_1.png" alt=""></div>
+						<div class="wrap_img"><img src="../images/admin/dostart/guide_start_doma_02_2.png" alt=""></div>
+						<div class="wrap_img"><img src="../images/admin/dostart/guide_start_doma_02_3.png" alt=""></div>
+						<div class="wrap_img"><img src="../images/admin/dostart/guide_start_doma_02_4.png" alt=""></div>
+						<div class="wrap_img"><img src="../images/admin/dostart/guide_start_doma_02_5.png" alt=""></div>
+						<div class="wrap_img"><img src="../images/admin/dostart/guide_start_doma_02_6.png" alt=""></div>
+						<div class="wrap_img"><img src="../images/admin/dostart/guide_start_doma_02_7.png" alt=""></div>
+						
+					</div>
+					<a class="btn_prev_w" onclick="plusSlides(-1)"><span class="ic_adm ic_prev"></span></a>
+					<a class="btn_next_w" onclick="plusSlides(1)"><span class="ic_adm ic_next"></span></a>
+					<!-- 페이징 -->
+					<div class="banner_page">
+						<a href="" class="page"></a>
+						<a href="" class="page"></a>
+						<a href="" class="page"></a>
+						<a href="" class="page"></a>
+						<a href="" class="page"></a>
+						<a href="" class="page"></a>						
+						<a href="" class="page"></a>						
+					</div>
+					<!-- 설명 -->
+					<div class="wrap_banner_desc">
+					    <div class="banner_desc">※다른 메일 서비스를 이용하고 있다면,<br>다우오피스의 SPF 레코드는 설정하지 않으셔도 무방합니다.<br>
+							<a target="_blank" href="https://care.daouoffice.co.kr/hc/ko/articles/115003825854-%EB%A9%94%EC%9D%BC-%EB%8F%84%EB%A9%94%EC%9D%B8%EC%9D%84-%EC%96%B4%EB%96%BB%EA%B2%8C-%EC%84%A4%EC%A0%95%ED%95%98%EB%82%98%EC%9A%94-">[도메인 레코드 설정 가이드]</a></div>
+					    <!--div class="banner_desc">두번째 설명이 삽입됩니다.</div> -->
+					    <div class="banner_desc">※주요 도메인 업체 SPF레코드 설정 화면 - 가비아<br>
+							<a target="_blank" href="https://care.daouoffice.co.kr/hc/ko/articles/115003825854-%EB%A9%94%EC%9D%BC-%EB%8F%84%EB%A9%94%EC%9D%B8%EC%9D%84-%EC%96%B4%EB%96%BB%EA%B2%8C-%EC%84%A4%EC%A0%95%ED%95%98%EB%82%98%EC%9A%94-">[도메인 레코드 설정 가이드]</a></div>
+					    <div class="banner_desc">※주요 도메인 업체 SPF레코드 설정 화면 - 반값도메인<br>
+							<a target="_blank" href="https://care.daouoffice.co.kr/hc/ko/articles/115003825854-%EB%A9%94%EC%9D%BC-%EB%8F%84%EB%A9%94%EC%9D%B8%EC%9D%84-%EC%96%B4%EB%96%BB%EA%B2%8C-%EC%84%A4%EC%A0%95%ED%95%98%EB%82%98%EC%9A%94-">[도메인 레코드 설정 가이드]</a></div>
+						<div class="banner_desc">※주요 도메인 업체 SPF레코드 설정 화면 - 아이네임즈<br>
+							<a target="_blank" href="https://care.daouoffice.co.kr/hc/ko/articles/115003825854-%EB%A9%94%EC%9D%BC-%EB%8F%84%EB%A9%94%EC%9D%B8%EC%9D%84-%EC%96%B4%EB%96%BB%EA%B2%8C-%EC%84%A4%EC%A0%95%ED%95%98%EB%82%98%EC%9A%94-">[도메인 레코드 설정 가이드]</a></div>
+						<div class="banner_desc">※주요 도메인 업체 SPF레코드 설정 화면 - 후이즈<br>
+							<a target="_blank" href="https://care.daouoffice.co.kr/hc/ko/articles/115003825854-%EB%A9%94%EC%9D%BC-%EB%8F%84%EB%A9%94%EC%9D%B8%EC%9D%84-%EC%96%B4%EB%96%BB%EA%B2%8C-%EC%84%A4%EC%A0%95%ED%95%98%EB%82%98%EC%9A%94-">[도메인 레코드 설정 가이드]</a></div>
+						<div class="banner_desc">※주요 도메인 업체 SPF레코드 설정 화면 - 메일플러그<br>
+							<a target="_blank" href="https://care.daouoffice.co.kr/hc/ko/articles/115003825854-%EB%A9%94%EC%9D%BC-%EB%8F%84%EB%A9%94%EC%9D%B8%EC%9D%84-%EC%96%B4%EB%96%BB%EA%B2%8C-%EC%84%A4%EC%A0%95%ED%95%98%EB%82%98%EC%9A%94-">[도메인 레코드 설정 가이드]</a></div>
+						<div class="banner_desc">※주요 도메인 업체 SPF레코드 설정 화면 - 도레지<br>
+							<a target="_blank" href="https://care.daouoffice.co.kr/hc/ko/articles/115003825854-%EB%A9%94%EC%9D%BC-%EB%8F%84%EB%A9%94%EC%9D%B8%EC%9D%84-%EC%96%B4%EB%96%BB%EA%B2%8C-%EC%84%A4%EC%A0%95%ED%95%98%EB%82%98%EC%9A%94-">[도메인 레코드 설정 가이드]</a></div>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+	</div><!-- //다우오피스 시작하기 : sub -->
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>다우오피스 시작하기 : sub</title>
+	<script type="text/javascript" src="/go/resources/js/vendors/jquery/jquery-1.7.2.min.js"></script>
+	<script type="text/javascript">$=jQuery;</script>
+	<!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script> -->
+	<script type="text/javascript" src="/go/resources/js/vendors/jquery/plugins/jstree/jquery.jstree.js"></script>
+<!--	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.3.10/jstree.min.js"></script>-->
+	<script src="banner.js"></script>
+	<link rel="stylesheet" href="../stylesheets/fonts/notosans.css" media="all">
+	<link rel="stylesheet" href="../stylesheets/adm_style.css" media="all" />
+</head>
+<body  class="adm_skin">
+	<!-- 다우오피스 시작하기 : sub -->
+	<div class="sec_dostart" style="right: 200px">
+		<div class="sec_header">
+			<div class="critical">
+				<a href="main_03.html" class="btn_ic16" title="메뉴">
+					<span class="ic_adm ic_list_w"></span>
+				</a>
+			</div>
+			<h1>메일 도메인 연결</h1>
+			<div class="optional">
+				<a class="btn_ic16" title="닫기">
+					<span class="ic_adm ic_cancel3"></span>
+				</a>
+			</div>
+		</div>
+		<div class="sec_contents">
+			<div class="sec_contents_header">
+				<h2>3. 확인하기</h2>
+				<div class="optional">
+					<div class="com_page_num">	
+						<a href="doma_02.html" class="btn_ic16">
+							<span class="ic_adm ic_prev"></span>
+						</a>
+						<span class="txt">3 - 3</span>
+						<a href="main_04.html" class="btn_ic16">
+							<span class="ic_adm ic_next"></span>
+						</a>
+					</div>
+				</div>
+			</div>
+			<div class="sec_contents_body">
+				<div class="txt">
+					MX레코드 및 SPF레코드가 정상적으로 설정되었는지<br>
+					DNS 조회를 통해서 확인할 수 있습니다.<br>
+ ※네임서버(DNS)의 정보 변경 및 적용은<br>&nbsp; 최소 1시간, 최대 72시간(3일)까지 소요될 수 있습니다.
+
+				</div>
+				<!--h3>용어</h3-->
+				<ul class="com_list_disc com_list_word">
+				</ul>
+				<!-- 배너 -->
+				<div class="com_banner_sliding">
+					<div class="banner">
+						<!-- 스크린샷 -->
+						<div class="wrap_img"><img src="../images/admin/dostart/guide_start_doma_03_1.png" alt=""></div>
+						<div class="wrap_img"><img src="../images/admin/dostart/guide_start_doma_03_2.png" alt=""></div>
+						
+					</div>
+					<a class="btn_prev_w" onclick="plusSlides(-1)"><span class="ic_adm ic_prev"></span></a>
+					<a class="btn_next_w" onclick="plusSlides(1)"><span class="ic_adm ic_next"></span></a>
+					<!-- 페이징 -->
+					<div class="banner_page">
+						<a href="" class="page"></a>
+						<a href="" class="page"></a>
+						
+					</div>
+					<!-- 설명 -->
+					<div class="wrap_banner_desc">
+					    <div class="banner_desc">[MX레코드 반영 확인]<br>1) 윈도우 실행(R)창에서 “cmd” 입력후 엔터<br>2) 명령 프롬프트창에서 ”nslookup -type=mx 도메인명” 입력<br>3) 레코드값 확인</div>
+					    <div class="banner_desc">[SPF레코드 반영 확인]<br>1) 윈도우 실행(R)창에서 “cmd” 입력후 엔터<br>2) 명령 프롬프트창에서 ”nslookup -type=txt 도메인명” 입력<br>3) 레코드값 확인</div>
+					   
+					</div>
+				</div>
+			</div>
+		</div>
+	</div><!-- //다우오피스 시작하기 : sub -->
+</body>
+</html>

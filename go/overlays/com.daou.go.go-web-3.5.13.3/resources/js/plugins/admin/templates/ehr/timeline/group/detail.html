@@ -1,0 +1,469 @@
+<div class="tb_wrap">
+    <table class="detail">
+        <tbody>
+        <tr>
+            <th><span class="title">{{AdminLang.그룹명}}</span></th>
+            <td><input class="w_full input" type="text" id="group_name" value="{{data.name}}"></td>
+        </tr>
+        <tr>
+            <th><span class="title">{{AdminLang.그룹설명}}</span></th>
+            <td><textarea class="w_full input" id="groupDesc" name="groupDesc">{{data.description}}</textarea></td>
+        </tr>
+        <tr>
+            <th>
+                <span class="title">{{AdminLang.근무시간}}</span>
+            </th>
+            <td>
+                <span class="vertical_wrap">
+                    <span class="option_wrap">
+                        <input type="radio" name="workingTime" id="FIXED_WORKING_TIME" value="FIXED_WORKING_TIME" {{#isFixedWorkingType}} checked="checked" {{/isFixedWorkingType}}>
+                        <label for="FIXED_WORKING_TIME">{{AdminLang.지정된 시간으로 설정}}</label>
+                    </span>&nbsp;&nbsp;
+                    <span class="option_wrap">
+                        <input type="radio" name="workingTime" id="FLEXIBLE_WORKING_TIME" value="FLEXIBLE_WORKING_TIME" {{#isFlexibleWorkingTimeType}} checked="checked" {{/isFlexibleWorkingTimeType}}>
+                        <label for="FLEXIBLE_WORKING_TIME">{{AdminLang.자유 출퇴근으로 설정}}</label>
+                    </span>&nbsp;&nbsp;
+                    <span class="option_wrap">
+                        <input type="radio" name="workingTime" id="SELECTIVE_WORKING_TIME" value="SELECTIVE_WORKING_TIME" {{#isSelectiveWorkingTimeType}} checked="checked" {{/isSelectiveWorkingTimeType}}>
+                        <label for="SELECTIVE_WORKING_TIME">{{AdminLang.선택적 근무시간으로 설정}}</label>
+                    </span>
+                </span>
+
+                <div><!--data-option="timeFixed"-->
+                    <span class="wrap_btn_toggle days" id="working_days">
+                        <button class="btn_toggle d1 {{#workDay.Mon}} on {{/workDay.Mon}}" type="button" name="Mon">{{AdminLang.월}}</button>
+                        <button class="btn_toggle d2 {{#workDay.Tue}} on {{/workDay.Tue}}" type="button" name="Tue">{{AdminLang.화}}</button>
+                        <button class="btn_toggle d3 {{#workDay.Wed}} on {{/workDay.Wed}}" type="button" name="Wed">{{AdminLang.수}}</button>
+                        <button class="btn_toggle d4 {{#workDay.Thu}} on {{/workDay.Thu}}" type="button" name="Thu">{{AdminLang.목}}</button>
+                        <button class="btn_toggle d5 {{#workDay.Fri}} on {{/workDay.Fri}}" type="button" name="Fri">{{AdminLang.금}}</button>
+                        <button class="btn_toggle d6 {{#workDay.Sat}} on {{/workDay.Sat}}" type="button" name="Sat">{{AdminLang.토}}</button>
+                        <button class="btn_toggle d7 {{#workDay.Sun}} on {{/workDay.Sun}}" type="button" name="Sun">{{AdminLang.일}}</button>
+                    </span>
+                    {{#data.fixedOption}}
+                    <div data-option="timeFixed" {{#isFlexibleWorkingTimeType}} style="display:none" {{/isFlexibleWorkingTimeType}}>
+                        <div class="vertical_wrap">
+                            <span class="wrap_txt">{{AdminLang.업무시작}}</span>
+                            <span class="wrap_select">
+                                <select class="v2_slt" name="" id="workStartHour">
+                                    {{#HOUR}}
+                                    <option value="{{.}}" {{#isWorkStartHour}} selected {{/isWorkStartHour}}>{{{.}}}</option>
+                                    {{/HOUR}}
+                                </select>
+                            </span>
+                            <span class="wrap_txt">:</span>
+                            <span class="wrap_select">
+                                <select class="v2_slt" name="" id="workStartMinute">
+                                    {{#MINUTE}}
+                                    <option value="{{.}}" {{#isWorkStartMinute}} selected {{/isWorkStartMinute}}>{{.}}</option>
+                                    {{/MINUTE}}
+                                </select>
+                            </span>
+                            <span class="wrap_txt">:</span>
+                            <span class="wrap_select">
+                                <select class="v2_slt" name="" id="workStartSecond">
+                                    {{#SECOND}}
+                                    <option value="{{.}}" {{#isWorkStartSecond}} selected {{/isWorkStartSecond}}>{{.}}</option>
+                                    {{/SECOND}}
+                                </select>
+                            </span>
+                            <span class="wrap_txt">&nbsp;&nbsp;{{AdminLang.업무종료}}</span>
+                            <span class="wrap_select">
+                                <select class="v2_slt" name="" id="workEndHour">
+                                    {{#HOUR}}
+                                    <option value="{{.}}" {{#isWorkEndHour}} selected {{/isWorkEndHour}}>{{.}}</option>
+                                    {{/HOUR}}
+                                </select>
+                            </span>
+                            <span class="wrap_txt">:</span>
+                            <span class="wrap_select">
+                                <select class="v2_slt" name="" id="workEndMinute">
+                                    {{#MINUTE}}
+                                    <option value="{{.}}" {{#isWorkEndMinute}} selected {{/isWorkEndMinute}}>{{.}}</option>
+                                    {{/MINUTE}}
+                                </select>
+                            </span>
+                            <span class="wrap_txt">:</span>
+                            <span class="wrap_select">
+                                <select class="v2_slt" name="" id="workEndSecond">
+                                    {{#SECOND}}
+                                    <option value="{{.}}" {{#isWorkEndSecond}} selected {{/isWorkEndSecond}}>{{.}}</option>
+                                    {{/SECOND}}
+                                </select>
+                            </span>
+                        </div>
+
+                        <div data-option="selectiveOption" class="vertical_wrap" {{^isSelectiveWorkingTimeType}} style="display:none" {{/isSelectiveWorkingTimeType}}>
+                            <input type="checkbox" id="enableDutyTime" {{#enableDutyTime}} checked {{/enableDutyTime}}>
+                            <span class="wrap_txt">{{AdminLang.코어타임}}</span>
+                            <span class="wrap_select">
+                                <select class="v2_slt" name="" id="dutyStartHour">
+                                    {{#HOUR}}
+                                    <option value="{{.}}" {{#isDutyStartHour}} selected {{/isDutyStartHour}}>{{{.}}}</option>
+                                    {{/HOUR}}
+                                </select>
+                            </span>
+                            <span class="wrap_txt">:</span>
+                            <span class="wrap_select">
+                                    <select class="v2_slt" name="" id="dutyStartMinute">
+                                        {{#MINUTE}}
+                                        <option value="{{.}}" {{#isDutyStartMinute}} selected {{/isDutyStartMinute}}>{{.}}</option>
+                                        {{/MINUTE}}
+                                    </select>
+                                </span>
+                            <span class="wrap_txt">:</span>
+                            <span class="wrap_select">
+                                    <select class="v2_slt" name="" id="dutyStartSecond">
+                                        {{#SECOND}}
+                                        <option value="{{.}}" {{#isDutyStartSecond}} selected {{/isDutyStartSecond}}>{{.}}</option>
+                                        {{/SECOND}}
+                                    </select>
+                                </span>
+                            <span class="wrap_txt">&nbsp;~&nbsp;</span>
+                            <span class="wrap_select">
+                                    <select class="v2_slt" name="" id="dutyEndHour">
+                                        {{#HOUR}}
+                                        <option value="{{.}}" {{#isDutyEndHour}} selected {{/isDutyEndHour}}>{{.}}</option>
+                                        {{/HOUR}}
+                                    </select>
+                                </span>
+                            <span class="wrap_txt">:</span>
+                            <span class="wrap_select">
+                                    <select class="v2_slt" name="" id="dutyEndMinute">
+                                        {{#MINUTE}}
+                                        <option value="{{.}}" {{#isDutyEndMinute}} selected {{/isDutyEndMinute}}>{{.}}</option>
+                                        {{/MINUTE}}
+                                    </select>
+                                </span>
+                            <span class="wrap_txt">:</span>
+                            <span class="wrap_select">
+                                    <select class="v2_slt" name="" id="dutyEndSecond">
+                                        {{#SECOND}}
+                                        <option value="{{.}}" {{#isDutyEndSecond}} selected {{/isDutyEndSecond}}>{{.}}</option>
+                                        {{/SECOND}}
+                                    </select>
+                            </span>
+                        </div>
+                        <hr class="line1" />
+                        <span class="wrap_txt bold">{{AdminLang.근무시간 산정 기준 설정}}
+                           <span class="help">
+                            <span class="tool_tip">{{AdminLang.* 위 설정에 따라 총 근무시간은 상이하게 보일 수 있습니다}} <br>
+                                {{AdminLang.* 설정한 업무시작/업무종료 기준으로 근무시간 산정 시, 추가 근무를 하더라도 초과근무로 산정되지 않습니다}}<br>
+                                {{AdminLang.* 전자결재 > 연장근무 신청서 사용 시, 승인이 완료되면 총 근무시간에 추가 산정됩니다}}
+                                <i class="tail_left"></i>
+                            </span>
+                           </span>
+                        </span>
+                        <span class="vertical_wrap">
+                            <span class="option_wrap">
+                                <input type="checkbox" id="ignoreBeforeStart" {{#isIgnoreBeforeStart}} checked {{/isIgnoreBeforeStart}}>
+                                <label for="ignoreBeforeStart">{{AdminLang.조기 출근 시, 설정한 업무시작 시간 기준으로 근무시간 산정}}</label>
+                            </span>
+                        </span>
+                        <span class="vertical_wrap">
+                            <span class="option_wrap">
+                                <input type="checkbox" id="ignoreAfterStart" {{#isIgnoreAfterStart}} checked {{/isIgnoreAfterStart}}>
+                                <label for="ignoreAfterStart">{{AdminLang.지각 시, 설정한 업무시작 시간 기준으로 근무시간 산정}}</label>
+                            </span>
+                        </span>
+                        <span class="vertical_wrap">
+                            <span class="option_wrap">
+                                <input type="checkbox" id="ignoreAfterEnd" {{#isIgnoreAfterEnd}} checked {{/isIgnoreAfterEnd}}>
+                                <label for="ignoreAfterEnd">{{AdminLang.늦은 퇴근 시, 설정한 업무종료 시간 기준으로 근무시간 산정}}</label>
+                            </span>
+                        </span>
+                        <hr class="line1" />
+                        <span class="wrap_txt bold">{{AdminLang.자동퇴근 설정}}
+                            <span class="help">
+                                <span class="tool_tip">{{AdminLang.자동퇴근 설정 설명}}
+                                    <i class="tail_left"></i>
+                                </span>
+                            </span>
+                        </span>
+                        <span class="vertical_wrap">
+                            <span class="option_wrap">
+                                <input type="radio" value="DISABLE" id="AUTO_CLOCK_OUT_DISABLE" name="timelineAutoClockOut" {{#isAutoClockOutDisable}} checked {{/isAutoClockOutDisable}}>
+                                <label for="AUTO_CLOCK_OUT_DISABLE">{{AdminLang.설정 안함}}</label>
+                            </span>
+                        </span>
+                        <span class="vertical_wrap">
+                            <span class="option_wrap">
+                                <input type="radio" value="FIXED_TIME" id="FIXED_TIME" name="timelineAutoClockOut" {{#isAutoClockOutFixedTime}} checked {{/isAutoClockOutFixedTime}}>
+                                <label for="FIXED_TIME">{{AdminLang.출근시간 상관없이}}</label>
+                            </span>
+                            <span class="wrap_select">
+                                <select class="v2_slt" name="" id="autoClockOutfixedTimeHour">
+                                    {{#HOUR}}
+                                    <option value="{{.}}" {{#isAutoClockOutFixedTimeHour}} selected {{/isAutoClockOutFixedTimeHour}}>{{.}}</option>
+                                    {{/HOUR}}
+                                </select>
+                            </span>
+                            <span class="wrap_txt">:</span>
+                            <span class="wrap_select">
+                                <select class="v2_slt" name="" id="autoClockOutfixedTimeMinute">
+                                    {{#MINUTE}}
+                                    <option value="{{.}}" {{#isAutoClockOutFixedTimeMinute}} selected {{/isAutoClockOutFixedTimeMinute}}>{{.}}</option>
+                                    {{/MINUTE}}
+                                </select>
+                            </span>
+                            <span class="wrap_txt">:</span>
+                            <span class="wrap_select">
+                                <select class="v2_slt" name="" id="autoClockOutfixedTimeSecond">
+                                    {{#SECOND}}
+                                    <option value="{{.}}" {{#isAutoClockOutFixedTimeSecond}} selected {{/isAutoClockOutFixedTimeSecond}}>{{.}}</option>
+                                    {{/SECOND}}
+                                </select>
+                            </span>
+                            <span class="wrap_txt">{{AdminLang.자동퇴근}}</span>
+                        </span>
+                        <span class="vertical_wrap">
+                            <span class="option_wrap">
+                                <input type="radio" value="RELATIVE_TIME" id="RELATIVE_TIME" name="timelineAutoClockOut" {{#isAutoClockOutRelativeTime}} checked {{/isAutoClockOutRelativeTime}}>
+                                <label for="RELATIVE_TIME">{{AdminLang.사용자 출근시간}}</label>
+                            </span>
+                            <span class="wrap_select">
+                                <select class="v2_slt" name="" id="autoClockOutRelativeTimeHour">
+                                    {{#HOUR}}
+                                    <option value="{{.}}" {{#isAutoClockOutRelativeTimeHour}} selected {{/isAutoClockOutRelativeTimeHour}}>{{{.}}}</option>
+                                    {{/HOUR}}
+                                </select>
+                            </span>
+                            <span class="wrap_txt">{{AdminLang.시간 후, 자동 퇴근}}</span>
+                        </span>
+                    </div>
+                    {{/data.fixedOption}}
+                <div>
+            </td>
+        </tr>
+
+        <tr data-option="timeFixed" {{#isFlexibleWorkingTimeType}} style="display:none" {{/isFlexibleWorkingTimeType}}>
+            <th>
+                <span class="title">{{AdminLang.야간근무시간}}
+                    <span class="help"><span class="tool_tip">
+                        {{AdminLang.설정한 시간대에서만 야간근무신청이 가능합니다}}
+                    <i class="tail_left"></i></span></span>
+                </span>
+            </th>
+            <td>
+                <span class="wrap_select">
+                    <select class="v2_slt" name="" id="nightStartHour">
+                        {{#HOUR}}
+                        <option value="{{.}}" {{#isNightStartHour}} selected
+                                {{/isNightStartHour}}>{{.}}</option>
+                        {{/HOUR}}
+                    </select>
+                </span>
+                <span class="wrap_txt">:</span>
+                <span class="wrap_select">
+                    <select class="v2_slt" name="" id="nightStartMinute">
+                        {{#MINUTE}}
+                        <option value="{{.}}" {{#isNightStartMinute}} selected
+                                {{/isNightStartMinute}}>{{.}}</option>
+                        {{/MINUTE}}
+                    </select>
+                </span>
+                <span class="wrap_txt">:</span>
+                <span class="wrap_select">
+                    <select class="v2_slt" name="" id="nightStartSecond">
+                        {{#SECOND}}
+                        <option value="{{.}}" {{#isNightStartSecond}} selected
+                                {{/isNightStartSecond}}>{{.}}</option>
+                        {{/SECOND}}
+                    </select>
+                </span>
+                <span class="wrap_txt">~</span>
+                <span class="wrap_select">
+                    <select class="v2_slt" name="" id="nightEndHour">
+                        {{#HOUR}}
+                        <option value="{{.}}" {{#isNightEndHour}} selected {{/isNightEndHour}}>{{.}}</option>
+                        {{/HOUR}}
+                    </select>
+                </span>
+                <span class="wrap_txt">:</span>
+                <span class="wrap_select">
+                    <select class="v2_slt" name="" id="nightEndMinute">
+                        {{#MINUTE}}
+                        <option value="{{.}}" {{#isNightEndMinute}} selected
+                                {{/isNightEndMinute}}>{{.}}</option>
+                        {{/MINUTE}}
+                    </select>
+                </span>
+                <span class="wrap_txt">:</span>
+                <span class="wrap_select">
+                    <select class="v2_slt" name="" id="nightEndSecond">
+                        {{#SECOND}}
+                        <option value="{{.}}" {{#isNightEndSecond}} selected
+                                {{/isNightEndSecond}}>{{.}}</option>
+                        {{/SECOND}}
+                    </select>
+                </span>
+            </td>
+        </tr>
+
+
+        <tr data-option="selectiveOption" {{^isSelectiveWorkingTimeType}} style="display:none" {{/isSelectiveWorkingTimeType}}>
+            <th>
+                <span class="title">{{AdminLang.표준근무시간}}
+                        <span class="help"><span class="tool_tip">
+                        {{TimeLineLang.표준근무시간 툴팁}}
+                    <i class="tail_left"></i></span></span>
+                </span>
+                </span>
+            </th>
+            <td>
+                <span class="wrap_input">
+                    {{AdminLang.1일 기준}}&nbsp;
+                    <span class="wrap_select">
+                        <select class="v2_slt" name="" id="consensusHoursPerDay">
+                            {{#HOUR}}
+                            <option value="{{.}}" {{#isConsensusHoursPerDay}} selected {{/isConsensusHoursPerDay}}>{{{.}}}</option>
+                            {{/HOUR}}
+                        </select>
+                    </span>
+                    &nbsp;{{AdminLang.시간}}
+                </span>
+            </td>
+        </tr>
+
+        <tr>
+            <th>
+                <span class="title">{{AdminLang.휴게시간}}
+                <span class="help"><span class="tool_tip">
+                        {{TimeLineLang.휴게시간 툴팁}}
+                    <i class="tail_left"></i></span></span>
+                </span>
+            </th>
+            <td id="restTimeRange">
+            </td>
+        </tr>
+
+        <tr>
+            <th>
+                  <span class="title">{{AdminLang.알림 설정}}</span>
+            </th>
+            <td>
+                  <table class="in_table nude alarm">
+                      <tbody id="noti_setting">
+                      </tbody>
+                  </table>
+            </td>
+        </tr>
+        <tr>
+            <th>
+                <span class="title">{{AdminLang.디바이스 체크}}</span>
+            </th>
+            <td>
+                <span class="wrap_btn_toggle t2" id="device_check" >
+                    <button data-type="PC_WEB" class="btn_toggle t2 on" type="button" title="">{{TimeLineLang.웹 서비스}}</button>
+                    <button data-type="MOBILE" {{#syncActive}} disabled {{/syncActive}} class="btn_toggle t1 {{#isMobileAllow}} on {{/isMobileAllow}}" type="button" title="">{{TimeLineLang.모바일 앱}}</button>
+                </span>
+                <span class="option_wrap" id="useGpsArea" {{^isMobileAllow}} style="display:none" {{/isMobileAllow}}>&nbsp;&nbsp;
+                    <input type="checkbox" id="useMobileGps" {{#useMobileGps}} checked {{/useMobileGps}}>
+                    <label for="useMobileGps">{{AdminLang.모바일 GPS 기록 사용}}</label>
+                    <span class="help"><span class="tool_tip">{{AdminLang.GPS 기록 설명}}<br>
+                    <i class="tail_left"></i></span></span>
+                </span>
+            </td>
+        </tr>
+
+        <tr>
+            <th>
+                <span class="title">{{AdminLang.근태 근무지}}</span>
+                <span class="help">
+                    <span class="tool_tip">
+                        {{AdminLang.근태 근무지 툴팁}}
+                        <i class="tail_left"></i>
+                    </span>
+                </span>
+            </th>
+            <td id="workPlaceSetting">
+            </td>
+        </tr>
+        <tr>
+            <th>
+                <span class="title">{{AdminLang.근태자 IP 자동 저장}}</span>
+                <span class="help">
+                    <span class="tool_tip">
+                        {{AdminLang.근태자 IP 자동 저장 툴팁}}
+                        <i class="tail_left"></i>
+                    </span>
+                </span>
+            </th>
+            <td>
+                <span class="wrap_btn_toggle">
+                    <button class="btn_toggle onOffToggle {{#privateIpAutoSave}}on{{/privateIpAutoSave}}"
+                            id="privateIpAutoSave" type="button" title="">
+                        {{CommonLang.사용}}</button>
+                    <button class="btn_toggle onOffToggle {{^privateIpAutoSave}}on{{/privateIpAutoSave}}" type="button" title="">
+                        {{CommonLang.사용안함}}</button>
+                </span>
+            </td>
+        </tr>
+        <tr>
+            <th>
+                <span class="title">{{AdminLang.근태 통계}}</span>
+                <span class="help">
+                    <span class="tool_tip">
+                        {{{AdminLang.근태 통계 툴팁}}}
+                        <i class="tail_left"></i>
+                    </span>
+                </span>
+            </th>
+            <td>
+                <span class="wrap_btn_toggle">
+                    <button class="btn_toggle onOffToggle {{#useWarningCheck}}on{{/useWarningCheck}}"
+                            id="useWarningCheck" type="button" title="">{{CommonLang.사용}}</button>
+                    <button class="btn_toggle onOffToggle {{^useWarningCheck}}on{{/useWarningCheck}}" type="button" title="">{{CommonLang.사용안함}}</button>
+                </span>
+            </td>
+        </tr>
+        <tr>
+            <th><span class="title">{{AdminLang.근태자 설정}}</span></th>
+            <td>
+                <span class="option_wrap">
+                    <input type="radio" id="BLACK" value="black" name="accessSetting" {{#isAccessBlack}} checked {{/isAccessBlack}} >
+                    <label for="BLACK">{{AdminLang.그룹 차단 설정}}</label>
+                </span>
+                <br>
+                <span class="option_wrap">
+                    <input type="radio" id="WHITE" value="white" name="accessSetting" {{#isAccessWhite}} checked {{/isAccessWhite}} >
+                    <label for="WHITE">{{AdminLang.그룹 허용 설정}}</label>
+                </span>
+                <hr class="line1">
+                <div class="vertical_tit_wrap">
+                    <span class="tit">{{AdminLang.클래스 선택}}</span>
+                    <span id="groupAccessUser"></span>
+                    <br>
+                    <span class="tit">{{AdminLang.예외 클래스 추가}}</span>
+                    <span id="groupExceptionUser"></span>
+                </div>
+            </td>
+        </tr>
+        {{^data.defaultGroup}}
+        <tr>
+            <th><span class="title">{{AdminLang.적용 기간}}</span></th>
+            <td>
+                <span class="option_wrap">
+                    <input type="checkbox" id="usePeriodSetting" {{#usePeriodSetting}} checked {{/usePeriodSetting}}>
+                    <label for="usePeriodSetting">{{AdminLang.기간 설정}}&nbsp;&nbsp;</label>
+                </span>
+                <span class="wrap_date"><input class="txt wfix_medium" type="text" value="" id="startDate"><span class="ic_go ic_calendar"></span></span>
+                <span class="wave">~</span>
+                <span class="wrap_date"><input class="txt wfix_medium" type="text" value="" id="endDate"><span class="ic_go ic_calendar"></span></span>
+            </td>
+        </tr>
+        {{/data.defaultGroup}}
+        <tr>
+            <td colspan="2"><span class="desc">{{AdminLang.그룹설정적용설명}}</span></td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="page_action">
+        <span class="btn" id="save">{{CommonLang.저장}}</span>
+        {{^isNew}}
+        {{^data.defaultGroup}}
+        <span class="btn_nega" id="remove">{{CommonLang.삭제}}</span>
+        {{/data.defaultGroup}}
+        {{/isNew}}
+        <span class="btn_nega" id="cancel">{{CommonLang.취소}}</span>
+    </div>
+</div>

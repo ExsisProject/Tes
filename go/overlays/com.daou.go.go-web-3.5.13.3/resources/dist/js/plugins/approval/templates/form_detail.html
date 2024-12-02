@@ -1,0 +1,69 @@
+
+<tbody id="form_detail_tbody">
+{{#dData}}
+	<tr>
+		<th><span id="form_title" data-formId='{{id}}' class="title">{{lang.제목}}</span></th>
+		<td>{{name}}</td>
+	</tr>
+	<tr>
+		<th><span class="title">{{lang.전사문서함}}</span></th>
+		<td>{{companyDocFolder.parentName}}</td>
+	</tr>
+	<tr>
+		<th><span class="title">{{lang.보존연한}}</span></th>
+		<td>{{preserveYear}}</span>
+		</td>
+	</tr>
+<!--     <tr>
+		<th><span class="title">{{lang.설명}}</span></th>
+		<td>{{description}}</td>
+	</tr> -->
+	<tr>
+		<th><span class="title">{{lang.기안부서}}</span></th>
+		<td>
+			<select id="draftDeptId">
+			{{#drafterDeptFolderInfos}}
+				<option value="{{deptId}}">{{deptName}}</option>
+			{{/drafterDeptFolderInfos}}
+			{{#emptyDept}}
+				<option>{{lang.소속된 부서가 없습니다}}</option>
+			{{/emptyDept}}</select>
+		</td>
+	</tr>
+	<tr>
+        <th><span class="title">{{lang.부서문서함}}</span></th>
+        <td>
+            {{^emptyDept}}
+            <select id="deptFolderId"></select>
+            {{/emptyDept}}
+        </td>
+    </tr>
+{{/dData}}
+{{^dData}}
+	<tr>
+		<th><span class="title">{{lang.제목}}</span></th>
+		<td></td>
+	</tr>
+	<tr>
+		<th><span class="title">{{lang.전사문서함}}</span></th>
+		<td></td>
+	</tr>
+	<tr>
+		<th><span class="title">{{lang.보존연한}}</span></th>
+		<td></span>
+		</td>
+	</tr>
+<!-- 	<tr>
+		<th><span class="title">{{lang.설명}}</span></th>
+		<td></td>
+	</tr> -->
+	<tr>
+		<th><span class="title">{{lang.기안부서}}</span></th>
+		<td></td>
+	</tr>
+	<tr>
+        <th><span class="title">{{lang.부서문서함}}</span></th>
+        <td></td>
+    </tr>
+{{/dData}}	
+</tbody>

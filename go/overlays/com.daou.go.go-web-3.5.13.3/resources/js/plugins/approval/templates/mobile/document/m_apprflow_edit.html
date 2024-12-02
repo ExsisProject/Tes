@@ -1,0 +1,42 @@
+<div class="content approval_linkage">
+    <section class="classic_detail">
+        <article class="article_view">
+            <div class="tab_wrap">
+                <ul class="tab tab_line">
+                    <li class="on" data-tabid="apprline">
+                        <a data-bypass>{{lang.결재선}}</a>
+                    </li>
+                    {{#actionCheck.referenceActive}}
+                    <li class="" data-tabid="referer">
+                        <a data-bypass>{{lang.참조자}}</a>
+                    </li>
+                    {{/actionCheck.referenceActive}}
+                    {{#actionCheck.receptionActive}}
+                    <li class="" data-tabid="receiver">
+                        <a data-bypass>{{lang.수신자}}</a>
+                    </li>
+                    {{/actionCheck.receptionActive}}
+                    {{#actionCheck.readerActive}}
+                    <li class="" data-tabid="reader">
+                        <a data-bypass>{{lang.열람자}}</a>
+                    </li>
+                    {{/actionCheck.readerActive}}
+                </ul>
+            </div>
+            <!-- form -->
+            <div class="tab_content">
+                <!-- tab1 결재선 -->
+                <div class="form_table form_v" id="apprline" style="display: block;"></div>
+
+                <!-- tab2: 참조자 -->
+                <div class="form_table form_v" id="referer"  style="display: none;"></div>
+
+                <!-- tab3: 수신자 -->
+                <div class="form_table form_v" id="receiver" style="display: none;"></div>
+
+                <!-- tab4 : 열람자 -->
+                <div class="form_table form_v" id="reader" style="display: none;"></div>
+            </div>
+        </article>
+    </section>
+</div>

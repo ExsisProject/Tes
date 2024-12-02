@@ -1,0 +1,15 @@
+<form name="dept_fail_alert" onSubmit="return false;" id="deptFailAlert">
+	<div class="alert_wrap alert_bottom" style="">
+		{{#jobName}}
+		<ins class="ic ic_alert_caution"></ins><span class="txt">{{lang.dept_org_import_fail}}</span>
+		{{/jobName}}
+		{{^jobName}}
+		<ins class="ic ic_alert_caution"></ins><span class="txt">{{lang.dept_member_import_fail}}</span>
+		{{/jobName}}
+		
+		
+		<span id="downloadFailResult" class="btn_formal"><span class="txt">{{lang.download}}</span></span>
+		<span id="removeFailResult" class="btn_formal"><span class="txt_caution">{{lang.delete}}</span></span>
+		<span class="btn_wrap" alt="{{lang.close}}"><span id="closeAlert" class="btn_del_light"></span></span>
+	</div>
+</form>

@@ -1,0 +1,75 @@
+<div class="container">    
+	<div class="header">
+	    <h2>{{lang.account_down_title}}</h2>
+	</div>    
+	
+	<div class="content">
+	    <table class="detail">
+	        <colgroup>
+	            <col width="150px"/>
+	    		<col width="*" />
+			</colgroup>
+			<tbody>
+				<tr class="last">
+				    <th><span class="title">{{lang.account_download}}</span></th> 
+				    <td>
+				    	<span class="btn_tool" id="accountListDownload">{{lang.account_download}}</span>
+				    </td>
+				</tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="container">            
+    <div class="header">
+        <h2>{{lang.title}}</h2>
+    </div>            
+    <div class="content">
+        <table class="detail">
+            <colgroup>
+                <col width="150px"/>
+                <col width="*" />
+            </colgroup>
+            <tbody>
+                <tr class="last">
+                    <th>
+                    <span class="title" id="select_file">
+                        {{lang.sub_title}} 
+                    </span></th> 
+                    <td>
+                        <div class="btn_minor_s" id="swfupload-control" style="padding: 0px; !important;"></div>
+                        <span id="progressBarWrap" class="btn_action_wrap" style="display:inline-block"></span>
+                         <span class="desc" style="cursor: pointer;" id="formDownload">[ {{lang.csv_tmpl}}]</span>
+                          <ul class="file_wrap" id="fileComplete">
+                        	</ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="page_action">
+    <span class="btn" id="add_accounts">{{lang.account_import}}</span>
+</div>
+<div class="container" id="csv_progress" style="display:none">
+	<div class="header">
+        <h2>{{lang.result_title}}</h2>
+    </div>  
+    <div class="content">
+		<span class="option_wrap" id="progress_content">
+		</span>
+    	<span id="csvProgressBar" style="display:inline-block">
+    		<div id="progressbar">
+    		</div>
+    	</span>
+    </div>    
+</div>                
+<div id="csv_result" style="display:none">         
+    <div class="page_action">
+        <span class="btn" id="download_all">{{lang.result_download}}</span>
+        <span class="btn_nega" id="download_fail">{{lang.fail_download}}</span>
+    </div>
+    <input type="hidden" id="resultFile">
+</div>

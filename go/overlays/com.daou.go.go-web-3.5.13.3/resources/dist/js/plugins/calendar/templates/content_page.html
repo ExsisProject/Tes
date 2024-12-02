@@ -1,0 +1,19 @@
+<header class="content_top">
+    <h1>
+        {{#calendars}}
+        <div class="title">
+            <span>{{name}}</span>
+            {{#me?}}
+            <a href="#" title="{{title_of_star}}"><span class="ic_star ic_star_{{star_style}}"></span></a>
+            {{/me?}}
+        </div>
+        {{/calendars}}
+    </h1>
+    <section class="search">
+        <div class="search_wrap">
+            <input class="search" type="text" placeholder="search" />
+            <a class="btn_detail" title="{{title_of_search}}"></a>
+            <input class="btn_search" type="submit" value="{{label_search}}">
+        </div>
+    </section>
+</header>

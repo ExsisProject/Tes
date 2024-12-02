@@ -1,0 +1,1 @@
+define(["backbone"],function(e){var t=e.Model.extend({url:function(){return GO.contextRoot+"api/ehr/welfare?"+this.getParams()},setYear:function(e){this.year=e},getParams:function(){var e={};return e.year=this.year,$.param(e)}},{});return t});

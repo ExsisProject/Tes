@@ -1,0 +1,59 @@
+<div class="go_calendar_list go_asset">
+	{{#dataset}}
+	<header class="content_top">
+		<h1>
+			<span class="txt" id="itemName"></span>
+			<ul class="name_tag calendar_tag">
+				<li class="default_option">
+					<span class="name">{{lang.asset_detail}}</span>
+				</li>
+				<li class="desc">
+					<span class="btn_wrap">
+						<span class="ic_classic ic_open" title="{{lang.asset_detail_view}}"></span>
+					</span>
+				</li>
+			</ul>			
+		</h1>
+	</header>
+	<!--목록:-->		
+	<div class="content_page" >		
+		<div class="layer_slide layer_name_tag" style="display:none; top: -8px; left: -1px;">
+			<header></header>
+			<a class="btn_layer_x" data-btntype="infoClose" title="{{lang.asset_close}}">
+			<span class="ic"></span><span class="txt">{{lang.asset_close}}</span>
+			</a>
+			<ul id="calendar-tag-base" class="name_tag calendar_tag">
+			<!-- default_option 은 기본 설정 옵션 -->
+				{{#useCodeVisibility}}
+				<li class="default_option"><span class="info">{{lang.code}} : <strong id="code"></strong></span></li>
+				{{/useCodeVisibility}}		
+				<li class="default_option"><span class="info">{{lang.name}} : <strong id="name"></strong></span></li>	
+			<!-- //default_option 은 기본 설정 옵션 -->
+			<!-- 사용자 추가 설정 옵션 -->
+				{{#attributes}}
+				{{#visibility}}
+				<li class="" data-id="{{id}}"><span class="info">{{name}} : <strong></strong></span></li>
+				{{/visibility}}
+				{{/attributes}}
+				
+			<!-- //사용자 추가 설정 옵션 -->			
+			</ul>
+		</div>			
+		<section class="tool_bar calendar_tool_bar">			
+			<div class="current_date">		
+				<span class="btn_ic_prev2 btn_bdr_white" title="{{lang.prev}}" data-btntype="moveWeek" data-date="" id="prevWeek"><span class="ic ic_prev2"></span></span>						
+				<span class="date" id="weekTermDate"></span>					
+				<span class="btn_ic_next2 btn_bdr_white" title="{{lang.next}}" data-btntype="moveWeek" data-date="" id="nextWeek"><span class="ic ic_next2"></span></span>
+                <input type="text" id="weekCalendarHiddenInput" style="border:0px;width:1px;height:0px;"/>
+			</div>
+		</section>
+	
+		<!-- 캘린더 마크업 임포트 -->
+		<!-- calendar week -->
+		<div class="calendar_week" id="weekCal">
+		</div>
+		<!-- //calendar_week -->
+		<!-- //캘린더 마크업 입포트 -->
+	</div>
+	{{/dataset}}
+</div>

@@ -1,0 +1,117 @@
+<td class="other">
+    <span class='txt'>{{data.seq}}</span>
+</td>
+<td class="title">
+    <span class="wrap_txt"><input class="w_full input" type="text" maxlength="5" value="{{data.name}}"></span>
+</td>
+<td class="approver_max">
+    <select id="selectApproverCount">
+        {{#data.approverCounts}}
+        <option value="{{value}}" {{#isSelected}}selected="selected"{{/isSelected}}>{{label}}</option>
+        {{/data.approverCounts}}
+    </select>
+</td>
+
+<td colspan="2">
+    <table class="tb_approval_line">
+        <tbody>
+            <tr>
+                <td class="approver_type_set">
+                    <span class="option_wrap">
+                        <input type="checkbox" id="typeOpApproval{{data.seq}}" name="typeOpApproval" {{#data.useApproval}} checked="checked"{{/data.useApproval}} value="true">
+                        <label for="typeOpApproval{{data.seq}}">{{lang.approval_type}}</label>
+                    </span>
+                </td>
+                <td class="">
+                    <ul class="name_tag APPROVAL_nameTag">
+                        <li id="add_btn_container" class="creat userAdd" {{#data.hideUserAdd}} style="display: none;" {{/data.hideUserAdd}}>
+                            <span class="btn_wrap" id="approval_user_add" {{#data.useApproval}} style="display: inline-block;"{{/data.useApproval}} {{^data.useApproval}} style="display: none;"{{/data.useApproval}}>
+                                <span class="ic ic_addlist"></span>
+                                <span class="txt">{{lang.add_approval_user}}</span>
+                            </span>
+                        </li>
+                        
+                        {{#data.setLineRule}}
+                        <li id="add_btn_container" class="selectedLineRule" {{#data.useApprLineRule}}{{^data.selectedLineRuleName}} style="display: none;" {{/data.selectedLineRuleName}} {{/data.useApprLineRule}} {{^data.useApprLineRule}} style="display: none;" {{/data.useApprLineRule}}>
+                            <span id="selectedLineRule" class="name" data-id='{{data.selectedLineRuleId}}'>{{data.selectedLineRuleName}}</span>
+                            <span class="btn_wrap">
+                                <span id="cancelSelectedLineRule" class="ic ic_del btn_delete_activity" title=""></span>
+                            </span>
+                        </li>
+                        <li id="add_btn_container" class="creat apprLineRule" {{^data.useApprLineRule}} style="display: none;" {{/data.useApprLineRule}}>
+                            <span class="btn_wrap" id="apprLineRule_add" style="display:inline-block;">
+                                <span class="ic ic_addlist"></span>
+                                <span class="txt" {{#data.selectedLineRuleName}}data-state="selected"{{/data.selectedLineRuleName}}{{^data.selectedLineRuleName}}data-state="ready"{{/data.selectedLineRuleName}}>
+                                    {{#data.selectedLineRuleName}}{{lang.변경}}{{/data.selectedLineRuleName}}{{^data.selectedLineRuleName}}{{lang.자동결재선}}{{/data.selectedLineRuleName}}
+                                </span>
+                            </span>
+                        </li>
+                        {{/data.setLineRule}}
+                        
+                    </ul>
+                </td>
+            </tr>
+            {{#data.allowAgreement}}
+            <tr>
+                <td class="approver_type_set">
+                    <span class="option_wrap">
+                        <input type="checkbox" id="typeOpAgreement{{data.seq}}" name="typeOpAgreement" {{#data.useAgreement}} checked="checked"{{/data.useAgreement}} value="true">
+                        <label for="typeOpAgreement{{data.seq}}">{{lang.agreement_type}}</label>
+                    </span>
+                </td>
+                <td class="">
+                    <ul class="name_tag AGREEMENT_nameTag">
+                        <li id="add_btn_container" class="creat userAdd" {{#data.hideUserAdd}} style="display: none;" {{/data.hideUserAdd}}>
+                            <span class="btn_wrap" id="agreement_user_add" {{#data.useAgreement}} style="display: inline-block;"{{/data.useAgreement}} {{^data.useAgreement}} style="display: none;"{{/data.useAgreement}}>
+                                <span class="ic ic_addlist"></span>
+                                <span class="txt">{{lang.add_agreement_user}}</span>
+                            </span>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+            {{/data.allowAgreement}}
+            {{#data.allowCheck}}
+            <tr>
+                <td class="approver_type_set">
+                    <span class="option_wrap">
+                        <input type="checkbox" id="typeOpCheck{{data.seq}}" name="typeOpCheck" {{#data.useCheck}} checked="checked"{{/data.useCheck}} value="true">
+                        <label for="typeOpCheck{{data.seq}}">{{lang.check_type}}</label>
+                    </span>
+                </td>
+                <td class="">
+                    <ul class="name_tag CHECK_nameTag">
+                        <li id="add_btn_container" class="creat userAdd" {{#data.hideUserAdd}} style="display: none;" {{/data.hideUserAdd}}>
+                            <span class="btn_wrap" id="check_user_add" {{#data.useCheck}} style="display: inline-block;"{{/data.useCheck}} {{^data.useCheck}} style="display: none;"{{/data.useCheck}}>
+                                <span class="ic ic_addlist"></span>
+                                <span class="txt">{{lang.add_check_user}}</span>
+                            </span>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+            {{/data.allowCheck}}
+            {{#data.allowInspection}}
+            <tr>
+                <td class="approver_type_set">
+                    <span class="option_wrap">
+                        <input type="checkbox" id="typeOpInspection{{data.seq}}" name="typeOpInspection" {{#data.useInspection}} checked="checked"{{/data.useInspection}} value="true">
+                        <label for="typeOpInspection{{data.seq}}">{{lang.inspection_type}}</label>
+
+                    </span>
+                </td>
+                <td class="">
+                    <ul class="name_tag INSPECTION_nameTag">
+                        <li id="add_btn_container" class="creat userAdd" {{#data.hideUserAdd}} style="display: none;" {{/data.hideUserAdd}}>
+                            <span class="btn_wrap" id="inspection_user_add" {{#data.useInspection}} style="display: inline-block;"{{/data.useInspection}} {{^data.useInspection}} style="display: none;"{{/data.useInspection}}>
+                                <span class="ic ic_addlist"></span>
+                                <span class="txt">{{lang.add_inspection_user}}</span>
+                            </span>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+         	{{/data.allowInspection}}
+        </tbody>
+    </table>
+</td> 

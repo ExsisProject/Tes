@@ -1,0 +1,75 @@
+<div class="content_info" id="count_info">
+    <span class="notice">
+    {{lang.label_desc}}
+    </span>
+</div>
+<div class="content_page">
+    <div class="content_info_wrap2" style="display: none;">
+        <table class="list_partDoc">
+            <tbody>
+            <tr>
+                <th class="default_info">
+                    <span class="title">{{lang.label_messenger_type}}</span>
+                    <span class="help">
+                        <span class="tool_tip">Coming Soon~<i class="tail_left"></i></span>
+                        </span>
+                </th>
+                <td class="last">
+                        <span class="option_wrap">
+                        <input type="radio" value="default" id="defaultMessengerType" name="messengerType">
+                        <label for="defaultMessengerType">{{lang.label_default}}</label>
+                        </span>
+                    <span class="option_wrap">
+                        <input type="radio" value="electron" id="electronMessengerType" name="messengerType">
+                        <label for="electronMessengerType">Electron</label>
+                        </span>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="dataTables_wrapper container">
+        <div class="" style="display: none" id="controllButtons">
+            <span class="btn_tool" id="btn_add">{{lang.label_add}}</span>
+            <span class="btn_tool txt_caution" id="btn_delete">{{lang.label_delete}}</span>
+        </div>
+        <div class="content_tb">
+            <table class="chart size" id="deviceVersionList">
+                <thead>
+                <tr>
+                    <th class="sorting">
+                            <span class="title_sort">
+                                <select id="deviceType">
+                                    {{#lang.select_type}}
+                                    <option value="{{value}}">{{text}}</option>
+                                    {{/lang.select_type}}
+                                </select>
+                            </span>
+                    </th>
+                    <th class="sorting_disable">
+                            <span class="title_sort">
+                            <label>{{lang.label_importance}}</label>
+                            </span>
+                    </th>
+                    <th class="sorting_desc">
+                            <span class="title_sort">
+                            <label>{{lang.label_version}}</label>
+                            </span>
+                    </th>
+                    <th class="sorting_desc">
+                            <span class="title_sort">
+                            <label>{{lang.label_linkinfo}}</label>
+                            </span>
+                    </th>
+                    <th class="sorting_disable last">
+                            <span class="title_sort">
+                            <label>{{lang.label_createdAt}}</label>
+                            <ins class="ic"></ins><span class="selected"></span>
+                            </span>
+                    </th>
+                </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+</div>

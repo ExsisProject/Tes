@@ -1,0 +1,1 @@
+(function(){define(["jquery","backbone","app","approval/models/appr_official_version"],function(e,t,n,r){var i=t.Collection.extend({model:r,validateAddPosition:function(){return!0},isEmptyReceiver:function(){var e=!0;return this.each(function(t){t.get("receivers").length>0&&(e=!1)}),e}});return i})}).call(this);

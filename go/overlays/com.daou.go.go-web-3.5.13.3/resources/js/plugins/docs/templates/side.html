@@ -1,0 +1,60 @@
+﻿<section class="gnb_title">
+	<h1><a id="docsHome" >{{appName}}</a></h1>
+</section>	
+<section class="function">
+	<a id="addDocs" class="btn_function">
+        <span class="ic_side ic_app_docs"></span>
+        <span class="txt">{{lang.addDocs}}</span>
+    </a>
+</section>
+<section id="side_favorite" class="lnb"></section>
+<section id="docFolders" class="lnb side_doc">
+    <h1 class="docs {{^isDocsOpen}}folded{{/isDocsOpen}}">
+        <ins class="ic"></ins>
+        <span class="docs ic_side ic_hide_up"
+        title="{{#isDocsOpen}}{{lang.collapse}}{{/isDocsOpen}}{{^isDocsOpen}}{{lang.expand}}{{/isDocsOpen}}"></span>
+        <span class="txt" title="{{lang.folder}}">{{lang.folder}}</span>
+    </h1>
+    <ul class="side_depth" {{^isDocsOpen}} style="display:none" {{/isDocsOpen}}>
+        <li class="docs_resent">
+            <p class="title">
+                <a data-navi="latestread">
+                    <ins class="ic"></ins>
+                    <span class="txt" title="{{lang.latestRead}}">{{lang.latestRead}}</span>
+                </a>
+            </p>
+        </li>
+        <li class="docs_update">
+            <p class="title">
+                <a data-navi="latestupdate">
+                    <ins class="ic"></ins>
+                    <span class="txt" title="{{lang.latestUpdate}}">{{lang.latestUpdate}}</span>
+                </a>
+            </p>
+        </li>
+        <li class="docs_approve">
+            <p class="title">
+                <a data-navi="approvewaiting">
+                    <ins class="ic"></ins>
+                    <span class="txt" title="{{lang.approveWaiting}}">{{lang.approveWaiting}}</span>
+                    {{#hasApprovewaiting}}
+                    <span class="num" id="approvewaitingCnt">{{approvewaitingCnt}}</span>
+                    {{/hasApprovewaiting}}
+                </a>
+            </p>
+        </li>
+        <li class="docs_upload">
+            <p class="title">
+                <a data-navi="registwaiting">
+                    <ins class="ic"></ins>
+                    <span class="txt" title="{{lang.completeWaiting}}">{{lang.completeWaiting}}</span>
+                    {{#hasRegistwaiting}}
+                    <span class="num" id="registwaitingCnt">{{registwaitingCnt}}</span>
+                    {{/hasRegistwaiting}}
+                </a>
+            </p>
+        </li>
+    </ul>
+</section>
+
+		

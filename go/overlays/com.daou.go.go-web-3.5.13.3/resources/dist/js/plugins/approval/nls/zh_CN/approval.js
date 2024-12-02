@@ -1,0 +1,1 @@
+define(["json!lang/zh-cn/approval.json","json!lang/zh-cn/custom.json"],function(e,t){return _.extend(e,t.approval||{})});

@@ -1,0 +1,16 @@
+	<p class="desc">{{companyName}}</p>
+<ul>
+          {{#nodes}}
+          <li>
+              <span class="major">
+                  {{nodeTypeLabel}} : {{nodeValue}}
+                  {{#isSubDeptType?}}
+                      <span class="sub_depart"> ({{including_sub_dept_label}})</span>
+                  {{/isSubDeptType?}}
+              </span>
+              <span class="minor">
+                  [{{actionName}}]
+              </span>
+          </li>
+          {{/nodes}}
+</ul>

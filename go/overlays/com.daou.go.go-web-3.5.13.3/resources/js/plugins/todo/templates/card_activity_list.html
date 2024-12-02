@@ -1,0 +1,34 @@
+<div class="tab_menu_wrap">
+    <ul class="activity-tab tab_menu">
+        <li{{#activatedComments}} class="active"{{/activatedComments}} data-actitytype="comments"><span class="txt">{{label.comment}}</span><span class="num">{{commentCount}}</span></li>
+        <li{{^activatedComments}} class="active"{{/activatedComments}} data-actitytype="timelines"><span class="txt">{{label.timeline}}</span></li>
+    </ul>
+</div>
+
+<div class="timeline-container content_title content_activity">
+    <div class="comment-write-form reply_create">
+        {{#session}}
+        <span class="photo">{{> _user_thumbnail}}</span>
+        {{/session}}
+        <div class="msg_wrap">
+            <form name="form_reply" class="form_wrap">
+                <span class="textarea_edit">
+                    <textarea name="content" class="edit w_max"></textarea>
+                </span>
+                <footer class="btn_wrap" style="display:none">
+                    <a href="#" class="btn-submit btn_major_s" data-bypass><span class="txt">{{label.save}}</span></a>
+                    <a href="#" class="btn-cancel btn_minor_s" data-bypass><span class="txt">{{label.cancel}}</span></a>
+                </footer>
+            </form>
+        </div>
+    </div>
+
+    <div class="activity-list-container"></div>
+
+    <div class="bottom_action" id="moreBtn" style="display:none">
+        <a class="btn_list_reload">
+            <span class="txt">{{label.load_more}}</span>
+        </a>
+    </div>
+
+</div>

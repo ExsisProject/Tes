@@ -1,0 +1,1 @@
+define(["backbone"],function(e){var t=e.Model.extend({url:function(){return GO.contextRoot+"ad/api/system/password/rules"}});return t});

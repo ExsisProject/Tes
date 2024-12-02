@@ -1,0 +1,106 @@
+<p class="tit">{{lang.결재칸에 표시될 항목을 선택해 주세요}}</p>
+<div class="set_wrap">
+    <div class="set_exam">
+        <table class="type_normal">
+            <tbody>
+            <tr>
+                <td>①</td>
+            </tr>
+            <tr>
+                <td class="sign_room">②</td>
+            </tr>
+            <tr>
+                <td>③</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="set_select">
+        <table class="sub_form">
+            <tbody>
+                <tr>
+                    <th>
+                        <div class="option_inner">
+                            <span class="txt">① - </span>
+                        </div>
+                    </th>
+                    <td>
+                        <div class="option_inner">
+                            <span class="option_wrap">
+                                <input type="radio" id="activityBoxHeaderTypePosition" name="activityBoxHeaderType" value="POSITION" {{#data.activityBoxHeaderType.isPosition}}checked{{/data.activityBoxHeaderType.isPosition}}>
+                                <label for="activityBoxHeaderTypePosition">{{lang.직위}}</label>
+                            </span>
+                            <span class="option_wrap">
+                                <input type="radio" id="activityBoxHeaderTypeDuty" name="activityBoxHeaderType" value="DUTY" {{#data.activityBoxHeaderType.isDuty}}checked{{/data.activityBoxHeaderType.isDuty}}>
+                                <label for="activityBoxHeaderTypeDuty">{{lang.직책}}</label>
+                            </span>
+                            <span class="option_wrap">
+                                <input type="radio" id="activityBoxHeaderTypeActType" name="activityBoxHeaderType" value="ACTTYPE" {{#data.activityBoxHeaderType.isActType}}checked{{/data.activityBoxHeaderType.isActType}}>
+                                <label for="activityBoxHeaderTypeActType">{{lang.결재 타입}}</label>
+                            </span>
+                            <span class="option_wrap">
+                                <input type="radio" id="activityBoxHeaderTypeName" name="activityBoxHeaderType" value="NAME" {{#data.activityBoxHeaderType.isName}}checked{{/data.activityBoxHeaderType.isName}}>
+                                <label for="activityBoxHeaderTypeName">{{lang.이름}}</label>
+                            </span>
+                            <span class="option_wrap">
+                                <input type="radio" id="activityBoxHeaderDept" name="activityBoxHeaderType" value="DEPT" {{#data.activityBoxHeaderType.isDept}}checked{{/data.activityBoxHeaderType.isDept}}>
+                                <label for="activityBoxHeaderDept">{{lang.부서}}</label>
+                            </span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <div class="option_inner">
+                            <span class="txt">② - </span>
+                        </div>
+                    </th>
+                    <td>
+                        <div class="option_inner" id="activityBoxContentSettingWrap">
+                            <span class="option_wrap">
+                                <input type="checkbox" id="activityBoxContentSign" name="activityBoxContentSign" {{#data.activityBoxContentSign}}checked{{/data.activityBoxContentSign}}>
+                                <label for="activityBoxContentSign">{{lang.서명}}</label>
+                            </span>
+                            <span class="option_wrap">
+                                <input type="checkbox" id="activityBoxContentName" name="activityBoxContentName" {{#data.activityBoxContentName}}checked{{/data.activityBoxContentName}}>
+                                <label for="activityBoxContentName">{{lang.이름}}</label>
+                            </span>
+                            <span class="option_wrap">
+                                <input type="checkbox" id="activityBoxContentPosition" name="activityBoxContentPosition" {{#data.activityBoxContentPosition}}checked{{/data.activityBoxContentPosition}}>
+                                <label for="activityBoxContentPosition">{{lang.직위}}</label>
+                            </span>
+                            <span class="option_wrap">
+                                <input type="checkbox" id="activityBoxContentDuty" name="activityBoxContentDuty" {{#data.activityBoxContentDuty}}checked{{/data.activityBoxContentDuty}}>
+                                <label for="activityBoxContentDuty">{{lang.직책}}</label>
+                            </span>
+                            <span class="option_wrap">
+                                <input type="checkbox" id="activityBoxContentDept" name="activityBoxContentDept" {{#data.activityBoxContentDept}}checked{{/data.activityBoxContentDept}}>
+                                <label for="activityBoxContentDept">{{lang.부서}}</label>
+                            </span>
+                            <div class="option_display">
+                                <span class="option_wrap">
+                                    <input type="checkbox" id="allowSignModify" name="allowSignModify" {{#data.allowSignModify}}checked{{/data.allowSignModify}}>
+                                    <label for="allowSignModify">{{lang.사용자가 자신의 서명을 변경할 수 있음}}</label>
+                                </span>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <div class="option_inner">
+                            <span class="txt">③ - </span>
+                        </div>
+                    </th>
+                    <td>
+                        <div class="option_inner">
+                            <span class="option_wrap">
+                                <label>{{lang.날짜 표시}}</label>
+                            </span>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

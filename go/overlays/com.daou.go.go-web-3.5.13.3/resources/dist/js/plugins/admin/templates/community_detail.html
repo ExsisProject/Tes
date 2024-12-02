@@ -1,0 +1,85 @@
+<div class="container">
+	<div class="header">
+		<h2>{{lang.label_title}}</h2>
+	</div>
+	<div class="content">
+		<table class="detail">
+			<colgroup>
+				<col width="120px"/>
+				<col width="*" />
+			</colgroup>
+			<tbody>
+			<tr>
+				<th><span  class="title">{{lang.label_name}}</span></th>
+				<td>
+					<span id="community_name"  data-id="{{model.id}}" class="user_data">
+						{{model.name}}
+					</span>
+					<span id="community_remove" class="btn_wrap"><span class="btn_s">{{lang.label_delete}}</span></span>
+				</td>
+			</tr>
+			<tr>
+				<th><span class="title">{{lang.label_status}}</span></th>
+				<td>
+					<span class="option_wrap"> <input id="publicFlag1" type="radio" name="communityStatus" value="ONLINE"
+						{{#isCommunityStatusOnline}}checked="checked"{{/isCommunityStatusOnline}}> <label for="publicFlag1">{{lang.label_online}}</label></span>
+
+					<span class="option_wrap"> <input id="publicFlag0" type="radio" name="communityStatus" value="STOP"
+						{{#isCommunityStatusStop}}checked="checked"{{/isCommunityStatusStop}}> <label for="publicFlag0">{{lang.label_stop}}</label></span>
+				   {{#isCommunityStatusWait}}
+				   <span class="option_wrap"><input id="publicFlag2" type="radio" name="communityStatus" value="WAIT"
+						{{#isCommunityStatusWait}}checked="checked"{{/isCommunityStatusWait}}> <label for="publicFlag2">{{lang.label_wait}}</label></span>
+				   {{/isCommunityStatusWait}}
+				</td>
+			</tr>
+			<tr>
+				<th><span class="title">{{lang.label_desc}}</span></th>
+				<td>
+					<span class="user_data">
+						{{model.description}}
+					</span>
+				</td>
+			</tr>
+			<tr>
+				<th><span class="title">{{lang.label_created}}</span></th>
+				<td>
+					<span class="user_data">
+						{{createdAt}}
+					</span>
+				</td>
+			</tr>
+			<tr>
+				<th><span class="title">{{lang.label_pds}}</span></th>
+				<td>
+					<span class="user_data">
+						{{model.boardCount}}{{lang.label_count}} {{lang.label_board}} / {{model.postCount}}{{lang.label_count}} {{lang.label_post}}
+					</span>
+				</td>
+			</tr>
+			<tr class="last">
+				<th><span class="title">{{lang.label_size}}</span></th>
+				<td>
+					<span class="user_data">
+						{{totalSize}} {{lang.label_mb}}
+					</span>
+				</td>
+			</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+<div class="page_action">
+	<span id="detail_save" class="btn">{{lang.label_save}}</span>
+	<span id="detail_cancel"  class="btn_nega">{{lang.label_cancel}}</span>
+	<span id="back_community" class="btn_nega">{{lang.label_back}}</span>
+</div>
+
+<div class="container">
+	<div class="tab_menu_wrap">
+		<ul class="tab_menu">
+			<li class="active" id="community_member"><span class="txt ">{{lang.label_community_member}}</span></li>
+			<li id="community_board"><span class="txt">{{lang.label_community_board}}</span></li>
+		</ul>
+	</div>
+</div>

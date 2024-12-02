@@ -1,0 +1,120 @@
+<h3 class="tab_title" style="display:none;">{{lang.label_academic}}</h3>
+<div class="ehr_school viewForm">
+	<table class="type_list_box">
+		<tbody>
+		<tr>
+			<th class="num"><span class="title_txt">No</span></th>
+			<th class="class"><span class="title_txt">{{lang.label_academic_classify}}</span></th>
+			<th class="school"><span class="title_txt">{{lang.label_academic_schoolName}}</span></th>
+			<th class="date"><span class="title_txt">{{lang.label_academic_admissionDate}}</span></th>
+			<th class="date"><span class="title_txt">{{lang.label_academic_graduationDate}}</span></th>
+			<th class="department"><span class="title_txt">{{lang.label_academic_major}}</span></th>
+			<th class="minor"><span class="title_txt">{{lang.label_academic_minor}}</span></th>
+			<th class="etc"><span class="title_txt">{{lang.label_academic_note}}</span></th>
+			{{#editable}}
+			<th class="modify"><span class="title_txt">{{lang.label_modify}}</span></th>
+			{{/editable}}
+		</tr>
+		{{#data}}
+		<tr class="dataRow" {{#dataId.useColumn}}data-id="{{dataId.value}}"{{/dataId.useColumn}}>
+			<td class="num">
+				<span>{{number}}</span>
+			</td>
+			<td class="class">
+				{{#classify.useColumn}}
+				<span class="txt">{{classify.value}}</span>
+				{{#editable}}
+				 <input class="txt w_max" type="text" name="classify" value="{{classify.value}}" style="display:none;"/>	
+				{{/editable}}
+				{{/classify.useColumn}}
+				{{^classify.useColumn}}
+				<span class="txt hide">{{lang.label_private}}</span>	
+				{{/classify.useColumn}}
+			</td>
+			<td class="school">
+				{{#schoolName.useColumn}}
+				<span class="txt">{{schoolName.value}}</span>
+				{{#editable}}
+				 <input class="txt w_max" type="text" name="schoolName" value="{{schoolName.value}}" style="display:none;"/>	
+				{{/editable}}
+				{{/schoolName.useColumn}}
+				{{^schoolName.useColumn}}
+				<span class="txt hide">{{lang.label_private}}</span>
+				{{/schoolName.useColumn}}
+			</td>
+			<td class="date">
+				{{#admissionDate.useColumn}}
+		        {{#editable}}
+                <span class="wrap_date">
+                <input class="txt wfix_small" type="text" name="admissionDate" value="{{admissionDate.value}}" />
+                <span class="ic ic_calendar"></span>
+                </span>
+                {{/editable}}
+                {{^editable}}
+                {{admissionDate.value}}
+                {{/editable}}
+		        {{/admissionDate.useColumn}}
+		        {{^admissionDate.useColumn}}
+		        <span class="txt hide">{{lang.label_private}}</span>	
+		        {{/admissionDate.useColumn}}
+			</td>
+			<td class="date">
+				{{#graduationDate.useColumn}}
+		        {{#editable}}
+                <span class="wrap_date">
+                <input class="txt wfix_small" type="text" name="graduationDate" value="{{graduationDate.value}}" />
+                <span class="ic ic_calendar"></span>
+                </span>
+                {{/editable}}
+                {{^editable}}
+                {{graduationDate.value}}
+                {{/editable}}
+		        {{/graduationDate.useColumn}}
+		        {{^graduationDate.useColumn}}
+		        <span class="txt hide">{{lang.label_private}}</span>
+		        {{/graduationDate.useColumn}}
+			</td>
+			<td class="department">
+				{{#major.useColumn}}
+				<span class="txt">{{major.value}}</span>
+				{{#editable}}
+				 <input class="txt w_max" type="text" name="major" value="{{major.value}}" style="display:none;"/>	
+				{{/editable}}
+				{{/major.useColumn}}
+				{{^major.useColumn}}
+				<span class="txt hide">{{lang.label_private}}</span>
+				{{/major.useColumn}}
+			</td>
+			<td class="minor">
+				{{#minor.useColumn}}
+				<span class="txt">{{minor.value}}</span>
+				{{#editable}}
+				 <input class="txt w_max" type="text" name="minor" value="{{minor.value}}" style="display:none;"/>	
+				{{/editable}}
+				{{/minor.useColumn}}
+				{{^minor.useColumn}}
+				<span class="txt hide">{{lang.label_private}}</span>
+				{{/minor.useColumn}}
+			</td>
+			<td class="etc">
+				{{#note.useColumn}}
+				<span class="txt">{{note.value}}</span>
+				{{#editable}}
+				 <input class="txt w_max" type="text" name="note" value="{{note.value}}" style="display:none;"/>	
+				{{/editable}}
+				{{/note.useColumn}}
+				{{^note.useColumn}}
+				<span class="txt hide">{{lang.label_private}}</span>
+				{{/note.useColumn}}
+			</td>
+			{{#editable}}
+		    <td class="modify">
+		        <span class="ic_con ic_remove" title="삭제"></span>
+		        <span class="ic_con ic_add" title="추가"></span>
+		    </td>
+		    {{/editable}}
+		</tr>	
+		{{/data}}
+		</tbody>
+	</table>
+</div>

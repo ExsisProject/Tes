@@ -1,0 +1,91 @@
+<h3 class="tab_title" style="display:none;">{{lang.label_reward}}</h3>
+<div class="ehr_reward viewForm">
+	<table class="type_list_box">
+		<tbody>
+		<tr>
+			<th class="num"><span class="title_txt">No</span></th>
+			<th class="division"><span class="title_txt">{{lang.label_reward_type}}</span></th>
+			<th class="date"><span class="title_txt">{{lang.label_reward_date}}</span></th>
+			<th class="reason"><span class="title_txt">{{lang.label_reward_content}}</span></th>
+			<th class="cause"><span class="title_txt">{{lang.label_reward_reason}}</span></th>
+			<th class="etc"><span class="title_txt">{{lang.label_reward_note}}</span></th>
+			{{#editable}}
+			<th class="modify"><span class="title_txt">{{lang.label_modify}}</span></th>
+			{{/editable}}
+		</tr>
+		{{#data}}
+		<tr class="dataRow" {{#dataId.useColumn}}data-id="{{dataId.value}}"{{/dataId.useColumn}}>
+			<td class="num">
+				<span>{{number}}</span>
+			</td>
+			<td class="division">
+				{{#type.useColumn}}
+		        <span class="txt">{{type.value}}</span>
+		        {{#editable}}
+		        <input class="txt w_max" type="text" name="type" value="{{type.value}}" style="display:none;"/>
+		        {{/editable}}
+		        {{/type.useColumn}}
+		        {{^type.useColumn}}
+		        <span class="txt hide">{{lang.label_private}}</span>
+		        {{/type.useColumn}}
+			</td>
+			<td class="date">
+				{{#date.useColumn}}
+		        {{#editable}}
+                <span class="wrap_date">
+                <input class="txt wfix_small" type="text" name="date" value="{{date.value}}" />
+                <span class="ic ic_calendar"></span>
+                </span>
+                {{/editable}}
+                {{^editable}}
+                {{date.value}}
+                {{/editable}}
+		        {{/date.useColumn}}
+		        {{^date.useColumn}}
+		        <span class="txt hide">{{lang.label_private}}</span>
+		        {{/date.useColumn}}
+			</td>
+			<td class="reason">
+				{{#content.useColumn}}
+		        <span class="txt">{{content.value}}</span>
+		        {{#editable}}
+		        <input class="txt w_max" type="text" name="content" value="{{content.value}}" style="display:none;"/>
+		        {{/editable}}
+		        {{/content.useColumn}}
+		        {{^content.useColumn}}
+		        <span class="txt hide">{{lang.label_private}}</span>
+		        {{/content.useColumn}}
+			</td>
+			<td class="cause">
+				{{#reason.useColumn}}
+		        <span class="txt">{{reason.value}}</span>
+		        {{#editable}}
+		        <input class="txt w_max" type="text" name="reason" value="{{reason.value}}" style="display:none;"/>
+		        {{/editable}}
+		        {{/reason.useColumn}}
+		        {{^reason.useColumn}}
+		        <span class="txt hide">{{lang.label_private}}</span>
+		        {{/reason.useColumn}}
+			</td>
+			<td class="etc">
+				{{#note.useColumn}}
+		        <span class="txt">{{note.value}}</span>
+		        {{#editable}}
+		        <input class="txt w_max" type="text" name="note" value="{{note.value}}" style="display:none;"/>
+		        {{/editable}}
+		        {{/note.useColumn}}
+		        {{^note.useColumn}}
+		        <span class="txt hide">{{lang.label_private}}</span>
+		        {{/note.useColumn}}
+			</td>
+			{{#editable}}
+			<td class="modify">
+				<span class="ic_con ic_remove" title="삭제"></span>
+				<span class="ic_con ic_add" title="추가"></span>
+			</td>
+			{{/editable}}
+		</tr>
+		{{/data}}
+		</tbody>
+	</table>
+</div>

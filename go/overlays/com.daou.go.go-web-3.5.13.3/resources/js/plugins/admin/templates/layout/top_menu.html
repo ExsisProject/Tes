@@ -1,0 +1,50 @@
+<ul class="snb">
+    <li>
+        <span id="tutorial_guide_text" style="display: none" class="tool_tip">{{AdminLang.튜토리얼 다시보기 안내}}<i class="tail_right"></i> </span>
+        <a id="top_menu_help" class="btn_ic btn_ic_help3" title="{{CommonLang.도움말}}">
+            <span class="ic_adm ic_help3"></span>
+        </a>
+    </li>
+    <li>
+        <a class="btn_ic btn_ic_menu sitemap" title="{{CommonLang.전체메뉴}}">
+            <span class="ic_adm ic_menu"></span>
+        </a>
+    </li>
+    <li>
+        <a class="photo" id="top_menu_profile" title="{{userName}} {{CommonLang.님}}">
+            <img src="{{thumbnail}}" alt="">
+        </a>
+
+    </li>
+</ul>
+
+<div style="display: none; right:0" id="top_menu_help_sub_menu" class="layer_mini layer_snb_option">
+    <ul class="list_item">
+        <li>
+            <a class="list_item btn_ic_help3">
+                {{AdminLang.도움말 보기}}
+            </a>
+        </li>
+        <li>
+            <a class="list_item popup_admin_gide">
+                {{AdminLang.튜토리얼 보기}}
+            </a>
+        </li>
+        <li {{^removeDoStartDone}}style="display: none;"{{/removeDoStartDone}}>
+            <a class="list_item popup_do_start">
+                다우오피스 시작하기
+            </a>
+        </li>
+    </ul>
+</div>
+
+<div style="display: none; right:0" id="top_menu_profile_sub_menu" class="layer_mini layer_snb_option">
+        <ul class="list_item">
+            <li>
+                <a href="{{contextRoot}}logout">
+                    <span class="txt">{{CommonLang.로그아웃}}</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+

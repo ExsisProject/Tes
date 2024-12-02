@@ -1,0 +1,28 @@
+<li data-name="{{name}}" data-id="{{id}}"> 
+	<span class="item_file"> 
+		<span class="ic_file {{style}}"></span> 
+		<span class="name">  
+			<a href="{{downloadPath}}">{{file.name}}</a> 
+		</span> 
+		<span class="size">({{fileSize}})</span>
+		<span class="optional">
+			{{#isPreviewable}} 
+			{{#isImage}}  
+			<a href="{{downloadPath}}" class="fancybox-thumbs fancybox-button" data-fancybox-group="{{imageGroupId}}" data-bypass="" title="{{file.name}}" style="margin-right: 0px; display: inline-block;"> 
+				<span class="btn_fn4">  
+					<span class="btn-text txt">{{lang.preview}}</span>  
+				</span> 
+			</a> 
+			{{/isImage}}  
+			{{^isImage}} 
+			<a class="btn-preview btn_fn4" data-id="{{file.encrypt}}" data-bypass="" style="margin-right: 0px; display: inline-block;"> 
+				<span class="btn-text txt">{{lang.preview}}</span> 
+			</a> 
+			{{/isImage}}  
+			{{/isPreviewable}}
+			<a href="{{downloadPath}}" style="display: inline-block;" class="btn-download wrap_ic_file btn_fn4"> 
+				<span class="btn-text txt">{{lang.save}}</span> 
+			</a>
+		</span> 
+	</span> 
+</li>

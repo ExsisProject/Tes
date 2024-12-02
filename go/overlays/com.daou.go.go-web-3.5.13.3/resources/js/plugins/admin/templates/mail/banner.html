@@ -1,0 +1,81 @@
+<div class="container">			
+	<div class="header">
+		<h2>{{lang.bannerDisplay}}</h2>
+	</div>			
+	<div class="content">
+    <form id="frmBannerConfig">
+		<table class="detail">
+			<colgroup>
+				<col width="130px"/><!-- 개발쪽에서 width값을 받아가서 재설정 후 삭제  -->
+				<col width="*" />
+			</colgroup>
+			<tbody>
+			<tr class="last">
+				<th><span class="title">{{lang.bannerConfigInfo}}</span></th>
+				<td>
+					<span class="option_wrap">
+						<input type="radio" id="rdBannerOn" name="bannerDisplay" value="on" {{#config.isBannerDisplayOn}}checked="checked"{{/config.isBannerDisplayOn}}> 
+						<label for="rdBannerOn">{{lang.yes}}</label>
+					</span>
+					<span class="option_wrap">
+						<input type="radio" id="rdBannerOff" name="bannerDisplay" value="off" {{^config.isBannerDisplayOn}}checked="checked"{{/config.isBannerDisplayOn}}> 
+						<label for="rdBannerOff">{{lang.no}}</label>
+					</span>
+				</td>
+			</tr>
+			</tbody>
+		</table>
+    </form>
+	</div>
+</div>
+
+<div class="container">			
+	<div class="header">
+		<h2>{{lang.bannerSetting}}</h2>
+	</div>			
+	<div class="content"  id="trBannerContent">
+		<table class="detail">
+			<colgroup>
+				<col width="130px"/><!-- 개발쪽에서 width값을 받아가서 재설정 후 삭제  -->
+				<col width="*" />
+			</colgroup>
+			<tbody>
+			
+			<tr class="last">
+						<th><span class="title">{{lang.preview}}</span></th>
+						<td>
+							<div class="btn_func_wrap">
+								<a class="btn_minor_s" id="btnModifyBanner"><span class="txt">{{lang.edit}}</span></a>
+								<a class="btn_minor_s" id="btnDeleteBanner" {{#isCreate}}style="display:none;"{{/isCreate}}><span class="txt_caution">{{lang.remove}}</span></a>
+							</div>
+							
+							<!-- 스크롤 되는 영역 -->
+							<div>
+							<table class="in_table_ad">
+								<tbody>
+                                {{#isCreate}}
+									<tr>
+										<td>
+											<p class="data_null"><span class="txt">{{lang.bannerNotFound}}</span></p>
+										</td>
+									</tr>
+                                {{/isCreate}}
+                                {{^isCreate}}
+									<tr>
+										<td>
+											<div id="bannerContentArea">{{{banner.content}}}</div>
+										</td>
+									</tr>
+                                {{/isCreate}}
+							</table>
+							</div>
+						</td>
+					</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+<div class="page_action" id="divBannerAction">
+    <span class="btn" id="btnSaveBanner">{{lang.save}}</span>
+    <span class="btn_nega">{{lang.cancel}}</span>
+</div>

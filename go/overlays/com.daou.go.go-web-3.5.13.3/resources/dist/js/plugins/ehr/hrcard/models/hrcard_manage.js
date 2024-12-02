@@ -1,0 +1,1 @@
+define(["backbone","app"],function(e,t){var n=null,r=e.Model.extend({url:function(){return"/api/ehr/hrcard/manage"}});return r});

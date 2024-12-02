@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="365px" height="268px" viewBox="0 0 365 268" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>ic_set</title>
+    <g id="ic_set" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group" transform="translate(2.000000, 5.000000)" stroke="#333333" stroke-linecap="round" stroke-linejoin="round">
+            <g id="Path-3">
+                <polyline transform="translate(6.000000, 3.000000) rotate(270.000000) translate(-6.000000, -3.000000) " points="9 -3 5.84941217 0.150587829 3 3 9 9"></polyline>
+            </g>
+        </g>
+        <g id="Group" transform="translate(52.000000, 5.000000)" stroke="#333333" stroke-linecap="round" stroke-linejoin="round">
+            <g id="Path-3">
+                <polyline transform="translate(6.000000, 3.000000) rotate(90.000000) translate(-6.000000, -3.000000) " points="9 -3 5.84941217 0.150587829 3 3 9 9"></polyline>
+            </g>
+        </g>
+        <g id="Group" transform="translate(101.333333, 1.333333)" stroke="#333333" stroke-linecap="round">
+            <g>
+                <line x1="6.66666667" y1="0" x2="6.66666667" y2="13.3333333" id="Line-5-Copy-2"></line>
+                <line x1="6.66666667" y1="0" x2="6.66666667" y2="13.3333333" id="Line-5-Copy-3" transform="translate(6.666667, 6.666667) rotate(90.000000) translate(-6.666667, -6.666667) "></line>
+            </g>
+        </g>
+        <g id="Group" transform="translate(155.000000, 1.000000)" stroke="#333333" stroke-linecap="round" stroke-linejoin="round">
+            <g id="foundation-/-ic-/-ic_arrow_l">
+                <polyline id="Path-7-Copy-2" transform="translate(3.256821, 6.990673) rotate(-180.000000) translate(-3.256821, -6.990673) " points="4.33737646e-17 0 6.51364105 7.00732559 0 13.9813451"></polyline>
+            </g>
+        </g>
+        <g id="Group" transform="translate(205.000000, 1.000000)" stroke="#333333" stroke-linecap="round" stroke-linejoin="round">
+            <g id="foundation-/-ic-/-ic_arrow_l" transform="translate(3.256821, 6.990673) rotate(-180.000000) translate(-3.256821, -6.990673) translate(0.000000, -0.000000)">
+                <polyline id="Path-7-Copy-2" transform="translate(3.256821, 6.990673) rotate(-180.000000) translate(-3.256821, -6.990673) " points="4.33737646e-17 0 6.51364105 7.00732559 0 13.9813451"></polyline>
+            </g>
+        </g>
+        <g id="Group" transform="translate(247.000000, -3.000000)" stroke="#333333">
+            <rect id="Rectangle" x="4" y="6" width="16" height="14" rx="1"></rect>
+            <line x1="8" y1="7" x2="8" y2="4" id="Line" stroke-linecap="round"></line>
+            <line x1="16" y1="7" x2="16" y2="4" id="Line-Copy" stroke-linecap="round"></line>
+            <line x1="4" y1="10" x2="20" y2="10" id="Line-2" stroke-linecap="round"></line>
+        </g>
+        <g id="Group" transform="translate(300.000000, 0.000000)" stroke="#333333" stroke-linecap="round">
+            <g id="001.-아이콘-Icons/1.-Common/Indent">
+                <line x1="9.5" y1="8.5" x2="9.5" y2="14.5" id="Line-2"></line>
+                <line x1="9.5" y1="14.5" x2="15.5" y2="14.5" id="Line-3"></line>
+            </g>
+        </g>
+        <g id="Group" transform="translate(0.000000, 50.000000)" stroke="#333333" stroke-linecap="round" stroke-linejoin="round">
+            <g id="001.-아이콘-Icons/1.-Common/Dropdown/Small-Copy" transform="translate(8.000000, 8.000000) rotate(-90.000000) translate(-8.000000, -8.000000) ">
+                <polyline id="Path-3" transform="translate(8.000000, 8.000000) rotate(270.000000) translate(-8.000000, -8.000000) " points="11 2 7.84941217 5.15058783 5 8 11 14"></polyline>
+            </g>
+        </g>
+        <g id="Group" transform="translate(50.000000, 50.000000)" stroke="#333333" stroke-linecap="round" stroke-linejoin="round">
+            <g id="Path-3">
+                <polyline transform="translate(8.000000, 8.000000) rotate(270.000000) translate(-8.000000, -8.000000) " points="11 2 7.84941217 5.15058783 5 8 11 14"></polyline>
+            </g>
+        </g>
+        <g id="Group" transform="translate(98.000000, 47.000000)" stroke="#333333" stroke-linejoin="round">
+            <g id="Combined-Shape">
+                <path d="M3,5 C3,4.44771525 3.44771525,4 4,4 L4,4 L9.28278402,4 C9.52981755,4 9.76810844,4.09143753 9.95173097,4.25668985 L9.95173097,4.25668985 L13,7 L20,7 C20.5522847,7 21,7.44771525 21,8 L21,19 C21,19.5522847 20.5522847,20 20,20 L4,20 C3.44771525,20 3,19.5522847 3,19 Z"></path>
+            </g>
+        </g>
+        <g id="Group" transform="translate(152.000000, 53.000000)" stroke="#333333" stroke-linecap="round" stroke-linejoin="round">
+            <g id="Group-2" transform="translate(0.000000, 0.000000)">
+                <line x1="3.5" y1="0.5" x2="3.5" y2="12.5" id="Line-3"></line>
+                <line x1="0.5" y1="3.5" x2="3.5" y2="0.5" id="Line-4"></line>
+                <line x1="6.5" y1="3.5" x2="3.5" y2="0.5" id="Line-4-Copy"></line>
+            </g>
+            <g id="Group-2-Copy" transform="translate(9.500000, 6.500000) rotate(-180.000000) translate(-9.500000, -6.500000) translate(6.000000, 0.000000)">
+                <line x1="3.5" y1="0.5" x2="3.5" y2="12.5" id="Line-3"></line>
+                <line x1="0.5" y1="3.5" x2="3.5" y2="0.5" id="Line-4"></line>
+                <line x1="6.5" y1="3.5" x2="3.5" y2="0.5" id="Line-4-Copy"></line>
+            </g>
+        </g>
+        <g id="ic_modify" transform="translate(201.000000, 51.000000)" stroke="#333333">
+            <path d="M5.34983618,5.94164466 L3.40740169,7.88776229 C2.69176793,8.604753 1.97204484,9.3217437 1.26050041,10.0469286 C1.09283765,10.2190064 0.966068239,10.4484434 0.91699621,10.6737833 C0.659368057,11.8578423 0.409918575,13.0419012 0.160469094,14.2259601 L0.0214316778,14.8814945 C-0.0439976944,15.2010675 0.0418783566,15.5206405 0.258613152,15.7377863 C0.426275918,15.9057669 0.659368057,16 0.904728202,16 C0.97424691,16 1.04376562,15.9918058 1.11328433,15.9795146 L1.83300742,15.8279222 C2.97802143,15.5861939 4.12712478,15.3403685 5.2721388,15.1027373 C5.53794562,15.0453781 5.76285909,14.9265625 5.95505787,14.7339993 C9.16927578,11.5095896 12.3834937,8.28927708 15.5977116,5.07306163 C15.8348931,4.83543042 15.9657518,4.55273123 15.9984665,4.2044786 C16.0025558,4.14711934 15.9984665,4.08976009 15.9861985,4.03649792 C15.9657518,3.95455612 15.9493945,3.86851724 15.9289478,3.78657544 C15.8839651,3.57762387 15.8348931,3.33999266 15.736749,3.11055564 L15.736749,3.11055564 C15.1356167,1.73393348 14.1378187,0.750631938 12.7719806,0.197524821 C12.4979951,0.0869033976 12.2076522,0.0500295898 11.9541134,0.0172528718 L11.8845947,0.00905869225 C11.5165545,-0.036009295 11.181229,0.0869033976 10.8908861,0.38189386 C9.05068504,2.23377843 7.19821594,4.08976009 5.34983618,5.94164466 Z" id="Shape" fill-rule="nonzero"></path>
+            <line x1="10" y1="2" x2="14" y2="6" id="Line-3" stroke-linecap="square"></line>
+            <line x1="2" y1="10" x2="6" y2="14" id="Line-3" stroke-linecap="square"></line>
+        </g>
+        <g id="Group" transform="translate(250.000000, 50.000000)" stroke="#333333" stroke-linecap="round">
+            <g id="Line-2">
+                <line x1="1.35" y1="1.35" x2="14.65" y2="14.65"></line>
+                <line x1="1.35" y1="1.35" x2="14.65" y2="14.65" transform="translate(8.000000, 8.000000) scale(-1, 1) translate(-8.000000, -8.000000) "></line>
+            </g>
+        </g>
+        <polyline id="Path-3" stroke="#333333" stroke-linecap="round" points="301.211101 56.8635371 307.862469 63.4903882 318.193974 53"></polyline>
+        <g id="Group" transform="translate(-0.500000, 100.000000)" stroke="#333333" stroke-linecap="round">
+            <g id="001.-아이콘-Icons/1.-Common/Refresh">
+                <path d="M15.0029206,4.50315878 C13.6347575,2.67969221 11.4551447,1.5 9,1.5 C4.85786438,1.5 1.5,4.85786438 1.5,9 C1.5,13.1421356 4.85786438,16.5 9,16.5 C11.456564,16.5 13.6372774,15.3189435 15.0052925,13.4936783" id="Path"></path>
+                <line x1="15" y1="4.5" x2="11.25" y2="4.5" id="Line-9"></line>
+                <line x1="15" y1="4.5" x2="15" y2="0.75" id="Line-10"></line>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,1 @@
+define(["backbone"],function(e){var t=e.Collection.extend({url:function(){return"/api/clipboard"}});return t});

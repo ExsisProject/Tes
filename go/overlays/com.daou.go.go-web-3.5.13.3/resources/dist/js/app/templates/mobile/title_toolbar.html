@@ -1,0 +1,30 @@
+<h2 class="">{{name}}</h2>
+{{#leftButton}}
+<div class="critical">
+	{{#isPrev}}
+		{{#isLeftCancelBtn}}
+			<span class="ic_nav_btn">
+			<a href="#" id="btnPrev" btn-type="btnprev" data-bypass><span class="btn_major_type2">{{cancel}}</span></a>
+			</span>
+		{{/isLeftCancelBtn}}
+		{{^isLeftCancelBtn}}
+			<a href="#" id="btnPrev" btn-type="btnprev" data-bypass><span class="ic_nav ic_nav_prev"></span></a>
+		{{/isLeftCancelBtn}}
+	{{/isPrev}}
+	{{^isPrev}}
+	<a href="#" id="btnSideMenu" data-bypass><span class="ic_nav ic_nav_list"></span></a>
+	{{/isPrev}}
+	{{#refreshButton}}
+		<a href="#" data-role="refresh" data-bypass><span class="ic_nav ic_nav_refresh"></span></a>
+	{{/refreshButton}}
+</div>
+{{/leftButton}}
+<div class="optional">
+{{#rightButton}}
+	<a href="#" data-role="button" id="{{rightButton.id}}" data-bypass><span class="btn_major_type2">{{rightButton.text}}</span></a>
+{{/rightButton}}
+{{#rightButtonOther}}
+	<a href="#" data-role="buttonOther" id="{{rightButtonOther.id}}" data-bypass><span class="btn_major_type2 {{rightButtonOther.className}}">{{rightButtonOther.text}}</span></a>
+{{/rightButtonOther}}
+</div>
+

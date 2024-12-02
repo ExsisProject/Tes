@@ -1,0 +1,55 @@
+<header class="go_header">
+    <div id="webSubFolderToolbarWrap" class="nav con_nav webFolderHeader">
+        <h1></h1>
+        <div class="critical">
+            <a href="javascript:;" id="moveParentWebFolder"><span
+                    class="ic_nav ic_nav_prev"></span></a>
+        </div>
+        <div class="optional">
+            <ul class="toolbar_list">
+                <li>
+                    <a href=""></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div id="webFolderHomeToolbarWrap" class="nav con_nav webFolderHeader">
+        <h1 id="title">{{lang.webfolder_title}}</h1>
+        <div class="critical">
+            <a href="javascript:;" id="closeWebFolder"><span class="ic_nav ic_nav_cancel"></span></a>
+        </div>
+    </div>
+    <div id="webFolderSelectToolbarWrap" class="nav con_nav check_nav" style="display:none;">
+        <div class="critical">
+            <a href="javascript:;" id="uncheckAllFile"><span class="ic_nav ic_nav_cancel"></span></a>
+            <span class="count"></span>
+        </div>
+        <div class="optional">
+            <ul class="toolbar_list">
+                <li>
+                    <a id="selectAllFile" href="javascript:;">{{lang.select_all}}</a>
+                </li>
+                <li>
+                    <a id="attachFile" href="javascript:;">{{lang.attach}}</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</header>
+<div class="go_wrap">
+    <div class="go_body">
+        <div class="go_content">
+            <div class="content_page">
+                <div class="content" id="webfolder_content">
+
+                    <select id="webFolderDirectory">
+                        <option value="user" data-type="user">{{lang.private_webfolder}}</option>
+                        <option data-type="public">{{lang.public_webfolder}}</option>
+                    </select>
+                    <ul class="list_file" id="webfolderList">
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,20 @@
+<div class="member_wrap">
+    <span class="photo">
+        <span class="showProfilePhoto">
+            <img alt="{{member.name}}{{#member.position}} {{member.position}}{{/member.position}}" title="{{member.name}}{{#member.position}} {{member.position}}{{/member.position}}" src="{{member.thumbnail}}" data-userid="{{member.id}}">
+        </span>
+    </span>
+    <div class="info">
+        <div class="name">{{member.name}}</div>
+        {{#member.position}}
+        <div class="position">{{member.position}}</div>
+        {{/member.position}}
+        {{#mailExposure}}
+        {{#member.email}}
+        <div class="mail">{{member.email}}</div>
+        {{/member.email}}
+        {{/mailExposure}}
+    </div>
+</div>
+
+{{> menu_items_menu}}

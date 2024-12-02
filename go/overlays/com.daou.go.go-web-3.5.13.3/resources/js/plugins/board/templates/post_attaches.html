@@ -1,0 +1,37 @@
+<div class="wrap_attach">
+{{#hasFiles}}
+<div class="feed origin">
+	<ul class="file_wrap">
+		{{#files}}
+		<li data-name="{{name}}" data-id="{{id}}" data-size="{{size}}">
+			<span class="item_file">
+				<span class="ic_file ic_{{extention}}"></span>
+				<span class="name"><a href="{{contextRoot}}api/board/{{boardId}}/post/{{postId}}/attaches/{{id}}" data-bypass>{{name}}</a></span>
+				<span class="size">({{humanSize}})</span>
+				<span class="optional">
+					{{#preview}}
+					<a href="javascript:;" class="btn_fn4 preview" data-bypass data-id="{{encrypt}}"><span class="txt">{{lang.preview}}</span></a>
+					{{/preview}}
+					<a href="{{contextRoot}}api/board/{{boardId}}/post/{{postId}}/attaches/{{id}}" class="btn_fn4" data-bypass><span class="txt">{{lang.download}}</span></a>
+				</span>
+			</span>
+		</li>
+		{{/files}}
+	</ul>
+</div>
+{{/hasFiles}}
+{{#hasImages}}
+	<!-- 이미지 첨부 -->
+<div class="img_wrap origin {{#hasFiles}}mar10t{{/hasFiles}}">
+	<ul class="feed_img {{getImageClass}}">
+		{{#images}}
+		<li data-name="{{name}}" data-boardid="{{boardId}}" data-postid="{{postId}}" data-id="{{id}}" data-size="{{size}}">
+			<a href="{{contextRoot}}api/board/{{boardId}}/post/{{postId}}/attaches/{{id}}" data-bypass class="fancybox-thumbs fancybox-button" data-fancybox-group="thumb_{{postId}}" title="{{name}}">
+				<img src="{{#isGif}}{{contextRoot}}api/board/{{boardId}}/post/{{postId}}/attaches/{{id}}{{/isGif}}{{^isGif}}{{#largeImageSize}}{{thumbLarge}}{{/largeImageSize}}{{#midImageSize}}{{thumbMid}}{{/midImageSize}}{{#smallImageSize}}{{thumbSmall}}{{/smallImageSize}}{{/isGif}}" alt="{{lang.sample_img}}" onload="{{{reoffsetImg}}}"  />
+			</a>
+		</li>
+		{{/images}}											
+	</ul>	
+</div>
+{{/hasImages}}
+</div>

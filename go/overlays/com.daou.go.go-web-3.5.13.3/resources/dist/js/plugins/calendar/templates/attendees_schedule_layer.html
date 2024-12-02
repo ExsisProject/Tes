@@ -1,0 +1,259 @@
+{{^isAllDay}}
+<div data-attendees-schedule-content class="attendees_contents">
+
+    <div data-attendees-schedule-el class="attendees_hd">
+        <div class="critical">
+            <div class="tit">{{lang.참석자 일정}}</div>
+            <div class="current_date">
+                <span data-attendees-selected-date title="{{lang.선택된 날짜}}" data-value="{{selectedDate}}" class="date">{{displayDate}}</span>
+                <span class="prev-btn btn_ic_prev2" title="{{lang.이전}}" data-attendees-route="previous"><span class="ic ic_prev2"></span></span>
+                <span class="next-btn btn_ic_next2" title="{{lang.다음}}" data-attendees-route="next"><span class="ic ic_next2"></span></span>
+            </div>
+        </div>
+        <a data-attendees-close-btn class="btn_layer_x" title="{{lang.닫기}}" data-bypass><span class="ic"></span><span class="txt"></span></a>
+        <div class="optional">
+            <ul class="legend">
+                <li>
+                    <span class="set_time"></span>
+                    <span class="txt">{{lang.설정시간}}</span>
+                </li>
+                <li>
+                    <span class="busy"></span>
+                    <span class="txt">{{lang.일정있음}}</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div data-attendees-schedule-el class="att_schedule">
+        <div class="att_schedule_hd">
+            <div class="tit"></div>
+            <div class="nav">
+                <div class="tb_guide">
+                    <table>
+                        <tbody>
+                        <tr>
+                            <th class="">
+                                <div class="txt">00:00</div>
+                            </th>
+                            <th class="untime" data-untime>
+                                <div class="txt">01:00</div>
+                            </th>
+                            <th class="untime" data-untime>
+                                <div class="txt">02:00</div>
+                            </th>
+                            <th class="untime" data-untime>
+                                <div class="txt">03:00</div>
+                            </th>
+                            <th class="untime" data-untime>
+                                <div class="txt">04:00</div>
+                            </th>
+                            <th class="untime" data-untime>
+                                <div class="txt">05:00</div>
+                            </th>
+                            <th class="untime" data-untime>
+                                <div class="txt">06:00</div>
+                            </th>
+                            <th class="untime" data-untime>
+                                <div class="txt">07:00</div>
+                            </th>
+                            <th>
+                                <div class="txt">08:00</div>
+                            </th>
+                            <th>
+                                <div class="txt">09:00</div>
+                            </th>
+                            <th>
+                                <div class="txt">10:00</div>
+                            </th>
+                            <th>
+                                <div class="txt">11:00</div>
+                            </th>
+                            <th>
+                                <div class="txt">12:00</div>
+                            </th>
+                            <th>
+                                <div class="txt">13:00</div>
+                            </th>
+                            <th>
+                                <div class="txt">14:00</div>
+                            </th>
+                            <th>
+                                <div class="txt">15:00</div>
+                            </th>
+                            <th>
+                                <div class="txt">16:00</div>
+                            </th>
+                            <th>
+                                <div class="txt">17:00</div>
+                            </th>
+                            <th>
+                                <div class="txt">18:00</div>
+                            </th>
+                            <th>
+                                <div class="txt">19:00</div>
+                            </th>
+                            <th class="untime" data-untime>
+                                <div class="txt">20:00</div>
+                            </th>
+                            <th class="untime" data-untime>
+                                <div class="txt">21:00</div>
+                            </th>
+                            <th class="untime" data-untime>
+                                <div class="txt">22:00</div>
+                            </th>
+                            <th class="untime" data-untime>
+                                <div class="txt">23:00</div>
+                            </th>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="tb_info">
+                    <table>
+                        <tbody>
+                        <tr>
+                            <th class="ic_folded" data-untime-btn data-is-folding="true">
+                                <div data-untime-0 class="txt">0 ~</div>
+                            </th>
+                            <th class="untime" data-untime>
+                                <div class="txt">1</div>
+                            </th>
+                            <th class="untime" data-untime>
+                                <div class="txt">2</div>
+                            </th>
+                            <th class="untime" data-untime>
+                                <div class="txt">3</div>
+                            </th>
+                            <th class="untime" data-untime>
+                                <div class="txt">4</div>
+                            </th>
+                            <th class="untime" data-untime>
+                                <div class="txt">5</div>
+                            </th>
+                            <th class="untime" data-untime>
+                                <div class="txt">6</div>
+                            </th>
+                            <th class="untime" data-untime>
+                                <div class="txt">7</div>
+                            </th>
+                            <th class="">
+                                <div class="txt">8</div>
+                            </th>
+                            <th class="">
+                                <div class="txt">9</div>
+                            </th>
+                            <th class="">
+                                <div class="txt">10</div>
+                            </th>
+                            <th class="">
+                                <div class="txt">11</div>
+                            </th>
+                            <th class="">
+                                <div class="txt">12</div>
+                            </th>
+                            <th class="">
+                                <div class="txt">13</div>
+                            </th>
+                            <th class="">
+                                <div class="txt">14</div>
+                            </th>
+                            <th class="">
+                                <div class="txt">15</div>
+                            </th>
+                            <th class="">
+                                <div class="txt">16</div>
+                            </th>
+                            <th class="">
+                                <div class="txt">17</div>
+                            </th>
+                            <th class="">
+                                <div class="txt">18</div>
+                            </th>
+                            <th class="">
+                                <div data-untime-19 class="txt">19 ~</div>
+                            </th>
+                            <th class="untime" data-untime>
+                                <div class="txt">20</div>
+                            </th>
+                            <th class="untime" data-untime>
+                                <div class="txt">21</div>
+                            </th>
+                            <th class="untime" data-untime>
+                                <div class="txt">22</div>
+                            </th>
+                            <th class="untime" data-untime>
+                                <div class="txt">23</div>
+                            </th>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div data-attendees-schedule-user-contents class="wrap_att_schedule_bd">
+            <!-- 설정/추천시간 -->
+            <div data-attendees-selected-time class="att_schedul_line" style="height: 64px"><!-- 인원 추가시 32px 증가 -->
+                <div class="timeline">
+                    <div class="tb_guide guide_layer">
+                        <table>
+                            <tbody>
+                            <tr>
+                                <td class="">
+                                    <!-- 선택 시간 -->
+                                    <div data-set-time id="set-time" class="set_time" ></div>
+                                    <!-- 추천 시간 -->
+                                    <div class="recm_time" style="display: none">빈 시간</div>
+                                </td>
+                                <td class="untime" data-untime></td>
+                                <td class="untime" data-untime></td>
+                                <td class="untime" data-untime></td>
+                                <td class="untime" data-untime></td>
+                                <td class="untime" data-untime></td>
+                                <td class="untime" data-untime></td>
+                                <td class="untime" data-untime></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td class="untime" data-untime></td>
+                                <td class="untime" data-untime></td>
+                                <td class="untime" data-untime></td>
+                                <td class="untime" data-untime></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <ul data-attendees-schedule-el class="desc">
+        <li>- {{lang.참석자 일정확인 최대 인원 설명}}</li>
+        <li>- {{lang.참석자 일정확인 상세일정 확인여부 설명}}</li>
+    </ul>
+
+</div>
+{{/isAllDay}}
+
+<div data-attendees-notice-el class="attendees_notice" {{^isAllDay}}style="display: none"{{/isAllDay}}>
+    {{^isAllDay}}
+    <div data-attendees-schedule-show-desc class="txt">{{{lang.참석자 일정확인 기능 사용가능 알림}}}</div>
+    <a data-attendees-schedule-show-btn class="btn_minor" data-role="button" data-bypass>
+        <span class="txt">{{lang.참석자 일정 조회}}</span>
+    </a>
+    {{/isAllDay}}
+
+    {{#isAllDay}}
+    <div data-attendees-schedule-show-desc class="txt">{{{lang.참석자 일정확인 기능 종일일정 알림}}}</div>
+    {{/isAllDay}}
+</div>

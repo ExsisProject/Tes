@@ -1,0 +1,676 @@
+{
+  "mail": {
+    "events": [
+      {
+        "event": "mail.arrived",
+        "targets": [
+          "all",
+          "inbox"
+        ]
+      },
+      {
+        "event": "mail.shared",
+        "targets": [
+          "shared.user"
+        ]
+      }
+    ]
+  },
+  "board": {
+    "events": [
+      {
+        "event": "board.post.added",
+        "targets": [
+          "all",
+          "manager",
+          "favorite",
+          "creator"
+        ]
+      },
+      {
+        "event": "board.post.changed",
+        "targets": [
+          "all",
+          "manager",
+          "favorite"
+        ]
+      },
+      {
+        "event": "board.reply.added",
+        "targets": [
+          "all",
+          "manager",
+          "favorite",
+          "creator",
+          "origin.creator"
+        ]
+      },
+      {
+        "event": "board.post.reply.changed",
+        "targets": [
+          "all",
+          "manager",
+          "favorite",
+          "creator",
+          "origin.creator"
+        ]
+      },
+      {
+        "event": "board.comment.added",
+        "targets": [
+          "creator",
+          "comment.creator"
+        ]
+      },
+      {
+        "event": "board.post.recommended",
+        "targets": [
+          "creator"
+        ]
+      }
+    ]
+  },
+  "community": {
+    "events": [
+      {
+        "event": "community.member.added",
+        "targets": [
+          "master",
+          "member"
+        ]
+      },
+      {
+        "event": "community.apply.to.join",
+        "targets": [
+          "master"
+        ]
+      },
+      {
+        "event": "community.request",
+        "targets": [
+          "siteadmin"
+        ]
+      },
+      {
+        "event": "community.post.added",
+        "targets": [
+          "all",
+          "manager",
+          "creator"
+        ]
+      },
+      {
+        "event": "community.post.changed",
+        "targets": [
+          "all",
+          "manager",
+          "comment.creator"
+        ]
+      },
+      {
+        "event": "community.reply.added",
+        "targets": [
+          "all",
+          "manager",
+          "creator",
+          "origin.creator"
+        ]
+      },
+      {
+        "event": "community.post.reply.changed",
+        "targets": [
+          "all",
+          "manager",
+          "creator",
+          "origin.creator"
+        ]
+      },
+      {
+        "event": "community.comment.added",
+        "targets": [
+          "creator",
+          "comment.creator"
+        ]
+      },
+      {
+        "event": "community.post.recommended",
+        "targets": [
+          "creator"
+        ]
+      }
+    ]
+  },
+  "todo": {
+    "events": [
+      {
+        "event": "todo.member.added",
+        "targets": [
+          "all",
+          "manager",
+          "favorite"
+        ]
+      },
+      {
+        "event": "todo.item.moved",
+        "targets": [
+          "all",
+          "manager",
+          "favorite",
+          "director",
+          "comment.creator"
+        ]
+      },
+      {
+        "event": "todo.director.changed",
+        "targets": [
+          "all",
+          "manager",
+          "favorite",
+          "director",
+          "comment.creator"
+        ]
+      },
+      {
+        "event": "todo.item.comment.added",
+        "targets": [
+          "all",
+          "manager",
+          "favorite",
+          "director",
+          "comment.creator"
+        ]
+      },
+      {
+        "event": "todo.item.attach.added",
+        "targets": [
+          "all",
+          "manager",
+          "favorite",
+          "director",
+          "comment.creator"
+        ]
+      },
+      {
+        "event": "todo.item.checklist.added",
+        "targets": [
+          "all",
+          "manager",
+          "favorite",
+          "director",
+          "comment.creator"
+        ]
+      },
+      {
+        "event": "todo.item.checklist.completed",
+        "targets": [
+          "all",
+          "manager",
+          "favorite",
+          "director",
+          "comment.creator"
+        ]
+      },
+      {
+        "event": "todo.item.added",
+        "targets": [
+          "all",
+          "manager",
+          "favorite"
+        ]
+      }
+    ]
+  },
+  "calendar": {
+    "events": [
+      {
+        "event": "calendar.company.event.added",
+        "targets": [
+          "attendee"
+        ]
+      },
+      {
+        "event": "calendar.event.created",
+        "targets": [
+          "attendee"
+        ]
+      },
+      {
+        "event": "calendar.event.updated",
+        "targets": [
+          "attendee",
+          "comment.creator"
+        ]
+      },
+      {
+        "event": "calendar.follow.requested",
+        "targets": [
+          "requested.calendar.owner"
+        ]
+      },
+      {
+        "event": "calendar.follow.request.accepted",
+        "targets": [
+          "follower"
+        ]
+      },
+      {
+        "event": "calendar.follow.request.denied",
+        "targets": [
+          "follower"
+        ]
+      },
+      {
+        "event": "calendar.event.reminder",
+        "targets": [
+          "attendee"
+        ]
+      },
+      {
+        "event": "calendar.event.commented",
+        "targets": [
+          "attendee",
+          "comment.creator"
+        ]
+      }
+    ]
+  },
+  "works": {
+    "events": [
+      {
+        "event": "applet.doc.added",
+        "targets": [
+          "all.sharer",
+          "manager",
+          "favorite",
+          "data.added.user",
+          "manager.setting"
+        ]
+      },
+      {
+        "event": "applet.doc.status.changed",
+        "targets": [
+          "all.sharer",
+          "manager",
+          "favorite",
+          "data.added.user",
+          "creator",
+          "manager.setting"
+        ]
+      },
+      {
+        "event": "applet.doc.edited",
+        "targets": [
+          "all.sharer",
+          "manager",
+          "favorite",
+          "data.added.user",
+          "creator",
+          "manager.setting"
+        ]
+      },
+      {
+        "event": "applet.activity.added",
+        "targets": [
+          "all.sharer",
+          "manager",
+          "favorite",
+          "data.added.user",
+          "creator",
+          "activity.creator"
+        ]
+      },
+      {
+        "event": "applet.activity.edited",
+        "targets": [
+          "all.sharer",
+          "manager",
+          "favorite",
+          "data.added.user",
+          "creator"
+        ]
+      },
+      {
+        "event": "applet.comment.added",
+        "targets": [
+          "all.sharer",
+          "manager",
+          "data.added.user",
+          "creator",
+          "activity.creator",
+          "comment.creator"
+        ]
+      },
+      {
+        "event": "applet.integration.requested",
+        "targets": [
+          "manager"
+        ]
+      },
+      {
+        "event": "applet.integration.accepted",
+        "targets": [
+          "manager"
+        ]
+      }
+    ]
+  },
+  "survey": {
+    "events": [
+      {
+        "event": "survey.progress",
+        "targets": [
+          "respondent",
+          "referrer"
+        ]
+      },
+      {
+        "event": "survey.none.temp.respondent",
+        "targets": [
+          "norespondent"
+        ]
+      },
+      {
+        "event": "survey.comment.added",
+        "targets": [
+          "creator",
+          "respondent",
+          "referrer",
+          "comment.creator"
+        ]
+      }
+    ]
+  },
+  "report": {
+    "events": [
+      {
+        "event": "report.reporter.added",
+        "targets": [
+          "reporter"
+        ]
+      },
+      {
+        "event": "report.added",
+        "targets": [
+          "manager",
+          "referrer"
+        ]
+      },
+      {
+        "event": "report.changed",
+        "targets": [
+          "manager",
+          "referrer"
+        ]
+      },
+      {
+        "event": "report.series.comment.added",
+        "targets": [
+          "manager",
+          "referrer",
+          "report.recipient",
+          "comment.creator"
+        ]
+      },
+      {
+        "event": "report.comment.added",
+        "targets": [
+          "manager",
+          "referrer",
+          "reporter",
+          "comment.creator"
+        ]
+      },
+      {
+        "event": "report.referrer.added",
+        "targets": [
+          "referrer"
+        ]
+      },
+      {
+        "event": "report.manager.added",
+        "targets": [
+          "manager"
+        ]
+      }
+    ]
+  },
+  "task": {
+  },
+  "approval": {
+    "events": [
+      {
+        "event": "document.arrived",
+        "targets": [
+          "wait.approval",
+          "wait.agreement",
+          "wait.check",
+          "wait.inspection",
+          "wait.deputy"
+        ]
+      },
+      {
+        "event": "document.withdrew",
+        "targets": [
+          "wait.approval",
+          "wait.agreement",
+          "wait.check",
+          "wait.inspection",
+          "wait.deputy"
+        ]
+      },
+      {
+        "event": "document.returned",
+        "targets": [
+          "drafter",
+          "approval",
+          "agreement",
+          "check",
+          "inspection",
+          "referrer"
+        ]
+      },
+      {
+        "event": "document.previous.returned",
+        "targets": [
+          "approval",
+          "agreement",
+          "check",
+          "inspection"
+        ]
+      },
+      {
+        "event": "document.completed",
+        "targets": [
+          "drafter",
+          "approval",
+          "agreement",
+          "check",
+          "inspection",
+          "referrer",
+          "reader"
+        ]
+      },
+      {
+        "event": "document.commented",
+        "targets": [
+          "drafter",
+          "approval",
+          "agreement",
+          "check",
+          "inspection",
+          "referrer",
+          "reader"
+        ]
+      },
+      {
+        "event": "document.reading.reader.added",
+        "targets": [
+          "add.reader"
+        ]
+      },
+      {
+        "event": "document.referrence.reader.added",
+        "targets": [
+          "add.referrer"
+        ]
+      },
+      {
+        "event": "document.received",
+        "targets": [
+          "dept.folder.director",
+          "master",
+          "receiver"
+        ]
+      },
+      {
+        "event": "document.receiver.changed",
+        "targets": [
+          "receiver"
+        ]
+      },
+      {
+        "event": "document.received.returned",
+        "targets": [
+          "origin.drafter"
+        ]
+      }
+    ]
+  },
+  "asset": {
+    "events": [
+      {
+        "event": "asset.reserve.added",
+        "targets": [
+          "manager"
+        ]
+      },
+      {
+        "event": "asset.reserve.changed",
+        "targets": [
+          "manager"
+        ]
+      },
+      {
+        "event": "asset.reserve.canceled",
+        "targets": [
+          "manager"
+        ]
+      },
+      {
+        "event": "asset.rent.added",
+        "targets": [
+          "manager"
+        ]
+      },
+      {
+        "event": "asset.rent.canceled",
+        "targets": [
+          "manager"
+        ]
+      },
+      {
+        "event": "asset.manager.added",
+        "targets": [
+          "add.manager"
+        ]
+      }
+    ]
+  },
+  "docs": {
+    "events": [
+      {
+        "event": "docs.added",
+        "targets": [
+          "all",
+          "favorite",
+          "manager"
+        ]
+      },
+      {
+        "event": "docs.updated",
+        "targets": [
+          "all",
+          "favorite",
+          "manager"
+        ]
+      },
+      {
+        "event": "docs.approval.request",
+        "targets": [
+          "manager"
+        ]
+      },
+      {
+        "event": "docs.approval.request.canceled",
+        "targets": [
+          "manager"
+        ]
+      },
+      {
+        "event": "docs.approved",
+        "targets": [
+          "requester"
+        ]
+      },
+      {
+        "event": "docs.rejected",
+        "targets": [
+          "requester"
+        ]
+      }
+    ]
+  },
+  "webfolder": {
+    "events": [
+      {
+        "event": "webfolder.added",
+        "targets": [
+          "shared.folder",
+          "sharing.folder"
+        ]
+      },
+      {
+        "event": "webfolder.shared",
+        "targets": [
+          "shared.user"
+        ]
+      }
+    ]
+  },
+  "ehr": {
+    "events": [
+      {
+        "event": "ehr.day",
+        "targets": [
+          "ehr.clockin",
+          "ehr.clockout",
+          "ehr.rest.time",
+          "ehr.auto.clockout.push"
+        ]
+      }, {
+        "event": "ehr.week",
+        "targets": [
+          "ehr.overtime.40.before",
+          "ehr.overtime.40.after",
+          "ehr.overtime.52.before",
+          "ehr.overtime.52.after"
+        ]
+      }, {
+        "event": "ehr.month",
+        "targets": [
+          "ehr.overtime.month.min.before",
+          "ehr.overtime.month.min.after",
+          "ehr.overtime.month.max.before",
+          "ehr.overtime.month.max.after"
+        ]
+      }, {
+        "event": "ehr.timeline.admin",
+        "targets": [
+          "ehr.timeline.admin.push"
+        ]
+      }
+    ]
+  },
+  "channel" : {
+  }
+}

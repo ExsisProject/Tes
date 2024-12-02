@@ -1,0 +1,103 @@
+{
+    "bundles": [
+        {
+            "type": "js",
+            "name": "common/common-header-all.min.js",
+            "files": [
+                "common/common.js",
+                "common/common-base64.js",
+                "common/validate.js",
+                "common/common-form.js",
+                "common/common-editor.js"
+            ]
+        },
+        {
+            "type": "js",
+            "name": "libs/ext-header-all.min.js",
+            "files": [
+                "libs/jquery-ui-1.8.21.custom.min.js",
+                "libs/jquery.ui.widget.js",
+                "libs/jquery.placeholder.min.js",
+                "libs/jquery.jqplugin.1.0.2.min.js",
+                "libs/jquery.fancybox.pack.js",
+                "libs/jquery.history_new.js",
+                "libs/jquery.fileupload.js",
+                "libs/jquery.iframe-transport.js",
+                "libs/jquery.fileDownload.js",
+                "libs/handlebars-1.0.rc.1.js",
+                "libs/handlebars-helper.js",
+                "libs/tooltipster.bundle.js",
+                "libs/go-popup.js"
+            ]
+        },
+        {
+            "type": "js",
+            "name": "libs/ext-mail-all.min.js",
+            "files": [
+                "libs/jquery.util.js",
+                "libs/jquery.autocomplete.js",
+                "libs/jquery.swfupload.js",
+                "libs/jquery.progressbar.js"
+            ]
+        },
+        {
+            "type": "js",
+            "name": "mail-all.min.js",
+            "files": [
+                "handlebars-mail-helper.js",
+                "mailCommon.js",
+                "mailAction.js",
+                "mailAttach.js",
+                "mailBasicAttach.js",
+                "mailManager.js",
+                "mailSetting.js"
+            ]
+        },
+        {
+            "type": "js",
+            "name": "swfupload/swf-all.min.js",
+            "files": [
+                "swfupload/swfupload.js"
+            ]
+        },
+        {
+            "type": "js",
+            "name": "common/mobile-common-header-all.min.js",
+            "files": [
+                "common/common.js",
+                "common/validate.js"
+            ]
+        },
+        {
+            "type": "js",
+            "name": "libs/mobile-ext-header-all.min.js",
+            "files": [
+                "libs/jquery-ui-1.8.21.custom.min.js",
+                "libs/jquery.mobile.custom.min.js",
+                "libs/handlebars-1.0.rc.1.js",
+                "libs/handlebars-helper.js",
+                "libs/jquery.jqplugin.1.0.2.min.js",
+                "libs/jquery.history_new.js",
+                "libs/jquery.mobile.autocomplete.js",
+                "libs/iscroll.js",
+                "libs/jquery.touchSwipe.min.js"
+            ]
+        },
+        {
+            "type": "js",
+            "name": "mobile/mobile-common-all.min.js",
+            "files": [
+                "mobile/common.js",
+                "mobile/mail-common.js",
+                "mobile/mail-action.js"
+            ]
+        },
+        {
+            "type": "js",
+            "name": "mobile-mail-all.min.js",
+            "files": [
+                "handlebars-mail-helper.js"
+            ]
+        }
+    ]
+}

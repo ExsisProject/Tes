@@ -1,0 +1,1 @@
+define(["backbone"],function(e){var t=e.Model.extend({urlRoot:GO.contextRoot+"api/user/profile"},{get:function(e){var n=new t;return n.set("id",e,{silent:!0}),n.fetch({async:!1}),n}});return{read:function(e){return t.get(e)}}});

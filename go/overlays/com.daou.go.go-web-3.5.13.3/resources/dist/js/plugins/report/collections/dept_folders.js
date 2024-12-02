@@ -1,0 +1,1 @@
+define(["backbone","report/models/report_folder"],function(e,t){var n=e.Collection.extend({model:t,initialize:function(e,t){this.deptId=t.id,this.status=t.status||"active"},url:function(){return GO.contextRoot+"api/report/department/"+this.deptId+"/"+this.status}},{fetch:function(e){var t=new n([],{id:e.id,status:e.status});return t.fetch({async:!1}),t}});return n});

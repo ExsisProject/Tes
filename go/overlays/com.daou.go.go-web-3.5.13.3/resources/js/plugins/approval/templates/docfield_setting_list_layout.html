@@ -1,0 +1,15 @@
+<div class="reply_wrap div_scroll">
+	<table class="in_table">
+	    <tbody id="fieldSettingTbody">
+	        {{#data}}
+	        <tr>
+	            <th><span class="wrap_option">
+	            	<input name="fieldtype_{{seq}}" id="fieldtype_{{seq}}" type="checkbox" 
+	            	docFolderType="{{docFolderType}}" columnType="{{columnType}}" {{#isDisabled}}disabled="disabled"{{/isDisabled}} {{#isChecked}}checked="checked"{{/isChecked}}>
+	            	<label for="fieldtype_{{seq}}">{{columnName}}</label></span></th>
+	            <td><span class="txt">{{columnDesc}}</span></td>
+	        </tr>
+	        {{/data}}          
+	    </tbody>
+	</table>
+</div>

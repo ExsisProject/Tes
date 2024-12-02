@@ -1,0 +1,74 @@
+
+{
+  "data": [
+    {
+      "id": 1,
+      "createdAt": "2013-03-14T16:34:27",
+      "name": "주소록 제목1",
+      "contactCount": 0,
+      "publicFlag" : true,
+      "managers" : [
+        {
+        	"groupId" : "1",
+        	"createdAt" : "2012-03-01",
+        	"user" : {
+        		"id" : "1",
+				"name" : "박상오",
+            	"position" : "연구원"
+        	}
+        }
+      ],
+      "seq": 0
+    },
+    {
+      "id": 2,
+      "createdAt": "2013-03-14T16:34:27",
+      "name": "주소록 제목2",
+      "contactCount": 0,
+      "publicFlag" : true,
+      "managers" : [
+        {
+        	"groupId" : "1",
+        	"createdAt" : "2012-03-01",
+        	"user" : {
+        		"id" : "2",
+				"name" : "조건희",
+            	"position" : "연구원"
+        	}
+        }
+      ],
+      "seq": 1
+    },
+    {
+      "id": 3,
+      "createdAt": "2013-03-14T16:34:27",
+      "name": "주소록 제목3",
+      "contactCount": 0,
+      "publicFlag" : true,
+      "managers" : [
+        {
+        	"groupId" : "1",
+        	"createdAt" : "2012-03-01",
+        	"user" : {
+        		"id" : "2",
+				"name" : "박상오",
+            	"position" : "연구원"
+        	}
+        },
+        {
+        	"groupId" : "1",
+        	"createdAt" : "2012-03-01",
+        	"user" : {
+        		"id" : "2",
+				"name" : "조건희",
+            	"position" : "연구원"
+        	}
+        }
+      ],
+      "seq": 2
+    }
+  ],
+  "message": "OK",
+  "code": "200",
+  "__go_checksum__": true
+}

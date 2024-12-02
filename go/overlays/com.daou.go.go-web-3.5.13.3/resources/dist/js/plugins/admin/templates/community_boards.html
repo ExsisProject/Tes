@@ -1,0 +1,51 @@
+<div class="content_page" id="member_content_page">
+	<div class="dataTables_wrapper container">				
+		<div class="toolbar_top header_tb">
+			<div class="critical">						
+				<span class="btn_tool" id="btn_down_boards">{{lang.label_csv}}</span>
+			</div>						
+		</div>
+		<div id="postBbsDataTable_processing" class="dataTables_processing" style="visibility:hidden">Processing...</div>					
+		<div class="content_tb">			
+			<table class="chart size">
+				<colgroup>
+					<col width="*">
+					<col width="100">
+					<col width="150">
+					<col width="100">
+					<col width="120">
+				</colgroup>
+				<thead>
+					<tr>
+						<th class="sorting_disable"><span class="title_sort">{{lang.label_name}}</span></th>
+						<th class="sorting_disable"><span class="title_sort">{{lang.label_type}}</span></th>
+						<th class="sorting_disable"><span class="title_sort">{{lang.label_master}}</span></th>
+						<th class="sorting_disable align_r"><span class="title_sort">{{lang.label_postcount}}</span></th>
+						<th class="sorting_disable last align_r"><span class="title_sort">{{lang.label_usedata}}<ins class="ic"></ins></span></th>
+					</tr>
+				</thead>	
+				<tbody>	
+					{{#dataset}}
+					<tr>
+						<td class="title">{{name}}</td>
+						<td class="type">{{boardTypeName}}</td>
+						<td class="title">{{{masterNameAndPosition}}}</td>
+						<td class="num">{{postCount}}</td>
+						<td class="num last">{{boardTotalSize}}</td>
+					</tr>
+					{{/dataset}}
+                    {{^dataset}}
+                    <tr>
+                        <td colspan="6">
+                            <p class="data_null">
+                                <span class="ic_data_type ic_no_data"></span> 
+                                <span class="txt">{{lang.label_non_board}}</span>
+                            </p>
+                        </td>
+                    </tr>
+                    {{/dataset}}
+				</tbody>
+			</table>	
+		</div>
+	</div>
+</div>

@@ -1,0 +1,12 @@
+define(function(require) {
+	
+	return {
+		NODETYPE_FOLDER: 'FOLDER', 
+		NODETYPE_SEPERATOR: 'SEPARATOR',  
+		NODETYPE_BOARD: 'BOARD', 
+		STATUS_ACTIVE: 'ACTIVE', 
+		STATUS_CLOSED: 'CLOSED',
+		NODETYPE_COMPANY_SHARE : 'SHARE'
+	};
+	
+});

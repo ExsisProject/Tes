@@ -1,0 +1,27 @@
+{{^update?}}
+<p class="desc">
+    {{#remove?}}{{&msg.remove_desc}}{{/remove?}}
+    {{#leave?}}{{&msg.leave_desc}}{{/leave?}}
+</p>
+
+{{/update?}}
+{{#recurrence?}}
+{{^update?}}
+<hr />
+{{/update?}}
+<div class="option">
+    <h3>{{&msg.recurrence_notice}}</h3>
+    <span class="option_wrap vertical_wrap">
+        <input id="remove-option-only" type="radio" name="remove_option" value="instance" checked="checked" />
+        <label for="remove-option-only">{{label.remove_only}}</label>
+    </span>
+    <span class="option_wrap vertical_wrap">
+        <input id="remove-option-after" type="radio" name="remove_option" value="after" />
+        <label for="remove-option-after">{{label.remove_after}}</label>
+    </span>
+    <span class="option_wrap vertical_wrap">
+        <input id="remove-option-all" type="radio" name="remove_option" value="all" />
+        <label for="remove-option-all">{{label.remove_all}}</label>
+    </span>
+</div>
+{{/recurrence?}}

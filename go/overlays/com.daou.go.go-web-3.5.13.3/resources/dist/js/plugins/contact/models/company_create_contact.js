@@ -1,0 +1,1 @@
+define(["backbone"],function(e){var t=e.Model.extend({url:function(){return"/api/contact/company/group/"+this.groupId+"/contact"},setGroupId:function(e){this.groupId=e}});return t});

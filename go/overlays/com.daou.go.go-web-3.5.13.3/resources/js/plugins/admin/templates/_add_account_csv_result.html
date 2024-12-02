@@ -1,0 +1,16 @@
+{{#results}}
+<li>
+    <span class="name">{{name}}</span>
+    <span class="email">{{email}}</span>
+    {{#successable}}
+    <span class="pass">
+        {{sussessText}}
+    </span>
+    {{/successable}}
+    {{^successable}}
+    <span class="fail">
+        {{failText}} ({{errorMessage}})
+    </span>
+    {{/successable}}
+</li>
+{{/results}}

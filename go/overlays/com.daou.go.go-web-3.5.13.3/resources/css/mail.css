@@ -1,0 +1,26 @@
+#message_view_table ol, #message_view_table ul {margin: 0.7em 0 0.7em 1.5em;}
+.message_view_table ol li {list-style: decimal outside none;}
+#message_view_table ul li {list-style: disc outside none;}
+#message_view_table dl {margin: 0.7em 0;}
+#message_view_table dd {margin-left: 1.5em;}
+#message_view_table p {margin: 0.7em 0;}
+#message_view_table button {background-color: #F2F2F2;border: 1px outset #003377;overflow: auto;}
+#message_view_table a {color: #0000FF;text-decoration: underline;}
+#message_view_table a:visited {color: #551188;}
+#message_view_table strong {font-weight: bold;}
+#message_view_table em, #message_view_table address {font-style: italic;}
+#message_view_table caption {display:table-caption;}
+
+div.go_wrap div.go_body div.go_content{z-index:20;}
+div.go_content .content_wrap {min-height: 100%;position:absolute;left:0;top:0;width:100%;}
+div.content {background: none repeat scroll 0 0 #FFFFFF;}
+div.tool_bar {z-index:100;}
+div.go_wrap div.go_body div.go_content div.content ul.list_photo_ipt, div.go_wrap div.go_body div.go_content div.content section.classic_detail, div.go_wrap div.go_body div.go_content div.content div.notice, div.go_wrap div.go_body div.go_content div.write form, div.go_wrap div.go_body div.go_content div.content div.option {
+    margin-top: 0px;
+}
+section.classic_detail header.article_header{padding:10px;}
+div.write div.option { padding: 10px 10px 8px 10px;}
+div.layer_auto_complete {z-index:1000;position:absolute; overflow-y:scroll; }
+tr.ccbccWrap{display:none;}
+span.checkboxSelect{display: inline-block;left:0px;position:absolute;bottom:0px;height:100%;width:30px;}
+span.ic_root{background-color:transparent !important;}

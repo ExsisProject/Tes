@@ -1,0 +1,1 @@
+define(["backbone"],function(e){var t=null,n=e.Model.extend({url:function(){return"/ad/api/company"}},{get:function(e){return t==null&&(t=new n),t.siteId=e,t.fetch({async:!1}),t},create:function(){return t==null&&(t=new n),t}});return{create:function(){return companyBaseModel=n.create()},get:function(){return companyBaseModel=n.get(this.siteId)}}});

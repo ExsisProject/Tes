@@ -1,0 +1,52 @@
+<div class="head_sidebar">
+    <!-- gnb -->
+    <h1 class="logo">
+        <div class="site">Site Admin</div>
+        <div class="company">{{companyName}}</div>
+    </h1>
+    <a class="btn_fold" title="접기">
+        <span class="ic_adm ic_fold"></span>
+    </a>
+    <a class="btn_fold" title="펼치기" style="display:none;">
+        <span class="ic_adm ic_unfold"></span>
+    </a>
+    <form onsubmit="return false;" class="search dark">
+        <fieldset>
+            <legend>{{AdminLang.메뉴 검색}}</legend>
+            <input id="filteringText" type="text" autocomplete="off"/>
+            <span class="ic_adm ic_search" title="검색"></span>
+            <a class="btn_cancel_s_w">
+                <span class="ic_adm ic_cancel_s_w" title="삭제"></span>
+            </a>
+        </fieldset>
+    </form>
+</div>
+<div class="gnb simplebar-content-wrapper" id="sidebar_wrapper" style="height:700px">
+    <div id="null_data" class="null_data">
+        <span class="txt">{{CommonLang.검색결과없음}}</span>
+    </div>
+
+    <div id="menu-content" class="simplebar-content">
+        <div class="gnb_group">
+            <div class="gnb_header">My</div>
+            <div class="gnb_memu" id="recentlyMenu">
+                <a class="gnb_tit folded">
+                    <span class="ic_adm ic_accordion"></span>
+                    <span class="txt">{{AdminLang.최근 사용한 메뉴}}</span>
+                </a>
+
+            </div>
+            <div id="favoritedMenu" class="gnb_memu">
+                <a class="gnb_tit folded">
+                    <span class="ic_adm ic_accordion"></span>
+                    <span class="txt">{{AdminLang.즐겨찾기}}</span>
+                </a>
+
+            </div>
+        </div>
+        <div id="sidebar" class="gnb_group">
+            <div class="gnb_header">Management</div>
+            <div id="management_menu" style="padding:0px;"></div>
+        </div>
+    </div>
+</div><!-- //gnb -->

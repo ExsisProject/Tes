@@ -1,0 +1,1 @@
+define(["backbone","app","hrcard/models/hrInfo"],function(e,t,n){var r=null,i=e.Collection.extend({model:n,initialize:function(e){this.options=e||{},this.userid=this.options.userid},url:function(){return[t.contextRoot+"api/hrcard/info",this.userid].join("/")},isEmpty:function(){return this.length==0?!0:!1}});return i});

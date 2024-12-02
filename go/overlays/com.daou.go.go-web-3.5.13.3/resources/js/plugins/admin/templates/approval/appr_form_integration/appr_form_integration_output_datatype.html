@@ -1,0 +1,23 @@
+<select id="selectOutputDataType" name="dataType">
+     <option value="DIRECT_ACCESS">{{lang.DirectAccess}}</option>   
+     <option value="STRING">{{lang.String}}</option>
+</select>
+
+<div id="outputDataTypeSub" class="tb_wrap">
+      <div id="outputStringDataTypeArea" class="option_inner">
+          
+          <ul class="list_option">
+              <li class="first">
+                  <span class="minor option_label">{{lang.key value 구분자}} </span>
+                  <input class="input" type="text" name="outputKeyValueSeparator" value="{{model.outputKeyValueSeparator}}">
+              </li>             
+              <li>
+                  <span class="minor option_label">{{lang.Data 구분자}} </span>
+                  <input class="input" type="text" name="outputElementSeparator" value="{{model.outputElementSeparator}}">
+              </li>
+           </ul>
+          
+      </div>
+      <div id="outputDirectAccessDataTypeArea">
+      </div>
+</div>

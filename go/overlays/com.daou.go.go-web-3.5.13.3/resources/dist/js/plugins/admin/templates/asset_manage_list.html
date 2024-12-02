@@ -1,0 +1,63 @@
+<div class="dataTables_wrapper container" >				
+	<div class="toolbar_top header_tb">
+		<div class="critical">						
+			<span class="btn_tool btnAssetAdd" data-btntype="assetCreate">{{lang.asset_add}}</span>
+			<span class="btn_tool btnAssetSortable">{{lang.asset_sort}}</span>
+			<span class="btn_tool btn_save txt_confirm btnBoardSortDone" style="display:none">{{lang.asset_sort_done}}</span>
+		</div>						
+	</div>
+	
+	<div class="content_tb">			
+		<table class="chart size" id="tableBorderList">
+			<colgroup>
+				<col width="" />
+				<col width="100" />
+				<col width="300" />
+				<col width="100" />
+				<col width="120" />
+				<col width="80" />
+			</colgroup>
+			<thead>
+				<tr>
+					<th class="sorting_disable"><span class="title_sort">{{lang.asset_name}}</span></th>
+					<th class="sorting_disable"><span class="title_sort">{{lang.asset_cnt}}</span></th>
+					<th class="sorting_disable"><span class="title_sort">{{lang.asset_admin}}</span></th>
+					<th class="sorting_disable"><span class="title_sort">{{lang.asset_auth}}</span></th>
+					<th class="sorting_disable"><span class="title_sort">{{lang.asset_status}}<span class="selected"></span></span></th>
+					<th class="sorting_disable last"><span class="title_sort">{{lang.asset_setting}}</span></th>
+				</tr>
+			</thead>	
+			<tbody>	
+				{{^dataset}}
+				<tr class="last">
+					<td colspan="6">
+						<p class="data_null">
+							<span class="ic_data_type ic_no_data"></span>
+							<span class="txt">{{lang.asset_no_list}}</span>
+						</p>
+					</td>
+				</tr>
+				{{/dataset}}
+				{{#dataset}}
+				<tr data-id="{{id}}">
+					<td class="equip">{{name}}
+
+						{{#companyShare}}
+						<span class="status">
+								<span class="btn_fn7" data-role="button" data-type="btnOwners" data-id="{{id}}">
+								<span class="ic_con ic_share"></span>
+								<span class="txt">{{lang.range}}</span> </span> </span>
+						{{/companyShare}}
+					</td>
+
+					<td class="num_c">{{itemCount}}</td>
+					<td class="name">{{parseManagers}}</td>
+					<td class="right">{{#publicFlag}}{{lang.asset_public}}{{/publicFlag}}{{^publicFlag}}{{lang.asset_private}}{{/publicFlag}}</td>
+					<td class="use">{{parseStatus}}</td>
+					<td class="action last"><span class="btn_s" data-btntype="assetSettingBtn" data-assetid="{{id}}">{{lang.asset_setting}}</span></td>
+				</tr>
+				{{/dataset}}
+			</tbody>
+		</table>	
+	</div>
+</div>

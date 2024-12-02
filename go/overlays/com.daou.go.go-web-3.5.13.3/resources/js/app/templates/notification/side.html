@@ -1,0 +1,12 @@
+<section class="gnb_title">
+    <h1><a>{{gnbTitle}}</a></h1>
+</section>
+<nav class="side_menu">
+    <ul>
+        {{#categories}}
+            <li {{#selected}}class="on"{{/selected}} data-appname="{{app}}">
+                <a href="{{url}}"><span title="{{title}}" class="ic_gnb {{css}}"></span>{{title}}</a>
+            </li>
+        {{/categories}}
+    </ul>
+</nav>

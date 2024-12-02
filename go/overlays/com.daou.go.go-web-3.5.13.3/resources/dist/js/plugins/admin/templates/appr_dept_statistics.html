@@ -1,0 +1,70 @@
+				<div class="container ">					
+					<div class="content">
+						<form>
+							<fieldset>				
+								<table class="form_type">
+									<tbody>
+										<tr>
+											<td>
+												<label class="txt">{{lang.기간}}</label>
+												<select id="selectDateOpt">
+													<option value="custom">{{lang.사용자 지정}}</option>
+													<option value="7d">{{lang.최근 7일간}}</option>
+													<option value="30d">{{lang.최근 30일간}}</option>
+													<option value="60d">{{lang.최근 60일간}}</option>
+													<option value="6m">{{lang.최근 6개월간}}</option>
+												</select>
+												<span class="wrap_date"><input id="startDate" class="txt wfix_small" type="text" value="" readyonly><span class="ic_go ic_calendar"></span></span>
+												~
+												<span class="wrap_date"><input  id="endDate"  class="txt wfix_small" type="text" value="" readyonly><span class="ic_go ic_calendar"></span></span>
+												<span class="desc">({{lang.기안일 기준}})</span>
+												<span class="btn_wrap"><span class="btn_s" id="btn_search_statistics">{{lang.검색}}</span></span>
+											</td>
+										</tr>
+									</tbody>	
+								</table>
+							</fieldset>
+						</form>
+					</div>
+				</div>
+				<!-- // 기간 검색 -->
+				<!-- 목록 -->
+				<div class="dataTables_wrapper container" >	
+					<!-- 툴바 -->
+					<div class="toolbar_top header_tb">
+						<div class="critical">						
+							<span id="apprStatisticsCvsDown" class="btn_tool">{{lang.목록 다운로드}}</span>
+						</div>						
+					</div>
+					<!-- 목록 -->
+					<div class="content_tb">			
+						<table class="chart" id="appr_statisticsDept_list_tb">
+							<thead>
+								<tr>
+									<th class="sorting_disable"><span class="title_sort">{{lang.부서명}}</span></th>
+									<th class="sorting_disable"><span class="title_sort">{{lang.부서장}}</span></th>
+									<th class="sorting_disable"><span class="title_sort">{{lang.진행}}</span></th>
+									<th class="sorting_disable"><span class="title_sort">{{lang.완료}}</span></th>
+									<th class="sorting_disable"><span class="title_sort">{{lang.반려}}</span></th>
+									<th class="sorting_disable last"><span class="title_sort">{{lang.합계}}</span></th>
+								</tr>
+							</thead>	
+							<tbody>	
+
+							</tbody>
+						</table>	
+						<div class="table_search">				
+							<select id="select_search_type">
+								<option value="name">{{lang.부서명}}</option>							
+							</select>		
+							
+							<span class="search_wrap">
+								<input class="input" type="text" id="search_keyword">
+								<span class="btn_search" title="검색" id="btn_search_type"></span>
+								<input class="submit" type="button" value="" >
+							</span>
+						</div>
+					</div>
+					<!-- // 목록 -->
+				</div>
+				<!-- // 목록 -->

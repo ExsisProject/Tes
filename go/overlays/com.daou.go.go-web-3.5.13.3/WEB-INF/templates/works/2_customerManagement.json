@@ -1,0 +1,1042 @@
+{
+	"meta": {
+		"key": "bdc8d0b1-0d82-44b4-b193-ccbaae769e85",
+		"base": {
+			"name": "applet.client.manage.template.name",
+			"desc": "applet.client.manage.template.desc",
+			"icon": "ic_app3.png"
+		},
+		"exporter": {
+			"name": "관리자",
+			"companyName": "다우기술"
+		}
+	},
+	"components": {
+		"view": {
+			"charts": [],
+			"columns": [{
+				"fieldCid": "_ta9qgaxlf"
+			}, {
+				"fieldCid": "_g8z2r2n76"
+			}, {
+				"fieldCid": "_aufjmj1gn"
+			}, {
+				"fieldCid": "_40h9yu9qj"
+			}, {
+				"fieldCid": "_79v2a5kz1"
+			}, {
+				"fieldCid": "create_date",
+				"columnName": "{{applet.form.createdat}}"
+			}],
+			"titleColumnIndex": 0,
+			"sortColumnIndex": 5,
+			"sortDirection": "DESC"
+		},
+		"form": {
+			"data": {
+				"type": "canvas",
+				"multiple": false,
+				"cid": "cxx1",
+				"components": [{
+					"type": "label",
+					"multiple": false,
+					"cid": "_hmhos9sjm",
+					"parentCid": "cxx1",
+					"properties": {
+						"label": "◈ 주요 정보"
+					},
+					"components": []
+				}, {
+					"type": "columns",
+					"multiple": false,
+					"cid": "_digzkafxj",
+					"parentCid": "cxx1",
+					"properties": {
+						"count": 2
+					},
+					"components": [{
+						"type": "column",
+						"multiple": false,
+						"cid": "_xddhcl320",
+						"parentCid": "_digzkafxj",
+						"properties": {},
+						"components": [{
+							"type": "text",
+							"valueType": "STEXT",
+							"multiple": false,
+							"cid": "_ta9qgaxlf",
+							"parentCid": "_xddhcl320",
+							"properties": {
+								"label": "거래처명",
+								"hideLabel": false,
+								"guide": "",
+								"guideAsTooltip": true,
+								"required": true,
+								"defaultValue": "",
+								"minLength": 0,
+								"maxLength": 100,
+								"width": "300",
+								"widthUnit": "px",
+								"format": "all"
+							},
+							"components": []
+						}]
+					}, {
+						"type": "column",
+						"multiple": false,
+						"cid": "_u8lucj09a",
+						"parentCid": "_digzkafxj",
+						"properties": {},
+						"components": [{
+							"type": "text",
+							"valueType": "STEXT",
+							"multiple": false,
+							"cid": "_59fiunp0z",
+							"parentCid": "_u8lucj09a",
+							"properties": {
+								"label": "영문 회사명",
+								"hideLabel": false,
+								"guide": "",
+								"guideAsTooltip": true,
+								"required": false,
+								"defaultValue": "",
+								"minLength": 0,
+								"maxLength": 100,
+								"width": "400",
+								"widthUnit": "px",
+								"format": "all"
+							},
+							"components": []
+						}]
+					}]
+				}, {
+					"type": "columns",
+					"multiple": false,
+					"cid": "_ewskoj3xd",
+					"parentCid": "cxx1",
+					"properties": {
+						"count": 2
+					},
+					"components": [{
+						"type": "column",
+						"multiple": false,
+						"cid": "_vam4u2n74",
+						"parentCid": "_ewskoj3xd",
+						"properties": {},
+						"components": [{
+							"type": "text",
+							"valueType": "STEXT",
+							"multiple": false,
+							"cid": "_g8z2r2n76",
+							"parentCid": "_xddhcl320",
+							"properties": {
+								"label": "사업자등록번호",
+								"hideLabel": false,
+								"guide": "",
+								"guideAsTooltip": true,
+								"required": true,
+								"defaultValue": "",
+								"minLength": 0,
+								"maxLength": 100,
+								"width": "300",
+								"widthUnit": "px",
+								"format": "all"
+							},
+							"components": []
+						}]
+					}, {
+						"type": "column",
+						"multiple": false,
+						"cid": "_gxv8cncgs",
+						"parentCid": "_ewskoj3xd",
+						"properties": {},
+						"components": [{
+							"type": "text",
+							"valueType": "STEXT",
+							"multiple": false,
+							"cid": "_40h9yu9qj",
+							"parentCid": "_u8lucj09a",
+							"properties": {
+								"label": "전화",
+								"hideLabel": false,
+								"guide": "",
+								"guideAsTooltip": true,
+								"required": false,
+								"defaultValue": "",
+								"minLength": 0,
+								"maxLength": 100,
+								"width": "200",
+								"widthUnit": "px",
+								"format": "all"
+							},
+							"components": []
+						}]
+					}]
+				}, {
+					"type": "columns",
+					"multiple": false,
+					"cid": "_jgfqvnlrw",
+					"parentCid": "cxx1",
+					"properties": {
+						"count": 2
+					},
+					"components": [{
+						"type": "column",
+						"multiple": false,
+						"cid": "_gmmat2t01",
+						"parentCid": "_jgfqvnlrw",
+						"properties": {},
+						"components": [{
+							"type": "text",
+							"valueType": "STEXT",
+							"multiple": false,
+							"cid": "_x7urrj91q",
+							"parentCid": "_xddhcl320",
+							"properties": {
+								"label": "팩스",
+								"hideLabel": false,
+								"guide": "",
+								"guideAsTooltip": true,
+								"required": false,
+								"defaultValue": "",
+								"minLength": 0,
+								"maxLength": 100,
+								"width": "200",
+								"widthUnit": "px",
+								"format": "all"
+							},
+							"components": []
+						}]
+					}, {
+						"type": "column",
+						"multiple": false,
+						"cid": "_wq2l7nii4",
+						"parentCid": "_jgfqvnlrw",
+						"properties": {},
+						"components": [{
+							"type": "text",
+							"valueType": "STEXT",
+							"multiple": false,
+							"cid": "_515nh8gxe",
+							"parentCid": "_u8lucj09a",
+							"properties": {
+								"label": "웹사이트",
+								"hideLabel": false,
+								"guide": "",
+								"guideAsTooltip": true,
+								"required": false,
+								"defaultValue": "",
+								"minLength": 0,
+								"maxLength": 100,
+								"width": "400",
+								"widthUnit": "px",
+								"format": "all"
+							},
+							"components": []
+						}]
+					}]
+				}, {
+					"type": "columns",
+					"multiple": false,
+					"cid": "_c2qj6mse5",
+					"parentCid": "cxx1",
+					"properties": {
+						"count": 2
+					},
+					"components": [{
+						"type": "column",
+						"multiple": false,
+						"cid": "_4h6wi3skq",
+						"parentCid": "_c2qj6mse5",
+						"properties": {},
+						"components": [{
+							"type": "text",
+							"valueType": "STEXT",
+							"multiple": false,
+							"cid": "_jnlnwiy90",
+							"parentCid": "_xddhcl320",
+							"properties": {
+								"label": "대표자명",
+								"hideLabel": false,
+								"guide": "",
+								"guideAsTooltip": true,
+								"required": false,
+								"defaultValue": "",
+								"minLength": 0,
+								"maxLength": 100,
+								"width": "200",
+								"widthUnit": "px",
+								"format": "all"
+							},
+							"components": []
+						}]
+					}, {
+						"type": "column",
+						"multiple": false,
+						"cid": "_k91p76jlp",
+						"parentCid": "_c2qj6mse5",
+						"properties": {},
+						"components": [{
+							"type": "listbox",
+							"valueType": "SELECTS",
+							"multiple": false,
+							"cid": "_79v2a5kz1",
+							"parentCid": "_xddhcl320",
+							"properties": {
+								"label": "기업형태",
+								"hideLabel": false,
+								"guide": "",
+								"guideAsTooltip": true,
+								"required": false,
+								"items": [{
+									"value": "0",
+									"displayText": "대기업",
+									"selected": false
+								}, {
+									"value": "1",
+									"displayText": "주권(유가증권)상장기업",
+									"selected": false
+								}, {
+									"value": "2",
+									"displayText": "코스닥 상장기업",
+									"selected": false
+								}, {
+									"value": 5,
+									"displayText": "중소기업",
+									"selected": false
+								}, {
+									"value": 6,
+									"displayText": "외국계기업",
+									"selected": false
+								}, {
+									"value": 7,
+									"displayText": "공공기관공사협회",
+									"selected": false
+								}],
+								"minCheckedCount": 1,
+								"maxCheckedCount": "6"
+							},
+							"components": []
+						}]
+					}]
+				}, {
+					"type": "columns",
+					"multiple": false,
+					"cid": "_h7huhojxr",
+					"parentCid": "cxx1",
+					"properties": {
+						"count": 2
+					},
+					"components": [{
+						"type": "column",
+						"multiple": false,
+						"cid": "_bwiffs3as",
+						"parentCid": "_h7huhojxr",
+						"properties": {},
+						"components": [{
+							"type": "radio",
+							"valueType": "SELECT",
+							"multiple": false,
+							"cid": "_geu69x3y7",
+							"parentCid": "_u8lucj09a",
+							"properties": {
+								"label": "병역특례지정기업",
+								"hideLabel": false,
+								"guide": "",
+								"guideAsTooltip": true,
+								"required": false,
+								"defaultValue": "0",
+								"items": [{
+									"value": "0",
+									"displayText": "병역 특례 기업",
+									"selected": true
+								}, {
+									"value": "1",
+									"displayText": "해당사항 없음",
+									"selected": false
+								}],
+								"align": "horizontal",
+								"radio_button": "on"
+							},
+							"components": []
+						}]
+					}, {
+						"type": "column",
+						"multiple": false,
+						"cid": "_ce6atyai6",
+						"parentCid": "_h7huhojxr",
+						"properties": {},
+						"components": [{
+							"type": "radio",
+							"valueType": "SELECT",
+							"multiple": false,
+							"cid": "_ufnigmzrc",
+							"parentCid": "_u8lucj09a",
+							"properties": {
+								"label": "벤처 기업 여부",
+								"hideLabel": false,
+								"guide": "",
+								"guideAsTooltip": true,
+								"required": false,
+								"defaultValue": "0",
+								"items": [{
+									"value": "0",
+									"displayText": "벤처 기업",
+									"selected": false
+								}, {
+									"value": "1",
+									"displayText": "해당사항 없음",
+									"selected": true
+								}],
+								"align": "horizontal",
+								"radio_button": "on"
+							},
+							"components": []
+						}]
+					}]
+				}, {
+					"type": "columns",
+					"multiple": false,
+					"cid": "_g6qpdrp03",
+					"parentCid": "cxx1",
+					"properties": {
+						"count": 2
+					},
+					"components": [{
+						"type": "column",
+						"multiple": false,
+						"cid": "_q7pmslr1i",
+						"parentCid": "_g6qpdrp03",
+						"properties": {},
+						"components": [{
+							"type": "listbox",
+							"valueType": "SELECTS",
+							"multiple": false,
+							"cid": "_twh6x8k5b",
+							"parentCid": "_q7pmslr1i",
+							"properties": {
+								"label": "Solution Partner",
+								"hideLabel": false,
+								"guide": "",
+								"guideAsTooltip": true,
+								"required": false,
+								"items": [{
+									"value": "0",
+									"displayText": "옵션1",
+									"selected": true
+								}, {
+									"value": "1",
+									"displayText": "옵션2",
+									"selected": false
+								}, {
+									"value": "2",
+									"displayText": "옵션3",
+									"selected": false
+								}, {
+									"value": 3,
+									"displayText": "옵션4",
+									"selected": false
+								}],
+								"minCheckedCount": 1,
+								"maxCheckedCount": "10"
+							},
+							"components": []
+						}, {
+							"type": "select",
+							"valueType": "SELECT",
+							"multiple": false,
+							"cid": "_ul77is3tz",
+							"parentCid": "_q7pmslr1i",
+							"properties": {
+								"label": "산업 분류",
+								"hideLabel": false,
+								"guide": "",
+								"guideAsTooltip": true,
+								"required": false,
+								"items": [{
+									"value": "0",
+									"displayText": "IT, 인터넷",
+									"selected": true
+								}, {
+									"value": "1",
+									"displayText": "연구개발,설계",
+									"selected": false
+								}, {
+									"value": "2",
+									"displayText": "생산,제조",
+									"selected": false
+								}, {
+									"value": 3,
+									"displayText": "미디어",
+									"selected": false
+								}, {
+									"value": 4,
+									"displayText": "의료,보건",
+									"selected": false
+								}, {
+									"value": 5,
+									"displayText": "예술, 문화",
+									"selected": false
+								}, {
+									"value": 6,
+									"displayText": "서비스",
+									"selected": false
+								}]
+							},
+							"components": []
+						}]
+					}, {
+						"type": "column",
+						"multiple": false,
+						"cid": "_45iywaczg",
+						"parentCid": "_g6qpdrp03",
+						"properties": {},
+						"components": [{
+							"type": "listbox",
+							"valueType": "SELECTS",
+							"multiple": false,
+							"cid": "_16roty65n",
+							"parentCid": "_45iywaczg",
+							"properties": {
+								"label": "Sales Partner",
+								"hideLabel": false,
+								"guide": "",
+								"guideAsTooltip": true,
+								"required": false,
+								"items": [{
+									"value": "0",
+									"displayText": "옵션1",
+									"selected": true
+								}, {
+									"value": "1",
+									"displayText": "옵션2",
+									"selected": false
+								}, {
+									"value": "2",
+									"displayText": "옵션3",
+									"selected": false
+								}, {
+									"value": 3,
+									"displayText": "옵션4",
+									"selected": false
+								}],
+								"minCheckedCount": 1,
+								"maxCheckedCount": 1
+							},
+							"components": []
+						}]
+					}]
+				}, {
+					"type": "label",
+					"multiple": false,
+					"cid": "_n83uweixf",
+					"parentCid": "cxx1",
+					"properties": {
+						"label": "◆ 추가정보"
+					},
+					"components": []
+				}, {
+					"type": "columns",
+					"multiple": false,
+					"cid": "_a958au7x7",
+					"parentCid": "cxx1",
+					"properties": {
+						"count": 2
+					},
+					"components": [{
+						"type": "column",
+						"multiple": false,
+						"cid": "_k64qj9q58",
+						"parentCid": "_a958au7x7",
+						"properties": {},
+						"components": [{
+							"type": "number",
+							"valueType": "NUMBER",
+							"multiple": false,
+							"cid": "_q3iav650d",
+							"parentCid": "_k64qj9q58",
+							"properties": {
+								"label": "매출기준연도",
+								"hideLabel": false,
+								"guide": "",
+								"guideAsTooltip": true,
+								"required": false,
+								"defaultValue": "",
+								"minLength": 0,
+								"maxLength": "2100",
+								"width": "102",
+								"widthUnit": "px",
+								"unitText": "",
+								"fixType": "postfix",
+								"decimalPoints": 2,
+								"thousandComma": false
+							},
+							"components": []
+						}, {
+							"type": "number",
+							"valueType": "NUMBER",
+							"multiple": false,
+							"cid": "_k79xuqrlh",
+							"parentCid": "_k64qj9q58",
+							"properties": {
+								"label": "Y년도 매출",
+								"hideLabel": false,
+								"guide": "",
+								"guideAsTooltip": true,
+								"required": false,
+								"defaultValue": "",
+								"minLength": 0,
+								"maxLength": "1000000000000000000000",
+								"width": 100,
+								"widthUnit": "px",
+								"unitText": "원",
+								"fixType": "postfix",
+								"decimalPoints": "0",
+								"thousandComma": true
+							},
+							"components": []
+						}, {
+							"type": "number",
+							"valueType": "NUMBER",
+							"multiple": false,
+							"cid": "_ziu6qdwh7",
+							"parentCid": "_k64qj9q58",
+							"properties": {
+								"label": "Y-1년도 매출",
+								"hideLabel": false,
+								"guide": "",
+								"guideAsTooltip": true,
+								"required": false,
+								"defaultValue": "",
+								"minLength": 0,
+								"maxLength": "100000000000000000000000000000",
+								"width": 100,
+								"widthUnit": "px",
+								"unitText": "원",
+								"fixType": "postfix",
+								"decimalPoints": "0",
+								"thousandComma": true
+							},
+							"components": []
+						}, {
+							"type": "org",
+							"valueType": "USERS",
+							"multiple": false,
+							"cid": "_aufjmj1gn",
+							"parentCid": "_k64qj9q58",
+							"properties": {
+								"label": "담당자",
+								"hideLabel": false,
+								"guide": "",
+								"guideAsTooltip": true,
+								"required": false,
+								"noLimit": true,
+								"useDefaultRegister": true,
+								"allowMemberCount": "1",
+								"members": []
+							},
+							"components": []
+						}]
+					}, {
+						"type": "column",
+						"multiple": false,
+						"cid": "_sb7wifilo",
+						"parentCid": "_a958au7x7",
+						"properties": {},
+						"components": [{
+							"type": "number",
+							"valueType": "NUMBER",
+							"multiple": false,
+							"cid": "_33xbv2wlm",
+							"parentCid": "_sb7wifilo",
+							"properties": {
+								"label": "직원",
+								"hideLabel": false,
+								"guide": "",
+								"guideAsTooltip": true,
+								"required": false,
+								"defaultValue": "",
+								"minLength": 0,
+								"maxLength": "1000000",
+								"width": 100,
+								"widthUnit": "px",
+								"unitText": "명",
+								"fixType": "postfix",
+								"decimalPoints": 2,
+								"thousandComma": false
+							},
+							"components": []
+						}, {
+							"type": "select",
+							"valueType": "SELECT",
+							"multiple": false,
+							"cid": "_cf2mjsthc",
+							"parentCid": "_sb7wifilo",
+							"properties": {
+								"label": "규모",
+								"hideLabel": false,
+								"guide": "",
+								"guideAsTooltip": true,
+								"required": false,
+								"items": [{
+									"value": "0",
+									"displayText": "5000명 이상",
+									"selected": true
+								}, {
+									"value": "1",
+									"displayText": "5000명 미만",
+									"selected": false
+								}, {
+									"value": "2",
+									"displayText": "3000명 미만",
+									"selected": false
+								}, {
+									"value": 3,
+									"displayText": "1000명 미만",
+									"selected": false
+								}, {
+									"value": 4,
+									"displayText": "500명 미만",
+									"selected": false
+								}, {
+									"value": 5,
+									"displayText": "300명 미만",
+									"selected": false
+								}, {
+									"value": 6,
+									"displayText": "100명 미만",
+									"selected": false
+								}]
+							},
+							"components": []
+						}, {
+							"type": "text",
+							"valueType": "STEXT",
+							"multiple": false,
+							"cid": "_4qdwuuurk",
+							"parentCid": "_sb7wifilo",
+							"properties": {
+								"label": "부서",
+								"hideLabel": false,
+								"guide": "",
+								"guideAsTooltip": true,
+								"required": false,
+								"defaultValue": "",
+								"minLength": 0,
+								"maxLength": 100,
+								"width": "250",
+								"widthUnit": "px",
+								"format": "all"
+							},
+							"components": []
+						}, {
+							"type": "file",
+							"valueType": "FILES",
+							"multiple": false,
+							"cid": "_ma0pblm41",
+							"parentCid": "_k64qj9q58",
+							"properties": {
+								"label": "거래처 관련 파일",
+								"hideLabel": false,
+								"guide": "",
+								"guideAsTooltip": true,
+								"required": false
+							},
+							"components": []
+						}]
+					}]
+				}, {
+					"type": "hr",
+					"multiple": false,
+					"cid": "_hvdkwog99",
+					"parentCid": "cxx1",
+					"properties": {},
+					"components": []
+				}, {
+					"type": "table",
+					"multiple": false,
+					"cid": "_s54k6vlp4",
+					"parentCid": "cxx1",
+					"properties": {
+						"label": "연락처",
+						"hideLabel": false,
+						"guide": "",
+						"guideAsTooltip": true
+					},
+					"components": [{
+						"type": "text",
+						"valueType": "STEXT",
+						"multiple": true,
+						"cid": "_cxgt016n4",
+						"parentCid": "_s54k6vlp4",
+						"properties": {
+							"label": "이름",
+							"hideLabel": false,
+							"guide": "",
+							"guideAsTooltip": true,
+							"required": false,
+							"defaultValue": "",
+							"minLength": 0,
+							"maxLength": 100,
+							"width": 100,
+							"widthUnit": "percent",
+							"format": "all"
+						},
+						"components": []
+					}, {
+						"type": "text",
+						"valueType": "STEXT",
+						"multiple": true,
+						"cid": "_jxj07khxt",
+						"parentCid": "_s54k6vlp4",
+						"properties": {
+							"label": "직위",
+							"hideLabel": false,
+							"guide": "",
+							"guideAsTooltip": true,
+							"required": false,
+							"defaultValue": "",
+							"minLength": 0,
+							"maxLength": 100,
+							"width": 100,
+							"widthUnit": "percent",
+							"format": "all"
+						},
+						"components": []
+					}, {
+						"type": "text",
+						"valueType": "STEXT",
+						"multiple": true,
+						"cid": "_jii4uob7a",
+						"parentCid": "_s54k6vlp4",
+						"properties": {
+							"label": "부서",
+							"hideLabel": false,
+							"guide": "",
+							"guideAsTooltip": true,
+							"required": false,
+							"defaultValue": "",
+							"minLength": 0,
+							"maxLength": 100,
+							"width": 100,
+							"widthUnit": "percent",
+							"format": "all"
+						},
+						"components": []
+					}, {
+						"type": "text",
+						"valueType": "STEXT",
+						"multiple": true,
+						"cid": "_i9dtp3a1n",
+						"parentCid": "_s54k6vlp4",
+						"properties": {
+							"label": "이메일",
+							"hideLabel": false,
+							"guide": "",
+							"guideAsTooltip": true,
+							"required": false,
+							"defaultValue": "",
+							"minLength": 0,
+							"maxLength": 100,
+							"width": 100,
+							"widthUnit": "percent",
+							"format": "all"
+						},
+						"components": []
+					}, {
+						"type": "text",
+						"valueType": "STEXT",
+						"multiple": true,
+						"cid": "_hxt502xaz",
+						"parentCid": "_s54k6vlp4",
+						"properties": {
+							"label": "휴대폰",
+							"hideLabel": false,
+							"guide": "",
+							"guideAsTooltip": true,
+							"required": false,
+							"defaultValue": "",
+							"minLength": 0,
+							"maxLength": 100,
+							"width": 100,
+							"widthUnit": "percent",
+							"format": "all"
+						},
+						"components": []
+					}, {
+						"type": "text",
+						"valueType": "STEXT",
+						"multiple": true,
+						"cid": "_5wiwlan1f",
+						"parentCid": "_s54k6vlp4",
+						"properties": {
+							"label": "전화",
+							"hideLabel": false,
+							"guide": "",
+							"guideAsTooltip": true,
+							"required": false,
+							"defaultValue": "",
+							"minLength": 0,
+							"maxLength": 100,
+							"width": 100,
+							"widthUnit": "percent",
+							"format": "all"
+						},
+						"components": []
+					}]
+				}, {
+					"type": "table",
+					"multiple": false,
+					"cid": "_oswqph0gm",
+					"parentCid": "cxx1",
+					"properties": {
+						"label": "영업 기회",
+						"hideLabel": false,
+						"guide": "",
+						"guideAsTooltip": true
+					},
+					"components": [{
+						"type": "text",
+						"valueType": "STEXT",
+						"multiple": true,
+						"cid": "_qpuunqcmq",
+						"parentCid": "_oswqph0gm",
+						"properties": {
+							"label": "상품명",
+							"hideLabel": false,
+							"guide": "",
+							"guideAsTooltip": true,
+							"required": false,
+							"defaultValue": "",
+							"minLength": 0,
+							"maxLength": 100,
+							"width": 100,
+							"widthUnit": "percent",
+							"format": "all"
+						},
+						"components": []
+					}, {
+						"type": "text",
+						"valueType": "STEXT",
+						"multiple": true,
+						"cid": "_khexwjmj3",
+						"parentCid": "_oswqph0gm",
+						"properties": {
+							"label": "영업단계",
+							"hideLabel": false,
+							"guide": "",
+							"guideAsTooltip": true,
+							"required": false,
+							"defaultValue": "",
+							"minLength": 0,
+							"maxLength": 100,
+							"width": 100,
+							"widthUnit": "percent",
+							"format": "all"
+						},
+						"components": []
+					}, {
+						"type": "text",
+						"valueType": "STEXT",
+						"multiple": true,
+						"cid": "_0yymfyzj9",
+						"parentCid": "_oswqph0gm",
+						"properties": {
+							"label": "매출액",
+							"hideLabel": false,
+							"guide": "",
+							"guideAsTooltip": true,
+							"required": false,
+							"defaultValue": "",
+							"minLength": 0,
+							"maxLength": 100,
+							"width": 100,
+							"widthUnit": "percent",
+							"format": "all"
+						},
+						"components": []
+					}, {
+						"type": "text",
+						"valueType": "STEXT",
+						"multiple": true,
+						"cid": "_tsk6u7zpj",
+						"parentCid": "_oswqph0gm",
+						"properties": {
+							"label": "담당 영업",
+							"hideLabel": false,
+							"guide": "",
+							"guideAsTooltip": true,
+							"required": false,
+							"defaultValue": "",
+							"minLength": 0,
+							"maxLength": 100,
+							"width": 100,
+							"widthUnit": "percent",
+							"format": "all"
+						},
+						"components": []
+					}]
+				}]
+			}
+		},
+		"process": {
+			"useProcess": false,
+			"statuses": [{
+				"name": "{{applet.new.template.status.ready}}",
+				"start": true,
+				"doing": false,
+				"end": false,
+				"color": "0"
+			}, {
+				"name": "{{applet.new.template.status.progress}}",
+				"start": false,
+				"doing": true,
+				"end": false,
+				"color": "0"
+			}, {
+				"name": "{{applet.new.template.status.complete}}",
+				"start": false,
+				"doing": false,
+				"end": true,
+				"color": "0"
+			}],
+			"transitions": [{
+				"beforeStatus": "{{applet.new.template.status.ready}}",
+				"nextStatus": "{{applet.new.template.status.progress}}",
+				"actionName": "{{applet.new.template.action.progress}}",
+				"actionRoles": ["REGISTRANT", "ADMIN"],
+				"pushRoles": []
+			}, {
+				"beforeStatus": "{{applet.new.template.status.progress}}",
+				"nextStatus": "{{applet.new.template.status.complete}}",
+				"actionName": "{{applet.new.template.action.complete}}",
+				"actionRoles": ["REGISTRANT", "ADMIN"],
+				"pushRoles": []
+			}, {
+				"beforeStatus": "{{applet.new.template.status.complete}}",
+				"nextStatus": "{{applet.new.template.status.progress}}",
+				"actionName": "{{applet.new.template.action.cancel}}",
+				"actionRoles": ["REGISTRANT", "ADMIN"],
+				"pushRoles": []
+			}],
+			"addPushes": []
+		}
+	},
+	"messageKeys": [
+		"applet.new.template.status.ready",
+		"applet.new.template.status.progress",
+		"applet.new.template.status.complete",
+		"applet.new.template.action.progress",
+		"applet.new.template.action.complete",
+		"applet.new.template.action.cancel",
+		"applet.form.createdat"
+	],
+	"guide" : {
+		"contents" : "applet.client.manage.template.guide.content",
+		"imageFiles" : [
+			"2_customerManagement/2_01.png",
+			"2_customerManagement/2_02.png",
+			"2_customerManagement/2_03.png"
+		]
+	}
+}

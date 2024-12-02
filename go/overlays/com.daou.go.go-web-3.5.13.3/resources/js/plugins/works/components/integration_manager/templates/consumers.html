@@ -1,0 +1,40 @@
+{{#model.consumers}}
+<tr>
+	<td class="">
+	    <div class="vertical_wrap_s">
+	    	<a data-id="{{consumer.id}}">
+		        <span class="txt">{{consumer.name}}</span>
+	    	</a>
+	    </div>
+	</td>
+	<td class="ref_item">
+		<div class="vertical_wrap_s">
+	        <span class="txt">{{fieldLabels}}</span>
+	    </div>
+	</td>
+	<td class="ref_user">
+	    <span class="txt">{{createdBys}}</span>
+	</td>
+	<td class="check" data-type="action">
+		<div class="vertical_wrap_s">
+			<span class="option_wrap">
+				<input type="checkbox" value="SHOW_LIST" id="{{consumer.id}}_{{consumerFieldCid}}_SHOW_LIST" {{#hasListAuth}}checked="checked"{{/hasListAuth}}>
+			</span>
+		</div>
+	</td>
+	<td class="check" data-type="push">
+		<div class="vertical_wrap_s">
+			<span class="option_wrap">
+				<input type="checkbox" value="SHOW_DOC" id="{{consumer.id}}_{{consumerFieldCid}}_SHOW_DOC" {{#hasDocAuth}}checked="checked"{{/hasDocAuth}}> 
+			</span>
+		</div>
+	</td>											
+</tr>
+{{/model.consumers}}
+{{^model.consumers}}
+<tr>
+	<td colspan="5">
+		<p class="data_null"><span class="ic_data_type ic_no_contents"></span><span class="txt">{{lang.목록이 없습니다}}</span></p>
+	</td>
+</tr>
+{{/model.consumers}}

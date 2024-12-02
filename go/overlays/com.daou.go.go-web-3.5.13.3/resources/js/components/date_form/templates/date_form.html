@@ -1,0 +1,60 @@
+<li el-period="abstract">
+	{{#hasRelativeView}}
+	<span class="option_wrap dp">
+		<input type="radio" name="relative{{cid}}" value="abstract" id="dateFormAbstract{{cid}}" />
+		<label for="dateFormAbstract{{cid}}">{{lang.시각}}</label>
+	</span>
+	{{/hasRelativeView}}
+	<span class="wrap_dateselect">
+		{{#hasDate}}
+		<span class="wrap_date">
+			<input class="txt wfix_small" type="text" data-date="start" value="{{startDate}}">
+			<span class="ic ic_calendar"></span>
+		</span>
+		{{/hasDate}}
+		{{#hasTime}}
+		<span class="wrap_select" data-el="backdropWrapper" data-type="start"></span>
+		{{/hasTime}}
+		<span class="date_wave" {{#isSingle}}style="display: none;"{{/isSingle}}>~</span>
+		{{#hasDate}}
+		<span class="wrap_date" {{#isSingle}}style="display: none;"{{/isSingle}}>
+			<input class="txt wfix_small" type="text" data-date="end" value="{{endDate}}">
+			<span class="ic ic_calendar"></span>
+		</span>
+		{{/hasDate}}
+		{{#hasTime}}
+		<span class="wrap_select" data-el="backdropWrapper" data-type="end" {{#isSingle}}style="display: none;"{{/isSingle}}></span>
+		{{/hasTime}}
+	</span>
+</li>
+{{#hasRelativeView}}
+<li el-period="relative">
+	<span class="option_wrap dp">
+		<input type="radio" name="relative{{cid}}" value="relative" id="dateFormRelative{{cid}}" />
+		<label for="dateFormRelative{{cid}}">{{lang.현재일 기준}}</label>
+	</span>
+	<span class="wrap_dateselect">
+		<select data-type="fromValue" style="display: none;">
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+		</select>
+		<select data-type="fromUnit">
+			<option value="now">{{lang.오늘부터}}</option>
+			<option value="day">{{lang.일전}}</option>
+			<option value="month">{{lang.달전}}</option>
+		</select>
+		<span class="date_wave">~</span>
+		<select data-type="toValue" style="display: none;">
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+		</select>
+		<select data-type="toUnit">
+			<option value="now">{{lang.오늘까지}}</option>
+			<option value="day">{{lang.일후}}</option>
+			<option value="month">{{lang.달후}}</option>
+		</select>
+	</span>
+</li>
+{{/hasRelativeView}}

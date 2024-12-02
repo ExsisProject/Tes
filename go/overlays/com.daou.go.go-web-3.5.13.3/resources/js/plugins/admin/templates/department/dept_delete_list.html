@@ -1,0 +1,58 @@
+
+<div>
+<div class="desc">
+	<ul class="list_bullet_dot">
+		<li>
+			<span class="txt">{{lang.total_dept}} : <strong id="deptTotalCount">-</strong> {{lang.count}}</span>
+		</li>
+		<li>
+			<span class="txt">{{lang.total_attach}} : <strong id="deptTotalAttach">-</strong> MB</span>
+		</li>
+	</ul>
+</div>
+<div class="toolbar_top">
+	<div class="critical">
+		<span class="btn_tool" id="btn_data_remove">
+			<span class="ic_adm ic_delete"></span>
+			<span class="txt">{{lang.remove_attach}}</span>
+		</span>
+		<span class="btn_tool" id="btn_delete_dept">
+			<span class="ic_adm ic_delete"></span>
+			<span class="txt">{{lang.complete_deletion}}</span>
+		</span>
+		<span class="btn_tool" id="btn_reset_dept">
+			<span class=""></span>
+			<span class="txt">{{lang.reset_dept}}</span>
+		</span>
+	</div>
+	<div class="optional">
+			<span class="btn_tool" id="btn_down_delete">
+			<span class="ic_adm ic_down"></span>
+			<span class="txt">{{lang.list_to_csv}}</span>
+			</span>
+	</div>
+</div>
+<table id="deleteDeptList" class="chart size">
+	<thead>
+	<tr>
+		<th class="depart"><span class="title_sort txt">{{lang.dept_name}}<ins class="ic"></ins><span class="selected"></span></span></th>
+		<th class="usage"><span class="title_sort txt">{{lang.attach_size}}<ins class="ic"></ins><span class="selected"></span></span></th>
+		<th class="date"><span class="title_sort txt">{{lang.dept_createat}}<ins class="ic"></ins><span class="selected"></span></span></th>
+		<th class="date"><span class="title_sort txt">{{lang.dept_deletedat}}<ins class="ic"></ins><span class="selected"></span></span></th>
+		<th><span class="title_sort txt">{{lang.dept_deleted_admin}}<ins class="ic"></ins><span class="selected"></span></span></th>
+	</tr>
+	</thead>
+</table>
+
+
+<div class="table_search">
+	<select>
+		<option value="name">{{lang.dept_name}}</option>
+	</select>
+	<span class="search_wrap">
+	<input class="input" type="text">
+	<span class="btn_search" title="{{lang.search}}"></span>
+	<input class="submit" type="submit" value="">
+	</span>
+</div>
+</div>

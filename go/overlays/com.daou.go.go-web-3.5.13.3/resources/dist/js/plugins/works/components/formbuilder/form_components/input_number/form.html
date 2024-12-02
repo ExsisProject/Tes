@@ -1,0 +1,89 @@
+<span class="box_label_wrap">
+    {{^model.hideLabel}}
+	<label>{{{label}}}</label>
+	{{#model.required}}
+	<i class="asterisk">*</i>
+	{{/model.required}}
+	{{#model.guideAsTooltip}}
+    {{#model.guide}}
+	<span class="help">
+		<span class="tool_tip">{{model.guide}}<i class="tail_left"></i></span>
+	</span>
+    {{/model.guide}}
+	{{/model.guideAsTooltip}}
+    {{/model.hideLabel}}
+</span>
+{{#isNumber}}
+<div class="build_box_data" {{#isMasking}}data-el-masking style="display: none"{{/isMasking}}>
+    {{#isPrefix}}
+    <span class="txt_unit">{{model.unitText}}</span>
+    {{/isPrefix}}
+    <span class="wrap_txt">
+        <input name="{{clientId}}" class="txt w_large" type="text" value="{{inputValue}}" {{#isReadonly}}readonly{{/isReadonly}} {{#editable?}}unselectable="on" onselectstart="return false" onmousedown="return false"{{/editable?}} maxlength='20' />
+        {{#editable?}}
+        {{#useTableAutoAggr}}
+        <span class="wrap_txt_total">
+            <input class="txt w_large" type="text" value="" readonly="" unselectable="on" onselectstart="return false" onmousedown="return false" disabled="disabled" placeholder="{{aggrPlaceholderText}}">
+        </span>
+        {{/useTableAutoAggr}}
+        {{/editable?}}
+    </span>
+    {{^isPrefix}}
+    <span class="txt_unit">{{model.unitText}}</span>
+    {{/isPrefix}}
+    {{^model.guideAsTooltip}}
+    <p class="txt_info">{{#model.guide}}* {{model.guide}}{{/model.guide}}</p>
+    {{/model.guideAsTooltip}}
+</div>
+{{/isNumber}}
+{{#isPercent}}
+<div class="build_box_data" {{#isMasking}}data-el-masking style="display: none"{{/isMasking}}>
+    <span class="wrap_txt">
+        <span class="com_gage">
+            <span class="wrap_gage">
+                <span class="gage" id="percentGage" style="width:{{inputValue}}%"></span>
+            </span>
+        </span>
+        <input name="{{clientId}}" class="txt wfix_micro" type="text" value="{{inputValue}}" {{#isReadonly}}readonly{{/isReadonly}} {{#editable?}}unselectable="on" onselectstart="return false" onmousedown="return false"{{/editable?}} maxlength='20' />
+        {{#editable?}}
+        {{#useTableAutoAggr}}
+        <span class="wrap_txt_total">
+            <input class="txt w_large" type="text" value="" readonly="" unselectable="on" onselectstart="return false" onmousedown="return false" disabled="disabled" placeholder="{{aggrPlaceholderText}}">
+        </span>
+        {{/useTableAutoAggr}}
+        {{/editable?}}
+    </span>
+    <span class="txt_unit">%</span>
+    {{^model.guideAsTooltip}}
+    <p class="txt_info">{{#model.guide}}* {{model.guide}}{{/model.guide}}</p>
+    {{/model.guideAsTooltip}}
+</div>
+{{/isPercent}}
+{{#isPoint}}
+<div class="build_box_data" {{#isMasking}}data-el-masking style="display: none"{{/isMasking}}>
+    <span class="wrap_txt">
+        <span class="com_rate">
+            <span class="wrap_rate">
+                {{#points}}
+                <ins style="cursor: default;" class="ic_star {{customClass}}"></ins>
+                {{/points}}
+            </span>
+        </span>
+        <input name="{{clientId}}" class="txt wfix_micro" type="text" value="{{inputValue}}" {{#isReadonly}}readonly{{/isReadonly}} {{#editable?}}unselectable="on" onselectstart="return false" onmousedown="return false"{{/editable?}} maxlength='20' />
+        {{#editable?}}
+        {{#useTableAutoAggr}}
+        <span class="wrap_txt_total">
+            <input class="txt w_large" type="text" value="" readonly="" unselectable="on" onselectstart="return false" onmousedown="return false" disabled="disabled" placeholder="{{aggrPlaceholderText}}">
+        </span>
+        {{/useTableAutoAggr}}
+        {{/editable?}}
+    </span>
+</div>
+{{/isPoint}}
+{{#isMasking}}
+<div class="build_box_data" data-el-masking>
+    <div class="hidden_data">
+        <span class="help" title="{{lang.관리자에 의해 마스킹 처리 된 항목입니다}}"></span>
+    </div>
+</div>
+{{/isMasking}}

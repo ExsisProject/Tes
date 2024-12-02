@@ -1,0 +1,53 @@
+<section class="gnb_title">
+	<h1><a href="{{context_root}}app/calendar">{{appName}}</a></h1>
+</section>
+
+<section class="function">
+    <a class="btn_function" href="{{regist_event_url}}"><span class="ic_side ic_app_calendar"></span><span class="txt">{{label.new_event}}</span></a>
+</section>
+
+<section class="lnb mycalendar" id="my-calendar" data-type="calendar">
+	<h1 class="user opened">
+		<ins class="ic"></ins>
+		<span class="ic_side ic_hide_up normalmode" title="{{label.unfold}}"></span>
+		<span class="txt">{{label.my_calendar}}</span>
+		<span class="btn_wrap">
+			<span class="btn_ic_list_reorder normalmode">
+				<span class="ic_side ic_list_reorder" title="{{label.edit_my_calendar}}"></span>
+			</span>
+			<span class="ic_side ic_done editmode" title="{{label.modify}}" style="display:none;"></span>
+			<span class="ic_side ic_cancel editmode"  title="{{label.cancel}}" style="display:none;"></span>
+		</span>
+	</h1>
+</section>
+
+<div class="scroll_wrap" id="feed-list-scroll">
+	<section class="lnb" id="feed-list" data-type="feed">
+		<h1 class="star opened">
+			<ins class="ic"></ins>
+			<span class="ic_side ic_hide_up normalmode" title="{{label.unfold}}"></span>
+			<span class="txt">{{label.following}}</span>
+			<span class="btn_wrap">
+				<span class="btn_ic_list_reorder normalmode">
+					<span class="ic_side ic_list_reorder" title="{{label.edit_following}}"></span>
+				</span>
+				<span class="ic_side ic_done editmode" title="{{label.modify}}" style="display:none;"></span>
+				<span class="ic_side ic_cancel editmode"  title="{{label.cancel}}" style="display:none;"></span>
+			</span>
+		</h1>
+	</section>
+</div>
+
+<section class="lnb mycalendar" id="company-calendar">
+    {{>company_calendar}}
+</section>
+
+<section class="lnb last_lnb" id="lnb-preference">
+	<ul class="side_depth">
+		<li class="setting">
+			<p class="title">
+				<a><ins class="ic"></ins><span class="txt" title="{{label.setting}}">{{label.setting}}</span></a>
+			</p>
+		</li>
+	</ul>	
+</section>

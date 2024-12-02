@@ -1,0 +1,9 @@
+{
+	"data" : {
+				"photo":"/resources/images/photo_my.jpg",
+				"name":"김윤아",
+				"position":"과장",
+				"noti":"6",
+				"logo":"/resources/images/logo_go.png"
+			}
+}

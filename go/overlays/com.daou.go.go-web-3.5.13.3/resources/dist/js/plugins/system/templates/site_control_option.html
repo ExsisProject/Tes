@@ -1,0 +1,50 @@
+<div class="content_page">
+    <div class="container">
+        <div class="header">
+            <h2>{{lang.사이트제어옵션}}</h2>
+        </div>
+        <div class="content">
+            <table class="detail">
+                <tbody>
+                <tr>
+                    <th style="width:150px;">
+                        <span class="title">{{lang.사용여부}}</span>
+                    </th>
+                    <td>
+                        <div class="vertical_wrap_s">
+                            <span class="option_wrap">
+                                <input type="radio" value="on" id="site_control_on" name="site_control_option"
+                                       {{#isSiteControlOn}} checked="checked" {{/isSiteControlOn}} />
+                                <label for="site_control_on">{{lang.사용}}</label>
+                            </span>
+                            <span class="option_wrap">
+                                <input type="radio" value="off" id="site_control_off" name="site_control_option"
+                                       {{#isSiteControlOn}} disabled="true" {{/isSiteControlOn}}
+                                       {{^isSiteControlOn}} checked="checked" {{/isSiteControlOn}} />
+                                <label for="site_control_off">{{lang.사용하지않음}}</label>
+                            </span>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="last">
+                    <th style="width:150px;" colspan="2">
+                        다우오피스와 DOMS의 데이터 동기화를 위해 <br>
+                        <br>
+                        1. <span style="color:red">반드시</span> 사이트 제어 옵션 [사용]으로 저장해주시기 바랍니다.<br>
+                        2. 사용 설정 후, <span style="color:red">반드시</span> DOMS에 해당 고객사의 개설정보를 등록해주기 바랍니다.<br>
+                        <br>
+                        * 사이트 제어 옵션 ON 시, Systemadmin에서는 고객사 직접 추가/수정에 대해 일부 기능이 제한됩니다.<br>
+                        멤버십스토어를 통해 해당 고객사의 사이트 추가 등 기능이 활성화 되었는지 확인해주세요.
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="page_action">
+            {{^isSaaS}}
+            <span class="btn" id="site_control_option_btn_ok">{{lang.저장}}</span>
+            {{/isSaaS}}
+        </div>
+    </div>
+</div>
+

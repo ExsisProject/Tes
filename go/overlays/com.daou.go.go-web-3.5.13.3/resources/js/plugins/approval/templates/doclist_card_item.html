@@ -1,0 +1,67 @@
+<div class="h_border"></div>
+<div class="card_wrapper">
+    <header>
+        {{#doc.isDelay}}
+        <span class="state delay">{{lang.지연}}</span>
+        {{/doc.isDelay}}
+        {{#doc.isEmergency}}
+        <span class="state emergency">{{lang.긴급}}</span>
+        {{/doc.isEmergency}}
+        {{#useOngoingState}}
+        <span class="state ongoing">{{doc.docStatus}}</span>
+        {{/useOngoingState}}
+        {{^useOngoingState}}
+        <span class="state {{doc.holdStatusClass}}">{{doc.holdStatusName}}</span>
+        {{/useOngoingState}}
+        {{#doc.isReceive}}
+        <span class="state ghost">{{lang.수신}}</span>
+        {{/doc.isReceive}}
+    </header>
+    <div class="card_subject">
+			<span class="title t_card" style="cursor:pointer;" title="{{doc.title}}">
+				{{doc.title}}
+			</span>
+        <span class="btn_wrap pop_card">
+                <a><span class="popup ic_classic ic_blank" title="{{lang.팝업보기}}"></span></a>
+            </span>
+    </div>
+    <div class="card_content">
+        <div class="form">
+            <div class="form_tr">
+                <div class="form_th">{{lang.기안자}} :</div>
+                <div class="form_td" title="{{doc.drafterName}} {{doc.drafterPositionName}}">{{doc.drafterName}}
+                    {{doc.drafterPositionName}}
+                </div>
+            </div>
+            <div class="form_tr">
+                <div class="form_th">{{lang.기안일}} :</div>
+                <div class="form_td" title="{{doc.draftedAt}}">{{doc.draftedAt}}</div>
+            </div>
+            <div class="form_tr">
+                <div class="form_th">{{lang.결재양식}} :</div>
+                <div class="form_td" title="{{doc.formName}}">{{doc.formName}}</div>
+            </div>
+        </div>
+        <div class="card_opt">
+            {{#doc.hasAdditionalInfo}}
+            <span class="wrap_ic">
+                <span class="ic_classic ic_reply" title="{{lang.댓글}}"></span>
+                <span class="num">{{doc.commentCount}}</span>
+            </span>
+            <span class="space"></span>
+            <span class="wrap_ic">
+                <span class="ic_classic ic_opinion" title="{{lang.의견}}"></span>
+                <span class="num"> {{doc.replyCount}}</span>
+            </span>
+            <span class="space"></span>
+            <span class="wrap_ic">
+                <span class="ic ic_file_s" title="{{lang.첨부}}"></span>
+                <span class="num">{{doc.attachCount}}</span>
+            </span>
+            {{/doc.hasAdditionalInfo}}
+        </div>
+    </div>
+    <div class="card_action">
+        <a class="btn_lead"><span class="ic ic_report"></span><span class="txt">{{lang.결재하기}}</span></a>
+    </div>
+</div>

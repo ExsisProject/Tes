@@ -1,0 +1,1 @@
+(function(){define(["backbone"],function(e){var t=e.Model.extend({}),n=e.Collection.extend({model:t,url:"/api/dashboard/gadgetspec"});return n})})();

@@ -1,0 +1,245 @@
+<meta name ="form:name" content="주택자금대출신청" folder-name="복지"/>
+<body id="go-approval-form">
+<span><div style="font-family:돋움;font-size:9pt;"><span> <span> 
+  <table style="border: 0px solid rgb(0, 0, 0); width: 800px; font-family: malgun gothic,dotum,arial,tahoma; margin-top: 1px; border-collapse: collapse;"> 
+   <!-- Header --> 
+   <colgroup> 
+    <col width="310"> 
+    <col width="490"> 
+   </colgroup> 
+   <tbody> 
+    <tr> 
+     <td style="background: white; padding: 0px !important; border: 0px currentColor; height: 90px; text-align: center; color: black; font-size: 36px; font-weight: bold; vertical-align: middle;" colspan="2"> 주택자금 대출신청 </td> 
+    </tr> 
+    <tr> 
+     <td style="background: white; padding: 0px !important; border: currentColor; text-align: left; color: black; font-size: 12px; font-weight: normal; vertical-align: top;"> 
+      <table style="border: 1px solid rgb(0, 0, 0); font-family: malgun gothic,dotum,arial,tahoma; margin-top: 1px; border-collapse: collapse;"> 
+       <!-- User --> 
+       <colgroup> 
+        <col width="90"> 
+        <col width="220"> 
+       </colgroup> 
+       <tbody> 
+        <tr> 
+         <td style="background: rgb(221, 221, 221); padding: 5px; border: 1px solid black; height: 18px; text-align: center; color: rgb(0, 0, 0); font-size: 12px; font-weight: bold; vertical-align: middle;"> 기안자 </td> 
+         <td style="background: rgb(255, 255, 255); padding: 5px; border: 1px solid black; text-align: left; color: rgb(0, 0, 0); font-size: 12px; font-weight: normal; vertical-align: middle;"><span data-type="system" data-dsl="{{label:draftUser}}" data-id="draftUser" data-name="draftUser" data-value="" data-require="false" data-maxlength="" data-width="" data-defaultstr="" data-editable="true"></span> </td> 
+        </tr> 
+        <tr> 
+         <td style="background: rgb(221, 221, 221); padding: 5px; border: 1px solid black; height: 18px; text-align: center; color: rgb(0, 0, 0); font-size: 12px; font-weight: bold; vertical-align: middle;"> 소속 </td> 
+         <td style="background: rgb(255, 255, 255); padding: 5px; border: 1px solid black; text-align: left; color: rgb(0, 0, 0); font-size: 12px; font-weight: normal; vertical-align: middle;"><span data-type="system" data-dsl="{{label:draftDept}}" data-id="draftDept" data-name="draftDept" data-value="" data-require="false" data-maxlength="" data-width="" data-defaultstr="" data-editable="true"></span> </td> 
+        </tr> 
+        <tr> 
+         <td style="background: rgb(221, 221, 221); padding: 5px; border: 1px solid black; height: 18px; text-align: center; color: rgb(0, 0, 0); font-size: 12px; font-weight: bold; vertical-align: middle;"> 기안일 </td> 
+         <td style="background: rgb(255, 255, 255); padding: 5px; border: 1px solid black; text-align: left; color: rgb(0, 0, 0); font-size: 12px; font-weight: normal; vertical-align: middle;"><span data-type="system" data-dsl="{{label:draftDate}}" data-id="draftDate" data-name="draftDate" data-value="" data-require="false" data-maxlength="" data-width="" data-defaultstr="" data-editable="true"></span> </td> 
+        </tr> 
+        <tr> 
+         <td style="background: rgb(221, 221, 221); padding: 5px; border: 1px solid black; height: 18px; text-align: center; color: rgb(0, 0, 0); font-size: 12px; font-weight: bold; vertical-align: middle;"> 문서번호 </td> 
+         <td style="background: rgb(255, 255, 255); padding: 5px; border: 1px solid black; text-align: left; color: rgb(0, 0, 0); font-size: 12px; font-weight: normal; vertical-align: middle;"><span data-type="system" data-dsl="{{label:docNo}}" data-id="docNo" data-name="docNo" data-value="" data-require="false" data-maxlength="" data-width="" data-defaultstr="" data-editable="true"></span> </td> 
+        </tr> 
+       </tbody> 
+      </table> </td> 
+     <td style="background: white; padding: 0px !important; border: currentColor; text-align: right; color: black; font-size: 12px; font-weight: normal; vertical-align: top;"> 
+      <div class="sign_type1 sign_type_new" data-group-type="type1" data-group-max-count="1" data-group-name="신청" data-group-seq="0"> 
+       <table class="tb_sign_type1"> 
+        <tbody> 
+         <tr> 
+          <th>신청</th> 
+          <td> 
+           <table class="sign_member"> 
+            <tbody> 
+             <tr> 
+              <td><span class="sign_rank"></span></td> 
+             </tr> 
+             <tr> 
+              <td><span class="sign_name" id="status_"></span></td> 
+             </tr> 
+             <tr> 
+              <td class="last"><span class="sign_date" id="date_"></span></td> 
+             </tr> 
+            </tbody> 
+           </table></td> 
+         </tr> 
+        </tbody> 
+       </table> 
+      </div> 
+      <div class="sign_type1 sign_type_new" data-group-type="type1" data-group-max-count="7" data-group-name="승인" data-group-seq="1"> 
+       <table class="tb_sign_type1"> 
+        <tbody> 
+         <tr> 
+          <th>승인</th> 
+          <td> 
+           <table class="sign_member"> 
+            <tbody> 
+             <tr> 
+              <td><span class="sign_rank"></span></td> 
+             </tr> 
+             <tr> 
+              <td><span class="sign_name" id="status_"></span></td> 
+             </tr> 
+             <tr> 
+              <td class="last"><span class="sign_date" id="date_"></span></td> 
+             </tr> 
+            </tbody> 
+           </table></td> 
+          <td> 
+           <table class="sign_member"> 
+            <tbody> 
+             <tr> 
+              <td><span class="sign_rank"></span></td> 
+             </tr> 
+             <tr> 
+              <td><span class="sign_name" id="status_"></span></td> 
+             </tr> 
+             <tr> 
+              <td class="last"><span class="sign_date" id="date_"></span></td> 
+             </tr> 
+            </tbody> 
+           </table></td> 
+          <td> 
+           <table class="sign_member"> 
+            <tbody> 
+             <tr> 
+              <td><span class="sign_rank"></span></td> 
+             </tr> 
+             <tr> 
+              <td><span class="sign_name" id="status_"></span></td> 
+             </tr> 
+             <tr> 
+              <td class="last"><span class="sign_date" id="date_"></span></td> 
+             </tr> 
+            </tbody> 
+           </table></td> 
+          <td> 
+           <table class="sign_member"> 
+            <tbody> 
+             <tr> 
+              <td><span class="sign_rank"></span></td> 
+             </tr> 
+             <tr> 
+              <td><span class="sign_name" id="status_"></span></td> 
+             </tr> 
+             <tr> 
+              <td class="last"><span class="sign_date" id="date_"></span></td> 
+             </tr> 
+            </tbody> 
+           </table></td> 
+          <td> 
+           <table class="sign_member"> 
+            <tbody> 
+             <tr> 
+              <td><span class="sign_rank"></span></td> 
+             </tr> 
+             <tr> 
+              <td><span class="sign_name" id="status_"></span></td> 
+             </tr> 
+             <tr> 
+              <td class="last"><span class="sign_date" id="date_"></span></td> 
+             </tr> 
+            </tbody> 
+           </table></td> 
+          <td> 
+           <table class="sign_member"> 
+            <tbody> 
+             <tr> 
+              <td><span class="sign_rank"></span></td> 
+             </tr> 
+             <tr> 
+              <td><span class="sign_name" id="status_"></span></td> 
+             </tr> 
+             <tr> 
+              <td class="last"><span class="sign_date" id="date_"></span></td> 
+             </tr> 
+            </tbody> 
+           </table></td> 
+          <td> 
+           <table class="sign_member"> 
+            <tbody> 
+             <tr> 
+              <td><span class="sign_rank"></span></td> 
+             </tr> 
+             <tr> 
+              <td><span class="sign_name" id="status_"></span></td> 
+             </tr> 
+             <tr> 
+              <td class="last"><span class="sign_date" id="date_"></span></td> 
+             </tr> 
+            </tbody> 
+           </table></td> 
+         </tr> 
+        </tbody> 
+       </table> 
+      </div> 
+      </td> 
+    </tr> 
+   </tbody> 
+  </table> 
+  <table style="border: 0px solid rgb(0, 0, 0); width: 800px; font-family: malgun gothic,dotum,arial,tahoma; margin-top: 10px; border-collapse: collapse;"> 
+   <!-- Data1 --> 
+   <colgroup> 
+    <col width="140"> 
+    <col width="110"> 
+    <col width="110"> 
+    <col width="140"> 
+    <col width="300"> 
+   </colgroup> 
+   <tbody> 
+    <tr> 
+     <td style="background: rgb(221, 221, 221); padding: 5px; border: 1px solid black; text-align: center; color: rgb(0, 0, 0); font-size: 14px; font-weight: bold; vertical-align: middle;"><b style="color: rgb(255, 0, 0);">*</b>신청사유 </td> 
+     <td style="background: rgb(255, 255, 255); padding: 5px; border: 1px solid black; text-align: left; color: rgb(0, 0, 0); font-size: 14px; font-weight: normal; vertical-align: middle;" colspan="4"><span data-type="cSel" data-dsl="{{cSel:reason_선택_신규구입_임차에서 구입 전환_신규임차_임차연장}}" data-selectval="" data-autotype="false" id="reason"></span></td> 
+    </tr> 
+    <tr> 
+     <td style="background: rgb(221, 221, 221); border-width: medium 1px 1px; border-style: none solid solid; border-color: currentColor black black; padding: 5px; height: 25px; text-align: center; color: rgb(0, 0, 0); font-size: 14px; font-weight: bold; vertical-align: middle;"> 현주소 </td> 
+     <td style="background: rgb(255, 255, 255); padding: 5px; border: 1px solid black; text-align: left; color: rgb(0, 0, 0); font-size: 14px; font-weight: normal; vertical-align: middle;" colspan="4"><span data-type="text" data-dsl="{{text}}" data-id="" data-name="" data-value="" data-require="false" data-maxlength="" data-width="" data-defaultstr="" data-editable="true"></span> </td> 
+    </tr> 
+    <tr> 
+     <td style="background: rgb(221, 221, 221); padding: 5px; border: 1px solid black; height: 25px; text-align: center; color: rgb(0, 0, 0); font-size: 14px; font-weight: bold; vertical-align: middle;"> 신청금액 </td> 
+     <td style="background: rgb(255, 255, 255); padding: 5px; border: 1px solid black; text-align: right; color: rgb(0, 0, 0); font-size: 14px; font-weight: normal; vertical-align: middle;" colspan="2"><p align="left" id="appl_mon" style="text-align: left;"><span class="editor_currency" data-type="currency" data-dsl="{{currency$width:150$}}" data-id="" data-name="" data-value="" data-autotype="false"></span> 원 &nbsp;</p></td> 
+     <td style="background: rgb(221, 221, 221); padding: 5px; border: 1px solid black; text-align: center; color: rgb(0, 0, 0); font-size: 14px; font-weight: bold; vertical-align: middle;"> 대출기간 </td> 
+     <td style="background: rgb(255, 255, 255); padding: 5px; border: 1px solid black; text-align: left; color: rgb(0, 0, 0); font-size: 14px; font-weight: normal; vertical-align: middle;" colspan="3"> <span class="editor_num" data-type="num" data-dsl="{{number:defm_m_cnt}}" data-id="defm_m_cnt" data-name="defm_m_cnt" data-value="" data-require="false" data-maxlength="" data-width="" data-defaultstr="" data-editable="true"></span>년 거치&nbsp;&nbsp; <span class="editor_num" data-type="num" data-dsl="{{number:refund_m_cnt}}" data-id="refund_m_cnt" data-name="refund_m_cnt" data-value="" data-require="false" data-maxlength="" data-width="" data-defaultstr="" data-editable="true"></span>년 상환</td> 
+    </tr> 
+    <tr> 
+     <td style="background: rgb(221, 221, 221); padding: 5px; border: 1px solid black; height: 25px; text-align: center; color: rgb(0, 0, 0); font-size: 14px; font-weight: bold; vertical-align: middle;"> 구입가/임차가 </td> 
+     <td style="background: rgb(255, 255, 255); padding: 5px; border: 1px solid black; text-align: right; color: rgb(0, 0, 0); font-size: 14px; font-weight: normal; vertical-align: middle;" colspan="2"><p align="left" style="text-align: left;"><span class="editor_currency" data-type="currency" data-dsl="{{currency$width:150$}}" data-id="" data-name="" data-value="" data-autotype="false"></span> 원 &nbsp;</p></td> 
+     <td style="background: rgb(221, 221, 221); padding: 5px; border: 1px solid black; text-align: center; color: rgb(0, 0, 0); font-size: 14px; font-weight: bold; vertical-align: middle;"> 계약일자 </td> 
+     <td style="background: rgb(255, 255, 255); padding: 5px; border: 1px solid black; text-align: left; color: rgb(0, 0, 0); font-size: 14px; font-weight: normal; vertical-align: middle;" colspan="3"><span data-type="calendar" data-dsl="{{calendar}}" data-id="" data-name="" data-value="" data-require="false" data-maxlength="" data-width="" data-defaultstr="" data-editable="true"></span> </td> 
+    </tr> 
+    <tr> 
+     <td style="background: rgb(221, 221, 221); padding: 5px; border: 1px solid black; text-align: center; color: rgb(0, 0, 0); font-size: 14px; font-weight: bold; vertical-align: middle;" rowspan="2"> 대상주택 </td> 
+     <td style="background: rgb(221, 221, 221); padding: 5px; border: 1px solid black; height: 25px; text-align: center; color: rgb(0, 0, 0); font-size: 14px; font-weight: normal; vertical-align: middle;"> 주소 </td> 
+     <td style="background: rgb(255, 255, 255); border-width: medium 1px 1px; border-style: none solid solid; border-color: currentColor black black; padding: 5px; text-align: left; color: rgb(0, 0, 0); font-size: 14px; font-weight: normal; vertical-align: middle;" colspan="3"><span data-type="text" data-dsl="{{text:addr}}" data-id="addr" data-name="addr" data-value="" data-require="false" data-maxlength="" data-width="" data-defaultstr="" data-editable="true"></span> </td> 
+    </tr> 
+    <tr> 
+     <td style="background: rgb(221, 221, 221); padding: 5px; border: 1px solid black; height: 25px; text-align: center; color: rgb(0, 0, 0); font-size: 14px; font-weight: normal; vertical-align: middle;"> 면적 </td> 
+     <td style="background: rgb(255, 255, 255); padding: 5px; border: 1px solid black; text-align: left; color: rgb(0, 0, 0); font-size: 14px; font-weight: normal; vertical-align: middle;" colspan="3">공급면적:&nbsp;<span class="editor_num" data-type="num" data-dsl="{{number}}" data-id="" data-name="" data-value="" data-require="false" data-maxlength="" data-width="" data-defaultstr="" data-editable="true"></span>㎡ &nbsp; <span data-type="checkbox" data-dsl="{{check_부분임차}}" data-id="" data-name="" data-label="" data-value="" data-autotype="false" data-require="false"></span></td> 
+    </tr> 
+    <tr> 
+     <td style="background: rgb(221, 221, 221); padding: 5px; border: 1px solid black; height: 25px; text-align: center; color: rgb(0, 0, 0); font-size: 14px; font-weight: bold; vertical-align: middle;"> 지급 요청일 </td> 
+     <td style="background: rgb(255, 255, 255); border-width: medium 1px 1px; border-style: none solid solid; border-color: currentColor black black; padding: 5px; text-align: left; color: rgb(0, 0, 0); font-size: 14px; font-weight: normal; vertical-align: middle;" colspan="4"><span data-type="calendar" data-dsl="{{calendar:pay_ymd}}" data-id="pay_ymd" data-name="pay_ymd" data-value="" data-require="false" data-maxlength="" data-width="" data-defaultstr="" data-editable="true"></span> </td> 
+    </tr> 
+    <tr> 
+     <td style="background: rgb(221, 221, 221); padding: 5px; border: 1px solid black; text-align: center; color: rgb(0, 0, 0); font-size: 14px; font-weight: bold; vertical-align: middle;"> 채권보존 </td> 
+     <td style="padding: 5px; border: 1px solid black; height: 25px; text-align: left; font-weight: normal; vertical-align: middle; ont-size: 14px;" colspan="4">&nbsp;<span data-type="checkbox" data-dsl="{{check_퇴직급여_보증보험증권_근저당설정_근저당설정(제3자)}}" data-id="" data-name="" data-label="" data-value="" data-autotype="false" data-require="false"></span> </td> 
+    </tr> 
+   </tbody> 
+  </table> 
+  <table style="border: 0px solid rgb(0, 0, 0); width: 800px; font-family: malgun gothic,dotum,arial,tahoma; margin-top: 10px; border-collapse: collapse;"> 
+   <!-- Guide --> 
+   <colgroup> 
+    <col width="140"> 
+    <col width="660"> 
+   </colgroup> 
+   <tbody> 
+    <tr> 
+     <td style="background: rgb(255, 255, 255); padding: 5px; border: 0px solid black; height: 30px; text-align: left; color: rgb(0, 0, 0); font-size: 14px; font-weight: bold; vertical-align: middle;" colspan="5"> 첨부서류 </td> 
+    </tr> 
+    <tr> 
+     <td style="background: rgb(255, 255, 255); padding: 5px; border: 1px solid rgb(153, 153, 153); height: 100px; text-align: center; color: rgb(0, 0, 0); font-size: 12px; font-weight: bold; vertical-align: middle;"> 신청시 </td> 
+     <td style="background: rgb(255, 255, 255); padding: 5px; border: 1px solid rgb(153, 153, 153); text-align: left; color: rgb(0, 0, 0); font-size: 12px; font-weight: normal; vertical-align: top;">1. 대상주택의 매매(전세) 계약서 1부<br>2. 대상주택의 토지 및 건물 등기부등본 원본 1부<br>3. 주민등록등본 및 초본(전주소 포함) 원본 1부 : 신청일 1개월 이내<br>4. 무주택 증명 서류 (본인 및 배우자) 원본 1부 : 세목별 과세(납세) 증명서 <br>&nbsp; &nbsp;(인근 동사무소 발급 가능. 무주택자일 경우 '과세사실이 없음'으로 발급됨)<br>- 승인자 결재선은 해당 부문장까지 결재 </td> 
+    </tr> 
+    <tr> 
+     <td style="background: rgb(255, 255, 255); padding: 5px; border: 1px solid rgb(153, 153, 153); height: 100px; text-align: center; color: rgb(0, 0, 0); font-size: 12px; font-weight: bold; vertical-align: middle;"> 승인시 </td> 
+     <td style="background: rgb(255, 255, 255); padding: 5px; border: 1px solid rgb(153, 153, 153); text-align: left; color: rgb(0, 0, 0); font-size: 12px; font-weight: normal; vertical-align: top;">1. 대출 각서 원본 1부 (인사팀에서 작성하여 전달) : 인감도장 날인<br>2. 차용 증서 원본 1부 (인사팀에서 작성하여 전달) : 인감도장 날인<br>3. 신청인 인감증명서 원본 1부<br>4. 채권 보존 서류<br>&nbsp; &nbsp; - 보증보험증권 : 보증보험증권 1부 (인사팀에서 안내받은 후 처리)<br>&nbsp; &nbsp; - 근저당 설정 : 근저당설정계약서 원본 1부, 건물 및 토지 등기부등본 원본 1부 (인사팀에서 안내) </td> 
+    </tr> 
+   </tbody> 
+  </table> <br><br> </span> </span></div></span>
+ </body>

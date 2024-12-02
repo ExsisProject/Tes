@@ -1,0 +1,73 @@
+<h1 use-gantt-view="{{config.useGanttView}}" use-calendar-view="{{config.useCalendarView}}">
+	<div class="wrap_applet_tit">
+		<img src="{{config.thumbSmall}}" alt="{{lang.appIcon}}">
+	</div>
+	<div class="works_tit_inner">
+		{{{pageTitle}}}
+		{{#useActionButton}}
+		<span class="btn_wrap">
+			<span class="ic ic_info btn-toggle-desc" title="{{lang.showAppDesc}}" el-backdrop-link backdrop-toggle="true">
+				<span class="layer_tail tooltip-desc"{{^config.showDescription}} style="display:none;"{{/config.showDescription}} el-backdrop>
+					<i class="ic ic_tail"></i>
+					{{^externalDesc}}
+					<div>{{{desc}}}</div>
+					<div>
+						{{lang.operator}} : {{operatorList}} <br>
+					</div>
+					{{/externalDesc}}
+					{{#externalDesc}}
+					<div>{{{externalDesc}}}</div>
+					{{/externalDesc}}
+				</span>
+			</span>
+            {{#showSettingButton}}
+			<span class="ic ic_works_set" title="{{lang.gotoSettingsHome}}" el-setting-home>
+				<a href="#" data-bypass></a>
+			</span>
+			{{/showSettingButton}}
+
+			{{#useIntegration}}
+			{{#showSettingButton}}
+			<a class="btn_app_link" title="{{lang.앱간 데이터 연동}}" data-btn-integration>
+				<ins class="ic_works ic_app_link"></ins>
+			</a>
+			{{/showSettingButton}}
+			{{^showSettingButton}}
+			{{^isSetting}}
+			<span class="btn_app_link" title="{{lang.앱 연동}}">
+					<ins class="ic_works ic_app_link"></ins>
+					<span class="tool_tip" style="display:none; width: 220px">{{lang.앱간연동설명}}
+						<i class="tail_left"></i>
+					</span>
+				</span>
+			{{/isSetting}}
+			{{/showSettingButton}}
+			{{/useIntegration}}
+		</span>
+		{{/useActionButton}}
+	</div>
+</h1>
+{{#isSetting}}
+<section class="wrap_header_guide" id="interAppGuideBtn">
+	<div class="wrap_help_guide_s">
+		<span class="ic_works ic_help_guide_s" title="Works 가이드"></span>
+		<p class="tit">{{{lang.데이터연동가이드}}}</p>
+	</div>
+</section>
+{{/isSetting}}
+{{#useSearch}}
+<section class="combine_search">
+	<div class="c_search_wrap{{#has_keyword?}} search_focus{{/has_keyword?}}"><!--focus되면 "search_focus" multi class로 추가해주세요.-->
+		<select class="search_op" id="searchType">
+			<option value="appSearch">{{lang.Works}}</option>
+			<option value="totalSearch">{{lang.통합검색}}</option>
+		</select>
+		<input class="c_search" type="text" id="search-keyword" name="search_keyword" value="{{keyword}}" placeholder="{{search}}">
+		<a class="c_btn_detail" id="btn_DetailSearch" title="{{lang.상세검색}}">
+			<span class="txt">{{lang.상세}}</span>
+			<span class="ic ic_cs_detail_arrow"></span>
+		</a>
+		<input class="btn_c_search" type="button"id="btn-search" value="{{search}}" title="{{search}}" />
+	</div>
+</section>
+{{/useSearch}}

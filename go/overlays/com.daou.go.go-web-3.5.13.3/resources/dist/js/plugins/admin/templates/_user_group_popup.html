@@ -1,0 +1,11 @@
+<div class="content align_c">
+    <span class="">{{type.userGroup}}</span>
+    <select id="user_group_select">
+        {{#userGroup}}
+        <option value={{id}}>{{name}}</option>
+        {{/userGroup}}
+        {{^userGroup}}
+        <option value="">{{type.no_select}}</option>
+        {{/userGroup}}
+    </select>
+</div>

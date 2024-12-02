@@ -1,0 +1,42 @@
+<div class="content_info">		
+	<dl>
+		<dt>{{lang.total_dept}} :</dt>
+		<dd><strong id="deptTotalCount">-</strong> {{lang.count}}</dd>
+	</dl>
+</div>
+<div id="controlButtons" style="display:none">
+	<a href="{{org_href}}"><span class="btn_tool">{{lang.move_to_org}}</span></a>
+	<span class="btn_tool" id="btn_down">{{lang.list_to_csv}}</span>
+</div>
+<div class="container">			
+	
+	<div class="content_tb">			
+		<table id="deptList" class="chart size">
+			<thead>
+				<tr>
+					<th><span class="title_sort">{{lang.dept_name}}<ins class="ic"></ins><span class="selected"></span></span></th>
+					<th><span class="title_sort">{{lang.dept_manager}}<ins class="ic"></ins><span class="selected"></span></span></th>
+					<th><span class="title_sort">{{lang.dept_member}}<ins class="ic"></ins><span class="selected"></span></span></th>
+					<th><span class="title_sort">{{lang.dept_sub}}<ins class="ic"></ins><span class="selected"></span></span></th>
+					<th><span class="title_sort">{{lang.dept_createat}}<ins class="ic"></ins><span class="selected"></span></span></th>
+				</tr>
+			</thead>	
+		</table>	
+	</div>
+	
+	
+	<div class="table_search">				
+		<select>
+			<option value="name">{{lang.dept_name}}</option>
+			<option value="master">{{lang.dept_manager_name}}</option>
+		</select>		
+		
+		<span class="search_wrap" id="deptConfigSearch">
+			<input class="input" type="text">
+			<span class="btn_search" title="{{lang.search}}"></span>
+			<input class="submit" type="submit" value="">
+		</span>
+	</div>	
+	
+</div>
+			

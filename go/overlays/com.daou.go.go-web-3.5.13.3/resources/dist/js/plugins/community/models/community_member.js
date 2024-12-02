@@ -1,0 +1,1 @@
+(function(){define(["backbone","app"],function(e,t){var n=t.BaseModel.extend({url:function(){return"/api/community/"+this.options.communityId+"/member/"+this.options.subType+"/"+this.options.memberId},initialize:function(e){this.options=e}});return n})}).call(this);

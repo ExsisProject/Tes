@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+    <title>Group Office</title>
+    <link rel="stylesheet" href="./stylesheets/go_style.css" media="screen"/>
+    <link rel="stylesheet" href="./stylesheets/service_guide_style.css"
+          media="screen"/>
+    <script src="./js/jquery-1.11.3.min.js"></script>
+    <!--[if IE]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <script>
+        function showContent(url) {
+            $("#help_content").attr('src', url);
+        }
+    </script>
+</head>
+<body class="go_skin_guide">
+
+<div class="do_guide_wrap">
+    <div class="header_wrap">
+        <header class="header">
+            <hgroup>
+                <a href="#" onclick="showContent('./help_main_desktop.html');"><h1>다우 오피스 도움말 센터</h1></a>
+            </hgroup>
+            <div>
+                <ul>
+                    <li></li>
+					<li></li>
+					<li></li>
+                    <li><a href="#" title="指南" onclick="showContent('./pdf/do_user_guide.pdf');">指南</a></li>                    
+                </ul>
+            </div>
+        </header>
+    </div>
+
+    <div class="layer_frame">
+        <iframe id="help_content" frameborder="0" height="780" width="100%" src="./help_main_desktop.html"></iframe>
+        <!--//아이프레임 연결해서 사용-->
+    </div>
+    <div class="footer">
+        Copyright DAOU TECHNOLOGY INC. All rights reserved.
+    </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,198 @@
+<div class="go_side do_side">
+    <section class="gnb_title">
+        <h1><a href="{{contextRoot}}app/works">{{appName}}</a></h1>
+    </section>
+    <section class="function">
+        <a class="btn_function" data-el-create>
+            <span class="ic_side ic_btn_plus"></span>
+            <span class="txt">{{lang.만들기}}</span>
+        </a>
+        <div class="btn_menu_layer" el-backdrop-create style="display: none;">
+            <p class="tit" data-app-create-title>{{{lang.원하는 앱을간편하게 만들어보세요}}}</p>
+            <ul data-app-create class="wrap_item_menu create_app">
+                <li data-add-applet>
+                    <a>
+                        <div class="item_icon">
+                            <span class="icx2 ic_item_template"></span>
+                        </div>
+                        <div class="item_txt">
+                            <p class="tit">{{lang.템플릿 선택}}</p>
+                            <p class="desc">{{lang.템플릿 선택 설명}}</p>
+                        </div>
+                    </a>
+                </li>
+                <li data-add-applet-file id="file-uploader">
+                    <a data-bypass="">
+                        <div class="item_icon">
+                            <span class="icx2 ic_item_import"></span>
+                        </div>
+                        <div class="item_txt">
+                            <p class="tit">{{lang.파일 가져오기}}</p>
+                            <p class="desc">{{lang.파일 가져오기 설명}}</p>
+                        </div>
+                    </a>
+                </li>
+                <li data-add-applet-first-default-template>
+                    <a>
+                        <div class="item_icon">
+                            <span class="icx2 ic_item_plan"></span>
+                        </div>
+                        <div class="item_txt">
+                            <p class="tit">{{lang.처음부터 만들기}}</p>
+                            <p class="desc">{{lang.처음부터 만들기 설명}}</p>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+            <div class="wrap_warning" data-app-create-auth>
+                <div class="warning_image">
+                    <span class="icx2 ic_warning"></span>
+                </div>
+                <p class="tit">{{lang.앱 생성은 관리자가 지정한 사용자만 가능합니다}}</p>
+                <p class="txt">{{lang.자세한 사항은 관리자에게 문의하시기 바랍니다}}</p>
+            </div>
+            <ul class="wrap_item_menu">
+                <li data-el-create-folder>
+                    <a>
+                        <div class="item_icon">
+                            <span class="icx2 ic_item_folder"></span>
+                        </div>
+                        <div class="item_txt">
+                            <p class="tit">{{lang.폴더 만들기}}</p>
+                            <p class="desc">{{lang.폴더 만들기 설명}}</p>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <section class="tab">
+        <ul class="side_tab_type" id="worksTabs">
+            <li data-btn-type="all">
+                <a data-all>
+                    <span class="ic_side ic_works_home"></span>
+                    <p class="list_tit">{{lang.all}}</p>
+                </a>
+            </li>
+            <li data-btn-type="favorite">
+                <a data-favorite>
+                    <span class="ic_side ic_works_favorites"></span>
+                    <p class="list_tit">{{lang.favorite}}</p>
+                </a>
+            </li>
+            <li data-btn-type="manage">
+                <a data-manage>
+                    <span class="ic_side ic_works_mgmt"></span>
+                    <p class="list_tit">{{lang.manage}}</p>
+                </a>
+            </li>
+        </ul>
+    </section>
+    <section class="lnb ">
+        <h1 class="user" data-folder-id="root">
+            <a data-all>
+                <ins class="ic_side ic_side_folder_root"></ins>
+                <span class="txt" title="{{lang.나의 폴더}}">{{lang.나의 폴더}}</span>
+            </a>
+        </h1>
+        <!-- 그룹 접기 -->
+        <ul class="side_depth" data-side-group-list></ul>
+    </section>
+    <section class="lnb" data-side-share style="display: none;">
+        <h1 class="user" data-btn-type="share">
+            <a applet-share>
+                <ins class="ic_side ic_side_share_root" title="{{lang.share}}"></ins>
+                <span class="txt" title="{{lang.share}}">{{lang.share}}</span>
+            </a>
+        </h1>
+    </section>
+    <div class="bar"></div>
+</div>
+<div class="go_content go_works_home card_type ">
+    <!--go_works_situation 	works 전용 클래스 추가-->
+    <header class="content_top">
+        <h1>
+            <span class="nav">
+                <a class="prev"><span>{{lang.전체}}</span></a>
+                <span><span>&gt;</span></span>
+                <a><span></span></a>
+            </span>
+        </h1>
+    </header>
+    <div class="content_page" data-content>
+        <div class="tool_bar border_type">
+            <div class="critical">
+                <div class="search_wrap active" el-backdrop-search>
+                    <input type="text" id="appName" class="search" name="appName" value="" placeholder="{{lang.앱 명을 입력하세요}}" >
+                    <input type="button" id="cancel_search" class="cancel_search" name="" value="">
+                    <i class="ic_search" id="btn-appname-search"></i>
+                </div>
+            </div>
+            <div class="optional">
+                <div class="opt_sort" data-base-options>
+                    <i class="btn_tool none_text">
+                        <span class="ic_toolbar sort" data-el-sort-btn></span>
+                        <span class="txt">{{lang.정렬}}</span>
+                    </i>
+                    <i class="btn_tool none_text">
+                        <span class="ic_toolbar ic_list_1" data-toggle-layout></span>
+                        <span class="txt">{{lang.카드}}</span>
+                    </i>
+                    <div class="array_option" el-backdrop-sort style="display: none;">
+                        <ul class="array_type">
+                            <li data-el-sort-item="name">
+                                <span class="txt">{{lang.가나다 순}}</span>
+                                <span class="ic_board ic_check_1" style="display: {{^isOrderByName}}none{{/isOrderByName}};"></span>
+                            </li>
+                            <li data-el-sort-item="last">
+                                <span class="txt">{{lang.최근 열어본 순}}</span>
+                                <span class="ic_board ic_check_1" style="display: {{#isOrderByName}}none{{/isOrderByName}};"></span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="wrap_works" data-works-home>
+            <div class="app_group" data-group-list style="display: none;"></div>
+            <div class="app_list">
+                <div class="error_data" data-empty-message style="display: none;">
+                    <span class="ic_works ic_app_info"></span>
+                    <p class="tit" data-empty-title>{{{lang.emptyTitle}}}</p>
+                    <p class="desc" data-empty-desc>{{{lang.emptyDesc}}}</p>
+                </div>
+                <div data-app-list></div>
+                <div class="column_create" data-add-applet="card" style="display: none;">
+                    <a class="wrap_works_info">
+                        <div class="wrap_img_ic">
+                            <i class="ic_works ic_app_add_1" title="{{lang.buttonTitle}}"></i>
+                        </div>
+                        <div class="inner_works_info">
+                            <span class="card_info"><p>{{{lang.buttonDesc}}}</p></span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="works_app_share" data-share-content>
+        	<div class="app_list_tb">
+        		<span class="txt" data-applet-share-info>{{{lang.앱 내보내기 설명}}}</span>
+				<div class="tab_menu_wrap">
+					<ul class="tab_menu">
+						<li class="active" tab-applet-export>
+							<span class="txt">{{lang.앱 내보내기}}</span>
+						</li>
+						<li class="selectable" tab-applet-import>
+							<span class="txt">{{lang.앱 가져오기}}</span>
+						</li>
+					</ul>
+				</div>
+				<div class="contents" data-share-item-list >
+
+				</div>
+			</div>
+        </div>
+    </div>
+</div>

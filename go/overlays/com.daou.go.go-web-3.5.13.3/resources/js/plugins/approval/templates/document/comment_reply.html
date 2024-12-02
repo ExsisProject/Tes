@@ -1,0 +1,32 @@
+<span class="ic_classic ic_depth"></span>
+<span class="photo"><img src="{{writer.thumbnail}}" alt="{{writer.name}} {{writer.position}}" title="{{writer.name}} {{writer.position}}"></span>
+
+<div class="msg_wrap">
+	<div class="compo_reply_create">
+		<div class="form_wrap">
+		<span class="textarea_edit">
+			<!-- input type="text" class="txt_mini w_max"-->
+			<textarea class="edit w_max " placeholder="{{lang.commentPlaceholder}}"></textarea>
+		</span>
+		</div>
+
+		<div data-emoticon-edit-part class="{{#hasEmoticon}}thumb_append{{/hasEmoticon}}"></div>
+
+		<div data-attaches-edit-part class="wrap_attach" id="commentAttachPart_{{docId}}_{{commentId}}"> <!-- class : option_display -->
+			<ul class="file_wrap" style="margin-top : 0px;"></ul>
+			<ul class="img_wrap" style="margin-top : 0px;padding:0px"></ul>
+		</div>
+
+		<div class="func" data-func-wrapper>
+			<a class="btn_ic24 btn_emoticon" id="emoticonBtn" el-backdrop-link data-bypass>
+				<span class="ic24 ic_emoticon"></span>
+			</a>
+			<span data-upload-btn class="btn_ic24 posi1">
+        		<span class="ic_con ic_file_up_s" id="commentReplyAttach_{{docId}}_{{commentId}}"></span>
+    		</span>
+			<div class="optional">
+				<span class="btn_minor_s comment_reply_save"><span class="txt">{{lang.등록}}</span></span>
+			</div>
+		</div>
+	</div>
+</div>

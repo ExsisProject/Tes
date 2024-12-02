@@ -1,0 +1,59 @@
+<div class="content_info">
+    <ul class="info_summary">
+        <li>
+            <span class="tit_guide">{{lang.label_usage_desc}}</span>
+        </li>
+    </ul>
+</div>
+<div id="communityCsvDownLoad" style="display:none">
+    <span class="btn_tool" id="btn_down_community">{{lang.label_down}}</span>
+</div>
+
+<div class="content_page">
+    <div class="dataTables_wrapper container">
+        <div class="content_tb">
+            <table class="chart size" id="communityList">
+                <colgroup>
+                    <col width="*" />
+                    <col width="120" />
+                    <col width="120" />
+                    <col width="100" />
+                    <col width="120" />
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th class="sorting">
+                            <span class="title_sort align_c">{{lang.label_name}}<ins class="ic"></ins><span class="selected"></span></span>
+                        </th>
+                        <th class="sorting">
+                            <span class="title_sort">{{lang.label_master}}<ins class="ic"></ins><span class="selected"></span></span>
+                        </th>
+                        <th class="sorting">
+                            <span class="title_sort">{{lang.label_boards}}<ins class="ic"></ins><span class="selected"></span></span>
+                        </th>
+                        <th class="sorting">
+                            <span class="title_sort">{{lang.label_posts}}<ins class="ic"></ins><span class="selected"></span></span>
+                        </th>
+                        <th class="sorting last">
+                            <span class="title_sort">{{lang.label_storage}}<ins class="ic"></ins><span class="selected"></span></span>
+                        </th>
+                    </tr>
+                </thead>
+            </table>
+
+            <div class="table_search">
+                <select id="type">
+                    {{#selectType}}
+                    <option value="{{value}}">{{name}}</option>
+                    {{/selectType}}
+                </select> 
+                <span class="search_wrap"> 
+                    <input class="input" type="text" id="keyword" name="keyword" value=""/> 
+                        <span class="btn_search" title="{{lang.label_search}}"></span>
+                    <input class="submit" type="submit" value="" />
+                </span>
+            </div>
+
+        </div>
+    </div>
+</div>

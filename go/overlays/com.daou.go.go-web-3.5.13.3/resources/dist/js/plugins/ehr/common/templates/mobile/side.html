@@ -1,0 +1,82 @@
+<div id="sideFolderList">
+    {{#timeline.active}}
+    <h3>
+        <span class="btn_wrap" name="timelineState" data-type="user">
+            <span class="txt_ellipsis">{{TimelineLang.내 근태 현황}}</span>
+        </span>
+    </h3>
+    {{/timeline.active}}
+    
+    {{#useDeptSituationAndStats}}
+    {{#hasDepts}}
+    {{#timeline.useDeptSituationAndStats}}
+	{{#timeline.active}}
+    <h3>
+        <span class="btn_wrap" >
+            <span class="txt_ellipsis">{{TimelineLang.부서별 근태관리}}</span>
+        </span>
+    </h3>
+    {{#data.depts}}
+    <ul class="side_depth">
+        <li class="folder">
+            <p class="title">
+                <span class="btn_wrap">
+                    <span class="ic_side ic_part"></span>
+                    <span class="txt_ellipsis">{{name}}</span>                       
+                </span>
+            </p>    
+            <ul>
+                {{#timeline.useDeptSituationAndStats}}
+                {{#timeline.active}}
+                <li class="folder" id="dept_stat"  data-deptid="{{id}}">
+                    <p class="title">
+                        <a>
+                            <span class="btn_wrap" name="timelineState" data-type="dept">
+                                <span class="ic ic_root"></span>
+                                <span class="txt_ellipsis">{{TimelineLang.부서 근태현황}}</span>
+                            </span>
+                        </a>
+                    </p> 
+                </li> 
+                {{/timeline.active}}
+                {{/timeline.useDeptSituationAndStats}}                      
+            </ul>                  
+        </li>
+    </ul>
+    {{/data.depts}}
+    
+    {{/timeline.active}}
+    {{/timeline.useDeptSituationAndStats}}
+    {{/hasDepts}}
+    {{/useDeptSituationAndStats}}
+    
+    {{#isEhrManager}}
+    {{#timeline.manager}}
+    {{#timeline.active}}
+    <h3>
+        <span class="btn_wrap">
+            <span class="txt_ellipsis">{{TimelineLang.전사 근태관리}}</span>
+        </span>
+    </h3>
+    <ul class="side_depth">
+        <li class="folder">
+            <ul>
+                {{#timeline.active}}
+                <li class="folder"  data-deptid="{{id}}">
+                    <p class="title">
+                        <a>
+                            <span class="btn_wrap" name="timelineState" data-type="company">
+                                <span class="ic ic_root"></span>
+                                <span class="txt_ellipsis">{{TimelineLang.전사 근태현황}}</span>
+                            </span>
+                        </a>
+                    </p> 
+                </li> 
+                {{/timeline.active}}
+            </ul>                  
+        </li>
+    </ul>
+    {{/timeline.active}}
+    {{/timeline.manager}}
+    {{/isEhrManager}}
+</div>

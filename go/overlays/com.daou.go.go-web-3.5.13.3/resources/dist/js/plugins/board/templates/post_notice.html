@@ -1,0 +1,24 @@
+{{#dataset}}
+<tr el-grid-list-item class="noti {{readPostClass}}" data-id="{{id}}">
+    {{#hasValidCheckBox}}
+    <td el-checkbox>
+        <input data-id="{{id}}" name="id" type="checkbox" value="{{id}}" data-notice="true" data-root="{{root}}" />
+    </td>
+    {{/hasValidCheckBox}}
+    <td>
+        <span class="ic_classic ic_notice" title="{{lang.post_sticky}}" {{#isManageable}}style="cursor:pointer;"{{/isManageable}} />
+    </td>
+    <td class="align_l">{{{postTitle}}}</td>
+    {{#writer}}
+        {{#otherCompanyUser}}
+        <td><a data-profile data-id="{{id}}" class="multi_user">{{name}} {{positionName}}</a></td>
+        {{/otherCompanyUser}}
+        {{^otherCompanyUser}}
+        <td><a data-profile data-id="{{id}}">{{writer.name}} {{writer.positionName}}</a></td>
+        {{/otherCompanyUser}}
+    {{/writer}}
+    <td>{{createdAt}}</td>
+    <td><a id="listPostReader" data-id = "{{id}}">{{readCount}}</a></td>
+    <td class="plus"><a id="listPostRecommend" data-id = "{{id}}"><span class="plus_num">{{recommendCount}}</span></a></td>
+</tr>
+{{/dataset}}

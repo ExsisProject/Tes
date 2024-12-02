@@ -1,0 +1,36 @@
+<header class="content_top">
+    <h1>
+        <span class="txt single_txt">{{TimelineLang.근태현황}} {{userNameAndDeptName}}</span>
+    </h1>
+</header>
+<div class="content_page">
+    <!-- tool bar -->
+    <div class="tool_bar calendar_tool_bar">
+        <div class="current_date">
+            <span class="btn_ic_prev2 btn_border" title="{{TimelineLang.이전}}" id="prevMonth"><span class="ic_ehr ic_date_prev"></span></span>
+            <span class="date" id="baseDate">
+                {{baseDate}}
+            </span>
+            <span class="btn_ic_next2 btn_border" title="{{TimelineLang.이후}}" id="nextMonth"><span class="ic_ehr ic_date_next"></span></span>
+            <input id="calendarDatepicker" type="text" style="border:0px;width:0px;height:0px;" class="">
+            <span class="btn_tool"><span class="txt" id="currentMonth">{{CommonLang.오늘}}</span></span>
+        </div>
+    </div>
+    <!-- //tool bar -->
+    <!-- ehr statistics -->
+    <div id="summary"></div>
+    <div id="month" class="wrap_tb_list"></div>
+    <!-- //ehr datatable -->
+    <div class="tool_bar tool_absolute wrap_tb_box">
+        <div class="critical">
+            <section class="marker2">
+                <ul>
+                    <li class="normal"><span></span>{{TimelineLang.정상}}</li>
+                    <li class="late"><span></span>{{TimelineLang.지각}}</li>
+                    <li class="modify"><span></span>{{TimelineLang.수정}}</li>
+                </ul>
+            </section>
+        </div>
+    </div>
+    <div id="history"></div>
+</div>

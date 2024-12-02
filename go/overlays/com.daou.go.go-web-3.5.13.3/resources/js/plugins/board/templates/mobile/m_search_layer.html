@@ -1,0 +1,78 @@
+<div class="nav" id="searchNav">
+</div>
+<div id="searchDetail" class="search_detail">
+    <span id="simpleSearchWrap">
+        <p class="tit">{{lang.검색 조건}}</p>
+        <ul class="search_result">
+            <li>
+                <a href="" data-search="all">
+                    <label class="tit">{{lang.전체}} {{lang.검색}}</label>
+                    <div class="txt">
+                        <span class="searchText"></span>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="" data-search="userName">
+                    <label class="tit">{{lang.작성자}}</label>
+                    <div class="txt">
+                        <span class="searchText"></span>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="" data-search="content">
+                    <label class="tit">{{lang.본문}}</label>
+                    <div class="txt">
+                        <span class="searchText"></span>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </span>
+    <span id="detailSearchWrap">
+        <ul class="search_result">
+            <li>
+                {{^isCommunity}}
+                <label class="tit">{{lang.게시판}}</label>
+                {{/isCommunity}}
+                {{#isCommunity}}
+                <label class="tit">{{lang.커뮤니티}}</label>
+                {{/isCommunity}}
+                <div class="txt">
+                    <span id="detail_select_wrap"></span>
+                </div>
+            </li>
+            <li>
+                <label class="tit">{{lang.작성자}}</label>
+                <div class="txt">
+                    <input id="detail_writer" class="input" type="search" placeholder="{{lang.검색 키워드를 입력하세요}}">
+                </div>
+            </li>
+            <li>
+                <label class="tit">{{lang.검색어}}</label>
+                <div class="txt">
+                    <span class="option_wrap">
+                        <input id="detail_content" type="checkbox" name="detail_content">
+                        <label for="detail_content" class="txt">{{lang.본문}}</label>
+                    </span>
+                    <span class="option_wrap">
+                        <input id="detail_comment" type="checkbox" name="detail_comment">
+                        <label for="detail_comment" class="txt">{{lang.댓글}}</label>
+                    </span>
+                    <span class="option_wrap">
+                        <input id="detail_attachFile" type="checkbox" name="detail_attachFile">
+                        <label for="detail_attachFile" class="txt">{{lang.첨부파일}}</label>
+                    </span>
+                    <input class="input" type="search" id="detail_text" placeholder="{{lang.검색 키워드를 입력하세요}}"/>
+                </div>
+            </li>
+        </ul>
+        <a class="btn_wrap" id="searchInit">
+            <span class="btn btn_refresh"></span>
+            <span class="txt">{{lang.초기화}}</span>
+        </a>
+    </span>
+    <span id="searchResultWrap">
+    </span>
+</div>

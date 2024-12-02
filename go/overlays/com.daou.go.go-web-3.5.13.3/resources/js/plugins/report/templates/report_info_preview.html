@@ -1,0 +1,20 @@
+				<div class="report_type" style="padding-left: 10px">
+					<br/>
+					<h1>   
+						<span class="text">{{data.text}}</span>
+						{{#data.meta_data}}
+						<span class="meta">
+							<span class="team">in {{{data.meta_data}}}</span>
+						</span>
+						{{/data.meta_data}}
+						
+						{{#data.meta_section}}
+						<span class="meta_section">
+							<span class="date">{{{data.meta_section}}}</span>
+						</span>
+						{{/data.meta_section}}
+					</h1>
+					<br/>
+				</div>
+				
+				{{> reportInfoTmp}}

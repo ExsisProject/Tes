@@ -1,0 +1,1 @@
+define([],function(){var e=Backbone.Model.extend({initialize:function(e){this.deptId=e.deptId},urlRoot:function(){var e=this.deptId||this.collection.deptId;return GO.contextRoot+"ad/api/approval/deptfolder/"+e+"/folder"}});return e});

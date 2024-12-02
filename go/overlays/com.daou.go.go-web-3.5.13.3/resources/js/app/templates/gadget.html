@@ -1,0 +1,21 @@
+<div class="go-gadget-header">
+	<div class="gadget_h1">
+		<span class="title">{{title}}</span>
+		<span class="btn_side_wrap">
+			<span class="btn-mgmt btn_wrap" style="display:none;"><span class="ic_dashboard ic_d_mgmt" title="{{label.setup}}"></span></span><span class="btn-refresh btn_wrap"><span class="ic_dashboard ic_d_reflash" title="{{label.refresh}}"></span></span>
+		</span>
+	</div>
+</div>
+<div class="go-gadget-config gadget_edit" style="display:none">
+	<p class="desc">
+		<span class="txt_caution error-msg-wrapper"></span>
+	</p>
+	<form name="gadget_options" class="gadget-options-form"></form>
+	<footer class="btn_layer_wrap">
+		<a class="btn_major_s btn-option-save"><span class="txt">{{label.save}}</span></a>
+		<a class="btn_minor_s btn-option-cancel"><span class="txt">{{label.cancel}}</span></a>
+	</footer>
+</div>
+<div class="go-gadget-content">
+	<div class="img_loader_large" title="{{waiting_msg}}"></div>
+</div>

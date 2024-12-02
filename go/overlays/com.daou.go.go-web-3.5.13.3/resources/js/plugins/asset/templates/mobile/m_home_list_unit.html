@@ -1,0 +1,54 @@
+{{#dataset}}
+{{#isCurrent}}
+<li class="mycondition" data-isrental="{{useRental}}"  data-list-id="{{id}}" data-assetid="{{assetId}}" data-itemid="{{itemId}}" data-reservationid="{{id}}" {{^isSubReservation}}data-group="{{group}}"{{/isSubReservation}}  data-groupid="{{groupid}}">
+{{#group}}
+<a class="tit" id="toggleDetail" href="javascript:;" data-list-id="{{id}}">
+	<span class="subject">
+		{{#isSubReservation}}
+			<span class="ic ic_reply"></span>
+		{{/isSubReservation}}
+		{{#otherCompanyReservation}}
+			<span class="ic_v2 ic_share"></span>
+		{{/otherCompanyReservation}}
+		<span class="title">{{itemName}}</span>
+	</span>
+	<span class="info">
+	<span class="date">{{parseDate}}</span>
+	</span>
+</a>
+{{^isSubReservation}}
+<a class="btn_arrow3_d">
+	<span class="ic ic_arrow3_d"></span>
+</a>
+{{/isSubReservation}} 
+{{/group}}
+{{^group}}
+	<a href="#" class="tit" data-bypass data-list-id="{{id}}">
+		<span class="subject">
+		{{#otherCompanyReservation}}
+			<span class="ic_v2 ic_share"></span>
+		{{/otherCompanyReservation}}
+		<span class="title">{{itemName}}</span></span>
+		<span class="info">
+			<span class="date">{{parseDate}}</span>
+		</span>
+	</a>
+{{/group}}
+</li>
+{{/isCurrent}}
+{{^isCurrent}}
+<li class="assetList" data-type="{{useRental}}" data-assetid="{{id}}">
+	<a href="#" class="tit" data-bypass>
+		<span class="subject">
+		{{#otherCompany}}
+			<span class="ic_v2 ic_share"></span>
+		{{/otherCompany}}
+		<span class="title">{{name}}</span></span>
+		<span class="info"><span class="txt">{{{parseItemCount}}}</span><span class="part">|</span><span class="name">{{lang.admin}} : {{parseManager}}</span></span>
+	</a>
+</li>
+{{/isCurrent}}
+{{/dataset}}
+{{^dataset}}
+<li class="creat data_null"><span class="txt_ellipsis">{{lang.no_content}}</span></li>
+{{/dataset}}

@@ -1,0 +1,11 @@
+<a class="tit" data-id="{{doc.id}}" data-deptid="{{deptId}}">
+	<span class="subject">
+	<span class="state {{doc.statusClass}}">{{doc.docStatus}}</span>
+		<span class="txt">{{#doc.docTypeName}} [{{{doc.docTypeName}}}] {{/doc.docTypeName}} {{{doc.title}}}</span>
+	</span>
+    <span class="info">
+		<span class="writer">{{{doc.drafterName}}} {{{doc.drafterPositionName}}}</span>
+        <span class="part">|</span>
+        <span class="date">{{{doc.draftedAt}}}</span>
+	</span>
+</a>

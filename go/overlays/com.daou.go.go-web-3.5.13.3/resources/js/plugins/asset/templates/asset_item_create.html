@@ -1,0 +1,102 @@
+<!-- 자산추가 -->
+<header class="content_top">
+    <h1><span class="txt">{{lang.asset_add}}</span></h1>
+</header>
+
+<!--목록:-->
+<div class="content_page go_renew">
+
+    <table class="form_type form_add01">
+        <tbody id="createPart">
+        <tr>
+            <th class="col1"><span class="title">{{lang.code}}</span></th>
+            <td class="col2">
+                <div class="wrap_txt"><input class="txt w_max" type="text" value="" id="code"/></div>
+            </td>
+        </tr>
+        <tr>
+            <th><span class="title">{{lang.name}}</span></th>
+            <td>
+                <div class="wrap_txt"><input class="txt w_max" type="text" value="" id="name"/></div>
+            </td>
+        </tr>
+        {{#dataset}}
+        <!--반복예약-->
+        {{#useRecurrence}}
+        <tr>
+            <th><span class="title">{{lang.recurrence}}</span></th>
+            <td>
+                <div class="main">
+					<span class="wrap_option">
+						<input id="radio-use-recurrence-y" type="radio" name="use_recurrence" value="true">
+						<label for="radio-use-recurrence-y">{{lang.use}}</label>
+					</span>
+                    <span class="horspace1"></span>
+                    <span class="wrap_option">
+						<input id="radio-use-recurrence-n" type="radio" name="use_recurrence" checked="checked" value="false">
+						<label for="radio-use-recurrence-n">{{lang.not_use}}</label>
+					</span>
+                </div>
+                <div class="option_display" id="recurrence-limit" display style="display:none">
+					<span>{{lang.asset_limit}}
+						<span class="wrap_ic_s" style="padding: 0px">
+							<span class="help"><span class="tool_tip">{{lang.asset_limit_description}}
+					<i class="tail_left"></i></span></span>
+						</span>
+					</span>
+                    <div class="option_group">
+					<span class="wrap_option">
+						<input id="radio-use-n" type="radio" name="use" checked="checked" value="NOT_USE">
+						<label for="radio-use-n">{{lang.not_use_limit}}</label>
+					</span>
+                        <span class="horspace1"></span>
+                        <span class="wrap_option">
+					<input id="radio-use-c" type="radio" name="use" value="COUNT">
+					<label for="radio-use-c">
+						<span class="wrap_txt">
+							<input class="txt sm" type="text" value="" name="radio-use-c" disabled="disabled"/>
+							{{lang.recurence_count}}
+						</span>
+					</label>
+				</span>
+                        <span class="horspace1"></span>
+                        <span class="wrap_option">
+					<input id="radio-use-d" type="radio" name="use" value="YEAR">
+					<label for="radio-use-d">
+						<span class="wrap_txt">
+							<input class="txt sm" type="text" value="" name="radio-use-d" disabled="disabled"/>
+							{{lang.recurence_yearly}}
+						</span>
+					</label>
+				</span>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        {{/useRecurrence}}
+        <!--//반복예약-->
+        {{#attributes}}
+        <tr class="attribute" data-id="{{id}}">
+            <th><span class="title">{{name}}</span></th>
+            <td>
+                <div class="wrap_txt"><input class="txt w_max" type="text" value=""/></div>
+            </td>
+        </tr>
+        {{/attributes}}
+        {{/dataset}}
+        <tr class="line">
+            <td colspan="2">
+                <hr>
+            </td>
+        </tr>
+
+        </tbody>
+    </table>
+
+    <div class="page_action_wrap">
+        <a class="btn_major" data-role="button" data-btntype="itemSubmit"><span class="txt">{{lang.ok}}</span></a>
+        <a class="btn_minor" data-role="button" data-btntype="itemCancel"><span class="txt">{{lang.cancel}}</span></a>
+    </div>
+
+</div>
+<!-- //자산추가 -->

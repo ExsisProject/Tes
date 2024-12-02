@@ -1,0 +1,10 @@
+{
+	"code": "1000", 
+	"message": "success", 
+	"data" : {
+		"photo":"/resources/images/photo_my.jpg",
+		"name":"김윤아",
+		"position":"과장",
+		"noti":"6"
+	}
+}

@@ -1,0 +1,15 @@
+{{#dataset}}
+<li data-btntype="resultEventWrap" data-assetname="{{name}}" data-isrental="{{useRental}}" data-assetid="{{assetId}}" data-itemid="{{id}}" data-rentstatus="{{rentStatus}}">
+	<a class="tit" href="#" data-bypass>
+		<span class="subject">
+			<span class="title">{{name}}</span>
+		</span>
+		<span class="info">{{{parseAttr}}}</span>
+	</a>
+</li>
+{{/dataset}}
+{{^dataset}}								
+<li class="creat data_null">
+	<span class="txt">{{lang.non_result}}</span>
+</li>
+{{/dataset}}

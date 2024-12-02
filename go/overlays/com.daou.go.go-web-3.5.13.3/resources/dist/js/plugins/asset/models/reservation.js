@@ -1,0 +1,1 @@
+define(function(require){var e=require("backbone");return e.Model.extend({urlRoot:function(){return GO.contextRoot+"api/asset/"+this.get("assetId")+"/item/"+this.get("itemId")+"/reserve"}})});

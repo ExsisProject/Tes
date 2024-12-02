@@ -1,0 +1,90 @@
+{{#hasLabels?}}
+<div class="card_label">
+    {{#model.labels}}
+    <span class="chip" style="background:{{color}}" title="{{title}}"></span>
+    {{/model.labels}}
+</div>
+{{/hasLabels?}}
+
+<div class="title">
+    <span class="txt">{{{title}}}</span>
+</div>
+
+{{#hasImages?}}
+{{#isMobile}}
+{{#useMobilePreview}}
+<div class="img_attach">
+    <img title="{{featureImage.name}}" alt="{{featureImage.name}}" src="{{featureImage.thumbMid}}" width="210" height="210">
+</div>
+{{/useMobilePreview}}
+{{/isMobile}}
+{{^isMobile}}
+<div class="img_attach">
+    <img title="{{featureImage.name}}" alt="{{featureImage.name}}" src="{{featureImage.thumbMid}}" width="210" height="210">
+</div>
+{{/isMobile}}
+{{/hasImages?}}
+
+{{#hasMetadata?}}
+<div class="meta_data">
+    {{#hasContent?}}
+    <span class="ic_wrap" title="{{label.showDesc}}">
+        <span class="ic_board ic_desc"></span>
+        <span class="txt">more</span>
+    </span>
+    {{/hasContent?}}
+    {{#hasChecklists?}}
+    <span class="ic_wrap" title="{{checklistStatus}}">
+        <span class="ic_board ic_list_s"></span>
+        <span class="txt">{{checklistCheckedItemCount}}/{{checklistItemCount}}</span>
+    </span>
+    {{/hasChecklists?}}
+    {{#hasComments?}}
+    <span class="ic_wrap" title="{{commentCountStatus}}">
+        {{#isMobile}}
+        <span class="ic_cmm ic_cmm_reply"></span>
+        {{/isMobile}}
+        {{^isMobile}}
+        <span class="ic_board ic_comment_s"></span>
+        {{/isMobile}}
+        <span class="txt">{{model.commentCount}}</span>
+    </span>
+    {{/hasComments?}}
+    {{#hasAttaches?}}
+    <span class="ic_wrap" title="{{attachCountStatus}}">
+        {{#isMobile}}
+        <span class="ic ic_attach"></span>
+        {{/isMobile}}
+        {{^isMobile}}
+        <span class="ic_board ic_attach_s"></span>
+        {{/isMobile}}
+        <span class="txt">{{attach_count}}</span>
+    </span>
+    {{/hasAttaches?}}
+    {{#due_date}}
+    <span class="ic_wrap{{#delayed?}} delay{{/delayed?}}" title="{{duedateStatus}}">
+        {{#isMobile}}
+        <span class="ic_cmm ic_cmm_calendar"></span>
+        {{/isMobile}}
+        {{^isMobile}}
+        <span class="ic_board ic_date_s"></span>
+        {{/isMobile}}
+        <span class="txt">{{due_date}}</span>
+    </span>
+    {{/due_date}}
+</div>
+{{/hasMetadata?}}
+
+{{#hasMembers?}}
+<div class="member_data">
+    {{#model.members}}
+    <span class="member">
+        {{> _user_thumbnail}}
+    </span>
+    {{/model.members}}
+</div>
+{{/hasMembers?}}
+
+{{#editable?}}
+<a href="#" class="btn-card-action btn_board_more" data-bypass><span class="ic_board ic_more" title="{{label.more}}"></span></a>
+{{/editable?}}

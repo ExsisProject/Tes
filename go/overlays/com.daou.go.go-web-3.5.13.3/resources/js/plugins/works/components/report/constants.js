@@ -1,0 +1,53 @@
+define('works/components/report/constants', function (require) {
+    return {
+        TYPE_CHART: 'chart',
+        TYPE_CARD: 'card',
+        TYPE_DATA: 'data',
+        TYPE_TEXT: 'text',
+        TYPE_IMAGE: 'image',
+        ITEM_SIZE: {
+            width: {
+                'chart': '6',
+                'card': '5',
+                'data': '5',
+                'text': '4',
+                'image': '4'
+            },
+            height: {
+                'chart': '6',
+                'card': '4',
+                'data': '6',
+                'text': '5',
+                'image': '5'
+            },
+            minWidth: {
+                'chart': '1',
+                'card': '1',
+                'data': '1',
+                'text': '1',
+                'image': '1'
+            },
+            minHeight: {
+                'chart': '1',
+                'card': '1',
+                'data': '1',
+                'text': '1',
+                'image': '1'
+            },
+            maxWidth: {
+                'chart': '12',
+                'card': '12',
+                'data': '12',
+                'text': '12',
+                'image': '12'
+            },
+            maxHeight: {
+                'chart': '100',
+                'card': '100',
+                'data': '100',
+                'text': '100',
+                'image': '100'
+            },
+        }
+    }
+});

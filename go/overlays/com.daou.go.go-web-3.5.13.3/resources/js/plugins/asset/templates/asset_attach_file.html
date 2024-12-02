@@ -1,0 +1,20 @@
+{{#dataset}}
+<li data-name="{{name}}" data-id="{{id}}">
+	<span class="item_file">
+		<span class="ic_file ic_{{extention}}">
+		</span>
+		<span class="name">{{name}}</span>
+		<span class="size">({{sizeCal}})</span>
+		{{^modify}}
+		<span class="optional">
+			{{^isImgFile}}{{#preview}}<a href="javascript:;" class="btn_fn4 preview" data-bypass data-id="{{encrypt}}"><span class="txt">{{lang.preview}}</span></a>{{/preview}}{{/isImgFile}}<a href="{{contextRoot}}api/asset/{{assetId}}/attach/{{id}}" class="btn_fn4" data-bypass><span class="txt">{{lang.download}}</span></a>
+		</span>
+		{{/modify}}
+		{{#modify}}
+		<span class="btn_wrap">
+			<span class="ic_classic ic_del"></span>										
+		</span>	
+		{{/modify}}
+	</span>
+</li>
+{{/dataset}}

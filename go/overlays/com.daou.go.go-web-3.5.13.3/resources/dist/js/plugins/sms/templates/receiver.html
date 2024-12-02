@@ -1,0 +1,30 @@
+﻿<tbody>
+    {{#collection}}
+    <tr>
+        <td class="member_photo">
+            <span class="photo">
+                <span class="ic_sms ic_user"></span>
+            </span>
+        </td>
+        <td class="member_info">
+            <span class="name">{{makeReceiverName}}</span>
+        </td>
+        <td class="member_number">
+            <span class="number">{{receiverNumber}}</span>
+        </td>
+        <td class="member_result {{#isFail}}send_fail{{/isFail}}">
+            <span class="txt">{{statusText}}</span>
+            {{#isFail}}<span class="ic ic_fail" title="{{resultMessage}}"></span>{{/isFail}}
+        </td>
+    </tr>
+    {{/collection}}
+    {{^collection}}
+    <tr>
+        <td colspan="4">
+            <p class="data_null">
+                <span class="title">{{lang.수신자가없습니다}}</span>
+            </p>
+        </td>
+    </tr>
+    {{/collection}}
+</tbody>

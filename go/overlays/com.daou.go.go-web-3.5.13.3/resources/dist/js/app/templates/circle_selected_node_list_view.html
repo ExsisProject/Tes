@@ -1,0 +1,16 @@
+
+<div class="form_tr">
+    <div class="form_th">
+        <span class="txt">{{nodeType}}: </span>
+    </div>
+    <div class="form_td">
+        <ul class="name_tag">
+        {{#nodeList}}
+            <li data-nodeId={{nodeId}} data-nodeType={{nodeType}}
+                data-actions="{{nodeAction}}" data-nodeDeptId="{{nodeDeptId}}" {{#isNewLine}}class="newline"{{/isNewLine}}>
+                {{{node}}}
+            </li>
+        {{/nodeList}}
+        </ul>
+    </div>
+</div>

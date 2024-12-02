@@ -1,0 +1,11 @@
+<p class="desc">{{{lang.차트 미리보기 설명}}}</p>
+<span class="wrap_select">
+	<select data-filters>
+		<option value="all">{{lang.모든 데이터}}</option>
+		<option value="createdBy">{{lang.내가 등록한 데이터}}</option>
+		{{#filters}}
+		<option value="{{id}}">{{name}}</option>
+		{{/filters}}
+	</select>
+</span>
+<div data-chart-area></div>

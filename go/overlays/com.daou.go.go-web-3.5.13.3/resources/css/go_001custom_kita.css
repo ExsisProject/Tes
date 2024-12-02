@@ -1,0 +1,10 @@
+/* kita */
+span.ic_space {display:inline-block; width:4px}
+div.kita_side section.lnb_open {background:#f6f7f9}
+
+.btn_function {width:183px; background:url(../images/custom/kita/ic_side.png) no-repeat 0 0}
+.btn_function:hover {background-position:0 -50px}
+.btn_function:active {background-position:0 -100px}
+
+
+#footer {width:100%!important}

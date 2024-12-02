@@ -1,0 +1,71 @@
+
+<div class="container">
+<div class="wrap_container">
+    <div class="header">
+        <h2>
+            <span class="title">{{authGroup.attributes.name}}</span>
+        </h2>
+    </div>
+    <div id="adminAuthUserList" class="content">
+
+    </div>
+</div>
+</div>
+
+<div class="container">
+<div class="wrap_container wrap_authority_option">
+    <div class="header">
+        <h2>
+            <span class="title">{{adminLang.권한 설정}}</span>
+        </h2>
+    </div>
+    <div class="content">
+        {{#authGroup.sideMenus}}
+            {{#isAccessibleApp}}
+            {{#isAccessibleLevel}}
+            <div class="com_opt_container">
+                <div class="header">
+                    <input data-id="{{uid}}" class="category sideMenu" type="checkbox" {{#checkboxFlag}}checked{{/checkboxFlag}} {{#authGroup.attributes.defaultGroup}}disabled="disabled"{{/authGroup.attributes.defaultGroup}}>
+                    <span class="tit">{{labelKey}}</span>
+                    <p class="ment">{{description}}</p>
+                </div>
+                <div class="content">
+                    <div class="wrap_grid">
+                        {{#withoutSubMenus}}
+                        {{#subMenus}}
+                            <span class="option_wrap" style="display:none;">
+                                <input data-id="{{uid}}" class="sideMenu" type="checkbox" {{#checkboxFlag}}checked{{/checkboxFlag}} disabled="disabled">
+                                <label>{{labelKey}}</label>
+                            </span>
+                        {{/subMenus}}
+                        {{/withoutSubMenus}}
+
+                        {{^withoutSubMenus}}
+                        {{#subMenus}}
+                        {{#isAccessibleLevel}}
+                        {{#isAccessibleApp}}
+                        {{^exceptedMenu}}
+                            <span class="option_wrap">
+                                <input data-id="{{uid}}" class="sideMenu" type="checkbox" {{#checkboxFlag}}checked{{/checkboxFlag}} {{#authGroup.attributes.defaultGroup}}disabled="disabled"{{/authGroup.attributes.defaultGroup}}>
+                                <label>{{labelKey}}</label>
+                            </span>
+                        {{/exceptedMenu}}
+                        {{/isAccessibleApp}}
+                        {{/isAccessibleLevel}}
+                        {{/subMenus}}
+                        {{/withoutSubMenus}}
+                    </div>
+                </div>
+            </div>
+            {{/isAccessibleLevel}}
+            {{/isAccessibleApp}}
+        {{/authGroup.sideMenus}}
+    </div>
+</div>
+{{^authGroup.attributes.defaultGroup}}
+<div class="page_action mini">
+    <span id="groupSaveBtn" class="btn" id="ok">{{commonLang.저장}}</span>
+    <span id="groupCancelBtn" class="btn_nega" id="cancel">{{commonLang.취소}}</span>
+</div>
+{{/authGroup.attributes.defaultGroup}}
+</div>

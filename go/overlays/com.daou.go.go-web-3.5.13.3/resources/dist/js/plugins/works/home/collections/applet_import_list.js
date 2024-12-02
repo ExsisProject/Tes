@@ -1,0 +1,1 @@
+define("works/home/collections/applet_import_list",function(require){var e=require("collections/paginated_collection"),t=e.extend({url:function(){var e=GO.contextRoot+"api/works/templates/import";return e+="?"+this.makeParam(),e},parse:function(t){var n=e.prototype.parse.apply(this,arguments);return _.map(n,function(e){return e.id=e.templateId,e})}});return t});

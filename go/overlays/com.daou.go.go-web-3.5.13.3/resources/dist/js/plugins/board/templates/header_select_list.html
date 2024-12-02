@@ -1,0 +1,8 @@
+<select id="{{selectId}}" class="{{selectClass}}">
+	<option value="0">{{defaultSelect}}</option>
+	{{#dataset}}
+	{{^deletedFlag}}
+	<option value="{{id}}">{{name}}</option>
+	{{/deletedFlag}}
+	{{/dataset}}
+</select>

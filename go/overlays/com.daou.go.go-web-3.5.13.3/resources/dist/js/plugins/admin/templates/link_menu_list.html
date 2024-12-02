@@ -1,0 +1,87 @@
+<div class="header">
+    <h2>{{lang.label_quick_link_setting}}</h2>
+</div>
+<div class="content">
+    <table class="detail">
+    <tbody>
+        <tr class="last">
+            <th></th>
+            <td>
+                <div class="vertical_tit_wrap">
+                    <span id="linkMenuList">
+                        <div class="content_page">
+                            <div class="dataTables_wrapper container">
+                                <div class="toolbar_top header_tb">
+                                    <div class="critical" id="btnMenu">
+                                        <span id="btnLinkMenuControllGroup">
+                                            <span class="btn_tool" id="btn_create">{{lang.label_add}}</span>
+                                            <span class="btn_tool txt_caution" id="btn_delete">{{lang.label_delete}}</span>
+                                            <span id="btnReorderLinkMenus" class="btn_tool">{{lang.label_order}}</span>
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <form name="formLinkMenuConfig">
+                                <div id="postBbsDataTable_processing" class="dataTables_processing" style="visibility: hidden">Processing...</div>
+                                    <div class="content_tb">
+                                        <table class="chart size" id="linkMenuTable">
+                                            <thead>
+                                                <tr>
+                                                    <th class="sorting_disable check vm">
+                                                        <input type="checkbox" id="menu_all"/>
+                                                    </th>
+                                                    <th class="sorting_disable menu">
+                                                         <span class="title_sort">{{lang.label_button}}</span>
+                                                     </th>
+                                                     <th class="sorting_disable onoff">
+                                                         <span class="title_sort">{{lang.label_url}}</span>
+                                                     </th>
+                                                     <th class="sorting_disable onoff">
+                                                         <span class="title_sort">{{lang.label_location}}</span>
+                                                     </th>
+                                                     <th class="sorting_disable onoff">
+                                                         <span class="title_sort">{{lang.label_status}}</span>
+                                                     </th>
+                                                     <th class="sorting_disable onoff">
+                                                         <span class="title_sort">{{lang.label_setting}}</span>
+                                                     </th>
+                                                </tr>
+                                            </thead>
+
+                                            <tbody>
+                                            {{#data}}
+                                                <tr data-id="{{id}}" class="topMenu">
+                                                    <td class="align_c check"><input type="checkbox" {{#systemLink}}disabled{{/systemLink}}/></td>
+                                                    <td class="align_c" name="name">{{menuName}}</td>
+                                                     <td class="align_c" name="url">{{url}}</td>
+                                                     <td class="align_c" name="location">{{locationName}}</td>
+                                                     <td class="align_c" name="useQuickLink">
+                                                        <select id="useQuickLink" class="wfix">
+                                                            <option value="true" {{#useQuickLink}}selected{{/useQuickLink}}>O</option>
+                                                            <option value="false" {{^useQuickLink}}selected{{/useQuickLink}}>X</option>
+                                                        </select>
+                                                     </td>
+                                                     <td class="align_c">
+                                                         <span class="btn_s linkMenuSetting">{{lang.label_setting}}</span>
+                                                     </td>
+                                                 </tr>
+                                             {{/data}}
+                                             {{^data}}
+                                             <td class="align_c" colspan="6">
+                                               <p><span>{{lang.label_empty_list}}</span></p>
+                                             </td>
+                                            {{/data}}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </span>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+

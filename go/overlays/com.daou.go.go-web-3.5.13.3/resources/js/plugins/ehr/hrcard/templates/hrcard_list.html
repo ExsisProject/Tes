@@ -1,0 +1,73 @@
+<header class="content_top">
+	<h1>
+		<span class="txt">{{lang.hrcard}}</span>
+	</h1>
+</header>
+<div class="content_page">
+	<div class="dataTables_wrapper">		
+		<span id="listInfo" style="display:none">
+			<span class="title" id="totalCnt"></span>
+			<span id="includeSubDept" class="wrap_option" style="display:none;">
+				<input type="checkbox" id="include"><label for="include" style="cursor:pointer">{{lang.subDeptInclude}}</label>
+			</span>
+		</span>
+		<table class="type_normal hr_company" id="hrcardListDataTable">
+			<thead>
+				<tr>
+				<!--
+					아래 클래스명은 유지해주세요~
+					* sorting 			- 정렬을 지원하는 항목 배경
+					* sorting_disabled 	- 정렬을 지원하지 않는 항목
+					* sorting_desc 		- 내림차순 정렬 선택됨
+					* sorting_asc 		- 오름차순 정렬 선택됨
+				-->
+					<th class="sorting number"><span class="title_sort">{{lang.empno}}<ins class="ic"></ins></span></th>
+					<th class="sorting team"><span class="title_sort">{{lang.deptName}}<ins class="ic"></ins></span></th>
+					<th class="sorting name"><span class="title_sort">{{lang.name}}<ins class="ic"></ins></span></th>
+					<th class="sorting position">
+						<span class="title_sort">
+							<div class="article_head_wrap">
+								<select id="position" class="article_head">
+		                            <option value="0">{{lang.position}}</option>
+		                            {{#positions}}
+		                            <option value="{{id}}">{{name}}</option>
+		                            {{/positions}}
+		                        </select>
+							</div>
+						</span>
+					</th>
+					<th class="sorting email"><span class="title_sort">{{lang.email}}<ins class="ic"></ins></span></th>
+					<th class="sorting telephone"><span class="title_sort">{{lang.directTel}}<ins class="ic"></ins></span></th>
+					<th class="sorting state">
+						<span class="title_sort">
+							<span class="title_sort">
+								<div class="article_head_wrap">
+									<select id="status" class="article_head">
+			                            <option value="0">{{lang.status}}</option>
+			                            <option value="online">{{lang.online}}</option>
+			                            <option value="dormant">{{lang.mail}} {{lang.dormant}}</option>
+			                            <option value="stop">{{lang.stop}}</option>
+			                        </select>
+								</div>
+							</span>
+						</span>
+					</th>
+				</tr>
+			</thead>
+			<tbody>				
+			</tbody>
+		</table>
+	</div>
+	<div class="table_search">
+		<select>
+			<option value="name">{{lang.name}}</option>
+			<option value="email">{{lang.email}}</option>
+		</select>			
+		<section class="search2">
+			<div class="search_wrap"><!--focus되면 "search_focus" multi class로 추가해주세요.-->
+				<input id="keyword" class="search2" type="text" placeholder="{{lang.search}}">								
+				<span class="btn_search2" title="{{lang.search}}" id="hrcardListSearch"></span>								
+			</div>
+		</section>				
+	</div>
+</div>

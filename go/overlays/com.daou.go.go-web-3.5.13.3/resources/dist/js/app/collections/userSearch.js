@@ -1,0 +1,1 @@
+(function(){define(["underscore","backbone","app"],function(e,t,n){var r=n.BaseCollection.extend({url:function(){var e=n.config("contextRoot")+"api/user/search";return e}});return r})}).call(this);

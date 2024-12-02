@@ -1,0 +1,1 @@
+define(["underscore","backbone","i18n!approval/nls/approval"],function(e,t,n){var r=t.Model.extend({initialize:function(){},url:GO.contextRoot+"ad/api/approval/allapprform"});return r});

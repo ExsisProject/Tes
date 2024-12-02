@@ -1,0 +1,20 @@
+<td class="doc_id"><span class="txt">{{doc.docId}}</span></td>
+<td class="date"><span class="txt">{{doc.draftedAt}}</span></td>
+<td class="doc"><span class="txt">{{doc.formName}}</span></td>
+<td class="writer"><span class="txt">{{doc.drafterName}}</span></td>
+{{#isReceive}}
+<td class="subject"><span class="state ghost">{{lang.수신}}</span><span class="txt">{{doc.title}}</span></td>
+{{/isReceive}}
+{{^isReceive}}
+<td class="subject"><span class="txt">{{doc.title}}</span></td>
+{{/isReceive}}
+{{#isActivePopup}}
+<td class="state_wrap"><a><span class="state {{doc.statusClass}}">{{doc.docStatus}}</span></a></td>
+{{/isActivePopup}}
+{{^isActivePopup}}
+<td class="state_wrap"><span class="state {{doc.statusClass}}">{{doc.docStatus}}</span></td>
+{{/isActivePopup}}
+<td class="date"><span class="txt">{{doc.createdAt}}</span></td>
+<td class="date"><span class="txt">{{doc.completedAt}}</span></td>
+<td class="doc_num"><span class="txt">{{doc.docNum}}</span></td>
+<td class="connect"><span class="txt">{{doc.useIntegration}}</span></td>

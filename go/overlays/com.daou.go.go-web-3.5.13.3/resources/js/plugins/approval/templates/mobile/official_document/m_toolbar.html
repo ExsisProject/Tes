@@ -1,0 +1,19 @@
+<div class="tool_bar">
+	<div class="critical">
+		{{#showSelectAction}}
+            {{#data.approvable}}
+                <a class="btn_tool" id="approved" name="document_action"><span class="txt">{{lang.승인}}</span></a>
+                <a class="btn_tool" id="returned" name="document_action"><span class="txt">{{lang.반려}}</span></a>
+            {{/data.approvable}}
+            {{#data.retractable}}
+                <a class="btn_tool" id="retracted" name="document_action"><span class="txt">{{lang.공문 발송 취소}}</span></a>
+            {{/data.retractable}}
+            {{#data.reRequestable}}
+                <a class="btn_tool" id="rerequested" name="document_action"><span class="txt">{{lang.공문 재발송}}</span></a>
+            {{/data.reRequestable}}
+		{{/showSelectAction}}
+	</div>
+</div>
+<div class="optional">
+	<a class="btn_tool" data-role="button" id="act_list" href="javascript:;"><span class="txt">{{lang.목록}}</span></a>
+</div>

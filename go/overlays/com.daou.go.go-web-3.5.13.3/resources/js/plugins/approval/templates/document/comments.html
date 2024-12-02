@@ -1,0 +1,40 @@
+<div data-replies-wrapper class="reply_wrap">
+	<ul class="reply" id="comment_reply">
+		{{#commentCount}}
+		<li id="comment_creat" class="view_option" data-role="button">
+			<span class="ic_classic ic_reply"></span>
+			<span class="txt_b">{{lang.댓글}}<span id="commentCount" class="num">{{commentCount}}</span>{{lang.개}}</span>
+		</li>
+		{{/commentCount}}
+    </ul>
+    <div id="comment_creat" class="reply_create" data-comment-main-edit="true">
+	    <span class="photo"><img alt="{{lang.사진}}" src="{{thumbnail}}"></span>
+	    <div class="msg_wrap">
+			<div class="compo_reply_create">
+				<p class="form_wrap">
+					<span class="textarea_edit">
+						 <textarea id="formApprComment" type="text" class="edit w_max" placeholder="{{lang.commentPlaceholder}}"></textarea>
+					</span>
+				</p>
+				<div data-emoticon-edit-part class="{{#hasEmoticon}}thumb_append{{/hasEmoticon}}"></div>
+				<div data-attaches-edit-part class="wrap_attach" id="commentAttachPart"> <!-- class : option_display -->
+					<ul class="file_wrap" style="margin-top : 0px;"></ul>
+					<ul class="img_wrap" style="margin-top : 0px;"></ul>
+				</div>
+				<div class="func" data-func-wrapper>
+					<a class="btn_ic24 btn_emoticon" id="emoticonBtn" el-backdrop-link data-bypass>
+						<span class="ic24 ic_emoticon"></span>
+					</a>
+					<span data-upload-btn class="btn_ic24 posi1" title="{{lang.파일 첨부}}">
+						<span class="ic_con ic_file_up_s" id="commentAttachBtn"></span>
+					</span>
+					<div class="optional">
+						<span id="apprComment" class="btn_minor_s"><span class="txt">{{lang.등록}}</span></span>
+					</div>
+				</div>
+			</div>
+			<div id="commentProgressBar"></div>
+
+		</div>
+	</div>
+</div>

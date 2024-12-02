@@ -1,0 +1,149 @@
+{
+	"meta": {
+		"key": "10bfeb1a-bd0f-49dd-95af-8d8a472dcc76",
+		"base": {
+			"name": "applet.new.template.name",
+			"desc": "applet.new.template.desc",
+			"icon": "ic_app1.png"
+		},
+		"exporter": {
+			"name": "관리자",
+			"companyName": "다우기술"
+		}
+	},
+	"components": {
+		"view": {
+			"charts": [],
+			"columns": [{
+				"fieldCid": "status",
+				"columnName": "{{applet.new.template.col.status}}"
+			}, {
+				"fieldCid": "_zzv3du17w"
+			}, {
+				"fieldCid": "_r6vvmz7wl"
+			}, {
+				"fieldCid": "_euxy9l6qi"
+			}, {
+				"fieldCid": "_jqonparsy"
+			}, {
+				"fieldCid": "create_date",
+				"columnName": "{{applet.form.createdat}}"
+			}],
+			"titleColumnIndex": 1,
+			"sortColumnIndex": 5,
+			"sortDirection": "DESC"
+		},
+		"form": {
+			"data": {
+				"type": "canvas",
+				"multiple": false,
+				"cid": "cxx1",
+				"components": [{
+					"type": "text",
+					"valueType": "STEXT",
+					"multiple": false,
+					"cid": "_zzv3du17w",
+					"parentCid": "cxx1",
+					"properties": {
+						"label": "제목",
+						"hideLabel": false,
+						"guide": "",
+						"guideAsTooltip": true,
+						"required": false,
+						"defaultValue": "",
+						"minLength": 0,
+						"maxLength": 100,
+						"width": "80",
+						"widthUnit": "percent",
+						"format": "all"
+					},
+					"components": []
+				}, {
+					"type": "textarea",
+					"valueType": "TEXT",
+					"multiple": false,
+					"cid": "_zi5k4oa1v",
+					"parentCid": "cxx1",
+					"properties": {
+						"label": "내용",
+						"hideLabel": false,
+						"guide": "",
+						"guideAsTooltip": true,
+						"required": false,
+						"defaultValue": "",
+						"width": 100,
+						"widthUnit": "percent",
+						"rows": 10
+					},
+					"components": []
+				}, {
+					"type": "file",
+					"valueType": "FILES",
+					"multiple": false,
+					"cid": "_hdz1ftvb7",
+					"parentCid": "cxx1",
+					"properties": {
+						"label": "파일첨부",
+						"hideLabel": false,
+						"guide": "",
+						"guideAsTooltip": true,
+						"required": false
+					},
+					"components": []
+				}]
+			}
+		},
+		"process": {
+			"useProcess": true,
+			"statuses": [{
+				"name": "{{applet.new.template.status.ready}}",
+				"start": true,
+				"doing": false,
+				"end": false,
+				"color": "0"
+			}, {
+				"name": "{{applet.new.template.status.progress}}",
+				"start": false,
+				"doing": true,
+				"end": false,
+				"color": "0"
+			}, {
+				"name": "{{applet.new.template.status.complete}}",
+				"start": false,
+				"doing": false,
+				"end": true,
+				"color": "0"
+			}],
+			"transitions": [{
+				"beforeStatus": "{{applet.new.template.status.ready}}",
+				"nextStatus": "{{applet.new.template.status.progress}}",
+				"actionName": "{{applet.new.template.action.progress}}",
+				"actionRoles": ["REGISTRANT", "ADMIN"],
+				"pushRoles": []
+			}, {
+				"beforeStatus": "{{applet.new.template.status.progress}}",
+				"nextStatus": "{{applet.new.template.status.complete}}",
+				"actionName": "{{applet.new.template.action.complete}}",
+				"actionRoles": ["REGISTRANT", "ADMIN"],
+				"pushRoles": []
+			}, {
+				"beforeStatus": "{{applet.new.template.status.complete}}",
+				"nextStatus": "{{applet.new.template.status.progress}}",
+				"actionName": "{{applet.new.template.action.cancel}}",
+				"actionRoles": ["REGISTRANT", "ADMIN"],
+				"pushRoles": []
+			}],
+			"addPushes": []
+		}
+	},
+	"messageKeys": [
+		"applet.new.template.status.ready",
+		"applet.new.template.status.progress",
+		"applet.new.template.status.complete",
+		"applet.new.template.action.progress",
+		"applet.new.template.action.complete",
+		"applet.new.template.action.cancel",
+		"applet.new.template.col.status",
+		"applet.form.createdat"
+	]
+}

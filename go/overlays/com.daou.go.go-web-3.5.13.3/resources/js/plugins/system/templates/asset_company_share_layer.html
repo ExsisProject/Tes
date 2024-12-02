@@ -1,0 +1,35 @@
+<table class="detail tb_shareboard">
+<colgroup><col width="110px"><col width="*"></colgroup><tbody>
+<tr>
+<td colspan="2" class="tb_share_select">
+	<select id="asset-company-list">
+	{{#companies}}<option value="{{id}}" {{#selected}}selected{{/selected}}>{{name}}</options>{{/companies}}
+	</select>
+</td>
+</tr>
+<tr>
+<td colspan="2" class="tb_share_tree">
+	<div class="scroll_wrap">
+		<ul id="asset-tree-config" class="tb_stair board-tree-nodes">
+		</ul>
+	</div>
+</td>
+</tr>
+<tr>
+<th><span class="title">{{lang.share_range}}</span></th>
+<td>
+	<div class="vertical_wrap_s">
+		<span class="option_wrap">
+			<input type="radio" name="share" value="public" id="wholePublic" checked="checked"> 
+			<label for="wholePublic">{{lang.share_public}}</label>
+		</span>
+		<span class="option_wrap">
+			<input type="radio" name="share" value="private" id="partPublic"> 
+			<label for="partPublic">{{lang.share_private}}</label>
+		</span>
+	</div>
+	<div id="partPublicWrap"></div>
+</td>
+</tr>
+</tbody>
+</table>

@@ -1,0 +1,31 @@
+<div class="tit" id="userStat" data-id={{stat.user.id}}>
+    <div class="photo"><img src={{stat.user.thumbnail}}></div>
+    <div class="info">
+        <span class="name">{{name}}</span>
+        <span class="part"> | </span>
+        <span class="position">{{position}}</span>
+        <span class="department">{{deptName}}</span>
+    </div>
+
+    {{#normalType}}
+    <div class="optional info info_time">
+        <span class="time_total">{{totalWorkingTime}}</span>
+    </div>
+    {{/normalType}}
+
+    {{#selectiveType}}
+    <div class="optional info info_time">
+    <span class="wrap_time">
+		<span class="label_set label_total">누적</span>
+		<span class="time_total">{{totalWorkingTime}}</span>
+	</span>
+    <span class="wrap_time">
+		<span class="label_set label_rest">잔여</span>
+		<span class="time_total">{{remainingMinimumWorkingTime}} ~ {{remainingTotalWorkingTime}}</span>
+	</span>
+    </div>
+
+    {{/selectiveType}}
+</div>
+<ul id="monthLists" class="list_attend list_attend_personal" style="display:none"></ul>
+

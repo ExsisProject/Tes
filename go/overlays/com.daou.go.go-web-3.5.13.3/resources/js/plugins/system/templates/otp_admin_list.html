@@ -1,0 +1,164 @@
+<style>
+    div.content_body {border:1px solid #d9d9d9; border-radius:4px; margin-bottom:20px; min-width:900px}
+    div.content_body h5 {background:#f0f0f0; border-bottom:1px solid #d9d9d9; padding:5px; position:relative;color:#444; font-size:14px; min-height:29px; line-height:26px; border-radius:5px 5px 0 0}
+    div.content_body h5 .btn_right {position:absolute; right:5px; top:5px}
+    div.content_body h5 .btn_right td {padding-left:5px; font-size:12px; font-weight:normal}
+    div.content_body table th.last {border-right:none;}
+    div.content_body table td {padding:8px 10px 6px; border-bottom:1px solid #ddd; border-right: 1px solid #ddd}
+    div.content_body th {background:#f8f8f8; text-align:left; padding:8px 10px 6px ; border-bottom:1px solid #ddd; border-right: 1px solid #ddd }
+    div.content_body td.last {border-right:none}
+    div.content_body tr.last td, div.content_body tr.last th {border-bottom:none}
+    div.content_body div.btn_right td {padding:0 0 0 5px!important; border:none}
+    div.content_body table td.graph table td table td {border:0}
+    div.content_body table td talble.TM_HiddenTextTable td {padding:0}
+    div.pageNum {margin:15px 0 30px 0; font-size:11px; text-align:center}
+    div.pageNum span {color:#d3d3d3}
+    p.centerAlign{text-align:center; padding:3px 4px 1px 4px; font-size:24px}
+    p.leftAlign{text-align:left; padding:3px 4px 1px 4px; font-size:24px}
+    a.btn_style1 {background:#666; border:1px solid #555; border-radius:2px; color:#efefef; display:inline-block; font-size:14px; font-weight:bold; margin-right:4px; padding:10px 17px 8px}
+    a.btn_style1:hover {color:#fff; background:#555; border-color:#4b4b4b; box-shadow:1px 1px 1px rgba(0, 0, 0, 0.3);}
+    a.btn_style2 {background:#f4f4f4; border:1px solid #ddd; border-radius:2px; color:#666; display:inline-block; font-size:14px; font-weight:bold; margin-right:4px; padding:10px 17px 8px}
+    a.btn_style2:hover {color:#444; background:#e8e8e8; border-color:#cecece; box-shadow:1px 1px 1px rgba(0, 0, 0, 0.1);}
+    div.pageNum span.choiseNum {border:1px solid #d3d3d3;padding:3px 4px 1px 4px;font-weight:bold; color:#475f92;}
+    div.pageNum a.num {padding:0px 5px;font-weight:bold;}
+    div.Btn {text-align:center; margin:20px 0}
+</style>
+<div id="view_user_list" class="content_body">
+    <h5>
+        <div class="btn_right">{{lang.label_admin}} {{lang.label_search}} :
+            <select name="searchKey" id="searchKey">
+                <option value="mail_uid">{{lang.label_id}}</option>
+                <option value="user_name">{{lang.label_user_name}}</option>
+            </select>
+            <input type="text" name="compareValue" value="" id="compareValue" onkeyup="onEnter()">
+            <a href="javascript:searchForm(0)">
+                <span class="btn_tool txt_caution" id="btn_search">{{lang.label_search}}</span>
+            </a>
+        </div>
+    </h5>
+    <form id="userListForm" name="userListForm" method="post">
+        <input type="hidden" name="org.apache.struts.taglib.html.TOKEN" value="58493a4920475e1530b6809ee3789074">
+
+        <table class="listTable">
+            <colgroup><col width="20px">
+                <col width="120px">
+                <col width="150px">
+                <col width="150px">
+                <col width="200px">
+                <col>
+            </colgroup><tbody id="list_start_point">
+        <tr>
+            <th>
+                <p>{{lang.label_id}}</p>
+            </th>
+            <th>
+                <p>{{lang.label_user_name}}</p>
+            </th>
+            <th>
+                <p>{{lang.label_domain}}</p>
+            </th>
+            <th>
+                <p>{{lang.label_company_name}}</p>
+            </th>
+            <th>
+                <p>{{lang.label_admin_type}}</p>
+            </th>
+        </tr>
+        </tbody></table>
+    </form>
+    <div id="pageCounter" class="pageNum">
+
+    </div>
+</div>
+<div id="view_user_details">
+    <div class="content_body">
+        <h5>{{lang.label_admin}} OTP</h5>
+        <div id="view_user_details_content_body">
+            <table class="listTable">
+                <colgroup>
+                    <col width="160px"></col>
+                </colgroup>
+                <tbody>
+                <tr id="editExternalMailArea">
+                    <th class="rightAlignTh">{{lang.label_external_mail}}</th>
+                    <td class="last">
+                        <input id="nameArea" disabled='disabled'/>
+                        <button id="editExternalMail" name="favorite" type="button" onclick="changeExternalMailBtuStatus(false);">{{lang.label_modify}}</button>
+                    </td>
+                </tr>
+                <tr>
+                    <th class="rightAlignTh">{{lang.label_used_or_not}}</th>
+                    <td id="usedTypeArea" class="last">
+                        <input type="radio" name="chk_info1" id="admin_otp_used">{{lang.label_used}}</input>
+                        <input type="radio" name="chk_info1" id="admin_otp_not_used">{{lang.label_not_used}}</input>
+                    </td>
+                </tr>
+                <tr id="editOtpTypeArea">
+                    <th class="rightAlignTh">OTP {{lang.label_type}}</th>
+                    <td id="mediaTypeArea" class="last">
+                        <input type="radio" name="chk_info2" id="admin_otp_media_type_mobile" onclick="onToggleOtpType(this);">{{lang.label_mobile}} OTP</input>
+                        <input type="radio" name="chk_info2" id="admin_otp_media_type_mail" onclick="onToggleOtpType(this);">{{lang.label_mail}} OTP</input>
+                        <div id="infor_table_mobile_none">
+                            <p class="leftAlign">{{lang.label_no_data}}</p>
+                        </div>
+                        <table id="infor_table_mobile">
+                            <th>{{lang.label_OS_type}}</th>
+                            <th>{{lang.label_device_model_name}}</th>
+                            <th>{{lang.label_device_id}}</th>
+                            <th>{{lang.label_registration_date}}</th>
+                            <th>{{lang.label_manage}}</th>
+                            <tr>
+                                <td id="infor_table_mobile_1_os_type">1</td>
+                                <td id="infor_table_mobile_2_model">2</td>
+                                <td id="infor_table_mobile_3_device_id">3</td>
+                                <td id="infor_table_mobile_4_registration_date">4</td>
+                                <td id="infor_table_mobile_5_manage"><button id="deleteMobileDevice" name="favorite" type="button" onclick="onResetDevice();">{{lang.label_delete_device}}</button></td>
+                            </tr>
+                        </table>
+                        <div id="infor_table_mail_none">
+                            <p class="leftAlign">{{lang.label_no_data}}</p>
+                        </div>
+                        <table id="infor_table_mail">
+                            <th>{{lang.label_external_mail}}</th>
+                            <th>{{lang.label_registration_date}}</th>
+                            <th>{{lang.label_manage}}</th>
+                            <tr>
+                                <td id="infor_table_mail_1_mail_addr">1</td>
+                                <td id="infor_table_mail_2_registration_date">2</td>
+                                <td id="infor_table_mail_3_manage"><button id="resetMailOtp" name="favorite" type="button" onclick="onResetOtp();">{{lang.label_mail_otp_reset}}</button></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div id="view_user_details_alert_area" class="content_body">
+            <table class="listTable">
+                <colgroup>
+                    <col width="160px"></col>
+                </colgroup>
+            <tbody>
+                <tr>
+                    <th class="rightAlignTh">{{lang.label_used_or_not}}</th>
+                    <td id="usedTypeArea_2" class="last">
+                        <input type="radio" name="chk_info3" id="admin_otp_used_2">{{lang.label_used}}</input>
+                        <input type="radio" name="chk_info3" id="admin_otp_not_used_2">{{lang.label_not_used}}</input>
+                    </td>
+                </tr>
+                <tr>
+                    <th colspan="2">
+                        <p class="centerAlign">{{lang.label_no_device_yet}}</p>
+                    </th>
+                </tr>
+            </tbody>
+            </table>
+        </div>
+
+    </div>
+    <div class="Btn">
+        <a href="javascript:doSave();" class="btn_style1"><span style="color:#FFFFFF">{{lang.label_modify}}</span></a>&nbsp;
+        <a href="javascript:doCancel();" class="btn_style2"><span>{{lang.label_cancel}}</span></a>&nbsp;
+        <a href="javascript:doCancel();" class="btn_style2"><span>{{lang.label_list}}</span></a>
+    </div>
+</div>

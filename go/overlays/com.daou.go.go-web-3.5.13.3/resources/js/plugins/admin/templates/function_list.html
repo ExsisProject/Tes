@@ -1,0 +1,61 @@
+{{#dataset}}
+<div class="dataTables_wrapper container">
+    <div class="header">
+        <h2>{{lang.function_list}}</h2>
+    </div>
+    <div class="content_tb">
+        <table class="chart size list_menu01" id="tableFMenus">
+            <colgroup>
+                <col width="*">
+                <col width="150">
+                <col width="150">
+                <col width="100">
+            </colgroup>
+            <thead>
+                <tr>
+                    <th class="sorting_disable menu">
+                        <span class="title_sort">{{lang.label_fmenu}}</span>
+                    </th>
+                    <th class="sorting_disable onoff">
+                        <span class="title_sort">{{lang.label_able}}</span>
+                    </th>
+                    <th class="sorting_disable onoff">
+                        <span class="title_sort">{{lang.label_access}}</span>
+                    </th>
+                    <th class="sorting_disable set">
+                        <span class="title_sort">{{lang.label_setting}}</span>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#functionMenuConfigModel}}
+                <tr data-id="{{id}}" class="topMenu">
+                    <td class="align_c" name="type">{{nameValue}}</td>
+                    <td class="align_c" name="status">
+                        {{#isOnline}}{{lang.label_online}}{{/isOnline}}
+                        {{^isOnline}}{{lang.label_stop}}{{/isOnline}}
+                    </td>
+                    <td class="align_c" name="accessPolicy">
+                        {{#isBlack}}{{lang.label_black}}{{/isBlack}}
+                        {{^isBlack}}{{lang.label_white}}{{/isBlack}}
+                    </td>
+                    <td class="align_c" class="last">
+                        <span class="btn_s btn_setting_fmenu">{{lang.label_setting}}</span>
+                    </td>
+                </tr>
+                {{/functionMenuConfigModel}}
+                {{^functionMenuConfigModel}}
+                 <tr>
+                  <td colspan="6">
+                       <p class="data_null">
+                           <span class="ic_data_type ic_no_data"></span>
+                           <span class="txt">{{lang.label_non_fmenu}}</span>
+                        </p>
+                  </td>
+                </tr>
+                {{/functionMenuConfigModel}}
+            </tbody>
+        </table>
+    </div>
+</div>
+{{/dataset}}

@@ -1,0 +1,1 @@
+define(["backbone","task/models/task_folder","collections/paginated_collection"],function(e,t,n){var r=n.extend({model:t,url:function(){return GO.contextRoot+"api/task/folder/stop?"+this.makeParam()}});return r});

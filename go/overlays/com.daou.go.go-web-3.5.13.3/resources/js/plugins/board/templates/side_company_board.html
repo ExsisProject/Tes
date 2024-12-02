@@ -1,0 +1,28 @@
+		{{#dataset}}
+		{{#isSeparator}}		
+		<li class="delimiter">
+			<p class="title">
+			<ins class="ic"></ins><span class="txt">{{name}}</span>
+			</p>
+		</li>
+		{{/isSeparator}}
+		{{^isSeparator}}
+		<li class="{{getBoardTypeClass}}" data-writable="{{actions.writable}}">
+			<p class="title">
+				<a class="go_boards" data-id="{{boardId}}" data-deptId="{{companyId}}"  data-type = "Company" data-bypass>
+					<ins class="ic"></ins>{{#sharedFlag}}<span class="ic_side ic_private"></span>{{/sharedFlag}}<span class="txt">{{name}}</span>
+				</a>
+				{{#hasRecentPost}}
+				<span class="ic_classic ic_new2"></span>
+				{{/hasRecentPost}}
+			</p>
+		</li>
+		{{/isSeparator}}
+		{{/dataset}}
+		{{#hasClosedDept}}
+		<li class="closed">
+			<p class="title">
+				<a href="{{closedUrl}}"><ins class="ic"></ins><span class="txt">{{lang.closed_board}}</span></a>
+			</p>
+		</li>
+		{{/hasClosedDept}}

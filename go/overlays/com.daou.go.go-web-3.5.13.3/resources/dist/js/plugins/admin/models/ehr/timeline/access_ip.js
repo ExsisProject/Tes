@@ -1,0 +1,1 @@
+define("admin/models/ehr/timeline/access_ip",function(require){var e=require("backbone"),t=require("app"),n=e.Model.extend({urlRoot:t.contextRoot+"ad/api/timeline/ip"});return n});

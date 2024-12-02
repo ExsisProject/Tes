@@ -1,0 +1,27 @@
+<td class="chk">
+    <input type="checkbox" />
+</td>
+<td class="">
+    <textarea name="inputEventQuery" class="w_full input" style="min-width:80px" row-id={{model.id}}>{{model.query}}</textarea>
+</td>
+<td class="para">
+    {{#parameters}}
+        <div class="input_wrap">
+            <input type="text" name="parametersName" class="w_max" value="{{paramName}}" data-seq="{{seq}}" />
+        </div>
+    {{/parameters}}
+</td>
+<td class="para">
+    {{#parameters}}
+        <div class="input_wrap">
+            <select name="parametersType" data-seq="{{seq}}">
+                <option value="STRING" {{#isSTRING}} selected="selected" {{/isSTRING}}>{{lang.STRING}}</option>
+                <option value="NUMBER" {{#isNUMBER}} selected="selected" {{/isNUMBER}}>{{lang.NUMBER}}</option>
+                <option value="BOOLEAN" {{#isBOOLEAN}} selected="selected" {{/isBOOLEAN}}>{{lang.BOOLEAN}}</option>
+            </select>
+        </div>
+    {{/parameters}}
+</td>
+<td>
+    <input type="text" name="returnMethod" value="{{model.returnMethod}}" />
+</td>

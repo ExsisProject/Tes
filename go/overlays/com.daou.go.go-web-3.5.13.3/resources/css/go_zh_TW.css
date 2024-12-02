@@ -1,0 +1,8 @@
+body, input, textarea, select, a, p, span, div,ul,h1,h1 span.txt,ul.briefing_list li p.title span.date,a.btn_bk,.go_intro p.title,span.title,span.btn_feedwrite span.txt ,div.current_date span.date span.week,div.layer_mail_popup h2 span.title,ul.briefing_list li p.title span.date{font-family:arial,微软雅黑!important}
+*{font-family:arial,微软雅黑!important}
+section.combine_search .c_search_wrap a.c_btn_detail .txt {letter-spacing:0}
+a.messenger_down span.title {font-size: 12px}
+table.form_type.mail_write div.div_ipt_wrap select.date_list {right:70px!important; width:140px!important;}
+.go_side section.side_nav span.select_nav {width: 170px}/*works 앱이동 셀렉트*/
+section.my_info .btn_docare .txt,
+.layer_docare_alarm {display: none}

@@ -1,0 +1,18 @@
+
+<div class="content">
+    {{^places}}
+    <p class="data_null">
+        {{{AdminLang.등록된 근무지 없음 알림}}}
+    </p>
+    {{/places}}
+
+    <!--todo : places size > 0 인 경우-->
+    <div class="wrap_ip_permit">
+        <p class="title">{{AdminLang.근무지 선택}}</p>
+        <select class="slt_ip_list" id="workPlaceSelectBox" name="workPlaceSelectBox" multiple="multiple">
+            {{#places}}
+            <option value="{{id}}">{{name}}</option>
+            {{/places}}
+        </select>
+    </div>
+</div>

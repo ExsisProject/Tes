@@ -1,0 +1,72 @@
+<h3 id="calendar-mine-header">
+	<a data-calendarid="{{myCalId}}" data-calname="{{lang.my_calendar}}" data-bypass data-type="feedPart">
+		<span class="btn_wrap">
+			<span class="txt_ellipsis">{{lang.my_calendar}}</span>
+		</span>
+	</a>
+</h3>
+<ul id="calendar-mine">
+    {{#myCal}}
+    <li>
+        <a data-bypass>
+				<span class="btn_wrap">
+					<input type="checkbox" data-calendar-owner-id = "{{owner.id}}" data-calendarid="{{id}}" name="{{name}}" data-bypass data-type="my"
+                           data-event-type="checkList">
+					<span class="txt_ellipsis">{{myCalName}}</span>
+					<span class="chip bgcolor{{color}}"></span>
+				</span>
+        </a>
+    </li>
+    {{/myCal}}
+</ul>
+<h3 id="calendar-feeds-header">
+	<span class="btn_wrap">
+		<span class="txt_ellipsis">{{lang.feeds}}</span>
+	</span>
+</h3>
+<ul id="calendar-feeds">
+    <li>
+        <a data-bypass>
+			<span class="btn_wrap">
+				<input type="checkbox" name="{{lang.all}}" id="allFeedCheckbox" data-type="all">
+				<span class="txt_ellipsis">{{lang.all}}</span>
+			</span>
+        </a>
+    </li>
+    {{#data}}
+    {{#checkState}}
+    <li>
+        <a data-bypass>
+				<span class="btn_wrap">
+					<input type="checkbox" name="{{feedName}}" data-calendar-owner-id = "{{calendar.owner.id}}" data-calendarid="{{calendar.id}}" data-bypass
+                           data-type="feed" data-event-type="checkList">
+					<span class="txt_ellipsis">{{feedName}}</span>
+					 <span class="chip bgcolor{{color}}"></span>
+				</span>
+        </a>
+    </li>
+    {{/checkState}}
+    {{/data}}
+</ul>
+
+<h3 id="calendar-company-header">
+	<a data-calendarid="{{companyCalId}}" data-calname="{{lang.company_calendar}}" data-bypass>
+		<span class="btn_wrap">
+			<span class="txt_ellipsis">{{lang.company_calendar}}</span>
+		</span>
+	</a>
+</h3>
+<ul id="calendar-company">
+    {{#companyCal}}
+    <li>
+        <a data-bypass>
+				<span class="btn_wrap">
+					<input type="checkbox" name="{{name}}" data-calendarid="{{id}}" data-bypass data-type="company"
+                           data-event-type="checkList">
+					<span class="txt_ellipsis">{{name}}</span>
+					<span class="chip bgcolor{{color}}"></span>
+				</span>
+        </a>
+    </li>
+    {{/companyCal}}
+</ul>

@@ -1,0 +1,17 @@
+<div class="activity {{#isEnabled}}item{{/isEnabled}}{{^isEnabled}} off{{/isEnabled}} drag" data-userId="{{userId}}" data-deptId="{{deptId}}">
+    <a class="btn_drag">
+        <span class="ic_v2 ic_drag"></span>
+    </a>
+    <a class="photo s">
+        <img src="{{thumbnail}}">
+    </a>
+    <span class="name omit">{{userName}}</span>
+    <span class="depart omit">{{deptName}}</span>
+    {{#isEnabled}}
+    {{#isDeletable}}
+    <a class="btn_del">
+        <span class="ic_v2 ic_del"></span>
+    </a>
+    {{/isDeletable}}
+    {{/isEnabled}}
+</div>

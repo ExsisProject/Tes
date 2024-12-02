@@ -1,0 +1,169 @@
+<div class="container">
+    <div class="header">
+        <h2>
+            <span class="title">{{lang.label_base_info}}</span>
+        </h2>
+    </div>
+    <table class="table_info tb_site_info">
+        <tbody>
+            <tr>
+                <th>{{lang.label_company_name}}</th>
+                <td>{{model.name}}</td>
+                <th>{{lang.label_officer}}</th>
+                <td>{{model.managerName}}</td>
+            </tr>
+            <tr>
+                <th>{{lang.label_site_url}}</th>
+                <td>{{model.siteUrl}}</td>
+                <th>{{lang.label_site_id}}</th>
+                <td>{{model.id}}</td>
+            </tr>
+            <tr>
+                <th>{{lang.label_domain_name}}</th>
+                <td>{{model.domainName}}</td>
+                <th>{{lang.label_startday}}</th>
+                <td>{{dateformat}}</td>
+            </tr>
+            <tr>
+                <th>{{lang.label_user_count}}</th>
+                <td>{{usedAccount}} {{lang.label_count}} / {{model.userCount}} {{lang.label_count}}</td>
+                <th>{{lang.label_online}}</th>
+                <td>{{model.onlineUserCount}}</td>
+            </tr>
+            <tr>
+                <th>{{lang.label_total_account_quota}}</th>
+                <td>{{baseCompanyConfig.totalAccountQuota}}</td>
+                <th>{{lang.label_total_company_quota}}</th>
+                <td>{{baseCompanyConfig.companyQuota}}</td>
+            </tr>
+            <tr>
+                <th>{{lang.label_period}}</th>
+                <td>{{{companyPeriod}}}</td>
+                <th></th>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="container">
+    <div class="header">
+        <h2>
+            <span class="title">{{lang.label_mail_stat}}</span>
+        </h2>
+    </div>
+    <div class="chartWrap">
+        <div class="chartState">
+            <span class="title">{{lang.label_mail_24_hour}}</span>
+            <span class="chart">
+			<img id="mail24Hour" src="" alt="">
+			<span class="x_option">{{lang.label_stat_hour}}</span>
+			<span class="y_option">{{lang.label_stat_message}}<br></span>
+		</span>
+            <ul>
+                <li><span class="bullet_color"
+                          style="width:13px; height:13px; border:#000000 solid 1px; background:#4169E1;"></span><span
+                        class="label">{{lang.label_stat_normal}} </span></li>
+                <li><span class="bullet_color"
+                          style="width:13px; height:13px; border:#000000 solid 1px; background:#DC143C;"></span><span
+                        class="label">{{lang.label_stat_spam}} </span></li>
+                <li><span class="bullet_color"
+                          style="width:13px; height:13px; border:#000000 solid 1px; background:#FF9900;"></span><span
+                        class="label">{{lang.label_stat_phishing}} </span></li>
+                <li><span class="bullet_color"
+                          style="width:13px; height:13px; border:#000000 solid 1px; background:#FF00FF;"></span><span
+                        class="label">{{lang.label_stat_virus}} </span></li>
+            </ul>
+        </div>
+        <div class="chartState">
+            <span class="title">{{lang.label_mail_30_day}}</span>
+            <span class="chart">
+			<img id="mail30Day" src="" alt="">
+			<span class="x_option">{{lang.label_stat_hour}}</span>
+			<span class="y_option">{{lang.label_stat_message}}<br></span>
+		</span>
+            <ul>
+                <li><span class="bullet_color"
+                          style="width:13px; height:13px; border:#000000 solid 1px; background:#4169E1;"></span><span
+                        class="label">{{lang.label_stat_normal}} </span></li>
+                <li><span class="bullet_color"
+                          style="width:13px; height:13px; border:#000000 solid 1px; background:#DC143C;"></span><span
+                        class="label">{{lang.label_stat_spam}} </span></li>
+                <li><span class="bullet_color"
+                          style="width:13px; height:13px; border:#000000 solid 1px; background:#FF9900;"></span><span
+                        class="label">{{lang.label_stat_phishing}} </span></li>
+                <li><span class="bullet_color"
+                          style="width:13px; height:13px; border:#000000 solid 1px; background:#FF00FF;"></span><span
+                        class="label">{{lang.label_stat_virus}} </span></li>
+            </ul>
+        </div>
+    </div>
+</div>
+{{#isSaaS}}
+<!--고객케어라운지 콘텐츠 영역 시작_v3.1.5.0-->
+<div class="container_frame wrap_article">
+    <ul class="article">
+        <li class="item">
+            <a href="javascript:window.open('https://care.daouoffice.co.kr/hc/ko/categories/115000384554')" target="_blank">
+                <div class="wrap_img">
+                    <img src="/go/resources/images/admin/article_01.png" alt="">
+                </div>
+                <div class="wrap_desc">
+                    <p class="tit"><span class="emphasis">{{lang.label_approval_title1}}</span> 100{{lang.label_approval_title2}}</p>
+                    <p class="sub">100{{lang.label_approval_contents}}</p>
+                    <p class="hashtag">{{lang.label_approval_hashtags}}</p>
+                </div>
+                <div class="wrap_author">
+                    <span class="profile"><img src="/go/resources/images/admin/icon_do.png" alt="{{lang.label_caremanager}}"></span>
+                    <span class="nick">{{lang.label_caremanager}}</span>
+                </div>
+            </a>
+        </li>
+        <li class="item">
+            <a href="javascript:window.open('https://care.daouoffice.co.kr/hc/ko/categories/360000837713')" target="_blank">
+                <div class="wrap_img">
+                    <img src="/go/resources/images/admin/article_02.png" alt="">
+                </div>
+                <div class="wrap_desc">
+                    <p class="tit"><span class="emphasis">{{lang.label_works_title}}</span></p>
+                    <p class="sub">{{lang.label_works_contents}}</p>
+                    <p class="hashtag">{{lang.label_works_hashtags}}</p>
+                </div>
+                <div class="wrap_author">
+                    <span class="profile"><img src="/go/resources/images/admin/icon_do.png" alt="{{lang.label_caremanager}}"></span>
+                    <span class="nick">{{lang.label_caremanager}}</span>
+                </div>
+            </a>
+        </li>
+        <li class="item">
+            <a href="javascript:window.open('https://care.daouoffice.co.kr/hc/ko/categories/115000387113')" target="_blank">
+                <div class="wrap_img">
+                    <img src="/go/resources/images/admin/article_03.png" alt="">
+                </div>
+                <div class="wrap_desc">
+                    <p class="tit"><span class="emphasis">{{lang.label_manager_title}}</span></p>
+                    <p class="sub">{{lang.label_manager_contents}}</p>
+                    <p class="hashtag">{{lang.label_manager_hashtags}}</p>
+                </div>
+                <div class="wrap_author">
+                    <span class="profile"><img src="/go/resources/images/admin/icon_do.png" alt="{{lang.label_caremanager}}"></span>
+                    <span class="nick">{{lang.label_caremanager}}</span>
+                </div>
+            </a>
+        </li>
+        <li class="banner">
+            <div class="wrap_banner">
+                <a href="javascript:window.open('https://bit.ly/3pQqDsD')" target="_blank">
+                    <img src="/go/resources/images/admin/banner_02.png" alt="{{lang.label_linkplus}}">
+                </a>
+            </div>
+        </li>
+    </ul>
+</div>
+<BR>
+<BR>
+<BR>
+<!--고객케어라운지 콘텐츠 영역 끝_v3.1.5.0-->
+{{/isSaaS}}
+<div class="layer_adminguide" id="admin_guide_button" style="bottom:30px;right:30px"></div>
+

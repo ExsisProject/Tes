@@ -1,0 +1,37 @@
+<div class="content_page">
+	<header class="content_top">
+	</header>
+	<div class="tool_bar" id="toolBar" style="display:none">
+		<div class="critical">
+			<span class="title">{{lang.community_member}}</span>
+			<span class="num">(<strong><span id="memberTotalElements"></span></strong>{{lang.count}})</span>
+		</div>
+	</div>
+
+	<!-- 테이블 -->
+	<table class="type_normal" id="memberList">
+		<caption>{{lang.community_member_list}}</caption>
+		<thead>
+			<tr>
+				<th><span class="title_sort">{{lang.name}}<ins class="ic"></ins></span></th>
+				<th>{{lang.dept}}<ins class="ic"></ins></th>
+				{{#mailExposure}}<th>{{lang.email}}<ins class="ic"></ins></th>{{/mailExposure}}
+				<th>{{lang.join_date}}<ins class="ic"></ins></th>
+				<th>{{lang.post_count}}<ins class="ic"></ins></th>
+			</tr>
+		</thead>
+	</table>
+
+
+	<div class="table_search">
+		<select style="display:none">
+			<option value="name">{{lang.name}}</option>
+		</select>
+		<section class="search2">
+			<div id="memberSearch2" class="search_wrap">
+				<input class="search2" type="text" placeholder="{{lang.name}}">
+				<span id="memberSearch" class="btn_search2" title="{{lang.search}}"></span>
+			</div>
+		</section>
+	</div>
+</div>

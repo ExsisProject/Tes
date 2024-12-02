@@ -1,0 +1,260 @@
+
+<!--기본 문서 생성시 메타정보를 통해 처리가 되므로 메타정보 수정시 확인후 변경 필요 -->
+<meta content="(신규)연장근무신청-근태관리연동" folder-name="근태" name="form:name">
+<meta name="form:config" content="appr-form-timelineIntegration.json">
+
+<body id="go-approval-form">
+    <table class="__se_tbl" style="width: 800px; border-collapse: collapse !important; color: black; background: white; border: 0px solid black; font-size: 12px; font-family: malgun gothic,dotum,arial,tahoma;"><!-- Header -->
+        <tbody>
+            <tr>
+                <td style="width:300px; padding: 3px !important; border: 0px solid black; height: 90px !important; font-size: 22px; font-weight: bold; text-align: center; vertical-align: middle;" colspan="2" class="dext_table_border_t dext_table_border_r dext_table_border_b dext_table_border_l">연장근무신청서</td>
+            </tr>
+            <tr>
+                <td style="width:300px; border: 0; padding: 0 !important" class="dext_table_border_t dext_table_border_r dext_table_border_b dext_table_border_l">
+                    <table class="__se_tbl" style="background: white; margin: 0px; border: 1px solid black; border-image: none; color: black; font-family: malgun gothic,dotum,arial,tahoma; font-size: 12px; border-collapse: collapse !important;"><!-- User -->
+                        <tbody>
+                            <tr>
+                                <td style="width: 100px; height: 22px; vertical-align: middle; border: 1px solid black; text-align: center; font-weight: bold; background: rgb(221, 221, 221); padding: 3px !important;">기안자</td>
+                                <td style="width: 200px; height: 22px; vertical-align: middle; border: 1px solid black; text-align: left; padding: 3px !important;">
+                                    <span data-type="system" data-dsl="{{label:draftUser}}" data-id="draftUser" data-name="draftUser" data-value="" data-require="false" data-maxlength="" data-width="" data-defaultstr="" data-editable="true"></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width:100px;padding: 3px !important; height: 22px; vertical-align: middle; border: 1px solid black; text-align: center; font-weight: bold; background: #ddd;">기안부서</td>
+                                <td style="width:200px;padding: 3px !important; height: 22px; vertical-align: middle; border: 1px solid black; text-align: left;">
+                                    <span data-type="system" data-dsl="{{label:draftDept}}" data-id="draftDept" data-name="draftDept" data-value="" data-require="false" data-maxlength="" data-width="" data-defaultstr="" data-editable="true"></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width:100px;padding: 3px !important; height: 22px; vertical-align: middle; border: 1px solid black; text-align: center; font-weight: bold; background: #ddd;">기안일</td>
+                                <td style="width:200px;padding: 3px !important; height: 22px; vertical-align: middle; border: 1px solid black; text-align: left;">
+                                    <span data-type="system" data-dsl="{{label:draftDate}}" data-id="draftDate" data-name="draftDate" data-value="" data-require="false" data-maxlength="" data-width="" data-defaultstr="" data-editable="true"></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width:100px;padding: 3px !important; height: 22px; vertical-align: middle; border: 1px solid black; text-align: center; font-weight: bold; background: #ddd;">문서번호</td>
+                                <td style="width:200px;padding: 3px !important; height: 22px; vertical-align: middle; border: 1px solid black; text-align: left;">
+                                    <span data-type="system" data-dsl="{{label:docNo}}" data-id="docNo" data-name="docNo" data-value="" data-require="false" data-maxlength="" data-width="" data-defaultstr="" data-editable="true"></span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+                <td style="width: 500px; text-align: right; padding: 0px!important; border: 0!important; vertical-align: top !important" class="dext_table_border_t dext_table_border_r dext_table_border_b dext_table_border_l">
+                    <!-- 결재선 기본값으로 신청 1명, 승인 7명으로 설정-->
+                    <div class="sign_type1 sign_type_new" data-group-type="type1" data-group-max-count="1" data-group-name="신청" data-group-seq="0">
+                        <table class="tb_sign_type1">
+                            <tbody>
+                                <tr>
+                                    <th>신청</th>
+                                    <td>
+                                        <table class="sign_member">
+                                            <tbody>
+                                                <tr>
+                                                    <td><span class="sign_rank"></span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><span class="sign_name"></span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="last"><span class="sign_date"></span></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="sign_type1 sign_type_new" data-group-type="type1" data-group-max-count="7" data-group-name="승인" data-group-seq="1">
+                        <table class="tb_sign_type1">
+                            <tbody>
+                                <tr>
+                                    <th>승인</th>
+                                    <td>
+                                        <table class="sign_member">
+                                            <tbody>
+                                                <tr>
+                                                    <td><span class="sign_rank"></span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><span class="sign_name"></span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="last"><span class="sign_date"></span></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table class="sign_member">
+                                            <tbody>
+                                                <tr>
+                                                    <td><span class="sign_rank"></span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><span class="sign_name"></span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="last"><span class="sign_date"></span></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table class="sign_member">
+                                            <tbody>
+                                                <tr>
+                                                    <td><span class="sign_rank"></span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><span class="sign_name"></span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="last"><span class="sign_date"></span></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table class="sign_member">
+                                            <tbody>
+                                                <tr>
+                                                    <td><span class="sign_rank"></span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><span class="sign_name"></span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="last"><span class="sign_date"></span></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table class="sign_member">
+                                            <tbody>
+                                                <tr>
+                                                    <td><span class="sign_rank"></span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><span class="sign_name"></span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="last"><span class="sign_date"></span></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table class="sign_member">
+                                            <tbody>
+                                                <tr>
+                                                    <td><span class="sign_rank"></span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><span class="sign_name"></span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="last"><span class="sign_date"></span></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table class="sign_member">
+                                            <tbody>
+                                                <tr>
+                                                    <td><span class="sign_rank"></span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><span class="sign_name"></span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="last"><span class="sign_date"></span></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    <span id="timelineApprovalFormSection">
+        <table id="timelineApprovalForm" class="__se_tbl" style="width: 800px; margin-top : 0px; margin-bottom:20px; border-collapse: collapse !important; color: black; background: white; font-size: 12px; font-family: malgun gothic,dotum,arial,tahoma;">
+            <tbody>
+                <tr>
+                    <td colspan="4" style="width:800px; background: rgb(255, 255, 255); padding: 5px; border: 1px solid black; height: 25px; text-align: left; color: rgb(0, 0, 0); font-size: 14px; font-weight: bold; vertical-align: middle;">신청&nbsp;현황</td>
+                </tr>
+                <tr>
+                    <td style="width:200px;background: rgb(221, 221, 221); padding: 5px; border: 1px solid black; height: 25px; text-align: center; color: rgb(0, 0, 0); font-size: 14px; font-weight: bold; vertical-align: middle;"> <b style="color: rgb(255, 0, 0);">*</b>근무구분</td>
+
+                    <td id="name" colspan="3" style="background: rgb(255, 255, 255); padding: 5px; border: 1px solid black; height: 25px; text-align: left; color: rgb(0, 0, 0); font-size: 14px; font-weight: normal; vertical-align: middle;">
+                        <span unselectable="on" contenteditable="false" class="comp_wrap" data-cid="8" data-dsl="{{radio_연장_야간_휴일}}" data-wrapper="" style="" data-value="" data-autotype=""><input class="editor_opt" type="radio" name="" value="연장"><label class="editor_label">연장</label><input class="editor_opt" type="radio" name="" value="야간"><label class="editor_label">야간</label><input class="editor_opt" type="radio" name="" value="휴일"><label class="editor_label">휴일</label><span contenteditable="false" class="comp_active" style="display: none;"> <span class="Active_dot1"></span><span class="Active_dot2"></span> <span class="Active_dot3"></span><span class="Active_dot4"></span> </span> <span contenteditable="false" class="comp_hover" data-content-protect-cover="true" data-origin="8"> <a contenteditable="false" class="ic_prototype ic_prototype_trash" data-content-protect-cover="true" data-component-delete-button="true"></a> </span> </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width:200px;background: rgb(221, 221, 221); padding: 5px; border: 1px solid black; height: 25px; text-align: center; color: rgb(0, 0, 0); font-size: 14px; font-weight: bold; vertical-align: middle;"> <b style="color: rgb(255, 0, 0);">*</b>근무일시</td>
+                    <td colspan="3" style="background: rgb(255, 255, 255); padding: 5px; border: 1px solid black; height: 25px; text-align: left; color: rgb(0, 0, 0); font-size: 14px; font-weight: normal; vertical-align: middle;">
+                        <span data-type="calendar" data-dsl="{{calendar:startDate}}" data-id="startDate" data-name="startDate" data-value="" data-require="false" data-maxlength="" data-width="" data-defaultstr="" data-editable="true">
+                        </span>
+                        <span id="startTime">
+                            <span data-type="select" data-dsl="{{time}}" data-id="startTime" data-name="" data-value="startTime">
+                            </span>
+                        </span>
+                        ~&nbsp;
+                        <span id="endTime">
+                            <span data-type="select" data-dsl="{{time}}" data-id="endTime" data-name="" data-value="endTime">
+                            </span>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width:200px;background: rgb(221, 221, 221); padding: 5px; border: 1px solid black; height: 25px; text-align: center; color: rgb(0, 0, 0); font-size: 14px; font-weight: bold; vertical-align: middle;"><b style="color: rgb(255, 0, 0);">*</b>근무시간</td>
+                    <td colspan="3" style="padding: 3px; border: 1px solid black; width: 700px; height: 22px; text-align: left; color: rgb(0, 0, 0); font-size: 12px; vertical-align: middle; background: rgb(255, 255, 255);">
+                        <span id="totalTime" style="font-family: malgun gothic, dotum, arial, tahoma; font-size: 9pt; line-height: normal; margin-top: 0px; margin-bottom: 0px;"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4" style="width:800px; padding: 20px !important; height: 22px; vertical-align: middle; border: 1px solid black; text-align: left; background: rgb(255, 255, 255);">
+                        <p>
+                            * 주간 근무시간 - 근무일이 포함된 한 주
+                        </p>
+                        <p>
+                            정상근무시간 + 연장근무 승인 요청에 대한 결재가 완료된 총 시간입니다.
+                        </p>
+                        <p>
+                            근태관리에서 시간 수정이 가능하므로 주간 근무시간은 상이해질 수 있습니다.
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width:200px;background: rgb(221, 221, 221); padding: 5px; border: 1px solid black; height: 80px; text-align: center; color: rgb(0, 0, 0); font-size: 14px; font-weight: bold; vertical-align: middle;">
+                        <b style="color: rgb(255, 0, 0);">*</b>신청&nbsp;사유
+                    </td>
+                    <td colspan="3" style="padding: 3px; border: 1px solid black; width: 450px; height: 100px; text-align: left; color: rgb(0, 0, 0); font-size: 12px;  vertical-align: top; background: rgb(255, 255, 255);">
+                        <span data-type="textarea" data-dsl="{{textarea:description}}" data-id="description" data-name="description" data-value="" data-require="false" data-maxlength="" data-width="" data-defaultstr="" data-editable="true"></span>
+                    </td>
+                </tr>
+                <tr>
+                <td colspan="2" style="text-align: center; height:40px; border:0px">
+                    <a id="timelineApprovalAddBtn" class="btn_minor" data-role="button" style="padding:6px 20px; vertical-align: middle; font-size: 12px; ">
+                        추가
+                    </a>
+                    <a id="timelineApprovalDelBtn" class="btn_minor" data-role="button" style="padding:6px 20px; vertical-align: middle; font-size: 12px; ">
+                        삭제
+                    </a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </span>
+    <span id="timelineApprovalDetailsSection">
+
+    </span>
+</body>

@@ -1,0 +1,96 @@
+{{#editable}}
+<div class="box my">
+    <div class="box_body">
+        <div class="form_tr">
+            <div class="form_th  my">
+                <div class="label">
+                    <span class="txt">{{lang.my_group}}</span>
+                </div>
+                <div class="desc">
+                    {{lang.my_save}}<br>
+                    {{lang.only_pc_modify}}
+                </div>
+                <a class="btn_toggle myGroupButton" data-bypass>
+                    <span class="ic_v2_form ic_toggle"></span>
+                </a>
+                <div class="wrap_list_myApproval mygroups" style="display: none;">
+                    <!-- 내그룹-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{/editable}}
+<div class="box">
+    <div class="box_body">
+        <div class="form_tr">
+            <div class="form_th">
+                <div class="label">
+                    <span class="txt">{{readersName}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="form_tr">
+            <div class="form_td">
+                <div class="list nude list_approvalLine">
+                    {{#data}}
+                        <div class="drag">
+                            {{^isDept}}
+                            <a class="photo" href="#">
+                                <img src="{{reader.thumbnail}}">
+                             </a>
+                            <span class="name omit">{{reader.name}}</span>
+                            <span class="team omit">{{reader.deptName}}</span>
+                            {{/isDept}}
+                            {{#isDept}}
+                                <span class="depart omit">{{reader.name}}</span>
+                            {{/isDept}}
+                            {{^isReadingReders}}
+                            {{#editable}}
+                            <a class="btn_del readersDel" data-id="{{reader.id}}">
+                                <span class="ic_v2 ic_del"></span>
+                            </a>
+                            {{/editable}}
+                            {{/isReadingReders}}
+                            {{#isReadingReders}}
+                                {{#editable}}
+                                    {{#assigned}}
+                                    {{#assignedReadingReadersRemovable}}
+                                    <a class="btn_del readersDel" data-id="{{reader.id}}">
+                                        <span class="ic_v2 ic_del"></span>
+                                    </a>
+                                    {{/assignedReadingReadersRemovable}}
+                                    {{/assigned}}
+                                    {{^assigned}}
+                                    <a class="btn_del readersDel" data-id="{{reader.id}}">
+                                        <span class="ic_v2 ic_del"></span>
+                                    </a>
+                                    {{/assigned}}
+                                {{/editable}}
+                            {{/isReadingReders}}
+                        </div>
+                    {{/data}}
+                    {{^data}}
+                        <div class="form_tr">
+                            <div class="form_td">
+                                <div class="data_null">{{lang.data_null}}</div>
+                            </div>
+                        </div>
+                    {{/data}}
+                </div>
+            </div>
+        </div>
+    </div>
+    {{#editable}}
+    <div class="box_footer">
+        <div class="wrap_btn_add">
+            <div class="column">
+                <button class="btn node big btn_add" id="readersAdd">
+                    <span class="bullet">+</span>
+                    <span class="txt">{{lang.add_approval}}</span>
+                </button>
+            </div>
+        </div>
+    </div>
+    {{/editable}}
+</div>

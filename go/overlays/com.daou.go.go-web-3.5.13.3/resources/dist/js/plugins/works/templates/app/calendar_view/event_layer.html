@@ -1,0 +1,64 @@
+<form>
+    <fieldset>
+        <table class="form_type">
+            <colgroup>
+                <col>
+                <col>
+            </colgroup>
+            <tbody>
+            <tr>
+                <th>
+                    <span class="title">{{commonLang.제목}}</span>
+                </th>
+                <td>
+					<span class="wrap_txt">
+						<input class="txt w_max" type="text" readonly value="{{event.title}}">
+					</span>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <span class="title">{{event.startLabel}}</span>
+                </th>
+                <td>
+                    <span class="wrap_date">
+                        <input id="startDate" readonly class="start-date txt wfix_small" type="text" name="start_date">
+                        <span class="ic ic_calendar"></span>
+                    </span>
+                    {{#isTimed}}
+                    <span class="wrap_select"><span class="wrap_select_list">
+                        <input id="startTime" readonly name="start_time" type="text" class="txt wfix_small" data-outside="start">
+                        <ul id="startTimeList" data-type="start" class="select_list" style="display:none" data-outside="start"></ul>
+                    </span></span>
+                    {{/isTimed}}
+                </td>
+            </tr>
+            {{#event.endLabel}}
+            <tr>
+                <th>
+                    <span class="title">{{event.endLabel}}</span>
+                </th>
+                <td>
+                    <span class="wrap_date">
+                        <input id="endDate" readonly class="end-date txt wfix_small " type="text" name="end_date">
+                        <span class="ic ic_calendar"></span>
+                    </span>
+                    {{#isTimed}}
+                    <span class="wrap_select"><span class="wrap_select_list">
+                        <input id="endTime" readonly name="end_time" type="text" class="txt wfix_normal" data-outside="end">
+                        <ul id="endTimeList" data-type="end" class="select_list" style="display:none" data-outside="end"></ul>
+                    </span></span>
+                    {{/isTimed}}
+                    {{#isReversed}}
+                    <span class="alert_wrap wrap_desc_top go_error go_renew">
+                        <span class="icx2 ic_caution"></span>
+                        <span class="desc caution">{{reverseCautionLang}}</span>
+                    </span>
+                    {{/isReversed}}
+                </td>
+            </tr>
+            {{/event.endLabel}}
+            </tbody>
+        </table>
+    </fieldset>
+</form>

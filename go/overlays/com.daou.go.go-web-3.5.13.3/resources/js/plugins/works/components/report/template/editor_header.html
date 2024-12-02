@@ -1,0 +1,126 @@
+<div id="report_content_wrap" class="wrap_report devide_bar">
+    <div id="works-report-content" class="content works-report-content">
+        <div class="report_header">
+            <div class="report_header_tit">
+                <div id="title-view-wrap">
+                    <span id="report_view_title" class="tit">{{title}}</span>
+                        <span class="btn_wrap" el-title-edit>
+                        <span class="btn_ic_list_reorder">
+                            <span class="ic_side ic_list_reorder" title="{{{lang.편집}}}" data-reorder=""></span>
+                        </span>
+                    </span>
+                </div>
+                <div id="title-edit-wrap" style="display: none;">
+                    <span class="wrap_txt">
+                        <input id="report_edit_title" class="txt wfix_max" type="text" value="{{title}}">
+                    </span>
+                    <span class="btn_wrap" el-title-save>
+                        <span class="ic_side ic_done" title="{{{lang.수정완료}}}"></span>
+                    </span>
+                </div>
+
+                <div class="optional">
+                    <a class="btn_tool" el-setting>
+                        <span class="icx2 ic_person"></span>
+                        <span class="txt">{{{lang.공유설정}}}</span>
+                    </a>
+                    <a class="btn_tool btn_major" el-save>
+                        <span class="txt">
+                            <span>{{{lang.저장}}}</span>
+                        </span>
+                    </a>
+                    <a class="btn_ic24 btn_more" el-output>
+                        <span class="ic24 more_v"></span>
+                        <div id="output_selector" class="array_option" style="display:none">
+                            <ul class="array_type">
+                                <li el-pdf-export>
+                                    <span>{{{lang.PDF 내보내기}}}</span>
+                                </li>
+                                <li el-email-export>
+                                    <span>{{{lang.메일로 보내기}}}</span>
+                                </li>
+                                <li el-delete_report>
+                                    <span>{{{lang.삭제}}}</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="report_tool_bar">
+                <ul class="report_btn_list">
+                    <li el-add-item>
+                        <div class="newWidget grid-stack-item ui-draggable ui-draggable-handle widget_chart"
+                             data-gs-min-width="{{itemSize.minWidth.chart}}" data-gs-min-height="{{itemSize.minHeight.chart}}"
+                             data-gs-width="{{itemSize.width.chart}}" data-gs-height="{{itemSize.height.chart}}" grid-type="chart">
+                            <div class="card-body grid-stack-item-content" draggable="true">
+                                <a>
+                                    <span class="icx2 ic_btn_chart"></span>
+                                    <span class="txt">{{{lang.차트}}}</span>
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                    <li el-add-item>
+                        <div class="newWidget grid-stack-item ui-draggable ui-draggable-handle widget_card"
+                             data-gs-min-width="{{itemSize.minWidth.card}}" data-gs-min-height="{{itemSize.minHeight.card}}"
+                             data-gs-width="{{itemSize.width.card}}" data-gs-height="{{itemSize.height.card}}" grid-type="card">
+                            <div class="card-body grid-stack-item-content" draggable="true">
+                                <a>
+                                    <span class="icx2 ic_btn_card"></span>
+                                    <span class="txt">{{{lang.카드}}}</span>
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                    <li el-add-item>
+                        <div class="newWidget grid-stack-item ui-draggable ui-draggable-handle widget_data"
+                             data-gs-min-width="{{itemSize.minWidth.data}}" data-gs-min-height="{{itemSize.minHeight.data}}"
+                             data-gs-width="{{itemSize.width.data}}" data-gs-height="{{itemSize.height.data}}" grid-type="data">
+                            <div class="card-body grid-stack-item-content" draggable="true">
+                                <a>
+                                    <span class="icx2 ic_btn_data"></span>
+                                    <span class="txt">{{{lang.데이터}}}</span>
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                    <li el-add-item>
+                        <div class="newWidget grid-stack-item ui-draggable ui-draggable-handle widget_text"
+                             data-gs-min-width="{{itemSize.minWidth.text}}" data-gs-min-height="{{itemSize.minHeight.text}}"
+                             data-gs-width="{{itemSize.width.text}}" data-gs-height="{{itemSize.height.text}}" grid-type="text">
+                            <div class="card-body grid-stack-item-content" draggable="true">
+                                <a>
+                                    <span class="icx2 ic_btn_text"></span>
+                                    <span class="txt">{{{lang.텍스트}}}</span>
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                    <li el-add-item>
+                        <div class="newWidget grid-stack-item ui-draggable ui-draggable-handle widget_image"
+                             data-gs-min-width="{{itemSize.minWidth.image}}" data-gs-min-height="{{itemSize.minHeight.image}}"
+                             data-gs-width="{{itemSize.width.image}}" data-gs-height="{{itemSize.height.image}}" grid-type="image">
+                            <div class="card-body grid-stack-item-content report-image-item" draggable="true">
+                                <a>
+                                    <span class="icx2 ic_btn_img"></span>
+                                    <span class="txt">{{{lang.사진}}}</span>
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="report_body">
+            <div id="wrap_report_null" class="wrap_report_null">
+                <span class="icx2 ic_report_null"></span>
+                <p class="desc">{{lang.아이템 없을 경우 안내문구}}</p>
+            </div>
+            <div class="col-sm-12 col-md-10" style="position:relative;">
+                <div class="grid-stack" data-gs-animate="yes"></div>
+            </div>
+        </div>
+    </div>
+</div>

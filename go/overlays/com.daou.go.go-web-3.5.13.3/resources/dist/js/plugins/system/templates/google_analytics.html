@@ -1,0 +1,36 @@
+<div class="content_page">
+    <!-- form name="extensionFunctionConfig" id="extensionFunction"  -->
+        <div class="container">
+            <div class="header">
+                <h2>{{lang.label_title}}</h2>
+            </div>
+            <div class="content_tb">
+                <table class="chart size" >
+                    <tr>
+                        <th style="width: 50%;"><span class="title">{{lang.label_googleanalytics_company}}</span></th>
+                        <th style="text-align: left;"><span class="title">{{lang.label_googleanalytics_configvalue}}</span></th>
+                    </tr>
+                   {{#googleAnalyticsData}}
+                    <tr>
+                      <td>
+                          <span style="font-weight: bold; font-size: 12px; font-color: #999; margin: 0px; disply: inline-block;">{{companyName}}</span>
+                      </td>
+                      <td style="text-align: left;">
+                          <span class="user_data editable" data-formname="googleAnalytics" data-id="{{companyId}}" data-name="{{companyName}}" data-value="{{configValue}}">
+                              <span class="edit_data">{{configValue}}</span>
+                              <span class="btn_box" data-btntype="changeform">
+                              	<span class="ic ic_edit" title="{{lang.label_edit}}label_edit"></span>
+                              </span>
+                          </span>
+                      </td>
+                	</tr>
+                    {{/googleAnalyticsData}}
+                    </tbody>
+                </table>
+            </div>
+    	</div>
+    <!--  /form>-->
+<div class="page_action">
+    <span class="btn" id="btn_ok">{{lang.label_ok}}</span>
+    <span class="btn_nega" id="btn_cancel">{{lang.label_cancel}}</span>
+</div>

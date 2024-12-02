@@ -1,0 +1,83 @@
+<div class="content_page">
+    <div class="dataTables_wrapper container">
+        <div class="content_tb">
+            <table class="chart size" id="oauthClientList">
+                <thead>
+                    <tr>
+                        <th class="sorting_desc">
+                            <span class="title_sort">
+                                <label>{{lang.클라이언트 이름}}</label>
+                                <ins class="ic"></ins><span class="selected"></span>
+                            </span>
+                        </th>
+                        <th class="sorting_desc">
+                            <span class="title_sort">
+                                <label>{{lang.등록일}}</label>
+                                <ins class="ic"></ins><span class="selected"></span>
+                            </span>
+                        </th>
+                        <th class="sorting_disable">
+                            <span class="title_sort">
+                                <label>Client Id</label>
+                            </span>
+                        </th>
+                        <th class="sorting_disable">
+                            <span class="title_sort">
+                                <label>{{lang.서비스 URL}}</label>
+                            </span>
+                        </th>
+                        <th class="sorting_disable">
+                            <span class="title_sort">
+                                <label>Redirect URL</label>
+                            </span>
+                        </th>
+                        <th class="sorting_disable last">
+                            <span class="title_sort">
+                                <label>{{lang.비고}}</label>
+                            </span>
+                        </th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="header">
+            <h2>OpenAPI {{lang.메뉴}}</h2>
+        </div>
+        <div class="content">
+            <table class="detail">
+                <colgroup>
+                    <col width="150px"/>
+                    <col width="*"/>
+                </colgroup>
+                <tbody>
+                <tr>
+                    <th>
+                        <span class="title">{{lang.사용여부}}</span>
+                    </th>
+                    <td>
+                        <div class="vertical_wrap_s">
+                            <span class="option_wrap">
+                                <input type="radio" value="on" id="use_openapi_on" name="openApiUse" {{#openApi.openApiUse}}
+                                               checked="checked" {{/openApi.openApiUse}} />
+                                <label for="use_openapi_on">{{lang.사용}}</label>
+                            </span>
+                            <span class="option_wrap">
+                                <input type="radio" value="off" id="use_openapi_off" name="openApiUse" {{^openApi.openApiUse}}
+                                               checked="checked" {{/openApi.openApiUse}} />
+                                <label for="use_openapi_off">{{lang.사용하지않음}}</label>
+                            </span>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="page_action">
+            <span class="btn" id="btn_openapi_ok">{{lang.저장}}</span>
+        </div>
+    </div>
+</div>
+

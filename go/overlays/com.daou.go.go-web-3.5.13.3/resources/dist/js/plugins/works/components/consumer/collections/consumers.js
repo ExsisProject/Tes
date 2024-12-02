@@ -1,0 +1,1 @@
+define("works/components/consumer/collections/consumers",function(require){var e=Backbone.Collection.extend({initialize:function(e){this.appletId=e.appletId,this.docId=e.docId},url:function(){return GO.contextRoot+"api/works/applets/"+this.appletId+"/doc/"+this.docId+"/consumers"}});return e});

@@ -1,0 +1,85 @@
+<table class="detail tb_admin_doc_folder">
+    <tbody>
+    <tr>
+        <th><span class="title">{{lang.folder_name}}</span></th>
+        <td><input class="w_full input" type="text" value="{{data.name}}" data-id="{{data.id}}" data-name="name" id="name"></td>
+    </tr>
+    <tr>
+        <th><span class="title">{{lang.admin}}</span></th>
+        <td>
+            <div class="vertical_tit_wrap">
+                <span id="admin"></span>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <th><span class="title">{{lang.docsYear}}</span></th>
+        <td>
+            <select id="docYear">
+                {{#preserveYears}}
+                <option value="{{value}}" {{#isSelected}}selected{{/isSelected}}>{{label}}</option>
+                {{/preserveYears}}
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <th><span class="title">{{lang.docNum}}</span></th>
+        <td>
+            <span class="option_wrap">
+                <input type="radio" name="usingDocNum" id="enableDocNum" {{#data.useDocNum}}checked{{/data.useDocNum}}>
+                <label for="enableDocNum">{{lang.use}}</label>
+            </span>
+            <span class="option_wrap">
+                <input type="radio" name="usingDocNum" id="disableDocNum" {{^data.useDocNum}}checked{{/data.useDocNum}}>
+                <label for="disableDocNum">{{lang.unuse}}</label>
+            </span>
+        </td>
+    </tr>
+    <tr>
+        <th><span class="title">{{lang.use_approval}}</span></th>
+        <td>
+            <span class="option_wrap">
+                <input type="radio" id="enableDocEnrollConfirm" name="usingDocEnrollConfirm" {{#data.useApproved}}checked{{/data.useApproved}}>
+                <label for="enableDocEnrollConfirm">{{lang.use}}</label>
+            </span>
+            <span class="option_wrap">
+                <input type="radio" id="disableDocEnrollConfirm" name="usingDocEnrollConfirm" {{^data.useApproved}}checked{{/data.useApproved}}>
+                <label for="disableDocEnrollConfirm">{{lang.unuse}}</label>
+            </span>
+        </td>
+    </tr>
+    <tr>
+        <th><span class="title">{{lang.access_target}}</span></th>
+        <td>
+            <div class="vertical_tit_wrap">
+                <span id="accessUser"></span>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <th><span class="title">{{lang.exception_target}}</span></th>
+        <td>
+            <div class="vertical_tit_wrap">
+                <span id="exceptionUser"></span>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <th><span class="title">{{lang.status}}</span></th>
+        <td>
+            <span class="option_wrap">
+                <input type="radio" id="disableDoc" name="usingDoc" {{^isNormalState}}checked{{/isNormalState}}>
+                <label for="disableDoc">{{lang.hidden}}</label>
+            </span>
+            <span class="option_wrap">
+                <input type="radio" id="enableDoc" name="usingDoc" {{#isNormalState}}checked{{/isNormalState}}>
+                <label for="enableDoc">{{lang.normal}}</label>
+            </span>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<div class="page_action">
+    <span class="btn" id="docsConfigSubmit">{{lang.save}}</span>
+    <span class="btn_nega" id="docsConfigCancel">{{lang.cancel}}</span>
+</div>

@@ -1,0 +1,1 @@
+define(["backbone","report/models/report"],function(e,t){var n=e.Collection.extend({model:t,initialize:function(e){this.seriesId=e.seriesId},url:function(){return GO.contextRoot+"api/report/series/"+this.seriesId+"/reports"}});return n});

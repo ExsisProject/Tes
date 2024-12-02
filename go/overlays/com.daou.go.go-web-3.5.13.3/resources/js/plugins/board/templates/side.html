@@ -1,0 +1,58 @@
+<section class="gnb_title">
+	<h1><a id="boardHome">{{appName}}</a></h1>
+</section>
+
+<section class="function">
+	<a class="btn_function" id="writeBtn" data-bypass><span class="ic_side ic_app_bbs"></span><span class="txt">{{lang.new_post}}</span></a>
+</section>
+
+<!-- 즐겨찾기  -->
+<section id="favoriteSide" class="lnb"></section>
+<!-- //즐겨찾기   -->
+
+<!-- 부서게시판  -->
+{{^isDeptBoardPriority}}
+<section id="companySide" class="lnb" data-type="company" style="display:none">
+	<h1 class="company {{^isCompanyOpen}}folded{{/isCompanyOpen}}">
+		<ins class="ic"></ins>
+		<span class="ic_side ic_hide_up" data-slide="true" title="{{#isCompanyOpen}}{{lang.collapse}}{{/isCompanyOpen}}{{^isCompanyOpen}}{{lang.expand}}{{/isCompanyOpen}}"></span>
+		<a class="txt" data-role="button" data-bypass="">{{lang.company_board}}</a>
+	</h1>
+	<ul class="side_depth" {{^isCompanyOpen}} style="display:none" {{/isCompanyOpen}}></ul>
+</section>
+{{/isDeptBoardPriority}}
+
+<section id="deptSide" data-type="dept" class="lnb" style="display: none">
+	<h1 class="org {{^isDeptOpen}}folded{{/isDeptOpen}}">
+		<ins class="ic"></ins>
+		<span class="ic_side ic_hide_up" data-slide="true" title="{{#isDeptOpen}}{{lang.collapse}}{{/isDeptOpen}}{{^isDeptOpen}}{{lang.expand}}{{/isDeptOpen}}"></span>
+		<a class="txt" data-role="button" data-bypass>{{lang.dept_board}}</a>
+	</h1>
+	<ul class="side_depth" {{^isDeptOpen}} style="display:none"{{/isDeptOpen}}>
+	</ul>
+	
+	<section class="intro no-dept-msg" style="display:none">
+		<span class="ic ic_comm_symbol"><span class="txt"></span></span>
+		<p class="desc">{{{lang.no_dept}}}</p>
+	</section>
+	
+	<div class="list_action">
+		<span class="btn_wrap">
+			<span class="btn_side2" btn-type="newBoard">{{lang.new_board}}</span>
+		</span>
+	</div>
+</section>
+
+{{#isDeptBoardPriority}}
+<section id="companySide" class="lnb" data-type="company" style="display:none">
+	<h1 class="company {{^isCompanyOpen}}folded{{/isCompanyOpen}}">
+		<ins class="ic"></ins>
+		<span class="ic_side ic_hide_up" data-slide="true" title="{{#isCompanyOpen}}{{lang.collapse}}{{/isCompanyOpen}}{{^isCompanyOpen}}{{lang.expand}}{{/isCompanyOpen}}"></span>
+		<a class="txt" data-role="button" data-bypass="">{{lang.company_board}}</a>
+	</h1>
+	<ul class="side_depth" {{^isCompanyOpen}} style="display:none" {{/isCompanyOpen}}>
+	</ul>
+</section>
+{{/isDeptBoardPriority}}
+<!-- //부서게시판 -->
+

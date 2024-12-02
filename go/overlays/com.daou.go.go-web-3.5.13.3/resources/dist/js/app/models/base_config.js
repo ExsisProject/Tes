@@ -1,0 +1,1 @@
+(function(){define(["underscore","backbone"],function(e,t){var n=t.Model.extend({url:"/api/userside/baseconfig",getDisplayConfig:function(){return e.omit(this.get("displayConfigModel"),"id")},getNotiConfig:function(){return e.omit(this.get("notiConfigModel"),"id")},getMenuConfig:function(){return this.get("menuConfigModel")}});return n})}).call(this);

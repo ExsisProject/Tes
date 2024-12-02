@@ -1,0 +1,25 @@
+<h3>
+	<span class="btn_wrap">
+		<span class="txt_ellipsis">{{title}}</span>
+	</span>
+</h3>
+<ul>
+	{{#dataSet}}
+	<li> 
+		<a href="javascript:;" data-id="{{id}}">
+			<span class="btn_wrap">
+				<span class="ic_side ic_comm">
+					<span class="tail_r"></span>
+				</span>
+                {{^publicFlag}}
+                    <span class="ic_side ic_board_secret"></span>
+                {{/publicFlag}}
+				<span class="txt_ellipsis">
+					{{name}}
+				</span>
+                {{#hasNewPost}}<span class="ic ic_new"></span>{{/hasNewPost}}
+			</span>
+		</a>
+	</li>
+	{{/dataSet}}
+</ul>

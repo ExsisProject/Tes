@@ -1,0 +1,31 @@
+<div class="overlay_scroll">
+    <div class="layer_type_bottom layer_del_schedule" style="transform:translate3d(0px, 0%, 0px);">
+        <header>
+            <h1>{{layerLabel.title}}</h1>
+            <a class="btn_layer_close" id="closeOptionLayer"><span class="ic ic_del"></span></a>
+        </header>
+        <div class="content">
+            <p class="desc">{{layerLabel.subTitle}}</p>
+            <div class="article_wrap">
+                <p class="txt">{{lang.layerInform}}</p>
+                <div class="option">
+						<span class="option_wrap vertical_wrap">
+							<input id="instance" name="deleteOption" type="radio" value="instance" checked = "checked">
+							<label for="instance">{{lang.removeInstance}}</label>
+						</span>
+                        <span class="option_wrap vertical_wrap">
+							<input id="after" name="deleteOption" type="radio" value="after">
+							<label for="after">{{lang.removeAfter}}</label>
+						</span>
+                        <span class="option_wrap vertical_wrap">
+							<input id="all" name="deleteOption" type="radio" value="all">
+							<label for="all">{{lang.removeAll}}</label>
+						</span>
+                </div>
+            </div>
+        </div>
+        <footer class="btn_layer_wrap">
+            <a class="btn_major_s" id="confirmDeleteOption"><span class="txt">{{lang.confirm}}</span></a>
+        </footer>
+    </div>
+</div>

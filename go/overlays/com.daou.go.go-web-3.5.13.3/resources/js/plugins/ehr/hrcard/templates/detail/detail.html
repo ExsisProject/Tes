@@ -1,0 +1,313 @@
+<h3 class="tab_title" style="display:none;">{{lang.label_detail}}</h3>
+<!--탭 전체 펼치기시 타이틀 나옴-->
+<div class="ehr_detail viewForm">
+    <form id="data_form">
+    {{#data}} 
+	<table class="type_list_box">
+		<tr>
+			<th class="col1">
+				<span class="title_txt">{{lang.label_hobby}}</span>
+			</th>
+            <td class="col2">
+            	{{#hobby.useColumn}}
+                <span class="txt">{{hobby.value}}</span>
+            	{{#editable}}
+                <input class="txt w_max" type="text" name="hobby" value="{{hobby.value}}" style="display:none;"/>
+            	{{/editable}}
+            	{{/hobby.useColumn}}
+            	{{^hobby.useColumn}}
+            	<span class="txt hide">{{lang.label_private}}</span>
+            	{{/hobby.useColumn}}
+            </td>
+			<th class="col3">
+				<span class="title_txt">{{lang.label_speciality}}</span>
+			</th>
+            <td class="col4">
+            	{{#speciality.useColumn}}
+                <span class="txt">{{speciality.value}}</span>
+            	{{#editable}}
+                <input class="txt w_max" type="text" name="speciality" value="{{speciality.value}}" style="display:none;"/>
+            	{{/editable}}
+            	{{/speciality.useColumn}}
+            	{{^speciality.useColumn}}
+            	<span class="txt hide">{{lang.label_private}}</span>
+            	{{/speciality.useColumn}}    
+            </td>
+			<th class="col5">
+				<span class="title_txt">{{lang.label_faxNo}}</span>
+			</th>
+            <td class="col6">
+            	{{#faxNo.useColumn}}
+                <span class="txt">{{faxNo.value}}</span>
+            	{{#editable}}
+                <input class="txt w_max" type="text" name="faxNo" value="{{faxNo.value}}" style="display:none;"/>
+            	{{/editable}}
+            	{{/faxNo.useColumn}}
+            	{{^faxNo.useColumn}}
+            	<span class="txt hide">{{lang.label_private}}</span>
+            	{{/faxNo.useColumn}}
+            </td>            
+			<th class="col7">
+				<span class="title_txt">{{lang.label_way}}</span>
+			</th>
+            <td class="col8">
+            	{{#way.useColumn}}
+                <span class="txt">{{way.value}}</span>
+            	{{#editable}}
+                <input class="txt w_max" type="text" name="way" value="{{way.value}}" style="display:none;"/>
+            	{{/editable}}
+            	{{/way.useColumn}}
+            	{{^way.useColumn}}
+            	<span class="txt hide">{{lang.label_private}}</span>
+            	{{/way.useColumn}}
+            </td>
+		</tr>
+		<tr>
+			<th class="col1">
+				<span class="title_txt">{{lang.label_address}}</span>
+			</th>
+			
+            <td colspan="5">
+            	{{#address.useColumn}}
+                <span class="txt">{{address.value}}</span>
+            	{{#editable}}
+                <input class="txt w_max" type="text" name="address" value="{{address.value}}" style="display:none;"/>
+	            {{/editable}}
+            	{{/address.useColumn}}
+            	{{^address.useColumn}}
+            	<span class="txt hide">{{lang.label_private}}</span>
+            	{{/address.useColumn}}
+            </td>
+			<th class="col7">
+				<span class="title_txt">{{lang.label_homeNo}}</span>
+			</th>
+            <td class="col8">
+            	{{#homeNo.useColumn}}
+                <span class="txt">{{homeNo.value}}</span>
+            	{{#editable}}
+                <input class="txt w_max" type="text" name="homeNo" value="{{homeNo.value}}" style="display:none;"/>
+            	{{/editable}}
+            	{{/homeNo.useColumn}}
+            	{{^homeNo.useColumn}}
+            	<span class="txt hide">{{lang.label_private}}</span>
+            	{{/homeNo.useColumn}}
+            </td>
+		</tr>
+		<tr>
+			<th class="col1">
+				<span class="title_txt">{{lang.label_veteransNo}}</span>
+			</th>
+			<td colspan="3">
+				{{#veteransNo.useColumn}}
+                <span class="txt">{{veteransNo.value}}</span>
+            	{{#editable}}
+                <input class="txt w_max" type="text" name="veteransNo" value="{{veteransNo.value}}" style="display:none;"/>
+            	{{/editable}}
+            	{{/veteransNo.useColumn}}
+            	{{^veteransNo.useColumn}}
+            	<span class="txt hide">{{lang.label_private}}</span>
+            	{{/veteransNo.useColumn}}
+            </td>        
+			<th class="col5">
+				<span class="title_txt">{{lang.label_veteransFamily}}</span>
+			</th>
+            <td class="col6">
+            	{{#veteransFamily.useColumn}}
+                <span class="txt">{{veteransFamily.value}}</span>
+            	{{#editable}}
+                <input class="txt w_max" type="text" name="veteransFamily" value="{{veteransFamily.value}}" style="display:none;"/>
+            	{{/editable}}
+            	{{/veteransFamily.useColumn}}
+            	{{^veteransFamily.useColumn}}
+            	<span class="txt hide">{{lang.label_private}}</span>
+            	{{/veteransFamily.useColumn}}
+            </td>
+			<th class="col7">
+				<span class="title_txt">{{lang.label_veteransDiv}}</span>
+			</th>
+            <td class="col8">
+            	{{#veteransDiv.useColumn}}
+                <span class="txt">{{veteransDiv.value}}</span>
+            	{{#editable}}
+                <input class="txt w_max" type="text" name="veteransDiv" value="{{veteransDiv.value}}" style="display:none;"/>
+            	{{/editable}}
+            	{{/veteransDiv.useColumn}}
+            	{{^veteransDiv.useColumn}}
+            	<span class="txt hide">{{lang.label_private}}</span>
+            	{{/veteransDiv.useColumn}}
+            </td>
+		</tr>
+		<tr>
+			<th class="col1">
+				<span class="title_txt">{{lang.label_disabilityNo}}</span>
+			</th>
+            <td class="col2">
+            	{{#disabilityNo.useColumn}}
+                <span class="txt">{{disabilityNo.value}}</span>
+            	{{#editable}}
+                <input class="txt w_max" type="text" name="disabilityNo" value="{{disabilityNo.value}}" style="display:none;"/>
+            	{{/editable}}
+            	{{/disabilityNo.useColumn}}
+            	{{^disabilityNo.useColumn}}
+            	<span class="txt hide">{{lang.label_private}}</span>
+            	{{/disabilityNo.useColumn}}
+            </td>
+			<th class="col3">
+				<span class="title_txt">{{lang.label_disabilityDiv}}</span>
+			</th>
+            <td class="col4">
+            	{{#disabilityDiv.useColumn}}
+                <span class="txt">{{disabilityDiv.value}}</span>
+            	{{#editable}}
+                <input class="txt w_max" type="text" name="disabilityDiv" value="{{disabilityDiv.value}}" style="display:none;"/>
+            	{{/editable}}
+            	{{/disabilityDiv.useColumn}}
+            	{{^disabilityDiv.useColumn}}
+            	<span class="txt hide">{{lang.label_private}}</span>
+            	{{/disabilityDiv.useColumn}}
+            </td>
+			<th class="col5">
+				<span class="title_txt">{{lang.label_disabilityClass}}</span>
+			</th>
+            <td class="col6">
+            	{{#disabilityClass.useColumn}}
+                <span class="txt">{{disabilityClass.value}}</span>
+            	{{#editable}}
+                <input class="txt w_max" type="text" name="disabilityClass" value="{{disabilityClass.value}}" style="display:none;"/>
+            	{{/editable}}
+            	{{/disabilityClass.useColumn}}
+            	{{^disabilityClass.useColumn}}
+            	<span class="txt hide">{{lang.label_private}}</span>
+            	{{/disabilityClass.useColumn}}
+            </td>
+			<th class="col7">
+				<span class="title_txt">{{lang.label_disabilityRecDiv}}</span>
+			</th>
+            <td class="col8">
+            	{{#disabilityRecDiv.useColumn}}
+                <span class="txt">{{disabilityRecDiv.value}}</span>
+            	{{#editable}}
+                <input class="txt w_max" type="text" name="disabilityRecDiv" value="{{disabilityRecDiv.value}}" style="display:none;"/>
+            	{{/editable}}
+            	{{/disabilityRecDiv.useColumn}}
+            	{{^disabilityRecDiv.useColumn}}
+            	<span class="txt hide">{{lang.label_private}}</span>
+            	{{/disabilityRecDiv.useColumn}}
+            </td>
+		</tr>
+		<tr>
+			<th class="col1">
+				<span class="title_txt">{{lang.label_accountType}}</span>
+			</th>
+            <td class="col2">
+            	{{#accountType.useColumn}}
+                <span class="txt">{{accountType.value}}</span>
+            	{{#editable}}
+                <input class="txt w_max" type="text" name="accountType" value="{{accountType.value}}" style="display:none;"/>
+            	{{/editable}}
+            	{{/accountType.useColumn}}
+            	{{^accountType.useColumn}}
+            	<span class="txt hide">{{lang.label_private}}</span>
+            	{{/accountType.useColumn}}
+            </td>
+			<th class="col3">
+				<span class="title_txt">{{lang.label_bank}}</span>
+			</th>
+            <td class="col4">
+            	{{#bank.useColumn}}
+                <span class="txt">{{bank.value}}</span>
+            	{{#editable}}
+                <input class="txt w_max" type="text" name="bank" value="{{bank.value}}" style="display:none;"/>
+            	{{/editable}}
+            	{{/bank.useColumn}}
+            	{{^bank.useColumn}}
+            	<span class="txt hide">{{lang.label_private}}</span>
+            	{{/bank.useColumn}}
+            </td>
+			<th class="col5">
+				<span class="title_txt">{{lang.label_depositor}}</span>
+			</th>
+            <td class="col6">
+            	{{#depositor.useColumn}}
+                <span class="txt">{{depositor.value}}</span>
+            	{{#editable}}
+                <input class="txt w_max" type="text" name="depositor" value="{{depositor.value}}" style="display:none;"/>
+            	{{/editable}}
+            	{{/depositor.useColumn}}
+            	{{^depositor.useColumn}}
+            	<span class="txt hide">{{lang.label_private}}</span>
+            	{{/depositor.useColumn}}
+            </td>
+			<th class="col7">
+				<span class="title_txt">{{lang.label_note}}</span>
+			</th>
+            <td class="col8">
+            	{{#note.useColumn}}
+                <span class="txt">{{note.value}}</span>
+            	{{#editable}}
+                <input class="txt w_max" type="text" name="note" value="{{note.value}}" style="display:none;"/>
+            	{{/editable}}
+            	{{/note.useColumn}}
+            	{{^note.useColumn}}
+            	<span class="txt hide">{{lang.label_private}}</span>
+            	{{/note.useColumn}}
+            </td>
+		</tr>
+		<tr>
+			<th class="col1">
+				<span class="title_txt">{{lang.label_accountNum}}</span>
+			</th>
+            <td colspan="3">
+            	{{#accountNum.useColumn}}
+                <span class="txt">{{accountNum.value}}</span>
+            	{{#editable}}
+                <input class="txt w_max" type="text" name="accountNum" value="{{accountNum.value}}" style="display:none;"/>
+            	{{/editable}}
+            	{{/accountNum.useColumn}}
+            	{{^accountNum.useColumn}}
+            	<span class="txt hide">{{lang.label_private}}</span>
+            	{{/accountNum.useColumn}}
+            </td>
+			<th class="col5">
+				<span class="title_txt">{{lang.label_startDt}}</span>
+			</th>
+            <td class="col6">
+               {{#startDt.useColumn}}
+               {{#editable}}
+               <span class="wrap_date">
+               <input id="startDt" class="txt wfix_small" type="text" name="startDt" value="{{startDt.value}}"/>
+               <span class="ic ic_calendar"></span>
+               </span>
+               {{/editable}}
+               {{^editable}}
+               {{startDt.value}}
+               {{/editable}}
+               {{/startDt.useColumn}}
+               {{^startDt.useColumn}}
+               <span class="txt hide">{{lang.label_private}}</span>
+               {{/startDt.useColumn}}
+            </td>
+			<th class="col7">
+				<span class="title_txt">{{lang.label_endDt}}</span>
+			</th>
+            <td class="col6">
+               {{#endDt.useColumn}}
+               {{#editable}}
+               <span class="wrap_date">
+               <input id="endDt" class="txt wfix_small" type="text" name="endDt" value="{{endDt.value}}"/>
+               <span class="ic ic_calendar"></span>
+               </span>
+               {{/editable}}
+               {{^editable}}
+               {{endDt.value}}
+               {{/editable}}
+               {{/endDt.useColumn}}
+               {{^endDt.useColumn}}
+               <span class="txt hide">{{lang.label_private}}</span>
+               {{/endDt.useColumn}}
+            </td>
+		</tr>
+	</table>
+	{{/data}} 
+	</form>
+</div>

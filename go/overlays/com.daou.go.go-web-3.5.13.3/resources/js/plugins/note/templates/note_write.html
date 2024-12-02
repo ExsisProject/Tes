@@ -1,0 +1,105 @@
+<div class="layer_normal layer_mailWrite_popup popup layer_smallmail">
+	<div class="content" ondrop="return false;">
+		<div class="content_page mail_write">
+			<table class="form_type mail_write">
+				<colgroup>
+					<col style="width:70px"><!-- 개발쪽에서 width값을 받아가서 재설정 후 삭제  -->
+					<col>
+				</colgroup>
+				<tbody>
+					<tr>
+						<th>
+							<span class="title">{{lang.to}}</span>
+						</th>
+						<td>	
+							<div class="div_ipt_wrap" id="recipientsArea">	
+								<!-- name_tag in input -->
+								<span id="writeStrWidth" style="visibility:hidden; position:absolute; top:-10000;"></span>
+								<div class="div_ipt">
+									<ul class="name_tag" id="recipients">
+										<li class="creat">
+											<div class="addr_input">
+												<textarea type="text" style="width:80px" id="to"></textarea>
+											</div>
+										</li><!-- 내용을 길게 입력 할 경우 늘어나야 함 -->
+									</ul>
+								</div>
+						</span>
+							</div>				
+						</td>
+					</tr>
+					<tr>
+						<th><span class="title">{{lang.subject}}</span></th>
+						<td>
+							<input type="text" class="input w_max" id="subject">
+						</td>
+					</tr>
+					<tr>
+						<th><span class="title">{{lang.attach}}</span></th>
+						<td>
+							<div class="btn_wrap">
+								<a class="btn_minor_s" id="file-control" style="padding:0 !important; line-height: 0px !important">
+								</a>
+								<ul id="fileWrap" class="file_wrap">
+									{{#files}} 
+									<li data-id="{{id}}">
+										<span class="item_file">
+											<span class="ic_file {{icon}}"></span>
+											<span class="name">{{name}}</span>
+											<span class="size">({{fileSizeString}})</span>
+											<span class="btn_wrap">
+												<span class="ic_classic ic_del"></span>										
+											</span>
+										</span>									
+									</li>
+									{{/files}} 
+								</ul>
+								<ul class="imgWrap" id="imgWrap">
+									{{#images}} 
+									<li data-id="{{id}}" data-type="attach" data-path="{{path}}" data-name="{{name}}">
+										<span class="item_image">
+											<span class="thumb"><img src="{{thumbSmall}}"></span>
+											<span class="btn_wrap">
+												<span class="ic_classic ic_del"></span>										
+											</span>
+										</span>
+									</li>
+									{{/images}} 
+								</ul>
+							</div>
+							
+							<table class="in_table" style="display:none" id="attachArea">
+								<colgroup>
+									<col style="width:5px">
+									<col>
+									<col style="width:100px">
+									<col style="width:50px">
+								</colgroup>
+								<thead>
+									<tr>
+										<th></th>
+										<th class="align_l">{{lang.fileName}}</th>
+										<th class="align_r">{{lang.size}}</th>
+										<th>{{lang.delete}}</th>
+									</tr>
+								</thead>
+								<tbody id="attachList"></tbody>
+							</table>
+							
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							<textarea id="content" style="width:100%; height:265px"></textarea>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<footer class="btn_layer_wrap">
+		<a class="btn_major_s" id="send">
+			<span class="txt">{{lang.send}}</span>
+		</a>
+	</footer>
+</div>

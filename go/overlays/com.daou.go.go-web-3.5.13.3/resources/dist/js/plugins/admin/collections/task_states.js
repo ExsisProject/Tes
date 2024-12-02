@@ -1,0 +1,1 @@
+define(["backbone","admin/models/task_state"],function(e,t){var n=e.Collection.extend({model:t,initialize:function(){},isDelete:function(e){if(!e)return!1;var t=_.map(this.models,function(e){return e.get("name")});return!_.contains(t,e)},firstFlow:function(){return this.findWhere({start:!0})||new t({name:""})}});return n});

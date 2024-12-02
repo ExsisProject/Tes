@@ -1,0 +1,35 @@
+{{#data}}
+<li class="classic" data-report-id="{{id}}" data-user-id="{{reporter.id}}" data-folder-id="{{folderId}}" data-folder-type="{{folderType}}" data-series-id="{{seriesId}}">
+	<div class="article_wrap">
+		<span class="photo">
+			<a data-userid="{{reporter.id}}" data-bypass=""><img alt="{{reporter.name}} {{reporter.position}}" title="{{reporter.name}} {{reporter.position}}" src="{{reporter.thumbnail}}"></a>
+		</span>
+		<div class="info">
+			<a class="name" data-bypass="">{{reporter.name}} {{reporter.position}}</a>
+			<span class="category">
+				<a data-bypass="">{{folderDeptName}}</a>
+				<span class="arrow">&gt;</span>
+				<a data-bypass="">{{folderName}}</a>
+			</span>
+			<span class="date">{{submittedAt}}</span>
+		</div>
+		<p class="title"><a data-bypass="">{{{title}}}</a></p>
+		<div class="article">
+			<a data-bypass="">{{{contents}}}</a>
+		</div>
+		{{#attachFileNames}}
+		<div class="recent_file_wrap">
+			<span class="item_file">
+				<span class="ic_file ic_def"></span>
+				<span class="name">{{{attachFileNames}}}</span>
+			</span>
+		</div>	
+		{{/attachFileNames}}
+	</div>
+	<div class="meta_wrap">
+		<a class="btn_list_more">
+			<span class="txt">{{lang.detail_show}}</span>
+		</a>
+	</div>
+</li>
+{{/data}}

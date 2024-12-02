@@ -1,0 +1,15 @@
+<li id="week" {{#lastWeek}} class="last" {{/lastWeek}}>
+    <div class="tit_wrap" name="toggle">
+        <div class="tit">
+            <i class="ic_arrow_down1" id="arrow"></i>
+            <span class="txt">{{index}}주차</span>
+        </div>
+        <div class="optional info_time">
+            <span class="total">{{TimelineLang.누적}}
+                <span {{#isOverTotalWorkingTime}}class="caution"{{/isOverTotalWorkingTime}}>{{totalWorkingTime}}</span>
+            </span>
+            <span class="over">({{TimelineLang.초과}} : <span>{{extensionWorkingTime}}</span>)</span>
+        </div>
+    </div>
+    <div class="cont_box weekly" id="day_list"></div>
+</li>

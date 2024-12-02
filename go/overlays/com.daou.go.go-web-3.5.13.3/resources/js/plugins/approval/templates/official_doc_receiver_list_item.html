@@ -1,0 +1,76 @@
+	<!-- 공문서 수신처 -->
+	<div class="tit_type3">
+		<span class="ic_classic ic_open_s" title="{{lang.열기}}" evt-role="appr-official-toggle"></span>
+		<span class="txt">{{groupName}}</span>
+		{{#hasComment}}
+			<a class="btn_fn6" evt-role="showOfficialComment">{{lang.의견}}</a>
+		{{/hasComment}}
+		{{#failSent}}
+			<span class="{{^isAdmin}}ic{{/isAdmin}}{{#isAdmin}}ic_classic{{/isAdmin}} ic_fail" title="{{lang.공문 발송 실패 메세지}}"></span>
+		{{/failSent}}
+		{{#isApproved}}
+			<span class="date">{{sentAt}}</span>
+		{{/isApproved}}
+	</div>
+	<div class="approval_line">
+		<div class="list_approval_line">
+			<div class="btn_langth" title="{{lang.추가}}">
+				<span class="ic_con ic_arrow_type4"></span>
+			</div>
+			<div class="tb_approval_line_wrap">
+				<table class="type_normal tb_approval_line">
+					<tbody>
+	                {{#hasActivities}}
+	                    {{#receivers}}
+							<tr class="{{#isLast}}last{{/isLast}}">
+							    <td class="name">{{name}}</td>
+							    <td>{{email}}</td>
+							    <td class="company">{{company}}</td>
+								<td class="func"></td>
+							</tr>
+	                    {{/receivers}}
+	                {{/hasActivities}}
+	                {{^hasActivities}}
+	                    <tr class="last inactive">
+	                        <td colspan="4">{{lang.emptyOfficialDocReceivers}}</td>
+	                    </tr>
+	                {{/hasActivities}}					
+					</tbody>
+				</table>
+			</div>
+		</div>
+		{{#dockedVisible}}
+		<div class="approval_history">
+			{{#senderVisible}}
+			<span class="wrap_opt">
+					<span class="txt">{{lang.발신 명의}} : </span>
+						{{#asignedSender}}<select disabled="disabled"><option>{{asignedSender.name}}</option></select>{{/asignedSender}}
+			</span>
+			{{/senderVisible}}
+			
+			{{#signVisible}}
+		    <span class="wrap_opt">
+					<span class="txt">{{lang.직인}} : </span>
+		    			{{#asignedSign}}<select disabled="disabled"><option>{{asignedSign.name}}</option></select>{{/asignedSign}}
+			</span>
+			{{/signVisible}}
+			
+			{{#formVisible}}
+			<span class="wrap_opt">
+				<span class="txt">{{lang.시행문}} : </span>
+		    			{{#asignedForm}}<select disabled="disabled"><option>{{asignedForm.name}}</option></select>{{/asignedForm}}
+		   	</span>
+			{{/formVisible}}
+		   	
+		   	{{#formVisible}}
+		   		{{^isAdmin}}
+		   			{{^isOfficial}}
+			<a class="btn_minor_s showOfficial" evt-rol="write-signData">
+				<span class="txt">{{lang.문서 보기}}</span>
+			</a>
+					{{/isOfficial}}
+				{{/isAdmin}}
+			{{/formVisible}}
+		</div>
+		{{/dockedVisible}}
+	</div>

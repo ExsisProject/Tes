@@ -1,0 +1,42 @@
+{{#dataset}}		
+<li class="classic" data-boardType="{{boardType}}" data-boardid="{{boardId}}" data-postid="{{id}}">
+	<div class="article_wrap">
+		<span class="photo">
+			<a data-userid="{{writer.id}}" data-bypass><img alt="{{writer.name}} {{writer.positionName}}" title="{{writer.name}} {{writer.positionName}}" src="{{writer.thumbSmall}}"></a>
+		</span>
+		<div class="info">
+            <a class="name" data-userid="{{writer.id}}" evt-profile data-bypass>{{writer.name}} {{writer.positionName}}</a>
+			<span class="category">
+				<a data-bypass>{{ownerName}}</a>
+				<span class="arrow">></span>
+				<a data-bypass>{{boardName}}</a>
+			</span>
+			<span class="date">{{dateParse}}</span>
+		</div>
+		{{#title}}
+		<p class="title"><a data-bypass>{{#postHeaderName}}[{{postHeaderName}}]&nbsp;{{/postHeaderName}}{{{title}}}</a></p>
+		{{/title}}
+		<div class="article">
+			<a data-bypass>{{{resultContentParse}}}</a>
+		</div>
+		{{#attachFileNames}}
+		<div class="recent_file_wrap">
+			<span class="item_file">
+				<span class="ic_file ic_{{checkFileType}}"></span>
+				<span class="name">{{{attachFileNames}}}</span>
+				<!-- span class="size">({{fileSize}}byte)</span-->
+			</span>
+		</div>	
+		{{/attachFileNames}}
+	</div>
+	<div class="meta_wrap">
+		<!-- a class="plus_wrap" href="#">
+			<span class="plus">plus<i class="tail"></i></span>
+			<span class="num">3,601</span>
+		</a-->
+		<a class="btn_list_more">
+			<span class="txt">{{lang.detail}}</span>
+		</a>
+	</div>
+</li>
+{{/dataset}}

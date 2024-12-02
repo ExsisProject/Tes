@@ -1,0 +1,153 @@
+<div class="go_renew">
+{{#isCreate}}
+{{^isPopup}}
+<header class="content_top">
+	<h1><span class="txt" id="name"></span></h1>
+</header>
+{{/isPopup}}
+{{/isCreate}}
+{{^isCreate}}
+<header class="content_top">
+	<h1><span class="txt" id="name"></span></h1>
+</header>
+{{/isCreate}}
+<!--목록:-->
+<div class="content_page" sytle="max-height:300px;overflow:auto">
+
+	<table class="form_type form_add02">
+		<tbody>
+			<tr>
+				<th class="col1"><span class="title">{{#isRental}}{{lang.rent_date}}{{/isRental}}{{^isRental}}{{lang.reserv_date}}{{/isRental}}</span></th>
+				<td class="col2">
+					<span class="wrap_dateselect" id="selectDate">
+						{{#isRental}}
+						<span class="txt_date" id="date"></span>
+						{{/isRental}}
+						{{^isRental}}
+						<span class="wrap_date">
+							<input class="txt wfix_small" type="text" id="startDate" value="{{prevDate}}" data-prev="{{prevDate}}" readonly="readonly" {{#isRecurrence}}{{#isModify}}disabled="disabled"{{/isModify}}{{/isRecurrence}}>
+							<span class="ic ic_calendar"></span>
+						</span>
+						<span class="wrap_select">
+							<span class="wrap_select_list">
+								<input id="startTime" name="start_time" data-prev="{{prevTime}}" type="text" class="txt wfix_small" data-outside="start">
+								<ul id="startTimeList" data-type="start" class="select_list" style="display:none" data-outside="start">
+								</ul>
+							</span>
+						</span>
+						<span class="date_wave">~</span>
+						<span class="wrap_date">
+							<input class="txt wfix_small" type="text" id="endDate" value="{{prevDate}}" data-prev="{{prevDate}}" readonly="readonly" {{#isRecurrence}}{{#isModify}}disabled="disabled"{{/isModify}}{{/isRecurrence}}>
+							<span class="ic ic_calendar"></span>
+						</span>
+						<span class="wrap_select">
+							<span class="wrap_select_list" id="sched_date">
+								<input id="endTime" name="end_time" data-prev="{{prevTime}}" type="text" class="txt wfix_normal" data-outside="end">
+								<ul id="endTimeList" data-type="end" class="select_list" style="display:none" data-outside="end">
+								</ul>
+							</span>
+						</span>
+                        {{#isEditable}}
+						<span class="horspace1"></span>
+						<span class="wrap_option">
+							<input id="allday" type="checkbox" name="timeType" value="allday" {{#allDay}} checked="checked"{{/allDay}} >
+							<label for="allday">{{lang.allday}}</label>
+						</span>
+                        {{/isEditable}}
+						{{^isPopup}}
+						<!-- 반복 -->
+						{{#isRecurrence}}
+						<span class="horspace1"></span>
+						<span class="wrap_option" >
+							<input id="repeat" type="checkbox" name="timeType" value="repeat" {{#isRecurrence}}{{^isCreate}}checked="checked"{{/isCreate}}{{/isRecurrence}} {{^isCreate}}disabled="disabled"{{/isCreate}}>
+							<label for="repeat">{{lang.반복}}</label>
+						</span>
+						{{/isRecurrence}}
+						{{/isPopup}}
+						{{/isRental}}
+					</span>
+					<!-- 반복 -->
+					{{^isPopup}}
+					<div id="repeat-option-wrap" class="wrap_alert wrap_details" {{^isModify}} style="display:none" {{/isModify}}>
+						<input type="hidden" name="recurrence" value="{{recurrenceCode}}">
+						<span class="alert_box">
+							<span id="recurrence-text" class="txt"></span>
+							{{#isCreate}}
+							{{#isEditable}}<span class="btn"><span class="ic_side ic_edit recur_edit" title={{lang.수정}}></span></span>{{/isEditable}}
+							{{#isEditable}}<span class="btn"><span class="ic_side ic_basket_bx recur_delete" title={{lang.삭제}}></span></span>{{/isEditable}}
+							{{/isCreate}}
+						</span>
+					{{/isPopup}}
+				</td>
+			</tr>
+
+			{{#isShowUserRow}}
+			<tr>
+				<th><span class="title">{{#isRental}}{{lang.rent_user}}{{/isRental}}{{^isRental}}{{lang.reserv_user}}{{/isRental}}</span></th>
+				<td>
+					<div class="wrap_name_tag">
+						<ul class="name_tag">
+							<li class="" id="userId" data-userid="">
+								<span class="name" id="userName"></span>
+							</li>
+							{{#isManagable}}
+							{{^isRental}}
+							<li class="creat">
+								<span class="btn_wrap" id="btnUserOrg"><span class="ic ic_change"></span><span class="txt">{{lang.rent_change}}</span></span>
+							</li>
+							{{/isRental}}
+							{{/isManagable}}
+						</ul>
+					</div>
+				</td>
+			</tr>
+			{{/isShowUserRow}}
+
+			{{#isShowAnonymRow}}
+			{{#isAllowAnonym}}
+            {{! 익명예약옵션 }}
+			<tr id="anonymRow" style="display: none;">
+				<th><span class="title">{{lang.reserve_anonym}}</span></th>
+				<td>
+					<span class="wrap_option">
+						<input id="useAnonym" type="checkbox" name="useAnonym" value="true"{{#isAllowAnonym}}{{#useAnonym}} checked="checked"{{/useAnonym}}{{#isAlwaysAnonym}} disabled="true"{{/isAlwaysAnonym}}{{/isAllowAnonym}}>
+						<label for="useAnonym">{{lang.use_anonym}}</label>
+					</span>
+				</td>
+			</tr>
+			{{/isAllowAnonym}}
+			{{/isShowAnonymRow}}
+
+			{{#dataset}}
+			<tr data-type="attribute" data-id="{{id}}">
+				<th><span class="title">{{name}}</span></th>
+				<td>
+					<div class="wrap_txt"><input class="txt w_max" type="text" value="" /></div>
+				</td>
+			</tr>
+			{{/dataset}}
+			{{^isCreate}}
+			<tr class="line"><td colspan="2"><hr></td></tr>
+			{{/isCreate}}
+		</tbody>
+	</table>
+	{{#isCreate}}
+	{{^isPopup}}{{^isRental}}
+	<div class="page_action_wrap" id="classicWriteSubmitWrap">
+		<a id="reservConfirm" class="btn_major"><span class="ic"></span><span class="txt">{{lang.confirm}}</span></a>
+		<a id="reservCancel" class="btn_minor" data-btntype="save"><span class="ic"></span><span class="txt">{{lang.cancel}}</span></a>
+	</div>
+    {{/isRental}}{{/isPopup}}
+	{{/isCreate}}
+	{{^isCreate}}
+	<div class="page_action_wrap">
+		<!-- a class="btn_major" data-role="button" id="reservCreate" data-bypass><span class="txt">{{lang.confirm}}</span></a>
+		<a class="btn_minor" data-role="button" data-btntype="returnList" data-bypass><span class="txt">{{lang.cancel}}</span></a-->
+		<a class="btn_major" data-role="button" data-btntype="returnList" data-bypass><span class="txt">{{lang.return_list}}</span></a>
+        <a class="btn_minor" data-role="button" data-btntype='modifyReserv' data-bypass style="display:none" id="reserveModify"><span class="txt">{{lang.reservation_modify}}</span></a>
+		<a class="btn_minor" data-role="button" data-btntype='returnReserv' data-bypass style="display:none" id="reservationCancel"><span class="txt">{{lang.reservation_cancel}}</span></a>
+		<a class="btn_minor" data-role="button" data-btntype='returnReserv' data-bypass style="display:none" id="rentalCancel"><span class="txt">{{lang.asset_return}}</span></a>
+	</div>
+	{{/isCreate}}
+</div>
+</div>

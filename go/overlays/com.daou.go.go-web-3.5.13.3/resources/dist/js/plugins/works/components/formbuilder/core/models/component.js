@@ -1,0 +1,1 @@
+define("works/components/formbuilder/core/models/component",function(require){var e=require("backbone"),t=e.Model.extend({});return t});

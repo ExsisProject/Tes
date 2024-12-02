@@ -1,0 +1,48 @@
+<h4>{{lang.member_photo_regist}}</h4>
+
+<div class="vertical_wrap_s">
+    <span class="option_wrap">
+        <input type="radio" id="userId" name="photoType" checked="checked">
+        <label for="userId">{{lang.id}}</label>
+    </span>
+    <span class="space"></span>
+    <span class="option_wrap">
+        <input type="radio" id="empno" name="photoType">
+        <label for="empno">{{lang.id_number}}</label>
+    </span>
+</div>
+
+<div class="wrap_file_upload_type2">
+    <span class="wrap_btn wrap_file_upload">
+        <div class="btn_minor_s" id="swfupload-control"></div>
+    </span>
+    <span class="btn_s primer btn_upload_all" id="add_photo">
+        <span class="ic_adm ic_upload"></span>
+        <span class="txt">{{lang.batch_regist}}</span>
+    </span>
+</div>
+
+<div class="option_display" id="photo_progress" style="display:none">
+    <div class="content">
+        <span class="option_wrap" id="progress_content"></span>
+        <span id="csvProgressBar" style="display:inline-block">
+            <div id="progressbar"></div>
+        </span>
+    </div>
+</div>
+<ul class="file_wrap" id="fileComplete"></ul>
+<div class="option_display" id="photoResultDiv">
+    <ul class="list_nude">
+    </ul>
+</div>
+
+<p class="desc">
+    {{lang.upload_must_zipfile}}<br>
+    - {{lang.file_standard_extension}}<br>
+    - {{lang.photo_size_info}}<br>
+    - {{lang.impossible_to_see_result_below}}
+</p>
+
+{{#orgSyncable}}
+<span class="btn_tool" id="manualSync" style="display:none;"></span>
+{{/orgSyncable}}

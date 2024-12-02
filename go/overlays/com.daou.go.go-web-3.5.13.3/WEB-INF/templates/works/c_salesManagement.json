@@ -1,0 +1,388 @@
+{
+	"meta": {
+		"key": "2f6915dd-5fc7-495b-9e35-b4682fbe17cc",
+		"base": {
+			"name": "applet.sales.manage.template.name",
+			"desc": "applet.sales.manage.template.desc",
+			"icon": "ic_app7.png"
+		},
+		"exporter": {
+			"name": "관리자",
+			"companyName": "다우기술"
+		}
+	},
+	"components": {
+		"view": {
+			"charts": [],
+			"columns": [{
+				"fieldCid": "status",
+				"columnName": "{{applet.new.template.col.status}}"
+			}, {
+				"fieldCid": "_8lirtiwoq"
+			}, {
+				"fieldCid": "_9tqt98t0e"
+			}, {
+				"fieldCid": "_q6b9iesu2"
+			}, {
+				"fieldCid": "_e40b6129d"
+			}, {
+				"fieldCid": "_k69dksybo"
+			}, {
+				"fieldCid": "create_date",
+				"columnName": "{{applet.form.createdat}}"
+			}],
+			"titleColumnIndex": 1,
+			"sortColumnIndex": 6,
+			"sortDirection": "DESC"
+		},
+		"form": {
+			"data": {
+				"type": "canvas",
+				"valueType": null,
+				"multiple": false,
+				"cid": "cxx1",
+				"parentCid": null,
+				"properties": null,
+				"components": [{
+					"type": "columns",
+					"valueType": null,
+					"multiple": false,
+					"cid": "_2mxtw24xa",
+					"parentCid": "cxx1",
+					"properties": {
+						"count": 2
+					},
+					"components": [{
+						"type": "column",
+						"valueType": null,
+						"multiple": false,
+						"cid": "_se5ndt5pe",
+						"parentCid": "_2mxtw24xa",
+						"properties": {},
+						"components": [{
+							"type": "number",
+							"valueType": "NUMBER",
+							"multiple": false,
+							"cid": "_lhic0z6f4",
+							"parentCid": "_se5ndt5pe",
+							"properties": {
+								"label": "매출년도",
+								"hideLabel": false,
+								"guide": "",
+								"guideAsTooltip": true,
+								"required": false,
+								"minLength": 1,
+								"maxLength": 100000000000,
+								"width": "100",
+								"widthUnit": "px",
+								"unitText": "년도",
+								"fixType": "postfix",
+								"decimalPoints": "0",
+								"thousandComma": false,
+								"useTableAutoAggr": false,
+								"tableAggrType": "",
+								"code": "number_1168"
+							},
+							"components": []
+						}]
+					}, {
+						"type": "column",
+						"valueType": null,
+						"multiple": false,
+						"cid": "_pn0b0epub",
+						"parentCid": "_2mxtw24xa",
+						"properties": {},
+						"components": [{
+							"type": "org",
+							"valueType": "USERS",
+							"multiple": false,
+							"cid": "_8lirtiwoq",
+							"parentCid": "_pn0b0epub",
+							"properties": {
+								"label": "영업 담당자",
+								"hideLabel": false,
+								"guide": "",
+								"guideAsTooltip": true,
+								"required": false,
+								"noLimit": true,
+								"useDefaultRegister": true,
+								"allowMemberCount": "1",
+								"members": []
+							},
+							"components": []
+						}]
+					}]
+				}, {
+					"type": "columns",
+					"valueType": null,
+					"multiple": false,
+					"cid": "_cdsf008ju",
+					"parentCid": "cxx1",
+					"properties": {
+						"count": 2
+					},
+					"components": [{
+						"type": "column",
+						"valueType": null,
+						"multiple": false,
+						"cid": "_rxiu5kwln",
+						"parentCid": "_cdsf008ju",
+						"properties": {},
+						"components": [{
+							"type": "number",
+							"valueType": "NUMBER",
+							"multiple": false,
+							"cid": "_9tqt98t0e",
+							"parentCid": "_rxiu5kwln",
+							"properties": {
+								"label": "목표 월",
+								"hideLabel": false,
+								"guide": "",
+								"guideAsTooltip": true,
+								"required": false,
+								"minLength": 1,
+								"maxLength": 100000000000,
+								"width": "100",
+								"widthUnit": "px",
+								"unitText": "월",
+								"fixType": "postfix",
+								"decimalPoints": "0",
+								"thousandComma": false,
+								"useTableAutoAggr": false,
+								"tableAggrType": "",
+								"code": "number_1246"
+							},
+							"components": []
+						}, {
+							"type": "number",
+							"valueType": "NUMBER",
+							"multiple": false,
+							"cid": "_q6b9iesu2",
+							"parentCid": "_rxiu5kwln",
+							"properties": {
+								"label": "목표 매출",
+								"hideLabel": false,
+								"guide": "",
+								"guideAsTooltip": true,
+								"required": false,
+								"minLength": 1,
+								"maxLength": 100000000000,
+								"width": "100",
+								"widthUnit": "px",
+								"unitText": "억 원",
+								"fixType": "postfix",
+								"decimalPoints": 2,
+								"thousandComma": true,
+								"useTableAutoAggr": false,
+								"tableAggrType": "",
+								"code": "number_1267"
+							},
+							"components": []
+						}]
+					}, {
+						"type": "column",
+						"valueType": null,
+						"multiple": false,
+						"cid": "_36g0un3s6",
+						"parentCid": "_cdsf008ju",
+						"properties": {},
+						"components": [{
+							"type": "number",
+							"valueType": "NUMBER",
+							"multiple": false,
+							"cid": "_e40b6129d",
+							"parentCid": "_36g0un3s6",
+							"properties": {
+								"label": "달성 월",
+								"hideLabel": false,
+								"guide": "",
+								"guideAsTooltip": true,
+								"required": false,
+								"minLength": 1,
+								"maxLength": 100000000000,
+								"width": "100",
+								"widthUnit": "px",
+								"unitText": "월",
+								"fixType": "postfix",
+								"decimalPoints": "0",
+								"thousandComma": false,
+								"useTableAutoAggr": false,
+								"tableAggrType": "",
+								"code": "number_1305"
+							},
+							"components": []
+						}, {
+							"type": "number",
+							"valueType": "NUMBER",
+							"multiple": false,
+							"cid": "_k69dksybo",
+							"parentCid": "_36g0un3s6",
+							"properties": {
+								"label": "달성 매출",
+								"hideLabel": false,
+								"guide": "",
+								"guideAsTooltip": true,
+								"required": false,
+								"minLength": 1,
+								"maxLength": 100000000000,
+								"width": "100",
+								"widthUnit": "px",
+								"unitText": "억 원",
+								"fixType": "postfix",
+								"decimalPoints": 2,
+								"thousandComma": true,
+								"useTableAutoAggr": false,
+								"tableAggrType": "",
+								"code": "number_1328"
+							},
+							"components": []
+						}]
+					}]
+				}, {
+					"type": "hr",
+					"valueType": null,
+					"multiple": false,
+					"cid": "_tukld42vu",
+					"parentCid": "cxx1",
+					"properties": {},
+					"components": []
+				}, {
+					"type": "checkbox",
+					"valueType": "SELECTS",
+					"multiple": false,
+					"cid": "_jf6ddw7tv",
+					"parentCid": "cxx1",
+					"properties": {
+						"label": "계약 실패 시 주요 원인",
+						"hideLabel": false,
+						"guide": "",
+						"guideAsTooltip": true,
+						"required": false,
+						"items": [{
+							"value": "0",
+							"displayText": "가격",
+							"selected": false
+						}, {
+							"value": "1",
+							"displayText": "품질",
+							"selected": false
+						}, {
+							"value": "2",
+							"displayText": "일정",
+							"selected": false
+						}, {
+							"value": "3",
+							"displayText": "과다한 요구사항",
+							"selected": false
+						}, {
+							"value": "4",
+							"displayText": "기타",
+							"selected": false
+						}],
+						"align": "horizontal",
+						"minCheckedCount": 0,
+						"maxCheckedCount": 3,
+						"defaultValue": ["0"]
+					},
+					"components": []
+				}, {
+					"type": "text",
+					"valueType": "STEXT",
+					"multiple": false,
+					"cid": "_ongv9j21s",
+					"parentCid": "cxx1",
+					"properties": {
+						"label": "COMMENT",
+						"hideLabel": false,
+						"guide": "",
+						"guideAsTooltip": true,
+						"required": false,
+						"duplicate": false,
+						"similar": false,
+						"defaultValue": "",
+						"minLength": 0,
+						"maxLength": 100,
+						"width": 100,
+						"widthUnit": "percent",
+						"format": "all"
+					},
+					"components": []
+				}]
+			}
+		},
+		"process": {
+			"useProcess": true,
+			"statuses": [{
+				"name": "{{applet.sales.manage.template.status.proposal}}",
+				"start": true,
+				"doing": false,
+				"end": false,
+				"color": "0"
+			}, {
+				"name": "{{applet.sales.manage.template.status.nego}}",
+				"start": false,
+				"doing": true,
+				"end": false,
+				"color": "0"
+			}, {
+				"name": "{{applet.sales.manage.template.status.contractfail}}",
+				"start": false,
+				"doing": false,
+				"end": true,
+				"color": "0"
+			}, {
+				"name": "{{applet.sales.manage.template.status.contractpass}}",
+				"start": false,
+				"doing": false,
+				"end": true,
+				"color": "0"
+			}],
+			"transitions": [{
+				"beforeStatus": "{{applet.sales.manage.template.status.proposal}}",
+				"nextStatus": "{{applet.sales.manage.template.status.nego}}",
+				"actionName": "{{applet.sales.manage.template.action.proposalpass}}",
+				"actionRoles": ["ADMIN"],
+				"pushRoles": ["ADMIN"]
+			}, {
+				"beforeStatus": "{{applet.sales.manage.template.status.proposal}}",
+				"nextStatus": "{{applet.sales.manage.template.status.contractfail}}",
+				"actionName": "{{applet.sales.manage.template.action.proposalfail}}",
+				"actionRoles": ["ADMIN"],
+				"pushRoles": ["ADMIN"]
+			}, {
+				"beforeStatus": "{{applet.sales.manage.template.status.nego}}",
+				"nextStatus": "{{applet.sales.manage.template.status.contractfail}}",
+				"actionName": "{{applet.sales.manage.template.action.negofail}}",
+				"actionRoles": ["ADMIN"],
+				"pushRoles": ["ADMIN"]
+			}, {
+				"beforeStatus": "{{applet.sales.manage.template.status.nego}}",
+				"nextStatus": "{{applet.sales.manage.template.status.contractpass}}",
+				"actionName": "{{applet.sales.manage.template.action.complete}}",
+				"actionRoles": ["ADMIN"],
+				"pushRoles": ["ADMIN"]
+			}],
+			"addPushes": []
+		}
+	},
+	"messageKeys": [
+		"applet.sales.manage.template.status.proposal",
+		"applet.sales.manage.template.status.nego",
+		"applet.sales.manage.template.status.contractfail",
+		"applet.sales.manage.template.status.contractpass",
+		"applet.sales.manage.template.action.proposalpass",
+		"applet.sales.manage.template.action.proposalfail",
+		"applet.sales.manage.template.action.negofail",
+		"applet.sales.manage.template.action.complete",
+		"applet.new.template.col.status",
+		"applet.form.createdat"
+	],
+	"guide" : {
+		"contents" : "applet.sales.manage.template.guide.content",
+		"imageFiles" : [
+			"c_salesManagement/c_01.png",
+			"c_salesManagement/c_02.png",
+			"c_salesManagement/c_03.png"
+		]
+	}
+}

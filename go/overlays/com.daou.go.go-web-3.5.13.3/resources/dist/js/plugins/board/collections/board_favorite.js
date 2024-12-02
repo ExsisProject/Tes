@@ -1,0 +1,1 @@
+define(["backbone","board/models/board_favorite"],function(e,t){var n=null,r=e.Collection.extend({model:t,url:function(){return"/api/board/favorite"}});return{getCollection:function(){return n==null&&(n=new r),n.fetch({data:{page:"0",offset:"1000"},async:!1}),n},create:function(e){return new r(e)}}});

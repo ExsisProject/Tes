@@ -1,0 +1,171 @@
+{{#data}}
+<div class="content_page">
+    <form name="formCustomProfileConfig" id="formCustomProfileConfig" >
+    <div class="container ">  
+        <div class="content">
+            <table class="detail">
+                <colgroup>
+				    <col width="150px" />
+				    <col width="*" />
+				</colgroup>
+				<tbody>
+				    <tr>
+				        <th>
+				            <span class="title">TMW 연동 메일함 사용</span>
+				        </th>
+				        <td>
+				             <div class="vertical_wrap_s">
+				                <span class="option_wrap"> 
+				                    <input type="radio" value="on" id="use_tmw_on" name="useTmw" {{#useTMWFolder}} checked="checked" {{/useTMWFolder}} />
+				                    <label for="use_tmw_on">{{lang.label_use}}</label>
+				                </span>
+				                <span class="option_wrap"> 
+				                    <input type="radio" value="off" id ="use_tmw_off" name="useTmw" {{^useTMWFolder}} checked="checked" {{/useTMWFolder}} />
+				                    <label for="use_tmw_off">{{lang.label_no_use}}</label>
+				                </span>
+                            </div>
+				        </td>
+				    </tr>
+				    
+				    <tr class="last">
+                        <th>
+                            <span class="title">스팸 메일함 노출여부</span>
+                        </th>
+                        <td>
+                             <div class="vertical_wrap_s">
+				                <span class="option_wrap"> 
+				                    <input type="radio" value="on" id="use_spam_on" name="useSpam" {{#useSpamFolder}} checked="checked" {{/useSpamFolder}} />
+				                    <label for="use_spam_on">{{lang.label_use}}</label>
+				                </span>
+				                <span class="option_wrap"> 
+				                    <input type="radio" value="off" id ="use_spam_off" name="useSpam" {{^useSpamFolder}} checked="checked" {{/useSpamFolder}} />
+				                    <label for="use_spam_off">{{lang.label_no_use}}</label>
+				                </span>
+                            </div>
+                        </td>
+                    </tr>
+				</tbody>
+            </table>
+        </div>
+    </div>
+	<div id="tmwDetailInfo" class="container" {{^useTMWFolder}}style="display:none"{{/useTMWFolder}}>
+	    <div class="header">
+	        <h2>TMW 연동 메일함 관리</h2>
+	    </div>
+	    <div class="content">
+	    
+	        <table class="detail">
+	            <colgroup>
+	                <col width="150px" />
+	                <col width="*" />
+	            </colgroup>
+		        <tbody>
+		        	
+		            <tr class="">
+		                <th>
+		                    <span class="title">{{lang.label_folder_name}}({{lang.label_ko}})</span>
+		                </th>
+		                <td>
+		                    <span class="user_data editable">
+		                        <span id="data">{{koLabel}}</span>
+		                        <span class="btn_box">
+		                            <span class="ic ic_edit" title="{{lang.label_edit}}"></span>
+		                        </span>
+		                    </span>
+		                    <input class="w_half input" type="text" id="tmwKoLabel" name="tmwKoLabel" value="{{koLabel}}" style="display:none;">
+		                    <span class="go_alert" id="tmwKoLabelValidate"></span>
+		                </td>
+		            </tr>
+		            <tr class="">
+		                <th>
+		                    <span class="title">{{lang.label_folder_name}}({{lang.label_en}})</span>
+		                </th>
+		                <td>
+		                    <span class="user_data editable">
+		                        <span id="data">{{enLabel}}</span>
+		                        <span class="btn_box">
+		                            <span class="ic ic_edit" title="{{lang.label_edit}}"></span>
+		                        </span>
+		                    </span>
+		                    <input class="w_half input" type="text" id="tmwEnLabel" name="tmwEnLabel" value="{{enLabel}}" style="display:none;">
+		                    <span class="go_alert" id="tmwEnLabel"></span>
+		                </td>
+		            </tr>
+		            <tr class="">
+		                <th>
+		                    <span class="title">{{lang.label_folder_name}}({{lang.label_jp}})</span>
+		                </th>
+		                <td>
+		                    <span class="user_data editable">
+		                        <span id="data">{{jaLabel}}</span>
+		                        <span class="btn_box">
+		                            <span class="ic ic_edit" title="{{lang.label_edit}}"></span>
+		                        </span>
+		                    </span>
+		                    <input class="w_half input" type="text" id="tmwJaLabel" name="tmwJaLabel" value="{{jaLabel}}" style="display:none;">
+		                    <span class="go_alert" id="tmwJaLabelValidate"></span>
+		                </td>
+		            </tr>
+		            <tr class="">
+		                <th>
+		                    <span class="title">{{lang.label_folder_name}}({{lang.label_zhcn}})</span>
+		                </th>
+		                <td>
+		                    <span class="user_data editable">
+		                        <span id="data">{{zhcnLabel}}</span>
+		                        <span class="btn_box">
+		                            <span class="ic ic_edit" title="{{lang.label_edit}}"></span>
+		                        </span>
+		                    </span>
+		                    <input class="w_half input" type="text" id="tmwZhcnLabel" name="tmwZhcnLabel" value="{{zhcnLabel}}" style="display:none;">
+		                    <span class="go_alert" id="tmwZhcnLabelValidate"></span>
+		                </td>
+		            </tr>
+		            <tr class="">
+		                <th>
+		                    <span class="title">{{lang.label_folder_name}}({{lang.label_zhtw}})</span>
+		                </th>
+		                <td>
+							<span class="user_data editable">
+		                        <span id="data">{{zhtwLabel}}</span>
+		                        <span class="btn_box">
+		                            <span class="ic ic_edit" title="{{lang.label_edit}}"></span>
+		                        </span>
+		                    </span>
+		                    <input class="w_half input" type="text" id="tmwZhtwLabel" name="tmwZhtwLabel" value="{{zhtwLabel}}" style="display:none;">
+		                    <span class="go_alert" id="tmwZhtwLabelValidate"></span>
+		                </td>
+		            </tr>
+		            <tr class="">
+		                <th>
+		                    <span class="title">TMW 서버 정보</span>
+		                </th>
+		                <td>
+	                        <span class="option_wrap">
+	                        서버 <input class="input" type="text" id="tmwServer">
+	                            <span class="go_alert" id="tmwServerValidate"></span>
+	                        포트 <input class="input" type="text" id="tmwPort"> 
+	                            <span class="go_alert" id="tmwPortValidate"></span>
+	                            Key  <input class="input" type="text" id="tmwKey"> 
+	                            <span class="go_alert" id="tmwKeyValidate"></span>
+	                            <span class="btn_s" id="btn_add_tmw" name="btn_add_tmw">{{lang.label_add}}</span>
+	                            <br>
+	                            <br>
+	                            <select id="tmwServerInfos" name="tmwServerInfos" multiple="multiple" size="10" style="width:560px;height:100px;border:1x solid #999999;">
+	                            </select>
+	                            <span class="btn_s" id="btn_delete_tmw">{{lang.label_delete}}</span>
+	                        </span>
+		                </td>
+	                </tr>
+                </tbody>
+            </table>
+	   </div>
+    </div>
+    <div class="page_action">
+        <span class="btn" id="btn_ok">{{lang.label_ok}}</span>
+        <span class="btn_nega" id="btn_cancel">{{lang.label_cancel}}</span>
+    </div>
+    </form>
+</div>
+{{/data}}
+    

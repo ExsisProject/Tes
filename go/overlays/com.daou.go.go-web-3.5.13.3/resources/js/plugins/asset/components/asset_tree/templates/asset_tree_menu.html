@@ -1,0 +1,15 @@
+<li class="classic{{#isCompanyShared}}_share{{/isCompanyShared}}" data-id="{{nodeId}}" data-type="{{useRental}}">
+	<p class="title">
+		{{#hasChildren}}
+		<span class="btnToggleNode{{#isClosedNode}} open{{/isClosedNode}}{{^isClosedNode}} close{{/isClosedNode}}" title="{{#isClosedNode}}{{lang.open}}{{/isClosedNode}}{{^isClosedNode}}{{lang.close}}{{/isClosedNode}}"></span>
+		{{/hasChildren}}
+		{{! 기존 메뉴 반전 로직에 a태그의 data-id를 이용해서 찾고 있다.}}
+		{{! 디자인팀 요청으로 이부분은 개행하지 말고 한줄로 이어서 해야 함(주의)}}
+		<a class="go_boards" data-id="{{nodeId}}" title="{{nodeValue}}" data-parent="{{parentId}}" data-bypass><ins class="ic"></ins><span class="txt">{{nodeValue}}</span></a>
+		{{#managable}}
+		<span class="btn_wrap">
+			<span class="btn-setting ic_side ic_side_setting" data-type="{{useRental}}" data-id="{{nodeId}}"></span>
+		</span>
+		{{/managable}}
+	</p>
+</li>

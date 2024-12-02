@@ -1,0 +1,95 @@
+<div class="content_page">
+	<!-- 상세 -->
+	<div class="content" id="taskArea" style="position:relative;">
+		<div id="iScrollContentWrap" >
+		<section class="classic_detail">
+			<header class="article_header calander_header">	
+				<h2>
+					<span class="state {{#data.status.end}}finished{{/data.status.end}} {{^data.status.end}}etc{{/data.status.end}}" id="stateArea">{{data.status.name}}</span>
+					<span class="txt">{{data.name}}</span>
+				</h2>
+				<div class="article_wrap">
+                    <div class="info">
+                        <span class="txt">{{lang.regist}} : {{createdAt}}</span>
+                    </div>
+                    <div class="info">
+					    <span class="name">{{data.creator.name}} {{#data.creator.position}}{{data.creator.position}}{{/data.creator.position}}</span>
+                    </div>
+                    <a href="javascript:;" class="btn_share" id="copyUrl">
+                        <span class="ic ic_link"></span>
+                    </a>
+                </div>
+			</header>
+			<dl class="list_type4 view_report_default">
+				<dt><span class="txt">{{lang.assignee}}</span></dt>
+				<dd class="person">
+					<ul class="name_tag">
+					{{#data.assignees}}
+						<li><span class="name">{{name}} {{position}}</span></li>
+					{{/data.assignees}}
+					</ul>
+				</dd>
+			</dl>
+			<dl id="detailArea" class="list_type4 view_report_detail">
+				<dt><span class="txt">{{lang.dueDate}}</span></dt>
+				<dd>
+					{{#hasDueDate}}
+						{{#beginDate}}
+							{{beginDate}}
+						{{/beginDate}}
+						{{^beginDate}}
+							{{lang.emptyValue}}
+						{{/beginDate}}
+						 ~
+						{{#dueDate}}
+							{{dueDate}}
+						{{/dueDate}}
+						{{^dueDate}}
+							{{lang.emptyValue}}
+						{{/dueDate}}
+					{{/hasDueDate}}
+					{{^hasDueDate}}
+						{{lang.emptyValue}}
+					{{/hasDueDate}}
+				</dd>
+				{{#folder.tagAllowed}}
+				<dt><span class="txt">{{lang.tag}}</span></dt>
+				<dd>{{tagLabel}}</dd>
+				{{/folder.tagAllowed}}
+				
+				<dt id="fieldArea"></dt>
+
+				{{#folder.referersAllowed}}
+				<dt><span class="txt">{{lang.referer}}</span></dt>
+				<dd>
+					<ul class="name_tag">
+					{{#data.referers}}
+						<li><span class="name">{{name}} {{position}}</span></li>
+					{{/data.referers}}
+					</ul>
+				</dd>
+				{{/folder.referersAllowed}}
+				
+				{{#data.approver}}
+				<dt><span class="txt">{{lang.approver}}</span></dt>
+				<dd>
+					<ul class="name_tag">
+						<li><span class="name">{{data.approver.name}} {{#data.approver.position}}{{data.approver.position}}{{/data.approver.position}}</span></li>
+					</ul>
+				</dd>
+				{{/data.approver}}
+				<dt><span class="txt">{{lang.detail}}</span></dt>
+				<dd id="taskContent">
+					<div id="task_detail" class="editor_view" style="display:inline-block">
+					{{{content}}}
+					</div>
+				</dd>
+				<dt><span class="txt">{{lang.attach}}</span></dt>
+				<dd>
+					<div id="attachArea"></div>
+				</dd>
+			</dl>
+		</section>
+		</div>
+	</div>
+</div>

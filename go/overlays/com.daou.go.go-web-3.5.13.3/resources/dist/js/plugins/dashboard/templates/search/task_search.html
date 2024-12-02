@@ -1,0 +1,27 @@
+<h1 class="cs_s_title">{{lang.task}}</h1>
+<div class="cs_report_group">
+{{#dataset}}
+	<div class="article_wrap">
+			<div class="info">
+				<span class="item item_default">
+					<span class="name" id="taskName" data-taskId="{{id}}">{{{name}}}</span>
+				</span>
+			</div>
+			<!-- <div class="cs_article dot" style="word-wrap: break-word;"><span>{{{name}}}</span></div> -->
+			<span class="item">
+					<span class="sub">{{deptName}} &gt; {{folderName}}</span>
+					<span class="part">l</span>
+					<span>{{{assignees}}}</span>
+					<span class="part">l</span>
+					<span class="sub">{{lang.dueDate}}</span>
+					<span class="date">{{convertDuedate}}</span>
+			</span>
+		</div>
+{{/dataset}}
+</div>
+<div class="btn_more_wrap">
+	<a class="btn_more" id="btn_more" style="display:none;">
+		<span class="txt">{{lang.more}}</span>
+		<span class="ic ic_csm_arrow"></span>
+	</a>
+</div>

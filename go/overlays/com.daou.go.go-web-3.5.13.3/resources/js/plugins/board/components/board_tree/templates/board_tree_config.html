@@ -1,0 +1,111 @@
+<li class="node list {{iconType}}" data-type="{{nodeType}}"{{^isNew}} data-id="{{nodeId}}"{{/isNew}}>
+	<div class="item">
+		<span class="ic ic_drag"></span>
+		
+		{{#isSeperatorNode}}
+		{{#isEditingMode}}
+		<input type="text" class="input w_medium vm" value="{{^isNew}}{{nodeValue}}{{/isNew}}" placeholder="{{nodeValue}}">
+		<span class="btn_fn7 vm modify btnSaveNode">{{lang.save}}</span>
+		{{/isEditingMode}}
+		{{^isEditingMode}}
+		<span class="node-title title_depart vm">&lt;<span>{{nodeValue}}</span>&gt;</span>
+		<span class="btn_fn7 vm modify btnEditNode">{{lang.modify}}</span>
+		{{/isEditingMode}}
+		{{#isNew}}
+		<span class="btn_fn7 vm delete btnCancelAddNode">{{lang.cancel}}</span>
+		{{/isNew}}
+		{{^isNew}}
+		<span class="btn_fn7 vm delete btnRemoveNode">{{lang.remove}}</span>
+		{{/isNew}}
+		{{/isSeperatorNode}}
+		
+		{{#isFolderNode}}
+		<div class="node-title tit">
+			{{#hasChildren}}
+			<span class="btnToggleNode ic_stair_{{#isClosedNode}}open{{/isClosedNode}}{{^isClosedNode}}close{{/isClosedNode}}" title="{{#isClosedNode}}{{lang.open}}{{/isClosedNode}}{{^isClosedNode}}{{lang.close}}{{/isClosedNode}}"></span>
+			{{/hasChildren}}
+			<span class="ic" title=""></span>
+			{{#isEditingMode}}
+			<span class="txt_edit" style="">
+				<input class="input edit wfix_large" type="text" name="new_folder_name" value="{{^isNew}}{{nodeValue}}{{/isNew}}" placeholder="{{nodeValue}}">
+				<span class="btn_wrap ui_edit_ing">
+					<span class="btnSaveNode ic_side ic_done" title="{{lang.save}}"></span>
+					<span class="ic_side ic_cancel{{#isNew}} btnCancelAddNode{{/isNew}}{{^isNew}} btnCancelEditNode{{/isNew}}" title="{{lang.cancel}}"></span>
+				</span>
+			</span>
+			{{/isEditingMode}}
+			{{^isEditingMode}}
+			<span class="txt_form contact_item_modify">
+				{{nodeValue}}
+				<span class="ui_edit btn_wrap">
+					<span class="ic_side ic_edit btnEditNode" title="{{lang.modify}}"></span>
+					<span class="ic_side ic_basket_bx btnRemoveNode" title="{{lang.remove}}"></span>
+				</span>
+				
+			</span>
+			{{/isEditingMode}}
+		</div>
+		{{/isFolderNode}}
+		
+		{{#isBoardNode}}
+		{{^isDeptShared}}<input class="chk" type="checkbox" name="board_id" value="{{boardId}}"/>{{/isDeptShared}}
+		<div class="node-title tit">
+		{{#hasCompanyShare}}
+			<span class="ic ic_classic_share"></span>
+		{{/hasCompanyShare}}
+		{{^hasCompanyShare}}
+			<span class="ic ic_board"></span>
+		{{/hasCompanyShare}}
+			<span class="board_name">{{nodeValue}}</span>
+			{{#hasCompanyShare}}
+			<span class="btn_fn7" data-role="button" data-type="btnOwners">
+				<span class="ic_con ic_share"></span>
+				<span class="txt">{{lang.range}}</span>
+			</span>
+			{{/hasCompanyShare}}
+		</div>
+		<div class="opt">
+			<span class="name">{{managerList}}</span>
+			{{#isAdminService}}
+			<span class="status">
+				<select name="homeExposureFlag">
+					<option value="true"{{#isHomeExposureBoard}} selected="selected"{{/isHomeExposureBoard}}>O</option>
+					<option value="false"{{^isHomeExposureBoard}} selected="selected"{{/isHomeExposureBoard}}>X</option>
+				</select>
+			</span>
+			{{/isAdminService}}
+			<span class="set">
+				{{#managable}}
+				<span class="btn_fn7 btn-board-admin">
+					<span class="txt">{{lang.setting}}</span>
+				</span>
+				{{/managable}}
+				
+			</span>
+		</div>
+		{{/isBoardNode}}
+		
+		{{#isCompanyShareNode}}
+		<div class="node-title tit">
+			<span class="ic ic_classic_share"></span> 
+			<span class="board_name">{{nodeValue}}{{shareCompanyName}}</span>
+		</div>
+		<div class="opt">
+			<span class="name">{{managerList}}</span>
+			{{#isAdminService}}
+			<span class="status">
+			<span class="btn_fn7" data-role="button" data-type="btnOwners">
+				<span class="ic_con ic_share"></span>
+				<span class="txt">{{lang.range}}</span>
+			</span>
+			</span>
+			{{/isAdminService}}
+			<span class="set">
+
+				
+			</span>
+		</div>
+		{{/isCompanyShareNode}}
+
+	</div>
+</li>

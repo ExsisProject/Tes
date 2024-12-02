@@ -1,0 +1,1 @@
+define("store/models/config",function(require){var e=require("backbone"),t=require("app"),n=e.Model.extend({initialize:function(e){this.isAdmin=e},url:function(){return this.isAdmin?t.contextRoot+"ad/api/store/config":t.contextRoot+"api/store/config"}});return n});

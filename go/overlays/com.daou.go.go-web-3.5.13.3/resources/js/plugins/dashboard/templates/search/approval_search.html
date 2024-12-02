@@ -1,0 +1,36 @@
+<h1 class="cs_s_title">{{lang.approval}}</h1>
+	<div class="cs_eapproval_group">
+	{{#dataset}}
+		<div class="article_wrap">
+			<div class="info">
+				<span class="item item_default">
+					<span class="sub">{{lang.createAt}}</span>
+					<span class="part">l</span>
+					<span class="day">{{covertDraftedAt}}</span>
+					<span class="name" id="apprTitle" data-id="{{id}}">{{{title}}}</span>
+				</span>
+				<span class="item">
+					<span class="">{{{formName}}}</span>
+					<span class="part">l</span>
+					<span class="sub">{{lang.creator}}</span>
+					<span class="">{{{drafterName}}}</span>
+					<span class="part">l</span>
+					<span class="sub">{{lang.apprStatus}}</span>
+					<span class="">{{docStaus}}</span>
+					<span class="part">l</span>
+					<span class="sub">{{lang.docNum}}</span>
+					<span class="">{{{docNum}}}</span>
+					<span class="part">l</span>
+					<span class="sub">{{lang.approvationDate}}</span>
+					<span class="">{{convertCompletedAt}}</span>
+				</span>
+			</div>
+		</div>
+		{{/dataset}}
+</div>
+<div class="btn_more_wrap">
+	<a class="btn_more" id="btn_more" style="display:none;">
+		<span class="txt">{{lang.more}}</span>
+		<span class="ic ic_csm_arrow"></span>
+	</a>
+</div>

@@ -1,0 +1,95 @@
+﻿{{#isSender}}
+<div class="tool_bar">
+    <ul class="critical">
+        <a class="btn_tool" data-action="remove">
+            <span class="ic_toolbar del"></span>
+            <span class="txt">{{lang.삭제}}</span>
+        </a>
+    </ul>
+</div>
+{{/isSender}}
+<div class="dashboard_box">
+    <div class="message_write_wrap">
+        <section class="message_box">
+            <header class="article_header">
+                <div class="article_wrap">
+                    <span class="photo">
+                        <a data-userid="{{senderId}}" >
+                            <span class="txt">
+                                <img alt="{{senderName}}" title="{{senderName}}" src="{{senderThumbnail}}">
+                            </span>
+                        </a>
+                    </span>
+                    <div class="info">
+                        <a class="name" data-userid="{{senderId}}">{{senderName}}</a><br>
+                        <span class="team">{{senderDeptName}}</span>
+                    </div>
+                </div>
+                <div class="meta_wrap">
+                    <span class="sub_info date">{{sendDate}}</span>
+                </div>
+            </header>
+            <div class="wrap_txtarea {{^hasAttaches}}no_photo{{/hasAttaches}}">
+                <span class="ic_sms ic_tail_white"></span>
+                <p class="send_tit">{{subject}}</p>
+                <textarea readonly class="txtarea" name="content" rows="0">{{content}}</textarea>
+            </div>
+            <div class="message_info">
+                <table class="form_type form_message">
+                    <tbody>
+                        <tr>
+                            <th>
+                                <span class="title">{{lang.분류}}</span>
+                            </th>
+                            <td>
+                                <span class="txt">{{type}}</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <span class="title">{{lang.발신번호}}</span>
+                            </th>
+                            <td>
+                                <span class="txt">{{senderNumber}}</span>
+                            </td>
+                        </tr>
+                        <!-- 포토가 없거나 권한이 없을때는 display:none; 처리 -->
+                        <tr {{^hasAttaches}}style="display:none" {{/hasAttaches}}>
+                            <th>
+                                <span class="title">{{lang.포토}}</span>
+                            </th>
+                            <td>
+                                <div id="attach-placeholder"></div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        <section class="address_box">
+            <header class="address_header">
+                <div class="address_title">
+                    <span class="txt">{{lang.수신자목록}}</span>
+                </div>
+                <div class="meta_wrap">
+                    <span class="total_num">{{count}}{{lang.명}}</span>
+                </div>
+            </header>
+            <div class="address_wrap">
+                <table class="address_list">
+                </table>
+            </div>
+            <div class="paging_wrap" id="paginateArea"></div>
+        </section>
+    </div>
+</div>
+{{#isSender}}
+<div class="tool_bar">
+    <ul class="critical">
+        <a class="btn_tool" data-action="remove">
+            <span class="ic_toolbar del"></span>
+            <span class="txt">{{lang.삭제}}</span>
+        </a>
+    </ul>
+</div>
+{{/isSender}}

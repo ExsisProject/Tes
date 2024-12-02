@@ -1,0 +1,37 @@
+<div class="header">
+    <h2>
+        <span class="title">{{adminLang.권한 목록}}</span>
+        <span class="wrap_ic_s">
+            <span class="help">
+                <span class="tool_tip">{{{adminLang.권한 설정 툴팁}}}<i class="tail_left"></i></span>
+            </span>
+        </span>
+    </h2>
+</div>
+<div class="content">
+    <div class="wrap_organogram_opt">
+        <div class="critical">
+            <div class="btn_func_wrap">
+                <a id="group_add_btn" class="btn_tool"><span class="ic_adm ic_plus"></span><span class="txt">{{commonLang.추가}}</span></a>
+                <a id="group_mod_btn" class="btn_tool" style="display: none"><span class="ic_adm ic_edit"></span><span class="txt">{{commonLang.수정}}</span></a>
+                <a id="group_del_btn" class="btn_tool" style="display: none"><span class="ic_adm ic_delete"></span><span class="txt">{{commonLang.삭제}}</span></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="wrap_authority_list">
+        <ul id="group_list" class="com_list_static wrap_authority_list">
+            {{#groups}}
+            <li data-id="{{attributes.id}}" class="auth_group{{#attributes.defaultGroup}} default_group{{/attributes.defaultGroup}}{{#active}} active{{/active}}">
+                <div class="cell info">
+                    <span class="wrap_info">
+                        <span class="txt" title="">&nbsp;&nbsp;{{attributes.name}}
+                            <label style="font-size: 12px; color: #a0a0a0;"> ({{attributes.domainAdminAuthUsers.length}})</label>
+                        </span>
+                    </span>
+                </div>
+            </li>
+            {{/groups}}
+        </ul>
+    </div>
+</div>

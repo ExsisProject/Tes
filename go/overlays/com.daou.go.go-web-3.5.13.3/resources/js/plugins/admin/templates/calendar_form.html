@@ -1,0 +1,78 @@
+<div class="content_page">
+
+    <div class="container">            
+        <div class="header">
+            <h2>{{lang.캘린더 등록정보}}</h2>
+        </div>            
+        <div class="content">
+            <table class="detail article_head">
+                <colgroup>
+                    <col width="110px">
+                    <col width="*">
+                </colgroup>
+                <tbody>
+                    <tr>
+                        <th><span class="title">{{^data.defaultCalendar}}<ins class="asterisk">*</ins>{{/data.defaultCalendar}}{{lang.캘린더 제목}}</span></th>
+                        <td>
+                            {{#data.defaultCalendar}}
+                                <label>{{data.name}}</label>
+                            {{/data.defaultCalendar}}
+                            {{^data.defaultCalendar}}
+                                <input class="w_half input" type="text" id="title" value="{{data.name}}">
+                            {{/data.defaultCalendar}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><span class="title">{{lang.공개 범위}}</span></th>
+                        <td>
+                            <div class="vertical_wrap_s">
+                                <span class="option_wrap">
+                                    <input type="radio" name="share" value="PUBLIC" id="wholePublic" {{#isPublic}}checked="checked"{{/isPublic}}> 
+                                    <label for="wholePublic">{{lang.공개}} ({{lang.읽기}})</label>
+                                </span>
+                            </div>
+                            <div class="vertical_wrap_s">
+                                <span class="option_wrap">
+                                    <input type="radio" name="share" value="PRIVATE" id="partPublic" {{^isPublic}}checked="checked"{{/isPublic}}> 
+                                    <label for="partPublic">{{lang.비공개}}</label>
+                                </span>
+                            </div>
+                            <div>
+                                <span class="vertical_wrap_s" id="accessUser" {{#isPublic}}style="display: none"{{/isPublic}}>
+                                </span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="last">
+                        <th><span class="title">{{lang.운영자}}</span></th>
+                        <td>
+                            <ul class="name_tag" id="calendarManagerList">
+                                {{#data.managers}}
+                                    <li data-id="{{userId}}">
+                                        <span class="name">
+                                            {{name}} {{position}}
+                                        </span>
+                                        <span class="btn_wrap">
+                                            <span class="ic_classic ic_del" title=""></span>                                        
+                                        </span>
+                                    </li>
+                                {{/data.managers}}
+                                <li class="creat">
+                                    <span class="btn_wrap" id="selectManager">
+                                        <span class="ic ic_addlist"></span>
+                                        <span class="txt">{{lang.운영자 추가}}</span>
+                                    </span>
+                                </li>
+                            </ul>        
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="page_action" id="cal_actions">
+        <span class="btn" data-btntype="save">{{lang.저장}}</span>
+        <span class="btn_nega" data-btntype="cancel">{{lang.취소}}</span>
+    </div>
+</div>

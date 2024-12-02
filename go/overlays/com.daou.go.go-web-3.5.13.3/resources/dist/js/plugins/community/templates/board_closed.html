@@ -1,0 +1,25 @@
+		<header class="content_top">
+		</header>
+	
+		<!--종료된 보고서 폴더-->	
+		<div class="content_page" >	
+			<div class="dataTables_wrapper">
+				<!-- 상단 메뉴바 START  -->
+				<div class="critical" id= "controlButtons" style="display: none">						
+					<a class="btn_tool remove" data-role="button"><span class="txt_caution">{{lang.remove}}</span></a>
+					<a class="btn_tool active" data-role="button"><span class="txt">{{lang.change_status_normal}}</span></a>
+				</div>			
+				
+				<!-- 테이블 -->		
+				<table class="type_normal tb_report_closed" id="folders_table">	
+					<thead>
+						<tr>
+							<th class="sorting_disabled"><input type="checkbox" id="checkedAll"></th>
+							<th class="sorting_disabled"><span class="title_sort">{{lang.board_term}}</span></th>
+							<th class="sorting_disabled"><span class="title_sort">{{lang.name}}</span></th>
+							<th class="sorting_disabled"><span class="title_sort">{{lang.post_count}}</span></th>
+						</tr>
+					</thead>
+				</table>
+			</div>
+		</div>

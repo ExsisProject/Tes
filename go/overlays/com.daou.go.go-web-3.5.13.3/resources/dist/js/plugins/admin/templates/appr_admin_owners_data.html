@@ -1,0 +1,20 @@
+<tr data-id="{{id}}">
+	<td>{{name}} {{position}}</td>						
+	<td class="align_c">
+		<form name="owners-{{id}}">
+			<input type="checkbox" name="writePermission" value="" {{#writeChecked}}checked="true"{{/writeChecked}} />
+			<!-- <input type="hidden" name="ownerShip" value="JOINT" />
+			<input type="hidden" name="ownerType" value="Department" /> -->
+			<!-- <input type="hidden" name="writeOwnerId" value="{{id}}" /> -->
+		</form>
+	</td>
+    <td class="align_c">
+        <form name="owners-{{id}}">
+            <input type="checkbox" name="removePermission" value="" {{#removeChecked}}checked="true"{{/removeChecked}} />
+            <!-- <input type="hidden" name="ownerShip" value="JOINT" />
+            <input type="hidden" name="ownerType" value="Department" /> -->
+            <!-- <input type="hidden" name="removeOwnerId" value="{{id}}" /> -->
+        </form>
+    </td>
+	<td class="align_c"><span class="btn_bdr"><span class="ic_classic ic_basket" title="{{lang.delete}}" data-id="{{id}}"></span></span></td>
+</tr>

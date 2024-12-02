@@ -1,0 +1,1 @@
+define("works/collections/docs",function(require){var e=require("collections/paginated_collection"),t=require("works/collections/base_docs");return t.extend(e.prototype)});

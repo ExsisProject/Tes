@@ -1,0 +1,1787 @@
+[
+  {
+    "uid": "A",
+    "labelKey": "기본 관리",
+    "href": "",
+    "contentsPath": "",
+    "routingName": "",
+    "level": [
+      "site",
+      "service"
+    ],
+    "order": 0,
+    "childs": [
+      {
+        "uid": "A-a",
+        "labelKey": "서비스 정보",
+        "href": "company",
+        "contentsPath": "admin/views/company_info",
+        "routingName": "renderCompanyInfo",
+        "level": [
+          "site",
+          "service"
+        ],
+        "order": 10,
+        "childs": []
+      },
+      {
+        "uid": "A-b",
+        "labelKey": "서비스 메뉴관리",
+        "href": "company/menu",
+        "contentsPath": "admin/views/menu_admin",
+        "routingName": "renderCompanyMenu",
+        "level": [
+          "site",
+          "service"
+        ],
+        "order": 20,
+        "childs": []
+      },
+      {
+        "uid": "A-c",
+        "labelKey": "공용용량 현황",
+        "href": "company/quota",
+        "contentsPath": "admin/views/cloud/company_quota_manage",
+        "routingName": "renderCompanyQuota",
+        "level": [
+          "site",
+          "service"
+        ],
+        "order": 30,
+        "childs": []
+      },
+      {
+        "uid": "A-d",
+        "labelKey": "메뉴 운영 권한 관리",
+        "href": "auth/app",
+        "contentsPath": "admin/views/auth/app_integrated_auth",
+        "routingName": "renderAppIntegratedAuth",
+        "level": [
+          "site",
+          "service"
+        ],
+        "order": 40,
+        "childs": []
+      },
+      {
+        "uid": "A-e",
+        "labelKey": "프로필 카드 관리",
+        "href": "company/profile",
+        "contentsPath": "admin/views/profile/profile_card_config",
+        "routingName": "renderProfileCardConfig",
+        "level": [
+          "site",
+          "service"
+        ],
+        "order": 50,
+        "childs": []
+      },
+      {
+        "uid": "A-f",
+        "labelKey": "팝업 공지",
+        "href": "company/notice",
+        "contentsPath": "admin/views/notice/list",
+        "routingName": "renderNoticeConfig",
+        "level": [
+          "site",
+          "service"
+        ],
+        "order": 60,
+        "childs": [],
+        "subMenu": [
+          {
+            "uid": "A-f_sub0",
+            "title": "팝업 공지 생성",
+            "contentsPath": "admin/views/notice/form",
+            "routingName": "renderNoticeCreate"
+          },
+          {
+            "uid": "A-f_sub1",
+            "title": "팝업 공지 수정",
+            "contentsPath": "admin/views/notice/form",
+            "routingName": "renderNoticeModify",
+            "idParamName": "noticeId"
+          }
+        ]
+      },
+      {
+        "uid": "A-g",
+        "labelKey": "로고 및 테마",
+        "href": "company/config",
+        "contentsPath": "admin/views/etc_config",
+        "routingName": "renderCompanyConfig",
+        "level": [
+          "site",
+          "service"
+        ],
+        "order": 70,
+        "childs": []
+      },
+      {
+        "uid": "A-h",
+        "labelKey": "데이터 백업",
+        "href": "company/data/backup",
+        "contentsPath": "admin/views/company_data_backup",
+        "routingName": "renderCompanyDataBackup",
+        "level": [
+          "service"
+        ],
+        "order": 80,
+        "childs": []
+      }
+    ]
+  },
+  {
+    "uid": "B",
+    "labelKey": "보안 관리",
+    "href": "",
+    "contentsPath": "",
+    "routingName": "",
+    "level": [
+      "site",
+      "service"
+    ],
+    "order": 80,
+    "childs": [
+      {
+        "uid": "B-a",
+        "labelKey": "로그인",
+        "href": "company/loginconfig",
+        "contentsPath": "admin/views/user_login_config",
+        "routingName": "renderUserLoginConfig",
+        "level": [
+          "site",
+          "service"
+        ],
+        "order": 890,
+        "childs": []
+      },
+      {
+        "uid": "B-b",
+        "labelKey": "비밀번호",
+        "href": "company/password",
+        "contentsPath": "admin/views/password_config",
+        "routingName": "renderPasswordConfig",
+        "level": [
+          "site",
+          "service"
+        ],
+        "order": 900,
+        "childs": []
+      },
+      {
+        "uid": "B-c",
+        "labelKey": "OTP 로그인",
+        "href": "company/otp",
+        "contentsPath": "admin/views/otp_config",
+        "routingName": "renderOTPConfig",
+        "level": [
+          "site",
+          "service"
+        ],
+        "order": 910,
+        "childs": [],
+        "appService": "otpService"
+      },
+      {
+        "uid": "B-d",
+        "labelKey": "기능 접근 제한",
+        "href": "company/function",
+        "contentsPath": "admin/views/function_list",
+        "routingName": "renderCompanyFunction",
+        "level": [
+          "site",
+          "service"
+        ],
+        "order": 920,
+        "childs": [],
+        "subMenu": [
+          {
+            "uid": "B-d_sub0",
+            "title": "메뉴 정보",
+            "contentsPath": "admin/views/fmenu_modify",
+            "routingName": "renderFMenuModify",
+            "idParamName": "fmenuId"
+          }
+        ]
+      },
+      {
+        "uid": "B-e",
+        "labelKey": "모바일 접근 제한",
+        "href": "mobile/auth/access/config",
+        "contentsPath": "admin/views/mobile_auth_access_config",
+        "routingName": "mobileAuthAccessConfig",
+        "level": [
+          "site",
+          "service"
+        ],
+        "order": 930,
+        "childs": [],
+        "appService": "mobileAppService"
+      },
+      {
+        "uid": "B-f",
+        "labelKey": "모바일 접속차단 (MAM)",
+        "href": "mobile/access/block/config",
+        "contentsPath": "admin/views/mobile_access_block_config",
+        "routingName": "mobileAccessBlockConfig",
+        "level": [
+          "site",
+          "service"
+        ],
+        "order": 940,
+        "childs": [],
+        "appService": "mobileAppService"
+      },
+      {
+        "uid": "B-g",
+        "labelKey": "멤버 접근 로그",
+        "href": "company/userAccessLog",
+        "contentsPath": "admin/views/user_access_log",
+        "routingName": "renderUserAccessLog",
+        "level": [
+          "site",
+          "service"
+        ],
+        "order": 950,
+        "childs": []
+      },
+      {
+        "uid": "B-h",
+        "labelKey": "관리자 권한 설정",
+        "href": "company/adminauth",
+        "contentsPath": "admin/views/auth/admin_auth",
+        "routingName": "renderAdminAuth",
+        "level": [
+          "site",
+          "service"
+        ],
+        "order": 960,
+        "childs": []
+      },
+      {
+        "uid": "B-i",
+        "labelKey": "관리자 업무기록",
+        "href": "company/adminhistory",
+        "contentsPath": "admin/views/admin_history_list",
+        "routingName": "renderAdminHistory",
+        "level": [
+          "site"
+        ],
+        "order": 970,
+        "childs": []
+      },
+      {
+        "uid": "B-j",
+        "labelKey": "OpenAPI 관리",
+        "href": "company/openapi",
+        "contentsPath": "admin/views/openapi/openapi_management",
+        "routingName": "renderOpenApiManagement",
+        "level": [
+          "site"
+        ],
+        "order": 980,
+        "childs": [],
+        "subMenu": [
+          {
+            "uid": "B-j_sub0",
+            "title": "OpenAPI 클라이언트 추가",
+            "contentsPath": "admin/views/openapi/openapi_client_form",
+            "routingName": "renderOpenApiClientCreate"
+          },
+          {
+            "uid": "B-j_sub1",
+            "title": "OpenAPI 클라이언트 수정",
+            "contentsPath": "admin/views/openapi/openapi_client_form",
+            "routingName": "renderOpenApiClientModify",
+            "idParamName": "oauthClientId"
+          }
+        ],
+        "appService": "openApiService"
+      }
+    ]
+  },
+  {
+    "uid": "C",
+    "labelKey": "조직 관리",
+    "href": "",
+    "contentsPath": "",
+    "routingName": "",
+    "level": [
+      "site",
+      "service"
+    ],
+    "order": 180,
+    "childs": [
+      {
+        "uid": "C-a",
+        "labelKey": "조직설계",
+        "subLabel": "동기화 설명",
+        "href": "dept",
+        "contentsPath": "admin/views/department/dept_org",
+        "routingName": "renderDept",
+        "level": [
+          "site",
+          "service"
+        ],
+        "order": 1990,
+        "childs": [],
+        "subMenu": [
+          {
+            "uid": "C-a_sub0",
+            "title": "하위 부서 목록",
+            "contentsPath": "admin/views/department/dept_config",
+            "routingName": "renderChildrenDept",
+            "idParamName": "deptId"
+          },
+          {
+            "uid": "C-a_sub1",
+            "title": "부서 상세",
+            "contentsPath": "admin/views/department/dept_detail",
+            "routingName": "renderDeptDetail",
+            "idParamName": "deptId"
+          }
+        ]
+      },
+      {
+        "uid": "C-b",
+        "labelKey": "멤버통합관리",
+        "subLabel": "동기화 설명",
+        "href": "accounts",
+        "contentsPath": "admin/views/account/account_list",
+        "routingName": "renderAccounts",
+        "level": [
+          "site",
+          "service"
+        ],
+        "order": 2000,
+        "childs": [],
+        "subMenu": [
+          {
+            "uid": "C-b_sub0",
+            "title": "계정 추가",
+            "contentsPath": "admin/views/account/account_create",
+            "routingName": "renderAccountCreate"
+          },
+          {
+            "uid": "C-b_sub1",
+            "title": "계정 상세",
+            "contentsPath": "admin/views/account/account_detail",
+            "routingName": "renderAccountDetail",
+            "idParamName": "userId"
+          }
+        ]
+      },
+      {
+        "uid": "C-c",
+        "labelKey": "직위체계",
+        "href": "account/domaincode",
+        "contentsPath": "admin/views/account/domain_code",
+        "routingName": "renderDomainCode",
+        "level": [
+          "site",
+          "service"
+        ],
+        "order": 2010,
+        "childs": []
+      },
+      {
+        "uid": "C-d",
+        "labelKey": "조직 일괄등록",
+        "href": "account/batch/regist",
+        "contentsPath": "admin/views/account/batch_regist",
+        "routingName": "renderBatchRegist",
+        "level": [
+          "site",
+          "service"
+        ],
+        "order": 2020,
+        "childs": []
+      },
+      {
+        "uid": "C-e",
+        "labelKey": "조직 삭제목록",
+        "href": "dept/delete",
+        "contentsPath": "admin/views/department/org_delete_list",
+        "routingName": "renderDeptDelete",
+        "level": [
+          "site",
+          "service"
+        ],
+        "order": 2030,
+        "childs": [],
+        "subMenu": [
+          {
+            "uid": "C-e_sub0",
+            "title": "부서 상세",
+            "contentsPath": "admin/views/department/dept_delete_detail",
+            "routingName": "renderDeptDeleteDetail",
+            "idParamName": "deptId"
+          }
+        ]
+      },
+      {
+        "uid": "C-f",
+        "labelKey": "동기화 이력관리",
+        "href": "account/synchronization",
+        "contentsPath": "admin/views/account/account_sync",
+        "routingName": "renderSyncAdminJob",
+        "level": [
+          "site",
+          "service"
+        ],
+        "order": 2040,
+        "childs": []
+      }
+    ]
+  },
+  {
+    "uid": "D",
+    "labelKey": "메뉴 관리",
+    "href": "",
+    "contentsPath": "",
+    "routingName": "",
+    "level": [
+      "site",
+      "service"
+    ],
+    "order": 240,
+    "childs": [
+      {
+        "uid": "D-a",
+        "labelKey": "홈",
+        "href": "",
+        "contentsPath": "",
+        "routingName": "",
+        "level": [
+          "site",
+          "service"
+        ],
+        "order": 2650,
+        "childs": [
+          {
+            "uid": "D-a-0",
+            "labelKey": "대시보드",
+            "href": "company/dashboard",
+            "contentsPath": "admin/views/dashboard_config",
+            "routingName": "renderDashboardConfig",
+            "level": [
+              "site",
+              "service"
+            ],
+            "order": 26760,
+            "childs": []
+          }
+        ]
+      },
+      {
+        "uid": "D-b",
+        "labelKey": "전자결재",
+        "href": "",
+        "contentsPath": "",
+        "routingName": "",
+        "level": [
+          "site",
+          "service"
+        ],
+        "order": 2670,
+        "childs": [
+          {
+            "uid": "D-b-0",
+            "labelKey": "결재 양식",
+            "href": "approval",
+            "contentsPath": "admin/views/approval/appr_form_index",
+            "routingName": "renderApprovalFormApp",
+            "level": [
+              "site",
+              "service"
+            ],
+            "order": 26980,
+            "childs": [],
+            "subMenu": [
+              {
+                "uid": "D-b-0_sub0",
+                "title": "결재 양식 추가",
+                "contentsPath": "admin/views/approval/appr_form_new",
+                "routingName": "renderApprovalFormNew"
+              },
+              {
+                "uid": "D-b-0_sub1",
+                "title": "결재 양식 수정",
+                "contentsPath": "admin/views/appr_form_show",
+                "routingName": "renderApprovalFormShow"
+              }
+            ]
+          },
+          {
+            "uid": "D-b-1",
+            "labelKey": "전자결재 기본설정",
+            "href": "approval/config",
+            "contentsPath": "admin/views/appr_config",
+            "routingName": "renderApprConfig",
+            "level": [
+              "site",
+              "service"
+            ],
+            "order": 26990,
+            "childs": []
+          },
+          {
+            "uid": "D-b-2",
+            "labelKey": "문서함 필드",
+            "href": "approval/folderfield",
+            "contentsPath": "admin/views/appr_folder_field",
+            "routingName": "renderApprFolderField",
+            "level": [
+              "site",
+              "service"
+            ],
+            "order": 27000,
+            "childs": []
+          },
+          {
+            "uid": "D-b-3",
+            "labelKey": "자동 결재선",
+            "href": "approval/apprlinerule",
+            "contentsPath": "admin/views/appr_line_rule",
+            "routingName": "renderApprLineRule",
+            "level": [
+              "site",
+              "service"
+            ],
+            "order": 27010,
+            "childs": [],
+            "subMenu": [
+              {
+                "uid": "D-b-3_sub0",
+                "title": "자동 결재선 상세",
+                "contentsPath": "admin/views/appr_line_rule_detail",
+                "routingName": "renderApprLineRuleDetail",
+                "idParamName": "ruleId"
+              }
+            ]
+          },
+          {
+            "uid": "D-b-4",
+            "labelKey": "전사 문서함",
+            "href": "approval/companyfolder",
+            "contentsPath": "admin/views/appr_company_folder_manage",
+            "routingName": "renderApprCompanyFolder",
+            "level": [
+              "site",
+              "service"
+            ],
+            "order": 27020,
+            "childs": []
+          },
+          {
+            "uid": "D-b-5",
+            "labelKey": "부서 문서함",
+            "href": "approval/deptfolder",
+            "contentsPath": "admin/views/approval/appr_dept_folder_main",
+            "routingName": "deptFolder",
+            "level": [
+              "site",
+              "service"
+            ],
+            "order": 27030,
+            "childs": []
+          },
+          {
+            "uid": "D-b-6",
+            "labelKey": "공문 발송 관리",
+            "href": "approval/manage/official",
+            "contentsPath": "admin/views/appr_manage_official",
+            "routingName": "renderApprManageOfficial",
+            "level": [
+              "site",
+              "service"
+            ],
+            "order": 27040,
+            "childs": [],
+            "subMenu": [
+              {
+                "uid": "D-b-6_sub0",
+                "title": "시행문 양식 추가",
+                "contentsPath": "admin/views/appr_official_doc_form_new",
+                "routingName": "renderApprManageOfficialDocFormNew"
+              },
+              {
+                "uid": "D-b-6_sub1",
+                "title": "시행문 양식 수정",
+                "contentsPath": "admin/views/appr_official_doc_form_show",
+                "routingName": "renderApprManageOfficialDocFormShow"
+              },
+              {
+                "uid": "D-b-6_sub2",
+                "title": "직인 추가",
+                "contentsPath": "admin/views/appr_official_doc_sign_new",
+                "routingName": "renderApprManageOfficialDocSignNew"
+              },
+              {
+                "uid": "D-b-6_sub3",
+                "title": "직인 수정",
+                "contentsPath": "admin/views/appr_official_doc_sign_show",
+                "routingName": "renderApprManageOfficialDocSignShow"
+              },
+              {
+                "uid": "D-b-6_sub4",
+                "title": "발신 명의 추가",
+                "contentsPath": "admin/views/appr_official_doc_sender_new",
+                "routingName": "renderApprManageOfficialDocSenderNew"
+              },
+              {
+                "uid": "D-b-6_sub5",
+                "title": "발신 명의 수정",
+                "contentsPath": "admin/views/appr_official_doc_sender_show",
+                "routingName": "renderApprManageOfficialDocSenderShow"
+              }
+            ]
+          },
+          {
+            "uid": "D-b-7",
+            "labelKey": "결재 관리자 설정",
+            "href": "approval/manager",
+            "contentsPath": "admin/views/appr_master",
+            "routingName": "renderApprManager",
+            "level": [
+              "site",
+              "service"
+            ],
+            "order": 27050,
+            "childs": []
+          },
+          {
+            "uid": "D-b-8",
+            "labelKey": "서명 일괄등록",
+            "href": "approval/config/sign/regist",
+            "contentsPath": "admin/views/appr_config_sign_regist",
+            "routingName": "renderApprConfigSignRegist",
+            "level": [
+              "site",
+              "service"
+            ],
+            "order": 27060,
+            "childs": []
+          },
+          {
+            "uid": "D-b-9",
+            "labelKey": "전자결재 문서번호",
+            "href": "approval/config/docnum",
+            "contentsPath": "admin/views/appr_config_docnum",
+            "routingName": "renderApprConfigDocnum",
+            "level": [
+              "site",
+              "service"
+            ],
+            "order": 27070,
+            "childs": []
+          },
+          {
+            "uid": "D-b-10",
+            "labelKey": "결재문서 관리",
+            "href": "approval/manage/document",
+            "contentsPath": "admin/views/appr_document_manage",
+            "routingName": "renderApprDocumentManage",
+            "level": [
+              "site",
+              "service"
+            ],
+            "order": 27080,
+            "childs": []
+          },
+          {
+            "uid": "D-b-11",
+            "labelKey": "보안등급 관리",
+            "href": "approval/securitylevel",
+            "contentsPath": "admin/views/manage_security_level",
+            "routingName": "renderApprSecurityLevel",
+            "level": [
+              "site",
+              "service"
+            ],
+            "order": 27090,
+            "childs": []
+          },
+          {
+            "uid": "D-b-12",
+            "labelKey": "전자결재 일자별 통계",
+            "href": "approval/statistics",
+            "contentsPath": "admin/views/appr_statistics",
+            "routingName": "renderApprStatistics",
+            "level": [
+              "site",
+              "service"
+            ],
+            "order": 27100,
+            "childs": []
+          },
+          {
+            "uid": "D-b-13",
+            "labelKey": "전자결재 부서별 통계",
+            "href": "approval/deptstatistics",
+            "contentsPath": "admin/views/appr_dept_statistics",
+            "routingName": "renderApprDeptStatistics",
+            "level": [
+              "site",
+              "service"
+            ],
+            "order": 27110,
+            "childs": []
+          }
+        ],
+        "appService": "approvalService"
+      },
+      {
+        "uid": "D-c",
+        "labelKey": "게시판",
+        "href": "",
+        "contentsPath": "",
+        "routingName": "",
+        "level": [
+          "site",
+          "service"
+        ],
+        "order": 2820,
+        "childs": [
+          {
+            "uid": "D-c-0",
+            "labelKey": "게시판 기본설정",
+            "href": "board",
+            "contentsPath": "admin/views/board_base_config",
+            "routingName": "renderBoard",
+            "level": [
+              "site",
+              "service"
+            ],
+            "order": 28630,
+            "childs": []
+          },
+          {
+            "uid": "D-c-1",
+            "labelKey": "전사 게시판",
+            "href": "board/manage",
+            "contentsPath": "admin/views/board_manage_wrap",
+            "routingName": "renderBoardManageList",
+            "level": [
+              "site",
+              "service"
+            ],
+            "order": 28640,
+            "childs": [],
+            "subMenu": [
+              {
+                "uid": "D-c-1_sub0",
+                "title": "전사게시판 추가",
+                "contentsPath": "admin/views/board_create",
+                "routingName": "renderBoardCreate"
+              },
+              {
+                "uid": "D-c-1_sub1",
+                "title": "전사게시판 설정",
+                "contentsPath": "admin/views/board_create",
+                "routingName": "renderBoardModify",
+                "idParamName": "boardId"
+              }
+            ]
+          },
+          {
+            "uid": "D-c-2",
+            "labelKey": "전체 게시판 통계",
+            "href": "board/statistics/all",
+            "contentsPath": "admin/views/board_statistics",
+            "routingName": "renderBoardStatistics",
+            "level": [
+              "site",
+              "service"
+            ],
+            "order": 28650,
+            "childs": []
+          },
+          {
+            "uid": "D-c-3",
+            "labelKey": "부서별 게시판 통계",
+            "href": "board/statistics/dept",
+            "contentsPath": "admin/views/board_statistics_dept",
+            "routingName": "renderBoardStatisticsDept",
+            "level": [
+              "site",
+              "service"
+            ],
+            "order": 28660,
+            "childs": []
+          }
+        ],
+        "appService": "boardService"
+      },
+      {
+        "uid": "D-d",
+        "labelKey": "문서 관리",
+        "href": "",
+        "contentsPath": "",
+        "routingName": "",
+        "level": [
+          "site",
+          "service"
+        ],
+        "order": 2870,
+        "childs": [
+          {
+            "uid": "D-d-0",
+            "labelKey": "문서함 관리",
+            "href": "docs",
+            "contentsPath": "admin/views/docs_config",
+            "routingName": "renderDocsConfig",
+            "level": [
+              "site",
+              "service"
+            ],
+            "order": 29180,
+            "childs": []
+          }
+        ],
+        "appService": "docsService"
+      },
+      {
+        "uid": "D-e",
+        "labelKey": "메일",
+        "href": "",
+        "contentsPath": "",
+        "routingName": "",
+        "level": [
+          "site",
+          "service"
+        ],
+        "order": 2890,
+        "childs": [
+          {
+            "uid": "D-e-0",
+            "labelKey": "메일 기본설정",
+            "href": "mail",
+            "contentsPath": "admin/views/mail/mail_content",
+            "routingName": "renderMailBasic",
+            "level": [
+              "site",
+              "service"
+            ],
+            "order": 29400,
+            "option": {
+              "iframe_src": "/site/domainCommon.action"
+            },
+            "childs": []
+          },
+          {
+            "uid": "D-e-1",
+            "labelKey": "메일 그룹",
+            "href": "mail/group",
+            "contentsPath": "admin/views/mail/mail_content",
+            "routingName": "renderMailGroup",
+            "level": [
+              "site",
+              "service"
+            ],
+            "order": 29410,
+            "option": {
+              "iframe_src": "/site/domainCommon.action?initMethod=group"
+            },
+            "childs": []
+          },
+          {
+            "uid": "D-e-2",
+            "labelKey": "메일 배너",
+            "href": "mail/banner",
+            "contentsPath": "admin/views/mail/banner",
+            "routingName": "renderMailBanner",
+            "level": [
+              "site",
+              "service"
+            ],
+            "order": 29420,
+            "childs": []
+          },
+          {
+            "uid": "D-e-3",
+            "labelKey": "별칭 계정",
+            "href": "mail/alias",
+            "contentsPath": "admin/views/mail/alias",
+            "routingName": "renderMailAlias",
+            "level": [
+              "site",
+              "service"
+            ],
+            "order": 29430,
+            "childs": [],
+            "subMenu": [
+              {
+                "uid": "D-e-3_sub0",
+                "title": "별칭 계정 추가",
+                "contentsPath": "admin/views/mail/alias_create",
+                "routingName": "renderCreateMailAlias"
+              },
+              {
+                "uid": "D-e-3_sub1",
+                "title": "별칭 계정 수정",
+                "contentsPath": "admin/views/mail/alias_create",
+                "routingName": "renderModifyMailAlias",
+                "idParamName": "aliasId"
+              },
+              {
+                "uid": "D-e-3_sub2",
+                "title": "별칭 계정 관리",
+                "contentsPath": "admin/views/mail/alias",
+                "routingName": "renderMailAliasTree",
+                "option": {
+                  "aliasDisplayOption": "tree"
+                }
+              }
+            ]
+          },
+          {
+            "uid": "D-e-4",
+            "labelKey": "휴면 계정",
+            "href": "mail/dormant",
+            "contentsPath": "admin/views/mail/mail_content",
+            "routingName": "renderMailDormant",
+            "level": [
+              "site"
+            ],
+            "order": 29440,
+            "option": {
+              "iframe_src": "/site/domainCommon.action?initMethod=acount"
+            },
+            "childs": []
+          },
+          {
+            "uid": "D-e-5",
+            "labelKey": "대량메일 발송자",
+            "href": "mail/mass",
+            "contentsPath": "admin/views/mail/mail_content",
+            "routingName": "renderMailMass",
+            "level": [
+              "site"
+            ],
+            "order": 29450,
+            "option": {
+              "iframe_src": "/site/domainCommon.action?initMethod=massSender"
+            },
+            "childs": []
+          },
+          {
+            "uid": "D-e-6",
+            "labelKey": "도메인 메일함",
+            "href": "mail/domain",
+            "contentsPath": "admin/views/mail/mail_content",
+            "routingName": "renderMailDomain",
+            "level": [
+              "site"
+            ],
+            "order": 29460,
+            "option": {
+              "iframe_src": "/site/domainCommon.action?initMethod=domain"
+            },
+            "childs": []
+          },
+          {
+            "uid": "D-e-7",
+            "labelKey": "편지지",
+            "href": "mail/letter",
+            "contentsPath": "admin/views/mail/mail_content",
+            "routingName": "renderMailLetter",
+            "level": [
+              "site"
+            ],
+            "order": 29470,
+            "option": {
+              "iframe_src": "/site/domainCommon.action?initMethod=letterList"
+            },
+            "childs": []
+          },
+          {
+            "uid": "D-e-8",
+            "labelKey": "문서템플릿",
+            "href": "mail/template",
+            "contentsPath": "admin/views/mail/mail_content",
+            "routingName": "renderMailTemplate",
+            "level": [
+              "site"
+            ],
+            "order": 29480,
+            "option": {
+              "iframe_src": "/site/domainCommon.action?initMethod=docTmpList"
+            },
+            "childs": []
+          },
+          {
+            "uid": "D-e-9",
+            "labelKey": "메일 통계",
+            "href": "mail/stat",
+            "contentsPath": "admin/views/mail/mail_content",
+            "routingName": "renderMailStat",
+            "level": [
+              "site",
+              "service"
+            ],
+            "order": 29490,
+            "option": {
+              "iframe_src": "/site/reportTrendView.action?statCategory=summary&mailType=all&iframe=true"
+            },
+            "childs": []
+          }
+        ]
+      },
+      {
+        "uid": "D-f",
+        "labelKey": "보고",
+        "href": "",
+        "contentsPath": "",
+        "routingName": "",
+        "level": [
+          "site",
+          "service"
+        ],
+        "order": 3000,
+        "childs": [
+          {
+            "uid": "D-f-0",
+            "labelKey": "공용 양식",
+            "href": "report",
+            "contentsPath": "admin/views/report_forms",
+            "routingName": "renderReportForm",
+            "level": [
+              "site",
+              "service"
+            ],
+            "order": 30610,
+            "childs": []
+          }
+        ],
+        "appService": "reportService"
+      },
+      {
+        "uid": "D-g",
+        "labelKey": "Works",
+        "href": "",
+        "contentsPath": "",
+        "routingName": "",
+        "level": [
+          "site",
+          "service"
+        ],
+        "order": 3020,
+        "childs": [
+          {
+            "uid": "D-g-0",
+            "labelKey": "Works 기본설정",
+            "href": "works",
+            "contentsPath": "admin/views/works/works_config",
+            "routingName": "renderWorksConfig",
+            "level": [
+              "site",
+              "service"
+            ],
+            "order": 30830,
+            "childs": []
+          },
+          {
+            "uid": "D-g-1",
+            "labelKey": "전체 앱 현황",
+            "href": "works/applets",
+            "contentsPath": "admin/views/works/applets_stats",
+            "routingName": "renderWorksAppletsStats",
+            "level": [
+              "site",
+              "service"
+            ],
+            "order": 30840,
+            "childs": [],
+            "subMenu": [
+              {
+                "uid": "D-g-1_sub0",
+                "title": "앱 상세",
+                "contentsPath": "admin/views/works/applet_stats_detail",
+                "routingName": "renderWorksAppletStatsDetail",
+                "idParamName": "id"
+              }
+            ]
+          }
+        ],
+        "appService": "worksService"
+      },
+      {
+        "uid": "D-h",
+        "labelKey": "캘린더",
+        "href": "",
+        "contentsPath": "",
+        "routingName": "",
+        "level": [
+          "site",
+          "service"
+        ],
+        "order": 3050,
+        "childs": [
+          {
+            "uid": "D-h-0",
+            "labelKey": "전사 캘린더",
+            "href": "calendar",
+            "contentsPath": "admin/views/calendar_base_config",
+            "routingName": "renderCalendar",
+            "level": [
+              "site",
+              "service"
+            ],
+            "order": 31160,
+            "childs": [],
+            "subMenu": [
+              {
+                "uid": "D-h-0_sub0",
+                "title": "전사 캘린더 추가",
+                "contentsPath": "admin/views/calendar_form",
+                "routingName": "renderCalendarCreate"
+              },
+              {
+                "uid": "D-h-0_sub1",
+                "title": "전사 캘린더 수정",
+                "contentsPath": "admin/views/calendar_form",
+                "routingName": "renderCalendarModify",
+                "idParamName": "calendarId"
+              }
+            ]
+          },
+          {
+            "uid": "D-h-1",
+            "labelKey": "전사 기념일 / 공휴일",
+            "href": "calendar/holiday",
+            "contentsPath": "admin/views/calendar_holiday_list",
+            "routingName": "renderCalendarHoliday",
+            "level": [
+              "site",
+              "service"
+            ],
+            "order": 31170,
+            "childs": []
+          }
+        ],
+        "appService": "calendarService"
+      },
+      {
+        "uid": "D-i",
+        "labelKey": "예약",
+        "href": "",
+        "contentsPath": "",
+        "routingName": "",
+        "level": [
+          "site",
+          "service"
+        ],
+        "order": 3080,
+        "childs": [
+          {
+            "uid": "D-i-0",
+            "labelKey": "자산 목록",
+            "href": "asset",
+            "contentsPath": "admin/views/asset_manage_list",
+            "routingName": "renderAsset",
+            "level": [
+              "site",
+              "service"
+            ],
+            "order": 31490,
+            "childs": [],
+            "subMenu": [
+              {
+                "uid": "D-i-0_sub0",
+                "title": "자산 추가",
+                "contentsPath": "admin/views/asset_create",
+                "routingName": "renderAssetCreate"
+              },
+              {
+                "uid": "D-i-0_sub1",
+                "title": "자산 설정",
+                "contentsPath": "admin/views/asset_create",
+                "routingName": "renderAssetInfo",
+                "idParamName": "assetId"
+              }
+            ]
+          }
+        ],
+        "appService": "assetService"
+      },
+      {
+        "uid": "D-j",
+        "labelKey": "근태관리",
+        "href": "",
+        "contentsPath": "",
+        "routingName": "",
+        "level": [
+          "site",
+          "service"
+        ],
+        "order": 3100,
+        "childs": [
+          {
+            "uid": "D-j-0",
+            "labelKey": "근태관리 기본설정",
+            "href": "ehr",
+            "contentsPath": "admin/views/ehr/common/ehr_basic_config",
+            "routingName": "renderTimelineDefault",
+            "level": [
+              "site",
+              "service"
+            ],
+            "order": 31710,
+            "childs": []
+          },
+          {
+            "uid": "D-j-1",
+            "labelKey": "근무시간",
+            "href": "ehr/groups",
+            "contentsPath": "admin/views/ehr/timeline/group/main",
+            "routingName": "renderTimelineGroupManage",
+            "level": [
+              "site",
+              "service"
+            ],
+            "order": 31720,
+            "childs": []
+          },
+          {
+            "uid": "D-j-2",
+            "labelKey": "근태 유형",
+            "href": "ehr/code/list",
+            "contentsPath": "admin/views/ehr/timeline/status/code_manage",
+            "routingName": "renderTimelineCodeConfig",
+            "level": [
+              "site",
+              "service"
+            ],
+            "order": 31730,
+            "childs": []
+          },
+          {
+            "uid": "D-j-3",
+            "labelKey": "근무지 설정",
+            "href": "ehr/workplace/manage",
+            "contentsPath": "admin/views/ehr/timeline/workplace/manage",
+            "routingName": "renderTimelineWorkPlaceManage",
+            "level": [
+              "site",
+              "service"
+            ],
+            "order": 31740,
+            "childs": [],
+            "subMenu": [
+              {
+                "uid": "D-j-3_sub0",
+                "title": "접속 허용 IP 추가",
+                "contentsPath": "admin/views/ehr/timeline/ip/edit",
+                "routingName": "renderTimelineAccessIpCreate",
+                "idParamName": "workPlaceId"
+              },
+              {
+                "uid": "D-j-3_sub1",
+                "title": "접속 허용 IP 수정",
+                "contentsPath": "admin/views/ehr/timeline/ip/edit",
+                "routingName": "renderTimelineAccessIpModify",
+                "idParamName": "workPlaceId,ipId"
+              }
+            ]
+          },
+          {
+            "uid": "D-j-4",
+            "labelKey": "연차 유형",
+            "href": "vacation/status/manage",
+            "contentsPath": "admin/views/ehr/vacation/status/manage",
+            "routingName": "renderVacationStatusManage",
+            "level": [
+              "site",
+              "service"
+            ],
+            "order": 31750,
+            "childs": []
+          },
+          {
+            "uid": "D-j-5",
+            "labelKey": "연차 현황",
+            "href": "vacation/config",
+            "contentsPath": "admin/views/vacation_config",
+            "routingName": "renderVacationConfig",
+            "level": [
+              "site",
+              "service"
+            ],
+            "order": 31760,
+            "childs": []
+          }
+        ],
+        "appService": "ehrService"
+      },
+      {
+        "uid": "D-k",
+        "labelKey": "설문",
+        "href": "",
+        "contentsPath": "",
+        "routingName": "",
+        "level": [
+          "site",
+          "service"
+        ],
+        "order": 3170,
+        "childs": [
+          {
+            "uid": "D-k-0",
+            "labelKey": "설문 기본설정",
+            "href": "survey",
+            "contentsPath": "admin/views/survey_config",
+            "routingName": "renderSurveyConfig",
+            "level": [
+              "site",
+              "service"
+            ],
+            "order": 32480,
+            "childs": []
+          },
+          {
+            "uid": "D-k-1",
+            "labelKey": "전체 설문",
+            "href": "survey/all",
+            "contentsPath": "admin/views/survey_all",
+            "routingName": "renderSurveyAll",
+            "level": [
+              "site",
+              "service"
+            ],
+            "order": 32490,
+            "childs": []
+          }
+        ],
+        "appService": "surveyService"
+      },
+      {
+        "uid": "D-l",
+        "labelKey": "주소록",
+        "href": "",
+        "contentsPath": "",
+        "routingName": "",
+        "level": [
+          "site",
+          "service"
+        ],
+        "order": 3200,
+        "childs": [
+          {
+            "uid": "D-l-0",
+            "labelKey": "주소록 기본 설정",
+            "href": "contact",
+            "contentsPath": "admin/views/contact_config",
+            "routingName": "renderContact",
+            "level": [
+              "site",
+              "service"
+            ],
+            "order": 32810,
+            "childs": []
+          },
+          {
+            "uid": "D-l-1",
+            "labelKey": "공용 주소록",
+            "href": "contact/company",
+            "contentsPath": "admin/views/contact/site_manage",
+            "routingName": "renderContactCompany",
+            "level": [
+              "site",
+              "service"
+            ],
+            "order": 32820,
+            "childs": []
+          },
+          {
+            "uid": "D-l-2",
+            "labelKey": "전체 주소록 통계",
+            "href": "contact/stat",
+            "contentsPath": "admin/views/contact_stat",
+            "routingName": "renderContactAllStat",
+            "level": [
+              "site",
+              "service"
+            ],
+            "order": 32830,
+            "childs": []
+          }
+        ],
+        "appService": "contactService"
+      },
+      {
+        "uid": "D-m",
+        "labelKey": "커뮤니티",
+        "href": "",
+        "contentsPath": "",
+        "routingName": "",
+        "level": [
+          "site",
+          "service"
+        ],
+        "order": 3240,
+        "childs": [
+          {
+            "uid": "D-m-0",
+            "labelKey": "커뮤니티 기본설정",
+            "href": "community",
+            "contentsPath": "admin/views/community_base_config",
+            "routingName": "renderCommunity",
+            "level": [
+              "site",
+              "service"
+            ],
+            "order": 33250,
+            "childs": []
+          },
+          {
+            "uid": "D-m-1",
+            "labelKey": "개설신청 커뮤니티",
+            "href": "community/wait",
+            "contentsPath": "admin/views/community_wait",
+            "routingName": "renderWaitCommunity",
+            "level": [
+              "site",
+              "service"
+            ],
+            "order": 33260,
+            "childs": []
+          },
+          {
+            "uid": "D-m-2",
+            "labelKey": "전체 커뮤니티",
+            "href": "community/all",
+            "contentsPath": "admin/views/community_all",
+            "routingName": "renderAllCommunity",
+            "level": [
+              "site",
+              "service"
+            ],
+            "order": 33270,
+            "childs": [],
+            "subMenu": [
+              {
+                "uid": "D-m-2_sub0",
+                "title": "커뮤니티 상세",
+                "contentsPath": "admin/views/community_detail",
+                "routingName": "renderDetailCommunity",
+                "idParamName": "communityId"
+              }
+            ]
+          },
+          {
+            "uid": "D-m-3",
+            "labelKey": "커뮤니티 전체게시판 통계",
+            "href": "community/statistics/all",
+            "contentsPath": "admin/views/community_stat_all",
+            "routingName": "renderStatAllCommunity",
+            "level": [
+              "site",
+              "service"
+            ],
+            "order": 33280,
+            "childs": []
+          },
+          {
+            "uid": "D-m-4",
+            "labelKey": "커뮤니티별 게시판 통계",
+            "href": "community/statistics/community",
+            "contentsPath": "admin/views/community_stat",
+            "routingName": "renderStatCommunity",
+            "level": [
+              "site",
+              "service"
+            ],
+            "order": 33290,
+            "childs": []
+          }
+        ],
+        "appService": "communityService"
+      },
+      {
+        "uid": "D-n",
+        "labelKey": "PC메신저/모바일",
+        "href": "",
+        "contentsPath": "",
+        "routingName": "",
+        "level": [
+          "site",
+          "service"
+        ],
+        "order": 3300,
+        "childs": [
+          {
+            "uid": "D-n-0",
+            "labelKey": "PC메신저/모바일 첨부파일",
+            "href": "mobile/attach/config",
+            "contentsPath": "admin/views/mobile_attach_config",
+            "routingName": "mobileAttachConfig",
+            "level": [
+              "site",
+              "service"
+            ],
+            "order": 33910,
+            "childs": []
+          },
+          {
+            "uid": "D-n-1",
+            "labelKey": "PC메신저/모바일 데이터 관리",
+            "href": "mobile/data/management",
+            "contentsPath": "admin/views/mobile_data_management",
+            "routingName": "mobileDataManagement",
+            "level": [
+              "site",
+              "service"
+            ],
+            "order": 33920,
+            "childs": []
+          },
+          {
+            "uid": "D-n-2",
+            "labelKey": "화상회의실 설정",
+            "href": "mobile/attach/gotalkconfig",
+            "contentsPath": "admin/views/mobile_pcmessenger_gotalk_config",
+            "routingName": "mobilePCMessengerGotalkConfig",
+            "level": [
+              "site",
+              "service"
+            ],
+            "order": 33930,
+            "childs": []
+          },
+          {
+            "uid": "D-n-3",
+            "labelKey": "화상회의 Zoom 연동",
+            "href": "mobile/attach/zoomconfig",
+            "contentsPath": "admin/views/mobile_pcmessenger_zoom_config",
+            "routingName": "mobilePCMessengerZoomConfig",
+            "level": [
+              "service"
+            ],
+            "order": 33940,
+            "childs": []
+          }
+        ],
+        "appService": "mobileService"
+      },
+      {
+        "uid": "D-o",
+        "labelKey": "자료실",
+        "href": "",
+        "contentsPath": "",
+        "routingName": "",
+        "level": [
+          "site",
+          "service"
+        ],
+        "order": 3330,
+        "childs": [
+          {
+            "uid": "D-o-0",
+            "labelKey": "자료실 기본설정",
+            "href": "webfolder",
+            "contentsPath": "admin/views/mail/mail_content",
+            "routingName": "renderMailWebFolder",
+            "level": [
+              "site",
+              "service"
+            ],
+            "order": 34240,
+            "option": {
+              "iframe_src": "/site/fileCommon.action"
+            },
+            "childs": []
+          }
+        ],
+        "appService": "fileService"
+      },
+      {
+        "uid": "D-p",
+        "labelKey": "업무",
+        "href": "",
+        "contentsPath": "",
+        "routingName": "",
+        "level": [
+          "site",
+          "service"
+        ],
+        "order": 3350,
+        "childs": [
+          {
+            "uid": "D-p-0",
+            "labelKey": "업무 기본 설정",
+            "href": "task",
+            "contentsPath": "admin/views/task/task_config",
+            "routingName": "renderTaskConfig",
+            "level": [
+              "site",
+              "service"
+            ],
+            "order": 34460,
+            "childs": []
+          },
+          {
+            "uid": "D-p-1",
+            "labelKey": "전체 업무 폴더 현황",
+            "href": "task/stats",
+            "contentsPath": "admin/views/task/task_stats",
+            "routingName": "renderTaskStats",
+            "level": [
+              "site",
+              "service"
+            ],
+            "order": 34470,
+            "childs": []
+          },
+          {
+            "uid": "D-p-2",
+            "labelKey": "업무 유형",
+            "href": "task/types",
+            "contentsPath": "admin/views/task/task_type_list",
+            "routingName": "renderTaskTypeList",
+            "level": [
+              "site",
+              "service"
+            ],
+            "order": 34480,
+            "childs": [],
+            "subMenu": [
+              {
+                "uid": "D-p-2_sub0",
+                "title": "업무 유형 관리",
+                "contentsPath": "admin/views/task/task_type",
+                "routingName": "renderTaskType",
+                "idParamName": "id"
+              },
+              {
+                "uid": "D-p-2_sub1",
+                "title": "업무 유형 관리",
+                "contentsPath": "admin/views/task/task_type",
+                "routingName": "renderTaskTypeCopy",
+                "idParamName": "copy,id"
+              }
+            ]
+          }
+        ],
+        "appService": "taskService"
+      },
+      {
+        "uid": "D-q",
+        "labelKey": "문자발송",
+        "href": "",
+        "contentsPath": "",
+        "routingName": "",
+        "level": [
+          "site"
+        ],
+        "order": 3390,
+        "childs": [
+          {
+            "uid": "D-q-0",
+            "labelKey": "문자발송 기본설정",
+            "href": "sms",
+            "contentsPath": "admin/views/sms_config",
+            "routingName": "renderSmsDefault",
+            "level": [
+              "site"
+            ],
+            "order": 34900,
+            "childs": []
+          },
+          {
+            "uid": "D-q-1",
+            "labelKey": "대표번호 설정",
+            "href": "sms/repnumber",
+            "contentsPath": "admin/views/sms_repnumber",
+            "routingName": "renderSmsRepNumber",
+            "level": [
+              "site"
+            ],
+            "order": 34910,
+            "childs": [],
+            "subMenu": [
+              {
+                "uid": "D-q-1_sub0",
+                "title": "대표번호 추가",
+                "contentsPath": "admin/views/repnumber_form",
+                "routingName": "renderSmsRepNumberCreate"
+              },
+              {
+                "uid": "D-q-1_sub1",
+                "title": "대표번호 수정",
+                "contentsPath": "admin/views/repnumber_form",
+                "routingName": "renderSmsRepNumberModify",
+                "idParamName": "repNumberId"
+              }
+            ]
+          },
+          {
+            "uid": "D-q-2",
+            "labelKey": "문자발송 통계",
+            "href": "sms/stat",
+            "contentsPath": "admin/views/sms_stat",
+            "routingName": "renderSmsStat",
+            "level": [
+              "site"
+            ],
+            "order": 34920,
+            "childs": []
+          }
+        ],
+        "appService": "smsService"
+      },
+      {
+        "uid" : "D-r",
+        "labelKey" : "Link+",
+        "href" : "",
+        "contentsPath" : "",
+        "routingName" : "",
+        "level" : [ "site", "service" ],
+        "order" : 3430,
+        "childs" : [
+          {
+            "uid" : "D-r-0",
+            "labelKey" : "Link+ 기본설정",
+            "href" : "store",
+            "contentsPath" : "admin/views/store/store_config",
+            "routingName" : "renderStoreConfig",
+            "level" : [ "site", "service" ],
+            "order" : 35340,
+            "childs" : [ ]
+          }
+        ],
+        "appService" : "storeService"
+      }
+    ]
+  },
+  {
+    "uid": "E",
+    "labelKey": "시스템 연동",
+    "href": "",
+    "contentsPath": "",
+    "routingName": "",
+    "level": [
+      "site",
+      "service"
+    ],
+    "order": 1030,
+    "childs": [
+      {
+        "uid": "E-a",
+        "labelKey": "시스템 연동",
+        "href": "ad/api/sso/login/doas",
+        "contentsPath": "",
+        "routingName": "window",
+        "level": [
+          "site",
+          "service"
+        ],
+        "order": 11340,
+        "childs": [],
+        "appService": "allianceSystemService"
+      }
+    ],
+    "appService": "allianceSystemService"
+  }
+]

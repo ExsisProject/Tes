@@ -1,0 +1,1 @@
+define(["backbone"],function(e){var t=e.Model.extend({initialize:function(){},url:function(){return"/ad/api/works/present"},totalAppletCount:function(){return parseInt(this.get("aliveApplets"))},totalDocCount:function(){return parseInt(this.get("docs"))},typeLabel:function(){return _.map(this.get("types"),function(e){return e.name}).join(", ")}});return t});

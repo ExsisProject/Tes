@@ -1,0 +1,113 @@
+
+<div class="header">
+    <h2>{{lang.label_db_header_config}}</h2>
+</div>
+<form id="dataForm">
+    <div class="tool_bar">
+        <table class="payline_table">
+            <tbody>
+            <tr style="height:40px;">
+                <th><b style="color: rgb(255, 0, 0);">*</b><span class="txt">{{lang.label_db_config_name}}</span></th>
+                <td>
+                    <input class="wfix_max" type="text" name="configName" value="{{data.configName}}" required/>
+                </td>
+                <th><b style="color: rgb(255, 0, 0);">*</b><span class="txt">{{lang.label_db_key}}</span></th>
+                <td>
+                    <input class="wfix_max" type="text" name="key" id="key" data-prevalue="{{data.key}}" value="{{data.key}}" required/>
+                </td>
+            </tr>
+            <tr style="height:40px;">
+                <th><b style="color: rgb(255, 0, 0);">*</b><span class="txt">{{lang.label_db_vender}}</span></th>
+                <td>
+                    {{#venders}}
+                    <span class="option_wrap" data-protocol="{{protocol}}" data-port="{{port}}" data-driver="{{driver}}">
+                        <input type="radio" value="{{vender}}" id="vender_{{vender}}" name="vendor" required/>
+                        <label for="vender_{{vender}}">{{vender}}</label>
+                    </span>
+                    {{/venders}}
+                </td>
+                <th><span class="txt">{{lang.label_db_protocol}}</span></th>
+                <td>
+                    <input class="wfix_max" style="background-color:#e8e8e8;" type="text" name="protocol" value="" readonly="readonly">
+                </td>
+            </tr>
+            <tr style="height:40px;">
+                <th><span class="txt">{{lang.label_db_driver}}</span></th>
+                <td>
+                    <input class="wfix_max" style="background-color:#e8e8e8;" type="text" name="driver" value="" readonly="readonly">
+                </td>
+                <th><b style="color: rgb(255, 0, 0);">*</b><span class="txt">{{lang.label_db_host}}</span></th>
+                <td>
+                    <input class="wfix_max" type="text" name="host" value="{{data.host}}" required/>
+                </td>
+            </tr>
+            <tr style="height:40px;">
+                <th><b style="color: rgb(255, 0, 0);">*</b><span class="txt">{{lang.label_db_database}}</span></th>
+                <td>
+                    <input class="wfix_max" type="text" name="dbName" value="{{data.dbName}}" required/>
+                </td>
+                <th><b style="color: rgb(255, 0, 0);">*</b><span class="txt">{{lang.label_db_user_name}}</span></th>
+                <td>
+                    <input class="wfix_max" type="text" name="userName" value="{{data.userName}}" required/>
+                </td>
+            </tr>
+            <tr style="height:40px;">
+                <th><b style="color: rgb(255, 0, 0);">*</b><span class="txt">{{lang.label_db_password}}</span></th>
+                <td>
+                    {{#isNew}}
+                    <input class="wfix_max" type="password" name="password" value="{{data.password}}" required/>
+                    {{/isNew}}
+                    {{^isNew}}
+                    <span class="btn_s" id="changePwd">{{lang.label_db_password_change}}</span>
+                    {{/isNew}}
+                </td>
+                <th><b style="color: rgb(255, 0, 0);">*</b><span class="txt">{{lang.label_db_port}}</span></th>
+                <td>
+                    <input class="wfix_max" type="text" name="port" value="{{data.port}}" required/>
+                </td>
+            </tr>
+            <tr style="height:40px;">
+                <th><b style="color: rgb(255, 0, 0);">*</b><span class="txt">{{lang.label_db_company}}</span></th>
+                <td>
+                    <select id="configCompany" name="companyId" style="min-width:100px;" required>
+                        <option value="">{{lang.label_choice}}</option>
+                        {{#companies}}
+                        <option value="{{id}}">{{name}}</option>
+                        {{/companies}}
+                    </select>
+                </td>
+                <th><span class="txt">{{lang.label_db_maxpoolsize}}<br></span></th>
+                <td>
+                    <input class="wfix_max" type="text" name="maxPoolSize" data-default="20" value="{{data.maxPoolSize}}" placeholder="default : 20">
+                </td>
+            </tr>
+            <tr style="height:40px;">
+                <th><span class="txt">{{lang.label_db_minpoolsize}}</span></th>
+                <td>
+                    <input class="wfix_max" type="text" name="minPoolSize" data-default="10" value="{{data.minPoolSize}}" placeholder="default : 10">
+                </td>
+                <th><span class="txt">{{lang.label_db_initpoolsize}}</span></th>
+                <td>
+                    <input class="wfix_max" type="text" name="initPoolSize" data-default="10" value="{{data.initPoolSize}}" placeholder="default : 10">
+                </td>
+            </tr>
+            <tr style="height:40px;">
+                <th><span class="txt">{{lang.label_db_checkout_timeout}}</span></th>
+                <td>
+                    <input class="wfix_max" type="text" name="checkoutTimeout" data-default="5000" value="{{data.checkoutTimeout}}" placeholder="default : 5000">
+                </td>
+                <th><span class="txt">{{lang.label_remarks}}</span></th>
+                <td>
+                    <input class="wfix_max" type="text" name="description" value="{{data.description}}">
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+    </div>
+    <div class="page_action">
+        <span id="test_btn" class="btn" style="display:none;">{{lang.label_test}}</span>
+        <input type="submit" class="btn" id="save_btn" value="{{lang.label_save}}" />
+        <span id="cancel_btn" class="btn_nega">{{lang.label_close}}</span>
+    </div>
+</form>

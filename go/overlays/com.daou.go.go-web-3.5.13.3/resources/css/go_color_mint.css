@@ -1,0 +1,63 @@
+/*mint theme*/
+body.user_front  { background-image: none; }
+.go_wrap.mint_theme { background: #fff; }
+
+
+.go_wrap.mint_theme input::-webkit-input-placeholder {color:#bbb !important;}
+.go_wrap.mint_theme input:-moz-placeholder {color:#bbb !important;}
+.go_wrap.mint_theme input::-moz-placeholder {color:#bbb !important;}
+.go_wrap.mint_theme input:-ms-input-placeholder {color:#bbb !important;}
+.go_wrap.mint_theme .find_pw { border:solid 1px #a5a5a5; color: #707070; box-sizing:border-box; padding:7px; float:right; }
+.go_wrap.mint_theme .find_pw:hover { background: #eee; }
+.go_wrap.mint_theme .option_wrap { float:left; margin-top: 10px; color: #707070; }
+
+
+.go_wrap.mint_theme .custom_visual { background: none; }
+
+.go_wrap.mint_theme .login_box {  border:solid 1px #e0e0e0 !important; border-radius: 0px !important; box-shadow: none !important; }
+.go_wrap.mint_theme .login_id,
+.go_wrap.mint_theme .login_pw {  margin-bottom: 7px; }
+
+.go_wrap.mint_theme fieldset { margin: 0px 96px !important; }
+.go_wrap.mint_theme .login_id input,
+.go_wrap.mint_theme .login_pw input{
+	background: #fff; box-shadow: none; padding: 0px 10px 0px 10px; color:#707070; border:solid 1px #02a1c0; width: 366px !important; height:44px !important; box-sizing:border-box;
+}
+/*ie8*/
+.go_wrap.mint_theme .login_id input,
+.go_wrap.mint_theme .login_pw input { line-height: 42px\9 !important; }
+
+
+.go_wrap.mint_theme .go_intro div.change_pw input.ipt_login { background: #fff; box-shadow: none; padding: 0px 10px 0px 10px; color:#707070; border:solid 1px #13cae2; height:44px !important; box-sizing:border-box; width: 350px !important; }
+.go_wrap.mint_theme .go_intro .glad_box div.change_pw input.ipt_login {width:366px!important;}
+
+.go_wrap.mint_theme .login_id input { /*width: 366px !important; */ }
+.go_wrap.mint_theme .login_id input:focus,
+.go_wrap.mint_theme .login_pw input:focus,
+.go_wrap.mint_theme .go_intro div.change_pw input.ipt_login:focus { background: #f1feff; }
+
+.go_wrap.mint_theme .btn_login { position: static !important; width: 366px; height:43px; line-height:43px; background: #02a1c0; }
+.go_wrap.mint_theme .btn_login:hover { background:#23c4cd; }
+
+.go_wrap.mint_theme .login_check { clear: both; margin: 8px 96px; }
+.go_wrap.mint_theme .login_check:after {display:block;clear:both;overflow:hidden;height:0;content:'';}
+.go_wrap.mint_theme .select_list { border:solid 1px #02a1c0; right: 0px; top: 1px; }
+.go_wrap.mint_theme .select_list ul { background: #fff;  }
+.go_wrap.mint_theme .select_list ul li { border-top:solid 1px #02a1c0; }
+.go_wrap.mint_theme .select_list ul li:hover {background: #fff; }
+.go_wrap.mint_theme .select_list ul li a { color: #bbb; height: 42px; line-height: 42px;  }
+.go_wrap.mint_theme .select_list ul li a:hover { background: #f1feff; color: #707070; }
+.go_wrap.mint_theme .select_list .btn_dropdown { top: 11px; }
+
+
+.go_wrap.mint_theme .layer_confim_front { z-index: 1; }
+
+.go_wrap.mint_theme .login_id .ipt_login { width: 245px !important; }
+.go_wrap.mint_theme .login_id .ipt_login.login_wide{ width: 366px !important; }
+.go_wrap.mint_theme .glad_box .change_pw {margin:  0 21px 5px; }
+
+/*OTP 인증*/
+.go_wrap.mint_theme .btn_confirm { position: static !important; width: 366px !important; height:45px !important; line-height:43px !important; background: #02a1c0; box-sizing:border-box; }
+.go_wrap.mint_theme .btn_confirm:hover { background:#23c4cd; }
+.glad_box .change_pw {margin: 0 21px 5px;}
+.glad_box .txt_message {margin: 0 21px 5px; padding: 0 0 10px 0; color:#888}

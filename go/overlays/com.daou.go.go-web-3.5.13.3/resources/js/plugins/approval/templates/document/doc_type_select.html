@@ -1,0 +1,11 @@
+<form onsubmit="return false;">
+<!-- 문서 분류 지정 -->
+<span class="go_renew"><span class="desc caution" id="doc_type_caution" style="display:none">{{lang.해당 폴더는 선택할 수 없습니다}}</span></span>
+	{{#isAdmin}}
+	<div class="reply_wrap div_scroll" id="doc_type_select_tree"></div>
+	{{/isAdmin}}
+	{{^isAdmin}}
+	<div class="list_wrap div_scroll" id="doc_type_select_tree"></div>
+	{{/isAdmin}}					
+<!-- // 문서 분류 지정 -->
+</form>

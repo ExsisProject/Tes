@@ -1,0 +1,17 @@
+<h1>
+    <span class="ic_gnb {{header_icon_type}}"></span>
+    <span class="title">{{title}}</span>
+    <span class="num">{{count}}</span>
+    <span class="btn_side_wrap">
+        {{#buttons}}
+        {{#.}}
+        <span id="header_button" class="btn_wrap btn_formal">
+            <span  class="ic_con{{#button_icon_class}} {{button_icon_class}}{{/button_icon_class}}" title="{{label.add}}"></span><span  class="txt">{{button_label}}</span>
+        </span>
+        {{/.}}
+        {{/buttons}}
+        <span class="btn_wrap">
+            <span class="ic_con ic_list_more_s" title="{{label.more}}"></span>
+        </span>
+    </span>
+</h1>

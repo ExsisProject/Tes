@@ -1,0 +1,55 @@
+            <form id="userCreateForm">
+                <div class="container">            
+                    <div class="header">
+                        <h2>{{lang.head_title}}</h2>
+                    </div>            
+                    <div class="content" id="official_sign_content">
+                        <table class="detail">
+                            <caption>{{lang.head_title}}</caption>
+                            <colgroup>
+                                <col width="150px">
+                                <col width="*">
+                            </colgroup>
+                            <tbody>
+		                    <tr>
+		                        <th><span class="title"><ins class="asterisk">*</ins>{{lang.title}}</span></th>
+		                        <td><input class="w_half input" name="name" type="text" value="{{name}}"></td>
+		                    </tr>
+                            <tr>
+                                <th><span class="title"><ins class="asterisk">*</ins>{{lang.sign_img}}</span></th>
+                                <td>
+                                    <span class="img_profile approval_sign" style="overflow:hidden">
+                                        <span class="btn_edit_photo" style="color:red" id="swfupload-control">
+                                        </span>
+                                        <img src="{{#hasPath}}{{path}}{{/hasPath}}{{^hasPath}}{{defaultPath}}{{/hasPath}}" alt="{{lang.photoProfile}}" id="thumbnail_image" />
+                                    </span>
+                                    <p class="desc">
+                                    	{{lang.sign_img_desc}}
+                                    </p>
+                                </td>
+                            </tr>
+                            <tr class="last">
+                                <th><span class="title">{{lang.state}}</span></th>
+                                <td>
+								{{#wrappedState}}
+		                            <span class="option_wrap">
+		                                <input id="state_NORMAL" type="radio" name="state" value="NORMAL"> 
+		                                <label for="state_NORMAL">{{lang.use}}</label>                                        
+		                            </span>
+		                            <span class="option_wrap">
+		                                <input id="state_HIDDEN" type="radio" name="state" value="HIDDEN"> 
+		                                <label for="state_HIDDEN">{{lang.unuse}}</label>                                        
+		                            </span>
+								{{/wrappedState}}
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <div class="page_action">
+                    <span class="btn save" id="save_btn">{{lang.save}}</span>
+                    <span class="btn_nega" id="cancel_btn">{{lang.cancel}}</span>
+                </div>
+            </form>

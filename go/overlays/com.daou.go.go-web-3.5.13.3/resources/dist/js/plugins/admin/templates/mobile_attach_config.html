@@ -1,0 +1,162 @@
+<div class="content_page">
+    <form name="formCommonConfig" id="formCommonConfig">
+        <div class="container">
+            <div class="header">
+                <h2>{{lang.label_common_config}}</h2>
+            </div>
+            <div class="content">
+                <table class="detail">
+                    <colgroup>
+                        <col width="160px">
+                        <col width="*">
+                    </colgroup>
+                    <tbody>
+                        <tr class="last">
+                            <th>
+                                <span class="title">{{lang.label_chat_upload_size_limit}}<br>({{lang.label_attach_limit_desc}})</span>
+                            </th>
+                            <td>
+                                <div class="vertical_wrap_s">
+                                    <span class="option_wrap"> 
+                                        <input type="radio" value="false" id="size_false" name="attachSizeLimit" {{^model.chatConfig.attachSizeLimit}} checked="checked" {{/model.chatConfig.attachSizeLimit}} />
+                                        <label for="size_false">{{lang.label_non_limit}}</label>
+                                    </span>
+                                </div>
+                                <div class="vertical_wrap_s">
+                                    <span class="option_wrap"> 
+                                        <input type="radio" value="true" id="size_true" name="attachSizeLimit" {{#model.chatConfig.attachSizeLimit}} checked="checked" {{/model.chatConfig.attachSizeLimit}}/>
+                                        <label for="size_true">{{lang.label_limit_size}}</label>
+                                    </span>
+                                    <span id="maxAttachSize">
+                                        <input type="input" name="maxAttachSize" class="input t_num" value="{{model.chatConfig.maxAttachSize}}">
+                                        <label>{{lang.label_mb}} {{lang.label_under}}</label>
+                                    </span>
+                                    <span class="go_alert" id="maxAttachSizeAlert"></span>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </form>
+
+    <form name="formPcAttachConfig" id="formPcAttachConfig">
+        <div class="container">
+            <div class="header">
+                <h2>{{lang.label_pc_attach_config}}</h2>
+            </div>
+            <div class="content">
+                <table class="detail">
+                    <colgroup>
+                        <col width="160px">
+                        <col width="*">
+                    </colgroup>
+                    <tbody>
+                        <tr class="last">
+                            <th><span class="title">{{lang.label_chat_exclude_file}}</span></th>
+                            <td>
+                                <span class="option_wrap" id="pcExcludeExtension"> 
+                                    {{#hasPcExcludeExtension}}
+                                    <span class="user_data editable" data-formname="pcExcludeExtension" data-value="{{model.chatConfig.excludeExtension}}">
+                                        <span id="pcData">{{model.chatConfig.excludeExtension}}</span>
+                                        <span class="btn_box" data-btntype="changeform">
+                                            <span class="ic ic_edit" title="{{lang.label_edit}}"></span>
+                                        </span>
+                                    </span>
+                                    {{/hasPcExcludeExtension}}
+                                    {{^hasPcExcludeExtension}}
+                                    <input type="text" class="input w_large" name="pcExcludeExtension" value="">
+                                    {{/hasPcExcludeExtension}}
+                                    <span class="desc vb">{{lang.label_desc}}</span>
+                                </span>
+                                <div class="caution" id="pcExcludeExtensionAlert"></div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </form>
+
+    <form name="formMobileAttachConfig" id="formMobileAttachConfig">
+        <div class="container">
+            <div class="header">
+                <h2>{{lang.label_mobile_attach_config}}</h2>
+            </div>
+            <div class="content">
+                <table class="detail">
+                    <colgroup>
+                        <col width="160px">
+                        <col width="*">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <th><span class="title">{{lang.file_preview}}</span></th>
+                            <td>
+                                <div class="vertical_wrap_s">
+                                    <span class="option_wrap">
+                                        <input type="radio" id="mobilePreviewOption_true" value="true" name="mobilePreviewOption"
+                                               {{#model.mobileConfig.useMobilePreview}} checked="checked" {{/model.mobileConfig.useMobilePreview}}>
+                                        <label for="mobilePreviewOption_true">{{lang.label_use}}</label>
+                                    </span>
+                                </div>
+                                <div class="vertical_wrap_s">
+                                    <span class="option_wrap">
+                                        <input type="radio" id="mobilePreviewOption_false" value="false" name="mobilePreviewOption"
+                                               {{^model.mobileConfig.useMobilePreview}} checked="checked" {{/model.mobileConfig.useMobilePreview}}>
+                                        <label for="mobilePreviewOption_false">{{lang.label_not_use}}</label>
+                                    </span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th><span class="title">{{lang.label_attachment_download}}</span></th>
+                            <td>
+                                <div class="vertical_wrap_s">
+                                    <span class="option_wrap">
+                                        <input type="radio" id="mobileSecurityOption_true" value="true" name="mobileSecurityOption"
+                                               {{#model.mobileConfig.useMobileSecurity}} checked="checked" {{/model.mobileConfig.useMobileSecurity}}>
+                                        <label for="mobileSecurityOption_true">{{lang.label_use}}</label>
+                                    </span>
+                                </div>
+                                <div class="vertical_wrap_s">
+                                    <span class="option_wrap">
+                                        <input type="radio" id="mobileSecurityOption_false" value="false" name="mobileSecurityOption"
+                                               {{^model.mobileConfig.useMobileSecurity}} checked="checked" {{/model.mobileConfig.useMobileSecurity}}>
+                                        <label for="mobileSecurityOption_false">{{lang.label_not_use}}</label>
+                                    </span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="last">
+                            <th><span class="title">{{lang.label_chat_exclude_file}}</span></th>
+                            <td>
+                                <span class="option_wrap" id="mobileExcludeExtension"> 
+                                    {{#hasMobileExcludeExtension}}
+                                    <span class="user_data editable" data-formname="mobileExcludeExtension" data-value="{{model.mobileConfig.excludeExtension}}">
+                                        <span id="mobileData">{{model.mobileConfig.excludeExtension}}</span>
+                                        <span class="btn_box" data-btntype="changeform">
+                                            <span class="ic ic_edit" title="{{lang.label_edit}}"></span>
+                                        </span>
+                                    </span>
+                                    {{/hasMobileExcludeExtension}}
+                                    {{^hasMobileExcludeExtension}}
+                                    <input type="text" class="input w_large" name="mobileExcludeExtension" value="">
+                                    {{/hasMobileExcludeExtension}}
+                                    <span class="desc vb">{{lang.label_desc}}</span>
+                                </span>
+                                <div class="caution" id="mobileExcludeExtensionAlert"></div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </form>
+   
+    <div class="page_action">
+        <span class="btn" id="btn_ok">{{lang.label_ok}}</span>
+        <span class="btn_nega" id="btn_cancel">{{lang.label_cancel}}</span>
+    </div>
+</div>

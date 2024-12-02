@@ -1,0 +1,1 @@
+define(["backbone"],function(e){var t=null,n=e.Model.extend({url:function(){return"/ad/api/system/tmw"}},{get:function(){var e=new n;return e.set({silent:!0}),e.fetch({async:!1}),e}});return{read:function(){return tmwCollaborationModel=n.get()}}});

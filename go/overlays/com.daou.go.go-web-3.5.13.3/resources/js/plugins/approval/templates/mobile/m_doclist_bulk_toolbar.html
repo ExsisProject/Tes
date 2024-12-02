@@ -1,0 +1,20 @@
+<div class="content" id="document_todo">
+    <div class="tool_bar">
+        <div class="critical">
+            <a class="btn_tool" data-role="button" id="allTodoSelect">
+                <span class="txt"> {{selectAll}}</span></a>
+            <a class="btn_tool" data-role="button" id="allTodoDeselect" style="display:none;">
+                <span class="txt"> {{clearAll}} </span></a>
+            <a class="btn_tool" data-role="button" id="btnBulkComplete">
+                <span class="txt"> {{bulkPayment}} </span></a>
+        </div>
+    </div>
+{{#authBulkComplete}}
+    <ul class="list_box list_apprChk"></ul>
+</div>
+{{/authBulkComplete}}
+{{^authBulkComplete}}
+    <ul class="list_box list_apprChk"></ul>
+</div>
+{{/authBulkComplete}}
+<div class="content_page" id="document_action"></div>

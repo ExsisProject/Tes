@@ -1,0 +1,75 @@
+{{^isUnspecifiedDept?}}
+<form name="dept_config" onSubmit="return false;">
+<span class="domain">{{name}}</span>
+<input type="hidden" name="id" value="{{id}}" />
+<input type="hidden" name="code" value="{{code}}" />
+<input type="hidden" name="deptAlias" value="{{deptAlias}}" /> 
+<input type="hidden" name="name" value="{{name}}" />
+<input type="hidden" name="emailId" value="{{emailId}}" />
+
+<input type="hidden" name="preCode" id="preCode" value="{{preCode}}" /> 
+<input type="hidden" name="preEmailId" id="preEmail" value="{{preEmailId}}" />
+<input type="hidden" name="preDeptAlias" id="preDeptAlias" value="{{preDeptAlias}}" />
+<input type="hidden" name="preIsModifyEmail" id="preIsModifyEmail" value="{{preIsModifyEmail}}" />
+<input type="hidden" name="preIsModifyCode" id="preIsModifyCode" value="{{preIsModifyCode}}" />
+<input type="hidden" name="preIsModifyDeptAlias" id="preIsModifyDeptAlias" value="{{preIsModifyDeptAlias}}" />
+<input type="hidden" name="sortFlag" id="sortFlag" value="{{sortFlag}}" />
+
+<span class="org_mail">
+	
+	{{^isModifyEmail?}}
+		<span class="user_data editable">
+			{{lang.dept_mail_id_explanation}} : {{emailId}}&nbsp;
+			<span class="btn_box" id="btnDeptEmailEdit" data-type="Email" data-toggle="true">
+				<span title="{{lang.edit}}" class="ic ic_edit"></span>
+			</span>										
+		</span>
+	{{/isModifyEmail?}}
+		
+	{{#isModifyEmail?}}
+		<input class="input" name="emailId" id="emailId" type="text" placeholder="{{lang.dept_mail_id}}" value="{{emailId}}">
+		<span class="btn_wrap">
+			<span id="btnPutDeptEmail" class="ic ic_edit_done" title="{{lang.ok}}"></span>
+			<span id="btnPutDeptEmailCancel" class="ic ic_edit_cancel" title="{{lang.cancel}}" data-type="Email" data-toggle="false"></span>
+		</span>
+	{{/isModifyEmail?}}
+	
+	{{^isModifyCode?}}
+		<span class="user_data editable">
+			{{lang.dept_code_id_explanation}} : {{code}}&nbsp;
+			<span class="btn_box" id="btnDeptCodeEdit" data-type="Code" data-toggle="true">
+				<span title="{{lang.edit}}" class="ic ic_edit"></span>
+			</span>										
+		</span>
+	{{/isModifyCode?}}
+		
+	{{#isModifyCode?}}
+		<input class="input" name="code" id="code" type="text" placeholder="{{lang.dept_code_id}}" value="{{code}}">
+		<span class="btn_wrap">
+			<span id="btnPutDeptCode" class="ic ic_edit_done" title="{{lang.ok}}"></span>
+			<span id="btnPutDeptCodeCancel" class="ic ic_edit_cancel" title="{{lang.cancel}}" data-type="Code" data-toggle="false"></span>
+		</span>
+	{{/isModifyCode?}}
+	
+	{{#hasApprovalServicePack?}}
+	{{^isModifyAlias?}}
+		<span class="user_data editable">
+			{{lang.dept_alias_id_explanation}} : {{deptAlias}}&nbsp;
+			<span class="btn_box" id="btnDeptAliasEdit" data-type="Alias" data-toggle="true">
+				<span title="{{lang.edit}}" class="ic ic_edit"></span>
+			</span>										
+		</span>
+	{{/isModifyAlias?}}
+		
+	{{#isModifyAlias?}}
+		<input class="input" name="deptAlias" id="deptAlias" type="text" placeholder="{{lang.dept_alias_id}}" value="{{deptAlias}}">
+		<span class="btn_wrap">
+			<span id="btnPutDeptAlias" class="ic ic_edit_done" title="{{lang.ok}}"></span>
+			<span id="btnPutDeptAliasCancel" class="ic ic_edit_cancel" title="{{lang.cancel}}" data-type="Alias" data-toggle="false"></span>
+		</span>
+	{{/isModifyAlias?}}
+	{{/hasApprovalServicePack?}}
+</span>
+<p class="go_alert"></p>
+</form>
+{{/isUnspecifiedDept?}}

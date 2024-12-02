@@ -1,0 +1,1 @@
+define("system/models/site_control_option",function(require){var e=require("backbone"),t=e.Model.extend({url:function(){return"/ad/api/system/sitecontroloption"},isSiteControlOn:function(){return this.get("data")}},{get:function(){var e=new t;return e.fetch({async:!1}),e}});return{read:function(){return t.get()},init:function(){return new t}}});

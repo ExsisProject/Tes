@@ -1,0 +1,28 @@
+	<div class="h_border"></div>
+	<div class="card_wrapper">
+		<div class="card_subject" data-id="{{doc.id}}">
+			<span class="title t_card" style="cursor:pointer;">
+				{{doc.title}}
+			</span>
+		</div>
+		<div class="card_content">
+			<table class="form_s">
+				<tbody>
+					<tr>
+						<th>{{lang.위치}}</th>
+						<td><span class="name">{{doc.folderPath}}</span></td>
+					</tr>
+					<tr>
+						<th>{{lang.등록자}}</th>
+						<td>
+							<span class="name">{{doc.writer}} {{doc.writerPositionName}}</span>
+							<span class="date">({{doc.writeDate}})</span>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="card_action">
+			<a class="btn_lead" data-id="{{doc.id}}"><span class="ic ic_report"></span><span class="txt">{{lang.승인하기}}</span></a>
+		</div>
+	</div>

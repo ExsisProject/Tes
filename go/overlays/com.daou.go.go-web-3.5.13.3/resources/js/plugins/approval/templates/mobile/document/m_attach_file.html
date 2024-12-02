@@ -1,0 +1,77 @@
+	{{#hasFiles}}
+	<div class="add_file">
+		<div class="add_file_header">
+	        <span class="subject">
+	            <span class="ic ic_file_s"></span>
+	            <strong>{{lang.attach_file}}</strong>
+	            <span class="num">{{total}}</span>{{lang.amt}}
+	        </span>
+	    </div>
+		<ul class="file_wrap">
+			{{#files}}
+			<li data-name="{{name}}" data-id="{{id}}">
+				<!-- a href="javascript:;" data-role="button"  data-size="{{byteSize}}" title="{{name}}" data-boardid="{{boardId}}" data-postid="{{postId}}" data-id="{{id}}"><!-- href="{{contextRoot}}api/board/{{boardId}}/post/{{postId}}/attaches/{{id}}" data-bypass -->
+					<span class="item_file">
+						<span class="ic_file ic_{{extention}}"></span>
+						<span class="name">{{#download}}<a href="javascript:;" data-bypass data-role="button"  data-size="{{byteSize}}" title="{{name}}" data-id="{{id}}">{{name}}</a>{{/download}}{{^download}}{{name}}{{/download}}</span>
+						<span class="size">({{size}})</span>
+						<span class="optional">
+							{{#preview}}
+							{{#isMobile}}
+                            {{#useMobilePreview}}
+							<a href="javascript:;" class="wrap_ic_file wrap_ic_file_preview"  data-id="{{encrypt}}"> 
+							     <span class="ic_cmm ic_file_preview"></span>
+							</a>
+                            {{/useMobilePreview}}
+							{{/isMobile}}
+							{{^isMobile}}
+							<a href="javascript:;" class="btn_fn4 preview" data-bypass data-id="{{encrypt}}">
+								<span class="txt ic_nav ic_nav_search">{{lang.preview}}</span>
+							</a>
+							{{/isMobile}}
+							{{/preview}}
+							{{#useMobileSecurity}}
+                            {{#download}}
+							<a href="javascript:;" class="btn_fn4 filedown" data-bypass data-role="button"  data-size="{{byteSize}}" title="{{name}}" data-id="{{id}}">
+								<span class="txt ic_cmm ic_nav_down">{{lang.download}}</span>
+							</a>
+							{{/download}}
+                            {{/useMobileSecurity}}
+						</span>		
+					</span>
+				<!-- /a-->
+				
+			</li>
+			{{/files}}
+		</ul>
+	</div>
+	{{/hasFiles}}
+    {{#hasImages}}
+	<!-- 이미지 첨부 -->
+	<div class="img_wrap" {{#hasFiles}}style="margin-top:20px"{{/hasFiles}}>
+		<ul class="feed_img {{getImageClass}}">
+			{{#images}}
+			<li data-name="{{name}}" data-id="{{id}}">
+                {{#isMobileApp}}
+				<a class="imageview" href="javascript:;" data-role="button" data-group="thumb_{{postId}}" title="{{name}}" data-id="{{id}}">
+					<img class="lazy" src="" border="0" 
+						data-src="{{#isGif}}{{contextRoot}}api/approval/document/{{docId}}/download/{{id}}{{/isGif}}{{^isGif}}{{#midImageSize}}{{thumbMid}}{{/midImageSize}}{{#smallImageSize}}{{thumbSmall}}{{/smallImageSize}}{{/isGif}}" alt="{{name}}" onload="{{{reoffsetImg}}}" />
+				</a>
+                {{/isMobileApp}}
+                {{^isMobileApp}}
+                    {{#useMobileSecurity}}
+                    <a class="imageview" href="javascript:;" data-role="button" data-group="thumb_{{postId}}" title="{{name}}" data-id="{{id}}">
+    					<img class="lazy" src="" border="0" 
+    						data-src="{{#isGif}}{{contextRoot}}api/approval/document/{{docId}}/download/{{id}}{{/isGif}}{{^isGif}}{{#midImageSize}}{{thumbMid}}{{/midImageSize}}{{#smallImageSize}}{{thumbSmall}}{{/smallImageSize}}{{/isGif}}" alt="{{name}}" onload="{{{reoffsetImg}}}" />
+    				</a>
+                    {{/useMobileSecurity}}
+                    {{^useMobileSecurity}}
+                    <img class="lazy" src="" border="0" 
+                            data-src="{{#isGif}}{{contextRoot}}api/approval/document/{{docId}}/download/{{id}}{{/isGif}}{{^isGif}}{{#midImageSize}}{{thumbMid}}{{/midImageSize}}{{#smallImageSize}}{{thumbSmall}}{{/smallImageSize}}{{/isGif}}" alt="{{name}}" onload="{{{reoffsetImg}}}" />
+                    {{/useMobileSecurity}}
+                {{/isMobileApp}}
+			</li>
+			{{/images}}											
+		</ul>	
+	</div>
+	{{/hasImages}}

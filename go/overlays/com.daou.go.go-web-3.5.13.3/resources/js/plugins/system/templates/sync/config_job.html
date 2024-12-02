@@ -1,0 +1,29 @@
+<div id='syncStartView' class='container'>
+    <div class="toolbar_top header_tb">
+        <div style="float: left;">
+            <h2>{{lang.label_sync_start_title}}</h2>
+        </div>
+    </div>
+
+    <div class="content_tb">
+        <table class="chart size" id="syncStartTable">
+            </thead>
+            <tr>
+                <td><span class="title"
+                    style="vertical-align: middle; margin-right: 10px">{{lang.label_sync_company_select}}</span>
+                    <select id="startCompanies" name="companies"
+                    class="companies" style="min-width: 100px;">
+                        <option value='ALL'>{{lang.label_all}}</option>
+                        {{#companies}}
+                        <option value="{{id}}">{{name}}</option>
+                        {{/companies}}
+                </select> <span class="btn_tool" id="sync_start_btn"
+                    style="vertical-align: middle; margin-left: 15px;">{{lang.label_sync_start_button}}</span>
+                </td>
+            </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+<br>
+<br>

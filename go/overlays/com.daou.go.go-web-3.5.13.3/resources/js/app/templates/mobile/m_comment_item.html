@@ -1,0 +1,38 @@
+										<span class="ic ic_reply"></span>
+										<div class="msg_wrap">
+											<div id="info_mode">
+												<p class="subject">
+													<span class="txt">{{{data.showMessage}}}</span>
+												</p>
+												<div class="info">
+													<span class="name">{{data.writer.name}} {{data.writer.position}}</span>
+													<span class="part">|</span>
+													<span class="date">{{data.createdAtBasicDate}}</span>
+												</div>
+												<div class="btn_wrap comment_controll">
+													{{^data.isReplyComment}}
+													<a href="javascript:;" class="btn_type2 reply" style="cursor: pointer;"><span class="txt">{{lang.reply}}</span></a>
+													{{/data.isReplyComment}}
+													
+													{{#data.actions.updatable}}
+													<a href="javascript:;" class="btn_type2 modify" style="cursor: pointer;"><span class="txt">{{lang.modify}}</span></a>
+													{{/data.actions.updatable}}
+													
+													{{#data.actions.removable}}
+													<a href="javascript:;" class="btn_type2 remove" style="cursor: pointer;"><span class="txt_caution">{{lang.remove}}</span></a>
+													{{/data.actions.removable}}
+												</div>
+											</div>
+											<div id="edit_mode" style="display: none">
+												<div class="ipt_wrap"><textarea class="edit w_max edit_content">{{{data.editMessage}}}</textarea></div>
+												<div class="btn_wrap comment_edit_control">
+													<a href="javascript:;" class="btn_type2 comment_modify_save save" style="cursor: pointer;"><span class="txt">{{lang.save}}</span></a>
+													<a href="javascript:;" class="btn_type2 comment_modify_cancel cancel" style="cursor: pointer;"><span class="txt_caution">{{lang.cancel}}</span></a>
+												</div>
+												<div class="info">
+													<span class="name">{{data.writer.name}} {{data.writer.position}}</span>
+													<span class="part">|</span>
+													<span class="date">{{data.createdAtBasicDate}}</span>
+												</div>
+											</div>
+										</div>					

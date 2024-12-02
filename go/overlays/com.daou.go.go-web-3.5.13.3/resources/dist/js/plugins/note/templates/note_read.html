@@ -1,0 +1,128 @@
+<div class="view_content mail_view s_mail_view">
+	<div class="header">
+	
+		<table class="list_report">
+		<colgroup>
+			<col width="85px">
+			<col width="">
+		</colgroup>
+		<tbody>
+			<tr>
+				<th>
+					<div class="default_info">
+					
+						<span class="title">{{lang.from}} :</span>
+					</div>
+				</th>
+				<td>
+					<ul class="name_tag">
+						<li>
+							<span class="name">{{model.msgContent.fromPersonal}}</span>
+						</li>
+					</ul>
+				</td>
+			</tr>
+		</tbody>
+		</table>
+		<div id="mailReadSenderListWrap" class="sub_report" style="display: block;">
+			<table class="list_report">
+			<colgroup>
+				<col width="85px">
+				<col width="">
+			</colgroup>
+			<tbody>
+				<tr>
+					<th><span class="title">{{lang.to}} :</span></th>
+					<td>
+						<ul class="name_tag" id="toList">
+							{{#model.msgContent.toList}}
+							<li>
+								<span class="name">{{personal}}</span>
+							</li>
+							{{/model.msgContent.toList}}
+							<li class="add" style="display:none" id="moreBtn">
+								<span class="name">
+									<span id="moreBtnText">{{lang.more}}</span>
+									<span id="moreBtnArrow" class="ic ic_arrow_down" title="{{lang.more}}"></span>
+								</span>
+							</li>
+						</ul>
+					</td>
+				</tr>
+				<tr>
+					<th><span class="title">{{lang.subject}} :</span></th>
+					<td><span class="subject">{{model.msgContent.subject}}</span></td>
+				</tr>
+				<tr>
+					<th><span class="title">{{lang.sendDate}} :</span></th>
+					<td><span class="date">{{model.msgContent.date}}</span></td>
+				</tr>
+			</tbody>
+			</table>
+			</div>
+	</div>
+	
+	{{#hasAttach}}
+	<div class="add_file" style="display:">
+		<div class="add_file_header">
+			<span class="subject">
+				<span class="ic ic_file_s"></span>
+				<strong>{{lang.attach}}</strong>
+				<span class="num">{{model.msgContent.attachList.length}}</span>{{lang.count}}
+				<span class="size">({{totalAttachSize}})</span>
+			</span>
+			<span class="btn_area">
+				<span class="btn_wrap" id="downloadAll">
+					<span class="txt">{{lang.saveAll}}</span>
+				</span>
+				<span class="part">|</span>
+				<span class="btn_wrap" id="deleteAll">
+					<span class="txt_caution">{{lang.deleteAll}}</span>
+				</span>
+			</span>
+		</div>
+		<ul class="file_wrap">
+			{{#model.msgContent.attachList}}
+			<li part="{{path}}">
+				<span class="item_file">
+					<span class="ic_file {{ext}}"></span>
+					
+					{{#isDelete}}
+					<span>{{fileName}} [{{lang.deleted}}]</span>
+					{{/isDelete}}
+					
+					{{^isDelete}}
+					<span class="name">{{fileName}}</span>
+					<span class="size">({{fsize}})</span>
+					{{#isPreviewable}}
+					<span class="btn_wrap" data-btn="preview">
+						<span class="btn_fn4">
+							<span class="txt">{{lang.preview}}</span>
+						</span>
+					</span>
+					{{/isPreviewable}}
+					<span class="btn_wrap">
+						<span class="ic_classic ic_del" title=""></span>
+					</span>
+					{{/isDelete}}
+					
+				</span>
+			</li>
+			{{/model.msgContent.attachList}}
+		</ul>
+	</div>
+	{{/hasAttach}}
+	
+	<article class="article_view" style="overflow-x:hidden">
+		<span class="editor_view">
+			{{{model.msgContent.htmlContent}}}
+		</span>
+	</article>
+</div>
+	
+<footer class="btn_layer_wrap">
+	<a class="btn_major_s" id="reply"><span class="ic"></span><span class="txt">{{lang.reply}}</span></a>
+	<a class="btn_major_s" id="replyAll"><span class="ic"></span><span class="txt">{{lang.replyAll}}</span></a>
+	<a class="btn_major_s" id="delivery"><span class="ic"></span><span class="txt">{{lang.delivery}}</span></a>
+	<a class="btn_minor_s" id="destroy"><span class="ic"></span><span class="txt">{{lang.delete}}</span></a>
+</footer>

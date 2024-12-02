@@ -1,0 +1,1 @@
+(function(){define(["survey/views/regist"],function(e){var t=e.extend({render:function(){var t=this;this.model.fetch({success:function(){e.prototype.render.apply(t,arguments)}})}});return t})})();

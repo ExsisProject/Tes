@@ -1,0 +1,145 @@
+<li>
+	<div><label for="">{{lang.이름}}</label></div>
+	<div><input type="text" name="label" value="{{model.label}}" class="txt_mini tool_txt" placeholder="{{lang.이름을 입력해주세요}}" title="{{lang.이름}}"></div>
+    <div class="wrap_input_sub">
+       <input type="checkbox" id="hideLabel" name="hideLabel" class="tool_chk" title="{{lang.이름숨기기}}" {{#model.hideLabel}}checked{{/model.hideLabel}}><label for="hideLabel">{{lang.이름숨기기}}</label>
+    </div>
+</li>
+<li>
+	<div><label for="">{{lang.설명}}</label></div>
+	<div><input type="text" name="guide" value="{{model.guide}}" class="txt_mini tool_txt" placeholder="{{lang.설명을 입력해주세요}}" title="{{lang.설명}}"></div>
+	<div class="wrap_input_sub">
+		<input type="checkbox" name="guideAsTooltip" id="guideAsTooltip" class="tool_chk" title="{{lang.툴팁으로 표현}}"{{#model.guideAsTooltip}} checked="checked"{{/model.guideAsTooltip}}><label for="guideAsTooltip">{{lang.툴팁으로 표현}}</label>
+	</div>
+</li>
+<li>
+	<div class="wrap_input_sub">
+		<input type="checkbox" name="required" id="required" class="tool_chk" title="{{lang.필수 입력 컴포넌트}}"{{#model.required}} checked="checked"{{/model.required}}><label for="required">{{lang.필수 입력 컴포넌트}}</label>
+	</div>
+</li>
+<li>
+	<div><label for="">{{lang.기본값}}</label></div>
+	<div><input type="text" name="defaultValue" value="{{model.defaultValue}}" class="txt_mini tool_txt" title="{{lang.기본값}}" maxlength='15'></div>
+</li>
+<li>
+	<div>
+		<label> {{lang.유형}} </label>
+		<span class="help right">
+			<span class="tool_tip">
+				<span class="txt">{{{lang.숫자유형설명}}}</span>
+				<div class="com_list_data">
+					<div class="row">
+						<span class="tit">{{lang.숫자}}:</span>
+						<span class="data">
+							<span class="txt">3,000</span>
+						</span>
+					</div>
+					<div class="row">
+						<span class="tit">{{lang.비율}}:</span>
+						<span class="data">
+							<span class="com_gage">
+								<span class="wrap_gage">
+									<span class="gage" style="width: 50%;"></span>
+								</span>
+								<span class="txt">50%</span>
+							</span>
+						</span>
+					</div>
+					<div class="row">
+						<span class="tit">{{lang.등급}}:</span>
+						<span class="data">
+							<span class="com_rate" title="3">
+								<span class="wrap_rate">
+									<ins class="ic_star"></ins>
+									<ins class="ic_star"></ins>
+									<ins class="ic_star"></ins>
+									<ins class="ic_star ic_star_off"></ins>
+									<ins class="ic_star ic_star_off"></ins>
+								</span>
+							</span>
+						</span>
+					</div>
+				</div>
+			</span>
+		</span>
+	</div>
+	<div class="wrap_attr_mini">
+		<div class="wrap_input_sub">
+			<input type="radio" name="dataType" id="{{DataType.NUMBER}}" value="{{DataType.NUMBER}}" class="tool_chk" title="{{lang.숫자}}"{{#isNumber}} checked="checked"{{/isNumber}}><label for="{{DataType.NUMBER}}">{{lang.숫자}}</label>
+		</div>
+		<div class="wrap_input_sub">
+			<input type="radio" name="dataType" id="{{DataType.PERCENT}}" value="{{DataType.PERCENT}}" class="tool_chk" title="{{lang.비율}}"{{#isPercent}} checked="checked"{{/isPercent}}><label for="{{DataType.PERCENT}}">{{lang.비율}}</label>
+		</div>
+		<div class="wrap_input_sub">
+			<input type="radio" name="dataType" id="{{DataType.POINT}}" value="{{DataType.POINT}}" class="tool_chk" title="{{lang.등급}}"{{#isPoint}} checked="checked"{{/isPoint}}><label for="{{DataType.POINT}}">{{lang.등급}}</label>
+		</div>
+	</div>
+</li>
+<li disable-el-point {{#isPoint}}style = "display:none"{{/isPoint}}>
+	<div><label>{{lang.최소 입력 수}}</label></div>
+	<div class="wrap_attr_mini">
+		<div class="tool_number">
+			<input type="text" name="minLength" value="{{model.minLength}}" class="txt_mini tool_txt" title="{{lang.최소 입력 수}}" maxlength='15'>
+		</div>
+	</div>
+</li>
+<li>
+	<div><label>{{lang.최대 입력 수}}</label></div>
+	<div class="wrap_attr_mini">
+		<div class="tool_number">
+			<input type="text" name="maxLength" value="{{model.maxLength}}" class="txt_mini tool_txt" title="{{lang.최대 입력 수}}" maxlength='15'>
+		</div>
+	</div>
+</li>
+<li disable-el-point disable-el-percent {{^isNumber}}style = "display:none"{{/isNumber}}>
+	<div>{{lang.입력 너비 조절}}</div>
+	<div class="wrap_attr_mini">
+		<div class="tool_number">
+			<input type="text" name="width" value="{{model.width}}" class="txt_mini tool_txt" title="{{lang.입력 너비 조절}}">
+		</div>
+		<div class="wrap_input_sub">
+			<label>PX</label>
+		</div>
+	</div>
+</li>
+<li disable-el-point disable-el-percent {{^isNumber}}style = "display:none"{{/isNumber}}>
+    <div>{{lang.접사 표기}}</div>
+    <div class="wrap_attr_mini">
+        <div class="tool_number">
+            <input type="text" name="unitText" value="{{model.unitText}}" class="txt_mini tool_txt" title="{{lang.접사 표기}}">
+        </div>
+        <div class="wrap_input_sub">
+            <input type="radio" name="fixType" id="prefix" value="prefix" class="tool_chk" title="{{lang.접두사}}"{{#isPrefix}} checked="checked"{{/isPrefix}}><label for="prefix">{{lang.접두사}}</label>
+			<input type="radio" name="fixType" id="postfix" value="postfix" class="tool_chk" title="{{lang.접미사}}"{{^isPrefix}} checked="checked"{{/isPrefix}}><label for="postfix">{{lang.접미사}}</label>
+        </div>
+    </div>
+</li>
+<li disable-el-point disable-el-percent {{^isNumber}}style = "display:none"{{/isNumber}}>
+    <div><label>{{lang.소수점 자리 수}}</label></div>
+    <div class="wrap_attr_mini">
+        <div class="tool_number">
+            <input type="text" name="decimalPoints" value="{{model.decimalPoints}}" class="txt_mini tool_txt" title="{{lang.소수점 자리 수}}" maxlength='1'>
+        </div>
+    </div>
+</li>
+<li disable-el-point disable-el-percent {{#isNumber}}style = "display:none"{{/isNumber}}>
+    <div class="wrap_input_sub">
+        <input type="checkbox" name="thousandComma" id=thousandComma class="tool_chk" title="{{lang.1,000 단위 쉼표 표시}}" {{#model.thousandComma}} checked="checked"{{/model.thousandComma}}><label for="thousandComma">{{lang.1,000 단위 쉼표 표시}}</label>
+    </div>
+</li>
+{{#isInTable}}
+<li>
+	<div><label for="">{{lang.테이블 자동계산}}</label></div>
+	<div class="wrap_input_sub">
+		<input type="checkbox" name="useTableAutoAggr" id="useTableAggregation" class="tool_chk has-custom-event" title="{{lang.테이블 자동계산 사용함}}"{{#model.useTableAutoAggr}} checked="checked"{{/model.useTableAutoAggr}}><label for="useTableAggregation">{{lang.테이블 자동계산 사용함}}</label>
+	</div>
+	<div id="aggrTypeSection"{{^model.useTableAutoAggr}} style="display: none;"{{/model.useTableAutoAggr}}>
+		<select name="tableAggrType" class="attr_select">
+			<option value="">{{lang.선택하세요}}</option>
+			<option value="{{AggrType.SUM}}">{{lang.합계 계산}}</option>
+			<option value="{{AggrType.AVR}}">{{lang.평균 계산}}</option>
+		</select>
+	</div>
+	<p> * {{lang.테이블 자동계산 설명}}</p>
+</li>
+{{/isInTable}}

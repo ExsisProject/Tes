@@ -1,0 +1,37 @@
+{{#data}}
+	<dt>
+		<span class="txt {{#isHoliday}}holiday_off{{/isHoliday}} {{^isHoliday}}{{isWeekend}}{{/isHoliday}}">{{parseDate}}</span>
+		{{#isHoliday}}
+		<span class="txt {{#isHoliday}}holiday_off{{/isHoliday}}">{{holidayName}}</span>
+		{{/isHoliday}}
+	</dt>
+	{{^eventList}}
+	<dd class="data_null_s"><span class="txt">{{lang.no_event}}</span></dd>
+	{{/eventList}}
+	{{#eventList}}
+	<dd class="eventWrap" data-calendarid="{{calendarId}}" data-eventid="{{id}}" data-visibility="{{visibility}}">
+		<a href="javascript:;" data-bypass>
+			{{#thumbnail}}
+			<div class="wrap_photo">
+				<span class="photo">
+					<img src="{{thumbnail}}">
+				</span>
+			</div>
+			{{/thumbnail}}
+			<div class="info">
+				{{^isHolidayAnniversary}}
+				<span class="time">{{parseTimeType}}</span>
+				{{/isHolidayAnniversary}}
+				<span class="subject">
+					{{#isSecret}}
+					<span class="btn btn_secret_s"></span>
+					{{/isSecret}}
+					<span class="txt_ellipsis" >{{{parseSummary}}}</span>
+				</span>
+				<span class="ic ic_arrow_type2"></span>
+			</div>
+			<span class="chip bgcolor{{color}}"></span>
+		</a>
+	</dd>
+	{{/eventList}}
+{{/data}}

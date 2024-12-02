@@ -1,0 +1,52 @@
+<span class="box_label_wrap">
+    {{^model.hideLabel}}
+	<label>{{{label}}}</label>
+    {{/model.hideLabel}}
+</span>
+{{^isMasking}}
+<div class="build_box_data">
+    {{#isNumber}}
+	<span class="txt">
+    {{#isPrefix}}
+       {{#userData}}
+          {{model.unitText}}
+       {{/userData}}
+    {{/isPrefix}}
+
+    {{userData}}
+
+    {{^isPrefix}}
+       {{#userData}}
+          {{model.unitText}}
+       {{/userData}}
+    {{/isPrefix}}
+    </span>
+    {{/isNumber}}
+
+    {{#isPercent}}
+        <span class="com_gage">
+            <span class="wrap_gage">
+                <span class="gage" style="width:{{userData}}%"></span>
+            </span>
+            <span class="txt">{{userData}} %</span>
+        </span>
+    {{/isPercent}}
+
+    {{#isPoint}}
+        <span class="com_rate">
+            <span class="wrap_rate">
+                {{#points}}
+                <ins style="cursor: default;" class="ic_star {{customClass}}"></ins>
+                {{/points}}
+            </span>
+        </span>
+    {{/isPoint}}
+</div>
+{{/isMasking}}
+{{#isMasking}}
+<div class="build_box_data">
+    <div class="hidden_data">
+        <span class="help" title="{{lang.관리자에 의해 마스킹 처리 된 항목입니다}}"></span>
+    </div>
+</div>
+{{/isMasking}}

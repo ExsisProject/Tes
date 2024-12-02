@@ -1,0 +1,1 @@
+define(["backbone"],function(e){var t=e.Collection.extend({model:e.Model,initialize:function(e){this.options=e||{}},url:function(){return"/api/webfolder/folder/list"}});return t});

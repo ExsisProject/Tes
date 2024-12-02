@@ -1,0 +1,1 @@
+(function(){define(["underscore","backbone","app"],function(e,t,n){var r=n.BaseCollection.extend({conditions:{year:0,month:0},url:function(){var e=n.config("contextRoot")+"api/calendar/user/me/event/daily?";return e+$.param(conditions)}});return r})}).call(this);

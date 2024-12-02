@@ -1,0 +1,1 @@
+define(["backbone"],function(e){var t=e.Model.extend({url:function(){this.assetId=this.get("assetId"),this.itemId=this.get("itemId");var e=["/api/asset",this.assetId,"item"];return this.itemId&&e.push(this.itemId),e.join("/")}});return t});

@@ -1,0 +1,134 @@
+﻿<html>
+<head>
+    <title>DEXT5 Editor with nexacro 21 Runtime</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <script type="text/javascript">
+        document.write('<scr' + 'ipt src="../../../js/dext5editor.js?t=' + (new Date).getTime() + '" type="text/javascript"><\/scr' + 'ipt>');
+    </script>
+    <script type="text/javascript">
+        var G_EventReturnValue;
+
+        var isAndroid = false;
+
+        if (!window.NEXACROHTML) {
+            window.NEXACROHTML = {};
+        }
+
+        window.NEXACROHTML.FireUserNotify = function (userdata) {
+            if (window.NEXACROWEBBROWSER) {
+                // 윈도우 html5, 안드로이드 html5, iOS html5, iOS 런타임
+                window.NEXACROWEBBROWSER.on_fire_onusernotify(window.NEXACROWEBBROWSER, userdata);
+            } else if (typeof nexacro == "undefined") {
+                //윈도우 런타임
+                window.document.title = userdata;
+            } else if (nexacro) {
+                //안드로이드 런타임
+                isAndroid = true;
+                nexacro.fireUserNotify(userdata);
+            }
+        }
+        
+        function fn_bodyOnload() {
+            // iOS 넥사크로 앱에서 로드 안되는 현상 때문에 setTimeout 설정
+            setTimeout(function () {
+                window.NEXACROHTML.FireUserNotify("DEXT5_WEBBROWSER_INIT");
+            }, 0);
+        }
+
+        function fn_FireUserNotify(userdata) {
+            window.NEXACROHTML.FireUserNotify(userdata);
+        }
+
+        // loaded
+        function dext_editor_loaded_event(editorObj) {
+            window.NEXACROHTML.FireUserNotify("dext_editor_loaded_event");
+        }
+
+        // custom action
+        function dext_editor_custom_action(command, editorID) {
+            G_EventReturnValue = command;
+            window.NEXACROHTML.FireUserNotify("dext_editor_custom_action#|" + (isAndroid ? JSON.stringify(G_EventReturnValue) : ""));
+        }
+
+        // set complete event
+        function dext_editor_set_complete_event(editorID) {
+            window.NEXACROHTML.FireUserNotify("dext_editor_set_complete_event");
+        }
+
+        // afterchangemode event
+        function dext_editor_afterchangemode_event(newMode, currentMode, editorID) {
+            G_EventReturnValue = {
+                newMode: newMode, currentMode: currentMode
+            };
+            window.NEXACROHTML.FireUserNotify("dext_editor_afterchangemode_event#|" + (isAndroid ? JSON.stringify(G_EventReturnValue) : ""));
+        }
+
+        // key event
+        function dext_key_event(eventType, event, currElem, editorID) {
+            G_EventReturnValue = {
+                eventType: eventType, event: event, currElem: currElem
+            };
+            window.NEXACROHTML.FireUserNotify("dext_key_event#|" + (isAndroid ? JSON.stringify(G_EventReturnValue) : ""));
+        }
+
+        // resized event
+        function dext_editor_resized_event(editor) {
+            window.NEXACROHTML.FireUserNotify("dext_editor_resized_event");
+        }
+
+        // on error event
+        function dext_editor_on_error_event(editorID, codemessage) {
+            G_EventReturnValue = codemessage;
+            window.NEXACROHTML.FireUserNotify("dext_editor_on_error_event#|" + (isAndroid ? JSON.stringify(G_EventReturnValue) : ""));
+        }
+
+        // beforepaste event
+        function dext_editor_beforepaste_event(pasteSource) {
+            G_EventReturnValue = pasteSource;
+            window.NEXACROHTML.FireUserNotify("dext_editor_beforepaste_event#|" + (isAndroid ? JSON.stringify(G_EventReturnValue) : ""));
+        }
+
+        // set forbiddenword complete event
+        function dext_editor_set_forbidden_word_complete_event(editorID, paramObj) {
+            G_EventReturnValue = paramObj;
+            window.NEXACROHTML.FireUserNotify("dext_editor_set_forbidden_word_complete_event#|" + (isAndroid ? JSON.stringify(G_EventReturnValue) : ""));
+        }
+
+        // android
+        function DEXT5Method(args) {
+            args = args.split(",");
+            var apiName = args[0];
+            G_EventReturnValue = DEXT5[apiName](decodeURIComponent(args[1]), decodeURIComponent(args[2]), decodeURIComponent(args[3]), decodeURIComponent(args[4]), decodeURIComponent(args[5]), decodeURIComponent(args[6]), decodeURIComponent(args[7]), decodeURIComponent(args[8]), decodeURIComponent(args[9]));
+
+            switch (apiName) {
+                case "GetHtmlValueExWithDocType":
+                case "GetHtmlValueEx":
+                case "GetHtmlValue":
+                case "GetBodyValueEx":
+                case "GetBodyValueExLikeDiv":
+                case "GetBodyValue":
+                case "GetBodyTextValue":
+                case "GetImages":
+                case "GetServerImages":
+                case "GetDeletedImageUrl":
+                case "GetToSavePathUrl":
+                case "IsEmpty":
+                case "IsDirty":
+                case "GetAccessibility":
+                case "GetAccessibilityValidation":
+                case "Dext5EncodeMime":
+                case "Dext5DecodeMime":
+                case "isLoadedEditorEx":
+                    window.NEXACROHTML.FireUserNotify(apiName + "#|" + JSON.stringify(G_EventReturnValue));
+                    break;
+            }
+        }
+    </script>
+</head>
+<body onload="fn_bodyOnload();" style="padding:0; margin:0; height:100%; text-align: center; overflow: hidden; border: 0;">
+    <div id="dext_Holder" style="width: 100%; height: 100%; margin: 0 auto; overflow: hidden;"></div>
+</body>
+</html>

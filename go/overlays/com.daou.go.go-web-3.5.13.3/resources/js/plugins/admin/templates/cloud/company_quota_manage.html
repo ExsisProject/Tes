@@ -1,0 +1,241 @@
+<div class="content_page">
+
+	<form name="formCompanyQuota">
+	{{^isNotSite}}
+	<div class="container">
+		<div class="header">
+			<h2>{{lang.label_quota_setting}}</h2>
+		</div>
+
+		<div class="content">
+			<input type="hidden" id="installLocale" value="">
+			<table class="detail">
+				<colgroup>
+					<col width="180px"/>
+					<col width="*" />
+				</colgroup>
+				<tbody>
+					<tr>
+    					<th class="title">{{lang.label_available_quota}}</th>
+                		<td>
+                            <span class="option_wrap">
+                                {{availableQouta}} GB
+                            </span>
+                        </td>
+    				</tr>
+    				<tr>
+    					<th class="title">{{lang.label_total_account_quota}}
+	    					<span class="wrap_ic_s">
+	                         	<span class="help">
+								<span class="tool_tip">{{lang.label_help_account_quota}}<i class="tail_left"></i></span>
+								</span>
+							</span>
+						</th>
+                		<td>
+                            <span class="option_wrap">
+                                <input class="input" type="text" name="totalAccountQuota" id="totalAccountQuota" value="{{allAccountQuotaGB}}"> GB
+								<span class="go_alert" id="totalAccountQuotaValidate"></span>
+                            </span>
+                        </td>
+    				</tr>
+    				<tr>
+    					<th class="title">{{lang.label_total_company_quota}}
+    					<span class="wrap_ic_s">
+							<span class="help">
+								<span class="tool_tip">{{lang.label_help_company_quota}}<i class="tail_left"></i></span>
+							</span>
+						</span>
+						</th>
+                		<td>
+                            <span class="option_wrap">
+                                <input class="input" type="text" name="companyQuota" id="companyQuota" value="{{allCompanyQuotaGB}}"> GB
+								<span class="go_alert" id="companyQuotaValidate"></span>
+                            </span>
+                        </td>
+    				</tr>
+    				<tr id="sendWarningMode">
+    					<th class="title">{{lang.label_send_warning}}</th>
+                		<td>
+	                		<span class="option_wrap">
+                                <input type="radio" name="sendWarningExceedCompanyQuota" value=true id="sendWarningExceedCompanyQuota_on" {{#companyQuotaModel.sendWarningExceedCompanyQuota}}checked="checked"{{/companyQuotaModel.sendWarningExceedCompanyQuota}}/>
+                                <label for="sendWarningExceedCompanyQuota_on">{{lang.label_use}}</label>
+                            </span>
+                            <span class="option_wrap">
+                                <input type="radio" name="sendWarningExceedCompanyQuota" value=false id="sendWarningExceedCompanyQuota_off" {{^companyQuotaModel.sendWarningExceedCompanyQuota}}checked="checked"{{/companyQuotaModel.sendWarningExceedCompanyQuota}}/>
+                                <label for="sendWarningExceedCompanyQuota_off">{{lang.label_not_use}}</label>
+                            </span>
+                        </td>
+    				</tr>
+    				<tr id="warningRate">
+    					<th class="title">{{lang.label_warning_rate}}</th>
+                		<td>
+                            <span class="option_wrap">
+                                <input class="input" type="text" id="companyQuotaWarningRate" name="companyQuotaWarningRate" value="{{companyQuotaModel.companyQuotaWarningRate}}"> %
+                                <span class="go_alert" id="companyQuotaWarningRateValidate"></span>
+                            </span>
+                        </td>
+    				</tr>
+    				<tr class="last" id="restrict">
+    					<th class="title">{{lang.label_restriction}}</th>
+                		<td>
+	                		<span class="option_wrap">
+                                <input type="radio" name="restrictCompanyQuota" value=true id="restrictCompanyQuota_on" {{#companyQuotaModel.restrictCompanyQuota}}checked="checked"{{/companyQuotaModel.restrictCompanyQuota}}/>
+                                <label for="restrictCompanyQuota_on">{{lang.label_use}}</label>
+                            </span>
+                            <span class="option_wrap">
+                                <input type="radio" name="restrictCompanyQuota" value=false id="restrictCompanyQuota_false" {{^companyQuotaModel.restrictCompanyQuota}}checked="checked"{{/companyQuotaModel.restrictCompanyQuota}}/>
+                                <label for="restrictCompanyQuota_false">{{lang.label_not_use}}</label>
+                            </span>
+                            <span class="option_wrap">
+                            <span class="wrap_ic_s">
+		                        <span class="help">
+									<span class="tool_tip">{{lang.label_help_restrict_quota}}<i class="tail_left"></i></span>
+								</span>
+							</span>
+							</span>
+                        </td>
+    				</tr>
+                </tbody>
+			</table>
+		</div>
+	</div>
+	<span class="desc">{{lang.label_quota_service_desc}}</span>
+
+	</form>
+	<div class="page_action">
+		<span class="btn" id="saveQuota">{{lang.label_save}}</span>
+		<span class="btn_nega" id="cancelQuota">{{lang.label_cancel}}</span>
+	</div>
+	{{/isNotSite}}
+	<div class="container">
+		<ul class="info_summary">
+			<li>
+				<span class="label_state abnormal">notice</span>
+				<span class="tit_guide">{{lang.label_prev_sync_caution}}
+					<span class="help">
+						<span class="tool_tip">{{{lang.label_usage_desc}}}
+							<i class="tail_left"></i>
+						</span>
+                	</span>
+				</span>
+				<span class="wrap_btn btn_clean">
+					<span class="txt" id="btn_sync">{{lang.label_sync}}</span>
+					<i class="ic_adm ic_arrow_r"></i>
+				</span>
+			</li>
+			<li style="display: none;">
+				<span class="tit">{{lang.label_used_quota}}</span>
+				<span class="txt"><strong>{{companyAppsQuotaModel.allMB}} MB</strong> {{#hidePercent}}({{usagePercent}}%) / {{allCompanyQuotaGB}} GB{{/hidePercent}}</span>
+			</li>
+		</ul>
+		<div class="header">
+		<div class="content">
+            <div id="quota_content" style="display:none">
+			{{#hidePercent}}
+			<span class="gageWrap">
+				<span class="gageBox">
+					<span class="percent" style="width:{{usagePercent}}%"></span>
+				</span>
+			</span>
+			{{/hidePercent}}
+			<table class="in_table2 tb_resource_type">
+				<colgroup>
+					<col width="250px">
+					<col width="*">
+				</colgroup>
+				<tbody>
+				{{#appConfig}}
+					{{#contactService}}
+					<tr>
+						<th>{{lang.label_contact}}</th>
+						<td>{{companyAppsQuotaModel.contactMB}} MB</td>
+					</tr>
+					{{/contactService}}
+					{{#worksService}}
+					<tr>
+						<th>{{lang.label_works}}</th>
+						<td>{{companyAppsQuotaModel.worksMB}} MB</td>
+					</tr>
+					{{/worksService}}
+					{{#postService}}
+					<tr>
+						<th>{{lang.label_post}}</th>
+						<td>{{companyAppsQuotaModel.postMB}} MB</td>
+					</tr>
+					{{/postService}}
+					{{#approvalService}}
+					<tr>
+						<th>{{lang.label_approval}}</th>
+						<td>{{companyAppsQuotaModel.documentMB}} MB</td>
+					</tr>
+					{{/approvalService}}
+					{{#reportService}}
+					<tr>
+						<th>{{lang.label_report}}</th>
+						<td>{{companyAppsQuotaModel.reportMB}} MB</td>
+					</tr>
+					{{/reportService}}
+					{{#surveyService}}
+					<tr>
+						<th>{{lang.label_survey}}</th>
+						<td>{{companyAppsQuotaModel.surveyMB}} MB</td>
+					</tr>
+					{{/surveyService}}
+					{{#todoService}}
+					<tr>
+						<th>{{lang.label_todo}}</th>
+						<td>{{companyAppsQuotaModel.todoMB}} MB</td>
+					</tr>
+					{{/todoService}}
+					{{#taskService}}
+					<tr>
+						<th>{{lang.label_task}}</th>
+						<td>{{companyAppsQuotaModel.taskMB}} MB</td>
+					</tr>
+					{{/taskService}}
+					{{#smsService}}
+					<tr>
+						<th>{{lang.label_sms}}</th>
+						<td>{{companyAppsQuotaModel.smsMB}} MB</td>
+					</tr>
+					{{/smsService}}
+					{{#fileService}}
+					<tr>
+						<th>{{lang.label_webfolder}}</th>
+						<td>{{companyAppsQuotaModel.webfolderMB}} MB</td>
+					</tr>
+					{{/fileService}}
+					{{#docsService}}
+					<tr>
+						<th>{{lang.label_docs}}</th>
+						<td>{{companyAppsQuotaModel.docsMB}} MB</td>
+					</tr>
+					{{/docsService}}
+					{{#chatService}}
+					<tr>
+						<th>{{lang.label_chat}}</th>
+						<td>{{companyAppsQuotaModel.chatMB}} MB</td>
+					</tr>
+					{{/chatService}}
+					<tr>
+						<th>{{lang.label_comment}}</th>
+						<td>{{companyAppsQuotaModel.commentMB}} MB</td>
+					</tr>
+					<tr class="last">
+						<th>{{lang.label_etc}}
+							<span class="wrap_ic_s">
+		                        <span class="help">
+									<span class="tool_tip">{{lang.label_help_etc}}<i class="tail_left"></i></span>
+								</span>
+							</span>
+						</th>
+						<td>{{companyAppsQuotaModel.etcMB}} MB</td>
+					</tr>
+				{{/appConfig}}
+				</tbody>
+			</table>
+            </div>
+		</div>
+	</div><!-- //용량 관리 -->
+
+</div>

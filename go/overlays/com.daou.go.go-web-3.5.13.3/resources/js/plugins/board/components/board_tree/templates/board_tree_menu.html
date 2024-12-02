@@ -1,0 +1,20 @@
+<li class="{{iconType}}" data-type="{{nodeType}}" data-id="{{nodeId}}">
+	<p class="title">
+		{{#hasChildren}}
+		{{#isFolderNode}}
+		<span class="btnToggleNode{{#isClosedNode}} open{{/isClosedNode}}{{^isClosedNode}} close{{/isClosedNode}}" title="{{#isClosedNode}}{{lang.open}}{{/isClosedNode}}{{^isClosedNode}}{{lang.close}}{{/isClosedNode}}"></span>
+		{{/isFolderNode}}
+		{{/hasChildren}}
+		{{! 기존 메뉴 반전 로직에 a태그의 data-id를 이용해서 찾고 있다.}}
+		{{! 디자인팀 요청으로 이부분은 개행하지 말고 한줄로 이어서 해야 함(주의)}}
+		<a class="node-value" href="{{linkUrl}}" data-id="{{nodeId}}" title="{{nodeValue}}" data-bypass><ins class="ic"></ins>{{#hasToggleIcon}}<span class="ic_side ic_hide_up" data-slide="true"></span>{{/hasToggleIcon}}{{#isShared}}<span class="ic_side ic_shareboard"></span>{{/isShared}}{{#isPrivateBoard}}<span class="ic_side ic_private"></span>{{/isPrivateBoard}}<span class="txt">{{nodeValue}} {{#isDeleted}} ({{lang.deleteDept}}) {{/isDeleted}}</span></a>
+		{{#hasBoardNewPost}}
+		<span class="ic_classic ic_new2"></span>
+		{{/hasBoardNewPost}}
+		{{#managable}}
+		<span class="btn_wrap">
+			<span class="btn-setting ic_side ic_side_setting" data-type="{{nodeType}}" data-id="{{nodeId}}"></span>
+		</span>
+		{{/managable}}
+	</p>
+</li>

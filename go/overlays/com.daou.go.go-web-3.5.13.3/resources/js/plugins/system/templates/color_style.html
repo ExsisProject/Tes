@@ -1,0 +1,69 @@
+{{#dataset}}
+<div class="content_page">
+    <form name="formBaseConfig" id="formColr" >
+        <div class="container">
+            <div class="header">
+                <h2>{{lang.label_colorstyle_title}}</h2>
+            </div>
+            <div class="content">
+                <table class="detail">
+                    <colgroup>
+                        <col width="110px" />
+                        <col width="*" />
+                    </colgroup>
+                <tbody>
+                    <tr class="last">
+                        <th>
+                            <span class="title">{{lang.label_colorstyle}}</span>
+                        </th>
+                        <td>
+                            <span id="systemColorStyle" class="user_data editable" data-formname="colorStyle" data-value="{{systemColorStyle}}">
+                                <span  class="edit_data">{{systemColorStyle}}</span>
+                                <span class="btn_box" data-btntype="changeform">
+                                    <span class="ic ic_edit" title="{{lang.label_edit}}"></span>
+                                </span>
+                            </span>
+                            <span class="go_alert" id="colorStyleValidate"></span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+	<div class="container">
+	   <div class="header">
+	       <h2>{{lang.label_company_colorstyle_title}}</h2>
+	   </div>
+	   <div class="content">
+            <table class="detail">
+                <colgroup>
+                    <col width="110px" />
+                    <col width="*" />
+                </colgroup>
+                <tbody>
+                {{#companyColorStyleList}}
+                    <tr class="">
+                        <th>
+                            <span class="title">{{companyName}}</span>
+                        </th>
+                        <td>
+                            <span class="user_data editable" data-formname="companyColorStyle" data-id="{{companyId}}" data-name="{{companyName}}" data-value="{{companyColor}}">
+                                <span class="edit_data">{{companyColor}}</span>
+                                <span class="btn_box" data-btntype="changeform">
+                                    <span class="ic ic_edit" title="{{lang.label_edit}}"></span>
+                                </span>
+                            </span>
+                            <span class="go_alert" id="colorStyleValidate"></span>
+                        </td>
+                    </tr>
+                {{/companyColorStyleList}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    </form>
+    <div class="page_action">
+        <span class="btn" id="btn_color_ok">{{lang.label_ok}}</span>
+        <span class="btn_nega" id="btn_color_cancel">{{lang.label_cancel}}</span>
+    </div>
+{{/dataset}}

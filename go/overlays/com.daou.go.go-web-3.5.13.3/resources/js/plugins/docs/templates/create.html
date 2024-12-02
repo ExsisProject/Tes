@@ -1,0 +1,128 @@
+﻿<form class="edit_form">
+    <fieldset>
+        <table class="form_type">
+            <colgroup>
+                <col style="width: 140px">
+                <col>
+            </colgroup>
+            <tbody>
+                <tr>
+                    <th>
+                        <span class="title">{{lang.location}}</span>
+                        <ins class="asterisk">*</ins>
+                    </th>
+                    <td>
+                        <span class="txt" id="docsPath" data-id="{{docsId}}">
+                            {{#folderData.parentPathName}}{{folderData.parentPathName}}{{/folderData.parentPathName}}
+                        </span>
+                        {{^disableEditFolder}}
+                        <a class="btn_minor_s" id="folderBtn"><span class="ic"></span><span class="txt">선택</span></a>
+                        {{/disableEditFolder}}
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <span class="title">{{lang.title}}</span>
+                        <ins class="asterisk">*</ins>
+                    </th>
+                    <td><input type="text" id="docsName" class="input w_max" {{#docsData.title}}value="{{docsData.title}}"{{/docsData.title}}></td>
+                </tr>
+                {{^isCreate}}
+                <tr>
+                    <th>
+                        <span class="title">{{lang.reason}}</span>
+                        <ins class="asterisk">*</ins>
+                    </th>
+                    <td><input type="text" id="docsReason" class="input w_max" {{#isTempsave}}{{#docsData.reason}}value="{{docsData.reason}}"{{/docsData.reason}}{{/isTempsave}}></td>
+                </tr>
+                {{/isCreate}}
+                <tr id="docsNumLayout" {{^folderData.useDocNum}} style="display: none;" {{/folderData.useDocNum}}>
+                    <th>
+                        <span class="title">{{lang.docNum}}</span>
+                    </th>
+                    <td><input type="text" id="docsNum" class="input w_max" {{#docsData.docNum}}value="{{docsData.docNum}}"{{/docsData.docNum}}></td>
+                </tr>
+                <tr>
+                    <th><span class="title">{{lang.docsYear}}</span></th>
+                    <td>
+                        <select id="docYear">
+                            {{#preserveYears}}
+                            <option value="{{value}}" {{#isSelected}}selected{{/isSelected}}>{{label}}</option>
+                            {{/preserveYears}}
+                        </select>
+                    </td>
+                </tr>
+                <tr id="attachArea">
+                    <th>
+                        <span class="title">{{lang.attach}}</span>
+                        {{#isSaaS}}
+                        <span class="help">
+                            <span class="tool_tip top" style="width:210px">{{lang.첨부파일 1개의 최대 용량은 NNN MB 이며 최대 N개 까지 등록 가능합니다}}
+                                <i class="tail_left"></i>
+                            </span>
+                        </span>
+                        {{/isSaaS}}
+                    </th>
+                    <td>
+                        <!-- 첨부파일 default -->
+                        <div id="dropZone" class="dd_attach">
+                            <p class="drag_txt">{{lang.이 곳에 파일을 드래그 하세요}}</p>
+                            <div class="area_txt">
+                                <span class="ic_attach ic_upload"></span>
+                                <span class="msg">{{lang.이 곳에 파일을 드래그 하세요 또는}}
+                                    <span class="btn_file" id="swfupload-control"></span>
+                                    <span id="total_size" class="size"></span>
+                                </span>
+                            </div>
+                            <div class="progress">
+                            </div>
+                            <div class="wrap_attach">
+                                <!-- 파일 첨부 스타일  -->
+                                <ul class="file_wrap" id="fileWrap">
+                                    {{#files}}
+                                    <li data-id="{{id}}" data-size="{{size}}">
+                                        <span class="item_file">
+                                            <span class="btn_wrap">
+                                                <span class="ic_classic ic_del"></span>
+                                            </span>
+                                            <span class="ic_file {{icon}}"></span>
+                                            <span class="name">{{name}}</span>
+                                            <span class="size">({{fileSizeString}})</span>
+                                        </span>
+                                    </li>
+                                    {{/files}}
+                                </ul>
+                                <!-- 이미지 첨부 스타일  -->
+                                <ul class="img_wrap" id="imgWrap">
+                                    {{#images}}
+                                    <li data-id="{{id}}" data-type="attach" data-path="{{path}}" data-name="{{name}}" data-size="{{size}}">
+									<span class="item_image">
+										<span class="thumb"><img src="{{thumbSmall}}"></span>
+										<span class="btn_wrap">
+											<span class="ic_classic ic_del"></span>
+										</span>
+                                        <span class="name">{{name}}</span>
+                                        <span class="size">({{fileSizeString}})</span>
+									</span>
+                                    </li>
+                                    {{/images}}
+                                </ul>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th colspan="2">
+                        <div class="editor">
+                            <div id="editor" style="width: 100%; display: "></div>
+                        </div>
+                    </th>
+                </tr>
+            </tbody>
+        </table>
+    </fieldset>
+</form>
+<div class="page_action_wrap">
+    <a id="submitDocs" class="btn_major" data-role="button"><span class="txt">{{lang.regist}}</span></a>
+    <a id="tempSaveDocs" class="btn_minor" data-role="button"><span class="txt">{{lang.tempsave}}</span></a>
+</div>

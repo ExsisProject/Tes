@@ -1,0 +1,1 @@
+define(["backbone"],function(e){var t=e.Model.extend({initialize:function(e){e&&(this.userId=e)},url:function(){return GO.contextRoot+"api/ehr/vacation/stat"+(this.userId?"/"+this.userId:"")+"?"+this.getParams()},setUserId:function(e){this.userId=e},setBaseDate:function(e){this.baseDate=e},getParams:function(){var e={};return e.baseDate=this.baseDate,$.param(e)}},{});return t});

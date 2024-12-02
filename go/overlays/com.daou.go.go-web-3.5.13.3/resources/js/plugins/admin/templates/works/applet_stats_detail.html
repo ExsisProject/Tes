@@ -1,0 +1,101 @@
+<div class="content_page" id="basicInfo">
+    <div class="container">
+        <div class="header">
+            <h2>{{lang.기본정보}}</h2>
+        </div>
+        <div class="content">
+            <table class="detail">
+                <colgroup>
+                    <col width="100px"/><!-- 개발쪽에서 width값을 받아가서 재설정 후 삭제  -->
+                    <col width="*"/>
+                </colgroup>
+                <tbody>
+                <tr>
+                    <th><span class="title">{{lang.앱명}}</span></th>
+                    <td>
+                        <span class="user_data">{{stats.appletName}}</span>
+                        <span class="btn_wrap" id="btn-app-delete"><span class="btn_s">{{lang.삭제하기}}</span></span>
+                    </td>
+                </tr>
+                <tr>
+                    <th><span class="title">{{lang.생성일}}</span></th>
+                    <td>
+						<span class="user_data">
+							{{createdAt}}
+						</span>
+                    </td>
+                </tr>
+                <tr>
+                    <th><span class="title">{{lang.생성자}}</span></th>
+                    <td>
+                        <span class="user_data">{{stats.createdBy.name}} {{stats.createdBy.position}}</span>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <ins class="asterisk">*</ins>
+                        <span class="title">{{lang.운영자}}</span></th>
+                    <td>
+                        <div id="wrap_name_tag" class="wrap_name_tag">
+                            <ul id="manager-list" class="name_tag">
+                                <li class="creat" data-button="true">
+	                                <span class="btn_wrap" id="btn-add-attendees">
+	                                    <span class="ic_form ic_addlist"></span>
+	                                    <span class="txt">{{lang.운영자 추가}}</span>
+	                                </span>
+                                </li>
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th><span class="title">{{lang.데이터}}</span></th>
+                    <td>
+						<span class="user_data">
+							{{docCount}} {{lang.count}}
+						</span>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="dataTables_wrapper container">
+        <div class="header">
+            <h2>{{lang.공유 설정}}</h2>
+        </div>
+        <div class="content_tb">
+            <table class="chart size">
+                <colgroup>
+                    <col width="200"/>
+                    <col width="*"/>
+                    <col width="200"/>
+                </colgroup>
+                <thead>
+                <tr>
+                    <th class="sorting_disable"><span class="title_sort">{{lang.클래스 구분}}</span></th>
+                    <th class="sorting_disable"><span class="title_sort">{{lang.공유 정보}}</span></th>
+                    <th class="sorting_disable last"><span class="title_sort">{{lang.삭제}}</span></th>
+                </tr>
+                </thead>
+                <tbody id="shareList">
+                <tr el-null>
+                    <td colspan="3">
+                        <p class="data_null">
+                            <span class="ic_data_type ic_no_contents"></span>
+                            <span class="txt">{{lang.공유 설정이 없습니다}}</span>
+                        </p>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="page_action">
+    <span class="btn" id="btn-confirm">{{lang.저장}}</span>
+    <span class="btn_nega" id="btn-cancel">{{lang.취소}}</span>
+    <span class="btn_nega" id="btn-goback">{{lang.목록으로 돌아가기}}</span>
+</div>

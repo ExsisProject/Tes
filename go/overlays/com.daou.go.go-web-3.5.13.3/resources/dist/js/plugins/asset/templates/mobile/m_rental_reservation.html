@@ -1,0 +1,83 @@
+<div class="content write">
+	<form>
+		<fieldset>
+			<table class="form_type {{#isRental}}form_view{{/isRental}}">
+				<tbody>
+					{{#isShowUserRow}}
+					<tr>
+						<th><span class="title">{{#isRental}}{{lang.rent_user}}{{/isRental}}{{^isRental}}{{lang.reservation_user}}{{/isRental}}</span></th>
+						<td>
+							<ul class="name_tag">
+								<li id="userId"><span class="name" id="userName"></span></li>
+							</ul>
+						</td>
+					</tr>
+					{{/isShowUserRow}}
+
+					{{#isShowAnonymRow}}
+					{{#isAllowAnonym}}
+					{{! 익명예약옵션 }}
+					<tr>
+						<th><span class="title">{{lang.reserve_anonym}}</span></th>
+						<td>
+							<span class="option_wrap">
+								<input id="useAnonym" type="checkbox" name="useAnonym" value="true"{{#isAllowAnonym}}{{#useAnonym}} checked="checked"{{/useAnonym}}{{#isAlwaysAnonym}} disabled="true"{{/isAlwaysAnonym}}{{/isAllowAnonym}}>
+								<label for="useAnonym">{{lang.use_anonym}}</label>
+							</span>
+						</td>
+					</tr>
+					{{/isAllowAnonym}}
+					{{/isShowAnonymRow}}
+
+					{{#isRental}}
+					<tr>
+						<th><span class="title">{{lang.rent_date}}</span></th>
+						<td><span class="txt" id="date"></span></td>
+					</tr>
+					{{/isRental}}
+					{{^isRental}}
+					<tr>
+						<th><span class="title">{{lang.start}}</span></th>
+						<td>	
+							<div class="vertical_wrap">
+								<table class="tb_option">
+									<tr>
+										<td><div class="ipt_wrap">
+											<input id="startDate" class="input w_max" type="text" value="{{prevStartDate}}" data-prev="{{prevStartDate}}" {{^hasToolbarAuth}}disabled="true"{{/hasToolbarAuth}} readonly {{#isRecurrence}}{{^isCreate}}disabled="disabled"{{/isCreate}}{{/isRecurrence}}/></div></td>
+										<td>
+											<select class="w_max" id="startTime" name="start_time" data-prev="{{prevStartTime}}" {{^hasToolbarAuth}}disabled="true"{{/hasToolbarAuth}}></select>
+										</td>
+									</tr>
+								</table>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<th><span class="title">{{lang.end}}</span></th>
+						<td>	
+							<div class="vertical_wrap">
+								<table class="tb_option">
+									<tr>
+										<td><div class="ipt_wrap"><input id="endDate" class="input w_max" type="text" value="{{prevEndDate}}" data-prev="{{prevEndDate}}" {{^hasToolbarAuth}}disabled="true"{{/hasToolbarAuth}} readonly {{#isRecurrence}}{{^isCreate}}disabled="disabled"{{/isCreate}}{{/isRecurrence}}/></div></td>
+										<td>
+											<select class="w_max" id="endTime" name="end_time" data-prev="{{prevEndTime}}" {{^hasToolbarAuth}}disabled="true"{{/hasToolbarAuth}}></select>
+										</td>
+									</tr>
+								</table>
+                                {{#isEditable}}
+                                <span class="option_wrap"><input id="allday" type="checkbox" name="allDay"><label for="allday" class="txt">{{lang.allday}}</label></span>
+                                {{/isEditable}}
+                            </div>
+						</td>
+					</tr>
+					{{/isRental}}
+					{{#dataset}}
+					<tr data-type="attribute" data-id="{{id}}">
+						<td colspan="2"><div class="ipt_wrap"><textarea placeholder="{{attributeInfo}}" {{^hasToolbarAuth}}disabled="disabled"{{/hasToolbarAuth}}></textarea></div></td>
+					</tr>
+					{{/dataset}}
+				</tbody>
+			</table>
+		</fieldset>
+	</form>
+</div>

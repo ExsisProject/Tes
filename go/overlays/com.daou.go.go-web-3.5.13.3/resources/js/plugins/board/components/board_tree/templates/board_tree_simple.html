@@ -1,0 +1,33 @@
+<li class="node list {{iconType}}" data-type="{{nodeType}}"{{^isNew}} data-id="{{nodeId}}"{{/isNew}}>
+	<div class="item">
+		<span class="ic ic_drag"></span>
+		{{#isSeperatorNode}}
+			<span class="node-title title_depart vm">&lt;<span>{{nodeValue}}</span>&gt;</span>
+		{{/isSeperatorNode}}
+	
+		{{#isFolderNode}}
+		<div class="node-title tit">
+			{{#hasChildren}}
+			<span class="btnToggleNode ic_stair_{{#isClosedNode}}open{{/isClosedNode}}{{^isClosedNode}}close{{/isClosedNode}}" title="{{#isClosedNode}}{{lang.open}}{{/isClosedNode}}{{^isClosedNode}}{{lang.close}}{{/isClosedNode}}"></span>
+			{{/hasChildren}}
+			<span class="ic" title=""></span>
+			<span class="board_name">
+				{{nodeValue}}
+			</span>
+		</div>
+		{{/isFolderNode}}
+		
+		{{#isBoardNode}}
+		<div class="node-title tit">
+			<span class="ic ic_board"></span>
+			<span class="board_name" data-board-id="{{boardId}}">{{nodeValue}}</span>
+		</div>
+		<div class="opt">
+			<span class="name">{{managerList}}</span>
+			<span class="set">
+				
+			</span>
+		</div>
+		{{/isBoardNode}}
+	</div>
+</li>

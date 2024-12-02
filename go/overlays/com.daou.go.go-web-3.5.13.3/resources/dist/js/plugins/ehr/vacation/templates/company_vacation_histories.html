@@ -1,0 +1,153 @@
+    <header class="content_top">
+    </header>
+
+    <div class="content_page annualvacation_company">
+    <!-- tool bar -->
+    <div class="tool_bar calendar_tool_bar">
+        <div class="current_date">
+            <span class="btn_ic_prev2 btn_border" title="" id="prevMonth"><span class="ic_ehr ic_date_prev" id="preDate"></span></span>
+            <span class="date" id="baseDate" data-basedate="{{baseDate}}">{{displayBaseDate}}</span>
+            <span class="btn_ic_next2 btn_border" title="" id="nextMonth"><span class="ic_ehr ic_date_next" id="nextDate"></span></span>
+            <input type="text" id="baseDatePicker" style="border:0px;width:1px;height:0px">
+        </div>
+    </div>
+    <!-- //tool bar -->
+    <form>
+        <fieldset>
+            <div class="wrap_tb_box">
+                <div class="search_tit">{{lang.조건별 상세검색}}</div>
+                <div class="wrap_search_item wrap_tb_shadow">
+                    <div class="search_item">
+                        <span class="tit">
+                            <label for="">{{lang.입사일}}</label>
+                        </span>
+                        <!-- 날짜 선택 박스 -->
+                        <span class="wrap_dateselect">
+                            <span class="wrap_date" id="startHireDateCal">
+                                <input class="txt wfix_small hasDatepicker" type="text" id="startHireDate"
+                                       readonly="readonly">
+                                <span class="ic ic_calendar">
+                                    <input type="text" id="startHireDatePicker" style="border:0px;width:1px;height:1px">
+                                </span>
+                            </span>
+                            <span class="date_wave">~</span>
+                            <span class="wrap_date" id="endHireDateCal">
+                                <input class="txt wfix_small hasDatepicker" id="endHireDate" type="text"
+                                       readonly="readonly">
+                                <span class="ic ic_calendar">
+                                    <input type="text" id="endHireDatePicker" style="border:0px;width:1px;height:1px">
+                                </span>
+                            </span>
+                        </span>
+                    </div>
+                    <div class="search_item">
+                        <span class="tit">
+                            <label for="">{{lang.이름}}</label>
+                        </span>
+                        <span class="wrap_txt">
+                            <input class="txt" type="text" id="userName" value="">
+                        </span>
+                    </div>
+                    <div class="search_item">
+                        <span class="tit">
+                            <label for="">{{lang.부서명}}</label>
+                        </span>
+                        <span class="wrap_txt">
+                            <input class="txt" type="text" id="deptName" value="" data-prev="전체">
+                        </span>
+                    </div>
+                    <div class="search_item">
+                        <span class="tit">
+                            <label for="">{{lang.상태}}</label>
+                        </span>
+                        <span id="" class="wrap_select">
+                            <select class="wfix_small" name="" id="status">
+                                <option value="" selected="" >{{lang.전체}}</option>
+                                <option value="online">{{lang.정상}}</option>
+                                <option value="dormant">{{lang.메일휴면}}</option>
+                                <option value="stop">{{lang.중지}}</option>
+                            </select>
+                        </span>
+                    </div>
+                    <div class="search_item wrap_btn_search">
+                        <a class="btn_major" id="searchBtn"><span class="txt">{{lang.검색}}</span></a>
+                        <a class="btn_txt btn_reset active" id="resetSearchBtn"><span class="txt">{{lang.검색 조건}} {{lang.초기화}}</span></a>
+                        <!-- 초기화 버튼은 검색값이 있을 경우만 노출 : 멀티 클래스명 active 추가. 초기화 시 active 클래스명 제거 -->
+                    </div>
+                </div>
+            </div>
+
+        </fieldset>
+    </form>
+
+
+    <div class="wrap_tb_box">
+        <div class="tool_bar" id="middle_tool_bar"></div>
+        <div class="wrap_tb_shadow">
+            <table class="type_normal type_white list_annual_company"  id="vacation_list">
+                <thead>
+                <tr>
+                    <!--
+                        아래 클래스명은 유지해주세요~
+                        * sorting 			- 정렬을 지원하는 항목 배경
+                        * sorting_disabled 	- 정렬을 지원하지 않는 항목
+                        * sorting_desc 		- 내림차순 정렬 선택됨
+                        * sorting_asc 		- 오름차순 정렬 선택됨
+                    -->
+                    <th class="sorting_disabled check">
+                        <span class="title_sort"><input id="ehr_checkbox1" class="" type="checkbox" name="" placeholder=""><label for="ehr_checkbox1"><div class="checkbox1"></div></label></span></th>
+                    <th class="sorting_desc"><span class="title_sort">{{lang.이름}} <ins class="ic"></ins><span class="selected"></span></span></th>
+                    <th class="sorting sorting_disabled"><span class="title_sort">{{lang.부서명}}<ins class="ic"></ins></span></th>
+                    <th class="sorting sorting_disabled "><span class="title_sort">{{lang.입사일}}<ins class="ic"></ins></span></th>
+                    <th class="sorting sorting_disabled"><span class="title_sort">{{lang.퇴사일}}<ins class="ic"></ins></span></th>
+                    <th class="sorting sorting_disabled"><span class="title_sort">{{lang.근속연수}}<ins class="ic"></ins></span></th>
+                    <th class="sorting sorting_disabled"><span class="title_sort">{{lang.발생 연차}}<ins class="ic"></ins></span></th>
+                    <th class="sorting_disabled ">
+                        <span class="title_sort">
+                            {{lang.발생 월차}}
+                            <span class="help">
+                                <span class="tool_tip tooltip_push">
+                                    {{lang.1년 미만 발생 월차}}
+                                    <i class="tail_left"></i>
+                                </span>
+                            </span>
+                            <ins class="ic"></ins>
+                        </span>
+                    </th>
+                    <th class="sorting_disabled ">
+                        <span class="title_sort">{{lang.이월 월차}}
+                            <span class="help">
+                                <span class="tool_tip tooltip_push">
+                                    {{lang.1년 미만 이월 월차}}
+                                    <i class="tail_left"></i>
+                                </span>
+                            </span>
+                            <ins class="ic"></ins>
+                        </span>
+                    </th>
+                    <th class="sorting sorting_disabled"><span class="title_sort">{{lang.조정 연차}}<ins class="ic"></ins></span></th>
+                    <th class="sorting sorting_disabled"><span class="title_sort">{{lang.총연차}}<ins class="ic"></ins></span></th>
+                    <th class="sorting sorting_disabled"><span class="title_sort">{{lang.사용 연차}}<ins class="ic"></ins></span></th>
+                    <th class="sorting sorting_disabled"><span class="title_sort">{{lang.잔여 연차}}<ins class="ic"></ins></span></th>
+                    <th class="sorting sorting_disabled"><span class="title_sort">{{lang.상태}}<ins class="ic"></ins></span></th>
+                </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+    <div class="wrap_help_guide_s">
+        <p class="title">
+            <span class="ic_works ic_help_guide_s"></span> {{lang.연차 현황을 위한 꿀팁 가이드}}
+        </p>
+        <ul>
+            <li>{{lang.연차 현황을 위한 꿀팁 가이드 설명 1}}</li>
+            <li>{{lang.연차 현황을 위한 꿀팁 가이드 설명 2}}</li>
+            <li>{{lang.연차 현황을 위한 꿀팁 가이드 설명 3}}</li>
+            <li>{{lang.연차 현황을 위한 꿀팁 가이드 설명 4}}</li>
+            <li>{{{lang.연차 현황을 위한 꿀팁 가이드 설명 5}}}</li>
+        </ul>
+    </div>

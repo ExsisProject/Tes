@@ -1,0 +1,26 @@
+<tr class="detail_info">
+	<td colspan="5">
+		<ul>
+			{{#dataset}}
+			<li class="last">
+				<span class="photo">
+					<img alt="{{lang.thumnail}}" src={{writer.thumbSmall}}>
+				</span>
+				<span class="name">{{writer.name}}</span>
+				{{#isClassicBoard}}
+					<p class="talk">{{{title}}}</p>
+				{{/isClassicBoard}}
+				{{^isClassicBoard}}
+					<p class="talk">{{{summary}}}</p>
+				{{/isClassicBoard}}
+				<span class="date">{{dateParse}}</span>
+			</li>		
+			{{/dataset}}	
+			{{^dataset}}
+			<p class="data_null">
+				<span class="ic_classic ic_no_result"></span><span class="txt">{{lang.post_null}}</span>
+			</p>	
+			{{/dataset}}					
+		</ul>											
+	</td>				
+</tr>

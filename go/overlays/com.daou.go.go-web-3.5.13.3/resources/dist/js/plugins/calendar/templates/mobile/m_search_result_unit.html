@@ -1,0 +1,15 @@
+{{#data}}
+<dd>
+	<a data-bypass data-calendarid="{{calendarId}}" data-eventid="{{id}}">
+		<span class="time">{{parseTimeType}}</span>
+		<span class="subject">
+                <span class="title">{{{summary}}}</span>
+            </span>
+	</a>
+</dd>
+{{/data}}
+{{^data}}
+<dd>
+	<p class="data_null"><span class="title">{{lang.검색결과없음}}</span></p>
+</dd>
+{{/data}}

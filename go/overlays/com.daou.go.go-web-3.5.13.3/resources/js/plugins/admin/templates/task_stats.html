@@ -1,0 +1,81 @@
+<div class="content_info">
+	<ul class="info_summary">
+		<li class="first">
+			<span class="tit">{{lang.totalFolderCount}}</span>
+			<span class="txt"><strong>{{totalCount}}</strong>{{lang.count}}</span>
+			<span class="desc">{{lang.normal}} {{stats.aliveFolders}}{{lang.count}} / {{lang.stop}} {{stats.stoppedFolders}}{{lang.count}}</span>
+		</li>
+		<li style="display: none;">
+			<span class="tit">{{lang.totalTaskCount}}</span>
+			<span class="txt"><strong>{{stats.tasks}}</strong>{{lang.count}}</span>
+		</li>
+		<li style="display: none;">
+			<span class="tit">{{lang.totalAttachSize}}</span>
+			<span class="txt"><strong>{{sizeStr}}</strong>MB</span>
+		</li>
+	</ul>
+	<span class="wrap_action">
+        <span class="ic_adm ic_accordion_open" title="펼치기"></span>
+    </span>
+	<span class="wrap_action" style="display: none;">
+        <span class="ic_adm ic_accordion_close" title="접기"></span>
+    </span>
+</div>
+	
+<div class="content_page">
+	<div class="dataTables_wrapper container">				
+		<!-- <div class="toolbar_top header_tb">
+			<div class="critical">						
+				<span class="btn_tool">목록 다운로드</span>
+			</div>						
+			<div class="dataTables_length">
+				<select size="1" name="tableBoardPosts_length" aria-controls="tableBoardPosts">
+					<option value="20" selected="selected">20</option>
+					<option value="40">40</option>
+					<option value="60">60</option>
+				</select>
+			</div>						
+		</div> -->
+		
+		<div class="content_tb">			
+			<table class="chart size" id="folderList">
+				<colgroup>
+					<col width="*">
+					<col width="150">
+					<col width="150">
+					<col width="80">
+					<col width="120">
+					<col width="60">
+					<col width="120">
+				</colgroup>
+				<thead>							
+					<tr>
+						<th class="sorting title"><span class="title_sort">{{lang.title}}<ins class="ic"></ins></span></th>
+						<th class="sorting part"><span class="title_sort">{{lang.department}}<ins class="ic"></ins></span></th>
+						<th><span class="title_sort">{{lang.type}}<ins class="ic"></ins></span></th>
+						<th class="sorting"><span class="title_sort">{{lang.taskCount}}<ins class="ic"></ins></span></th>
+						<th class="sorting_desc"><span class="title_sort">{{lang.attachSize}}(MB)<ins class="ic"></ins><span class="selected"></span></span></th>
+						<th class="sorting state"><span class="title_sort">{{lang.status}}<ins class="ic"></ins></span></th>
+						<th class="sorting last date"><span class="title_sort">{{lang.createdAt}}<ins class="ic"></ins></span></th>
+					</tr>
+				</thead>	
+				<tbody>	
+				</tbody>
+			</table>	
+			
+			<div class="table_search">				
+				<select id="searchType">
+					<option value="FOLDER">{{lang.title}}</option>
+					<option value="DEPARTMENT">{{lang.department}}</option>
+					<option value="ISSUETYPE">{{lang.type}}</option>
+				</select>		
+				
+				<span class="search_wrap">
+					<input class="input" type="text" id="searchKeyword">
+					<span class="btn_search" title="검색" id="search"></span>
+				</span>
+			</div>				
+
+		</div>
+	</div>
+</div>

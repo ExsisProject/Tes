@@ -1,0 +1,28 @@
+<h1 class="cs_s_title">ToDo+</h1>
+<div class="cs_todo_group">
+{{#dataset}}
+	<div class="article_wrap">
+			<div class="info">
+				<span class="item item_default ">
+					<span class="name" id="todoTitle" data-todoId="{{todoId}}" data-cardId="{{id}}">{{{title}}}</span>
+				</span>
+			</div>
+			<span class="item">
+					<span class="sub">in column</span>
+					<span id="todoColumn" data-todoId="{{todoId}}"><a>{{{categoryTitle}}}</a></span>
+					<span class="part">l</span>
+					<span class="sub">on board</span>
+					<span id="todoBoard" data-todoId="{{todoId}}"><a>{{{todoTitle}}}</a></span>
+					<span class="part">l</span>
+					<span class="sub">{{lang.dueDate}}</span>
+					<span>{{convertDueDate}}</span>
+			</span>
+		</div>
+{{/dataset}}
+</div>
+<div class="btn_more_wrap">
+	<a class="btn_more" id="btn_more" style="display:none;">
+		<span class="txt">{{lang.more}}</span>
+		<span class="ic ic_csm_arrow"></span>
+	</a>
+</div>

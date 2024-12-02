@@ -1,0 +1,20 @@
+<ul class="list_option">
+    <li class="first">
+        <input class="input" type="text" id="outputAppointedItemAddNmae" name="code" value="">
+        <span class="btn_wrap">
+            <span name="outputAppointedItemAdd" class="btn_s">{{lang.추가}}</span>
+        </span>
+    </li>             
+    <li>
+        <ul id="outputAppointedItemList" class="name_tag basic_tag">  
+            {{#customReturnedVariables}}        
+                <li>
+                    <span name="outputAppointedItem" data-name="{{.}}" class="name">{{.}}</span>
+                    <span class="btn_wrap">
+                        <span class="ic ic_del" title="삭제"></span>
+                    </span>
+                </li>
+            {{/customReturnedVariables}}
+        </ul>
+    </li>
+</ul>

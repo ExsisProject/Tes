@@ -1,0 +1,11 @@
+<div class="public-option-select form_static_option"{{#public_option_hide?}} style="display:none"{{/public_option_hide?}}>
+    <a href="#" class="option-private opt_public{{#private?}} select{{/private?}}" data-bypass>
+        <span class="ic_board ic_private"></span><span class="txt">{{label.private}}</span><span class="ic_board ic_check"></span>
+        <span class="desc">{{msg.about_private}}</span>
+    </a>
+    <hr>
+    <a href="#" class="option-public opt_public{{^private?}} select{{/private?}}" data-bypass>
+        <span class="ic_board ic_public"></span><span class="txt">{{label.public}}</span><span class="ic_board ic_check"></span>
+        <span class="desc">{{msg.about_public}}</span>
+    </a>
+</div>

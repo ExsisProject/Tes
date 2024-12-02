@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <title>{가젯 타이틀}</title>
+    <meta name = "gadget:name-ko" content="{가젯 고유 이름}" />
+    <meta name = "gadget:name-en" content="{가젯 고유 이름}" />
+    <meta name = "gadget:name-ja" content="{가젯 고유 이름}" />
+    <meta name = "gadget:name-zhcn" content="{가젯 고유 이름}" />
+    <meta name = "gadget:name-zhtw" content="{가젯 고유 이름}" />
+    <meta name = "gadget:description" content="{가젯 설명}" />
+    <meta name = "gadget:version" content="{가젯 버전}" />
+    
+    <!-- 의존 앱을 설정해 주세요 -->
+    <meta name = "gadget:app-dependency" content="MAIL" />
+    
+    <!-- 테스트 할 로케일은 여기에 설정하세요.-->
+    <meta name = "locale" content="ko" />
+    
+    <!-- 컨텍스트 루트는 여기서 설정하세요 -->
+    <meta name = "contextRoot" content="/" />
+
+    <link rel="stylesheet" href="css/go-gadget-standalone.css" media="screen, print" />
+    <!--[if IE]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="js/go-gadget-standalone.js"></script>
+
+    <!-- ajax mock: 개발시 크로스 도메인 문제가 발생할 경우 ajax mock request를 이용하여 테스트 할 수 있습니다-->
+    <script type="text/javascript">
+    $.ajaxMock.register('/api/calendar/user/me/event/daily?year=2013&month=5', {
+        responseText:$.parseJSON('{ "html": "<p>hahahah</p>"}'),
+        statusCode: 200,
+        status:'OK',
+        type: 'GET'
+    });
+    </script>
+
+    <script type="text/javascript" id="go-gadget-script">
+    gadget.load('/api/calendar/user/me/event/daily', { year: 2013, month:5 }, {
+        styles: {
+            ".null_data" : "color: red", 
+            "p.desc" : "font-style:italic"
+        }, 
+
+        renderConfig: function(el) {
+            var $target = $(el);
+
+            $target.append("<ul class=\"static_style\"><li><p class=\"title\">새로고침 간격</p></li></ul>");
+            $target.find("li").append(
+                ui.helper.dom.select({ name: "refresh", value: "안함|15분|30분|1시간|2시간", defaultValue: "30분"})
+            );
+        }, 
+
+        onSuccess: function(el, data) {
+            this.render(el, data);
+        }, 
+
+        render: function(el, data) {
+            $(el).append(data.html);
+        }
+    });
+    </script>
+</head>
+
+<body id="main" class="go_skin_home_default" data-role="main">
+    <div class="go-dashboard go-dashboard-editing go_dashboard_3_2">
+        <div class="go-gadget-column gadget-col-1" data-columnid="1">
+            <!-- empty -->
+        </div>
+        
+        <div class="gripper"></div>
+
+        <div id="gadget-containter" class="go-gadget-column gadget-col-2" data-columnid="2">
+            <!-- empty -->
+        </div>
+
+        <div class="gripper"></div>
+
+        <div class="go-gadget-column gadget-col-3" data-columnid="3">
+            <!-- empty -->
+        </div>
+    </div>
+</body>
+</html>

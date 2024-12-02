@@ -1,0 +1,18 @@
+{{#isTotal}}
+<tr class="total">
+	<td>{{name}}</td>
+	<td>{{data.inprogressCnt}}</td>
+	<td>{{data.completeCnt}}</td>
+	<td>{{data.returnCnt}}</td>
+	<td>{{data.totalCnt}}</td>
+</tr>
+{{/isTotal}}
+{{^isTotal}}
+<tr>
+	<td>{{data.name}}</td>
+	<td>{{data.inprogressCnt}}</td>
+	<td>{{data.completeCnt}}</td>
+	<td>{{data.returnCnt}}</td>
+	<td>{{data.totalCnt}}</td>
+</tr>
+{{/isTotal}}

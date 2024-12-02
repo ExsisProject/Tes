@@ -1,0 +1,1 @@
+(function(){var e={};try{G_DEPlugin&&(G_DEPlugin.lazyload.lang=e,dext5_lang.plugins.lazyload=e)}catch(t){}})();

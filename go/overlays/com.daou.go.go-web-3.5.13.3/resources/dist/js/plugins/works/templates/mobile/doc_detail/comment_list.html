@@ -1,0 +1,25 @@
+<div class="content_page">
+	<div class="content board_reply">
+		<section class="classic_detail">
+			<header class="article_header">
+				{{#hasMobileContent}}
+				<h2>
+					<span class="txt_ellipsis">{{{content}}}</span>
+					<span class="num" id="commentCount">({{activity.commentCount}})</span>	
+				</h2>
+				{{/hasMobileContent}}
+				<div class="article_wrap">
+					<div>
+						<span class="txt_ellipsis writer">{{activity.createdBy.name}}</span>
+						<span class="part">|</span>
+						<span class="txt">{{createdAt}}</span>
+					</div>
+				</div>
+			</header>
+			<section class="article_reply">
+				<div class="reply_wrap" id="comment_list">
+				</div>
+			</section>
+		</section>
+	</div>
+</div>

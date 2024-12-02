@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>다우오피스 시작하기 : main</title>
+	<script type="text/javascript" src="/go/resources/js/vendors/jquery/jquery-1.7.2.min.js"></script>
+	<script type="text/javascript">$=jQuery;</script>
+<!--	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>-->
+	<script type="text/javascript" src="/go/resources/js/vendors/jquery/plugins/jstree/jquery.jstree.js"></script>
+<!--	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.3.10/jstree.min.js"></script>-->
+	<script src="design_adm_test.js"></script>
+	<script type="text/javascript">
+	 $(document).ready(function() { $("#tree").jstree({});});
+	</script>
+	<link rel="stylesheet" href="../stylesheets/fonts/notosans.css" media="all">
+	<link rel="stylesheet" href="../stylesheets/adm_style.css" media="all" />
+</head>
+<body>
+	<!-- 다우오피스 시작하기 : main -->
+	<div class="sec_dostart">
+		<div class="sec_header">		
+			<div class="critical">
+				<a href="start.html" class="btn_ic16" title="메뉴">
+					<span class="ic_adm ic_list_w"></span>
+				</a>
+			</div>
+			<h1>다우오피스 시작하기</h1>
+			<div class="optional">
+				<a class="btn_ic16" title="닫기">
+					<span class="ic_adm ic_cancel3"></span>
+				</a>
+			</div>
+		</div>
+		<div class="sec_contents">
+			<div class="sec_contents_body">
+				<div class="com_box_b">
+					<h2>근태/연차 설정</h2>
+					<ul class="com_list dostart_menu">
+						<li><a href="e-hr_01.html">1. 근태관리 기본설정</a></li>
+						<li><a href="e-hr_02.html">2. 근무 그룹 설정</a></li>
+						<li><a href="e-hr_03.html">3. 연차 초기 설정</a></li>
+						<li><a href="e-hr_04.html">4. 결재 양식 설정</a></li>
+						
+					</ul>
+				</div>
+				<div class="com_box_b">
+					<h2>임직원의 근태/연차를 운영하려면?</h2>
+					<div class="desc">
+						근태/연차를 담당할 운영자를 설정해야 합니다.<br>
+	                    운영자 설정은 근태관리 기본설정에서 합니다.<br>
+						※설정경로 : 메뉴관리 > 근태관리
+					</div>
+					<ol class="com_process">
+						<li>
+							<div class="item">
+								<p class="tit">근태/연차 운영자 설정</p>
+							</div>
+							<span class="ic_adm ic_arrow_line"></span>
+						</li>
+						<li>
+							<div class="item">
+								<p class="tit">근무일/근무시간에 따른 근무 그룹 설정</p>
+							</div>
+							<span class="ic_adm ic_arrow_line"></span>
+						</li>
+						<li>
+							<div class="item">
+								<p class="tit">연차 초기 설정</p>
+								<div class="desc">연차관리 운영자가 임지원의 연차를 일괄 등록</div>
+							</div>
+							<span class="ic_adm ic_arrow_line"></span>
+						</li>
+						<li>
+							<div class="item">
+								<p class="tit">결재양식 설정</p>
+								<div class="desc">휴가신청서 작성을 위한 연차 유형 설정</div>
+							</div>
+						</li>
+					</ol>
+					<div class="desc">
+						연차관리 운영자는 연자 생성/조정 업무를 담당하고 근태관리 운영자는 근태 등록/수정 업무를 담당합니다.
+					</div>
+				</div>
+			</div>
+		</div>
+	</div><!-- //다우오피스 시작하기 : index -->
+</body>
+</html>

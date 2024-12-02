@@ -1,0 +1,115 @@
+<ul class="normal">
+	<li>
+		<span class="wrap_txt">
+			<select id="folderType">
+				{{^isDept}}
+				<option value="DRAFT">{{lang.draftFolder}}</option>
+				<option value="APPROVAL">{{lang.approvalFolder}}</option>
+				<option value="REFERRENCE_READ">{{lang.refferenceReadFolder}}</option>
+				<option value="RECEIVE">{{lang.receiveFolder}}</option>
+				{{/isDept}}
+				{{#isDept}}
+				<option value="DRAFT">{{lang.deptDraftFolder}}</option>
+				<option value="REFERRENCE_READ">{{lang.deptRefferenceReadFolder}}</option>
+				<option value="RECEIVE">{{lang.deptReceiveFolder}}</option>
+				{{/isDept}}
+			</select>	
+		</span>
+		<span class="wrap_txt">
+			<span class="txt">{{lang.document}}</span></span>
+		</span>	 
+	</li>
+</ul>
+<hr />
+<ul class="normal">
+	<li>
+		<span class="wrap_option">
+			<input type="checkbox" id="titleCheck">
+			<label for="titleCheck"><strong>{{lang.title}}</strong></label>
+		</span>
+		<span class="wrap_txt">
+			<input class="txt_mini" type="text" id="titleText" />
+		</span>
+		<span class="wrap_txt">
+			<span class="txt">{{lang.include}}</span>
+		</span>	 
+	</li>
+	<li>
+		<span class="wrap_option">
+			<input type="checkbox" id="formNameCheck">
+			<label for="formNameCheck"><strong>{{lang.formName}}</strong></label>
+		</span>
+		<span class="wrap_txt">
+			<input class="txt_mini" type="text"  id="formNameText"/>
+		</span>				
+		<span class="wrap_txt">
+			<span class="txt">{{lang.include}}</span>
+		</span>	 
+	</li>
+	<li>
+		<span class="wrap_option">
+			<input type="checkbox" id="drafterCheck">
+			<label for="drafterCheck"><strong>{{lang.drafter}}</strong></label>
+		</span>
+		<span class="wrap_txt">
+			<input class="txt_mini" type="text"  id="drafterText"/>
+		</span>
+		<span class="wrap_txt">
+			<span class="txt">{{lang.include}}</span>
+		</span>	 
+	</li>
+	<li>
+		<span class="wrap_option">
+			<input type="checkbox" id="draftDeptCheck">
+			<label for="draftDeptCheck"><strong>{{lang.draftDept}}</strong></label>
+		</span>
+		<span class="wrap_txt">
+			<input class="txt_mini" type="text"  id="draftDeptText"/>
+		</span>					
+		<span class="wrap_txt">
+			<span class="txt">{{lang.include}}</span>
+		</span>	 
+	</li>
+</ul>
+<hr />
+<ul class="normal condition_view" style="display:none;">
+	<li>
+		<span class="wrap_option">
+			<input type="radio" id="allCondition" name="condition" value="AND" checked/>
+			<label class="txt_radio" for="allCondition">{{lang.allCondition}}</label>
+			<span class="desc">{{lang.matchAllCondition}}</span>
+		</span>			
+	</li>
+	<li>
+		<span class="wrap_option">
+			<input type="radio" id="oneCondition" name="condition" value="OR"/>
+			<label class="txt_radio" for="oneCondition">{{lang.oneCondition}}</label>
+			<span class="desc">{{lang.matchOneCondition}}</span>
+		</span>				
+	</li>
+</ul>	
+<hr class="condition_view" style="display:none;"/>
+<ul class="normal">	
+	<li>
+		<span class="wrap_option">
+			<label><strong>{{lang.classifyDocument}}</strong></label>
+		</span>
+		<span class="wrap_txt">
+			<select id="destinationFolder">
+				{{#docFolders}}
+				<option value={{folderId}}>{{folderName}}</option>
+				{{/docFolders}}
+                {{^docFolders}}
+                <option value=""> {{lang.docFolderIsEmpty}}</option>
+                {{/docFolders}}
+			</select>	
+		</span>	
+	</li>	
+</ul>
+<hr />
+<span class="wrap_desc_btm">
+	<span class="desc">{{lang.completeDocumentOnly}}</span>
+</span>
+<span class="wrap_desc_btm">
+	<span class="desc">{{lang.notClassifyDocumentOnly}}</span>
+</span>

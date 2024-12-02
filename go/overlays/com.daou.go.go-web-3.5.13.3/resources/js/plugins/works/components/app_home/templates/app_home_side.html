@@ -1,0 +1,76 @@
+<section class="gnb_title" el-title>
+	<h1><a href="{{contextRoot}}app/works">{{appName}}</a></h1>
+</section>
+{{#hasAccessibleForm}}
+<div id="filter_area" class="works_scroll_wrap">
+	<section class="lnb lnb_filter" data-base-area data-type="base">
+		<h1 class="works_filter_tit">
+			<ins class="ic"></ins>
+			<span class="ic_side ic_hide_up" title="{{lang.접기}}" data-fold></span>
+			<span class="txt" data-fold>{{lang.기본 필터}}</span>
+			<span class="btn_wrap">
+				{{#isAdmin}}
+				<span class="btn_ic_list_reorder">
+					<span class="ic_side ic_list_reorder" title="{{lang.편집}}" data-reorder></span>
+				</span>
+				{{/isAdmin}}
+			</span>
+			<span class="btn_wrap" style="display: none;">
+				<span class="ic_side ic_done" title="{{lang.수정완료}}" data-save data-type="base"></span>
+				<span class="ic_side ic_cancel" title="{{lang.취소}}" data-cancel data-type="base"></span>
+			</span>
+		</h1>
+		<ul class="side_depth" id="baseFilters">
+			<li el-default el-filter data-id="all" class="folder">
+				<p class="title">
+					<a title="{{lang.모든 문서}}">
+						<ins class="ic ic_side_dot"></ins>
+						<span class="txt">{{lang.모든 문서}}</span>
+						<span class="btn_wrap"></span>
+					</a>
+				</p>
+			</li>
+			<li el-default el-filter data-id="createdBy" class="folder">
+				<p class="title">
+					<a title="{{lang.내가 등록한 데이터}}">
+						<ins class="ic ic_side_dot"></ins>
+						<span class="txt">{{lang.내가 등록한 데이터}}</span>
+						<span class="btn_wrap"></span>
+					</a>
+				</p>
+			</li>
+		</ul>
+	</section>
+
+	<section class="lnb lnb_filter" data-mine-area data-type="mine">
+		<h1 class="works_filter_tit">
+			<ins class="ic"></ins>
+			<span class="ic_side ic_hide_up" title="{{lang.접기}}" data-fold></span>
+			<span class="txt" data-fold>{{lang.개인 필터}}</span>
+			<span class="btn_wrap">
+				<span class="btn_ic_list_reorder">
+					<span class="ic_side ic_list_reorder" title="{{lang.편집}}" data-reorder></span>
+				</span>
+			</span>
+			<span class="btn_wrap" style="display: none;">
+				<span class="ic_side ic_done" title="{{lang.수정완료}}" data-save data-type="mine"></span>
+				<span class="ic_side ic_cancel" title="{{lang.취소}}" data-cancel data-type="mine"></span>
+			</span>
+		</h1>
+		<ul class="side_depth" id="mineFilters"></ul>
+	</section>
+	<section class="lnb last_lnb" id="lnb-preference">
+		<ul class="side_depth">
+			<li class="setting">
+				<p class="title">
+					<a id="otherFilter">
+						<ins class="ic"></ins>
+						<span class="txt">{{lang.다른 사용자의 필터 사용하기}}</span>
+					</a>
+				</p>
+			</li>
+		</ul>
+	</section>
+</div>
+<section id="guide_area"></section>
+{{/hasAccessibleForm}}

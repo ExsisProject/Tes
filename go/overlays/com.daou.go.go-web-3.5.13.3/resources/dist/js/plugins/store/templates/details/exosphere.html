@@ -1,0 +1,189 @@
+<div class="linkplus_detail_header">
+    <img class="service_logo" src="{{baseImgUrl}}exosphere_logo.png" alt="">
+    <div class="info">
+        <p class="name">
+            엑소스피어
+
+            {{#isApply}}
+            <span class="linkplus_request">
+                <span class="txt">{{storeLang.신청중}}</span>
+                <span class="tooltip">
+                    {{storeLang.제휴사로 연결을 요청중입니다}}<br>
+                    {{storeLang.연결이 완료되면 사용하실 수 있습니다}}
+                </span>
+            </span>
+            {{/isApply}}
+
+            {{#inUse}}
+            <span class="linkplus_using">{{storeLang.사용중}}</span>
+            {{/inUse}}
+        </p>
+
+        <p class="desc">악성코드 차단만으로는 부족합니다. 엑소스피어는 개인정보보호, 정보유출관리까지 제공되는 On-demand PC백신입니다. 기업의 보안리스크에 맞춰 간편하고 합리적으로
+            PC보안을 준비할 수 있습니다. </p>
+        <div class="meta">
+            <div class="critical">
+                <div class="list_album_meta">
+                    <span class="state ghost category">PC보안</span>
+                    <span class="state ghost service">(주)엑소스피어랩스</span>
+                </div>
+            </div>
+            <div class="optional">
+                <a class="btn_minor" id="goToList">
+                    <span class="txt">{{commonLang.목록}}</span>
+                </a>
+
+                {{#canUse}}
+                <a class="btn_major " id="useService">
+                    <span class="txt">{{storeLang.사용하기}}</span>
+                </a>
+                {{/canUse}}
+
+                {{#canRegister}}
+                <a class="btn_major" id="register">
+                    <span class="txt">{{commonLang.신청하기}}</span>
+                </a>
+                {{/canRegister}}
+            </div>
+        </div>
+    </div>
+</div>
+<div class="linkplus_detail_display">
+    <div class="banner_rolling">
+        <div class="wrap_img" id="banner_container" style="width:801px; overflow:hidden; position:relative;">
+            <div id="banner_wrapper" style="width:2403px;position:absolute;">
+                <img src="{{baseImgUrl}}exosphere_thum1.png" style="float:left;" alt="">
+                <img src="{{baseImgUrl}}exosphere_thum2.png" style="float:left;" alt="">
+                <img src="{{baseImgUrl}}exosphere_thum3.png" style="float:left;" alt="">
+            </div>
+        </div>
+        <a class="btn_banner_rolling prev" data-type="prev" data-rol="button">
+            <span class="ic_dashboard2 ic_prev" title="다음"></span>
+        </a>
+        <a  class="btn_banner_rolling next" data-type="next" data-rol="button">
+            <span class="ic_dashboard2 ic_next" title="다음"></span>
+        </a>
+        <div class="banner_rolling_page">
+            <span class="on"></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+</div>
+<div class="linkplus_detail_container">
+    <h2>PC 백신으로 이제 더 많은 것을 지킬 수 있습니다!</h2>
+    <p class="desc">
+        알려진 악성코드만 차단하는 기존의 백신만으로는 기업을 지킬 수 없습니다.<br>
+        비대면화, 디지털화로 비즈니스 환경은 온라인으로 옮겨가고 있어 위협은 더 많아지고, 악성코드외에도 PC안에 저장된 개인정보, 영업비밀에 대한 보호조치 또한 비즈니스 보호의 중요한 요소입니다. 그래서 이제 PC보안에도 새로운 변화가 필요합니다.<br>
+        엑소스피어와 함께 기업PC보안의 새로운 시작을 함께 하세요!
+    </p>
+    <h2>가입/연동/혜택</h2>
+    <ul class="list_accordion">
+        <li>
+            <div class="subject">
+                <span class="txt">1. 서비스 상세 소개</span>
+                <div class="optional">
+                    <span class="ic24 arrow_t"></span>
+                </div>
+            </div>
+            <div class="desc on">
+                악성코드, 랜섬웨어 방어를 기본으로 하여 추가적인 보안을 할 수 있습니다.<br>
+                상품1. 개인정보보호 백신 (백신+개인정보보호법 대응)<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;: 개인정보 보유량 파악, 개인정보 암호화, 파일 완전삭제, 개인정보 반출기록 제공<br>
+                상품2. 올인원백신 (백신+개인정보보호+영업비밀반출관리)<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;: 문서파일반출 기록, USB 등 매체제어, P2P,개인용 메신저 등 프로그램 제어<br>
+                두 상품에는 강력한 탐지율을 가진 백신기능과 중앙에서 위협을 모니터링 할 수 있는 관리자페이지가 포함됩니다.<br>
+                <a class="serviceLink" data-url="https://www.exosp.com/">www.exosp.com</a>
+            </div>
+        </li>
+        <li>
+            <div class="subject">
+                <span class="txt">2. 기업에서 사용하면 어떤 점이 좋을까요.</span>
+                <div class="optional">
+                    <span class="ic24 arrow_d"></span>
+                </div>
+            </div>
+            <div class="desc">
+                1) 백신비용으로 포괄적인 PC보안을 할 수 있습니다.<br>
+                2) 중앙관리페이지를 통해 보안위협을 한눈에 파악할 수 있고 조치할 수 있습니다.<br>
+                3) 보안알림으로 빠른 대응이 가능해집니다.<br>
+                4) 사내 보안의식이 향상됩니다.<br>
+                5) 내부자에 의한 보안 유출사고를 사전에 방지할 수 있습니다.<br>
+                6) 개인정보보호법 준수가 가능합니다.<br>
+                7) 사고대응 대책까지 한꺼번에 준비가 가능합니다.
+            </div>
+        </li>
+        <li>
+            <div class="subject">
+                <span class="txt">3. 서비스의 특징과 장점은 무엇일까요</span>
+                <div class="optional">
+                    <span class="ic24 arrow_d"></span>
+                </div>
+            </div>
+            <div class="desc">
+                1) PC보안에 필요한 모든 기능을 하나의 서비스로 제공합니다.<br>
+                2) 엑소스피어 사용 중 랜섬웨어 피해 시 PC당 1천만원, 기업당 1억까지 피해를 보상합니다.(국내최초 사이버보험 적용)<br>
+                3) 악성코드 다량유입시 보안위협 알림을 통해 알려드립니다.<br>
+                4) 최소화된 정책설정으로 간편한 운영이 가능합니다.<br>
+                5) 실시간 채팅상담으로 담당자의 어려움을 빠르게 지원합니다.
+            </div>
+        </li>
+        <li>
+            <div class="subject">
+                <span class="txt">4. 다우오피스와는 어떻게 연동되나요.</span>
+                <div class="optional">
+                    <span class="ic24 arrow_d"></span>
+                </div>
+            </div>
+            <div class="desc">
+                다우오피스와는 가입 및 SSO (Single Sign On, 한 번의 로그인으로 여러 서비스 로그인 가능), 조직도 및 알림이 연동되고 있습니다.<br>
+                * SSO 연동 : 다우오피스를 통해 별도 로그인 필요없이, 엑소스피어의 관리 웹페이지에 로그인이 가능합니다.<br>
+                * 조직도 및 알림 연동 : 엑소스피어 처음 시작 시, 다우오피스의 조직에 기반하여 자동 세팅이 지원됩니다.
+            </div>
+        </li>
+        <li>
+            <div class="subject">
+                <span class="txt">5. 어떻게 가입하고 사용하나요.</span>
+                <div class="optional">
+                    <span class="ic24 arrow_d"></span>
+                </div>
+            </div>
+            <div class="desc">
+                엑소스피어의 모든 보안기능을 체험할 수 있는 무료체험을 제공합니다.<br>
+                1) 다우오피스 ‘Link+’에서 ‘엑소스피어’클릭 후 ‘지금 신청하기’버튼 클릭<br>
+                2) 이동한 무료체험신청 페이지에 내용입력<br>
+                3) 엑소스피어에서 기입한 내용 확인 후, 사용안내 진행<br>
+                4) 서비스 오픈 확인<br>
+                5) 무료체험 진행<br>
+                <a class="serviceLink" data-url="https://youtu.be/pWb0F_UCE1k">가입 및 사용 가이드 영상</a>
+            </div>
+        </li>
+        <li>
+            <div class="subject">
+                <span class="txt">6. 다우오피스를 통해 사용하면 드리는 혜택</span>
+                <div class="optional">
+                    <span class="ic24 arrow_d"></span>
+                </div>
+            </div>
+            <div class="desc">
+                1) 다우오피스와 연동이 무료! :  다우오피스에서는 ‘다우오피스 - 엑소스피어’간의 연동비용이 무료입니다. (향후 변경 가능)<br>
+                다우오피스 고객은 무료사용 기간 연장 : 유료전환고객께는 1년 라이선스 비용 중 5개월을 무료로 제공합니다.
+            </div>
+        </li>
+    </ul>
+    <h2>필수 확인사항</h2>
+    <p class="desc">
+        1.  다우오피스를 통해 가입한 기업만 해당 제휴서비스와 다우오피스간의 SSO (Single Sign On) 연동기능을 사용하실 수 있습니다.<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;기존 엑소스피어를 사용중인 고객 대상의 연동은 향후 지원 예정이니 양해 부탁드립니다.<br>
+        2. 알림 및 조직도 연동기능은 다우오피스를 통해 가입한 고객 뿐만 아니라, 기존 ‘엑소스피어’를 사용 중이신 고객 모두 사용 가능합니다.<br>
+        3. 해당 제휴서비스는 다우오피스에서 연동만 지원하며,  가입 및 결제, 해지, 고객지원 모두 제휴서비스인 ‘엑소스피어’에서 진행됩니다.<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;- 가입 및 결제 : 050-7600-4009 / sales@exolabs.co.kr<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;- 기술지원 : 050-7417-7481 / support@exolabs.co.kr<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;- 지원센터 운영시간 : 오전 10시 ~ 오후 5시 (월~금)<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;- 채팅상담운영
+    </p>
+    <div class="box linkplus_question">
+        <span class="ic_link ic_tooltip"></span>
+        {{storeLang.사이트 관리자에게 문의}}
+    </div>
+</div>

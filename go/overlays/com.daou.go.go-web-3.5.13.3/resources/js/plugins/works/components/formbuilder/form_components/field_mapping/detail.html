@@ -1,0 +1,17 @@
+<span class="box_label_wrap">
+    {{^model.hideLabel}}
+	<label for="">{{{label}}}</label>
+    {{/model.hideLabel}}
+</span>
+{{^isMasking}}
+<div class="build_box_data">
+    {{{userData}}}
+</div>
+{{/isMasking}}
+{{#isMasking}}
+<div class="build_box_data">
+    <div class="hidden_data">
+        <span class="help" title="{{lang.관리자에 의해 마스킹 처리 된 항목입니다}}"></span>
+    </div>
+</div>
+{{/isMasking}}

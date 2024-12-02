@@ -1,0 +1,1 @@
+define(["jquery","underscore","backbone","app","hgn!approval/templates/document_info","i18n!nls/commons","i18n!approval/nls/approval"],function(e,t,n,r,i,s,o){var u=n.View.extend({el:"#sideContent",render:function(){this.$el.html(i())},release:function(){this.$el.off(),this.$el.empty()}});return u});

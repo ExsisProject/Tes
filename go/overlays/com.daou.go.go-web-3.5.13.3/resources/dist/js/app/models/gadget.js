@@ -1,0 +1,1 @@
+(function(e){define(["backbone"],function(e){var t=e.Model.extend({urlRoot:"/api/gadget",getSpec:function(e){var t=this.get("spec");return typeof e=="undefined"?t:t[e]},getBoxNumber:function(){return this.get("boxNumber")+1}});return t})})();

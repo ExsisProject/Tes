@@ -1,0 +1,10 @@
+<li data-id="{{id}}" {{#isMe}}class="default_option"{{/isMe}}>
+	<span class="name">
+		{{#displayName}}{{displayName}}{{/displayName}}
+		{{^displayName}}{{name}} {{positionName}}{{/displayName}}
+		<input type="hidden" name="managerIds" value="{{id}}" />
+	</span>
+	<span class="btn_wrap">
+		<span class="ic_classic ic_del" title="{{lang.delete}}"></span>										
+	</span>
+</li>

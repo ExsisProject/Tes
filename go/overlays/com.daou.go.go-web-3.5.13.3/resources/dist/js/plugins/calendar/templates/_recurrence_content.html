@@ -1,0 +1,79 @@
+<table id="recurrence-content">
+    <tbody>
+        <tr>
+            <td>
+	            <span class="wrap_select">
+	                <select name="recurrence_interval" class="interval_option">
+	                	{{&interval_options}}
+	                </select>
+	                <label id="recurrence-interval-postfix" class="txt_day">{{interval_postfix}}</label>
+				</span>
+				<span class="tab-option week_repeat"></span>
+            </td>           
+        </tr>
+        <tr>
+            <td>{{label.start_date}} : {{start_date}}</td>
+        </tr>
+        <tr>
+            <td>
+                {{#is_calendar?}}
+                <span class="wrap_txt">
+                    <span class="wrap_option">
+                        <input id="repeat_end" type="radio" name="repeat_type" value="date"{{#has_end_date?}} checked="checked"{{/has_end_date?}}>
+                        <label for="repeat_end">{{label.end_recurrence}}</label>
+                    </span>
+                    <span class="wrap_date">
+                        <input class="txt wfix_small" type="text" name="repeat_date" value="{{end_date}}"{{^has_end_date?}} disabled="disabled"{{/has_end_date?}} readonly="true" />
+                        <span class="ic ic_calendar"></span>
+                    </span>
+                </span>
+                <span class="horspace1"></span>
+                <span class="wrap_txt">
+                    <input id="repeat_count" type="radio" name="repeat_type" value="count"{{#has_repeat_count?}} checked="checked"{{/has_repeat_count?}}>
+                    <input class="txt_mini wfix_mini" type="text" name="repeat_count" value="{{repeat_count}}"{{^has_repeat_count?}} disabled="disabled"{{/has_repeat_count?}} />
+                    <label for="repeat_count" class="inactive">{{label.recurence_count}}</label>
+                </span>
+                <span class="horspace1"></span>
+                <span class="wrap_option last">
+                    <input id="repeat_infinite" type="radio" name="repeat_type" value="infinite"{{#is_infinite?}} checked="checked"{{/is_infinite?}}>
+                    <label for="repeat_infinite">{{label.infinit_recurrence}}</label>
+                </span>
+                {{/is_calendar?}}
+                {{^is_calendar?}}
+                {{#dateOn}}
+                <span class="wrap_txt">
+                    <span class="wrap_option">
+                        <input id="repeat_end" type="radio" name="repeat_type" value="date"{{#dateOnAttr}} checked="checked"{{/dateOnAttr}}>
+                        <label for="repeat_end">{{label.end_recurrence}}</label>
+                    </span>
+                    <span class="wrap_date">
+                        <input class="txt wfix_small" type="text" name="repeat_date" value="{{init_date}}"{{^dateOnAttr}} disabled="disabled"{{/dateOnAttr}} readonly="true" />
+                        <span class="ic ic_calendar"></span>
+                    </span>
+                </span>
+                {{/dateOn}}
+                <span class="horspace1"></span>
+                {{#countOn}}
+                <span class="wrap_txt">
+                    <input id="repeat_count" type="radio" name="repeat_type" value="count"{{#countOnAttr}} checked="checked"{{/countOnAttr}}>
+                    <input class="txt_mini wfix_mini" type="text" name="repeat_count" value="{{repeat_count}}"{{^countOnAttr}} disabled="disabled"{{/countOnAttr}} />
+                    <label for="repeat_count" class="inactive">{{label.recurence_count}}</label>
+                </span>
+                {{/countOn}}
+                {{/is_calendar?}}
+            </td>
+        </tr>
+        <tr>
+            <td class="wrap_details">
+                <span class="alert_box">
+                	<span class="recurrence-text txt">{{label.recurrence}} : {{recurrence_result}}</span>
+                    <div class="alert_details dsp_none" id="unreserve-dates">
+                        <p>{{label.dates}}</p>
+                        <ul id="dates">
+                        </ul>
+                    </div>
+                </span>
+            </td>               
+        </tr>
+    </tbody>
+</table>

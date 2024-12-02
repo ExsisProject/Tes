@@ -1,0 +1,907 @@
+{
+  "meta": {
+    "key": "75a6f7b8-68e2-93a2-bd75-c9c10b915ed",
+    "base": {
+      "name": "applet.inventory.manage.template.name",
+      "desc": "applet.inventory.manage.template.desc",
+      "icon": "ic_app1.png"
+    },
+    "exporter": {
+      "name": "관리자",
+      "companyName": "다우기술"
+    }
+  },
+  "components": {
+    "view": {
+      "charts": [],
+      "columns": [
+        {
+          "fieldCid": "_8bxubw453"
+        },
+        {
+          "fieldCid": "_u6xo95mhn"
+        },
+        {
+          "fieldCid": "_82yxooe9h"
+        },
+        {
+          "fieldCid": "_qg76ivfpx"
+        },
+        {
+          "fieldCid": "_sqhv8mxzp"
+        },
+        {
+          "fieldCid": "_0soqjf7np"
+        },
+        {
+          "fieldCid": "_gl8lzl5jo"
+        },
+        {
+          "fieldCid": "_jhwnakc2k"
+        },
+        {
+          "fieldCid": "_m3khl8ang"
+        }
+      ],
+      "titleColumnIndex": 0,
+      "sortColumnIndex": 3,
+      "sortDirection": "DESC",
+      "docNoConfig": {
+        "useDocNo": false,
+        "docNoType": "simple",
+        "customDigit": 2
+      }
+    },
+    "form": {
+      "data": {
+        "type": "canvas",
+        "multiple": false,
+        "cid": "cxx1",
+        "components": [
+          {
+            "type": "columns",
+            "multiple": false,
+            "cid": "_26epr5qrg",
+            "parentCid": "cxx1",
+            "properties": {
+              "count": 2
+            },
+            "components": [
+              {
+                "type": "column",
+                "multiple": false,
+                "cid": "_iut4nxcn3",
+                "parentCid": "_26epr5qrg",
+                "properties": {},
+                "components": [
+                  {
+                    "type": "text",
+                    "valueType": "STEXT",
+                    "multiple": false,
+                    "cid": "_8bxubw453",
+                    "parentCid": "_iut4nxcn3",
+                    "properties": {
+                      "label": "상품명",
+                      "hideLabel": false,
+                      "guide": "",
+                      "guideAsTooltip": true,
+                      "required": false,
+                      "duplicate": false,
+                      "similar": false,
+                      "defaultValue": "",
+                      "minLength": 0,
+                      "maxLength": 100,
+                      "width": 100,
+                      "widthUnit": "percent",
+                      "format": "all"
+                    },
+                    "components": []
+                  },
+                  {
+                    "type": "number",
+                    "valueType": "NUMBER",
+                    "multiple": false,
+                    "cid": "_spo7k8t4v",
+                    "parentCid": "_iut4nxcn3",
+                    "properties": {
+                      "label": "규격",
+                      "hideLabel": false,
+                      "guide": "",
+                      "guideAsTooltip": true,
+                      "required": false,
+                      "dataType": "NUMBER",
+                      "minLength": 1,
+                      "maxLength": 100000000000,
+                      "width": 250,
+                      "widthUnit": "px",
+                      "unitText": "kg",
+                      "fixType": "postfix",
+                      "decimalPoints": 2,
+                      "thousandComma": true,
+                      "useTableAutoAggr": false,
+                      "tableAggrType": "",
+                      "code": "number_8214"
+                    },
+                    "components": []
+                  }
+                ]
+              },
+              {
+                "type": "column",
+                "multiple": false,
+                "cid": "_fr0p0twob",
+                "parentCid": "_26epr5qrg",
+                "properties": {},
+                "components": [
+                  {
+                    "type": "text",
+                    "valueType": "STEXT",
+                    "multiple": false,
+                    "cid": "_u6xo95mhn",
+                    "parentCid": "_fr0p0twob",
+                    "properties": {
+                      "label": "상품구분",
+                      "hideLabel": false,
+                      "guide": "",
+                      "guideAsTooltip": true,
+                      "required": false,
+                      "duplicate": false,
+                      "similar": false,
+                      "defaultValue": "",
+                      "minLength": 0,
+                      "maxLength": 100,
+                      "width": 100,
+                      "widthUnit": "percent",
+                      "format": "all"
+                    },
+                    "components": []
+                  },
+                  {
+                    "type": "text",
+                    "valueType": "STEXT",
+                    "multiple": false,
+                    "cid": "_48n3b7l0l",
+                    "parentCid": "_fr0p0twob",
+                    "properties": {
+                      "label": "단위",
+                      "hideLabel": false,
+                      "guide": "",
+                      "guideAsTooltip": true,
+                      "required": false,
+                      "duplicate": false,
+                      "similar": false,
+                      "defaultValue": "",
+                      "minLength": 0,
+                      "maxLength": 100,
+                      "width": 100,
+                      "widthUnit": "percent",
+                      "format": "all"
+                    },
+                    "components": []
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "hr",
+            "multiple": false,
+            "cid": "_nrw5doree",
+            "parentCid": "cxx1",
+            "properties": {},
+            "components": []
+          },
+          {
+            "type": "label",
+            "multiple": false,
+            "cid": "_t6xhr1vt8",
+            "parentCid": "cxx1",
+            "properties": {
+              "label": "◆ 입출고 정보",
+              "color": "4"
+            },
+            "components": []
+          },
+          {
+            "type": "columns",
+            "multiple": false,
+            "cid": "_4dh1mc2hm",
+            "parentCid": "cxx1",
+            "properties": {
+              "count": 2
+            },
+            "components": [
+              {
+                "type": "column",
+                "multiple": false,
+                "cid": "_58zbn5rh6",
+                "parentCid": "_4dh1mc2hm",
+                "properties": {},
+                "components": [
+                  {
+                    "type": "number",
+                    "valueType": "NUMBER",
+                    "multiple": false,
+                    "cid": "_82yxooe9h",
+                    "parentCid": "_58zbn5rh6",
+                    "properties": {
+                      "label": "관리년도",
+                      "hideLabel": false,
+                      "guide": "YYYY 형식으로 입력합니다.",
+                      "guideAsTooltip": false,
+                      "required": true,
+                      "minLength": "2019",
+                      "maxLength": "2050",
+                      "width": "50",
+                      "widthUnit": "px",
+                      "unitText": "년",
+                      "fixType": "postfix",
+                      "decimalPoints": "0",
+                      "thousandComma": false,
+                      "useTableAutoAggr": false,
+                      "tableAggrType": "",
+                      "code": "number_20311"
+                    },
+                    "components": []
+                  }
+                ]
+              },
+              {
+                "type": "column",
+                "multiple": false,
+                "cid": "_gy99vsg37",
+                "parentCid": "_4dh1mc2hm",
+                "properties": {},
+                "components": [
+                  {
+                    "type": "number",
+                    "valueType": "NUMBER",
+                    "multiple": false,
+                    "cid": "_qg76ivfpx",
+                    "parentCid": "_gy99vsg37",
+                    "properties": {
+                      "label": "전년도 이월 재고량",
+                      "hideLabel": false,
+                      "guide": "",
+                      "guideAsTooltip": true,
+                      "required": true,
+                      "defaultValue": "0",
+                      "minLength": "0",
+                      "maxLength": "100000000",
+                      "width": "100",
+                      "widthUnit": "px",
+                      "unitText": "",
+                      "fixType": "postfix",
+                      "decimalPoints": "0",
+                      "thousandComma": true,
+                      "useTableAutoAggr": false,
+                      "tableAggrType": "",
+                      "code": "number_1"
+                    },
+                    "components": []
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "hr",
+            "multiple": false,
+            "cid": "_lmugbsz3b",
+            "parentCid": "cxx1",
+            "properties": {},
+            "components": []
+          },
+          {
+            "type": "table",
+            "multiple": false,
+            "cid": "_uza2vi3us",
+            "parentCid": "cxx1",
+            "properties": {
+              "label": "입고 내역",
+              "hideLabel": false,
+              "guide": "",
+              "guideAsTooltip": true
+            },
+            "components": [
+              {
+                "type": "date",
+                "valueType": "DATE",
+                "multiple": true,
+                "cid": "_16la5jabw",
+                "parentCid": "_uza2vi3us",
+                "properties": {
+                  "label": "입고일자",
+                  "hideLabel": false,
+                  "guide": "",
+                  "guideAsTooltip": true,
+                  "required": false,
+                  "defaultAsNow": false,
+                  "defaultDate": "",
+                  "code": "date_21042"
+                },
+                "components": []
+              },
+              {
+                "type": "number",
+                "valueType": "NUMBER",
+                "multiple": true,
+                "cid": "_g55jg6dm6",
+                "parentCid": "_uza2vi3us",
+                "properties": {
+                  "label": "검수합격 수량",
+                  "hideLabel": false,
+                  "guide": "",
+                  "guideAsTooltip": true,
+                  "required": true,
+                  "defaultValue": "0",
+                  "minLength": "0",
+                  "maxLength": "10000000",
+                  "width": "120",
+                  "widthUnit": "px",
+                  "unitText": "",
+                  "fixType": "postfix",
+                  "decimalPoints": "0",
+                  "thousandComma": true,
+                  "useTableAutoAggr": true,
+                  "tableAggrType": "SUM",
+                  "code": "sum_1"
+                },
+                "components": []
+              },
+              {
+                "type": "number",
+                "valueType": "NUMBER",
+                "multiple": true,
+                "cid": "_d84xm0ri8",
+                "parentCid": "_uza2vi3us",
+                "properties": {
+                  "label": "불합격 수량",
+                  "hideLabel": false,
+                  "guide": "",
+                  "guideAsTooltip": true,
+                  "required": true,
+                  "defaultValue": "0",
+                  "minLength": "0",
+                  "maxLength": "10000000",
+                  "width": "120",
+                  "widthUnit": "px",
+                  "unitText": "",
+                  "fixType": "postfix",
+                  "decimalPoints": "0",
+                  "thousandComma": true,
+                  "useTableAutoAggr": true,
+                  "tableAggrType": "SUM",
+                  "code": "sum_2"
+                },
+                "components": []
+              }
+            ]
+          },
+          {
+            "type": "columns",
+            "multiple": false,
+            "cid": "_uzhjsyol1",
+            "parentCid": "cxx1",
+            "properties": {
+              "count": 2
+            },
+            "components": [
+              {
+                "type": "column",
+                "multiple": false,
+                "cid": "_rjmncp9lc",
+                "parentCid": "_uzhjsyol1",
+                "properties": {},
+                "components": [
+                  {
+                    "type": "formula",
+                    "valueType": "NUMBER",
+                    "multiple": false,
+                    "cid": "_0soqjf7np",
+                    "parentCid": "_rjmncp9lc",
+                    "properties": {
+                      "label": "입고 누계",
+                      "hideLabel": false,
+                      "guide": "",
+                      "guideAsTooltip": true,
+                      "expressionType": "number",
+                      "expression": "sum_1",
+                      "width": "120",
+                      "widthUnit": "px",
+                      "unitText": "",
+                      "fixType": "postfix",
+                      "decimalPoints": "0",
+                      "thousandComma": true,
+                      "code": "formula_2"
+                    },
+                    "components": []
+                  }
+                ]
+              },
+              {
+                "type": "column",
+                "multiple": false,
+                "cid": "_ptxiu6785",
+                "parentCid": "_uzhjsyol1",
+                "properties": {},
+                "components": [
+                  {
+                    "type": "formula",
+                    "valueType": "NUMBER",
+                    "multiple": false,
+                    "cid": "_sqhv8mxzp",
+                    "parentCid": "_ptxiu6785",
+                    "properties": {
+                      "label": "불합격 누계",
+                      "hideLabel": false,
+                      "guide": "",
+                      "guideAsTooltip": true,
+                      "expressionType": "number",
+                      "expression": "sum_2",
+                      "width": "120",
+                      "widthUnit": "px",
+                      "unitText": "",
+                      "fixType": "postfix",
+                      "decimalPoints": "0",
+                      "thousandComma": true,
+                      "code": "formula_1"
+                    },
+                    "components": []
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "hr",
+            "multiple": false,
+            "cid": "_bnwk7yaxn",
+            "parentCid": "cxx1",
+            "properties": {},
+            "components": []
+          },
+          {
+            "type": "table",
+            "multiple": false,
+            "cid": "_2emecv7sp",
+            "parentCid": "cxx1",
+            "properties": {
+              "label": "출고 내역",
+              "hideLabel": false,
+              "guide": "",
+              "guideAsTooltip": true
+            },
+            "components": [
+              {
+                "type": "date",
+                "valueType": "DATE",
+                "multiple": true,
+                "cid": "_8b3ezx393",
+                "parentCid": "_2emecv7sp",
+                "properties": {
+                  "label": "출고일자",
+                  "hideLabel": false,
+                  "guide": "",
+                  "guideAsTooltip": true,
+                  "required": false,
+                  "defaultAsNow": false,
+                  "defaultDate": "",
+                  "code": "date_23013"
+                },
+                "components": []
+              },
+              {
+                "type": "select",
+                "valueType": "SELECT",
+                "multiple": true,
+                "cid": "_rz6yi6i8s",
+                "parentCid": "_2emecv7sp",
+                "properties": {
+                  "label": "출고구분",
+                  "hideLabel": false,
+                  "guide": "",
+                  "guideAsTooltip": true,
+                  "required": false,
+                  "defaultValue": "0",
+                  "items": [
+                    {
+                      "value": "0",
+                      "displayText": "주문발송",
+                      "selected": true
+                    },
+                    {
+                      "value": "1",
+                      "displayText": "기타출고",
+                      "selected": false
+                    }
+                  ]
+                },
+                "components": []
+              },
+              {
+                "type": "number",
+                "valueType": "NUMBER",
+                "multiple": true,
+                "cid": "_8aoj6m9q5",
+                "parentCid": "_2emecv7sp",
+                "properties": {
+                  "label": "출고수량",
+                  "hideLabel": false,
+                  "guide": "",
+                  "guideAsTooltip": true,
+                  "required": true,
+                  "defaultValue": "0",
+                  "minLength": "0",
+                  "maxLength": "10000000",
+                  "width": "120",
+                  "widthUnit": "px",
+                  "unitText": "",
+                  "fixType": "postfix",
+                  "decimalPoints": "0",
+                  "thousandComma": true,
+                  "useTableAutoAggr": true,
+                  "tableAggrType": "SUM",
+                  "code": "sum_3"
+                },
+                "components": []
+              }
+            ]
+          },
+          {
+            "type": "columns",
+            "multiple": false,
+            "cid": "_2xk0wk92m",
+            "parentCid": "cxx1",
+            "properties": {
+              "count": 2
+            },
+            "components": [
+              {
+                "type": "column",
+                "multiple": false,
+                "cid": "_q9czgw2ns",
+                "parentCid": "_2xk0wk92m",
+                "properties": {},
+                "components": [
+                  {
+                    "type": "formula",
+                    "valueType": "NUMBER",
+                    "multiple": false,
+                    "cid": "_gl8lzl5jo",
+                    "parentCid": "_q9czgw2ns",
+                    "properties": {
+                      "label": "출고 누계",
+                      "hideLabel": false,
+                      "guide": "",
+                      "guideAsTooltip": true,
+                      "expressionType": "number",
+                      "expression": "sum_3",
+                      "width": "120",
+                      "widthUnit": "px",
+                      "unitText": "",
+                      "fixType": "postfix",
+                      "decimalPoints": "0",
+                      "thousandComma": true,
+                      "code": "formula_3"
+                    },
+                    "components": []
+                  }
+                ]
+              },
+              {
+                "type": "column",
+                "multiple": false,
+                "cid": "_r7r8fb8p0",
+                "parentCid": "_2xk0wk92m",
+                "properties": {},
+                "components": [
+                  {
+                    "type": "formula",
+                    "valueType": "NUMBER",
+                    "multiple": false,
+                    "cid": "_jhwnakc2k",
+                    "parentCid": "_r7r8fb8p0",
+                    "properties": {
+                      "label": "재고량",
+                      "hideLabel": false,
+                      "guide": "",
+                      "guideAsTooltip": true,
+                      "expressionType": "number",
+                      "expression": "number_1 + formula_2 - formula_3",
+                      "width": "120",
+                      "widthUnit": "px",
+                      "unitText": "",
+                      "fixType": "postfix",
+                      "decimalPoints": "0",
+                      "thousandComma": true,
+                      "code": "formula_4"
+                    },
+                    "components": []
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "textarea",
+            "valueType": "TEXT",
+            "multiple": false,
+            "cid": "_ifwhb2cxa",
+            "parentCid": "cxx1",
+            "properties": {
+              "label": "비고",
+              "hideLabel": false,
+              "guide": "",
+              "guideAsTooltip": true,
+              "required": false,
+              "defaultValue": "",
+              "width": 100,
+              "widthUnit": "percent",
+              "rows": "6"
+            },
+            "components": []
+          }
+        ]
+      }
+    },
+    "process": {
+      "useProcess": false,
+      "statuses": [
+        {
+          "name": "{{applet.new.template.status.ready}}",
+          "start": true,
+          "doing": false,
+          "end": false,
+          "color": "0"
+        },
+        {
+          "name": "{{applet.new.template.status.progress}}",
+          "start": false,
+          "doing": true,
+          "end": false,
+          "color": "0"
+        },
+        {
+          "name": "{{applet.new.template.status.complete}}",
+          "start": false,
+          "doing": false,
+          "end": true,
+          "color": "0"
+        }
+      ],
+      "transitions": [
+        {
+          "beforeStatus": "{{applet.new.template.status.ready}}",
+          "nextStatus": "{{applet.new.template.status.progress}}",
+          "actionName": "{{applet.new.template.action.progress}}",
+          "actionRoles": [
+            "REGISTRANT",
+            "ADMIN"
+          ],
+          "pushRoles": []
+        },
+        {
+          "beforeStatus": "{{applet.new.template.status.progress}}",
+          "nextStatus": "{{applet.new.template.status.complete}}",
+          "actionName": "{{applet.new.template.action.complete}}",
+          "actionRoles": [
+            "REGISTRANT",
+            "ADMIN"
+          ],
+          "pushRoles": []
+        },
+        {
+          "beforeStatus": "{{applet.new.template.status.complete}}",
+          "nextStatus": "{{applet.new.template.status.progress}}",
+          "actionName": "{{applet.new.template.action.cancel}}",
+          "actionRoles": [
+            "REGISTRANT",
+            "ADMIN"
+          ],
+          "pushRoles": []
+        }
+      ],
+      "addPushes": []
+    },
+    "reports": [
+      {
+        "template": "[{\"rid\":\"_epb6bd0m1\",\"type\":\"text\",\"width\":8,\"height\":3,\"x\":0,\"y\":0},{\"rid\":\"_7beugq0x7\",\"type\":\"card\",\"width\":6,\"height\":6,\"x\":0,\"y\":3},{\"rid\":\"_33eq01ekw\",\"type\":\"chart\",\"width\":6,\"height\":6,\"x\":6,\"y\":3},{\"rid\":\"_0o7cet959\",\"type\":\"chart\",\"width\":6,\"height\":6,\"x\":0,\"y\":9},{\"rid\":\"_vdh9ylp2n\",\"type\":\"chart\",\"width\":6,\"height\":6,\"x\":6,\"y\":9}]",
+        "title": "[Sample] 상품 입출고 관리",
+        "reportItems": [
+          {
+            "data": "{\"type\":\"text\",\"content\":\"<p style=\\\"line-height: 2; margin-top: 0px; margin-bottom: 0px; font-family: &quot;Noto Sans KR&quot;; font-size: 10pt;\\\"><span color=\\\"#707070\\\" face=\\\"Noto Sans KR, sans-serif\\\" style=\\\"font-size: 24pt;\\\"><span style=\\\"letter-spacing: -0.48px; background-color: rgb(255, 255, 255); font-size: 24pt;\\\"><b style=\\\"font-size: 24pt;\\\">Report</b></span></span></p><p style=\\\"font-family: &quot;Noto Sans KR&quot;; font-size: 10pt; line-height: 2; margin-top: 0px; margin-bottom: 0px;\\\"><span style=\\\"color: rgb(112, 112, 112); font-family: &quot;Noto Sans KR&quot;, sans-serif; font-size: 16px; letter-spacing: -0.48px; background-color: rgb(255, 255, 255);\\\">* 연도별 현황을 리포트하여 메일, PDF로 공유할 수 있습니다.&nbsp;</span></p>\"}",
+            "rid": "_epb6bd0m1"
+          },
+          {
+            "data": "{\"cardModel\":{\"cid\":\"_jhwnakc2k\",\"title\":\"재고량 평균\",\"color\":4,\"method\":\"AVG\",\"aggRangeOption\":\"ALL\",\"compareRangeOption\":\"ONE_DAY_AGO\",\"aggStartDate\":\"2022-01-19\",\"aggEndDate\":\"2022-01-19\",\"isEndDateToday\":false,\"compareStartDate\":\"2022-01-19\",\"compareEndDate\":\"2022-01-18\",\"aggValue\":24.29,\"aggDate\":\"ALL\",\"compareValue\":24.29,\"compareValueSubtract\":0,\"compareValuePercent\":\"(0.0%)\",\"compareDate\":\" *  ~ 2022-01-18\"},\"type\":\"card\"}",
+            "rid": "_7beugq0x7"
+          },
+          {
+            "data": "{\"chartModel\":{\"fieldCid\":\"_8bxubw453\",\"title\":\"연도별 입고 현황\",\"goal\":0,\"chartType\":\"COLUMN\",\"groupByCid\":\"_82yxooe9h\",\"rangeOption\":null,\"aggMethod\":\"SUM\",\"subAggMethod\":\"COUNT\",\"aggCid\":\"_0soqjf7np\",\"theme\":\"0\",\"subChartType\":\"LINE\",\"subAggCid\":\"_spo7k8t4v\",\"stack\":false,\"subStack\":false,\"subGroupByCid\":\"_u6xo95mhn\",\"subRangeOption\":\"DAY\",\"combination\":false,\"aggField\":\"_0soqjf7np\"},\"conditions\":[],\"type\":\"chart\"}",
+            "rid": "_33eq01ekw"
+          },
+          {
+            "data": "{\"chartModel\":{\"fieldCid\":\"_8bxubw453\",\"title\":\"연도별 출고 현황\",\"goal\":0,\"chartType\":\"COLUMN\",\"groupByCid\":\"_82yxooe9h\",\"rangeOption\":null,\"aggMethod\":\"SUM\",\"subAggMethod\":\"COUNT\",\"aggCid\":\"_gl8lzl5jo\",\"theme\":\"1\",\"subChartType\":\"LINE\",\"subAggCid\":\"_spo7k8t4v\",\"stack\":false,\"subStack\":false,\"subGroupByCid\":\"_u6xo95mhn\",\"subRangeOption\":\"DAY\",\"combination\":false,\"aggField\":\"_gl8lzl5jo\"},\"conditions\":[],\"type\":\"chart\"}",
+            "rid": "_0o7cet959"
+          },
+          {
+            "data": "{\"chartModel\":{\"fieldCid\":\"_8bxubw453\",\"title\":\"연도별 재고 현황\",\"goal\":0,\"chartType\":\"COLUMN\",\"groupByCid\":\"_82yxooe9h\",\"rangeOption\":null,\"aggMethod\":\"SUM\",\"subAggMethod\":\"COUNT\",\"aggCid\":\"_jhwnakc2k\",\"theme\":\"2\",\"subChartType\":\"LINE\",\"subAggCid\":\"_spo7k8t4v\",\"stack\":false,\"subStack\":false,\"subGroupByCid\":\"_u6xo95mhn\",\"subRangeOption\":\"DAY\",\"combination\":false,\"aggField\":\"_jhwnakc2k\"},\"conditions\":[],\"type\":\"chart\"}",
+            "rid": "_vdh9ylp2n"
+          }
+        ],
+        "shared": true
+      }
+    ]
+  },
+  "messageKeys": [
+    "applet.inventory.manage.template.name",
+    "applet.inventory.manage.template.desc",
+    "applet.new.template.status.ready",
+    "applet.new.template.status.progress",
+    "applet.new.template.status.complete",
+    "applet.new.template.action.progress",
+    "applet.new.template.action.complete",
+    "applet.new.template.action.cancel"
+  ],
+  "guide": {
+    "contents": "applet.inventory.manage.template.guide.content",
+    "imageFiles": [
+      "e_inventoryManagement/e_01.png",
+      "e_inventoryManagement/e_02.png",
+      "e_inventoryManagement/e_03.png"
+    ]
+  },
+  "sampleData": {
+    "docValues": [
+      {
+        "_8bxubw453": "[Sample] 친환경 제초제 풀포스",
+        "_u6xo95mhn": "친환경농약",
+        "_spo7k8t4v": 10,
+        "_48n3b7l0l": "통",
+        "_82yxooe9h": 2019,
+        "_qg76ivfpx": 20,
+        "_g55jg6dm6": [
+          250
+        ],
+        "_d84xm0ri8": [
+          1
+        ],
+        "_0soqjf7np": 250,
+        "_sqhv8mxzp": 1,
+        "_8aoj6m9q5": [
+          249
+        ],
+        "_gl8lzl5jo": 249,
+        "_jhwnakc2k": 21
+      },
+      {
+        "_8bxubw453": "[Sample] 유황분말 100%",
+        "_u6xo95mhn": "친환경비료",
+        "_spo7k8t4v": 200,
+        "_48n3b7l0l": "포",
+        "_82yxooe9h": 2020,
+        "_qg76ivfpx": 100,
+        "_g55jg6dm6": [
+          90
+        ],
+        "_d84xm0ri8": [
+          10
+        ],
+        "_0soqjf7np": 90,
+        "_sqhv8mxzp": 10,
+        "_8aoj6m9q5": [
+          90
+        ],
+        "_gl8lzl5jo": 90,
+        "_jhwnakc2k": 100
+      },
+      {
+        "_8bxubw453": "[Sample] 친환경 살균제 병해끝",
+        "_u6xo95mhn": "친환경농약",
+        "_spo7k8t4v": 20,
+        "_48n3b7l0l": "포",
+        "_82yxooe9h": 2019,
+        "_qg76ivfpx": 150,
+        "_g55jg6dm6": [
+          140
+        ],
+        "_d84xm0ri8": [
+          10
+        ],
+        "_0soqjf7np": 140,
+        "_sqhv8mxzp": 10,
+        "_8aoj6m9q5": [
+          130
+        ],
+        "_gl8lzl5jo": 130,
+        "_jhwnakc2k": 160,
+        "_ifwhb2cxa": "균제 2포 포장 불량"
+      },
+      {
+        "_8bxubw453": "[Sample] 친환경 살충제 충사멸",
+        "_u6xo95mhn": "친환경농약",
+        "_spo7k8t4v": 5,
+        "_48n3b7l0l": "병",
+        "_82yxooe9h": 2019,
+        "_qg76ivfpx": 280,
+        "_g55jg6dm6": [
+          280
+        ],
+        "_d84xm0ri8": [
+          1
+        ],
+        "_0soqjf7np": 280,
+        "_sqhv8mxzp": 1,
+        "_8aoj6m9q5": [
+          280
+        ],
+        "_gl8lzl5jo": 280,
+        "_jhwnakc2k": 280
+      },
+      {
+        "_8bxubw453": "[Sample] 수목바이탈",
+        "_u6xo95mhn": "친환경비료",
+        "_spo7k8t4v": 8,
+        "_48n3b7l0l": "병",
+        "_82yxooe9h": 2019,
+        "_qg76ivfpx": 300,
+        "_g55jg6dm6": [
+          290
+        ],
+        "_d84xm0ri8": [
+          10
+        ],
+        "_0soqjf7np": 290,
+        "_sqhv8mxzp": 10,
+        "_8aoj6m9q5": [
+          280
+        ],
+        "_gl8lzl5jo": 280,
+        "_jhwnakc2k": 310
+      },
+      {
+        "_8bxubw453": "[Sample] 친환경 농약 님오일",
+        "_u6xo95mhn": "친환경농약",
+        "_spo7k8t4v": 5,
+        "_48n3b7l0l": "병",
+        "_82yxooe9h": 2020,
+        "_qg76ivfpx": 320,
+        "_g55jg6dm6": [
+          290
+        ],
+        "_d84xm0ri8": [
+          30
+        ],
+        "_0soqjf7np": 290,
+        "_sqhv8mxzp": 30,
+        "_8aoj6m9q5": [
+          280
+        ],
+        "_gl8lzl5jo": 280,
+        "_jhwnakc2k": 330
+      },
+      {
+        "_8bxubw453": "[Sample] 유황분말 100%",
+        "_u6xo95mhn": "친환경비료",
+        "_spo7k8t4v": 30,
+        "_48n3b7l0l": "포",
+        "_82yxooe9h": 2019,
+        "_qg76ivfpx": 420,
+        "_g55jg6dm6": [
+          400
+        ],
+        "_d84xm0ri8": [
+          10
+        ],
+        "_0soqjf7np": 400,
+        "_sqhv8mxzp": 10,
+        "_8aoj6m9q5": [
+          400
+        ],
+        "_gl8lzl5jo": 400,
+        "_jhwnakc2k": 420
+      }
+    ]
+  }
+}

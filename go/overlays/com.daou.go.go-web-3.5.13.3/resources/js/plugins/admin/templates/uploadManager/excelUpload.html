@@ -1,0 +1,51 @@
+<div class="container">
+    <div class="header" id="uploadHeader">
+        <h2 style="margin-top: 0;">{{lang.subject}} {{lang.select_upload_file}}</h2>
+    </div>
+    <div class="content" style="background: #ffffff">
+        <table class="detail">
+            <colgroup>
+                <col width="150px">
+                <col width="*">
+            </colgroup>
+            <tbody>
+            <tr class="last">
+                <th>
+                    <span class="title" id="select_file">
+                        {{lang.subject}} {{lang.upload_file}}
+                    </span></th>
+                <td>
+                    <div class="btn_minor_s" id="swfupload-control" style="padding: 0px; !important;"></div>
+                    <span id="progressBarWrap" class="btn_action_wrap" style="display:inline-block"></span>
+                    <span class="desc" style="cursor: pointer;" id="downloadUploadForm">[ {{lang.subject}} {{lang.download_upload_form}} ]</span>
+                    <ul class="file_wrap" id="fileComplete">
+                        <span class="desc" style="color:red;margin-top: -20px">{{lang.upload_form_help}}</span>
+                    </ul>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="page_action">
+    <span class="btn" id="upload">{{lang.upload}}</span>
+</div>
+<div class="container" id="upload_progress" style="display:none">
+    <div class="header">
+        <h2>{{lang.subject}} {{lang.upload_result}}</h2>
+    </div>
+    <div class="content" style="background: #ffffff">
+        <span class="option_wrap" id="progress_content"></span>
+        <span style="display:inline-block">
+    		            <div id="progressbar"></div>
+    	            </span>
+    </div>
+</div>
+<div id="upload_result" style="display:none">
+    <div class="page_action">
+        <span class="btn" id="download_all">{{lang.download_all_result}}</span>
+        <span class="btn_nega" id="download_fail">{{lang.download_fail_result}}</span>
+    </div>
+    <input type="hidden" id="resultFile">
+</div>

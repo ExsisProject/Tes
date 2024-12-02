@@ -1,0 +1,50 @@
+<header class="nav_s works_nav" id="titleToolbar">
+	<div class="tab_wrap" data-el-type="all">
+		<ul class="cont_top_tab" id="worksTabs">
+			<li class="on" data-all data-btn-type="all">
+				<h1>
+					<i class="b_border"></i> <!--//h_border->b_border-->
+					<span class="txt">{{lang.all}}</span>
+				</h1>
+			</li>
+			<li data-favorite data-btn-type="favorite">
+				<h1>  <i class="b_border"></i><span class="txt">{{lang.favorite}}</span> </h1>
+			</li>
+			<li data-manage data-btn-type="manage">
+				<h1>  <i class="b_border"></i><span class="txt">{{lang.manage}}</span> </h1>
+			</li>
+		</ul>
+		<div class="wrap_btn" data-toggle-layout>
+			<i class="ic_works ic_list"></i>
+			<!--<i class="ic_works ic_card" title="{{lang.리스트 형태로 보기}}" style="display: none;">{{lang.리스트 형태로 보기}}</i>-->
+		</div>
+	</div>
+	<div data-el-type="folder" style="display: none;">
+		<h2 data-el-folder-name></h2>
+		<div class="critical">
+			<a data-el-prev><span class="ic_nav ic_nav_prev"></span></a>
+		</div>
+	</div>
+</header>
+<div class="content_page bg_card_type go_works_home card_type" data-content id="content">
+	<div class="content">
+		<div class="wrap_works">
+			<section class="search_wrap" app-name-search-option>
+				<div class="search">
+					<input class="input search iscroll-tap-highlight" type="text" id="appName" name="appName" placeholder="{{lang.앱 명을 입력하세요}}">
+					<a id="appNameDelete" class="btn_cancel"><span class="btn btn_del_type1"></span></a>
+					<a class="btn_search" id="btn-search"><span class="btn btn_search"></span></a>
+				</div>
+			</section>
+			<div class="app_group" data-group-list style="display: none;"></div>
+			<div class="app_list">
+				<div class="error_data" data-empty-message style="display: none;">
+					<span class="ic_works ic_app_info"></span>
+					<p class="tit" data-empty-title>{{{lang.emptyTitle}}}</p>
+					<p class="desc" data-empty-desc>{{{lang.emptyDesc}}}</p>
+				</div>
+				<div data-app-list></div>
+			</div>
+		</div>
+	</div>
+</div>

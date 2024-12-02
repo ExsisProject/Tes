@@ -1,0 +1,94 @@
+<section id="view_menu" class="lnb lnb_option viewtype" data-type="viewType">
+    <h1>
+        <ins class="ic"></ins>
+        <span class="ic_side ic_hide_up" data-fold></span>
+        <span class="txt" data-fold>{{lang.뷰}}</span>
+    </h1>
+    <ul id="works_view_list" class="side_depth">
+        <li class="view" id="goToListView">
+            <p class="title {{selectListView}}">
+                <a>
+                    <svg class="ic_svg ic_grid" width="11" height="10">
+                        <path d="M9.5 0a1.5 1.5 0 0 1 1.493 1.356L11 1.5v6.822a1.5 1.5 0 0 1-1.356 1.493l-.144.007h-8A1.5 1.5 0 0 1 .007 8.466L0 8.322V1.5A1.5 1.5 0 0 1 1.356.007L1.5 0h8ZM2.727 6.857H1v1.465a.5.5 0 0 0 .41.492l.09.008 1.227-.001V6.857ZM10 6.852l-.056.005H3.727v1.964H9.5a.5.5 0 0 0 .492-.41l.008-.09V6.853Zm0-2.941-.056.006-6.217-.001v1.941h6.217l.056.005V3.911ZM2.727 5.857V3.916H1v1.941h1.727ZM9.5 1H3.727v1.916h6.217l.056.005V1.5a.5.5 0 0 0-.41-.492L9.5 1ZM2.727 2.916V1H1.5a.5.5 0 0 0-.492.41L1 1.5v1.416h1.727Z" fill-rule="nonzero"/>
+                    </svg>
+                    <span class="txt ui-droppable">{{lang.리스트 뷰}}</span>
+                </a>
+                <span class="btn_wrap"></span>
+            </p>
+        </li>
+        {{#showAdditionalView}}
+        {{#showGanttEl}}
+        <li class="view" id="gantt_view">
+            <p class="title {{selectGanttView}}">
+                <a id="{{#showGanttView}}gantt_view_{{ganttViewModel.id}}{{/showGanttView}}{{#addGanttView}}add_gantt_view{{/addGanttView}}">
+                    <svg class="ic_svg ic_gantt" width="12" height="11">
+                        <path d="M8.286 8a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1H1.929a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1h6.357Zm0 1H1.929v1h6.357V9ZM11 4a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1H2.786a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1H11Zm0 1H2.786v1H11V5ZM7 0a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V1a1 1 0 0 1 1-1h6Zm0 1H1v1h6V1Z" fill-rule="nonzero"/>
+                    </svg>
+                    <span class="txt ui-droppable">
+                        {{#addGanttView}}{{lang.간트 뷰}}{{/addGanttView}}
+                        {{#showGanttView}}{{ganttViewModel.name}}{{/showGanttView}}
+                    </span>
+                </a>
+                {{#isAdmin}}{{#showGanttView}}
+                <span class="btn_wrap" id="gantt_view_setting_btn">
+                    <span class="ic_side ic_more_option"></span>
+                </span>
+                <div id="gantt-backdrop" class="layer_normal" style="display: none; z-index: 70; width: 115px; left: 100px; bottom: 10px; position: absolute; margin: 0px;" >
+                    <div class="content" style="padding: 0px;">
+                        <ul class="array_type">
+                            <li el-rename>
+                                <span class="txt">{{lang.이름 변경}}</span>
+                            </li>
+                            <li el-delete>
+                                <span class="txt">{{lang.삭제}}</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            {{/showGanttView}}{{/isAdmin}}
+            </p>
+        </li>
+        {{/showGanttEl}}
+        {{#showCalendarEl}}
+        <li class="view" id="calendar_view">
+            <p class="title {{selectCalendarView}}">
+                <a id="{{#showCalendarView}}calendar_view_{{calendarViewModel.id}}{{/showCalendarView}}{{#addCalendarView}}add_calendar_view{{/addCalendarView}}">
+                    <svg class="ic_svg ic_cal" width="13" height="14" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8.85.5a.5.5 0 0 1 .492.41L9.35 1l-.001.555H11a1.5 1.5 0 0 1 1.493 1.356l.007.144v8.804a1.5 1.5 0 0 1-1.356 1.493l-.144.007H2a1.5 1.5 0 0 1-1.493-1.356L.5 11.859V3.055a1.5 1.5 0 0 1 1.356-1.493L2 1.555h2.349L4.35 1a.5.5 0 0 1 .992-.09L5.35 1l-.001.555h3L8.35 1a.5.5 0 0 1 .5-.5Zm2.65 5.47h-10v5.889a.5.5 0 0 0 .41.492l.09.008h9a.5.5 0 0 0 .492-.41l.008-.09V5.97ZM6 7a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1h2Zm0 1H4v2h2V8ZM4.349 2.555H2a.5.5 0 0 0-.492.41l-.008.09V4.97h10V3.055a.5.5 0 0 0-.41-.492L11 2.555H9.349L9.35 3a.5.5 0 0 1-.992.09L8.35 3l-.001-.445h-3L5.35 3a.5.5 0 0 1-.992.09L4.35 3l-.001-.445Z" fill-rule="nonzero"/>
+                    </svg>
+                    <span class="txt ui-droppable">
+                        {{#addCalendarView}}{{lang.캘린더 뷰}}{{/addCalendarView}}
+                        {{#showCalendarView}}{{calendarViewModel.name}}{{/showCalendarView}}
+                    </span>
+                </a>
+                {{#isAdmin}}{{#showCalendarView}}
+                <span class="btn_wrap" id="calendar_view_setting_btn">
+                    <span class="ic_side ic_more_option"></span>
+                </span>
+                <div id="calendar-backdrop" class="layer_normal" style="display: none; z-index: 70; width: 115px; left: 100px; bottom: 10px; position: absolute; margin: 0px;">
+                    <div class="content" style="padding: 0px;">
+                        <ul class="array_type">
+                            <li el-rename>
+                                <span class="txt">{{lang.이름 변경}}</span>
+                            </li>
+                            <li el-delete>
+                                <span class="txt">{{lang.삭제}}</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            {{/showCalendarView}}{{/isAdmin}}
+            </p>
+        </li>
+        {{/showCalendarEl}}
+        {{/showAdditionalView}}
+    </ul>
+</section>
+<div class="hr"></div>
+<section class="lnb lnb_single">
+    <h1 class="report {{selectReportView}}" id="goToReport">
+        <ins class="ic"></ins>
+        <span class="txt">{{lang.리포트}}</span>
+    </h1>
+</section>
+<div class="hr"></div>

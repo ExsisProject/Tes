@@ -1,0 +1,137 @@
+<div class="container">			
+	<div class="header">
+		<h2>{{lang.label_setting}}</h2>
+	</div>			
+	<div class="content">
+		<table class="detail tb_admin_doc_host">
+            <colgroup>
+                <col width="140">
+                <col width="*">
+            </colgroup>
+			<caption>{{lang.label_setting}}</caption>
+			<tbody>
+			{{#data}}
+				<tr>
+					<th><span class="title">{{lang.label_manager}}</span></th>
+					<td>
+						<ul class="name_tag" id="addManagerEl">
+							{{#admins}}
+								<li data-id="{{userId}}" data-name="members">
+									<span class="name">{{name}} {{position}}</span>
+									<span class="btn_wrap">
+										<input type="hidden" name="memberId" value="{{userId}}" />
+										<span class="ic_classic ic_del"></span>										
+									</span>
+								</li>
+							{{/admins}}
+						<li class="creat">
+							<span class="btn_wrap">
+								<span class="ic ic_addlist"></span>
+								<span class="txt">{{lang.label_add_manager}}</span>
+							</span>
+						</li>							
+						</ul>
+					</td>
+				</tr>
+				<tr>
+					<th><span class="title">{{lang.label_attendance_fix_ermissions}}</span></th>
+					<td>
+						<div class="tb_wrap">
+                            <table class="in_table task_state_right">
+                                <thead>
+                                    <tr>
+                                        <th class="item sorting_disable"><span class="title_sort">{{lang.label_item}}</span></th>
+                                        <th class="right sorting_disable"><span class="title_sort">{{lang.label_fix_ermissions}}</span></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                   <tr>
+                                        <td class="item">{{lang.label_time}} {{lang.label_modify}}</td>
+                                        <td class="right">
+                                        {{#timeEditAuthData}}
+                                            <span class="option_wrap">
+                                                <input type="checkbox" id="timeManager" value="manager" {{#isSyncActive}} disabled="disabled" {{/isSyncActive}} {{#manager}}checked="checked"{{/manager}}><label for="timeManager">{{lang.label_manager}}</label>
+                                            </span>
+                                            <span class="option_wrap">
+                                                <input type="checkbox" id="timeMaster" value="master" {{#isSyncActive}} disabled="disabled" {{/isSyncActive}} {{#master}}checked="checked"{{/master}}><label for="timeMaster">{{lang.label_chief}}</label>
+                                            </span>
+                                            <span class="option_wrap">
+                                                <input type="checkbox" id="timeModerator" value="moderator" {{#isSyncActive}} disabled="disabled" {{/isSyncActive}} {{#moderator}}checked="checked"{{/moderator}}><label for="timeModerator">{{lang.label_vice_chief}}</label>
+                                            </span>
+                                            <span class="option_wrap">
+                                                <input type="checkbox" id="timeMember" value="member" {{#isSyncActive}} disabled="disabled" {{/isSyncActive}} {{#member}}checked="checked"{{/member}}><label for="timeMember">{{lang.label_member}}</label>
+                                            </span>
+                                         {{/timeEditAuthData}}
+                                         </td>
+                                   <tr>
+                                   </tr>
+                                         <td class="item">{{lang.label_status}} {{lang.label_modify}}</td>
+                                         <td class="right">
+                                         {{#statusEditAuthData}}
+                                            <span class="option_wrap">
+                                                <input type="checkbox" id="statusManager" value="manager" {{#manager}}checked="checked"{{/manager}}><label for="statusManager">{{lang.label_manager}}</label>
+                                            </span>
+                                            <span class="option_wrap">
+                                                <input type="checkbox" id="statusMaster" value="master" {{#master}}checked="checked"{{/master}}><label for="statusMaster">{{lang.label_chief}}</label>
+                                            </span>
+                                            <span class="option_wrap">
+                                                <input type="checkbox" id="statusModerator" value="moderator" {{#moderator}}checked="checked"{{/moderator}}><label for="statusModerator">{{lang.label_vice_chief}}</label>
+                                            </span>
+                                            <span class="option_wrap">
+                                                <input type="checkbox" id="statusMember" value="member" {{#member}}checked="checked" {{/member}}><label for="statusMember">{{lang.label_member}}</label>
+                                            </span>
+                                         {{/statusEditAuthData}}
+                                         </td>
+                                   </tr>                                
+                                
+                                </tbody>
+                            </table>
+                            <div>
+								<span class="go_alert" {{^isSyncActive}} style="display:none" {{/isSyncActive}}>{{lang.label_sync_noti}}</span>
+							</div>
+                        </div>
+					</td>
+				</tr>
+                <tr>
+                    <th><span class="title">{{lang.label_use_charge_history}}</span>
+                            <span class="wrap_ic_s">
+                                <span class="help">
+                                    <span class="tool_tip">{{lang.label_use_charge_history_tooltip}}<i class="tail_left"></i></span>
+                                </span>
+                            </span>
+                    </th>
+                    <td>
+                        <span class="option_wrap">
+                            <input type="radio" value="true" id="onUseAttendActivityLogs" name="useAttendActivityLogs" {{#useAttendActivityLogs}} checked="checked" {{/useAttendActivityLogs}} />
+                            <label for="onUseAttendActivityLogs">{{lang.label_use}}</label>
+                        </span>
+                        <span class="option_wrap">
+                            <input type="radio" value="false" id ="offUseAttendActivityLogs" name="useAttendActivityLogs" {{^useAttendActivityLogs}} checked="checked" {{/useAttendActivityLogs}} />
+                            <label for="offUseAttendActivityLogs">{{lang.label_not_use}}</label>
+                        </span>
+                    </td>
+                </tr>
+				<tr class="last">
+					<th><span class="title">{{lang.label_open_state}}</span>
+						<span class="wrap_ic_s">
+                            <span class="help">
+                                <span class="tool_tip">{{lang.label_open_state_caption}}<i class="tail_left"></i></span>
+                            </span>
+                        </span>
+					</th>
+					<td>
+						<span class="option_wrap">
+                            <input type="checkbox" id="openStateStats" value="open" {{#useDeptSituationAndStats}}checked="checked"{{/useDeptSituationAndStats}}><label for="openStateStats">{{lang.label_open_state_stats}}</label>
+                        </span>
+					</td>
+				</tr>
+			{{/data}}
+			</tbody>
+		</table>
+	</div>
+</div>
+<!-- 버튼 -->
+<div class="page_action">
+	<span class="btn" id="btn_save">{{lang.label_save}}</span>
+	<span class="btn_nega" id="btn_cancel">{{lang.label_cancel}}</span>
+</div>

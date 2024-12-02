@@ -1,0 +1,306 @@
+<h3 class="tab_title" style="display:none;">{{lang.label_basic}}</h3>
+<div class="ehr_basic viewForm">
+   <form id="data_form">
+      {{#data}} 
+      <table class="type_list_box">
+         <tr>
+            <th class="col1">
+            	<span class="title_txt">{{lang.label_hireDate}}</span>
+            </th>
+            <td class="col2">
+            {{#hireDate.useColumn}}
+               {{#editable}}
+               <span class="wrap_date">
+               <input id="hireDate" class="txt wfix_small" type="text" name="hireDate" value="{{hireDate.value}}" data-prev="{{hireDate.value}}" />
+               <span class="ic ic_calendar"></span>
+               </span>
+               {{/editable}}
+               {{^editable}}
+               {{hireDate.value}}
+               {{/editable}}
+            {{/hireDate.useColumn}}
+            {{^hireDate.useColumn}}
+            	<span class="txt hide">{{lang.label_private}}</span>
+            {{/hireDate.useColumn}}
+            </td>
+            <th class="col3">
+            	<span class="title_txt">{{lang.label_jobDuty}}</span>
+            </th>
+            <td class="col4">
+            {{#jobDuty.useColumn}}
+                <span class="txt">{{jobDuty.value}}</span>
+            	{{#editable}}
+                <input class="txt w_max" type="text" name="jobDuty" id="jobDuty" value="{{jobDuty.value}}" style="display:none;"/>
+            	{{/editable}}
+            {{/jobDuty.useColumn}}
+            {{^jobDuty.useColumn}}
+            	<span class="txt hide">{{lang.label_private}}</span>
+            {{/jobDuty.useColumn}}
+            </td>
+            <th class="col5">
+            	<span class="title_txt">{{lang.label_jobClass}}</span>
+            </th>
+            <td class="col6">
+            {{#jobClassification.useColumn}}
+                <span class="txt">{{jobClassification.value}}</span>
+           		{{#editable}}
+                <input class="txt w_max" type="text" name="jobClassification" value="{{jobClassification.value}}" style="display:none;"/>
+            	{{/editable}}
+            {{/jobClassification.useColumn}}
+            {{^jobClassification.useColumn}}
+            	<span class="txt hide">{{lang.label_private}}</span>
+            {{/jobClassification.useColumn}}
+            </td>
+            <th class="col7">
+            	<span class="title_txt">{{lang.label_jobGroup}}</span>
+            </th>
+            <td class="col8">
+            {{#jobGroup.useColumn}}
+                <span class="txt">{{jobGroup.value}}</span>
+            	{{#editable}}
+                <input class="txt w_max" type="text" name="jobGroup" value="{{jobGroup.value}}" style="display:none;"/>
+            	{{/editable}}
+            {{/jobGroup.useColumn}}
+            {{^jobGroup.useColumn}}
+            	<span class="txt hide">{{lang.label_private}}</span>
+            {{/jobGroup.useColumn}}
+            </td>
+         </tr>
+         <tr>
+            <th class="col1">
+            	<span class="title_txt">{{lang.label_careerType}}</span>
+            </th>
+            <td class="col2">
+            {{#careerType.useColumn}}
+               {{#editable}}
+               <span class="wrap_select">
+                  <select class="wfix_small" name="careerType">
+                     <option value="">{{lang.label_select_option}}</option>
+                     <option value="NEW" {{#careerType.value}}{{#careerTypeIsNew}} selected {{/careerTypeIsNew}}{{/careerType.value}}>{{lang.label_new}}</option>
+                     <option value="CAREER" {{#careerType.value}}{{^careerTypeIsNew}} selected {{/careerTypeIsNew}}{{/careerType.value}}>{{lang.label_career}}</option>
+                  </select>
+               </span>
+               {{/editable}}
+               {{^editable}}
+                    {{careerName}}
+               {{/editable}}
+            {{/careerType.useColumn}}
+            {{^careerType.useColumn}}
+            	<span class="txt hide">{{lang.label_private}}</span>
+            {{/careerType.useColumn}}
+            </td>
+            <th class="col3">
+            	<span class="title_txt">{{lang.label_employeeDiv}}</span>
+            </th>
+            <td class="col4">
+            {{#employeeDiv.useColumn}}
+                <span class="txt">{{employeeDiv.value}}</span>
+            	{{#editable}}
+                <input class="txt w_max" type="text" name="employeeDiv" value="{{employeeDiv.value}}" style="display:none;"/>
+            	{{/editable}}
+            {{/employeeDiv.useColumn}}
+            {{^employeeDiv.useColumn}}
+            	<span class="txt hide">{{lang.label_private}}</span>
+            {{/employeeDiv.useColumn}}
+            </td>
+            <th class="col5">
+            	<span class="title_txt">{{lang.label_salaryDiv}}</span>
+            </th>
+            <td class="col6">
+            {{#salaryDiv.useColumn}}
+                <span class="txt">{{salaryDiv.value}}</span>
+          	    {{#editable}}
+                <input class="txt w_max" type="text" name="salaryDiv" value="{{salaryDiv.value}}" style="display:none;"/>
+          		{{/editable}}
+            {{/salaryDiv.useColumn}}
+            {{^salaryDiv.useColumn}}
+            	<span class="txt hide">{{lang.label_private}}</span>
+            {{/salaryDiv.useColumn}}
+            </td>
+            <th class="col7">
+            	<span class="title_txt">{{lang.label_recommender}}</span>
+            </th>
+            <td class="col8">
+            {{#recommender.useColumn}}
+                <span class="txt">{{recommender.value}}</span>
+           		{{#editable}}
+                <input class="txt w_max" type="text" name="recommender" value="{{recommender.value}}" style="display:none;"/>
+            	{{/editable}}
+            {{/recommender.useColumn}}
+            {{^recommender.useColumn}}
+            	<span class="txt hide">{{lang.label_private}}</span>
+            {{/recommender.useColumn}}
+            </td>
+         </tr>
+         <tr>
+            <th class="col1">
+            	<span class="title_txt">{{lang.label_status}}</span>
+            </th>
+            <td class="col2">
+            {{#status.useColumn}}
+                <span class="txt">{{status.value}}</span>
+           		{{#editable}}
+                <input class="txt w_max" type="text" name="status" value="{{status.value}}" style="display:none;"/>
+          		{{/editable}}
+            {{/status.useColumn}}
+            {{^status.useColumn}}
+            	<span class="txt hide">{{lang.label_private}}</span>
+            {{/status.useColumn}}
+            </td>
+            <th class="col3">
+            	<span class="title_txt">{{lang.label_birthDay}}</span>
+            </th>
+            <td class="col4">
+            {{#birthDay.useColumn}}
+               {{#editable}}
+               <div class="birthday_wrap">
+	               <span class="wrap_date">
+	               <input id="birthDay" class="txt wfix_small" type="text" name="birthDay" value="{{birthDay.value}}" />
+	               <span class="ic ic_calendar"></span>
+	               </span>
+	               <span class="wrap_select">
+	                  <select class="wfix_small" name="phase" style="width:100%;">
+	                     <option value="">{{lang.label_select_option}}</option>
+	                     <option value="SOLAR" {{#phase.value}}{{#phaseIsSolar}} selected {{/phaseIsSolar}}{{/phase.value}}>{{lang.label_solar}}</option>
+	                     <option value="LUNAR" {{#phase.value}}{{^phaseIsSolar}} selected {{/phaseIsSolar}}{{/phase.value}}>{{lang.label_lunar}}</option>
+	                  </select>
+	               </span>
+               </div>
+               {{/editable}}
+               {{^editable}}
+               {{birthDay.value}}&nbsp;{{phaseName}}
+               {{/editable}}
+            {{/birthDay.useColumn}}
+            {{^birthDay.useColumn}}
+            	<span class="txt hide">{{lang.label_private}}</span>
+            {{/birthDay.useColumn}}
+            </td>
+            <th class="col5">
+            	<span class="title_txt">{{lang.label_gender}}</span>
+            </th>
+            <td class="col6">
+            {{#gender.useColumn}}
+               {{#editable}}
+               <span class="wrap_select">
+                  <select class="wfix_small" name="gender">
+                     <option value="">{{lang.label_select_option}}</option>
+                     <option value="MALE" {{#gender.value}}{{#genderIsMan}} selected {{/genderIsMan}}{{/gender.value}}>{{lang.label_male}}</option>
+                     <option value="FEMALE" {{#gender.value}}{{^genderIsMan}} selected {{/genderIsMan}}{{/gender.value}}>{{lang.label_female}}</option>
+                  </select>
+               </span>
+               {{/editable}}
+               {{^editable}}
+               {{genderName}}
+               {{/editable}}
+            {{/gender.useColumn}}
+            {{^gender.useColumn}}
+            	<span class="txt hide">{{lang.label_private}}</span>
+            {{/gender.useColumn}}
+            </td>            
+            <th class="col7">
+            	<span class="title_txt">{{lang.label_maritalStatus}}</span>
+            </th>
+            <td class="col8">
+            {{#maritalStatus.useColumn}}
+               {{#editable}}
+               <span class="wrap_select">
+                  <select class="wfix_small" name="maritalStatus">
+                     <option value="">{{lang.label_select_option}}</option>
+                     <option value="SINGLE" {{#maritalStatus.value}}{{#maritalStatusIsSingle}} selected {{/maritalStatusIsSingle}}{{/maritalStatus.value}}>{{lang.label_single}}</option>
+                     <option value="MARRIED" {{#maritalStatus.value}}{{^maritalStatusIsSingle}} selected {{/maritalStatusIsSingle}}{{/maritalStatus.value}}>{{lang.label_married}}</option>
+                  </select>
+               </span>
+               {{/editable}}
+               {{^editable}}
+               {{maritalStatusName}}
+               {{/editable}}
+            {{/maritalStatus.useColumn}}
+            {{^maritalStatus.useColumn}}
+            	<span class="txt hide">{{lang.label_private}}</span>
+            {{/maritalStatus.useColumn}}
+            </td>
+         </tr>
+         <tr>
+            <th class="col1">
+            	<span class="title_txt">{{lang.label_disability}}</span>
+            </th>
+            <td class="col2">
+            {{#disability.useColumn}}
+               {{#editable}}
+               <span class="wrap_select">
+                  <select class="wfix_small" name="disability">
+                     <option value="">{{lang.label_select_option}}</option>
+                     <option value="Y" {{#disability.value}}{{#disabilityIsYes}} selected {{/disabilityIsYes}}{{/disability.value}}>Y</option>
+                     <option value="N" {{#disability.value}}{{^disabilityIsYes}} selected {{/disabilityIsYes}}{{/disability.value}}>N</option>
+                  </select>
+               </span>
+               {{/editable}}
+               {{^editable}}
+               {{disability.value}}
+               {{/editable}}
+            {{/disability.useColumn}}
+            {{^disability.useColumn}}
+            	<span class="txt hide">{{lang.label_private}}</span>
+            {{/disability.useColumn}}   
+            </td>
+            <th class="col3">
+            	<span class="title_txt">{{lang.label_veteransStatus}}</span>
+            </th>
+            <td class="col4">
+            {{#veteransStatus.useColumn}}
+               {{#editable}}
+               <span class="wrap_select">
+                  <select class="wfix_small" name="veteransStatus">
+                     <option value="">{{lang.label_select_option}}</option>
+                     <option value="Y" {{#veteransStatus.value}}{{#veteransStatusIsYes}} selected {{/veteransStatusIsYes}}{{/veteransStatus.value}}>Y</option>
+                     <option value="N" {{#veteransStatus.value}}{{^veteransStatusIsYes}} selected {{/veteransStatusIsYes}}{{/veteransStatus.value}}>N</option>
+                  </select>
+               </span>
+               {{/editable}}
+               {{^editable}}
+               {{veteransStatus.value}}
+               {{/editable}}
+            {{/veteransStatus.useColumn}}
+            {{^veteransStatus.useColumn}}
+            	<span class="txt hide">{{lang.label_private}}</span>
+            {{/veteransStatus.useColumn}}
+            </td>
+            <th class="col5">
+            	<span class="title_txt">{{lang.label_leaveDate}}</span>
+            </th>
+            <td class="col6">
+            {{#leaveDate.useColumn}}
+               {{#editable}}
+               <span class="wrap_date">
+               <input id="leaveDate" class="txt wfix_small" type="text" name="leaveDate" value="{{leaveDate.value}}" />
+               <span class="ic ic_calendar">
+               </span>
+               </span>
+               {{/editable}}
+               {{^editable}}
+               {{leaveDate.value}}
+               {{/editable}}
+            {{/leaveDate.useColumn}}
+            {{^leaveDate.useColumn}}
+            	<span class="txt hide">{{lang.label_private}}</span>
+            {{/leaveDate.useColumn}}
+            </td>
+            <th class="col7">
+            	<span class="title_txt">{{lang.label_leaveReason}}</span>
+            </th>
+            <td class="col8">
+            {{#leaveReason.useColumn}}
+                <span class="txt">{{leaveReason.value}}</span>
+           		{{#editable}}
+                <input class="txt w_max" type="text" name="leaveReason" value="{{leaveReason.value}}" style="display:none;"/>
+            	{{/editable}}
+            {{/leaveReason.useColumn}}
+            {{^leaveReason.useColumn}}
+            	<span class="txt hide">{{lang.label_private}}</span>
+            {{/leaveReason.useColumn}}
+            </td>
+         </tr>
+      </table>
+      {{/data}}
+   </form>
+</div>

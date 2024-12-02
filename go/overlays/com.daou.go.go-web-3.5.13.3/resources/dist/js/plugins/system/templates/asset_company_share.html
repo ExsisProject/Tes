@@ -1,0 +1,62 @@
+
+	<div class="toolbar_top header_tb">
+		<div class="critical">
+			<span class="btn_tool btnBoardAdd" data-btntype="add">{{lang.company_board_add}}</span>
+			<span class="btn_tool txt_caution btnBoardDelete" data-btntype="delete">{{lang.board_delete}}</span>
+		</div>
+	</div>
+	<div class="content_tb">
+
+		<table class="chart size" id="tableBorderList">
+			<thead>
+				<tr>
+					<th class="check sorting_disable"><input type="checkbox" id="checkedShareAll"></th>
+					<th class="title sorting_disable"><span class="title_sort">{{lang.board_title}}</span></th>
+					<th class="action sorting_disable last"><span class="title_sort">{{lang.share_site}}</span></th>
+				</tr>
+			</thead>
+			<tbody>
+				{{^dataset}}
+				<tr>
+					<td colspan="3">
+						<p class="data_null">
+							<span class="ic_data_type ic_no_data"></span>
+							<span class="txt">{{lang.board_no_list}}</span>
+						</p>
+					</td>
+				</tr>
+				{{/dataset}}
+				{{#dataset}}
+                <tr>
+                    <td class="check">
+                        <input type="checkbox" name="share_id" value="{{id}}" data-companyId="{{share.nodeCompanyId}}" data-nodeId="{{share.nodeId}}" data-assetId="{{id}}" data-assetCompanyId="{{companyId}}">
+                    </td>
+                    <td class="title b_name">
+                        <span style="cursor: pointer;">{{name}}</span>
+                    </td>
+                    <td class="title">
+                        {{#data.shares}}
+                            {{#nodes}}
+                            <p>{{nodeValue}} - {{nodeCompanyName}}</p>
+                            {{/nodes}}
+                        {{/data.shares}}
+                    </td>
+                </tr>
+				{{/dataset}}
+			</tbody>
+		</table>
+
+		<!-- 목록이 없을 경우  -->
+		<table class="no-list-msg chart size" style="display:none">
+			<tbody>
+			<tr>
+				<td colspan="3">
+					<p class="data_null">
+						<span class="ic_data_type ic_no_data"></span>
+						<span class="txt">{{lang.board_no_list}}</span>
+					</p>
+				</td>
+			</tr>
+			</tbody>
+		</table>
+	</div>

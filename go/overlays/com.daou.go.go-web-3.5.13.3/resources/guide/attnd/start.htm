@@ -1,0 +1,164 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<link rel="stylesheet" href="stylesheets/fonts/nanumgothic.css" media="all" contenttype="text/css" type="text/css">
+	<link rel="stylesheet" href="/go/resources/css/ta_style.css" media="all" />
+	<!--[if IE]>
+	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+</head>
+<body class="wrap_help">
+<div class="header">
+	<h1>도움말</h1>
+</div>
+<div class="help">
+	<div class="sec">
+		<h2>근태 동기화 데이터 수정 제한 설정</h2>
+		<div class="desc">
+			다우오피스와 근태 시스템(ADT캡스)을 연동하여 사용중인 고객사를 위한 기능입니다. <br>
+			동기화 데이터 수정 제한 설정을 [사용]으로 변경 시 아래의 메뉴들이 자동으로 설정됩니다.<br>
+		</div>
+		<div class="shot">
+			<img src="/go/resources/images/help_attend2_01.png" alt=""/>
+		</div>
+		<div class="noti_caution">
+			<div class="tit">주의사항</div>
+			<div class="txt">다우오피스 근태 연동 서비스는 단방향 동기화 기능을 제공하므로 데이터 수정이 필요할 경우 다우오피스가 아닌 연동되어 있는 근태 시스템에서 수정하셔야 합니다.예를 들어 ADT캡스와 연동된 상태고 출근 시간 수정이 필요한 경우, ADT캡스 매니저 시스템에서 출근 시간을 수정한 뒤 데이터를 전송을 하고, DOAS에서 수동 동기화를 실행하시기 바랍니다.</div>
+		</div>
+		<ul class="list_disc list_map">
+			<li>
+				<a href="#m1">근태관리 기본 설정</a>
+			</li>
+			<li>
+				<a href="#m2">근태관리 수정 권한 설정</a>
+			</li>
+			<li>
+				<a href="#m3">근태 유형 관리 설정 팝업</a>
+			</li>
+			<li>
+				<a href="#m4">적용된 서비스 화면</a>
+			</li>
+		</ul>
+	</div>
+	<div class="sec">
+		<h3 id="m1">근태관리 기본설정</h3>
+		<div class="posi">메뉴 : 근태관리 > 근무시간 관리</div>
+		<ul class="list_decimal">
+			<li>웹 : 근태관리 가젯은 노출되지만 출근/퇴근/상태변경 버튼은 비노출되어 시간 기록, 수정이 불가능합니다.</li>
+			<li>모바일 : 모바일 사용은 불가하며 모바일 앱 홈에서 근태관리 영역이 비노출되어 시간 기록, 수정이 불가능합니다.</li>
+		</ul>
+		<div class="shot">
+			<img src="/go/resources/images/help_attend2_02.png" alt=""/>
+		</div>
+		<div class="posi">메뉴 : 근태관리 &gt; 근무시간 관리 &gt; 알림 설정</div>
+		<ul class="list_decimal">
+			<li>출근(퇴근)을 미체크 한 경우, 업무 시작을 알리는 알림이 발송됩니다. [근태 데이터 수정 제한 설정] 기능을 사용할 시, 해당 알림이 필요 없다면 근무시간 관리에서 체크된 항목을 해제하면 알림은 발송되지 않습니다.</li>
+		</ul>
+		<div class="shot">
+			<img src="/go/resources/images/help_attend2_09.png" alt=""/>
+		</div>
+	</div>
+	<div class="sec">
+		<h3 id="m2">근태 수정 권한</h3>
+		<div class="posi">메뉴 : 근태관리 > 기본설정 > 근태관리 등록/수정 권한</div>
+		<ul class="list_decimal">
+			<li>타임라인에 근태 운영자만 시간과 상태 수정이 가능하게 변경됩니다.</li>
+			<li>출근, 퇴근 시간은 근태 시스템에서 전송한 시간으로 노출되며 수정 권한을 추가로 부여할 수 없습니다.</li>
+			<li>사용 오류가 발생할 수 있어 권한 부여는 운영자로 제한하였습니다. </li>
+		</ul>
+		<div class="shot">
+			<img src="images/help_attend2_03.png" alt=""/>
+		</div>
+		<div class="noti_caution">
+			<div class="tit">주의 사항</div>
+			<div class="txt">상태 수정 권한을 운영자를 제외한 다른 사용자에게 부여해야 할 경우 반드시 권한자에게 데이터 동기화로 인하여 다우오피스에서 수정한 데이터가 다시 변경될 수도 있음을 인지시켜주시기 바랍니다.
+			</div>
+		</div>
+	</div>
+	<div class="sec">
+		<h3 id="m3">근태 유형관리 설정 팝업</h3>
+		<div class="posi">메뉴 : 근태관리 > 근태 유형관리 > 설정 팝업</div>
+		<div class="desc">
+			근태 시스템 데이터와 동기화 된 근태 유형은 다우오피스에서 코드와 명칭 수정이 불가능합니다.<br>
+			추가나 변경이 필요할 경우 근태 시스템에서 추가, 변경해주시기 바랍니다.</div>
+		<div class="shot">
+			<img src="/go/resources/images/help_attend2_04.png" alt=""/>
+		</div>
+	</div>
+	<div class="sec">
+		<h3 id="m4">적용된 서비스 화면(홈)</h3>
+		<div class="desc">
+			근태 동기화 데이터 수정 제한 설정을 사용하면 근태관리 및 가젯에서 출/퇴근하기 버튼과 상태변경이 노출되지 않습니다.<br>
+			이때 출/퇴근 시간은 스케줄링 된 동기화 작업 이후 근태 시스템에서 전송된 시간으로 노출됩니다.
+		</div>
+		<div class="wrap_culum">
+			<div class="culum">
+				<div class="shot">
+					<img src="/go/resources/images/help_attend2_05.png" alt=""/>
+				</div>
+				<div class="noti_caution normal">
+					<div class="tit">적용 전</div>
+					<div class="txt">
+						<ul class="list_decimal">
+							<li>출근하기/퇴근하기 외 버튼 노출</li>
+							<li>출/퇴근 시간은 다우오피스에서 기록한 시간으로 노출</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="culum">
+				<div class="shot">
+					<img src="/go/resources/images/help_attend2_06.png" alt=""/>
+				</div>
+				<div class="noti_caution">
+					<div class="tit">적용 후</div>
+					<div class="txt">
+						<ul class="list_decimal">
+							<li>출근하기/퇴근하기 외 버튼 비노출</li>
+							<li>출/퇴근 시간은 근태 시스템에서 전송한 시간으로 노출</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="sec">
+		<h3 id="">적용된 서비스 화면 (근태관리)</h3>
+		<div class="wrap_culum">
+			<div class="culum">
+				<div class="shot">
+					<img src="/go/resources/images/help_attend2_07.png" alt=""/>
+				</div>
+				<div class="noti_caution normal">
+					<div class="tit">적용 전</div>
+					<div class="txt">
+						<ul class="list_decimal">
+							<li>출근하기/퇴근하기 외 버튼 노출</li>
+							<li>출/퇴근 시간은 다우오피스에서 기록한 시간으로 노출</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="culum">
+				<div class="shot">
+					<img src="/go/resources/images/help_attend2_08.png" alt=""/>
+				</div>
+				<div class="noti_caution">
+					<div class="tit">적용 후</div>
+					<div class="txt">
+						<ul class="list_decimal">
+							<li>출근하기/퇴근하기 외 버튼 비노출</li>
+							<li>출/퇴근 시간은 근태 시스템에서 전송한 시간으로 노출</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>

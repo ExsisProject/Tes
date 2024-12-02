@@ -1,0 +1,22 @@
+<section class="lnb">
+    {{^hasMyLines}}
+    <div class="null_guide">
+        <span class="ic_side ic_app_bbs"></span> 
+        <p class="desc">
+            {{lang.msg_empty_my_lines}}<br>
+        </p>
+    </div>
+    {{/hasMyLines}}
+    {{#hasMyLines}}
+    <ul class="side_depth">
+        {{#myLines}}
+        <li class="feed {{^isEnabled}}inactive{{/isEnabled}}">
+            <p class="title {{#isSelected}}on{{/isSelected}}">
+                <a class="my_line_a" data-id={{id}}><ins class="ic"></ins><span class="txt">{{title}}</span><span class="num" title="{{groupCountTitle}}">{{groupCount}}</span></a>
+                <a class="ic_classic ic ic_del" title="{{delete}}"></a>
+            </p>
+        </li>
+        {{/myLines}}
+    </ul>
+    {{/hasMyLines}}
+</section>

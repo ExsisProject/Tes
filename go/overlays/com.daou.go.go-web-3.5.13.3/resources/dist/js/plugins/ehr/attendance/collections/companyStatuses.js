@@ -1,0 +1,1 @@
+define(["backbone"],function(e){var t=e.Collection.extend({initialize:function(){},url:function(){return GO.contextRoot+"api/ehr/attnd/company/statuses"}});return t});

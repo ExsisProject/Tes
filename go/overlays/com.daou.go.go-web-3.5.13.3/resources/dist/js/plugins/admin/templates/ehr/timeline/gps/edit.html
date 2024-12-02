@@ -1,0 +1,68 @@
+<th>
+    <span class="title">{{lang.allowed_access_GPS_Info}}</span>
+    <span class="help">
+        <span class="tool_tip">{{lang.allowed_access_GPS_Tooltip}}
+        <i class="tail_left"></i>
+        </span>
+    </span>
+</th>
+<td>
+    <span class="wrap_option">
+        <input id="allOfGPS" value="all" type="radio" name="gpsGroup" {{^useGps}}checked="checked" {{/useGps}} data-tag="repeatSelect">
+        <label for="allOfGPS">{{lang.label_all}}</label>
+    </span>
+    <span class="horspace1"></span>
+    <span class="wrap_option">
+        <input id="partOfGPS" value="part" type="radio" name="gpsGroup" {{#useGps}}checked="checked" {{/useGps}} data-tag="repeatSelect">
+        <label for="partOfGPS">{{lang.label_part}}</label>
+    </span>
+    <div class="option_display" id="accessGpsBlock" {{^useGps}} style="display:none" {{/useGps}}>
+        <table class="detail">
+            <tbody>
+            <tr>
+                <th><span class="title">{{lang.place}}</span></th>
+                <td>
+                    <span class="gps_name">
+                        <input type="text" name="gpsName" id="gpsName" class="input w300"
+                               value="{{#model.id}}{{model.attributes.name}}{{/model.id}}">
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <th><span class="title">{{lang.address}}</span></th>
+                <td>
+                    <span class="option_wrap">
+                        <input id="addressSearchInput" type="text" class="input w300"
+                               placeholder="{{lang.address_info}}">
+                        <!--검색 완료 후엔 placeholder에 검색한 조로명/지번 노출-->
+                        <span id="addressSearchBtn" class="btn_s">{{lang.search}}</span>
+                    </span>
+                    <p class="desc">
+                        {{{lang.GPS_Warn}}
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <th><span class="title">{{lang.radius}} / {{lang.lat}} / {{lang.long}}</span></th>
+                <td><span class="txt" id="gpsInfoStr"></span>
+                    <p class="desc"> {{{lang.radius_setting_info}}}</p>
+                    <div class="map_area">
+                        <div class="wrap_btn">
+                            <span id="zoomIn"  class="ic_adm ic_zoomin"></span>
+                            <span id="zoomOut" class="ic_adm ic_zoomout"></span>
+                        </div>
+                        <div id="map" class="wrap_map">
+                            지도영역
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</td>
+{{^isKaKaoMap}}
+<div>
+    {{lang.network_not_support}}
+</div>
+{{/isKaKaoMap}}

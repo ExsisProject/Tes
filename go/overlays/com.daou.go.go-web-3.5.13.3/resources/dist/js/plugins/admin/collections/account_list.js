@@ -1,0 +1,1 @@
+define(["backbone"],function(e,t){var n=e.Collection.extend({model:e.Model,url:function(){return GO.contextRoot+"ad/api/user/list"}});return{getCollection:function(){var e=new n;return e.fetch({async:!1,contentType:"application/json"}),e}}});

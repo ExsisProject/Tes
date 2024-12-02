@@ -1,0 +1,123 @@
+<form id="survey-form" name="survey_form">
+	<fieldset>
+		<table class="form_type form_reserach001">
+			<tbody>
+				<tr>							
+					<th>
+						<span class="title">{{label.title}}</span>
+					</th>
+					<td>									
+						<div class="wrap_txt"><input class="txt w_max" type="text" name="title" value="{{title}}" /></div>
+					</td>
+				</tr>
+				<tr>
+					<th>
+						<span class="title">{{label.survey_period}}</span>
+					</th>
+					<td>
+						<span class="wrap_date">
+							<input id="start-date" class="txt wfix_small" type="text" name="start_date" value="{{start_date}}" data-prev="{{start_date}}" readonly="readonly" />
+							<span class="ic ic_calendar"></span>
+						</span>
+						<span class="wrap_select">
+							<select id="start-time" name="start_time" class="wfix_small select_date" data-prev="{{start_time}}"{{#allday?}} style="display:none;"{{/allday?}}></select>
+						</span>
+						~
+						<span class="wrap_date">
+							<input id="end-date" class="txt wfix_small" type="text" name="end_date" value="{{end_date}}" data-prev="{{end_date}}" readonly="readonly" />
+							<span class="ic ic_calendar"></span>
+						</span>
+						<span class="wrap_select">
+							<select id="end-time" name="end_time" class="wfix_medium select_date" data-prev="{{end_time}}"{{#allday?}} style="display:none;"{{/allday?}}></select>
+						</span>									
+						&nbsp;
+						<span class="wrap_option">
+							<input type="hidden" name="allDay" id="all-day" value="Y" />
+							<!-- input type="checkbox" name="allDay" id="all-day" value="Y"{{#allday?}} checked="checked"{{/allday?}}/>
+							<label for="all_day">{{label.allday}}</label-->
+						</span>
+					</td>
+				</tr>
+					
+				<tr>
+					<th>
+						<span class="title">{{label.survey_target}}</span>
+					</th>
+					<td >
+						<div id="target-container"></div>
+						{{#stopped?}}
+						<div><span class="wrap_desc_top"><span class="desc">{{{msg.about_target}}}</span></span></div>
+						{{/stopped?}}
+					</td>
+					
+					
+				</tr>
+				
+				<tr>
+					<th>
+						<span class="title">{{label.setup_referer}}</span>
+					</th>
+					<td>
+						<div id="referer-list" class="wrap_name_tag"></div>
+						<span class="wrap_desc_top"><span class="desc">{{{msg.about_referer}}}<br>{{msg.about_copyable_target}}</span></span>
+					</td>
+				</tr>
+				<tr>
+					<th>
+						<span class="title">{{label.open_result}}</span>
+					</th>
+					<td>
+						<span class="wrap_option"><input id="radio-visible-y" type="radio" name="visible" value="Y"{{^private?}} checked="checked"{{/private?}} /><label for="radio-visible-y">{{label.public}}</label></span>
+						<span class="horspace1"></span>									
+						<span class="wrap_option"><input id="radio-visible-n" type="radio" name="visible" value="N"{{#private?}} checked="checked"{{/private?}} /><label for="radio-visible-n">{{label.private}}</label></span>	
+						
+						<span class="wrap_desc_top"><span class="desc">{{{msg.about_open_result}}}</span></span>
+						
+					</td>
+				</tr>
+				<tr>
+					<th>
+						<span class="title">{{label.use_comment}}</span>
+					</th>
+					<td>
+						<span class="wrap_option"><input id="radio-use-comment-y" type="radio" name="use_comment" value="Y"{{#use_comment?}} checked="checked"{{/use_comment?}} /><label for="radio-use-comment-y">{{label.usable}}</label></span>	
+						<span class="horspace1"></span>
+						<span class="wrap_option"><input id="radio-use-comment-n" type="radio" name="use_comment" value="N"{{^use_comment?}} checked="checked"{{/use_comment?}} /><label for="radio-use-comment-n" >{{label.unusable}}</label></span>										
+					</td>
+				</tr>	
+				<tr{{^admin?}} class="last"{{/admin?}}>
+					<th>
+						<span class="title">{{label.editable}}</span>
+					</th>
+					<td>
+						<span class="wrap_option"><input id="radio-editable-y" type="radio" name="editable" value="Y"{{#editable?}} checked="checked"{{/editable?}} /><label for="radio-editable-y">{{label.permit}}</label></span>	
+						<span class="horspace1"></span>
+						<span class="wrap_option"><input id="radio-editable-n" type="radio" name="editable" value="N"{{^editable?}} checked="checked"{{/editable?}} /><label for="radio-editable-n">{{label.not_permit}}</label></span>
+					</td>
+				</tr>
+				{{#admin?}}
+				<tr class="last">
+					<th>
+						<span class="title">{{label.setup_creator}}</span>
+					</th>
+					<td>
+						<span class="wrap_txt"><label></label><input class="txt wfix_max" type="text" name="deptName" value="{{deptName}}"></span>
+						<span class="wrap_desc_top"><span class="desc">{{msg.about_setup_creator}}</span></span>									
+					</td>
+				</tr>
+				{{/admin?}}					
+			</tbody>	
+		</table>	
+	</fieldset>
+</form>
+
+<div class="page_action_wrap">
+
+	{{#stopped?}}
+	<a id="btn-finished" class="btn_major" data-role="button"><span class="txt">{{label.finished}}</span></a>
+	{{/stopped?}}
+	{{^stopped?}}
+	<a id="btn-next" class="btn_major" data-role="button"><span class="txt">{{label.next_step}}</span></a>
+	{{/stopped?}}
+	<a id="btn-cancel" class="btn_minor" data-role="button"><span class="txt">{{label.cancel}}</span></a>			
+</div>

@@ -1,0 +1,14 @@
+<li>
+    <a class="tit" value="{{document.id}}">
+        <span class="subject">{{{document.titleText}}}</span>
+        <ul class="info">
+            {{#document.columns}}
+            {{#visible}}
+            <li>
+                <span class="txt">- {{label}} : {{{data}}}</span>
+            </li>
+            {{/visible}}
+            {{/document.columns}}
+        </ul>
+    </a>
+</li>

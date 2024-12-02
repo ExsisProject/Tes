@@ -1,0 +1,19 @@
+
+{{^viewGuideBanner}}
+<div class="wrap_help_guide_l" id="guideBadge" style="top:330px; left:35px;">
+    <a class="btn_help_guide_close" id="closeBadge" href="">
+        <span class="ic_works ic_help_guide_close" title="{{lang.계정 업로드 매니저}}"></span>
+    </a>
+    <a class="btn_help_guide" href="" id="goToGuide">
+        <span class="ic_works ic_help_guide" title="계정업로드매니저"></span>
+        <p class="tit">{{lang.계정등록을 쉽게}}<br><strong>{{lang.계정 업로드 매니저}}</strong></p>
+    </a>
+</div>
+{{/viewGuideBanner}}
+
+<div class="wrap_help_guide_s" id="guideBanner" {{^viewGuideBanner}}style="display: none"{{/viewGuideBanner}}>
+    <a id="goToGuide" href="">
+        <span class="ic_works ic_help_guide_s" title="{{lang.계정 업로드 매니저}}"></span>
+        <p class="tit">{{lang.한번에 끝내는}} <strong>{{lang.계정업로드매니저}}</strong></p>
+    </a>
+</div>

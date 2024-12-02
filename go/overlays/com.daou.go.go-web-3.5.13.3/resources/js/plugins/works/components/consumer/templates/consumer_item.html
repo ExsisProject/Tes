@@ -1,0 +1,13 @@
+<div class="appInterlock">
+	<div class="appInterlock_header">
+		<a href="#" data-name="consumerApp">
+			<span class="txt">{{model.applet.name}}</span>
+			<span class="ic ic_appInterlock" title="자세히 보기"></span>
+		</a>
+		<p class="desc">
+			{{#hasData}}{{model.count}}{{lang.건의 연동된 데이터가 있습니다}}{{/hasData}}
+			{{^hasData}}{{lang.현재 연동된 데이터가 없습니다}}{{/hasData}}
+		</p>
+	</div>
+	<div class="appInterlock_body" id="gridArea"></div>
+</div>

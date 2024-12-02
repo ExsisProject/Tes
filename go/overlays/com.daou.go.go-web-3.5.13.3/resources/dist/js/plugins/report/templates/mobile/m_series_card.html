@@ -1,0 +1,24 @@
+						<section class="card_item_horizon {{#isClickable}} clickable {{/isClickable}}" data-id="{{reportId}}">
+							<div class="card_wrapper">
+								{{#isPrivateShow}}	
+								<span class="report_private">
+									<span class="ic ic_lock"></span>
+								</span>
+								{{/isPrivateShow}}
+								<span class="photo">
+									<img alt="{{name}} {{position}}" title="{{name}} {{position}}" src="{{thumbnail}}">
+								</span>
+								<span class="info">
+									<span class="name">{{name}}</span>
+									<span class="position">{{position}}</span>
+									{{^data.isCommentCountZero}}
+									<span class="num">({{commentCount}})</span>
+									{{/data.isCommentCountZero}}
+								</span>
+							</div>
+							{{#isWritable}}
+							<span class="btn_wrap optional create">
+								<a href="javascript:;" class="btn btn_report_write_s" title="보고서 작성"></a>
+							</span>
+							{{/isWritable}}
+						</section>

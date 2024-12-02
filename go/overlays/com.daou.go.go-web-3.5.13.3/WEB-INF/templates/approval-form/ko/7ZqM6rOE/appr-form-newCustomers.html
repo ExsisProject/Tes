@@ -1,0 +1,256 @@
+<meta name ="form:name" content="신규거래처등록신청" folder-name="회계"/>
+<body id="go-approval-form">
+<span><div style="font-family:돋움;font-size:9pt;"><span> 
+ <table style="border: 0px solid rgb(0, 0, 0); width: 800px; font-family: malgun gothic,dotum,arial,tahoma; margin-top: 1px; border-collapse: collapse; border-image: none;"> 
+  <!-- Header --> 
+  <colgroup> 
+   <col width="310" /> 
+   <col width="490" /> 
+  </colgroup> 
+  <tbody> 
+   <tr> 
+    <td style="background: white; padding: 0px !important; border: 0px currentColor; height: 90px; text-align: center; color: black; font-size: 36px; font-weight: bold; vertical-align: middle; border-image: none;" colspan="2"> 신규 거래처 등록 신청서 </td> 
+   </tr> 
+   <tr> 
+    <td style="background: white; padding: 0px !important; border: currentColor; text-align: left; color: black; font-size: 12px; font-weight: normal; vertical-align: top; border-image: none;"> 
+     <table style="border: 1px solid rgb(0, 0, 0); font-family: malgun gothic,dotum,arial,tahoma; margin-top: 1px; border-collapse: collapse; border-image: none;"> 
+      <!-- User --> 
+      <colgroup> 
+       <col width="90" /> 
+       <col width="220" /> 
+      </colgroup> 
+      <tbody> 
+       <tr> 
+        <td style="background: rgb(221, 221, 221); padding: 5px; border: 1px solid black; height: 18px; text-align: center; color: rgb(0, 0, 0); font-size: 12px; font-weight: bold; vertical-align: middle; border-image: none;">기안자</td> 
+        <td style="background: rgb(255, 255, 255); padding: 5px; border: 1px solid black; text-align: left; color: rgb(0, 0, 0); font-size: 12px; font-weight: normal; vertical-align: middle; border-image: none;"><span data-type="system" data-dsl="{{label:draftUser}}" data-id="draftUser" data-name="draftUser" data-value="" data-require="false" data-maxlength="" data-width="" data-defaultstr="" data-editable="true"></span> </td> 
+       </tr> 
+       <tr> 
+        <td style="background: rgb(221, 221, 221); padding: 5px; border: 1px solid black; height: 18px; text-align: center; color: rgb(0, 0, 0); font-size: 12px; font-weight: bold; vertical-align: middle; border-image: none;">소속</td> 
+        <td style="background: rgb(255, 255, 255); padding: 5px; border: 1px solid black; text-align: left; color: rgb(0, 0, 0); font-size: 12px; font-weight: normal; vertical-align: middle; border-image: none;"><span data-type="system" data-dsl="{{label:draftDept}}" data-id="draftDept" data-name="draftDept" data-value="" data-require="false" data-maxlength="" data-width="" data-defaultstr="" data-editable="true"></span> </td> 
+       </tr> 
+       <tr> 
+        <td style="background: rgb(221, 221, 221); padding: 5px; border: 1px solid black; height: 18px; text-align: center; color: rgb(0, 0, 0); font-size: 12px; font-weight: bold; vertical-align: middle; border-image: none;">기안일</td> 
+        <td style="background: rgb(255, 255, 255); padding: 5px; border: 1px solid black; text-align: left; color: rgb(0, 0, 0); font-size: 12px; font-weight: normal; vertical-align: middle; border-image: none;"><span data-type="system" data-dsl="{{label:draftDate}}" data-id="draftDate" data-name="draftDate" data-value="" data-require="false" data-maxlength="" data-width="" data-defaultstr="" data-editable="true"></span> </td> 
+       </tr> 
+       <tr> 
+        <td style="background: rgb(221, 221, 221); padding: 5px; border: 1px solid black; height: 18px; text-align: center; color: rgb(0, 0, 0); font-size: 12px; font-weight: bold; vertical-align: middle; border-image: none;"> 문서번호 </td> 
+        <td style="background: rgb(255, 255, 255); padding: 5px; border: 1px solid black; text-align: left; color: rgb(0, 0, 0); font-size: 12px; font-weight: normal; vertical-align: middle; border-image: none;"><span data-type="system" data-dsl="{{label:docNo}}" data-id="docNo" data-name="docNo" data-value="" data-require="false" data-maxlength="" data-width="" data-defaultstr="" data-editable="true"></span> </td> 
+       </tr> 
+      </tbody> 
+     </table> </td> 
+    <td style="background: white; padding: 0px !important; border: currentColor; text-align: right; color: black; font-size: 12px; font-weight: normal; vertical-align: top; border-image: none;"> 
+     <div class="sign_type1 sign_type_new" data-group-type="type1" data-group-max-count="1" data-group-name="신청" data-group-seq="0" data-is-reception=""> 
+      <table class="tb_sign_type1"> 
+       <tbody> 
+        <tr> 
+         <th>신청</th> 
+         <td> 
+          <table class="sign_member"> 
+           <tbody> 
+            <tr> 
+             <td><span class="sign_rank"></span></td> 
+            </tr> 
+            <tr> 
+             <td class="wrap_name wrap_sign"><span class="sign_name" id="status_"></span></td> 
+            </tr> 
+            <tr> 
+             <td class="last"><span class="sign_date" id="date_"></span></td> 
+            </tr> 
+           </tbody> 
+          </table></td> 
+        </tr> 
+       </tbody> 
+      </table> 
+     </div> 
+     <div class="sign_type1 sign_type_new" data-group-type="type1" data-group-max-count="5" data-group-name="승인" data-group-seq="1" data-is-reception=""> 
+      <table class="tb_sign_type1"> 
+       <tbody> 
+        <tr> 
+         <th>승인</th> 
+         <td> 
+          <table class="sign_member"> 
+           <tbody> 
+            <tr> 
+             <td><span class="sign_rank"></span></td> 
+            </tr> 
+            <tr> 
+             <td class="wrap_name wrap_sign"><span class="sign_name" id="status_"></span></td> 
+            </tr> 
+            <tr> 
+             <td class="last"><span class="sign_date" id="date_"></span></td> 
+            </tr> 
+           </tbody> 
+          </table></td> 
+         <td> 
+          <table class="sign_member"> 
+           <tbody> 
+            <tr> 
+             <td><span class="sign_rank"></span></td> 
+            </tr> 
+            <tr> 
+             <td class="wrap_name wrap_sign"><span class="sign_name" id="status_"></span></td> 
+            </tr> 
+            <tr> 
+             <td class="last"><span class="sign_date" id="date_"></span></td> 
+            </tr> 
+           </tbody> 
+          </table></td> 
+         <td> 
+          <table class="sign_member"> 
+           <tbody> 
+            <tr> 
+             <td><span class="sign_rank"></span></td> 
+            </tr> 
+            <tr> 
+             <td class="wrap_name wrap_sign"><span class="sign_name" id="status_"></span></td> 
+            </tr> 
+            <tr> 
+             <td class="last"><span class="sign_date" id="date_"></span></td> 
+            </tr> 
+           </tbody> 
+          </table></td> 
+         <td> 
+          <table class="sign_member"> 
+           <tbody> 
+            <tr> 
+             <td><span class="sign_rank"></span></td> 
+            </tr> 
+            <tr> 
+             <td class="wrap_name wrap_sign"><span class="sign_name" id="status_"></span></td> 
+            </tr> 
+            <tr> 
+             <td class="last"><span class="sign_date" id="date_"></span></td> 
+            </tr> 
+           </tbody> 
+          </table></td> 
+         <td> 
+          <table class="sign_member"> 
+           <tbody> 
+            <tr> 
+             <td><span class="sign_rank"></span></td> 
+            </tr> 
+            <tr> 
+             <td class="wrap_name wrap_sign"><span class="sign_name" id="status_"></span></td> 
+            </tr> 
+            <tr> 
+             <td class="last"><span class="sign_date" id="date_"></span></td> 
+            </tr> 
+           </tbody> 
+          </table></td> 
+        </tr> 
+       </tbody> 
+      </table> 
+     </div> 
+     </td> 
+   </tr> 
+  </tbody> 
+ </table> 
+ <table style="border: 1px solid rgb(0, 0, 0); width: 600px; font-family: malgun gothic,dotum,arial,tahoma; margin-top: 20px; border-collapse: collapse; border-image: none;"> 
+  <!-- Data1 --> 
+  <colgroup> 
+   <col width="110" /> 
+   <col width="490" /> 
+  </colgroup> 
+  <tbody> 
+   <tr> 
+    <td style="background: rgb(221, 221, 221); padding: 5px; border: 1px solid black; height: 25px; text-align: center; color: rgb(0, 0, 0); font-size: 12px; font-weight: bold; vertical-align: middle; border-image: none;"> 거래처 구분 </td> 
+    <td style="background: rgb(255, 255, 255); padding: 5px; border: 1px solid black; text-align: left; color: rgb(0, 0, 0); font-size: 12px; font-weight: normal; vertical-align: middle; border-image: none;"><span data-type="checkbox" data-dsl="{{check_매출_상품권_기타}}" data-id="" data-name="" data-label="" data-value="" data-autotype="false" data-require="false"></span><span data-type="text" data-dsl="{{text$width:280$}}" data-id="" data-name="" data-value="" data-require="false" data-maxlength="" data-width="280" data-defaultstr="" data-editable="true"></span><br /></td> 
+   </tr> 
+  </tbody> 
+ </table> 
+ <table style="border: 1px solid rgb(0, 0, 0); width: 800px; font-family: malgun gothic,dotum,arial,tahoma; margin-top: 20px; border-collapse: collapse; border-image: none;"> 
+  <!-- Data1 --> 
+  <colgroup> 
+   <col width="120" /> 
+   <col width="170" /> 
+   <col width="90" /> 
+   <col width="160" /> 
+   <col width="90" /> 
+   <col width="160" /> 
+  </colgroup> 
+  <tbody> 
+   <tr> 
+    <td style="background: rgb(221, 221, 221); padding: 5px; border: 1px solid black; height: 25px; text-align: center; color: rgb(0, 0, 0); font-size: 12px; font-weight: bold; vertical-align: middle; border-image: none;" colspan="6"> 거래처 개요</td> 
+   </tr> 
+   <tr> 
+    <td style="background: rgb(221, 221, 221); padding: 5px; border: 1px solid black; height: 25px; text-align: center; color: rgb(0, 0, 0); font-size: 12px; font-weight: bold; vertical-align: middle; border-image: none;"> 거래처명 (상호)</td> 
+    <td style="background: rgb(255, 255, 255); padding: 5px; border: 1px solid black; text-align: left; color: rgb(0, 0, 0); font-size: 12px; font-weight: normal; vertical-align: middle; border-image: none;"><span data-type="text" data-dsl="{{text:customer}}" data-id="customer" data-name="customer" data-value="" data-require="false" data-maxlength="" data-width="" data-defaultstr="" data-editable="true"></span></td> 
+    <td style="background: rgb(221, 221, 221); padding: 5px; border: 1px solid black; height: 25px; text-align: center; color: rgb(0, 0, 0); font-size: 12px; font-weight: bold; vertical-align: middle; border-image: none;"> 등록번호</td> 
+    <td style="background: rgb(255, 255, 255); padding: 5px; border: 1px solid black; text-align: left; color: rgb(0, 0, 0); font-size: 12px; font-weight: normal; vertical-align: middle; border-image: none;"><span data-type="text" data-dsl="{{text}}" data-id="" data-name="" data-value="" data-require="false" data-maxlength="" data-width="" data-defaultstr="" data-editable="true"></span> </td> 
+    <td style="background: rgb(221, 221, 221); padding: 5px; border: 1px solid black; height: 25px; text-align: center; color: rgb(0, 0, 0); font-size: 12px; font-weight: bold; vertical-align: middle; border-image: none;"> 법인등록번호</td> 
+    <td style="background: rgb(255, 255, 255); padding: 5px; border: 1px solid black; text-align: left; color: rgb(0, 0, 0); font-size: 12px; font-weight: normal; vertical-align: middle; border-image: none;"><span data-type="text" data-dsl="{{text}}" data-id="" data-name="" data-value="" data-require="false" data-maxlength="" data-width="" data-defaultstr="" data-editable="true"></span></td> 
+   </tr> 
+   <tr> 
+    <td style="background: rgb(221, 221, 221); padding: 5px; border: 1px solid black; height: 25px; text-align: center; color: rgb(0, 0, 0); font-size: 12px; font-weight: bold; vertical-align: middle; border-image: none;"> 대표자 (성명)</td> 
+    <td style="background: rgb(255, 255, 255); padding: 5px; border: 1px solid black; text-align: left; color: rgb(0, 0, 0); font-size: 12px; font-weight: normal; vertical-align: middle; border-image: none;"><span data-type="text" data-dsl="{{text}}" data-id="" data-name="" data-value="" data-require="false" data-maxlength="" data-width="" data-defaultstr="" data-editable="true"></span></td> 
+    <td style="background: rgb(221, 221, 221); padding: 5px; border: 1px solid black; height: 25px; text-align: center; color: rgb(0, 0, 0); font-size: 12px; font-weight: bold; vertical-align: middle; border-image: none;"> 업태</td> 
+    <td style="background: rgb(255, 255, 255); padding: 5px; border: 1px solid black; text-align: left; color: rgb(0, 0, 0); font-size: 12px; font-weight: normal; vertical-align: middle; border-image: none;"><span data-type="text" data-dsl="{{text}}" data-id="" data-name="" data-value="" data-require="false" data-maxlength="" data-width="" data-defaultstr="" data-editable="true"></span> </td> 
+    <td style="background: rgb(221, 221, 221); padding: 5px; border: 1px solid black; height: 25px; text-align: center; color: rgb(0, 0, 0); font-size: 12px; font-weight: bold; vertical-align: middle; border-image: none;"> 종목</td> 
+    <td style="background: rgb(255, 255, 255); padding: 5px; border: 1px solid black; text-align: left; color: rgb(0, 0, 0); font-size: 12px; font-weight: normal; vertical-align: middle; border-image: none;"><span data-type="text" data-dsl="{{text}}" data-id="" data-name="" data-value="" data-require="false" data-maxlength="" data-width="" data-defaultstr="" data-editable="true"></span></td> 
+   </tr> 
+   <tr> 
+    <td style="background: rgb(221, 221, 221); padding: 5px; border: 1px solid black; height: 25px; text-align: center; color: rgb(0, 0, 0); font-size: 12px; font-weight: bold; vertical-align: middle; border-image: none;"> 사업 소재지</td> 
+    <td style="background: rgb(255, 255, 255); padding: 5px; border: 1px solid black; text-align: left; color: rgb(0, 0, 0); font-size: 12px; font-weight: normal; vertical-align: middle; border-image: none;" colspan="5"><span data-type="text" data-dsl="{{text}}" data-id="" data-name="" data-value="" data-require="false" data-maxlength="" data-width="" data-defaultstr="" data-editable="true"></span></td> 
+   </tr> 
+   <tr> 
+    <td style="background: rgb(221, 221, 221); padding: 5px; border: 1px solid black; height: 25px; text-align: center; color: rgb(0, 0, 0); font-size: 12px; font-weight: bold; vertical-align: middle; border-image: none;"> 세금계산서 담당자</td> 
+    <td style="background: rgb(255, 255, 255); padding: 5px; border: 1px solid black; text-align: left; color: rgb(0, 0, 0); font-size: 12px; font-weight: normal; vertical-align: middle; border-image: none;"><span data-type="text" data-dsl="{{text}}" data-id="" data-name="" data-value="" data-require="false" data-maxlength="" data-width="" data-defaultstr="" data-editable="true"></span></td> 
+    <td style="background: rgb(221, 221, 221); padding: 5px; border: 1px solid black; height: 25px; text-align: center; color: rgb(0, 0, 0); font-size: 12px; font-weight: bold; vertical-align: middle; border-image: none;"> 연락처</td> 
+    <td style="background: rgb(255, 255, 255); padding: 5px; border: 1px solid black; text-align: left; color: rgb(0, 0, 0); font-size: 12px; font-weight: normal; vertical-align: middle; border-image: none;"><span data-type="text" data-dsl="{{text}}" data-id="" data-name="" data-value="" data-require="false" data-maxlength="" data-width="" data-defaultstr="" data-editable="true"></span> </td> 
+    <td style="background: rgb(221, 221, 221); padding: 5px; border: 1px solid black; height: 25px; text-align: center; color: rgb(0, 0, 0); font-size: 12px; font-weight: bold; vertical-align: middle; border-image: none;"> 이메일</td> 
+    <td style="background: rgb(255, 255, 255); padding: 5px; border: 1px solid black; text-align: left; color: rgb(0, 0, 0); font-size: 12px; font-weight: normal; vertical-align: middle; border-image: none;"><span data-type="text" data-dsl="{{text}}" data-id="" data-name="" data-value="" data-require="false" data-maxlength="" data-width="" data-defaultstr="" data-editable="true"></span></td> 
+   </tr> 
+   <tr> 
+    <td style="background: rgb(221, 221, 221); padding: 5px; border: 1px solid black; height: 25px; text-align: center; color: rgb(0, 0, 0); font-size: 12px; font-weight: bold; vertical-align: middle; border-image: none;"> 기업구분</td> 
+    <td style="background: rgb(255, 255, 255); padding: 5px; border: 1px solid black; text-align: left; color: rgb(0, 0, 0); font-size: 12px; font-weight: normal; vertical-align: middle; border-image: none;" colspan="5"><span data-type="checkbox" data-dsl="{{check_개인사업자_일반_외감_코스닥_코스피}}" data-id="" data-name="" data-label="" data-value="" data-autotype="false" data-require="false"></span><br /></td> 
+   </tr> 
+   <tr> 
+    <td style="background: rgb(221, 221, 221); padding: 5px; border: 1px solid black; height: 25px; text-align: center; color: rgb(0, 0, 0); font-size: 12px; font-weight: bold; vertical-align: middle; border-image: none;"> 자본금<br />(단위: 백만원)</td> 
+    <td style="background: rgb(255, 255, 255); padding: 5px; border: 1px solid black; text-align: left; color: rgb(0, 0, 0); font-size: 12px; font-weight: normal; vertical-align: middle; border-image: none;"><span data-type="text" data-dsl="{{text}}" data-id="" data-name="" data-value="" data-require="false" data-maxlength="" data-width="" data-defaultstr="" data-editable="true"></span></td> 
+    <td style="background: rgb(221, 221, 221); padding: 5px; border: 1px solid black; height: 25px; text-align: center; color: rgb(0, 0, 0); font-size: 12px; font-weight: bold; vertical-align: middle; border-image: none;"> 매출액</td> 
+    <td style="background: rgb(255, 255, 255); padding: 5px; border: 1px solid black; text-align: left; color: rgb(0, 0, 0); font-size: 12px; font-weight: normal; vertical-align: middle; border-image: none;"><span data-type="text" data-dsl="{{text}}" data-id="" data-name="" data-value="" data-require="false" data-maxlength="" data-width="" data-defaultstr="" data-editable="true"></span></td> 
+    <td style="background: rgb(221, 221, 221); padding: 5px; border: 1px solid black; height: 25px; text-align: center; color: rgb(0, 0, 0); font-size: 12px; font-weight: bold; vertical-align: middle; border-image: none;"> 영업이익</td> 
+    <td style="background: rgb(255, 255, 255); padding: 5px; border: 1px solid black; text-align: left; color: rgb(0, 0, 0); font-size: 12px; font-weight: normal; vertical-align: middle; border-image: none;"><span data-type="text" data-dsl="{{text}}" data-id="" data-name="" data-value="" data-require="false" data-maxlength="" data-width="" data-defaultstr="" data-editable="true"></span><br /></td> 
+   </tr> 
+  </tbody> 
+ </table> 
+ <table style="border: 1px solid rgb(0, 0, 0); width: 800px; font-family: malgun gothic,dotum,arial,tahoma; margin-top: 20px; border-collapse: collapse; border-image: none;"> 
+  <!-- Data1 --> 
+  <colgroup> 
+   <col width="120" /> 
+   <col width="260" /> 
+   <col width="90" /> 
+   <col width="320" /> 
+  </colgroup> 
+  <tbody> 
+   <tr> 
+    <td style="background: rgb(221, 221, 221); padding: 5px; border: 1px solid black; height: 25px; text-align: center; color: rgb(0, 0, 0); font-size: 12px; font-weight: bold; vertical-align: middle; border-image: none;" colspan="4"> 거래 내용</td> 
+   </tr> 
+   <tr> 
+    <td style="background: rgb(221, 221, 221); padding: 5px; border: 1px solid black; height: 25px; text-align: center; color: rgb(0, 0, 0); font-size: 12px; font-weight: bold; vertical-align: middle; border-image: none;"> 월평균예상거래액<br />(단위:원)</td> 
+    <td style="background: rgb(255, 255, 255); padding: 5px; border: 1px solid black; text-align: left; color: rgb(0, 0, 0); font-size: 12px; font-weight: normal; vertical-align: middle; border-image: none;"><span class="editor_currency" data-type="currency" data-dsl="{{currency_0}}" data-id="" data-name="" data-value="" data-autotype="false"></span></td> 
+    <td style="background: rgb(221, 221, 221); padding: 5px; border: 1px solid black; height: 25px; text-align: center; color: rgb(0, 0, 0); font-size: 12px; font-weight: bold; vertical-align: middle; border-image: none;"> 담보사항</td> 
+    <td style="background: rgb(255, 255, 255); padding: 5px; border: 1px solid black; text-align: left; color: rgb(0, 0, 0); font-size: 12px; font-weight: normal; vertical-align: middle; border-image: none;"><span data-type="text" data-dsl="{{text}}" data-id="" data-name="" data-value="" data-require="false" data-maxlength="" data-width="" data-defaultstr="" data-editable="true"></span> </td> 
+   </tr>
+   <tr> 
+    <td style="background: rgb(221, 221, 221); padding: 5px; border: 1px solid black; height: 25px; text-align: center; color: rgb(0, 0, 0); font-size: 12px; font-weight: bold; vertical-align: middle; border-image: none;"> 청구조건</td> 
+    <td style="background: rgb(255, 255, 255); padding: 5px; border: 1px solid black; text-align: left; color: rgb(0, 0, 0); font-size: 12px; font-weight: normal; vertical-align: middle; border-image: none;"><span style="font-family: &quot;malgun gothic&quot;, dotum, arial, tahoma; background-color: rgb(255, 255, 255);"><span data-type="checkbox" data-dsl="{{check_당월말_익월초_기타}}" data-id="" data-name="" data-label="" data-value="" data-autotype="false" data-require="false"></span><span style="font-family: &quot;malgun gothic&quot;, dotum, arial, tahoma; background-color: rgb(255, 255, 255);"><span data-type="text" data-dsl="{{text$width:60$}}" data-id="" data-name="" data-value="" data-require="false" data-maxlength="" data-width="60" data-defaultstr="" data-editable="true"></span></span></span></td> 
+    <td style="background: rgb(221, 221, 221); padding: 5px; border: 1px solid black; height: 25px; text-align: center; color: rgb(0, 0, 0); font-size: 12px; font-weight: bold; vertical-align: middle; border-image: none;"> 결제조건</td> 
+    <td style="background: rgb(255, 255, 255); padding: 5px; border: 1px solid black; text-align: left; color: rgb(0, 0, 0); font-size: 12px; font-weight: normal; vertical-align: middle; border-image: none;"><span data-type="text" data-dsl="{{text}}" data-id="" data-name="" data-value="" data-require="false" data-maxlength="" data-width="" data-defaultstr="" data-editable="true"></span> </td> 
+   </tr>
+   <tr> 
+    <td style="background: rgb(221, 221, 221); padding: 5px; border: 1px solid black; height: 25px; text-align: center; color: rgb(0, 0, 0); font-size: 12px; font-weight: bold; vertical-align: middle; border-image: none;"> 담보사항</td> 
+    <td style="background: rgb(255, 255, 255); padding: 5px; border: 1px solid black; text-align: left; color: rgb(0, 0, 0); font-size: 12px; font-weight: normal; vertical-align: middle; border-image: none;" colspan="3"><span data-type="textarea" data-dsl="{{textarea}}" data-id="" data-name="" data-value="" data-require="false" data-maxlength="" data-width="" data-defaultstr="" data-editable="true"></span><br /></td> 
+   </tr> 
+   <tr> 
+    <td style="background: rgb(221, 221, 221); padding: 5px; border: 1px solid black; height: 25px; text-align: center; color: rgb(0, 0, 0); font-size: 12px; font-weight: bold; vertical-align: middle; border-image: none;"> 주거래상품</td> 
+    <td style="background: rgb(255, 255, 255); padding: 5px; border: 1px solid black; text-align: left; color: rgb(0, 0, 0); font-size: 12px; font-weight: normal; vertical-align: middle; border-image: none;" colspan="3"><span data-type="text" data-dsl="{{text}}" data-id="" data-name="" data-value="" data-require="false" data-maxlength="" data-width="" data-defaultstr="" data-editable="true"></span></td> 
+   </tr> 
+   <tr> 
+    <td style="background: rgb(221, 221, 221); padding: 5px; border: 1px solid black; height: 25px; text-align: center; color: rgb(0, 0, 0); font-size: 12px; font-weight: bold; vertical-align: middle; border-image: none;"> 기타사항</td> 
+    <td style="background: rgb(255, 255, 255); padding: 5px; border: 1px solid black; text-align: left; color: rgb(0, 0, 0); font-size: 12px; font-weight: normal; vertical-align: middle; border-image: none;" colspan="3"><span data-type="textarea" data-dsl="{{textarea}}" data-id="" data-name="" data-value="" data-require="false" data-maxlength="" data-width="" data-defaultstr="" data-editable="true"></span></td> 
+   </tr> 
+  </tbody> 
+ </table> </span> 
+<p><br /><strong>첨부서류<br />1. 사업자등록증사본<br />2. 신용분석보고서(법무팀 요청)</strong>&nbsp;</p></div></span>
+</body>

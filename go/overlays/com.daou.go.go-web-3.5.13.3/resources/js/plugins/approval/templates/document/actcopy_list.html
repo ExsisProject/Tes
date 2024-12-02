@@ -1,0 +1,40 @@
+<!-- 시행문 양식 선택 -->
+
+<span class="layer_tail_top"><i></i></span>
+<div class="content go_renew">
+	<!-- 문서양식 -->
+	<div class="set_wrap">
+		<div class="set_nav">
+			<form onsubmit="return false;">
+			<section class="search">
+				<div class="search_wrap">
+					<input id="actcopySearchKeyWord" class="search" type="text" placeholder="{{lang.양식명}}" maxlength="20">
+					<input class="btn_search" type="button" value="{{lang.검색}}" title="{{lang.검색}}" evt-rol="mail-search">
+				</div>
+				<div id="detailSearchLayerWrap" style="position:relative;display:none;z-index:60"></div>
+			</section>
+			</form>
+			<!-- 문서양식 -->
+			<div class="content_tab_wrap">
+				<ul class="side_depth mail_folder" id="actCopyList">
+					<!-- treeArea -->
+				</ul>
+			</div>
+		</div>
+		<!-- 문서정보 -->
+		<div class="doc_info">
+			<div class="tit_type2">{{lang.상세정보}}</div>
+			<form>
+				<fieldset>
+					<table id="actCopy_detail" class="form_type tb_doc_info">
+						<tr><th><span class="title">{{lang.양식제목}}</span></th><td></td></tr>
+						<tr><th><span class="title">{{lang.문서분류}}</span></th><td></td></tr>
+						<tr><th><span class="title">{{lang.보존연한}}</span></th><td></td></tr>
+						<tr><th><span class="title">{{lang.설명}}</span></th><td></td></tr>	
+					</table>
+				</fieldset>
+			</form>
+		</div>
+	</div>
+</div>
+<!-- // 결재 양식 선택 -->

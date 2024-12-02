@@ -1,0 +1,53 @@
+<div class="wrap_works_info">
+    <table class="works_info_table">
+        <tbody>
+            <tr>
+                <th>
+                    <span class="title">{{{lang.이미지 선택}}}</span>
+                </th>
+                <td>
+                    <span class="wrap_select w_max">
+                        <a class="btn_minor_s btn_attach" id="uploadButton">
+                            <input type="file" id="reportImageUpload" name="reportImageButton" accept="image/*">
+                            <span class="txt">{{{lang.파일 선택}}}</span>
+                        </a>
+                        <span class="wrap_select w_max" id="reportFileName"
+                              style="width: 140px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap">
+                        </span>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <span class="title">{{{lang.맞춤 설정}}}</span>
+                </th>
+                <td>
+                    <span class="wrap_select w_max">
+                        <select id="viewSetting" class="w_max">
+                            <option value="ORIGINAL" selected>{{{imageViewOptions.맞추기}}}</option>
+                            <option value="EXPANSION">{{{imageViewOptions.늘이기}}}</option>
+                        </select>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <span class="title">{{{lang.테두리 설정}}}</span>
+                </th>
+                <td>
+                    <div>
+                        <span class="wrap_option">
+                            <input id="used" type="radio" name="borderType" value="true">
+                            <label for="used">{{{imageViewOptions.사용}}}</label>
+                        </span>
+                        <span class="horspace1"></span>
+                        <span class="wrap_option">
+                            <input id="unused" type="radio" name="borderType" value="false">
+                            <label for="unused">{{{imageViewOptions.사용안함}}}</label>
+                        </span>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

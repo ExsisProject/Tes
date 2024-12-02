@@ -1,0 +1,127 @@
+<div class="container">
+    <div class="header">
+        <h2>{{adminLang.서비스 IP 접근설정}}</h2>
+    </div>
+    <h4></h4>
+    <div class="content">
+        <table class="detail">
+            <caption>{{adminLang.서비스 IP 접근설정}}</caption>
+            <colgroup>
+                <col width="150px">
+                <col width="*">
+            </colgroup>
+            <tbody>
+                <tr>
+                    <th><span class="title">{{adminLang.사용여부}}</span></th>
+                    <td>
+                        <div class="vertical_wrap_s">
+                            <span class="option_wrap">
+                                <input class="webAccessType" type="radio" data-type="ALL" id="allow_ip_access_all" value="true" name="concurrentConnection" checked="checked">
+                                <label for="allow_ip_access_all">{{commonLang.모두 허용}}</label>
+                            </span>
+                            <span class="option_wrap">
+                                <input class="webAccessType" type="radio" data-type="PART" id="allow_ip_access_part" value="false" name="concurrentConnection">
+                                <label for="allow_ip_access_part">{{commonLang.부분 허용}}</label>
+                            </span>
+                        </div>
+                        <div id="ipAccessConfigDetailOption" class="option_display" style="display: none">
+                            <div class="wrap_vertical">
+                                <select id="ipInputType">
+                                    <option data-type="ip" selected>{{adminLang.하나의 IP 입력}}</option>
+                                    <option data-type="range">{{adminLang.IP 범위로 입력}}</option>
+                                    <option data-type="sub">{{adminLang.서브넷 마스크로 입력}}</option>
+                                </select>
+                                <span class="ipInputArea" data-type="ip">
+                                    <input class="inputStr input t_num" maxlength="3" type="number" min="0" max="255">
+                                    <span class="inputStr txt">.</span>
+                                    <input class="inputStr input t_num" maxlength="3" type="number" min="0" max="255">
+                                    <span class="inputStr txt">.</span>
+                                    <input class="inputStr input t_num" maxlength="3" type="number" min="0" max="255">
+                                    <span class="inputStr txt">.</span>
+                                    <input class="inputStr input t_num inputStrEnd" maxlength="3" type="number" min="0" max="255">
+                                </span>
+                                <span class="ipInputArea" data-type="range" style="display:none">
+                                    <input class="inputStr input t_num" maxlength="3" type="number" min="0" max="255">
+                                    <span class="inputStr txt">.</span>
+                                    <input class="inputStr input t_num" maxlength="3" type="number" min="0" max="255">
+                                    <span class="inputStr txt">.</span>
+                                    <input class="inputStr input t_num" maxlength="3" type="number" min="0" max="255">
+                                    <span class="inputStr txt">.</span>
+                                    <input class="inputStr input t_num" maxlength="3" type="number" min="0" max="255">
+                                    <span class="inputStr">-</span>
+                                    <input class="inputStr input t_num" maxlength="3" type="number" min="0" max="255">
+                                    <span class="inputStr txt">.</span>
+                                    <input class="inputStr input t_num" maxlength="3" type="number" min="0" max="255">
+                                    <span class="inputStr txt">.</span>
+                                    <input class="inputStr input t_num" maxlength="3" type="number" min="0" max="255">
+                                    <span class="inputStr txt">.</span>
+                                    <input class="inputStr input t_num inputStrEnd" maxlength="3" type="number" min="0" max="255">
+                                </span>
+                                <span class="ipInputArea" data-type="sub" style="display:none">
+                                    <input class="inputStr input t_num" maxlength="3" type="number" min="0" max="255">
+                                    <span class="inputStr txt">.</span>
+                                    <input class="inputStr input t_num" maxlength="3" type="number" min="0" max="255">
+                                    <span class="inputStr txt">.</span>
+                                    <input class="inputStr input t_num" maxlength="3" type="number" min="0" max="255">
+                                    <span class="inputStr txt">.</span>
+                                    <input class="inputStr input t_num" maxlength="3" type="number" min="0" max="255">
+                                    <span class="inputStr">/</span>
+                                    <input class="inputStr input t_num inputStrEnd" maxlength="3" type="number" min="0" max="32">
+                                </span>
+                                <span id="addBtn" class="btn_wrap"><span class="btn_s">{{commonLang.추가}}</span></span>
+                            </div>
+                            <div class="wrap_ip_permit">
+                                <div class="toolbar_top header_tb">
+                                    <div class="critical">
+                                        <span id="delBtn" class="btn_tool">
+                                            <span class="ic_adm ic_delete"></span>
+                                            <span class="txt">{{commonLang.삭제}}</span>
+                                        </span>
+                                        <span id="exportBtn" class="btn_tool">
+                                            <span class="ic_adm ic_export"></span>
+                                            <span class="txt">{{adminLang.목록 내보내기}}</span>
+                                        </span>
+                                        <span id="importBtn" class="btn_tool">
+                                            <span class="ic_adm ic_import"></span>
+                                            <span class="txt">{{adminLang.목록 가져오기}}</span>
+                                        </span>
+                                        <span class="wrap_ic_s">
+                                            <span class="help">
+                                                <span class="tool_tip">
+                                                    {{{adminLang.IP 목록 내보내기 툴팁}}}
+                                                <i class="tail_left"></i>
+                                                </span>
+                                            </span>
+                                        </span>
+                                    </div>
+                                    <div class="optional">
+                                        <span class="search_wrap">
+                                            <input id="searchInput" class="input" type="text" placeholder="{{commonLang.IP 검색}}">
+                                            <span id="searchBtn" class="btn_search" title="{{commonLang.검색}}"></span>
+                                            <input class="submit" type="submit" value="">
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="content_tb">
+                                    <select id="ipListSelectBox" class="slt_ip_list" name="" multiple="multiple" disabled="disabled">
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="page_action mini">
+        <span id="saveBtn" class="btn">{{commonLang.저장}}</span>
+        <span id="cancelBtn" class="btn_nega">{{commonLang.취소}}</span>
+    </div>
+</div>
+
+
+
+<form id="exportForm" style="display:none">
+    <input type="text" name="allowedIps" value="">
+</form>

@@ -1,0 +1,28 @@
+/*daou*/
+.go_skin_advanced #site-viewer {margin-top:50px;}
+div.more_view_wrap .go-gadget .type_simple_list li p.subject {font-weight: bold;}
+div.more_view_wrap .go_gadget_header {cursor:default}
+div.more_view_wrap .go-gadget-header {cursor: default;display: block;position: relative;height: 28px; padding: 0 0 10px; border: none; vertical-align: middle}
+div.more_view_wrap .go-gadget-column .gadget_h1 span.title {font-size: 18px;line-height: 30px;font-weight: bold;color: #3b3b3b;letter-spacing: -1px}
+div.more_view_wrap .go-gadget:hover {outline:none}
+
+/* ic_moreView */
+span.ic_moreView {display:inline-block; background:url(../images/ic_moreView.gif?v2.6.0.0) no-repeat; width:30px; height:30px; vertical-align:middle}
+	span.ic_moreView_ehr {background-position:0 0}
+	span.ic_moreView_edu {background-position:0 -30px}
+	span.ic_moreView_benecafe {background-position:0 -60px}
+	span.ic_moreView_card {background-position:0 -90px}
+	span.ic_moreView_card {background-position:0 -90px}
+	span.ic_moreView_pay {background-position:0 -120px}
+	span.ic_moreView_enfax {background-position:0 -150px}
+	span.ic_moreView_deps {background-position:-30px 0}
+	span.ic_moreView_dlms {background-position:-30px -30px}
+	span.ic_moreView_bond {background-position:-30px -60px}
+	span.ic_moreView_contract {background-position:-30px -90px}
+	span.ic_moreView_it {background-position:-30px -120px}
+	span.ic_moreView_employee {background-position:-30px -150px}
+	span.ic_moreView_teamoffice {background-position:-30px -180px}
+	span.ic_moreView_bbs {background-position:-60px 0}
+	span.ic_moreView_osuite {background-position:-60px -30px}
+	span.ic_moreView_oil {background-position:-60px -60px}/* 140630 hong */
+		span.ic_moreView_ehrNew {background-position: -60px -90px}

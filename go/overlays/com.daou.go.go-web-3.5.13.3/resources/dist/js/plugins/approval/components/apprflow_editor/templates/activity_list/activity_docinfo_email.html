@@ -1,0 +1,20 @@
+<tbody>
+{{#activities}}
+<tr class="{{dndDropClassName}} activity{{^isEnabled}} inactive{{/isEnabled}}{{#isEnabled}}{{^removable}} inactive{{/removable}}{{/isEnabled}}" data-id="{{email}}">
+    <td class="name">{{name}}</td>
+    <td>{{email}}</td>
+    <td class="company">{{company}}</td>
+	<td class="func">
+		{{#isEnabled}}
+		{{#removable}}
+		<span class="btn-remove ic_classic ic_basket" title="{{lang.remove}}" data-id="{{email}}"></span>
+		{{/removable}}
+		{{/isEnabled}}
+	</td>
+</tr>
+{{/activities}}
+
+{{^activities}}
+{{>emptyActivity}}
+{{/activities}}
+</tbody>

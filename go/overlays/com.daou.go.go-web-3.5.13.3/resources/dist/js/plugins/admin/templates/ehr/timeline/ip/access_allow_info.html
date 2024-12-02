@@ -1,0 +1,65 @@
+<th>
+    <span class="title">{{lang.label_access_allow_ip_info}}</span>
+    <span class="help">
+        <span class="tool_tip">{{adminLang.접속 허용 IP 툴팁}}
+        <i class="tail_left"></i>
+        </span>
+    </span>
+</th>
+<td>
+    <span class="wrap_option">
+        <input id="allOfIp" value="all" type="radio" name="ipGroup" {{^useIp}}checked="checked" {{/useIp}} data-tag="repeatSelect">
+        <label for="allOfIp">{{lang.label_all}}</label>
+    </span>
+    <span class="horspace1"></span>
+    <span class="wrap_option">
+        <input id="partOfIp" value="part" type="radio" name="ipGroup" {{#useIp}}checked="checked" {{/useIp}} data-tag="repeatSelect">
+        <label for="partOfIp">{{lang.label_part}}</label>
+    </span>
+    <div class="option_display" id="accessIpsContainer" {{^useIp}} style="display:none" {{/useIp}}>
+        <div class="toolbar_top">
+            <div class="critical">
+                <span class="btn_tool" id="accessIpAddBtn">
+                    <span class="ic_adm ic_plus"></span>
+                    <span class="txt">{{lang.label_add}}</span>
+                </span>
+            </div>
+        </div>
+        <table class="chart tb_ip">
+            <thead>
+            <tr>
+                <th class="sorting ip_name"><span class="title_sort">{{lang.label_ip_name}}<ins
+                        class="ic"></ins></span></th>
+                <th class="sorting ip"><span class="title_sort">{{lang.label_ip}}<ins
+                        class="ic"></ins></span></th>
+                <th class="sorting desc"><span class="title_sort">{{lang.label_description}}</span></th>
+                <th class="sorting set"></th>
+            </tr>
+            </thead>
+            <tbody>
+            {{#ipModels}}
+            <tr class="ip_model" data-id="{{id}}" data-name="{{ipName}}" data-range="{{ipRange}}">
+                <td class="ip_name name" data-id="{{id}}"><span class="txt">{{ipName}}</span></td>
+                <td class="ip"><span class="txt">{{ipRange}}</span></td>
+                <td class="description"><span class="txt">{{description}}</span></td>
+                <td class="set">
+                    <span id="{{}}" class="btn_tool ip_del_btn"  data-name="{{ipName}}" data-range="{{ipRange}}">
+                        <span class="ic_adm ic_delete" title="{{lang.label_delete}}"></span>
+                    </span>
+                </td>
+            </tr>
+            {{/ipModels}}
+            {{^ipModels}}
+            <tr>
+                <td colspan="4">
+                    <p class="data_null">
+                        <span class="txt">{{lang.ips_empty_message}}</span>
+                    </p>
+                </td>
+            </tr>
+            {{/ipModels}}
+            </tbody>
+        </table>
+    </div>
+</td>
+                

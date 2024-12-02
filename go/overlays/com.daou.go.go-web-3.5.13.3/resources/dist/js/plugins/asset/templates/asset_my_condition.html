@@ -1,0 +1,85 @@
+{{^dataset}}
+<tr>
+	<td colspan="6">
+		<p class="data_null"><span class="txt">{{lang.no_content}}</span></p>
+	</td>
+</tr>
+{{/dataset}}
+{{#dataset}}
+<tr class={{#recurrence}}"repeat"{{/recurrence}}{{^recurrence}}"general"{{/recurrence}} data-assetid="{{assetId}}" data-itemid="{{itemId}}" data-reservationid="{{id}}" data-userental="{{useRental}}"  data-recurrence={{#recurrence}}"true"{{/recurrence}}>
+	<td class="equip">
+	{{#otherCompanyReservation}}<span class="ic_con ic_share"></span>{{/otherCompanyReservation}}
+		<span class="txt">{{assetName}}</span>
+	</td>
+	<td class="name">
+		<a data-btntype="statusMove" data-bypass>{{itemName}}</a>
+	</td>
+	<td class="sort">
+		<span class="txt">
+		{{#recurrence}}{{lang.repeat}}{{/recurrence}}
+		{{^recurrence}}{{lang.normal}}{{/recurrence}}
+		</span>
+	</td>
+	<td class="date">
+		{{^recurrence}}
+		{{^group}}
+		<span class="txt">{{parseDate}}</span>
+		{{/group}}
+		{{#group}}
+		<div class="summary">
+			<span class="txt">{{parseDate}}</span>
+			<span class="btn_wrap">
+				<span class="ic_classic ic_open" title="열기"
+					  onclick="javascript:$(this).parents('td.date').toggleClass('open');
+										$(this).toggleClass('ic_open');
+										$(this).toggleClass('ic_close')">
+				</span>
+			</span>
+		</div>
+		<div class="details">
+			<ul class="date_list">
+			</ul>
+		</div>
+		{{/group}}
+		{{/recurrence}}
+		{{#recurrence}}
+		<div class="summary">
+			<span class="txt">{{text}}</span>
+			<span class="time">{{recurrenceStartTime}} ~ {{recurrenceEndTime}}</span>
+			<span class="btn_wrap">
+				<span class="ic_classic ic_open" title="열기"
+					  onclick="javascript:$(this).parents('td.date').toggleClass('open');
+										$(this).toggleClass('ic_open');
+										$(this).toggleClass('ic_close')">
+				</span>
+			</span>
+		</div>
+		<div class="details">
+			<div class="duration">
+				<span class="txt">{{startDate}} ~ {{endDate}}</span>
+			</div>
+			<ul class="date_list">
+			</ul>
+		</div>
+		{{/recurrence}}
+	</td>
+	{{#isAvailableCal}}
+	<td class="use">
+		{{^useCalendar}}
+		<span class="btn_fn7"><span class="txt">{{lang.no_use}}</span></span>
+		{{/useCalendar}}
+		{{#useCalendar}}
+		<a class="btn_fn7" data-bypass><span class="txt_b">{{lang.use}}</span></a>
+		{{/useCalendar}}
+	</td>
+	{{/isAvailableCal}}
+	<td class="action">
+		{{#useRental}}
+		<span class="btn_fn7" data-btntype="returnRental"><span class="txt_b">{{lang.return}}</span></span>
+		{{/useRental}}
+		{{^useRental}}
+		<span class="btn_fn7" data-btntype="reservationCancel"><span class="txt_b">{{lang.cancel}}</span></span>
+		{{/useRental}}
+	</td>
+</tr>
+{{/dataset}}

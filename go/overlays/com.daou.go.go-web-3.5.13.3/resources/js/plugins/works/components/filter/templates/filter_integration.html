@@ -1,0 +1,19 @@
+<div class="wrap_box_small">
+	<span class="wrap_option">
+		<input id="textFormAbstract{{cid}}" name="searchType" type="radio" value="text">
+		<label for="textFormAbstract{{cid}}">{{lang.텍스트 검색}}</label>
+	</span>
+	<span class="horspace1"></span>
+	<span class="wrap_option">
+		<input id="listFormRelative{{cid}}" name="searchType" type="radio" value="id">
+		<label for="listFormRelative{{cid}}">{{lang.데이터 검색}}</label>
+	</span>
+	<div class="search_filter">
+		<input class="txt_mini w_max" type="text" name="summary" id="textValue" value="{{searchText}}">
+		<i class="ic_search" title="{{lang.검색}}" data-type="id" id="appletDocSearch"></i>
+	</div>
+	<div class="select_linkageData" id="tagArea" data-type="id">
+		<ul class="name_tag"></ul>
+	</div>
+	<div class="list_linkageData" id="listArea" style="display: none;" data-type="id"></div>
+</div>

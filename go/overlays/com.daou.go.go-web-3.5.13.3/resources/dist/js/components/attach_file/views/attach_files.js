@@ -1,0 +1,1 @@
+(function(){define(["jquery","backbone","app","components/attach_file/views/base_attach_files","jquery.fancybox-buttons","jquery.fancybox-thumbs","jquery.fancybox","go-fancybox"],function(e,t,n,r){function o(){this.$el.find(".fancybox-thumbs").goFancybox()}var i=r.prototype,s=r.extend({render:function(){i.render.apply(this,arguments),o.call(this)}});return s})})();

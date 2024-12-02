@@ -1,0 +1,31 @@
+{{#isEditMode}}
+<td class="check">
+	<input type="checkbox">
+</td>
+<td class="doc_name">
+	<span class="txt_edit">
+		<input id="folderName" class="input edit wfix_large" type="text" value="{{model.folderName}}">
+		<span class="btn_wrap ui_edit_ing">
+			<span id="save" class="ic_side ic_done" title="{{lang.수정완료}}"></span>
+			<span id="cancel" class="ic_side ic_cancel" title="{{lang.취소}}"></span>
+		</span>
+	</span>
+</td>
+<td class="date">{{createdAt}}</td>
+<td class="num">{{model.docCount}}</td>
+{{/isEditMode}}
+{{^isEditMode}}
+<td class="check">
+	<input type="checkbox" data-folderId={{model.id}}>
+</td>
+<td class="doc_name">
+	<span class="txt_form" id="edit">
+		{{model.folderName}}
+		<span class="btn_wrap ui_edit">
+			<span class="ic_side ic_edit" id="edit" title="{{lang.수정}}"></span>
+		</span>
+	</span>
+</td>
+<td class="date">{{createdAt}}</td>
+<td class="num">{{model.docCount}}</td>
+{{/isEditMode}}

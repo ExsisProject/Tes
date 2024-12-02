@@ -1,0 +1,171 @@
+<div class="content_page">
+    <form name="formContactConfig" id="formContactConfig" >
+		<div class="container"  id="priorityContainer">
+			<div class="header">
+				<h2>{{lang.label_side}}</h2>
+			</div>
+			<div class="content">
+				<ul class="drag_option_wrap">
+					{{#model.priority}}
+						{{#priorityTypes}}
+					<li class="move" data-value="{{.}}"><!--darg 시작시 'move' 클래스 넣어주세요.-->
+						<span class="txt">{{priorityName}}</span>
+					</li>
+						{{/priorityTypes}}
+					{{/model.priority}}
+				</ul>
+			</div>
+		</div>
+		<div class="container">
+    	   <div class="header">
+    		  <h2>{{lang.label_private_config}}</h2>
+    		</div>
+    		<div class="content">
+    			<table class="detail">
+    				<colgroup>
+    					<col width="140px"/>
+    				    <col width="*" />
+                    </colgroup>
+        			<tbody>
+        			<tr>
+        				<th><span class="title">{{lang.label_max_contact}}</span></th>
+        				<td>
+        					<div class="vertical_wrap_s">
+                                <span class="user_data editable" data-formname="privateContactMax" data-value="{{model.privateContactMax}}">
+                                    <span id="data">{{model.privateContactMax}}</span>
+                                    <span class="btn_box" data-btntype="changeform">
+                                        <span class="ic ic_edit" title="{{lang.label_edit}}"></span>
+                                    </span>
+                                </span>
+        						<span class="desc vb">{{lang.label_desc_10000}}</span>
+                                <span class="go_alert" id="privateContactMaxAlert"></span>
+        					</div>
+        				</td>
+        			</tr>
+        			<tr class="last">
+        				<th><span class="title">{{lang.label_max_group}}</span></th>
+        				<td>
+        					<div class="vertical_wrap_s">
+                                <span class="user_data editable" data-formname="privateContactGroupMax" data-value="{{model.privateContactGroupMax}}">
+                                    <span id="data">{{model.privateContactGroupMax}}</span>
+                                    <span class="btn_box" data-btntype="changeform">
+                                        <span class="ic ic_edit" title="{{lang.label_edit}}"></span>
+                                    </span>
+                                </span>
+        						<span class="desc vb">{{lang.label_desc_1000}}</span>
+                                <span class="go_alert" id="privateContactGroupMaxAlert"></span>
+        					</div>
+        				</td>
+        			</tr>
+        			</tbody>
+    			</table>
+            </div>
+        </div>
+		<div class="container">
+			<div class="header">
+				<h2>{{lang.label_department_config}}</h2>
+			</div>
+			<div class="content">
+				<table class="detail">
+					<colgroup>
+						<col width="140px"/>
+						<col width="*" />
+					</colgroup>
+					<tbody>
+					<tr>
+						<th><span class="title">{{lang.label_max_contact}}</span></th>
+						<td>
+							<div class="vertical_wrap_s">
+                                <span class="user_data editable" data-formname="departmentContactMax" data-value="{{model.departmentContactMax}}">
+                                    <span id="data">{{model.departmentContactMax}}</span>
+                                    <span class="btn_box" data-btntype="changeform">
+                                        <span class="ic ic_edit" title="{{lang.label_edit}}"></span>
+                                    </span>
+                                </span>
+								<span class="desc vb">{{lang.label_desc_10000}}</span>
+								<span class="go_alert" id="departmentContactMaxAlert"></span>
+							</div>
+						</td>
+					</tr>
+					<tr class="last">
+						<th><span class="title">{{lang.label_max_group}}</span></th>
+						<td>
+							<div class="vertical_wrap_s">
+                                <span class="user_data editable" data-formname="departmentContactGroupMax" data-value="{{model.departmentContactGroupMax}}">
+                                    <span id="data">{{model.departmentContactGroupMax}}</span>
+                                    <span class="btn_box" data-btntype="changeform">
+                                        <span class="ic ic_edit" title="{{lang.label_edit}}"></span>
+                                    </span>
+                                </span>
+								<span class="desc vb">{{lang.label_desc_1000}}</span>
+								<span class="go_alert" id="departmentContactGroupMaxAlert"></span>
+							</div>
+						</td>
+					</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+        <div class="container">			
+    	   <div class="header">
+    		  <h2>{{lang.label_company_config}}</h2>
+    	   </div>			
+    	   <div class="content">
+                <table class="detail">
+                    <colgroup>
+    				    <col width="140px"/>
+    					<col width="*" />
+    				</colgroup>
+    				<tbody>
+        				<tr>
+        					<th><span class="title">{{lang.label_max_contact}}</span></th>
+        					<td>								
+        						<div class="vertical_wrap_s">
+                                    <span class="user_data editable" data-formname="companyContactMax" data-value="{{model.companyContactMax}}">
+                                        <span id="data">{{model.companyContactMax}}</span>
+                                        <span class="btn_box" data-btntype="changeform">
+                                            <span class="ic ic_edit" title="{{lang.label_edit}}"></span>
+                                        </span>
+                                    </span>
+        							<span class="desc vb">{{lang.label_desc_10000}}</span>
+                                    <span class="go_alert" id="companyContactMaxAlert"></span>
+        						</div>									
+        						
+        					</td>
+        				</tr>	
+        				<tr>
+        					<th><span class="title">{{lang.label_max_company_group}}</span></th>
+        					<td>								
+        						<div class="vertical_wrap_s">
+                                    <span class="user_data editable" data-formname="companyContactGroupMax" data-value="{{model.companyContactGroupMax}}">
+                                        <span id="data">{{model.companyContactGroupMax}}</span>
+                                        <span class="btn_box" data-btntype="changeform">
+                                            <span class="ic ic_edit" title="{{lang.label_edit}}"></span>
+                                        </span>
+                                    </span>
+        							<span class="desc vb">{{lang.label_desc_1000}}</span>
+                                    <span class="go_alert" id="companyContactGroupMaxAlert"></span>
+        						</div>									
+        					</td>
+        				</tr>
+        				
+        				<tr class="last">
+			                <th><span class="title">{{lang.공용 주소록 관리자}}</span></th>
+			                <td>
+			                    <ul class="name_tag">
+		                    	</ul>
+			                	<span class="desc">{{lang.공용 주소록 관리자 설명}}</span>
+		                	</td>
+			            </tr>								
+    				</tbody>
+    			</table>
+    		</div>
+    	</div>
+    </form>
+    
+	<div class="page_action">
+		<span class="btn" id="btn_ok">{{lang.label_ok}}</span>
+		<span class="btn_nega" id="btn_cancel">{{lang.label_cancel}}</span>
+	</div>
+
+</div>

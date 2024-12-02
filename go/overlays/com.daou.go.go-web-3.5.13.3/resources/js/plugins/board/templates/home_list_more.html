@@ -1,0 +1,103 @@
+{{#dataSet}}
+	{{^isPostHidden}}
+	<li class="{{boardType}} dataItem {{^readPost}}read_no{{/readPost}}" data-boardType="{{type}}" data-boardId="{{boardId}}" data-postId="{{id}}">
+		<div class="article_wrap">
+			<span class="category">
+				{{boardMasterOwner.ownerInfo}}
+				<span class="arrow">></span>
+				<a data-bypass data-boardid="{{boardId}}" class="board_link">{{boardName}}</a>
+			</span>
+            {{#isClassic}}
+            <span class="title"><a data-bypass>{{title}}</a></span>
+            {{/isClassic}}
+            {{#newFlag}}<span class="ic_classic ic_new2" title=""></span>{{/newFlag}}
+            <span class="btn_wrap">
+		        <span class="ic_classic ic_comment"></span>
+                <span class="num">{{commentsCount}}</span>
+            </span>
+            <div class="article home_content"><a data-bypass>{{{contentParse}}}</a></div>
+			<div class="info">
+                <span class="photo">
+				    <a data-userid="{{writer.id}}" data-bypass><img alt="{{writer.name}} {{writer.positionName}}" title="{{writer.name}} {{writer.positionName}}" src="{{writer.thumbSmall}}"></a>
+			    </span>
+				<a class="name{{#writer.otherCompanyUser}} multi_user{{/writer.otherCompanyUser}}" data-userid="{{writer.id}}" data-bypass >{{writer.name}} {{writer.positionName}}</a>
+				<span class="date">{{dateParse}}</span>
+			</div>
+		</div>
+		<div class="meta_wrap">
+            <span class="wrap_heart {{#recommend}}on{{/recommend}}">
+                <span class="ic_con ic_heart"></span>
+                <span class="txt">{{recommendCount}}</span>
+            </span>
+		</div>
+	</li>
+	{{/isPostHidden}}
+	{{#isPostHidden}}
+	<li class="private">
+		<p class="noti_msg">
+			<span class="ic"></span>
+			<span class="txt">
+				{{#isTitleShowHiddenPost}}{{title}}{{/isTitleShowHiddenPost}}
+				{{^isTitleShowHiddenPost}}{{lang.no_auth}}{{/isTitleShowHiddenPost}}
+			</span><br>
+			<span class="date">{{dateParse}}</span>
+		</p>
+	</li>		
+	{{/isPostHidden}}
+{{/dataSet}}
+{{^dataSet}}
+	{{^isFavorite}}
+		{{#hasBoard}}{{#isOrgServiceOn}}
+		<p class="data_null">
+			{{#writeBtnShow}}
+			<span class="ic_data_type ic_no_contents"></span>
+			<span class="txt">{{lang.not_list}}</span>
+			<br />						
+			<a class="btn_major_s" data-role="button" id="homeListNewPostBtn">
+				<span class="txt">{{lang.new_post}}</span>
+			</a>
+			{{/writeBtnShow}}
+			{{^writeBtnShow}}
+			<span class="ic_data_type ic_no_contents"></span>
+			<span class="txt">{{lang.not_list_01}}</span>
+			{{/writeBtnShow}}
+		</p>				
+		{{/isOrgServiceOn}}
+		{{^isOrgServiceOn}}
+		<p class="data_null">
+			<span class="ic_data_type ic_no_contents"></span>
+			<span class="txt">{{lang.not_list_01}}</span>
+		</p>
+		{{/isOrgServiceOn}}{{/hasBoard}}
+		
+		{{^hasBoard}}{{#isOrgServiceOn}}
+		<p class="data_null">
+			<span class="ic_data_type ic_no_contents"></span>
+			<span class="txt">{{lang.not_board}}</span>
+			<br />							
+			<a class="btn_major_s" data-role="button" id="homeListNewBoardBtn">
+				<span class="ic"></span>
+				<span class="txt">{{lang.new_board}}</span>
+			</a>
+		</p>
+		{{/isOrgServiceOn}}
+		{{^isOrgServiceOn}}	
+		<p class="data_null">
+			<span class="ic_data_type ic_no_contents"></span>
+			<span class="txt">{{lang.not_dept_board}}</span>
+			<br />							
+		</p>
+		{{/isOrgServiceOn}}{{/hasBoard}}
+	{{/isFavorite}}
+	{{#isFavorite}}
+		{{^isEmptyFavorite}}
+			{{{lang.empty_favorite}}}
+		{{/isEmptyFavorite}}
+		{{#isEmptyFavorite}}
+			<p class="data_null">
+				<span class="ic_data_type ic_no_contents"></span>
+				<span class="txt">{{lang.not_list_01}}</span>
+			</p>
+		{{/isEmptyFavorite}}
+	{{/isFavorite}}
+{{/dataSet}}

@@ -1,0 +1,220 @@
+<h3>
+	<a>
+		<span class="btn_wrap">
+			<span class="txt_ellipsis">{{lang.approval}}</span><span class="num"></span>
+		</span>
+	</a>
+</h3>
+<ul>
+	<li>
+		<a data-bypass data-navi="todo" href="#">
+			<span class="btn_wrap">
+				<span class="ic_side ic_appr_standby"></span>
+				<span class="txt_ellipsis">{{lang.appr_wait_doc}}</span><span class="num"></span>
+			</span>
+		</a>
+	</li>
+	<li>
+		<a data-bypass data-navi="todoreception" href="#">
+			<span class="btn_wrap">
+				<span class="ic_side ic_appr_inbox"></span>
+				<span class="txt_ellipsis">{{lang.appr_wait_reception_doc}}</span><span class="num"></span>
+			</span>
+		</a>
+	</li>
+	{{#data.useOfficialConfirm}}
+		{{#data.isOfficialDocMaster}}
+		<li>
+			<a data-bypass data-navi="officialtodo" href="#">
+				<span class="btn_wrap">
+					<span class="ic_side ic_appr"></span>
+					<span class="txt_ellipsis">{{lang.official_todo_doc}}</span><span class="num"></span>
+				</span>
+			</a>
+		</li>
+		{{/data.isOfficialDocMaster}}
+	{{/data.useOfficialConfirm}}
+	<li>
+		<a data-bypass data-navi="todoviewer" href="#">
+			<span class="btn_wrap">
+				<span class="ic_side ic_appr_cc"></span>
+				<span class="txt_ellipsis">{{lang.appr_todoviewer_doc}}</span><span class="num"></span>
+			</span>
+		</a>
+	</li>
+	<li>
+		<a data-bypass data-navi="upcoming" href="#">
+			<span class="btn_wrap">
+				<span class="ic_side ic_appr_expected"></span>
+				<span class="txt_ellipsis">{{lang.appr_sched_doc}}</span><span class="num"></span>
+			</span>
+		</a>
+	</li>
+</ul>
+<h3>
+	<a>
+		<span class="btn_wrap">
+			<span class="txt_ellipsis">{{lang.user_docfolder}}</span>
+		</span>
+	</a>
+</h3>
+<ul class="side_depth">
+	<li class="folder">
+		<p class="title">
+			<a href="#">
+				<span class="btn_wrap">
+					<span class="ic_side ic_folder"></span>
+					<span class="txt_ellipsis">{{lang.base_docfolder}}</span>						
+				</span>
+			</a>
+		</p>
+		<ul>
+			<li class="folder">
+				<p class="title">
+					<a data-bypass data-navi="draft" href="#">
+						<span class="btn_wrap">
+							<span class="ic ic_root"></span>
+							<span class="ic_side ic_appr_draft"></span>
+							<span class="txt_ellipsis">{{lang.draft_docfolder}}</span>
+						</span>
+					</a>
+				</p> 
+			</li>
+			<li class="folder">
+				<p class="title">
+					<a data-bypass data-navi="tempsave" href="#">
+						<span class="btn_wrap">
+							<span class="ic ic_root"></span>
+							<span class="ic_side ic_appr_sign"></span>
+							<span class="txt_ellipsis">{{lang.appr_tempsave}}</span>
+						</span>
+					</a>
+				</p>
+			</li>
+			<li class="folder">
+				<p class="title">
+					<a data-bypass data-navi="approve" href="#">
+						<span class="btn_wrap">
+							<span class="ic ic_root"></span>
+							<span class="ic_side ic_appr_sign"></span>
+							<span class="txt_ellipsis">{{lang.appr_docfolder}}</span>
+						</span>
+					</a>
+				</p> 
+			</li>
+			<li class="folder">
+				<p class="title">
+					<a data-bypass data-navi="viewer" href="#">
+						<span class="btn_wrap">
+							<span class="ic ic_root"></span>
+							<span class="ic_side ic_appr_cc"></span>
+							<span class="txt_ellipsis">{{lang.viewer_docfolder}}</span>
+						</span>
+					</a>
+				</p> 
+			</li>
+			<li class="folder">
+				<p class="title">
+					<a data-bypass data-navi="reception" href="#">
+						<span class="btn_wrap">
+							<span class="ic ic_root"></span>
+							<span class="ic_side ic_appr_inbox"></span>
+							<span class="txt_ellipsis">{{lang.reception_docfolder}}</span>
+						</span>
+					</a>
+				</p> 
+			</li>
+			<li class="folder">
+				<p class="title">
+					<a data-bypass data-navi="send" href="#">
+						<span class="btn_wrap">
+							<span class="ic ic_root"></span>
+							<span class="ic_side ic_appr_draft"></span>
+							<span class="txt_ellipsis">{{lang.send_docfolder}}</span>
+						</span>
+					</a>
+				</p> 
+			</li>
+			<li class="folder">
+				<p class="title">
+					<a data-bypass data-navi="userofficial" href="#">
+						<span class="btn_wrap">
+							<span class="ic ic_root"></span>
+							<span class="ic_side ic_appr"></span>
+							<span class="txt_ellipsis">{{lang.user_official_docfolder}}</span>
+						</span>
+					</a>
+				</p> 
+			</li>
+			{{#data.deptReceiveAuth.deptReceiveAuth}}
+			<li class="folder">
+				<p class="title">
+					<a data-bypass data-navi="deptreceive" href="#">
+						<span class="btn_wrap">
+							<span class="ic ic_root"></span>
+							<span class="ic_side ic_appr_reception"></span>
+							<span class="txt_ellipsis">{{lang.dept_rcpt}}</span>
+						</span>
+					</a>
+				</p> 
+			</li>
+			{{/data.deptReceiveAuth.deptReceiveAuth}}
+		</ul>
+	</li>
+	{{#data.addedFolder}}
+	<li class="folder">
+		<p class="title">
+			<a href="#">
+				<span class="btn_wrap">
+					<span class="ic_side ic_folder"></span>
+					<span class="txt_ellipsis">{{lang.added_docfolder}}</span>						
+				</span>
+			</a>
+		</p>
+		<ul>
+			{{#data.userFolders}}
+			<li class="folder">
+				<p class="title">
+					<a data-bypass data-id="{{folderId}}" data-navi="userdoc" href="#">
+						<span class="btn_wrap">
+							<span class="ic ic_root"></span>
+							<span class="ic_side ic_appr"></span>
+							<span class="txt_ellipsis">{{folderName}}</span>
+						</span>
+					</a>
+				</p> 
+			</li>
+			{{/data.userFolders}}
+		</ul>
+	</li>
+	{{/data.addedFolder}}
+	{{#data.sharedFolder}}
+	<li class="folder">
+		<p class="title">
+			<a href="#">
+				<span class="btn_wrap">
+					<span class="ic_side ic_folder"></span>
+					<span class="txt_ellipsis">{{lang.shared_docfolder}}</span>						
+				</span>
+			</a>
+		</p>
+		<ul>
+			{{#data.sharedFoldersToUser}}
+			<li class="folder">
+				<p class="title">
+					<a data-bypass data-id="{{folderId}}" {{#isfolderTypeUser}}data-navi="shareuserdoc"{{/isfolderTypeUser}}{{^isfolderTypeUser}}data-navi="sharedeptdoc"{{/isfolderTypeUser}} data-belong="inuser" data-deptid="{{deptId}}" href="#">
+						<span class="btn_wrap">
+							<span class="ic ic_root"></span>
+							<span class="ic_side ic_appr"></span>
+							<span class="txt_ellipsis">{{folderName}}</span>
+						</span>
+					</a>
+				</p> 
+			</li>
+			{{/data.sharedFoldersToUser}}
+		</ul>
+	</li>	
+	{{/data.sharedFolder}}
+</ul>
+
+<!-- 이 밑으로 부서문서함 -->

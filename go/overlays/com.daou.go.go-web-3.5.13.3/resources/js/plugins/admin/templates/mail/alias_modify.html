@@ -1,0 +1,110 @@
+<div class="content_page" id="aliasCreateTmpl">
+    <form name="formAliasModify">
+   		{{#useLayout}}
+        <div class="container">
+            <div class="header">
+                <h2>{{lang.label_alias_create}}</h2>
+            </div>
+        {{/useLayout}}
+            <div class="content">
+                <table class="detail">
+	                <colgroup>
+						<col width="140px">
+						<col width="*">
+					</colgroup>
+		            <tbody>
+		            <tr>
+					    <th><ins class="asterisk">*</ins><span class="title">{{lang.label_alias_name}}</span></th>
+		            	<td>
+		                	{{#data.userName}}
+		                	<span class="editable">
+                            {{data.userName}}
+	                            <span class="btn_box">
+	                                <span class="ic ic_edit" title="{{lang.label_modify}}"></span>
+	                            </span>
+	                        </span>
+	                        <input class="input w_half" id="userName" name="userName" value="{{data.userName}}" style="display:none;"/>
+	                        {{/data.userName}}
+	                        {{^data.userName}}
+	                        <input class="input w_half" id="userName" name="userName" value="{{data.userName}}"/>
+	                        {{/data.userName}}
+		                </td>
+		            </tr>
+		            <tr>
+					    <th><ins class="asterisk">*</ins><span class="title">{{lang.label_alias_id}}</span>
+							<span class="wrap_ic_s">
+								<span class="help">
+									<span class="tool_tip">{{lang.id_tooltip}}<i class="tail_left"></i></span>
+								</span>
+							</span>
+						</th>
+		            	<td>
+		                	<span class="editable">
+                            {{data.mailUid}}
+	                            <span class="btn_box">
+	                                <span class="ic ic_edit" title="{{lang.label_modify}}"></span>
+	                            </span>
+	                        </span>
+	                        <input class="input w_half" id="mailUid" name="mailUid" value="{{data.mailUid}}" style="display:none; text-transform:lowercase;"/> @{{domain}}
+		                </td>
+		            </tr>
+		            <tr>
+					    <th><span class="title">{{lang.label_service_status}}</span></th>
+		            	<td>
+		                	<span class="option_wrap">
+		                        <input type="radio" id="accountStatus_enabled" name="accountStatus" value="enabled" checked="checked" /> 
+		                        <label for="accountStatus_enabled">{{lang.label_enabled_status}}</label>
+		                    </span>
+		                    <span class="option_wrap">
+		                        <input type="radio" id="accountStatus_disabled" name="accountStatus" value="disabled" /> 
+		                        <label for="accountStatus_disabled">{{lang.label_disabled_status}}</label>
+		                    </span>
+		                </td>
+		            </tr>
+		            <tr >
+					    <th><span class="title">{{lang.label_forwarding_email}}</span><br/>
+					    	<span class="title">{{lang.label_forwrding_detail_user}}</span></th>
+		            	<td>
+		                	<ul class="name_tag" id="addEmailEl">
+			                	<ul class="name_tag" id="addOrgEmailEl">
+								</ul>
+								<ul class="name_tag" id="addUserEmailEl">
+								</ul>
+								<li class="creat">
+									<span class="btn_wrap">
+										<span class="ic ic_addlist"></span>
+										<span class="txt" id="selectAccount">{{lang.label_select_account}}</span>
+									</span>
+								</li>
+							</ul>
+		                </td>
+		            </tr>
+		            <tr class="last">
+					    <th><span class="title">{{lang.label_forwarding_email}}</span><br/>
+					    	<span class="title">{{lang.label_forwrding_detail_alias}}</span></th>
+		            	<td>
+		                	<ul class="name_tag" id="addAliasEmailEl">
+								<li class="creat">
+									<span class="btn_wrap">
+										<span class="ic ic_addlist"></span>
+										<span class="txt" id="selectAlias">{{lang.label_select_alias}}</span>
+									</span>
+								</li>
+							</ul>
+							
+		                </td>
+		            </tr>
+		            </tbody>
+		        </table>
+            </div>
+        {{#useLayout}}
+        </div>
+        {{/useLayout}}
+    </form>
+    <div class="page_action">
+        <span class="btn" id="btn_ok">{{lang.label_ok}}</span> 
+        <span class="btn_nega" id="btn_cancel">{{lang.label_cancel}}</span>
+        {{#useLayout}}<span class="btn_nega" id="btn_move_list">{{lang.label_move_list}}</span>{{/useLayout}}
+    </div>
+
+</div>

@@ -1,0 +1,19 @@
+<select class="baseJobList">
+	{{#isOrgServiceOn}}<option value="department">{{lang.department}}</option>{{/isOrgServiceOn}}
+	{{^isContact}}<option value="user">{{lang.user}}</option>{{/isContact}}
+	<option value="position">{{lang.position}}</option>
+	<option value="grade">{{lang.rank}}</option>
+	{{#isOrgServiceOn}}
+	<option value="duty">{{lang.duty}}</option>
+	{{/isOrgServiceOn}}
+	<option value="usergroup">{{lang.user_group}}</option>
+</select>
+<select class="groupListSelect">	
+</select>
+{{#isOrgServiceOn}}
+<span class="option_wrap">
+	<input type="checkbox" value="" class="sharedType" id="sharedType"/>
+	<label for="sharedType">{{lang.low_dept}}</label>
+</span>	
+{{/isOrgServiceOn}}
+<span class="btn_s addBtn" data-btntype="addBtn">{{lang.submit}}</span>

@@ -1,0 +1,1 @@
+(function(){define(["backbone"],function(e){var t=null,n=e.Collection.extend({url:function(){return"/api/board/menu/target/lowrank"}});return{getCollection:function(){return t==null&&(t=new n),t.fetch({async:!1}),t}}})}).call(this);

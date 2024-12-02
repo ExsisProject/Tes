@@ -1,0 +1,400 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="ko">
+<head>
+<title>Works 앱 함께 만들어 보기</title> 
+<meta name='Format'                  content='text/html'>
+<meta name='Robots'                  content='index,follow'>
+<meta name='Charset'                 content='utf-8'>
+<meta name='Keywords'                content='다우기술,오피스,다우오피스'>
+<meta http-equiv='Content-Type'      content='text/html; charset=utf-8'>
+<meta http-equiv='Cache-Control'     content='no-cache'>
+<meta http-equiv='Pragma'            content='no-cache'>
+<meta http-equiv='Expires'           content='0'>
+<meta name="format-detection" content="telephone=no" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, target-densitydpi=medium-dpi" /> 
+<script type="text/javascript" src="./common/util.js"></script>     
+<script type="text/javascript">     
+
+// 설명할 템플릿번호
+subject = "02";
+currentPage = 1;
+totalPage = 100;
+
+
+checkExp02 = function() {
+            isExist = $("#img" + currentPage).attr("exp");
+            if (isExist != "n") {
+                  $("#expString").remove();
+                  expstr = "<div id= 'expString'>";
+                  switch (currentPage) {
+                        case 1:
+                            expstr = expstr + "영업팀에서는 신규 고객사 발굴 시 고객사명이 하나의 Sheet가 되는 고객사 관리 파일을 각 영업 담당자별로 만들도록 하고 ";
+                            break;
+                        case 2:
+                            expstr = expstr + "이를 팀장이 취합 관리하며 영업팀과 경영지원팀에게만 내용을 공개하고 있습니다.";
+                            break;
+                        case 3:
+                            expstr = expstr + "이렇게 운영되고 있는 업무를 <br/>Works에서 고객사의 기본 정보에 해당되는 데이터와";
+                            break;
+                        case 4:
+                            expstr = expstr + "고객사 컨택 포인트, 그리고 이 고객사의 매출 관련 데이터,";
+                            break;
+                        case 5:
+                            expstr = expstr + "마지막으로 영업 담당자 관련 데이터를 각각 화면과 같이 입력하도록 하고";
+                            break;     
+                        case 6:
+                            expstr = expstr + "누적된 데이터들에 대해 앱 실행 홈 화면에서 <b>산업 분류별 고객사 현황</b>, <b>직원 수별 고객사 현황</b>, <b>영업 담당자별 고객사 발굴 누적치</b> 차트로 보여주며";
+                            break;
+                        case 7:
+                            expstr = expstr + "그 아래에는 <b>고객사 최초 둥록일</b>과 <b>회사명</b>, <b>산업 분류</b>, <b>직원 수</b>, <b>매출 기준(금년)</b>, <b>Y년도 목표 매출</b>, <b>Y-1년도 달성 매출</b>, <b>Y+1년도 예상 매출</b> 항목들로 구성된 데이터 목록이 나열되도록 하는 <b>고객사 관리</b> 앱을 지금부터 함께 만들어 보겠습니다.";
+                            break;
+                        case 8:
+                            expstr = expstr + "앞서 만든 <b>제품 관리</b> 앱의 사용자이며 영업팀 소속 Works 운영자의 Works 홈 화면입니다.<br/><br/><b>고객사 관리</b> 앱을 만들기 위해 <b>+</b> 아이콘을 클릭합니다.";
+                            break;
+                        case 9:
+                            expstr = expstr + "모든 것을 새롭게 기획하여 앱을 만들 것이기 때문에 <b>새로운 앱</b>을 클릭합니다.";
+                            break;
+                        case 10:
+                            expstr = expstr + "<b>앱 이름</b>에 <b>고객사 관리</b>를 입력한 후 <b>운영자</b>와 <b>앱 설명</b>과 <b>앱 아이콘</b>을 설정 또는 입력합니다. <br/><br/>보다 자세한 내용은 <b>제품 관리 앱 만들기 > 시작하기</b>의 설명을 참조하십시오.";
+                            break;         
+                        case 11:
+                            expstr = expstr + "스프레드시트의 내용을 바탕으로 데이터를 등록할 입력 화면을 만들기 위해 <b>입력 화면</b>을 클릭합니다.";
+                            break;
+                        case 12:
+                            expstr = expstr + "<b>제목</b>과 <b>내용</b>과 <b>파일첨부</b> 끝으로 마우스를 가져간 후 나타나는 <b>X</b> 아이콘을 클릭해 <b>새로운 앱</b> 만들기를 선택했을 때 기본으로 제공된 입력 항목들을 모두 삭제합니다.";
+                            break;
+                        case 13:
+                            expstr = expstr + "입력할 항목들이 많으므로 <b>라벨</b> 입력 항목을 이용해 이들을 구분 지어 주려 합니다. <br/><br/><b>라벨</b> 입력 항목을 우측 화면에 가져다 놓고";
+                            break;
+                        case 14:
+                            expstr = expstr + "클릭하여 좌측에 <b>속성</b>들이 나타나게 한 후 <b>이름</b>을 <b>◆ 고객사 정보</b>로 변경합니다.";
+                            break;
+                        case 15:
+                            expstr = expstr + "그리고 <b>컬럼(다단)</b>을 그 밑에 가져다 놓음으로써 다른 입력 항목들을 두 컬럼에 배열할 수 있도록 합니다.";
+                            break;     
+                        case 16:
+                            expstr = expstr + "<b>텍스트</b> 입력 항목을 컬럼 우측에 가져다 놓고";
+                            break;
+                        case 17:
+                            expstr = expstr + "클릭하여 좌측에 <b>속성</b>들이 나타나게 한 후<br/>- <b>이름</b>을 <b>회사명</b>으로 변경하고<br/>- <b>필수 입력 항목</b>을 선택해<br/>모든 데이터에 회사명을 입력하지 않으면 등록되지 않도록 제어합니다.";
+                            break;
+                        case 18:
+                            expstr = expstr + "또 다른 <b>텍스트</b> 입력 항목을 <b>회사명</b> 아래에 가져다 놓은 후 클릭하여 좌측에 <b>속성</b>들이 나타나게 하고 <b>이름</b>을 <b>대표자명</b>으로 변경합니다.";
+                            break;
+                        case 19:
+                            expstr = expstr + "이번에는 <b>텍스트</b> 입력 항목을 <b>대표자명</b> 아래에 가져다 놓고 클릭하여 좌측에 <b>속성</b>들이 나타나면<br/>먼저 <b>이름</b>을 <b>홈페이지</b>로 변경하고";
+                            break;
+                        case 20:
+                            expstr = expstr + "<b>속성</b>의 아래 쪽에 있는 <b>입력 값 유효성 체크</b> 속성의 값을 <b>URL</b>로 설정하여 향후 데이터 상세 화면에서 홈페이지 값이 링크 처리되어 나타나도록 합니다.";
+                            break;      
+                        case 21:
+                            expstr = expstr + "스프레드시트에서 세금계산서 발행을 위한 사업자등록증 정보를 여러 항목으로 다루었던 것을 사업자등록증 사본 이미지를 데이터로 다루는 것으로 대체하기 위해 <b>파일첨부</b> 입력 항목을 <b>홈페이지</b> 아래에 가져다 놓고";
+                            break;
+                        case 22:
+                            expstr = expstr + "클릭하여 좌측에 <b>속성</b>들이 나타나게 한 후 <b>이름</b>을 <b>사업자등록증사본</b>으로 변경합니다.";
+                            break;
+                        case 23:
+                            expstr = expstr + "다음으로 컬럼 우측에 <b>드롭 박스</b> 입력 항목을 가져다 놓고";
+                            break;
+                        case 24:
+                            expstr = expstr + "클릭하여 <b>속성</b>들이 나타나게 한 후<br/>- <b>이름</b>을 <b>산업 분류</b>로 변경하고<br/>- <b>필수 입력 항목</b>을 체크하고<br/>- <b>세부 항목</b> 속성 값을 (필요 시 <b>+추가</b>를 클릭하며) <b>IT, 인터넷</b>, <b>연구개발,설계</b>, <b>생산,제조</b>, <b>미디어</b>, <b>의료,보건</b>, <b>예술, 문화</b>, <b>서비스</b>, <b>기타</b>로 변경합니다.";
+                            break;
+                        case 25:
+                            expstr = expstr + "<b>산업 분류</b> 밑으로 <b>단일 선택</b> 입력 항목을 가져다 놓고";
+                            break;     
+                        case 26:
+                            expstr = expstr + "클릭하여 <b>속성</b>들이 나타나게 한 후<br/>- <b>이름</b>을 <b>병역특례지정 여부</b>로 변경하고<br/>- <b>세부항목</b> 속성 값 중 2개를 <b>병역 특례 기업</b>, <b>해당사항 없음</b>으로 변경한 후 <b>해당사항 없음</b>을 기본 값으로 선택하고<br/>- <b>옵션3</b>는 끝에 있는 <b>X</b>를 클릭해 삭제합니다.";
+                            break;
+                        case 27:
+                            expstr = expstr + "또 하나의 <b>단일 선택</b> 입력 항목을 <b>병역특례지정 여부</b> 밑에 가져다 놓고 클릭하여 <b>속성</b>들이 나타나게 한 후 <br/>- <b>이름</b>을 <b>벤처기업 여부</b>로 변경하고<br/>- <b>세부항목</b> 속성 값으로  <b>벤처기업</b>과 <b>해당사항 없음</b>이 화면처럼 나오도록 앞의 방법과 동일하게 작업합니다.";
+                            break;
+                        case 28:
+                            expstr = expstr + "<b>벤처기업 여부</b> 밑으로 <b>숫자</b> 입력 항목을 가져다 놓습니다.";
+                            break;
+                        case 29:
+                            expstr = expstr + "<b>숫자</b> 입력 항목을 클릭하여 <b>속성</b>들이 나타나게 한 후<br/><b>이름</b>을 <b>직원 수</b>로 변경하고";
+                            break;
+                        case 30:
+                            expstr = expstr + "- <b>접미사</b>로 선택되어 있는 <b>접사 표기</b> 속성 값에 <b>여 명 내외</b>를 입력하고<br/>- <b>소수점 자리 수</b> 속성 값은 0으로 변경합니다. ";
+                            break; 
+                        case 31:
+                            expstr = expstr + "이번에는 <b>멀티 텍스트</b> 입력 항목을 컬럼의 좌나 우가 아닌 <b>컬럼(다단)</b> 입력 항목 아래에 가져다 놓습니다.";
+                            break;
+                        case 32:
+                            expstr = expstr + "<b>멀티 텍스트</b> 입력 항목을 클릭하여 <b>속성</b>들이 나타나면 먼저 <b>이름</b>을 <b>회사 소개</b>로 변경합니다. <br/>그리고 <b>설명</b>에 <b>알려지지 않은 기업인 경우 반드시 입력</b>을 입력한 후 <b>툴팁으로 표현</b>의 선택을 해제하고<br/>하단의 <b>입력 높이 조절</b> 속성 값을 <b>4</b>로 변경합니다.";
+                            break;
+                        case 33:
+                            expstr = expstr + "자, 다음으로 스프레드시트에서 한 고객사의 Sheet에 행을 추가하며 데이터를 누적했던 <b>컨택 포인트</b>를 입력 화면으로 구현하기 위해";
+                            break;
+                        case 34:
+                            expstr = expstr + "<b>테이블 영역</b> 입력 항목을 <b>회사 소개</b> 아래에 가져다 놓고";
+                            break;
+                        case 35:
+                            expstr = expstr + "클릭하여 <b>속성</b>들이 나타나면 <br/>- <b>이름</b>을 <b>컨택 포인트</b>로 변경하고<br/>- <b>설명</b>에 <b><b>대상 업무</b>가 <b>기타</b>인 경우, 컨택 포인트가 변경된 경우 그 내역을 <b>활동 기록</b>에 작성합니다.</b>를 입력한 후 <b>툴팁으로 표현</b>의 선택을 해제합니다.";
+                            break;     
+                        case 36:
+                            expstr = expstr + "<b>테이블 영역</b> 입력 항목인 <b>컨택 포인트</b> 안에 <b>드롭 박스</b> 입력 항목을 가져다 놓고";
+                            break;
+                        case 37:
+                            expstr = expstr + "클릭하여 <b>속성</b>들이 나타나게 한 후<br/>- <b>이름</b>을 <b>대상 업무</b>로 변경하고<br/>- <b>세부 항목</b> 속성 값을 (필요 시 <b>+추가</b>를 클릭하며) <b>총괄</b>, <b>계약 관련</b>, <b>세금계산서(입금) 관련</b>, <b>계약 및 세금계산서(입금) 관련</b>, <b>사후 관리</b>, <b>기타</b>로 변경합니다.";
+                            break;
+                        case 38:
+                            expstr = expstr + "이번에는 <b>텍스트</b> 입력 항목을 <b>테이블 영역</b> 입력 항목인 <b>컨택 포인트</b> 안 <b>대상 업무</b> 우측에 가져다 놓고";
+                            break;
+                        case 39:
+                            expstr = expstr + "클릭하여 <b>속성</b>들이 나타나면 <b>이름</b>을 <b>부서</b>로 변경합니다.";
+                            break;
+                        case 40:
+                            expstr = expstr + "<b>부서</b>와 마찬가지 방법으로 <b>텍스트</b> 입력 항목을 순서대로 가져다 놓으며 <b>이름</b>, <b>직위</b>, <b>이메일</b>, <b>휴대폰</b> 항목을 만들어 <b>컨택 포인트</b> 데이터로 필요한 구성을 모두 갖춥니다. ";
+                            break;    
+                        case 41:
+                            expstr = expstr + "여기까지가 <b>라벨</b> 입력 항목으로 제시했던 고객 정보의 내용이었으므로 앞으로 다룰 내부 정보와의 시각적인 구분을 위해 <b>컨택 포인트</b> 밑으로 <b>라인</b> 입력 항목을 가져다 구분선을 만들어 줍니다,";
+                            break;
+                        case 42:
+                            expstr = expstr + "이제부터는 스프레드시트의 매출 관리 데이터를 관리하기 위한 입력 화면을 만들 것입니다.";
+                            break;
+                        case 43:
+                            expstr = expstr + "새로운 <b>라벨</b> 입력 항목을 <b>라인</b> 아래에 가져다 놓고";
+                            break;
+                        case 44:
+                            expstr = expstr + "클릭하여 <b>속성</b>들이 나타나게 한 후 <b>이름</b>을 <b>◆ 매출 관리</b>로 변경합니다.";
+                            break;
+                        case 45:
+                            expstr = expstr + "<b>컬럼(다단)</b> 입력 항목을 <b>◆ 매출 관리</b> 아래에 가져다 놓습니다.";
+                            break;     
+                        case 46:
+                            expstr = expstr + "그리고 <b>숫자</b> 입력 항목을 컬럼 좌측에 가져다 놓고";
+                            break;
+                        case 47:
+                            expstr = expstr + "클릭하여 <b>속성</b>들이 나타나게 한 후 <br/>- <b>이름</b>을 <b>매출 기준 (금년)</b>으로 변경하고<br/>- <b>필수 입력 항목</b>을 선택하여 체크하고<br/>- <b>기본 값</b>에 <b>2017</b>을 입력합니다.";
+                            break;
+                        case 48:
+                            expstr = expstr + "이어서 또 다른 속성인 <b>입력 너비 조절</b> 속성 값을 <b>100</b>으로 변경하고<br/>- <b>접사 표기</b>에 <b>년도</b>를 입력하고<br/>- <b>소수점 자리 수</b>는 <b>0</b>으로 변경하고<br/>- <b>1,000 단위 쉼표 표시</b>를 해제합니다.";
+                            break;
+                        case 49:
+                            expstr = expstr + "이번에는 <b>매출 기준 (금년)</b> 아래에 <b>숫자</b> 입력 항목을 가져다 놓고";
+                            break;
+                        case 50:
+                            expstr = expstr + "클릭하여 <b>속성</b>들이 나타나게 한 후 <br/>- <b>이름</b>을 <b>Y년도 목표 매출</b>로 변경하고<br/>- <b>기본 값</b>에 <b>0</b>을 입력하고<br/>- <b>최소 입력 수</b>에 <b>0</b>을 입력합니다.";
+                            break;   
+                        case 51:
+                            expstr = expstr + "그리고 <br/>- 또 다른 속성인 <b>입력 너비 조절</b> 속성 값을 <b>100</b>으로 변경하고<br/>- <b>접사 표기</b>에 <b>억 원</b>을 입력합니다.";
+                            break;
+                        case 52:
+                            expstr = expstr + "<b>Y년도 목표 매출</b>과 동일한 방법으로 컬럼 우측에 <b>Y-1년도 달성 매출</b>을 만들고";
+                            break;
+                        case 53:
+                            expstr = expstr + "그 밑에 <b>Y+1년도 달성 매출</b>을 만듭니다. <br/><br/>이렇게 금년도 매출 관련 데이터를 독립 시킨 후";
+                            break;
+                        case 54:
+                            expstr = expstr + "이 아래로 <b>테이블 영역</b> 입력 항목을 가져다 놓고";
+                            break;
+                        case 55:
+                            expstr = expstr + "클릭하여 <b>속성</b> 중 <b>이름</b>을 <b>매출 History (위에 기입했던 이전 년도 자료들을 숫자 그대로 남길 것)</b>으로 변경합니다.";
+                            break;     
+                        case 56:
+                            expstr = expstr + "그리고 바로 앞서 금년도 매출 관련 데이터 세트를 만든 것과 동일한 방법으로 <b>테이블 영역</b> 입력 항목 내에 <b>매출 기준</b>, <b>Y-1 달성</b>, <b>Y 목표</b>, <b>Y+1 예상</b> 입력 항목들을 만듭니다.";
+                            break;
+                        case 57:
+                            expstr = expstr + "자, 이제 마지막 단계로 스프레드시트의 영업 담당자 History 데이터를 관리하기 위한 입력 화면을 만들어 보겠습니다.";
+                            break;
+                        case 58:
+                            expstr = expstr + "먼저 <b>라벨</b> 입력 항목을 <b>매출 History</b> 아래에 가져다 놓고";
+                            break;
+                        case 59:
+                            expstr = expstr + "클릭하여 <b>속성</b>들이 나타나게 한 후 <b>이름</b>을 <b>◆ 영업 담당자 정보</b>로 변경합니다.";
+                            break;
+                        case 60:
+                            expstr = expstr + "신규 고객사 발굴이 실적 지표 중 하나이므로 고객사 최초 등록자와 등록일을 입력 항목으로 두려고 합니다. <br/>이를 위해 <b>라벨</b> 입력 항목 아래에 <b>컬럼(다단)</b> 입력 항목을 가져다 놓습니다.";
+                            break;         
+                        case 61:
+                            expstr = expstr + "그런데 기존 데이터를 일괄 등록하는 것이 용이치 않은 고객사 관리 스프레드시트의 구조상, <b>자동 입력 항목</b>인 <b>등록자</b>와 <b>등록일</b>을 최초 등록자와 등록일로 이용할 경우 값의 오류가 있을 수 있습니다. <br/>때문에 컬럼 좌측에는 <b>사용자 선택</b> 입력 항목을 가져다 놓겠습니다.";
+                            break;
+                        case 62:
+                            expstr = expstr + "그리고 <b>사용자 선택</b> 입력 항목을 클릭하여 <b>속성</b>들이 나타나게 한 후 <br/>- <b>이름</b>을 <b>고객사 최초 등록자</b>로 변경하고<br/>- 만약 신규 등록하는 경우라면 <b>자동 입력 항목</b>인 <b>등록자</b>와 동일한 효과를 내기 위해 <b>기본 값 지정</b>의 <b>등록자를 기본값으로 지정</b>을 체크합니다.";
+                            break;
+                        case 63:
+                            expstr = expstr + "컬럼 우측에는 <b>날짜</b> 입력 항목을 가져다 놓고";
+                            break;
+                        case 64:
+                            expstr = expstr + "클릭하여 <b>속성</b>들이 나타나게 한 후 <br/>- <b>이름</b>을 <b>고객사 최초 등록일</b>로 변경하고<br/>- 신규 등록하는 경우라면 <b>자동 입력 항목</b>인 <b>등록일</b>과 동일한 효과를 내기 위해 <b>기본 값</b>의 <b>생성시간으로 기본값 지정</b>을 체크합니다.";
+                            break;
+                        case 65:
+                            expstr = expstr + "<b>컬럼(다단)</b> 입력 항목 아래에 <b>테이블 영역</b> 입력 항목을 가져다 놓고";
+                            break;     
+                        case 66:
+                            expstr = expstr + "클릭하여 <b>속성</b>들이 나타나게 한 후 <b>이름</b>을 <b>영업 담당자 History</b>로 변경합니다.";
+                            break;
+                        case 67:
+                            expstr = expstr + "<b>테이블 영역</b> 입력 항목인 <b>영업 담당자 History</b> 안에 <b>텍스트</b> 입력 항목을 가져다 놓고";
+                            break;
+                        case 68:
+                            expstr = expstr + "클릭하여 <b>속성</b>들이 나타나게 한 후 <b>이름</b>을 <b>이름과 직위(직접 입력)</b>으로 변경합니다.";
+                            break;
+                        case 69:
+                            expstr = expstr + "이와 동일한 방법으로 <b>영업 담당자 History</b> 안에 <b>핸드폰 번호</b>와 <b>실제 사용중인 이메일</b>이라는 <b>이름</b> 속성 값을 갖는 <b>텍스트</b> 입력 항목을 화면과 같이 만듭니다.";
+                            break;
+                        case 70:
+                            expstr = expstr + "<b>드롭 박스</b> 입력 항목을 <b>영업 담당자 History</b> 안 <b>실제 사용중인 이메일</b> 항목 우측에 가져다 놓고";
+                            break;      
+                        case 71:
+                            expstr = expstr + "클릭하여 <b>속성</b>들이 나타나게 한 후<br/>- <b>이름</b>을 <b>비고</b>로 변경하고<br/>- <b>세부 항목</b> 속성 값을 <b>현 담당자</b>, <b>업무 이관</b>, <b>퇴사</b>로 변경합니다.";
+                            break;
+                        case 72:
+                            expstr = expstr + "끝으로, <b>라벨</b> 입력 항목을 <b>영업 담당자 History</b> 아래에 가져다 놓은 후";
+                            break;
+                        case 73:
+                            expstr = expstr + "클릭하여 <b>속성</b>들이 나타나게 한 후 <b>이름</b>을 <b>※ 영업 담당자는  사건, 사고, 불만접수 등 특이사항 발생 시 반드시 <b>활동 기록</b>에 작성합니다.</b>로 변경하여 사용자들에 대한 안내문을 남깁니다.";
+                            break;
+                        case 74:
+                            expstr = expstr + "하단의 <b>저장</b> 버튼을 클릭해 지금까지 작업한 내용을 저장하고<br/>다음 작업을 위해 <b>관리 홈으로 이동</b> 버튼을 클릭합니다.";
+                            break;
+                        case 75:
+                            expstr = expstr + "<b>고객사 관리</b> 앱 또한 절차와 상태 변화에 대한 별도 관리가 필요 없는 업무를 앱으로 만들고자 하는 것이므로 <b>프로세스</b>를 클릭한 후";
+                            break;     
+                        case 76:
+                            expstr = expstr + "<b>이 앱에서는 상태를 사용하지 않겠습니다</b>를 체크하고";
+                            break;
+                        case 77:
+                            expstr = expstr + "하단의 <b>저장</b> 버튼을 클릭해 이 내용을 저장한 후<br/>다음 작업을 위해 <b>관리 홈으로 이동</b> 버튼을 클릭합니다.";
+                            break;
+                        case 78:
+                            expstr = expstr + "이번에는 데이터를 차트로 표현할 수 있고 데이터 목록으로 나열될 항목들을 정의하는 <b>목록 화면</b>을 클릭합니다.";
+                            break;
+                        case 79:
+                            expstr = expstr + "<b>고객사 관리</b> 앱의 데이터 특성을 고려한 차트를 만들기 위해 <b>+ 차트 추가</b>를 클릭합니다.";
+                            break;
+                        case 80:
+                            expstr = expstr + "- <b>차트 이름</b>에 <b>산업 분류별 고객사 현황</b>을 입력하고<br/>- <b>차트 타입</b>은 <b>원형</b>을 선택합니다. <br/>- <b>그룹별 통계</b>는 <b>산업 분류</b> 항목을 선택하고<br/>- <b>집계 방식</b>으로는 <b>개수</b>를 선택합니다.";
+                            break; 
+                        case 81:
+                            expstr = expstr + "또 다른 차트를 만들기 위해 <b>+ 차트 추가</b>를 클릭하고<br/>- <b>차트 이름</b>에 <b>직원 수별 고객사 현황</b>을 입력하고<br/>- <b>차트 타입</b>은 <b>꺾은 선형</b>을 선택합니다. <br/>- <b>그룹별 통계</b>는 <b>직원 수</b> 항목을 선택하고<br/>- <b>집계 방식</b>으로는 <b>개수</b>를 선택합니다.";
+                            break;
+                        case 82:
+                            expstr = expstr + "마지막 차트를 위해 <b>+ 차트 추가</b>를 클릭하고<br/>- <b>차트 이름</b>에 <b>영업담당자별 고객사 발굴 누적치</b>을 입력하고<br/>- <b>차트 타입</b>은 <b>세로 막대형</b>을 선택합니다. <br/>- <b>그룹별 통계</b>는 <b>고객사 최초 등록자</b> 항목을 선택하고<br/>- <b>집계 방식</b>으로는 <b>개수</b>를 선택합니다.";
+                            break;
+                        case 83:
+                            expstr = expstr + "이제 데이터 목록으로 나열될 항목들을 정의하기 위해 <b>차트</b> 아래에 있는 <b>목록 화면 관리</b>를 살펴보면,<br/>자동 입력 항목인 <b>등록일</b>을 기준으로 데이터들이 내림차순으로 정렬되게 되어 있음을 볼 수 있습니다<br/><br/>이를 조정하고 항목들을 추가하기 위해 <b>항목을 목록 화면에 추가</b>를 클릭합니다.";
+                            break;
+                        case 84:
+                            expstr = expstr + "데이터 목록에 나올 수 있는 항목들이 나타나면 현재 기본 선택되어 있는 <b>등록일</b>의 선택을 해제하고";
+                            break;
+                        case 85:
+                            expstr = expstr + "<b>고객사 최초 등록일</b>을 선택합니다,";
+                            break;     
+                        case 86:
+                            expstr = expstr + "그리고 <b>회사명</b>, <b>산업 분류</b>, <b>직원 수</b>, <b>매출 기준 (금년)</b>, <b>Y년도 목표 매출</b>, <b>Y-1년도 달성 매출</b>, <b>Y+1년도 예상 매출</b>을 차례대로 선택함으로써 화면과 같이 데이터 목록의 항목으로 추가합니다.";
+                            break;
+                        case 87:
+                            expstr = expstr + "기본 항목으로 선택되어 정렬 기준이 되었던 <b>등록일</b>의 선택을 해제했기 때문에<br/>- <b>고객사 최초 등록일</b>의 아래 방향 화살표를 클릭하고<br/>- <b>내림차순으로 정렬</b>을 클릭합니다.";
+                            break;
+                        case 88:
+                            expstr = expstr + "또한 데이터 목록의 항목 중 하나는 반드시 제목으로 지정해야 하므로<br/>- <b>회사명</b>의 아래 방향 화살표를 클릭하고<br/>- <b>제목으로 지정</b>을 클릭합니다.";
+                            break;
+                        case 89:
+                            expstr = expstr + "목록의 항목 중 <b>회사명</b>이 제목임을 의미하는 푸른색 으로 바탕이 변경됩니다. <br/><br/><b>저장</b> 버튼을 클릭해 작업한 내용을 저장하고<br/>다음 작업을 위해 <b>관리 홈으로 이동</b> 버튼을 클릭합니다.";
+                            break;
+                        case 90:
+                            expstr = expstr + "고객사 관리 내용을 영업팀과 경영지원팀에게만 공개하되 경영지원팀은 데이터의 열람 권한만 갖도록 설정하기 위해 <b>접근 제어</b>를 클릭합니다.";
+                            break;    
+                        case 91:
+                            expstr = expstr + "<b>공유 설정</b>에 <b>사용자 설정</b>이 선택되어 나타나 있는 단일 선택 목록에서 <b>부서</b>를 선택하고 <b>추가</b> 버튼을 클릭한 후";
+                            break;
+                        case 92:
+                            expstr = expstr + "조직도에서 <b>경영지원팀</b>만을 선택합니다.";
+                            break;
+                        case 93:
+                            expstr = expstr + "이후 <b>데이터 등록 권한</b>을 <b>운영자</b>에게만 부여하고 <b>데이터 수정 권한</b>과 <b>데이터 삭제 권한</b> 또한 <b>등록자</b>와 <b>운영자</b>에게만 부여합니다. <br/>이로써 공유자로 지정된 경영지원팀원들은 데이터를 열람만할 수 있게 되었습니다.";
+                            break;
+                        case 94:
+                            expstr = expstr + "데이터에 대한 모든 권한을 앱 운영자에게만 주었기 때문에 이제 영업팀을 운영자로 지정해야 합니다. <br/><br/>이를 위해 작업 내용을 <b>저장</b> 버튼을 클릭해 저장한 후 <b>관리 홈으로 이동</b>을 클릭합니다.";
+                            break;
+                        case 95:
+                            expstr = expstr + "운영자 지정을 위해 앱 관리 홈 화면에서 <b>기본 정보</b>를 클릭합니다.";
+                            break;     
+                        case 96:
+                            expstr = expstr + "<b>운영자</b> 옆의 <b>+ 추가</b>를 클릭해 나타나는 조직도에서 <b>영업팀</b>을 클릭하고";
+                            break;
+                        case 97:
+                            expstr = expstr + "부서를 운영자로 선택했을 때 나타나는 옵션 중 - 영업팀 아래 하위 부서가 없으므로 - <b>현재 부서원만 추가</b>를 선택합니다.";
+                            break;
+                        case 98:
+                            expstr = expstr + "운영자 지정 내역을 저장하기 위해 <b>저장</b> 버튼을 클릭하고 <b>관리 홈으로 이동</b> 버튼을 클릭합니다.";
+                            break;
+                        case 99:
+                            expstr = expstr + "<b>접근 제어</b>와 <b>기본 정보</b>를 통한 이 같은 사용자 권한 조정으로 영업팀원이 <b>고객사 관리</b> 앱을 실행하면 화면과 같이 <b>등록</b> 버튼이 나타나지만";
+                            break;
+                        case 100:
+                            expstr = expstr + "경영지원팀원이 앱을 실행하면 <b>등록</b> 버튼 없이 데이터를 열람만할 수 있도록 화면이 제공됩니다. <br/><br/> 이상으로 <b>고객사 관리 앱 만들기</b>의 설명을 마치겠습니다.";
+                            break;   
+                  }
+                                          
+                  expstr = expstr + "</div>";
+                  
+                  $(expstr).appendTo("#expDIV");
+                  
+                  //srcName = "./" + subject + "/exp" + currentPage + ".jpg";
+                  //$("#expDIV").css("opacity", "0").attr("src", srcName).animate({opacity : 1}, 900);
+                  $("#expDIV").css("opacity", "0").animate({opacity : 1}, 900);
+            }
+            
+            isClick = true;
+}    
+</script>
+</head>
+
+<body style="background:#25cad3;" onload="viewSubject()">
+    <div id="backgroundDIV" style="width:1220px;height:625px;position:absolute;top:0px;left:0px;margin,padding:0;overflow:hidden;background:#ffffff;border-right:1px #fff solid;">        
+        <img src="./common/parttitle02.jpg" style="width:230px;height:26px;position:absolute;top:19px;left:38px;margin,border,padding:0;overflow:hidden;" />    
+        <img id="titleDIV" src="./02/ntitle01.jpg" style="width:200px;height:63px;position:absolute;top:120px;left:930px;margin,border,padding:0;overflow:hidden;" />  
+
+            <img id="subject" src="./common/list.jpg" style="width:57px;height:57px;position:fixed;top:0px;left:1163px;margin,border,padding:0;overflow:hidden;cursor:pointer;z-index:1000" />
+            <img id="menu" src="./common/menu02.png" style="width:320px;height:625;position:absolute;top:0px;left:1230px;margin,border,padding:0;overflow:hidden;z-index:800;" usemap=#navi />
+        
+        
+        <!-- <img id="expDIV" src="./common/exp-blank.jpg" style="width:260px;height:250px;position:absolute;top:260px;left:950px;margin,border,padding:0;overflow:hidden;" /> -->
+            <div id="expDIV" style="letter-spacing:-1px;color:#222;font-family: 'Malgun Gothic', 'Dotum', Helvetica, sans-serif, Arial;text-align:justify;line-height:1.8em;font-size:13px;width:210px;height:300px;position:absolute;top:210px;left:930px;margin,border,padding:0;overflow:hidden;" />
+                <div id= "expString">
+                </div>
+            </div>
+        
+        <div style="width:861px;height:512px;position:absolute;top:57px;left:37px;border:1px #ccc solid;margin,padding:0;"> 
+        </div>
+        <div id="imageDIV" style="width:861px;height:512px;position:absolute;top:58px;left:38px;margin,border,padding:0;overflow:hidden;z-index:100;"> 
+        </div>
+        
+       
+        <img id="lbutton" src="./common/bt_nav_prev.png" style="z-index:700;width:47px;height:47px;position:fixed;top:286px;left:10px;margin,border,padding:0;cursor:pointer;" />  
+        <img id="rbutton" src="./common/bt_nav_next.png" style="z-index:700;width:47px;height:47px;position:fixed;top:286px;left:1163px;margin,border,padding:0;cursor:pointer;" />           
+        
+        <div id="pageDIV" style="letter-spacing:-1px;color:#8d8d8d;width:1220px;position:fixed;top:590px;left:0px;margin,border,padding:0;overflow:hidden;border:0;font-size:15px;font-family: 'Malgun Gothic', 'Dotum', Helvetica, sans-serif, Arial;vertical-align:top;font-weight:normal;line-height:1.0em;text-align:center;">  
+        </div>   
+              
+         <!--        
+        <div id="naviDIV" style="z-index:700;color:#222;width:260px;height:29px;position:fixed;bottom:25px;right:10px;margin,border,padding:0;overflow:hidden;text-align:center;">  
+          <table style="width:100%">
+            <tr><td style="width:20px;"></td>
+                <td style="width:16px;height:29px;"><img id="lbutton" src="./common/bt_nav_prev.png" style="width:16px;height:29px;margin,border,padding:0;cursor:pointer;" /></td>
+                <td id="pageDIV" style="margin,border,padding:0;font-size:16px;font-family: 'Malgun Gothic', 'Dotum', Helvetica, sans-serif, Arial;vertical-align:middle;font-weight:normal;line-height:1.0em;letter-spacing:0px;text-align:center;"></td>
+                <td style="width:16px;height:29px;"><img id="rbutton" src="./common/bt_nav_next.png" style="width:16px;height:29px;margin,border,padding:0;cursor:pointer;" /></td>
+            <td style="width:20px;"></td></tr>
+          </table>
+        </div>    
+        -->      
+    </div>
+    
+<map name="navi">
+<area shape=rect COORDS="30,274,107,290" HREF="Javascript:jump(1)" onMouseOver="window.status=''; return true;" onMouseOut="window.status=''; return true;" onfocus="this.blur()">
+<area shape=rect COORDS="30,300,130,316" HREF="Javascript:jump(11)" onMouseOver="window.status=''; return true;" onMouseOut="window.status=''; return true;" onfocus="this.blur()">
+<area shape=rect COORDS="30,326,130,342" HREF="Javascript:jump(75)" onMouseOver="window.status=''; return true;" onMouseOut="window.status=''; return true;" onfocus="this.blur()">
+<area shape=rect COORDS="30,352,130,368" HREF="Javascript:jump(78)" onMouseOver="window.status=''; return true;" onMouseOut="window.status=''; return true;" onfocus="this.blur()">
+<area shape=rect COORDS="30,378,130,394" HREF="Javascript:jump(90)" onMouseOver="window.status=''; return true;" onMouseOut="window.status=''; return true;" onfocus="this.blur()">
+
+<area shape=rect COORDS="30,154,70,174" HREF="Javascript:part(0, 0)" onMouseOver="window.status=''; return true;" onMouseOut="window.status=''; return true;" onfocus="this.blur()">
+<area shape=rect COORDS="30,198,175,218" HREF="Javascript:part(1, 0)" onMouseOver="window.status=''; return true;" onMouseOut="window.status=''; return true;" onfocus="this.blur()">
+<area shape=rect COORDS="30,415,175,435" HREF="Javascript:part(3, 0)" onMouseOver="window.status=''; return true;" onMouseOut="window.status=''; return true;" onfocus="this.blur()">
+
+</map>
+    
+</body>
+</html>

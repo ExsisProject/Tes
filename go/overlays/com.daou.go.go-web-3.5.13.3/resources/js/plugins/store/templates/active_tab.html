@@ -1,0 +1,145 @@
+<div class="tab_page_container">
+    <div id="active" class="tab_page_content">
+
+        {{#showBanner}}
+        <div class="banner_s">
+            <a class="banner_area" id="banner" data-btype="guide">
+                <img src="{{baseImgUrl}}banner/banner_s1.png">
+            </a>
+            <a class="btn_ic24 btn_close" id="closeBanner" title="오늘 하루 열지 않기">
+                <span class="ic24 close"></span>
+            </a>
+        </div>
+        {{/showBanner}}
+
+        {{#hasProducts}}
+        <div class="linkplus_my">
+            <ul class="list_album">
+                {{#products}}
+                <li data-role="{{button}}">
+                    <div class="linkplus_logo">
+                        <img src="{{baseImgUrl}}{{logoUrl}}" alt="">
+                    </div>
+                    <div class="list_album_name">
+                        <span class="txt">{{name}}</span>
+                        {{#inUse}}
+                            <span class="linkplus_using">{{lang.사용중}}</span>
+                        {{/inUse}}
+
+                        {{#inApplying}}
+                            <span class="linkplus_request">{{lang.신청중}}</span>
+                        {{/inApplying}}
+                    </div>
+                    <div class="list_album_desc" title="{{description}}">
+                        {{description}}
+                    </div>
+                    <div class="list_album_meta">
+                        <span class="state ghost category">{{tags.category}}</span>
+                        <span class="state ghost service">{{tags.partnerName}}</span>
+                    </div>
+                    {{#canCancel}}
+                    <div class="optional">
+                        <a class="btn_ic24 btn_more" title="메뉴 더보기" id="{{id}}">
+                            <span class="ic24 ic_more"></span>
+                            <div class="array_option option">
+                                <ul class="array_type">
+                                    <li class="cancelBtn" data-id="{{id}}"><span>{{lang.서비스 해지}}</span></li>
+                                </ul>
+                            </div>
+                        </a>
+                    </div>
+                    {{/canCancel}}
+
+                    {{#canUse}}
+                    <a class="btn_major useBtn" data-id="{{id}}">{{lang.사용하기}}</a>
+                    {{/canUse}}
+                </li>
+                {{/products}}
+
+                <li class="add" data-role="button" id="goToAllTabBtn">
+                    <span class="ic_linkplus_b"></span>
+                    <span class="txt">{{lang.전체 서비스 보기}}</span>
+                </li>
+
+            </ul>
+        </div>
+        {{/hasProducts}}
+
+        {{^hasProducts}}
+        <div class="data_none">
+            <img src="{{baseImgUrl}}none.png" alt="">
+            <p class="tit">{{lang.사용중인 서비스가 없습니다}}</p>
+            <p class="desc">{{lang.Link+ 다양한 서비스}}
+                <br>{{lang.효율적 서비스}}</p>
+            <a class="btn_major" id="goToAllTabBtn">{{lang.전체 서비스 보기}}</a>
+        </div>
+
+        <div class="linkplus_recommned">
+            <h2>{{lang.추천 서비스를 경험해보세요}}</h2>
+            <p class="desc">{{lang.업무 효율성을 높여주는 추천 서비스}}</p>
+            <div class="linkplus_wrap_service">
+                <ul class="list_album">
+                    <li>
+                        <div class="list_album_thum" data-role="button" data-code="printrobo">
+                            <img src="{{baseImgUrl}}printrobo_thum.png" alt="">
+                        </div>
+                        <div class="list_album_name">
+                            <span class="txt">프린트로보</span>
+                        </div>
+                        <div class="list_album_desc">기업 전용 '명함 자동주문 솔루션'. 온라인으로 비대면 명함신청부터 주문/배송까지!
+                        </div>
+                        <div class="list_album_meta">
+                            <span class="state ghost category">생산성</span>
+                            <span class="state ghost service">(주)프린트로보</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="list_album_thum" data-role="button" data-code="salesinsight">
+                            <img src="{{baseImgUrl}}salespoint_thum.png" alt="">
+                        </div>
+                        <div class="list_album_name">
+                            <span class="txt">세일즈포인트</span>
+                        </div>
+                        <div class="list_album_desc">업종별 대표 기업에서 검증된 CRM 솔루션. 영업 관리부터 고객지원 관리까지!</div>
+                        <div class="list_album_meta">
+                            <span class="state ghost category">CRM</span>
+                            <span class="state ghost service">세일즈인사이트(주)</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="list_album_thum" data-role="button" data-code="exosphere">
+                            <img src="{{baseImgUrl}}exosphere_thum.png" alt="">
+                        </div>
+                        <div class="list_album_name">
+                            <span class="txt">엑소스피어</span>
+                        </div>
+                        <div class="list_album_desc">백신이 이런 것도 되나요? 기능 많은 맞춤형 PC백신, 보안담당자 지원, 5개월 무료체험.</div>
+                        <div class="list_album_meta">
+                            <span class="state ghost category">PC보안</span>
+                            <span class="state ghost service">(주)엑소스피어랩스</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="list_album_thum" data-role="button" data-code="systemever">
+                            <img src="{{baseImgUrl}}systemever_thum.png" alt="">
+                        </div>
+                        <div class="list_album_name">
+                            <span class="txt">시스템에버</span>
+                        </div>
+                        <div class="list_album_desc">시스템에버는 영림원소프트랩의 28년 노하우가 담긴 중소기업을 위한 클라우드 SaaS ERP입니다.</div>
+                        <div class="list_album_meta">
+                            <span class="state ghost category">ERP</span>
+                            <span class="state ghost service">(주)영림원소프트랩</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="linkplus_guide">
+            <h3>{{lang.Link+ 소개 설명}}</h3>
+            <a id="guide">{{lang.Link+ 소개}}</a>
+        </div>
+        {{/hasProducts}}
+    </div>
+</div>

@@ -1,0 +1,184 @@
+	<header class="content_top">
+	</header>
+	<div class="content_page go_renew go_alarm" >
+	    <form>
+		    <fieldset>
+		        <table class="form_type form_add04">
+		            <tbody>
+		                <tr>
+		                    <th class="sorting_disabled">
+		                        <span class="title">{{lang.검색 기간}}</span>
+								<span class="help">
+									<span class="tool_tip" style="width:150px">{{lang.기안일이 없는 문서는 생성일 기준으로 검색됩니다}}</span>
+								</span>
+		                    </th>
+		                    <td>
+		                        <span class="wrap_date"><input id="startDate" class="txt wfix_small" type="text" value="" readonly /><span class="ic ic_calendar"></span></span>                                    
+		                        <span class="wrap_date"><input id="endDate" class="txt wfix_small" type="text" value="" readonly /><span class="ic ic_calendar"></span></span>                                                                        
+		                    </td>
+		                </tr>
+                        <tr>
+                            <th>
+                                <span class="title">{{lang.결재양식}}</span>
+                            </th>
+                            <td>
+                                <span class="wrap_select">
+                                    <select name="formId" id="formId">
+                                        <option value="">{{lang.선택}}</option>
+                                    </select>
+                                </span>                                                 
+                            </td>
+                        </tr>
+		                <tr>
+		                    <th class="sorting_disabled">
+		                        <span class="title">{{lang.기안자}}</span>
+		                    </th>
+		                    <td>                                    
+		                        <div class="wrap_txt "><input id="drafterName" class="txt w_max" type="text"></div>
+		                    </td>
+		                </tr>
+                        <tr>
+                            <th class="sorting_disabled">
+                                <span class="title">{{lang.기안부서}}</span>
+                            </th>
+                            <td>                                    
+                                <div class="wrap_txt "><input id="drafterDeptName" class="txt w_max" type="text"></div>
+                            </td>
+                        </tr>
+		                <tr>
+                            <th class="sorting_disabled">
+                                <span class="title">{{lang.결재선}}</span>
+                            </th>
+                            <td>                                    
+                                <div class="wrap_txt "><input id="activityUserName" class="txt w_max" type="text"></div>
+                            </td>
+                        </tr>
+		                <tr>
+		                    <th class="sorting_disabled">
+		                        <span class="title">{{lang.문서번호}}</span>
+		                    </th>
+		                    <td>                                    
+		                        <div class="wrap_txt "><input id="docNum" class="txt w_max" type="text"></div>
+		                    </td>
+		                </tr>
+                        <tr>
+                            <th class="sorting_disabled"><span class="title">{{lang.제목}}</span></th>
+                            <td>
+                                <div class="wrap_txt "><input id="title" class="txt w_max" type="text"></div>
+                            </td>
+                        </tr>
+						<tr>
+							<th class="sorting_disabled">
+								<span class="title">
+									{{lang.문서ID}}
+								</span>
+								<span class="help">
+									<span class="tool_tip" style="width:200px">{{lang.결재요청시 생성되는 고유의 ID입니다}}</span>
+								</span>
+							</th>
+							<td>
+								<div class="wrap_txt "><input id="docId" class="txt w_max" type="text"></div>
+							</td>
+						</tr>
+                        <tr id="document_type_check">
+                            <th class="sorting_disabled"><span class="title">{{lang.문서 구분}}</span></th>
+                            <td>
+                                <span class="wrap_option">
+                                    <input type="checkbox" name="docTypeCheck" value="all" id="docTypeAllCheck"><label for="docTypeAllCheck">{{lang.전체}}</label>
+                                </span>
+                                <span class="horspace1"></span>
+                                <span class="wrap_option">
+                                    <input type="checkbox" name="docTypeCheck" value="draft" id="docTypeApproval"><label for="docTypeApproval">{{lang.일반 결재문서}}</label>
+                                </span>
+                                <span class="horspace1"></span>
+                                <span class="wrap_option">
+                                    <input type="checkbox" name="docTypeCheck" value="receive" id="docTypeReception"><label for="docTypeReception">{{lang.수신 결재문서}}</label>
+                                </span>
+								<span class="help">
+									<span class="tool_tip" style="width:170px">{{lang.수신 접수대기 / 접수 / 반송 문서를 조회합니다}}</span>
+								</span>
+                            </td>
+                        </tr>
+		                <tr id="document_stat_check">
+		                    <th class="sorting_disabled"><span class="title">{{lang.결재 상태}}</span></th>
+		                    <td>
+		                        <span class="wrap_option">
+		                            <input type="checkbox" name="docStatCheck" id="docStatAllCheck"><label for="docStatAllCheck">{{lang.전체}}</label>
+		                        </span>
+		                        <span class="horspace1"></span>
+		                        <span class="wrap_option">                          
+		                            <input type="checkbox" name="docStatCheck" value="inprogress" id="inprogress"><label for="inprogress">{{lang.진행중}}</label>
+		                        </span>
+		                        <span class="horspace1"></span>
+		                        <span class="wrap_option">                          
+		                            <input type="checkbox" name="docStatCheck" value="complete" id="complete"><label for="complete">{{lang.완료}}</label>
+		                        </span>
+		                        <span class="horspace1"></span>
+		                        <span class="wrap_option">                          
+		                            <input type="checkbox" name="docStatCheck" value="return" id="return"><label for="return">{{lang.반려}}</label>
+		                        </span>
+								<span class="horspace1"></span>
+								<span class="wrap_option">
+		                            <input type="checkbox" name="docStatCheck" value="recv_waiting" id="recv_waiting"><label for="recv_waiting">{{lang.접수대기}}</label>
+		                        </span>
+								<span class="horspace1"></span>
+								<span class="wrap_option">
+		                            <input type="checkbox" name="docStatCheck" value="received" id="received"><label for="received">{{lang.접수}}</label>
+		                        </span>
+								<span class="horspace1"></span>
+								<span class="wrap_option">
+		                            <input type="checkbox" name="docStatCheck" value="recv_returned" id="recv_returned"><label for="recv_returned">{{lang.반송}}</label>
+		                        </span>
+								<span class="horspace1"></span>
+								<span class="wrap_option">
+		                            <input type="checkbox" name="docStatCheck" value="cancel_draft" id="cancel_draft"><label for="cancel_draft">{{lang.상신취소}}</label>
+		                        </span>
+		                    </td>
+		                </tr>
+						<tr id="document_integration_check">
+							<th class="sorting_disabled"><span class="title">{{lang.연동 여부}}</span></th>
+							<td>
+		                        <span class="wrap_option">
+		                            <input type="checkbox" name="docIntegrationCheck" id="docIntegrationAllCheck"><label for="docIntegrationAllCheck">{{lang.전체}}</label>
+		                        </span>
+								<span class="horspace1"></span>
+								<span class="wrap_option">
+		                            <input type="checkbox" name="docIntegrationCheck" value="nonUse" id="nonUse"><label for="nonUse">{{lang.일반문서(N)}}</label>
+		                        </span>
+								<span class="horspace1"></span>
+								<span class="wrap_option">
+		                            <input type="checkbox" name="docIntegrationCheck" value="use" id="use"><label for="use">{{lang.연동문서(Y)}}</label>
+		                        </span>
+							</td>
+						</tr>
+		                <tr class="line"><td colspan="2"><hr></td></tr>
+		            </tbody>
+		        </table>                    
+		    </fieldset>
+		</form>
+        <!-- // 결재문서 검색 -->
+        <div class="page_action_wrap">
+            <a id="btn_search_document" class="btn_major" data-role="button"><span class="txt">{{lang.검색}}</span></a>
+        </div>
+        <!-- 툴바  -->
+        <section id="docToolbar" class="tool_bar stats_tool_bar">
+            <ul class="critical"><li></li></ul>             
+            <!-- 리스트 갯수 선택 select box (마크업 유지) -->
+			<div class="dataTables_length"></div>
+			<div class="optional" id="docFieldArea">
+            </div>
+        </section>
+	    <div class="dataTables_wrapper">
+	        <!-- 테이블 -->        
+	        <table class="type_normal list_approval">   
+	            <thead id ="doclist_field_header">
+	            </thead>
+	            <tbody>
+	            </tbody>
+	        </table>
+	        <div class="tool_bar tool_absolute">
+	            <!--  상단 메뉴와 동일 -->
+	            <div class="dataTables_length"></div>                 
+	        </div>
+	    </div>
+	</div>

@@ -1,0 +1,24 @@
+			<div class="dataTables_wrapper">
+				<div class="toolbar_top header_tb"  id="controlButtons" style="display: none; border-bottom:0px;">
+					<div class="critical" id="dept_data_top_actions">
+						<span class="btn_tool" data-action="download"><span class="ic_adm ic_down"></span>{{lang.list_download}}</span>
+						<span class="btn_tool txt_caution" data-action="remove_attach_file">{{lang.delete_attach}}</span>
+						<span class="btn_tool" data-action="migration"><span class="ic_adm ic_move"></span>{{lang.migration_button}}</span>
+						{{#useAddViewer}}<span class="btn_tool" data-action="add_viewer">{{lang.add_viewer}}</span>{{/useAddViewer}}
+					</div>
+				</div>
+				
+				<div class="content_tb">
+					<table class="chart size" id="dept_delete_table">
+						<thead>
+							<tr>
+								<th class="share_part sorting_disable"><span class="title_sort">{{lang.title}}</span></th>
+								<th class="share_part sorting_disable"><span class="title_sort">{{lang.attach_size}}(MB)</span></th>
+								<th class="byte sorting_disable last"><span class="title_sort">{{lang.viewer_info}}</span></th>
+							</tr>
+						</thead>	
+						<tbody id="dept_delete_data_item">																			
+						</tbody>
+					</table>
+				</div>
+			</div>

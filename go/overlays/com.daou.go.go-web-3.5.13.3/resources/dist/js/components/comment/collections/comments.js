@@ -1,0 +1,1 @@
+define(["backbone","components/comment/collections/comment"],function(e,t){var n=e.Collection.extend({model:t,initialize:function(e){this.typeUrl=e.typeUrl,this.typeId=e.typeId},url:function(){return GO.contextRoot+["api",this.typeUrl,this.typeId,"comment"].join("/")+"?offset=1000"}});return n});

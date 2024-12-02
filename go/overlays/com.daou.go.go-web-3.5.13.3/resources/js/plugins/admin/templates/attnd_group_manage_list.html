@@ -1,0 +1,59 @@
+<div class="content_page">
+    <div class="dataTables_wrapper container">
+        <div class="toolbar_top header_tb">
+            <div class="critical" id="btnMenu">
+                <span id="btnManageControllGroup">
+                    <span class="btn_tool" id="btn_create">{{lang.label_add_group}}</span> 
+                    <span class="btn_tool txt_caution" id="btn_delete">{{lang.label_delete}}</span> 
+                    <span class="btn_tool" id="btnReorderGroups">{{lang.label_reorder}}</span>
+                </span> 
+            </div>
+        </div>
+
+        <form name="formAttndGroupManage">
+        <div id="postBbsDataTable_processing" class="dataTables_processing" style="visibility: hidden">Processing...</div>
+		<div class="content_tb">
+		    <table class="chart size" id="attndGroupManageTable">
+		        <thead>
+		            <tr>
+		                <th class="sorting_disable check vm">
+							<input type="checkbox" id="group_all"/>
+						</th>
+						<th class="sorting_disable menu">
+			                 <span class="title_sort">{{lang.label_group_name}}</span>
+			             </th>
+			             <th class="sorting_disable onoff">
+			                 <span class="title_sort">{{lang.label_commute_time}}</span>
+			             </th>
+			             <th class="sorting_disable onoff">
+			                 <span class="title_sort">{{lang.label_effective_period}}</span>
+			             </th>
+			             <th class="sorting_disable onoff">
+			                 <span class="title_sort">{{lang.label_setting}}</span>
+			             </th>
+		            </tr>
+		        </thead>
+		        
+				<tbody>
+				{{#data}}
+					<tr data-id="{{id}}" class="topMenu">
+						<td class="align_c check"><input type="checkbox"/></td>
+						<td class="align_c" name="name">{{name}}</td>
+			             <td class="align_c" name="commuteTime">{{#useFlexibleTime}}{{lang.label_flexible_time}}{{/useFlexibleTime}}{{^useFlexibleTime}}{{clockInTime}} ~ {{clockOutTime}}{{/useFlexibleTime}}</td>
+			             <td class="align_c" name="effectivePeriod">{{startDate}} ~ {{endDate}}</td>
+			             <td class="align_c">
+			                 <span class="btn_s groupManageSetting">{{lang.label_setting}}</span>
+			             </td>
+			         </tr>
+			     {{/data}}
+			     {{^data}}
+				 <td class="align_c" colspan="6">
+			       <p><span>{{lang.label_empty_list}}</span></p>
+			     </td>
+				{{/data}}
+				</tbody>
+			</table>
+		</div>
+    	</form>
+	</div>
+</div>

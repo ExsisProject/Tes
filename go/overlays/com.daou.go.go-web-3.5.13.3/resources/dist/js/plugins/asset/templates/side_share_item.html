@@ -1,0 +1,11 @@
+<section id="assetShareSide_{{idx}}" class="lnb">
+	<h1 class="company {{^isOpen}}folded{{/isOpen}}" data-id ="{{companyId}}">
+		<ins class="ic"></ins>
+        <span class="ic_side ic_hide_up" data-slide="true"
+              title="{{#isOpen}}{{lang.collapse}}{{/isOpen}}{{^isOpen}}{{lang.expand}}{{/isOpen}}"></span>
+		<span class="ic_side ic_shareboard"></span>
+        <a class="txt" title="{{companyName}}" data-role="button" data-bypass>{{companyName}}</a>
+	</h1>
+	<ul class="side_depth" {{^isOpen}}style="display:none"{{/isOpen}}>
+	</ul>
+</section>

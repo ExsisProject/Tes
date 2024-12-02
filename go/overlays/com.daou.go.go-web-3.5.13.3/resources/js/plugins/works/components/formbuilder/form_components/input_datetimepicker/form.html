@@ -1,0 +1,35 @@
+<span class="box_label_wrap">
+    {{^model.hideLabel}}
+	<label for="">{{{label}}}</label>
+	{{#model.required}}
+	<i class="asterisk">*</i>
+	{{/model.required}}
+	{{#model.guideAsTooltip}}
+    {{#model.guide}}
+	<span class="help">
+		<span class="tool_tip">{{model.guide}}<i class="tail_left"></i></span>
+	</span>
+    {{/model.guide}}
+	{{/model.guideAsTooltip}}
+    {{/model.hideLabel}}
+	{{#model.useAlarm}}
+	<span class="ic ic_alarm_s" title="{{timersLabel}}"></span>
+	{{/model.useAlarm}}
+</span>
+<div class="build_box_data">
+	{{^model.guideAsTooltip}}
+	<p class="txt_info">{{#model.guide}}* {{model.guide}} {{/model.guide}}</p>
+	{{/model.guideAsTooltip}}
+		<span class="wrap_date">
+			<input class="txt wfix_small" type="text" value="" data-date="start" readonly="readonly"/>
+			<span class="ic ic_calendar"></span>
+	{{^isEditable?}}
+					<span class="ic ic_reset" title="{{lang.삭제}}" style="display:none"></span>
+	{{/isEditable?}}			
+		</span>
+	    <span class="wrap_select">
+		{{#isMobile?}}
+			<input type="time" data-time="start" value="{{inputValue}}" class="txt wfix_medium"/>
+	    {{/isMobile?}}
+	    </span>
+</div>

@@ -1,0 +1,1 @@
+define(["backbone","GO.util"],function(e){var t=e.Model.extend({urlRoot:GO.contextRoot+"api/report/series/",setUrl:function(){}},{get:function(e){var n=new t;return n.set({id:e},{silent:!0}),n.fetch({async:!1}),n.setDonesClickable(),n.setUndonesClickable(),n}});return t});

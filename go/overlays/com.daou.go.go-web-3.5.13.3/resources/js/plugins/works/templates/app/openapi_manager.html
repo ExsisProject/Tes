@@ -1,0 +1,115 @@
+<header class="content_top works_tit" id="worksContentTop">
+</header>
+<div class="content_page">
+	<div class="works_app_write">
+		<div class="app_write_tit">
+			<h5>{{lang.사용여부}}</h5>
+			<p class="desc">{{lang.사용여부설명}}</p>
+		</div>
+		<div class="cotainer">
+			<span id="useApiBtnWrap" class="wrap_btn_toggle t2" data-useapi="{{model.useApi}}">
+				<button id="useApiOn" class="btn_toggle t2 {{#model.useApi}}on{{/model.useApi}}" type="button" title="">ON</button>
+				<button id="useApiOff" class="btn_toggle t1 {{^model.useApi}}on{{/model.useApi}}" type="button" title="">OFF</button>
+			</span>
+		</div>
+		<hr/>
+		<div class="app_write_tit">
+			<h5>{{lang.키관리}}</h5>
+			<p class="desc">{{lang.키관리설명}}</p>
+		</div>
+		<div class="cotainer">
+			<div class="option_wrap wrap_generator">
+				<textarea id="apiKeyInput" class="input" disabled></textarea>
+				{{#model.apiKey}}
+				<a id="reGenerationKeyLink" class="btn_fn10">{{lang.재발급}}</a>
+				{{/model.apiKey}}
+				{{^model.apiKey}}
+				<a id="generationKeyLink" class="btn_fn10">{{lang.발급}}</a>
+				{{/model.apiKey}}
+			</div>
+			<div id="apiKeyExpireDateDesc" class="desc info">
+				<span class="txt"></span>
+			</div>
+		</div>
+		<hr/>
+		<div class="app_write_tit">
+			<h5>{{lang.연동항목관리}}</h5>
+			<p class="desc">{{lang.연동항목관리설명}}</p>
+		</div>
+		<div class="cotainer">
+			<table class="type_normal tb_interrwork">
+				<thead>
+				<tr>
+					<th class="check"><input type="checkbox" id="fieldParamAllCheck"/></th>
+					<th class="component">{{lang.컴포넌트명}}</th>
+					<th class="type">{{lang.컴포넌트 타입}}</th>
+					<th class="parameter"><span class="title_sort">{{lang.파라미터명}}</span></th>
+				</tr>
+				</thead>
+				<tbody id="fieldParamTbody">
+				{{#hasSupportFields}}
+				{{#supportFields}}
+				<tr>
+					<td class="check">
+						<input type="checkbox" id="check{{cid}}" name="cidCheckbox" value="{{cid}}"/>
+					</td>
+					<td class="component">
+						{{label}}
+					</td>
+					<td class="type">
+						{{fieldName}}
+					</td>
+					<td class="parameter">
+						<div class="vertical_wrap_s">
+							<div class="wrap_txt w_max">
+								<input type="text" id="param{{cid}}" value="{{^isModify}}{{cid}}{{/isModify}}" name="paramName" class="txt w_max">
+							</div>
+						</div>
+					</td>
+				</tr>
+				{{/supportFields}}
+				{{/hasSupportFields}}
+				{{^hasSupportFields}}
+				<tr>
+					<td colspan="4" style="text-align:center">
+						{{lang.컴포넌트없음}}
+					</td>
+					{{/hasSupportFields}}
+				</tbody>
+			</table>
+		</div>
+		<hr/>
+
+		{{#hasSupportFields}}
+		<div class="app_write_tit">
+			<h5>{{lang.수정삭제연동설정}}</h5>
+			<p class="desc">{{{lang.수정삭제연동설정설명}}}</p>
+		</div>
+
+		<div class="cotainer">
+			<span class="option_wrap">
+				<input id="useApiUpdateOn" value="on" type="radio" name="useApiUpdate" {{#model.useUpdate}}checked{{/model.useUpdate}}/>
+				<label for="useApiUpdateOn">{{lang.사용}}</label>
+			</span>
+			<span class="option_wrap">
+					<input id="useApiUpdateOff" value="off" type="radio" name="useApiUpdate" {{^model.useUpdate}}checked{{/model.useUpdate}} />
+					<label for="useApiUpdateOff">{{lang.사용안함}}</label>
+				</span>
+			<span class="wrap_select wrap_com">
+				<select id="updateFieldSelect" name="updateField" class="wfix_medi">
+					<option value="">{{lang.컴포넌트선택}}</option>
+					{{#supportFields}}
+					<option value="{{cid}}">{{label}}</option>
+					{{/supportFields}}
+				</select>
+			</span>
+		</div>
+		{{/hasSupportFields}}
+		<div class="page_action_wrap">
+			<a id="btn-confirm" class="btn_major" data-role="button"><span class="txt">{{lang.regist}}</span></a>
+			<a id="btn-cancel" class="btn_minor" data-role="button"><span class="txt">{{lang.cancel}}</span></a>
+			<a id="btn-gosettinghome" class="btn_minor" data-role="button"><span class="txt">{{lang.gosettinghome}}</span></a>
+			<a id="btn-goapphome" class="btn_minor" data-role="button"><span class="txt">{{lang.goapphome}}</span></a>
+		</div>
+	</div>
+</div>

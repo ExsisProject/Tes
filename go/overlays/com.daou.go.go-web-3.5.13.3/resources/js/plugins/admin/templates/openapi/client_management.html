@@ -1,0 +1,37 @@
+<div id="client_management" class="content_page">
+    <div class="dataTables_wrapper container">
+        <div id="controlButtons" class="toolbar_top header_tb">
+            <div class="critical">
+                <span class="btn_tool" id="add_client">{{lang.추가}}</span>
+                <span class="btn_tool txt_caution" id="remove_client">{{lang.삭제}}</span>
+            </div>
+        </div>
+        <div class="content_tb">
+            <table class="chart size popup_list" id="client_table">
+                <thead>
+                <tr>
+                    <th class="sorting"><span class="title_sort">{{lang.클라이언트이름}}
+                        <ins class="ic"></ins><span class="selected"></span></span>
+                    </th>
+                    <th>Client Id</th>
+                    <th>{{lang.서비스URL}}</th>
+                    <th>Redirect URL</th>
+                    <th class="sorting"><span class="title_sort">{{lang.등록일}}
+                        <ins class="ic"></ins><span class="selected"></span></span>
+                    </th>
+                </tr>
+                </thead>
+            </table>
+            <div class="table_search">
+                <select id="searchtype" style="width:130px;">
+                    <option value="clientName">{{lang.클라이언트이름}}</option>
+                    <option value="baseUrl">{{lang.서비스URL}}</option>
+                </select>
+                <span class="search_wrap">
+                    <input id="searchkeyword" class="input" type="text">
+                    <span id="search" class="btn_search" title="{{lang.검색}}"></span>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>

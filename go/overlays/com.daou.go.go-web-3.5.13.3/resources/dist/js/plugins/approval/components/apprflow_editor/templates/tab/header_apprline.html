@@ -1,0 +1,22 @@
+<table class="type_normal tb_approval_line">
+    <thead>
+        <tr>
+            <th class="btn"></th>
+            <th class="kind">{{lang.activityType}}</th>
+            <th class="name">{{lang.name}}</th>
+            <th class="depart">{{lang.dept}}</th>
+            <th class="state">{{lang.state}}</th>
+            {{#isPermissibleArbitraryDecision}}
+            {{#isArbitraryCheckVisible}}
+            <th class="sign">{{lang.arbitrary}}</th>
+            {{/isArbitraryCheckVisible}}
+            {{/isPermissibleArbitraryDecision}}
+            <th class="func">
+				<span id="allActivityDelete" class="btn_bdr delete_activity" title="{{lang.all_remove}}">
+					<span class="ic_classic ic_basket"></span>
+				</span>
+            </th>
+            <th class="blank"></th>
+        </tr>
+    </thead>
+</table>

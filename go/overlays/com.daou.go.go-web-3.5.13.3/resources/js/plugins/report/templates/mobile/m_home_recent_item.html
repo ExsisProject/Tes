@@ -1,0 +1,22 @@
+						<li class="recent">
+							<a class="tit" href="javascript:;" data-series-id="{{data.series.id}}" data-folder-id="{{data.folder.id}}" data-list-id="{{data.id}}" {{#data.actions.readable}} data-type="{{data.folder.type}}" {{/data.actions.readable}} {{#data.isReadable}}data-report-id="{{data.id}}" {{/data.isReadable}}>
+								<span class="subject">
+								{{^data.actions.readable}}
+									<span class="ic ic_lock"></span>
+								{{/data.actions.readable}}
+									<span class="title">{{data.title}}</span>								
+									{{^data.isCommentCountZero}}
+									<span class="count" style="color: #999;"> [{{data.commentCount}}]</span>
+									{{/data.isCommentCountZero}}
+								</span>
+								<span class="info">
+									<span class="name txt_ellipsis">{{data.reporter.name}} {{data.reporter.position}}</span>
+									<span class="part">|</span>
+									<span class="date">{{data.createdAtBasicDate}}</span>
+									{{#data.deptName}}
+									<span class="part">|</span>
+									<span class="name txt_ellipsis">{{data.deptName}}</span>
+									{{/data.deptName}}
+								</span>								
+							</a>
+						</li>

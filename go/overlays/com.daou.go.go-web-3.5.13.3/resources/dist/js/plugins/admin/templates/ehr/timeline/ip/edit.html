@@ -1,0 +1,39 @@
+<div class="content" id="accessIpEditBlock">
+    <table class="table_form_mini">
+        <tbody>
+        <tr>
+            <th>
+                <ins class="asterisk">*</ins><span class="title">{{adminLang.접속 IP 이름}}</span>
+            </th>
+            <td>
+                <input type="text" name="ipName" id="ipName" class="w_space_r" value="{{#model}}{{model.ipName}}{{/model}}" maxlength="16">
+                <span class="go_alert" id="ipNameAlert"></span>
+            </td>
+        </tr>
+        <tr>
+            <th>
+                <ins class="asterisk">*</ins><span class="title">{{adminLang.접속 IP 대역}}</span>
+            </th>
+            <td>
+                <div class="ip">
+                    <input type="text" name="ip1" id="ip1" class="input t_num" value="{{#model}}{{model.ip1}}{{/model}}" maxlength="3"> .
+                    <input type="text" name="ip2" id="ip2" class="input t_num" value="{{#model}}{{model.ip2}}{{/model}}" maxlength="3"> .
+                    <input type="text" name="ip3" id="ip3" class="input t_num" value="{{#model}}{{model.ip3}}{{/model}}" maxlength="3"> .
+                    <input type="text" name="ip4" id="ip4" class="input t_num" value="{{#model}}{{model.ip4}}{{/model}}" maxlength="3"> -
+                    <input type="text" name="ip5" id="ip5" class="input t_num" value="{{#model}}{{model.ip5}}{{/model}}" maxlength="3">
+                    <span class="go_alert" id="ipAlert"></span>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <th>
+                <span class="title">{{adminLang.상세정보}}</span>
+            </th>
+            <td>
+                <input type="text" name="description" id="ipDescription" class="w_space_r" value="{{#model}}{{model.description}}{{/model}}">
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+   

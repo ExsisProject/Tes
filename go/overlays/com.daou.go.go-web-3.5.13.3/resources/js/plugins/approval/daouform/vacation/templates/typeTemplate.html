@@ -1,0 +1,17 @@
+{{#data}}
+{{#isSelectMode}}
+<!-- SELECT  -->
+<select class="editor_slt" data-dsl="{{dsl}}" name="select_type">
+    {{#options}}
+     <option value="{{text}}">{{text}}</option>
+    {{/options}}
+</select>
+{{/isSelectMode}}
+{{^isSelectMode}}
+<!-- RADIO  -->
+    {{#options}}
+    <input type="radio" class="editor_opt" data-dsl="{{dsl}}" name="radio_type" value="{{text}}" data-autotype="false" data-require="false" data-label="{{text}}">
+    <label class="editor_label" data-type="removeSpan">{{text}}</label>
+    {{/options}}
+{{/isSelectMode}}
+{{/data}}

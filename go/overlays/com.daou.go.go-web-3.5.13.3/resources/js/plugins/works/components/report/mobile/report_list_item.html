@@ -1,0 +1,24 @@
+<li report-id="{{id}}">
+    <div class="action_btn">
+        <a class="btn_star" el-favorite>
+            <span class="ic {{#favorite}}ic_star_on{{/favorite}} {{^favorite}}ic_star_off{{/favorite}}"></span>
+        </a>
+        <a class="btn_more" el-report-setting>
+            <span class="ic ic_more"></span>
+        </a>
+    </div>
+    <a el-detail>
+        <p class="report_tit">{{title}}</p>
+        <div class="wrap_creator">
+            <img alt="{{writerName}}" title="{{writerName}}" src="{{thumnail}}">
+            <span class="name">{{writerName}}</span>
+            <span class="date">{{createdAt}}</span>
+        </div>
+        {{#shared}}
+        <div class="wrap_share">
+            <span class="ic ic_person"></span>
+            <span class="txt">{{{lang.공유됨}}}</span>
+        </div>
+        {{/shared}}
+    </a>
+</li>

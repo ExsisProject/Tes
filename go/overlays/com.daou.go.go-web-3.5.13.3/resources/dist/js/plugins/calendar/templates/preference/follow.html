@@ -1,0 +1,27 @@
+<div class="vertical_wrap">
+    <span class="option_wrap"><input type="radio" name="view_type" value="feed" id="radio-following" checked="checked"><label for="radio-following">{{label.followings}}</label></span>
+    <span class="option_wrap"><input type="radio" name="view_type" value="follower" id="radio-followers"><label for="radio-followers">{{label.followers}}</label></span>
+</div>
+<div id="customButtons" class="tool_bar" style="display:none">
+     <div>                      
+         <a id="button-accept" class="btn_tool" data-role="button" data-type="accept" data-bypass>
+			 <span class="ic_toolbar approval"></span>
+			 <span class="txt">{{label.accept}}</span>
+		 </a>
+         <a id="button-delete" class="btn_tool" data-role="button" data-type="deny" data-bypass>
+			 <span class="ic_toolbar del"></span>
+			 <span class="txt_caution">{{label.delete}}</span>
+		 </a>
+     </div>                      
+</div>
+
+<table id="feed-list-table" class="type_normal tb_admin_favorCalendar">  
+	<thead>
+	    <tr>
+	        <th class="name">{{label.member}}</th>
+	        <th class="request">{{label.calendar_name}}</th>
+	        <th class="state">{{label.status}}</th>
+	        <th class="date">{{label.updated_at}}</th>
+	    </tr>
+	</thead>        
+</table>

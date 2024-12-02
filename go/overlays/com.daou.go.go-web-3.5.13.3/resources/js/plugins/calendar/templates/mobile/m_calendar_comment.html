@@ -1,0 +1,25 @@
+<div class="content_page">
+<!-- 상세 -->
+	<div class="content board_reply">
+		<section class="classic_detail">
+			<header class="article_header calander_header">	
+				<h2> <!-- 비공개 아이콘 추가 -->
+					{{#isPrivate}}
+					<span class="ic ic_lock"></span>
+					{{/isPrivate}}
+					<span class="txt">{{event.summary}}</span>
+				</h2>
+				<div class="article_wrap">
+					<span class="date">{{timeLabel}}</span>
+					<span class="txt">{{recurrence}}</span>
+				</div>
+			</header>
+<!-- reply -->
+			<section class="article_reply">
+				<div class="reply_wrap" id="comment_list">
+				</div>
+			</section>
+<!-- // reply -->
+		</section>
+	</div>
+</div>

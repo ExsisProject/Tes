@@ -1,0 +1,61 @@
+{{#dataSet}}
+	{{^isPostHidden}}
+	<li {{#isClassic}}{{^readPost}}class="read_no"{{/readPost}}{{/isClassic}}>
+		<a class="tit" href="javascript:;" data-ownerId="{{boardMasterOwner.ownerId}}" data-boardType="{{type}}" data-boardId="{{boardId}}" data-postId="{{id}}" data-list-id="{{id}}"><!--  href="{{getPostDetailUrl}}"  -->
+			<span class="subject">
+				<span class="title">
+					{{#isClassic}}{{{titleParse}}}{{/isClassic}}
+					{{^isClassic}}{{{contentParse}}}{{/isClassic}}
+				</span>
+				{{#commentsCount}}
+				<span class="count">[{{^readPost}}<strong>{{/readPost}}{{commentsCount}}{{^readPost}}</strong>{{/readPost}}]</span>
+				{{/commentsCount}}
+                {{#newFlag}}<span class="ic ic_new"></span>{{/newFlag}}
+			</span>
+			<span class="info">
+				<span class="name txt_ellipsis {{#writer}}{{#otherCompanyUser}}multi_user{{/otherCompanyUser}}{{/writer}}">{{#writer.otherCompanyUser}}{{writer.companyName}}{{/writer.otherCompanyUser}} {{writer.name}} {{writer.positionName}}</span>
+				{{#writer.name}}<span class="part">|</span>{{/writer.name}}
+				<span class="date">{{dateParse}}</span>
+				<span class="part">|</span>
+				{{#isCommunity}}
+				<span class="category txt_ellipsis">{{boardMasterOwner.ownerInfo}}</span>
+				{{/isCommunity}}
+				{{^isCommunity}}				
+				<span class="category txt_ellipsis">{{boardName}}</span>
+				{{/isCommunity}}
+				{{#isClassic}}
+                <span class="part">|</span>
+				<span class="num">{{lang.view_count}} {{readCount}}</span>
+				{{/isClassic}}
+				<span class="part">|</span>
+                <span class="">{{lang.plus}} {{recommendCount}}</span>
+			</span>
+		</a>
+	</li>
+	{{/isPostHidden}}
+	{{#isPostHidden}}
+	<li class="private">
+		<a class="tit" href="javascript:;" data-boardId="{{boardId}}" data-bypass data-hidden="{{isPostHidden}}">
+			<span class="subject">
+				<span class="title">
+					{{#isTitleHidden}}{{lang.no_auth}}{{/isTitleHidden}}
+					{{^isTitleHidden}}{{{titleParse}}}{{/isTitleHidden}}
+				</span>
+				<span class="ic ic_lock"></span>
+                {{#newFlag}}<span class="ic ic_new"></span>{{/newFlag}}
+			</span>
+			<span class="info">
+				<span class="date">{{dateParse}}</span>
+			</span>
+		</a>
+	</li>
+	{{/isPostHidden}}
+{{/dataSet}}
+{{^dataSet}}
+	{{#hasBoard}}
+		<li class="creat data_null"><span class="txt_ellipsis">{{#nullMessage}}{{nullMessage}}{{/nullMessage}}{{^nullMessage}}{{lang.post_null}}{{/nullMessage}}</span></li>	
+	{{/hasBoard}}
+	{{^hasBoard}}
+		<li><div class="notice"><br/><br/><h2 class="title">{{lang.board_null_msg1}}</h2><p class="desc">{{lang.board_null_msg2}}</p><div class="page_action_wrap"><a href="home" data-bypass><span class="btn_major" data-role="button"><span class="txt">{{lang.move_to_home}}</span></span></a></div></div></li>
+	{{/hasBoard}}
+{{/dataSet}}

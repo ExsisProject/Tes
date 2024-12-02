@@ -1,0 +1,1 @@
+define("admin/models/profile_config",function(require){var e=require("backbone"),t=require("app"),n=e.Model.extend({url:function(){return t.config("contextRoot")+"ad/api/profile/config"}});return n});

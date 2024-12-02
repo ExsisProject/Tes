@@ -1,0 +1,41 @@
+<dl {{#model.isTitle}}class="subject"{{/model.isTitle}}>
+	<dt class="sorting" el-label>
+	
+		<div class="btn_submenu">
+			<a class="btn_tool btn_tool_multi">
+				<span class="txt">
+					<strong el-name>{{columnName}}</strong>
+				</span>
+				<span class="ic ic_arrow_type3" el-toggle-management-layer backdrop-toggle="true"></span>
+			</a>
+			<div class="array_option" el-column-management-layer style="display: none;">
+				<ul class="array_type">
+					<li el-delete><span>{{lang.삭제}}</span></li>
+					<li el-edit><span>{{lang.수정}}</span></li>
+                    {{#titleAvailable}}
+					<li el-title><span>{{lang.제목으로 지정}}</span></li>
+                    {{/titleAvailable}}
+					<li el-sort="desc"><span>{{lang.내림차순으로 정렬}}</span></li>
+					<li el-sort="asc"><span>{{lang.오름차순으로 정렬}}</span></li>
+				</ul>
+			</div>
+		</div>
+		{{#model.isSortBy}}
+		<span class="selected"></span>
+		{{/model.isSortBy}}
+	</dt>
+	{{^isDesc}}
+	<dd>1. <span el-name>{{columnName}}</span></dd>
+	<dd>2. <span el-name>{{columnName}}</span></dd>
+	<dd>3. <span el-name>{{columnName}}</span></dd>
+	<dd>4. <span el-name>{{columnName}}</span></dd>
+	<dd>5. <span el-name>{{columnName}}</span></dd>
+	{{/isDesc}}
+	{{#isDesc}}
+	<dd>5. <span el-name>{{columnName}}</span></dd>
+	<dd>4. <span el-name>{{columnName}}</span></dd>
+	<dd>3. <span el-name>{{columnName}}</span></dd>
+	<dd>2. <span el-name>{{columnName}}</span></dd>
+	<dd>1. <span el-name>{{columnName}}</span></dd>
+	{{/isDesc}}
+</dl>

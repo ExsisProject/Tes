@@ -1,0 +1,1 @@
+define("webfolder/controllers/main",function(require){var e=require("views/layouts/fullpage"),t={};return t.renderHome=function(){require(["webfolder/views/home"],function(t){GO.config("workspace_expansion_button_visible",!0);var n=e.create();n.render();var r=n.$el.find("div.go_body"),i=new t;r.html(i.$el),i.render()})},t});

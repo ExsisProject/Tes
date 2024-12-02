@@ -1,0 +1,80 @@
+<div class="content_info">
+    <ul class="info_summary">
+        <li class="first">
+            <span class="tit">{{lang.label_total_board}}</span>
+            <span class="txt"><strong>{{model.totalBoard}}</strong> {{lang.label_count}}</span>
+            <span class="desc">{{lang.label_online}} : {{model.totalActiveBoard}}{{lang.label_count}} / {{lang.label_stop}} : {{model.totalClosedBoard}}{{lang.label_count}}</span>
+        </li>
+        <li style="display: none;">
+            <span class="tit">{{lang.label_total_post}}</span>
+            <span class="txt"><strong>{{model.totalPost}}</strong> {{lang.label_count}}</span>
+            <span class="desc">{{lang.label_classic}} : {{model.totalBbsPost}}{{lang.label_count}} / {{lang.label_feed}} : {{model.totalStreamPost}}{{lang.label_count}}</span>
+        </li>
+        <li style="display: none;">
+            <span class="tit">{{lang.label_total_storage}}</span>
+            <span class="txt"><strong>{{totalSize}}</strong> {{lang.label_mb}}</span>
+        </li>
+        <li style="display: none;" class="bar">
+            <span class="txt_guide">{{lang.label_usage_desc}}</span>
+        </li>
+    </ul>
+    <span class="wrap_action">
+        <span class="ic_adm ic_accordion_open" title="펼치기"></span>
+    </span>
+    <span class="wrap_action" style="display: none;">
+        <span class="ic_adm ic_accordion_close" title="접기"></span>
+    </span>
+</div>
+	
+<div id="communityAllCsvDownLoad" style="display:none">
+    <span class="btn_tool" id="btn_down_all">{{lang.label_down}}</span>
+</div>
+
+<div class="content_page">
+    <div class="dataTables_wrapper container">
+        <div class="content_tb">
+            <table class="chart size" id="communityList">
+                <thead>
+                    <tr>
+                        <th class="sorting">
+                            <span class="title_sort align_c">{{lang.label_board}}<ins class="ic"></ins><span class="selected"></span></span>
+                        </th>
+                        <th class="sorting">
+                            <span class="title_sort">{{lang.label_community}}<ins class="ic"></ins><span class="selected"></span></span>
+                        </th>
+                        <th class="sorting_disable">
+                            <select id="boardType">
+										<option value="all">{{lang.label_all}}</option>
+										<option value="CLASSIC">{{lang.label_bbs}}</option>
+										<option value="STREAM">{{lang.label_stream}}</option>
+							</select>
+                        </th>
+                        <th class="sorting last">
+                            <span class="title_sort">{{lang.label_posts}}<ins class="ic"></ins><span class="selected"></span></span>
+                        </th>
+                        <th class="sorting last">
+                            <span class="title_sort">{{lang.label_storage}}<ins class="ic"></ins><span class="selected"></span></span>
+                        </th>
+                        <th class="sorting">
+                            <span class="title_sort">{{lang.label_created}}<ins class="ic"></ins><span class="selected"></span></span>
+                        </th>
+                    </tr>
+                </thead>
+            </table>
+
+            <div class="table_search">
+                <select id="type">
+                    {{#selectType}}
+                    <option value="{{value}}">{{name}}</option>
+                    {{/selectType}}
+                </select> 
+                <span class="search_wrap"> 
+                    <input class="input" type="text" id="keyword" name="keyword" value=""/> 
+                        <span class="btn_search" title="{{lang.label_search}}"></span>
+                    <input class="submit" type="submit" value="" />
+                </span>
+            </div>
+
+        </div>
+    </div>
+</div>

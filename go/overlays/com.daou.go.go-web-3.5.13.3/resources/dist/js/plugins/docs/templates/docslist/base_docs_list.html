@@ -1,0 +1,57 @@
+<table class="type_normal list_docs">
+    <thead id ="doclist_field_header">
+       <tr>
+           {{#columns.선택}}
+			<th id="header_checkbox" class="sorting_disabled" style="width: 35px;">
+				<input type="checkbox" class="header_checkbox" id="{{checkboxColumn.id}}" name="{{checkboxColumn.name}}">
+			</th> 
+			{{/columns.선택}}
+			
+			{{#columns.열람일}} 
+			<th id="header_read_updatedAt" sort-id="{{sorts.열람일}}" class="date {{#sorts.열람일}}sorting{{/sorts.열람일}}{{^sorts.열람일}}sorting_disabled{{/sorts.열람일}}"><span class="title_sort">{{columns.열람일}}<ins class="ic"></ins><span class="selected"></span></span></th>
+			{{/columns.열람일}}
+
+			{{#columns.등록일}}
+			<th id="header_completeDate" sort-id="{{sorts.등록일}}" class="date {{#sorts.등록일}}sorting{{/sorts.등록일}}{{^sorts.등록일}}sorting_disabled{{/sorts.등록일}}"><span class="title_sort">{{columns.등록일}}<ins class="ic"></ins><span class="selected"></span></span></th>
+			{{/columns.등록일}}
+			
+            {{#columns.등록요청일}} 
+            <th id="header_requestDate" sort-id="{{sorts.등록요청일}}" class="date {{#sorts.등록요청일}}sorting{{/sorts.등록요청일}}{{^sorts.등록요청일}}sorting_disabled{{/sorts.등록요청일}}"><span class="title_sort">{{columns.등록요청일}}<ins class="ic"></ins><span class="selected"></span></span></th>
+            {{/columns.등록요청일}}
+            
+			{{#columns.제목}}
+			<th id="header_title" sort-id="{{sorts.제목}}" class="subject {{#sorts.제목}}sorting{{/sorts.제목}}{{^sorts.제목}}sorting_disabled{{/sorts.제목}}"><span class="title_sort">{{columns.제목}}<ins class="ic"></ins><span class="selected"></span></span></th>
+			{{/columns.제목}}
+			
+			{{#columns.문서번호}}
+			<th id="header_docNum" sort-id="{{sorts.문서번호}}" class="date {{#sorts.문서번호}}sorting{{/sorts.문서번호}}{{^sorts.문서번호}}sorting_disabled{{/sorts.문서번호}}"><span class="title_sort">{{columns.문서번호}}<ins class="ic"></ins><span class="selected"></span></span></th>
+			{{/columns.문서번호}}
+
+            
+			{{#columns.첨부}}
+			<th id="header_attach" class="attach sorting_disabled"><span class="title_sort">{{columns.첨부}}</span></th>
+			{{/columns.첨부}}
+            
+            {{#columns.문서위치}}
+            <th id="header_folder" sort-id="{{sorts.문서위치}}" class="folder sorting_disabled"><span class="title_sort">{{columns.문서위치}}</span></th>
+            {{/columns.문서위치}}
+            
+			{{#columns.등록자}}
+			<th id="header_creatorName" sort-id="{{sorts.등록자}}" class="people {{#sorts.등록자}}sorting{{/sorts.등록자}}{{^sorts.등록자}}sorting_disabled{{/sorts.등록자}}"><span class="title_sort">{{columns.등록자}}<ins class="ic"></ins><span class="selected"></span></span></th>
+			{{/columns.등록자}}
+			
+			{{#columns.상태}}
+			<th id="header_status" sort-id="{{sorts.상태}}" class="state_wrap {{#sorts.상태}}sorting{{/sorts.상태}}{{^sorts.상태}}sorting_disabled{{/sorts.상태}}"><span class="title_sort">{{columns.상태}}<ins class="ic"></ins><span class="selected"></span></span></th>
+			{{/columns.상태}}
+		</tr>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
+{{#usePage}}
+<div class="tool_bar tool_absolute">
+    <!--  상단 메뉴와 동일 -->
+    <div class="dataTables_length">
+    </div>                 
+</div>
+{{/usePage}}

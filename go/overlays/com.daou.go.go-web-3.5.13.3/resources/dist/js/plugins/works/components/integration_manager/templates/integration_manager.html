@@ -1,0 +1,60 @@
+<div class="app_write_tit">
+	<h5 el-tool-area data-type="consumers">
+		{{lang.이 앱을 참조하고 있는 앱 목록}}
+		<span class="help">
+			<span class="tool_tip">{{lang.참조목록 설명}}<i class="tail_left"></i></span>
+		</span>
+	</h5>
+</div>
+
+<table class="type_normal list_reference">
+	<thead>
+		<tr>
+			<th class="sorting_disable">
+				<span class="title_sort">{{lang.연결된 앱}}</span>
+			</th>
+			<th class="sorting_disable ref_item">
+				<span class="title_sort">{{lang.연결 컴포넌트}}</span>
+			</th>
+			<th class="sorting_disable ref_user">
+				<span class="title_sort">{{lang.신청자}}</span>
+			</th>
+			<th class="sorting_disable check">
+				<span class="title_sort">{{lang.목록 조회 허용}}</span>
+			</th>
+			<th class="sorting_disable check">
+				<span class="title_sort">{{lang.상세 보기 허용}}</span>
+			</th>
+		</tr>
+	</thead>
+	<tbody id="consumers"></tbody>
+</table>
+
+<div class="app_write_tit">
+	<h5 el-tool-area data-type="producers">
+		{{lang.다른 앱의 데이터를 참조하고 있는 컴포넌트}}
+		<span class="help">
+			<span class="tool_tip">{{lang.참조컴포넌트 설명}}<i class="tail_left"></i></span>
+		</span>
+	</h5>
+</div>
+
+<table class="type_normal list_reference">
+	<thead>
+		<tr>
+			<th class="sorting_disable ref_item">
+				<span class="title_sort">{{lang.항목명}}</span>
+			</th>
+			<th class="sorting_disable">
+				<span class="title_sort">{{lang.연동앱}}</span>
+			</th>
+			<th class="sorting_disable ref_link">
+				<span class="title_sort">{{lang.목록 조회 허용}}</span>
+			</th>
+			<th class="sorting_disable ref_view">
+				<span class="title_sort">{{lang.상세 보기 허용}}</span>
+			</th>
+		</tr>
+	</thead>
+	<tbody id="producers"></tbody>
+</table>

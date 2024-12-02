@@ -1,0 +1,61 @@
+<form onsubmit="return false;">
+{{^isAdmin}}
+<!-- 툴바 -->
+<div class="tool_bar">              
+    <div class="optional">
+    <!-- 개발용 임시 버튼입니다. 레이아웃 개선 디자인이 나오면 삭제해주세요. -->
+        <a class="btn_tool" id="public_contact" data-role="button"><span class="txt_caution">공용주소록</span></a>
+        <a class="btn_tool" id="save_as_personal_apprflow" data-role="button"><span class="txt_caution">{{lang.save_as_my_line}}</span></a>
+    </div>
+</div>
+<!-- 문서양식 -->
+<div class="set_wrap">
+{{/isAdmin}}
+    <div id="tab_container" class="set_nav">
+        {{^isAdmin}}
+        <!-- 탭 -->
+        <ul class="tab_type3 tab_type3_column2" id="apprflow_editor_side_tab">
+            <li id="org_tab" class="first selected"><a href="#" data-bypass><span class="txt">{{lang.normal}}</span></a></li>
+            <li id="my_line_tab" class="last"><a href="#" data-bypass><span class="txt">{{lang.my_lines}}</span></a></li>
+        </ul>
+        {{/isAdmin}}
+        <div id="org_tab_content">
+        </div>
+        {{^isAdmin}}
+        <div id="my_line_tab_content" class="content_tab_wrap" style="display:none">
+        </div>
+        {{/isAdmin}}
+    </div>
+    <!-- 결재선 -->
+    <div class="set_data">
+        <table class="type_normal tb_approval_line">
+            <thead>
+                <tr>
+                    <th class="btn"></th>
+                    <th class="kind">{{lang.activityType}}</th>
+                    <th class="name">{{lang.name}}</th>
+                    <th class="depart">{{lang.dept}}</th>
+                    <th class="state">{{lang.state}}</th>
+                    {{#isPermissibleArbitraryDecision}}
+                    {{#isArbitraryCheckVisible}}
+                    <th class="sign">{{lang.arbitrary}}</th>
+                    {{/isArbitraryCheckVisible}}
+                    {{/isPermissibleArbitraryDecision}}
+                    <th class="func">{{lang.delete}}</th>
+                </tr>
+            </thead>
+        </table>
+        <div id="activity_groups" class="list_approval_line_wrap">
+            <!-- 결재라인 -->
+        </div>
+        <!-- 합의 방식 -->
+        <div class="tit_type2">
+            <span class="tit">{{lang.agreement_type}} : </span>
+            <span class="option_wrap"><input id="series" type="radio" name="useParallelAgreement" value="false" {{^useParallelAgreement}}checked{{/useParallelAgreement}}> <label for="series">{{lang.agreement_linear}}</label></span>
+            <span class="option_wrap"><input id="parallel" type="radio" name="useParallelAgreement" value="true" {{#useParallelAgreement}}checked{{/useParallelAgreement}}> <label for="parallel">{{lang.agreement_parallel}}</label></span>
+        </div>
+    </div>
+{{^isAdmin}}
+</div>
+{{/isAdmin}}
+</form>

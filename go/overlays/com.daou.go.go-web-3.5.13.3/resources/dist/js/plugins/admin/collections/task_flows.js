@@ -1,0 +1,1 @@
+define(["backbone","admin/models/task_flow"],function(e,t){var n=e.Collection.extend({model:t,initialize:function(){},url:function(){},addFirstFlow:function(e,n){this.unshift(new t({beforeStatus:null,nextStatus:e||"",pushRoles:n}))},firstNotiList:function(){return this.at(0).get("pushRoles")},transitions:function(){var e=this.clone();return e.shift(),e}});return n});

@@ -1,0 +1,1 @@
+define(["admin/models/appr_form","backbone"],function(e,t){var n=t.Collection.extend({model:e,url:GO.contextRoot+"ad/api/approval/apprform",initialize:function(){}});return n});

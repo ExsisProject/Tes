@@ -1,0 +1,1 @@
+define(["backbone"],function(e){var t=e.Collection.extend({url:GO.contextRoot+"api/report/done"},{fetch:function(e){var n=new t;return e?n.fetch({async:!0,success:e.success}):(n.fetch({async:!1}),n)}});return t});

@@ -1,0 +1,28 @@
+<div class="build_box_data">
+	<span class="txt">
+    <strong>{{aggrTypeText}} :</strong>
+    {{#isNumber}}
+        {{#isPrefix}}
+           {{#userData}}
+              {{model.unitText}}
+           {{/userData}}
+        {{/isPrefix}}
+
+        {{userData}}
+
+        {{^isPrefix}}
+           {{#userData}}
+              {{model.unitText}}
+           {{/userData}}
+        {{/isPrefix}}
+    {{/isNumber}}
+
+    {{#isPercent}}
+        {{userData}} %
+    {{/isPercent}}
+
+    {{#isPoint}}
+        {{userData}}
+    {{/isPoint}}
+    </span>
+</div>

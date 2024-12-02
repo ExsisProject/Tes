@@ -1,0 +1,33 @@
+<div class="sign_type1 sign_type_new" data-group-seq="{{seq}}" data-group-name="{{name}}" data-group-max-count="{{maxApprovalCount}}"
+     data-group-type="{{roomType}}" {{^isAgreement}}data-is-reception="{{#isReception}}true{{/isReception}}"{{/isAgreement}} {{#isAgreement}}data-is-agreement="true" id="agreementWrap"{{/isAgreement}}>
+    <table class="tb_sign_type1">
+        <tbody>
+        <tr>
+            <th>{{name}}</th>
+            {{#activities}}
+            <td>
+                <table class="sign_member">
+                    <tbody>
+                    <tr>
+                        <td>
+                            <span class="sign_rank"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="wrap_name">
+                            <span class="sign_name" id="status_"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="last">
+                            <span class="sign_date" id="date_"></span>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </td>
+            {{/activities}}
+        </tr>
+        </tbody>
+    </table>
+</div>

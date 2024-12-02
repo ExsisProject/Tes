@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>테슷</title>
+
+<!--<script src="./filter_rule_validator.js"></script>-->
+
+<script>
+	function evaluate() {
+
+		var FilterRuleValidator = require('plugins/works/libs/filter_rule_validator');
+		var filters = document.getElementById("filters").value.split(' ');
+		var ruleElement = document.getElementById("rule");
+		var rule = ruleElement.value;
+
+		var validator = new FilterRuleValidator(filters, rule);
+		var result = validator.evaluate();
+
+		console.log(result);
+
+		if(result.validate) {
+			document.getElementById("result").innerText = "OK";
+		} else {
+			ruleElement.focus();
+			ruleElement.setSelectionRange(result.beginCursor, result.endCursor);
+			document.getElementById("result").innerText = result.debugMessage;
+		}
+
+	}
+
+</script>
+
+</head>
+<body>
+
+<input id="filters" type="text" size="100" value="가방 나비 다람쥐 라면 마징가 바둑 사슴"/>
+<br/>
+<input id="rule" type="text" size="100" value="가방 AND (나비 OR 다람쥐 AND (라면 AND 마징가))"/>
+<br/>
+<button type="button" onclick="window.evaluate()">Evaluate</button>
+<br/>
+<div id="result">
+
+</div>
+
+</body>
+
+
+</html>

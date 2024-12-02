@@ -1,0 +1,80 @@
+@charset "UTF-8";
+* {font-size: 12px; margin:0; padding: 0}
+ul, ol {list-style: none}
+a {text-decoration: none}
+span.txt {vertical-align: middle}
+
+/* layer_doc_edit */
+div.layer_doc_edit {position:fixed; width:96%; height:94%; left:2%; top:3%}
+div.layer_doc_edit div.tool_bar {padding:0; height:36px}
+div.layer_doc_edit div.editor_wrap {margin:0 199px 0 0; height:100%}
+div.layer_doc_edit div.pallet {float:right; width:198px; height:100%; overflow:hidden}
+
+div.editor_wrap {margin:0 199px 0 0; height:100%}
+div.pallet {position:absolute; top:0; right:0; width:198px; height:100%; overflow:hidden}
+
+/* pallet */
+div.pallet {border:1px solid #B5B5B5;}
+div.pallet ul.tab_pallet li {float:left; display:inline-block; height: 31px; line-height: 31px; text-align:center; background: #f4f4f4 url(../img/bg_text_tool.gif) 0 0 repeat-x; width:100px; border-bottom:1px solid #B5B5B5; cursor:pointer}
+#smart_editor2 div.pallet ul.tab_pallet li a {color:#999; text-decoration:none}
+div.pallet ul.tab_pallet {height:27px}
+div.pallet ul.tab_pallet li:first-child {border-right:1px solid #B5B5B5; width:97px}
+div.pallet ul.tab_pallet li.selected {background:#fafafa; border-bottom:1px solid #e7e7e7; cursor:default}
+div.pallet ul.tab_pallet li.selected a {color:#333; font-weight:bold; cursor:default}
+div.pallet div.pallet_item_wrap {clear:left; height:417px; overflow-y:auto; background:#fafafa}
+div.pallet div.pallet_item_wrap ul.pallet_item {clear:left; padding:10px 0 35px}
+div.pallet div.pallet_item_wrap ul.pallet_item > li {border-top:1px solid #ddd}
+div.pallet div.pallet_item_wrap ul.pallet_item > li:first-child {border-top:0; padding-top:0}
+div.pallet div.pallet_item_wrap ul.pallet_item li ul.items li span.ic_pallet {vertical-align: top; margin-top: 2px}
+div.pallet div.pallet_item_wrap ul.pallet_item li ul.items li {padding:5px!important}
+#smart_editor2 div.pallet div.pallet_item_wrap ul.pallet_item li ul.items li {position: relative}
+#smart_editor2 div.pallet div.pallet_item_wrap ul.pallet_item li ul.items li .ic_undo {display: block; position: absolute; top: 9px; right: 4px; cursor: pointer}
+#smart_editor2 div.pallet div.pallet_item_wrap ul.pallet_item li ul.items li button span {position:static; visibility:visible; line-height:inherit; font-size:12px}
+#smart_editor2 div.pallet div.pallet_item_wrap ul.pallet_item li ul.items li span.txt {display:inline-block; width:128px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; height:26px; line-height:26px; vertical-align:top}
+#smart_editor2 div.pallet div.pallet_item_wrap ul.pallet_item li ul.items li button {width:100%; height:27px; line-height:27px; padding:0 5px; background:none; border:1px solid #fafafa; text-align:left; cursor:pointer}
+#smart_editor2 div.pallet div.pallet_item_wrap ul.pallet_item li ul.items li button:hover {background:url(../img/bg_pallet_item.gif) repeat-x 0 -1px; height:27px; border:1px solid #bebebe; border-radius:2px}
+div.pallet div.pallet_item_wrap ul.pallet_item li span.ic_pallet {vertical-align:middle; margin-right:5px}
+div.pallet ul.tab_pallet.tep_item1 li {width: 100%}
+
+/* pallet_icons */
+span.ic_pallet {display:inline-block; background:url(../img/ic_pallet.png?ver2.4.3) no-repeat; width:20px; height:20px}
+span.ic_pallet_title {background-position: 0 0}
+span.ic_pallet_text {background-position: 0 -50px}
+span.ic_pallet_num {background-position: 0 -100px}
+span.ic_pallet_currency {background-position: 0 -150px}
+span.ic_pallet_textarea {background-position: 0 -200px}
+span.ic_pallet_editor {background-position: 0 -250px}
+span.ic_pallet_radio {background-position: 0 -300px}
+span.ic_pallet_check {background-position: 0 -350px}
+span.ic_pallet_calendar {background-position: 0 -400px}
+span.ic_pallet_peroid {background-position: 0 -450px}
+span.ic_pallet_time {background-position: 0 -500px}
+span.ic_pallet_photo {background-position: 0 -550px}
+span.ic_pallet_namepos {background-position: 0 -600px}
+span.ic_pallet_name {background-position: 0 -650px}
+span.ic_pallet_pos {background-position: 0 -700px}
+span.ic_pallet_no {background-position: 0 -750px}
+span.ic_pallet_org {background-position: 0 -800px}
+span.ic_pallet_today {background-position: 0 -850px}
+span.ic_pallet_select {background-position: 0 -900px}
+span.ic_pallet_name {background-position: 0 -950px}
+.ic_pallet.ic_undo {background-position: 0 -1000px; width: 12px; height: 12px}
+
+/*pallet active시 add remove*/
+.liActive {
+	background: url(../img/bg_pallet_item.gif) repeat-x 0 -50px !important;
+	border-radius: 2px !important;
+}
+
+.no_select {
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+
+/* IE11 */
+@media all and (-ms-high-contrast:none) {
+	*::-ms-backdrop, #smart_editor2 div.pallet div.pallet_item_wrap ul.pallet_item li ul.items li  button span.txt {line-height:28px}
+}

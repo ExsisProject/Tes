@@ -1,0 +1,78 @@
+<div class="content_page profile">
+    <div class="portlet_warp profile_wrap" style="height:px">
+        <section class="list_item list_item_alarm">
+            <header>
+                <h1>
+                    <span class="ic_gnb ic_profile3_h"></span>
+                    <span class="title">{{lang.title}}</span>
+                </h1>
+            </header>
+        </section>
+    </div>
+    <form>
+        <fieldset>
+            {{#data.mamActive}}
+            <div class="security_device_wrap">
+                <table class="form_type">
+                    <tbody>
+                    <tr>
+                        <th>
+                            <span class="title">{{lang.deviceList}}</span>
+                        </th>
+                    </tr>
+                    </tbody>
+                </table>
+                <section class="form_admin">
+                    <div class="dataTables_wrapper">
+                        <div id="device_list_table" class="tb_sub_wrap">
+                            <!-- 디바이스 목록 -->
+                        </div>
+                    </div>
+                    <span class="des">{{lang.registNoti}}</span>
+                </section>
+            </div>
+            {{/data.mamActive}}
+            {{#data.otpActive}}
+            {{#data.otpDeviceRegistered}}
+            <div class="otp_device_wrap">
+                <table class="form_type">
+                    <tbody>
+                    <tr>
+                        <th>
+                            <span class="title">{{lang.otpDeviceListTitle}}</span>
+                        </th>
+                    </tr>
+                    </tbody>
+                </table>
+                <section class="form_admin">
+                    <div class="dataTables_wrapper">
+                        <div id="otp_device_list" class="tb_sub_wrap">
+                            <!-- otp device list -->
+                        </div>
+                    </div>
+                    <span class="des">{{lang.otpDeviceListDesc}}</span>
+                </section>
+            </div>
+            {{/data.otpDeviceRegistered}}
+            {{^data.otpDeviceRegistered}}
+            <div class="security_otp_wrap">
+                <table class="form_type">
+                    <tbody>
+                    <tr>
+                        <th>
+                            <span class="title">{{lang.otpRegister}}</span>
+                        </th>
+                    </tr>
+                    </tbody>
+                </table>
+                <section class="form_admin">
+                    <div id="otp_device_registration" class="otp_certify_wrap">
+                        <!-- registration guide -->
+                    </div>
+                </section>
+            </div>
+            {{/data.otpDeviceRegistered}}
+            {{/data.otpActive}}
+        </fieldset>
+    </form>
+</div>

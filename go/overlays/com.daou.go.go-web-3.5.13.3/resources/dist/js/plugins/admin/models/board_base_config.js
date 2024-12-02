@@ -1,0 +1,1 @@
+define(["backbone"],function(e){var t=null,n=e.Model.extend({url:function(){return this.get("admin")?"/ad/api/boardconfig":"/api/boardconfig"}},{get:function(e){return t==null&&(t=new n),t.set({admin:e.admin?e.admin:!1}),t.fetch({async:!1}),t}});return{read:function(e){return boardConfigdModel=n.get(e)}}});

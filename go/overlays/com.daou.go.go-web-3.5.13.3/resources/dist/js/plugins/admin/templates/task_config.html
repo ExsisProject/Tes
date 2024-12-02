@@ -1,0 +1,151 @@
+﻿<div class="content_page">
+    <form name="formTaskConfig">
+    {{#isOrgServiceOn}}
+        <div class="container">
+            <div class="header">
+                <h2>{{lang.label_side}}</h2>
+            </div>
+            <div class="content">
+                <div class="vertical_wrap_s">
+                    <span class="option_wrap"> 
+                        <input type="radio" value="true" id="dept_radio" name="priorityTask" {{#model.priorityTask}} checked="checked" {{/model.priorityTask}} />
+                        <label for="dept_radio">{{lang.label_dept}}</label>
+                    </span>
+                </div>
+                <div class="vertical_wrap_s">
+                    <span class="option_wrap"> 
+                        <input type="radio" value="false" id ="company_radio" name="priorityTask" {{^model.priorityTask}} checked="checked" {{/model.priorityTask}} />
+                        <label for="company_radio">{{lang.label_company}}</label>
+                    </span>
+                </div>
+            </div>
+        </div>
+		{{/isOrgServiceOn}}
+        <div class="container">
+            <div class="header">
+                <h2>{{lang.label_base}}</h2>
+            </div>
+            <div class="content">
+                <table class="detail">
+                    <colgroup>
+                        <col width="130px" />
+                        <col width="*" />
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <th>
+                            	<span class="title">{{lang.label_attach_limit}}<br>({{lang.label_attach_limit_desc}})</span>
+                            </th>
+                            <td>
+                                <div class="vertical_wrap_s">
+                                    <span class="option_wrap"> 
+                                        <input type="radio" value="false" id="size_false" name="attachSizeLimit" {{^model.attachSizeLimit}} checked="checked" {{/model.attachSizeLimit}} />
+                                        <label for="size_false">{{lang.label_non_limit}}</label>
+                                    </span>
+                                </div>
+                                <div class="vertical_wrap_s">
+                                    <span class="option_wrap"> 
+                                        <input type="radio" value="true" id="size_true" name="attachSizeLimit" {{#model.attachSizeLimit}} checked="checked" {{/model.attachSizeLimit}}/>
+                                        <label for="size_true">{{lang.label_limit_size}}</label>
+                                    </span> 
+                                    <span id="maxAttachSize">
+                                        <span class="user_data editable" data-formname="maxAttachSize" data-value="{{model.maxAttachSize}}">
+                                            <span id="data">{{model.maxAttachSize}}</span>
+                                            <span class="btn_box" data-btntype="changeform">
+                                                <span class="ic ic_edit" title="{{lang.label_edit}}"></span>
+                                            </span>
+                                        </span>
+                                        <label>{{lang.label_mb}} {{lang.label_under}}</label>
+                                    </span>
+                                    <span class="go_alert" id="maxAttachSizeAlert"></span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                            	<span class="title">{{lang.label_attach_num_limit}}<br>({{lang.label_attach_num_limit_desc}})</span>                            	
+                            </th>
+                            <td>
+                                <div class="vertical_wrap_s">
+                                    <span class="option_wrap"> 
+                                        <input type="radio" value="false" id="number_false" name="attachNumberLimit" {{^model.attachNumberLimit}} checked="checked" {{/model.attachNumberLimit}} />
+                                        <label for="number_false">{{lang.label_non_limit}}</label>
+                                    </span>
+                                </div>
+                                <div class="vertical_wrap_s">
+                                    <span class="option_wrap"> 
+                                        <input type="radio" value="true" id="number_true" name="attachNumberLimit" {{#model.attachNumberLimit}} checked="checked" {{/model.attachNumberLimit}} />
+                                        <label for="number_true">{{lang.label_limit_number}}</label>
+                                    </span>
+                                    <span id="maxAttachNumber" >
+                                         <span class="user_data editable" data-formname="maxAttachNumber" data-value="{{model.maxAttachNumber}}">
+                                            <span id="data">{{model.maxAttachNumber}}</span>
+                                            <span class="btn_box" data-btntype="changeform">
+                                                <span class="ic ic_edit" title="{{lang.label_edit}}"></span>
+                                            </span>
+                                        </span>
+                                        <label>{{lang.label_count}} {{lang.label_under}}</label>
+                                    </span>
+                                    <span class="go_alert" id="maxAttachNumberAlert"></span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="last">
+                            <th><span class="title">{{lang.label_exclude}}</span></th>
+                            <td>
+                                <span class="option_wrap" id="excludeExtension"> 
+                                    {{^hasExcludeExtension}}
+                                    <span class="user_data editable" data-formname="excludeExtension" data-value="{{model.excludeExtension}}">
+                                        <span id="data">{{model.excludeExtension}}</span>
+                                        <span class="btn_box" data-btntype="changeform">
+                                            <span class="ic ic_edit" title="{{lang.label_edit}}"></span>
+                                        </span>
+                                    </span>
+                                    {{/hasExcludeExtension}}
+                                    {{#hasExcludeExtension}}
+                                    <input type="text" class="input w_large" id="excludeExtension" name="excludeExtension" value="">
+                                    {{/hasExcludeExtension}}
+                                    <span class="desc vb">{{lang.label_desc}}</span>
+                                </span>
+                                <span class="go_alert" id="excludeExtensionAlert"></span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="container" >
+            <div class="header">
+                <h2>{{lang.label_org_view}}</h2>
+            </div>          
+            <div class="content box_scroll">
+				<span class="desc">{{lang.label_view_desc}}</span>
+                <table class="detail">
+                    <colgroup>
+                        <col width="130px">
+                        <col width="*">
+                    </colgroup>
+                    <tbody>
+                        <tr class="last">
+                            <th><span class="title">{{lang.label_cal_view}}</span></th>
+                            <td>
+                                <span id="viewer">
+                                </span>
+                                <span class="vertical_wrap">
+                                    <span class="option_wrap">
+                                        <input type="checkbox" id="detailView" name="detailView" {{#model.detailView}}checked="checked"{{/model.detailView}} value="true"> 
+                                        <label for="detailView">{{lang.label_detail_view}}</label>
+                                    </span>
+                                </span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </form>
+    <div class="page_action">
+        <span class="btn" id="btn_ok">{{lang.label_ok}}</span> <span
+            class="btn_nega" id="btn_cancel">{{lang.label_cancel}}</span>
+    </div>
+</div>

@@ -1,0 +1,1 @@
+define("components/realgrid/data_type",function(require){var e="text",t="number",n="date",r="time",i="datetime",s="boolean",o="object";return{TEXT:e,NUMBER:t,DATE:n,TIME:r,DATETIME:i,BOOLEAN:s,OBJECT:o}});

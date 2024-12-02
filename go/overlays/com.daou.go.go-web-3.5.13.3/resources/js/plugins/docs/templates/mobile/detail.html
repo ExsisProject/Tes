@@ -1,0 +1,91 @@
+<div class="content_page">
+    <div class="content" id="docsArea">
+        {{#reject}}
+        <div class="box flat docs_return" id="rejectWrap">
+        </div>
+        {{/reject}}
+        <div class="box flat detail_docs">
+            <div id="doc_header">
+                <h2>{{docsModel.title}}</h2>
+                <div class="module_drop">
+                    <div class="module_drop_body">
+                        <ul class="list_property">
+                            <li class="item">
+                                <div class="wrap">
+                                    <span class="tit">{{lang.등록자}} :</span>
+                                    <span class="data">
+                                        <span class="member">
+                                            <img src="{{docsModel.thumbnail}}" alt="{{docsModel.creatorName}} {{docsModel.creatorPosition}}"
+                                                 title="{{docsModel.creatorName}} {{docsModel.creatorPosition}}">
+                                            <span class="txt">{{docsModel.creatorName}} {{docsModel.creatorPosition}}</span>
+                                        </span>
+                                    </span>
+                                </div>
+                            </li>
+                            <li class="item">
+                                <div class="wrap">
+                                    <span class="tit">{{lang.등록일}} :</span>
+                                    <span class="data">{{completeDate}}</span>
+                                </div>
+                            </li>
+                            {{#useDocNum}}
+                            <li class="item">
+                                <div class="wrap">
+                                    <span class="tit">{{lang.문서번호}} :</span>
+                                    <span class="data">{{docsModel.docNum}}</span>
+                                </div>
+                            </li>
+                            {{/useDocNum}}
+                            <li class="item">
+                                <div class="wrap">
+                                    <span class="tit">{{lang.보존연한}} :</span>
+                                    <span class="data">{{preserveYear}}</span>
+                                </div>
+                            </li>
+                            {{#needState}}
+                            <!-- 문서 상태 표기 -->
+                            <li class="item">
+                                <div class="wrap">
+                                    <span class="tit">{{lang.문서상태}} :</span>
+                                    <span class="data">
+                                        <span class="state {{#wait}}wait{{/wait}}{{#reject}}return{{/reject}}{{#temp}}temp{{/temp}}">{{stateName}}</span>
+                                    </span>
+                                </div>
+                            </li>
+                            {{/needState}}
+                            {{^needState}}
+                            <!-- 문서 버전 표기 -->
+                            <li class="item">
+                                <div class="wrap">
+                                    <span class="tit">{{lang.문서버전}} :</span>
+                                    <span class="data">
+                                        <span class="bar_ver current">{{version}}</span>
+                                    </span>
+                                </div>
+                            </li>
+                            {{/needState}}
+                        </ul>
+                        <div id="fontResizeWrap" style="display:none"></div>
+                        <a href="javascript:;" class="btn_share" id="copyUrl">
+                            <span class="ic ic_link"></span>
+                        </a>
+                    </div>
+                </div>
+                <hr style="margin:0">
+            </div>
+            <div class="module_drop scroll" id="iScrollContentWrap" style="padding:0">
+                <div id="editorView">
+                    <article class="article_view" id="docsContentLayout" style="padding:0">
+                        <div class="module_drop_body">
+                            <span class="editor_view" style="padding:0;display:inline-table">
+                                <div>
+                                    {{{docsModel.content}}}
+                                </div>
+                            </span>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

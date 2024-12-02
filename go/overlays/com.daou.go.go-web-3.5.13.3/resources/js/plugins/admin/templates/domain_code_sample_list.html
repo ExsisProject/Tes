@@ -1,0 +1,33 @@
+{{#data.data}}
+<tr>
+    <td class="chk">
+        <input type="checkbox" class="sampleCheckbox" id={{code}}>
+    </td>
+
+    {{#isKoLocale}}
+    <td> {{koName}} </td>
+    {{/isKoLocale}}
+
+    {{#isEnLocale}}
+    <td> {{enName}} </td>
+    {{/isEnLocale}}
+
+    {{#isJpLocale}}
+    <td> {{jpName}} </td>
+    {{/isJpLocale}}
+
+    {{#isZhcnLocale}}
+    <td> {{zhcnName}} </td>
+    {{/isZhcnLocale}}
+
+    {{#isZhtwLocale}}
+    <td> {{zhtwName}} </td>
+    {{/isZhtwLocale}}
+
+    {{#isViLocale}}
+    <td> {{viName}} </td>
+    {{/isViLocale}}
+
+    <td class="{{code}}"> {{code}} </td>
+</tr>
+{{/data.data}}

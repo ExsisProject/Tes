@@ -1,0 +1,1 @@
+define(["backbone","report/models/series_report"],function(e,t){var n=e.Collection.extend({model:t,url:GO.contextRoot+"api/report/undone"},{fetch:function(e){var t=new n;return e?t.fetch({async:!0,success:e.success}):(t.fetch({async:!1}),t)}});return n});

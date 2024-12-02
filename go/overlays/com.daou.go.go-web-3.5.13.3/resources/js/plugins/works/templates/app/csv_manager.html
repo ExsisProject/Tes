@@ -1,0 +1,75 @@
+
+<div class="content_page">
+
+	<div class="works_app_write csv_help">
+		<div class="csv_rule">
+			<span class="title">{{lang.일괄 등록}}</span>
+			<br>
+			<br>
+			<p>{{{lang.데이터 가져오기 설명}}}</p>
+			<p id="help_explain">등록하는 방식은 파일찾기 버튼 우측의 도움말을 확인하세요.</p>
+		</div>
+		<form>
+			<fieldset>
+				<table class="form_type ">
+					<tbody>
+						<tr>
+							<th>
+								<span class="title">{{lang.일괄 등록}}</span>
+							</th>
+							<td>
+								<span el-uploader class="btn_minor_s" style="padding:0 !important;"></span>								
+								<div class="wrap_help_guide_s" id="help">
+							    	<a>
+						        		<span class="ic_works ic_help_guide_s"></span>
+						        		<p class="tit"><strong>{{lang.일괄 등록}}</strong> {{lang.꿀팁가이드}}!</p>
+							    	</a>
+								</div>
+								<div class="wrap_attach">
+									<div class="feed origin">
+										<ul class="file_wrap" id="fileList"></ul>
+									</div>
+								</div>
+
+							</td>
+						</tr>		
+						<tr id="importDesc" style="display: none;">
+							<th></th>
+							<td>
+								<div class="option_display csv_info" id="csvInfo">
+									{{{lang.데이터 가져오기 설명2}}}
+								</div>
+							</td>
+						</tr>
+						<tr id="progressBarArea" style="display: none;">
+							<th>{{lang.데이터 가져오기 진행 현황}}</th>
+							<td>
+								<span style="display:inline-block">
+						    		<div id="progressBar"></div>
+						    	</span>
+							</td>
+						</tr>	
+						<tr id="result" style="display: none;">
+							<th>{{lang.최근 데이터 가져오기 결과}}</th>
+							<td>
+								<div>
+									<p> {{lang.등록일}} : <span id="startAt"></span> </p>
+									<p> {{lang.종료일}} : <span id="endAt"></span> </p>
+									<p> {{lang.첨부파일의 총 데이터}} : <span id="totalCount"></span> </p>
+									<p> {{lang.모든 컬럼의 값이 반영된 데이터}} : <span id="successCount"></span> </p>
+									<p> {{lang.유효성 검증 오류로 일부 데이터의 값이 반영되지 않은 데이터}} : <span id="failCount"></span> </p>
+								</div>
+							</td>
+						</tr>			
+					</tbody>	
+				</table>					
+			</fieldset>
+			 
+			<div class="page_action_wrap">
+				<a class="btn_major" id="import" style="display: none;"><span class="txt">{{lang.일괄 등록}}</span></a>
+				<a class="btn_minor" id="downloadResult" style="display: none;"><span class="txt">{{lang.전체 처리 결과 다운로드}}</span></a>
+				<a class="btn_minor" id="appHome"><span class="txt">{{lang.앱 홈으로 이동}}</span></a>
+			</div>
+		</form>		
+	</div>
+</div>

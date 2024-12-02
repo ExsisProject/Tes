@@ -1,0 +1,1 @@
+define("timeline/models/user_month",function(require){var e=require("backbone"),t=require("timeline/models/weekly_stat"),n=e.Model.extend({url:GO.contextRoot+"api/ehr/timeline/month",initialize:function(){this.weeks=[]},parse:function(e){this.weeks=[],this.user=e.user,_.each(e.weekList,function(e){this.weeks.push(new t(e))},this),this.attributes=e}});return n});

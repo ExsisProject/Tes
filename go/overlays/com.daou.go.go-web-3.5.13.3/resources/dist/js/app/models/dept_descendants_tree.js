@@ -1,0 +1,1 @@
+define(["backbone"],function(e){var t=e.Model.extend({initialize:function(e){this.deptId=e.deptId},url:function(){return GO.contextRoot+"api/department/descendant/tree/"+this.deptId}});return t});

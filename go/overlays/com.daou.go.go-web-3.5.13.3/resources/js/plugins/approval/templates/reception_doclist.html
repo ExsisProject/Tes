@@ -1,0 +1,130 @@
+<header class="content_top">
+</header>
+<!--목록-->
+<div class="content_page" >
+    <div class="dataTables_wrapper">
+        <!-- 툴바  -->
+        <div id="docToolbar" class="tool_bar">
+            <div class="critical">
+                {{#isUserReception}}      
+                <div class="btn_submenu" id="docClassifyMenu">
+					<a class="btn_tool" data-role="button">
+                        <span class="ic_toolbar drive"></span>
+                        <span class="txt">{{lang.개인 문서함 분류}}</span>
+                        <span class="ic ic_arrow_type3"></span>
+                    </a>
+					<div class="array_option" style="display: none">
+						<ul class="array_type">
+							<li id="userDocCopy"><span>{{lang.분류}}</span></li>
+							<li id="userDocClassify"><span>{{lang.자동분류}}</span></li>
+						</ul>
+					</div>	
+				</div>
+                {{/isUserReception}}
+                {{#isDeptReception}}    
+                <div class="btn_submenu" id="docClassifyMenu">
+					<a class="btn_tool" data-role="button">
+                        <span class="ic_toolbar drive"></span>
+                        <span class="txt">{{lang.부서 문서함 분류}}</span>
+                        <span class="ic ic_arrow_type3"></span>
+                    </a>
+					<div class="array_option" style="display: none">
+						<ul class="array_type">
+							<li id="deptDocCopy"><span>{{lang.분류}}</span></li>
+							<li id="deptDocClassify"><span>{{lang.자동분류}}</span></li>
+						</ul>
+					</div>	
+				</div>  
+                {{/isDeptReception}}          
+            </div>
+        </div>
+        <div class="tool_bar tool_bar_second">
+            <!-- 탭 -->
+            <div class="critical_bottom">
+                <ul class="tab_nav">
+                    <li id="tab_all" class="first"><span>{{lang.전체}}</span></li>
+                    <li id="tab_waiting"><span>{{lang.접수대기}}</span></li>
+                    <li id="tab_received"><span>{{lang.접수}}</span></li>
+                    <li id="tab_inprogress"><span>{{lang.진행}}</span></li>
+                    <li id="tab_complete"><span>{{lang.완료}}</span></li>
+                    <li id="tab_returned"><span>{{lang.반려}}</span></li>
+                    <li id="tab_recv_returned" class="last"><span>{{lang.반송}}</span></li>
+                </ul>
+            </div>
+            <!-- 리스트 갯수 선택 select box (마크업 유지) -->
+            <div class="dataTables_length">
+            </div>
+			<div class="optional" id="docFieldArea">
+            </div>
+        </div>
+        <!-- 테이블 -->        
+        <table class="type_normal list_approval">
+            <thead id ="doclist_field_header">
+<!--                 <tr>
+                    {{#columns.선택}}
+                    <th id="header_checkbox" class="sorting_disabled" style="width: 35px;"><input type="checkbox" id="checkedAllDeptDoc" name="checkedAllDeptDoc"></th> 
+                    {{/columns.선택}}
+                    {{#columns.접수일}} 
+                    <th id="header_received_at" sort-id="receivedAt" class="date sorting first"><span class="title_sort">{{columns.접수일}}<ins class="ic"></ins><span class="selected"></span></span></th>
+                    {{/columns.접수일}}
+                    {{#columns.결재양식}}
+                    <th id="header_form_name" sort-id="formName" class="doc sorting"><span class="title_sort">{{columns.결재양식}}<ins class="ic"></ins><span class="selected"></span></span></th>
+                    {{/columns.결재양식}}
+                    {{#columns.긴급}}
+                    <th id="header_emergency" sort-id="isEmergency" class="doc_emergency sorting"><span class="title_sort">{{columns.긴급}}<ins class="ic"></ins><span class="selected"></span></span></th>
+                    {{/columns.긴급}}
+                    {{#columns.제목}}
+                    <th id="header_title" sort-id="title" class="subject sorting"><span class="title_sort">{{columns.제목}}<ins class="ic"></ins><span class="selected"></span></span></th>
+                    {{/columns.제목}}
+                    {{#columns.첨부}}
+                    <th id="header_attach" class="attach sorting_disabled"><span class="title_sort">{{columns.첨부}}</span></th>
+                    {{/columns.첨부}}
+					{{#columns.기안자}}
+					<th id="header_drafter_name" sort-id="receptionOrigin.drafterName" class="writer sorting"><span class="title_sort">{{columns.기안자}}<ins class="ic"></ins><span class="selected"></span></span></th>
+					{{/columns.기안자}}
+                    {{#columns.담당자}}
+                    <th id="header_receiver" sort-id="receiver.name" class="name sorting"><span class="title_sort">{{columns.담당자}}<ins class="ic"></ins><span class="selected"></span></span></th>
+                    {{/columns.담당자}}
+                    {{#columns.문서번호}}
+					<th id="header_doc_no" sort-id="docNum" class="doc_num sorting"><span class="title_sort">{{columns.문서번호}}<ins class="ic"></ins><span class="selected"></span></span></th>
+					{{/columns.문서번호}}
+                    {{#columns.원문번호}}
+                    <th id="header_recept_origin_doc_num" sort-id="receptionOriginDocNum" class="recept_origin_doc_num sorting"><span class="title_sort">{{columns.원문번호}}<ins class="ic"></ins><span class="selected"></span></span></th>
+                    {{/columns.원문번호}}
+                    {{#columns.결재상태}}
+                    <th id="header_doc_status" sort-id="docStatus" class="state_wrap sorting"><span class="title_sort">{{columns.결재상태}}<ins class="ic"></ins><span class="selected"></span></span></th>
+                    {{/columns.결재상태}}
+                    {{#columns.부서 문서함}}
+                    <th id="header_dept_folder" class="assort sorting_disabled"><span class="title_sort">{{columns.부서 문서함}}</span></th>
+                    {{/columns.부서 문서함}}
+                </tr> -->
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        <div class="tool_bar tool_absolute">
+            <!--  상단 메뉴와 동일 -->
+            <div class="dataTables_length">
+            </div>                 
+        </div>
+    </div>
+    <div class="table_search">                    
+        <select id="searchtype">
+            <option value="title">{{lang.제목}}</option>
+            <!-- <option value="drafterName">{{lang.담당자}}</option> -->
+            <option value="receiverName">{{lang.담당자}}</option>
+            <option value="receptionOriginDrafterName">{{lang.기안자}}</option>
+            <option value="receptionOriginDrafterDeptName">{{lang.기안부서}}</option>
+            <option value="formName">{{lang.결재양식}}</option>
+            <option value="docNum">{{lang.문서번호}}</option>
+            <option value="receptionOriginDocNum">{{lang.원문번호}}</option>
+            <option value="activityUserName">{{lang.결재선}}</option>
+        </select>
+        <section class="search2">
+            <div class="search_wrap"><!--focus되면 "search_focus" multi class로 추가해주세요.-->
+                <input id="keyword" class="search2" type="text" placeholder="{{lang.placeholder_search}}">
+                <span class="btn_search2" title="{{lang.검색}}"></span>                                
+            </div>
+        </section>                  
+    </div>
+</div>

@@ -1,0 +1,71 @@
+<div class="container">         
+    <div class="header">
+        <h2>{{lang.head_title}}</h2>
+    </div>
+    <div class="content_tb">
+        <div class="col1" id="appr_form_folder_tree">
+            <div class="header_group">                      
+                <div class="critical"><h3>{{lang.appr_form_folder_list}}</h3></div>
+            </div>
+            <div class="tool_bar">                          
+                <span class="btn_wrap"><span id="btnFolderCreate" class="btn_s"><span class="txt">{{lang.folder_add}}</span></span></span>
+                <span class="btn_wrap"><span id="btnFolderUpdate" class="btn_s"><span class="txt">{{lang.folder_modify}}</span></span></span>
+                <span class="btn_s btn_delete"><span class="txt_caution" id="btnFolderDelete">{{lang.folder_delete}}</span></span>
+                <!-- <span class="btn_wrap btn_delete"><span id="btnFolderDelete" class="btn_s ">{{lang.folder_delete}}</span></span> -->
+            </div>
+            <div class="search_wrap">
+                <form onsubmit="return false;">
+                    <input class="search" id="search" type="text" placeholder="{{lang.form_input}}">
+                </form>
+            </div>
+            <div class="content_wrap" style="height: 460px;">
+                <div id="folderTree" class="jstree jstree-2 jstree-focused jstree-default"></div>
+            </div>
+        </div>
+        <div class="col2" id="appr_form_list">
+            <!-- 선택된 폴더 -->     
+            <div class="header_group">                      
+                <div class="critical"><h3>{{lang.selected_folder}}</h3></div>
+            </div>
+			<div class="tb_wrap" id="appr_option_group">
+				<table class="detail tb_admin_doc_folder">
+					<caption></caption>
+					<tbody>
+						<tr>
+	            	        <th><span class="title">{{lang.사용여부}}</span>
+                                <span class="help">
+                                <span class="tool_tip">{{lang.사용여부 툴팁}}<i class="tail_left"></i> </span>
+                            </span>
+                            </th>
+	        	            <td>
+				<span class="option_wrap">
+					<input name="folderState" type="radio" value="NORMAL" id="folderState_NORMAL">
+					<label for="folderState_NORMAL">{{lang.정상}}</label>
+				</span>
+				<span class="option_wrap">
+					<input name="folderState" type="radio" value="HIDDEN" id="folderState_HIDDEN">
+					<label for="folderState_HIDDEN">{{lang.숨김}}</label>
+				</span>
+				<span class="btn_wrap btn_vertical_top"><span id="folderStateSave" class="btn_s" folderId={{folderId}}>{{lang.저장}}</span>
+				</span>
+							</td>
+		                </tr>
+						<!-- 일부 사용자 선택 시 -->
+					</tbody>
+				</table>
+			</div>
+            <!-- 툴바 -->
+            <div class="tool_bar" id="tool_bar">
+                <span id="btnMemControlGroup" class="btn_wrap">
+                    <span id="btnFormCreate" class="btn_s"><span class="txt">{{lang.form_add}}</span></span>
+                    <span id="btnFormDelete" class="btn_s"><span class="txt_caution">{{lang.form_delete}}</span></span>
+                    <span id="btnFormReorder" class="btn_s"><span class="txt">{{lang.reorder}}</span></span>
+                    <span id="btnFormReorderUpdate" class="btn_tool btn_save txt_confirm btnFormReorderUpdate" style="display:none">{{lang.reorder_done}}</span>
+					<span class="btn_wrap"><span id="popupSetting" class="btn_s"><span class="txt">{{lang.일괄설정}}</span></span>
+				</span>
+                </span>
+            </div>
+            <!-- 등록된 결재 양식 목록 -->
+        </div><!-- end col2 -->
+    </div><!-- end content_tb -->
+</div><!-- end container -->

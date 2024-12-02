@@ -1,0 +1,101 @@
+<div class="content_page">
+    <form name="formMAMConfig" id="formMAMConfig">
+        <div class="container">
+            <div class="header">
+                <h2>{{lang.label_mam_title}}
+                    <span class="wrap_ic_s">
+                    <span class="help">
+                        <span class="tool_tip">{{lang.label_tooltip}}
+                        <i class="tail_left"></i>
+                        </span>
+                    </span>
+                </span>
+                </h2>
+            </div>
+            <div class="content">
+                <div class="vertical_wrap_s">
+                    <span class="option_wrap">
+                        <input type="radio" id="mamOption_true" value="true" name="mamOption"
+                               {{#model.useAppManagement}} checked="checked" {{/model.useAppManagement}}>
+                        <label for="mamOption_true">{{lang.label_use}}</label>
+                    </span>
+                </div>
+                <div class="vertical_wrap_s">
+                    <span class="option_wrap">
+                        <input type="radio" id="mamOption_false" value="false" name="mamOption"
+                               {{^model.useAppManagement}} checked="checked" {{/model.useAppManagement}}>
+                        <label for="mamOption_false">{{lang.label_not_use}}</label>
+                    </span>
+                </div>
+            </div>
+            <div class="page_action mini">
+                <span class="btn mini" id="btn_ok">{{lang.label_ok}}</span>
+                <span class="btn_nega" id="btn_cancel">{{lang.label_cancel}}</span>
+            </div>
+        </div>
+    </form>
+
+
+
+    {{#model.useAppManagement}}
+    <div class="option_display mam_manage">
+        <div class="content_info">
+            <div class="header">
+                <h3>{{lang.label_app_access}}</h3>
+            </div>
+
+            <p class="desc">※ {{lang.mam_desc}}</p>
+            <div>
+                <div class="device_search">
+                    <select>
+                        <option value="user.name">{{lang.label_name}}</option>
+                        <option value="user.email">{{lang.label_email}}</option>
+                        <option value="deviceId">{{lang.label_deviceid}}</option>
+                    </select>
+                    <span class="search_wrap">
+                        <input class="input" type="text"/>
+                        <span class="btn_search" title="{{lang.label_search}}"></span>
+                        <input class="submit" type="submit" value=""/>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="dataTables_wrapper container">
+            <div class="content_tb">
+                <table class="chart size tb_mam">
+                    <thead>
+                    <tr>
+                        <th class="sorting_disable device">
+                            <span class="title_sort">{{lang.label_device}}</span>
+                        </th>
+                        <th class="sorting_disable eamil">
+                            <span class="title_sort">{{lang.label_email}}</span>
+                        </th>
+                        <th class="sorting_disable contact">
+                            <span class="title_sort">{{lang.label_last_connect_time}}</span>
+                        </th>
+                        <th class="sorting_disable address">
+                            <span class="title_sort">{{lang.label_deviceid}}</span>
+                        </th>
+                        <th class="sorting_disable contact_set">
+                            <span class="title_sort">{{lang.label_access_setting}}</span>
+                        </th>
+                        <th class="sorting_disable delete">
+                            <span class="title_sort"></span>
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody id="device_list">
+                    <!-- 디바이스 목록  -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    {{/model.useAppManagement}}
+
+    <div id="mobileContactListExposureArea">
+
+    </div>
+</div>

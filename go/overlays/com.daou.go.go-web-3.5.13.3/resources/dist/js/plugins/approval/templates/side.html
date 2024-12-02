@@ -1,0 +1,244 @@
+<!-- 사이드 바 기본 템플릿 -->
+    <section class="gnb_title">
+        <h1><a id="apprHome">{{appName}}</a></h1>
+    </section>
+<!-- 글 쓰기 -->
+<section class="function">
+    <a class="btn_function" id="writeBtn" data-bypass><span class="ic_side ic_app_appr"></span><span class="txt">{{lang.new_approval}}</span></a>
+</section>
+<!-- 글 쓰기 -->
+
+<!-- 즐겨찾기  -->
+<section id="favoriteSide" class="lnb"></section>
+<!-- //즐겨찾기   -->
+
+<!-- side : 전자결재 -->
+<!-- <section class="function"> -->
+<!--    <a class="btn_function" href="#"><span class="ic_side ic_app_bbs"></span><span class="txt">새 결재 등록</span></a> -->
+<!-- </section> -->
+<section id="apprSide" class="lnb" >
+    <h1 class="approval {{^isApprovalOpen}}folded{{/isApprovalOpen}}">
+        <ins class="ic"></ins>
+        <span class="ic_side ic_hide_up" title=" {{#isApprovalOpen}}{{lang.collapse}}{{/isApprovalOpen}}{{^isApprovalOpen}}{{lang.expand}}{{/isApprovalOpen}}" data-slide="true" ></span>
+        <a class="txt" data-role="button" data-bypass>{{lang.approval}}</a>
+    </h1>
+    <ul class="side_depth" {{^isApprovalOpen}} style="display:none" {{/isApprovalOpen}}>
+        <li class="appr_standby" data-writable="true">
+            <p class="title">
+                <a class="go_boards"  data-navi="todo" data-bypass>
+                    <ins class="ic"></ins><span class="txt" title="{{lang.appr_wait_doc}}">{{lang.appr_wait_doc}}</span> <span class="num">{{#data.hasTodoCount}}{{data.todoCount.docCount}}{{/data.hasTodoCount}}</span>
+                </a>
+            </p>
+        </li>               
+        <li class="appr_inbox" data-writable="true">
+            <p class="title">
+                <a class="go_boards"  data-navi="todoreception" data-bypass>
+                    <ins class="ic"></ins><span class="txt" title="{{lang.appr_wait_reception_doc}}">{{lang.appr_wait_reception_doc}}</span> <span class="num">{{#data.hasTodoReceptionCount}}{{data.todoReceptionCount.docCount}}{{/data.hasTodoReceptionCount}}</span>
+                </a>
+            </p>
+        </li>    
+        {{#data.useOfficialConfirm}}
+        	{{#data.isOfficialDocMaster}}           
+	        <li class="appr" data-writable="true">
+	            <p class="title">
+	                <a class="go_boards"  data-navi="officialtodo" data-bypass>
+	                    <ins class="ic"></ins><span class="txt" title="{{lang.official_todo_doc}}">{{lang.official_todo_doc}}</span> <span class="num">{{#data.hasOfficialTodoCount}}{{data.officialTodoCount.docCount}}{{/data.hasOfficialTodoCount}}</span>
+	                </a>
+	            </p>
+	        </li>
+	        {{/data.isOfficialDocMaster}}
+        {{/data.useOfficialConfirm}}
+        <li class="appr_cc" data-writable="true">
+            <p class="title">
+                <a class="go_boards"  data-navi="todoviewer" data-bypass>
+                    <ins class="ic"></ins><span class="txt" title="{{lang.appr_todoviewer_doc}}">{{lang.appr_todoviewer_doc}}</span> <span class="num">{{#data.hasTodoViewerCount}}{{data.todoViewerCount.docCount}}{{/data.hasTodoViewerCount}}</span>
+                </a>
+            </p>
+        </li>               
+        <li class="appr_expected" data-writable="true">
+            <p class="title">
+                <a class="go_boards"  data-navi="upcoming" data-bypass>
+                    <ins class="ic"></ins><span class="txt" title="{{lang.appr_sched_doc}}">{{lang.appr_sched_doc}}</span> <span class="num">{{#data.hasUpcomingCount}}{{data.upcomingCount.docCount}}{{/data.hasUpcomingCount}}</span>
+                </a>
+            </p>
+        </li>
+    </ul>   
+</section>
+ 
+ <!-- 개인 문서함 -->
+<section id="userDocSide" class="lnb" >
+    <h1 class="user {{^isUserOpen}}folded{{/isUserOpen}}">
+        <ins class="ic"></ins>
+        <span class="ic_side ic_hide_up"
+              title="{{#isUserOpen}}{{lang.collapse}}{{/isUserOpen}}{{^isUserOpen}}{{lang.expand}}{{/isUserOpen}}" data-slide="true" ></span>
+        <a class="txt" title="{{lang.user_docfolder}}" data-role="button" data-bypass>{{lang.user_docfolder}}</a>
+        <span class="btn_wrap">
+            <span btn-type="userAdmin" class="ic_side ic_side_setting" title=""></span>
+        </span>
+    </h1>
+    <ul class="side_depth" {{^isUserOpen}}style="display:none"{{/isUserOpen}}>
+
+    	<li class="delimiter">
+			<p class="title">
+			<ins class="ic"></ins><span class="txt" title="{{lang.base_docfolder}}">&lt;{{lang.base_docfolder}}&gt;</span>
+			</p>
+		</li>
+        <li class="appr_draft" data-writable="true">
+            <p class="title">
+                <a class="go_boards" data-navi="draft" data-bypass>
+                    <ins class="ic"></ins><span class="txt" title="{{lang.draft_docfolder}}">{{lang.draft_docfolder}}</span>
+                </a>
+            </p>
+        </li>               
+        <li class="appr_temporarily" data-writable="true">
+            <p class="title">
+                <a class="go_boards" data-navi="tempsave" data-bypass>
+                    <ins class="ic"></ins><span class="txt" title="{{lang.tempsave_docfolder}}">{{lang.tempsave_docfolder}}</span>
+                </a>
+            </p>
+        </li>               
+        <li class="appr_sign" data-writable="true">
+            <p class="title">
+                <a class="go_boards" data-navi="approve" data-bypass>
+                    <ins class="ic"></ins><span class="txt" title="{{lang.appr_docfolder}}">{{lang.appr_docfolder}}</span>
+                </a>
+            </p>
+        </li>
+        <li class="appr_cc" data-writable="true">
+            <p class="title">
+                <a class="go_boards" data-navi="viewer" data-bypass>
+                    <ins class="ic"></ins><span class="txt" title="{{lang.viewer_docfolder}}">{{lang.viewer_docfolder}}</span>
+                </a>
+            </p>
+        </li>
+        <li class="appr_inbox" data-writable="true">
+            <p class="title">
+                <a class="go_boards" data-navi="reception" data-bypass>
+                    <ins class="ic"></ins><span class="txt" title="{{lang.reception_docfolder}}">{{lang.reception_docfolder}}</span>
+                </a>
+            </p>
+        </li>
+        <li class="appr_send" data-writable="true">
+            <p class="title">
+                <a class="go_boards" data-navi="send" data-bypass>
+                    <ins class="ic"></ins><span class="txt" title="{{lang.send_docfolder}}">{{lang.send_docfolder}}</span>
+                </a>
+            </p>
+        </li>
+        <li class="appr" data-writable="true">
+            <p class="title">
+                <a class="go_boards" data-navi="userofficial" data-bypass>
+                    <ins class="ic"></ins><span class="txt" title="{{lang.user_official_docfolder}}">{{lang.user_official_docfolder}}</span>
+                </a>
+            </p>
+        </li>
+        
+		{{#data.addedFolder}}
+        <li class="delimiter">
+			<p class="title">
+			<ins class="ic"></ins><span class="txt" title="{{lang.added_docfolder}}">&lt;{{lang.added_docfolder}}&gt;</span>
+			</p>
+		</li>
+		{{/data.addedFolder}}
+        {{#data.userFolders}}
+		<li class="appr">
+			<p class="title">
+				<a class="go_boards" data-id="{{folderId}}" data-navi="userdoc" data-bypass>
+					<ins class="ic"></ins><span class="txt" title="{{folderName}}">{{folderName}}</span>
+				</a>
+			</p>
+		</li>
+		{{/data.userFolders}}
+		
+		{{#data.sharedFolder}}
+        <li class="delimiter">
+			<p class="title">
+			<ins class="ic"></ins><span class="txt" title="{{lang.shared_docfolder}}">&lt;{{lang.shared_docfolder}}&gt;</span>
+			</p>
+		</li>
+		{{/data.sharedFolder}}
+        {{#data.sharedFoldersToUser}}
+		<li class="appr">
+			<p class="title">
+				<a class="go_boards" data-id="{{folderId}}" {{#isfolderTypeUser}}data-navi="shareuserdoc"{{/isfolderTypeUser}}{{^isfolderTypeUser}}data-navi="sharedeptdoc"{{/isfolderTypeUser}} data-belong="inuser" data-deptid="{{deptId}}" data-bypass>
+					<ins class="ic"></ins><span class="txt" title="{{folderName}}">{{folderName}}</span>
+				</a>
+			</p>
+		</li>
+		{{/data.sharedFoldersToUser}}
+    </ul>   
+</section>
+
+<!-- 부서 문서함  -->
+<section id="deptDocfolderSide" class="lnb">
+    <h1 class="org {{^isDeptOpen}}folded{{/isDeptOpen}}">
+        <ins class="ic"></ins>
+        <span class="ic_side ic_hide_up"
+              title="{{#isDeptOpen}}{{lang.collapse}}{{/isDeptOpen}}{{^isDeptOpen}}{{lang.expand}}{{/isDeptOpen}}" data-slide="true" ></span>
+        <a class="txt" title="{{lang.dept_folder}}" data-role="button" data-bypass>{{lang.dept_folder}}</a>
+    </h1>
+    <ul class="side_depth" {{^isDeptOpen}}style="display:none"{{/isDeptOpen}}>
+    </ul>
+</section>
+<!-- //부서 문서함   -->
+<!--  결재 환경 설정 -->
+<section id="configSide" class="lnb" >
+    <ul class="side_depth">
+        <li class="setting" data-writable="true">
+            <p class="title">
+                <a class="go_boards" data-navi=usersetting data-bypass>
+                    <ins class="ic"></ins><span class="txt" title="{{lang.user_config}}">{{lang.user_config}}</span>
+                </a>
+            </p>
+        </li>   
+    </ul>   
+</section>
+<!-- //결재 환경 설정 -->
+<!-- 결재문서 관리 -->
+{{#data.isDocAdminSideAccessible}}
+<section id="docAdminSide" class="lnb" >
+    <h1 class="setting">
+        <ins class="ic"></ins>
+        <span class="ic_side ic_hide_up" title="{{lang.collapse}}" data-slide="true" ></span>
+        <a class="txt" data-role="button" data-bypass title="{{lang.doc_admin}}">{{lang.doc_admin}}</a>
+    </h1>
+    <ul class="side_depth">
+        {{#data.isApprDocumentAccessible}}
+        <li class="appr_inquiry">
+            <p class="title">
+                {{#data.isApprDocMaster}}
+                <a class="go_boards" data-navi="manage" data-bypass>
+                {{/data.isApprDocMaster}}
+                {{^data.isApprDocMaster}}
+                <a class="go_boards" data-navi="manageform" data-bypass>
+                {{/data.isApprDocMaster}}
+                    <ins class="ic"></ins><span class="txt" title="{{lang.appr_doc_admin}}">{{lang.appr_doc_admin}}</span>
+                </a>
+            </p>
+        </li>
+        {{/data.isApprDocumentAccessible}}
+        {{#data.isOfficialDocMaster}}
+        <li class="appr_inquiry">
+            <p class="title">
+                <a class="go_boards" data-navi="company" data-bypass>
+                    <ins class="ic"></ins><span class="txt" title="{{lang.company_official}}">{{lang.company_official}}</span>
+                </a>
+            </p>
+        </li>
+        {{/data.isOfficialDocMaster}}
+        {{#data.isApprDocMaster}}
+        <li class="appr_record">
+            <p class="title">
+                <a class="go_boards" data-navi="managelog" data-bypass>
+                    <ins class="ic"></ins><span class="txt" title="{{lang.appr_doc_admin_log}}">{{lang.appr_doc_admin_log}}</span>
+                </a>
+            </p>
+        </li>
+        {{/data.isApprDocMaster}}
+    </ul>
+</section>
+{{/data.isDocAdminSideAccessible}}
+<!-- //결재문서 관리 -->
+<div class="bar"></div>
+<!-- // side : 전자결재 -->
+

@@ -1,0 +1,61 @@
+<th>
+    <span class="title">{{adminLang.접속 허용 비콘 정보}}</span>
+</th>
+<td>
+    <span class="wrap_option">
+        <input id="allOfBeacon" value="all" type="radio" name="beaconGroup" data-tag="repeatSelect" {{^useBeacon}} checked="checked" {{/useBeacon}}>
+        <label for="allOfBeacon">{{lang.label_all}}</label>
+    </span>
+    <span class="horspace1"></span>
+    <span class="wrap_option">
+        <input id="partOfBeacon" value="part" type="radio" name="beaconGroup" data-tag="repeatSelect" {{#useBeacon}} checked="checked" {{/useBeacon}}>
+        <label for="partOfBeacon">{{lang.label_part}}</label>
+    </span>
+    <div class="option_display" id="accessBeaconsContainer">
+        <div class="toolbar_top">
+            <div class="critical">
+                <span class="btn_tool" id="beaconAddBtn">
+                    <span class="ic_adm ic_plus"></span>
+                    <span class="txt">{{commonLang.추가}}</span>
+                </span>
+            </div>
+        </div>
+        <table id="accessAllowBeaconTable" class="chart tb_beacon">
+            <thead>
+            <tr>
+                <th class="sorting name"><span class="title_sort" data-sortkey="location">{{adminLang.설치장소}}<ins class="ic"></ins></span></th>
+                <th class="sorting uuid"><span class="title_sort" data-sortkey="uuid">{{adminLang.UUID}}<ins class="ic"></ins></span></th>
+                <th class="sorting code"><span class="title_sort">{{adminLang.MAJOR}}</span></th>
+                <th class="sorting code"><span class="title_sort">{{adminLang.MINOR}}</span></th>
+                <th class="sorting desc"><span class="title_sort">{{adminLang.상세정보}}</span></th>
+                <th class="sorting set"></th>
+            </tr>
+            </thead>
+            <tbody>
+            {{^beaconModels}}
+            <tr>
+                <td colspan="6">
+                    <p class="data_null">
+                        <span class="txt">{{adminLang.등록된 비콘이 없습니다}}</span>
+                    </p>
+                </td>
+            </tr>
+            {{/beaconModels}}
+            {{#beaconModels}}
+            <tr class="workPlace beacon_model" data-id="{{id}}" data-location="{{location}}" data-uuid="{{uuid}}">
+                <td class="name beacon_location" data-id="{{id}}"><span class="txt">{{location}}</span></td>
+                <td class="uuid" data-id="{{id}}"><span class="txt">{{uuid}}</span></td>
+                <td class="major" data-id="{{id}}"><span class="txt">{{major}}</span></td>
+                <td class="minor" data-id="{{id}}"><span class="txt">{{minor}}</span></td>
+                <td class="desc" data-id="{{id}}"><span class="txt">{{description}}</span></td>
+                <td class="set">
+                    <span class="btn_tool beacon_del_btn" data-location="{{location}}" data-uuid="{{uuid}}">
+                        <span class="ic_adm ic_delete" title="{{commonLang.삭제}}"></span>
+                    </span>
+                </td>
+            </tr>
+            {{/beaconModels}}
+            </tbody>
+        </table>
+    </div>
+</td>

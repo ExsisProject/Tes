@@ -1,0 +1,402 @@
+<div class="content_page">
+    <div class="container set_fieldName">         
+        <div class="header">
+            <h2>
+	            {{lang.문서함 필드 설정}}
+	            <span class="btn_wrap" id="btnFolderFieldHelpLayer">
+					<span class="btn_s">{{lang.각 필드명 설명}}</span>
+				</span>
+            </h2>
+        </div>          
+        <div class="content">
+            <table class="detail tb_admin_stemp">
+                <caption>{{lang.문서함 필드 설정}}</caption>
+                <tbody>
+	                <tr>
+	                    <th><span class="title">{{lang.설정}}</span></th>
+	                    <td>
+	                        <span class="option_wrap">
+	                            <input type="radio" {{#config.isBaseType}}checked{{/config.isBaseType}} id="isBaseType" name="configType">
+	                            <label for="isBaseType">{{lang.useManagerSetting}}</label>
+	                        </span>
+	                        <span class="option_wrap">
+	                            <input type="radio" {{^config.isBaseType}}checked{{/config.isBaseType}} id="isNotBaseType" name="configType"> 
+	                            <label for="isNotBaseType">{{lang.useUserSetting}}</label>                                       
+	                        </span>      
+	                    </td>
+	                </tr>
+	                
+	                <tr>
+	                	<th>
+	                		<span class="title">{{lang.결재 대기 문서}}</span>
+	                	</th>
+	                	<td>
+	                		<div class="field_set">
+	                			<ul class="filed_set_list">
+	                				{{#config.APPR_TODO}}
+										<li>
+											<span class="wrap_option">
+												<input type="checkbox" id="{{docFolderType}}_{{columnType}}" docFolderType="{{docFolderType}}" columnType="{{columnType}}" {{#useColumn}}checked="true"{{/useColumn}}{{^isEditable}}disabled="true"{{/isEditable}}>
+												<label for="{{docFolderType}}_{{columnType}}">{{columnName}}</label>
+											</span>	
+										</li>
+									{{/config.APPR_TODO}}
+	                			</ul>
+							</div>	
+	                	</td>
+	                </tr>
+	                <tr>
+	                	<th>
+	                		<span class="title">{{lang.결재 수신 문서}}</span>
+	                	</th>
+	                	<td>
+	                		<div class="field_set">
+	                			<ul class="filed_set_list">
+	                				{{#config.APPR_RECEPTION}}
+										<li>
+											<span class="wrap_option">
+												<input type="checkbox" id="{{docFolderType}}_{{columnType}}" docFolderType="{{docFolderType}}" columnType="{{columnType}}" {{#useColumn}}checked="true"{{/useColumn}}{{^isEditable}}disabled="true"{{/isEditable}}>
+												<label for="{{docFolderType}}_{{columnType}}">{{columnName}}</label>
+											</span>	
+										</li>
+									{{/config.APPR_RECEPTION}}
+	                			</ul>
+							</div>	
+	                	</td>
+	                </tr>
+	                <tr>
+	                	<th>
+	                		<span class="title">{{lang.공문 대기 문서}}</span>
+	                	</th>
+	                	<td>
+	                		<div class="field_set">
+	                			<ul class="filed_set_list">
+	                				{{#config.OFFICIAL_TODO}}
+										<li>
+											<span class="wrap_option">
+												<input type="checkbox" id="{{docFolderType}}_{{columnType}}" docFolderType="{{docFolderType}}" columnType="{{columnType}}" {{#useColumn}}checked="true"{{/useColumn}}{{^isEditable}}disabled="true"{{/isEditable}}>
+												<label for="{{docFolderType}}_{{columnType}}">{{columnName}}</label>
+											</span>	
+										</li>
+									{{/config.OFFICIAL_TODO}}
+	                			</ul>
+							</div>	
+	                	</td>
+	                </tr>
+	                <tr>
+	                	<th>
+	                		<span class="title">{{lang.참조/열람 대기 문서}}</span>
+	                	</th>
+	                	<td>
+	                		<div class="field_set">
+	                			<ul class="filed_set_list">
+	                				{{#config.TODO_REF}}
+										<li>
+											<span class="wrap_option">
+												<input type="checkbox" id="{{docFolderType}}_{{columnType}}" docFolderType="{{docFolderType}}" columnType="{{columnType}}" {{#useColumn}}checked="true"{{/useColumn}}{{^isEditable}}disabled="true"{{/isEditable}}>
+												<label for="{{docFolderType}}_{{columnType}}">{{columnName}}</label>
+											</span>	
+										</li>
+									{{/config.TODO_REF}}
+	                			</ul>
+							</div>	
+	                	</td>
+	                </tr>
+	                <tr>
+	                	<th>
+	                		<span class="title">{{lang.결재 예정 문서}}</span>
+	                	</th>
+	                	<td>
+	                		<div class="field_set">
+	                			<ul class="filed_set_list">
+	                				{{#config.APPR_WAIT}}
+										<li>
+											<span class="wrap_option">
+												<input type="checkbox" id="{{docFolderType}}_{{columnType}}" docFolderType="{{docFolderType}}" columnType="{{columnType}}" {{#useColumn}}checked="true"{{/useColumn}}{{^isEditable}}disabled="true"{{/isEditable}}>
+												<label for="{{docFolderType}}_{{columnType}}">{{columnName}}</label>
+											</span>	
+										</li>
+									{{/config.APPR_WAIT}}
+	                			</ul>
+							</div>	
+	                	</td>
+	                </tr>
+	                
+	                <tr>
+	                	<th>
+	                		<span class="title">{{lang.기안 문서함}}</span>
+	                	</th>
+	                	<td>
+	                		<div class="field_set">
+	                			<ul class="filed_set_list">
+	                				{{#config.USER_DRAFT}}
+										<li>
+											<span class="wrap_option">
+												<input type="checkbox" id="{{docFolderType}}_{{columnType}}" docFolderType="{{docFolderType}}" columnType="{{columnType}}" {{#useColumn}}checked="true"{{/useColumn}}{{^isEditable}}disabled="true"{{/isEditable}}>
+												<label for="{{docFolderType}}_{{columnType}}">{{columnName}}</label>
+											</span>	
+										</li>
+									{{/config.USER_DRAFT}}
+	                			</ul>
+							</div>	
+	                	</td>
+	                </tr>
+	                <tr>
+	                	<th>
+	                		<span class="title">{{lang.임시 저장함}}</span>
+	                	</th>
+	                	<td>
+	                		<div class="field_set">
+	                			<ul class="filed_set_list">
+	                				{{#config.USER_TEMP}}
+										<li>
+											<span class="wrap_option">
+												<input type="checkbox" id="{{docFolderType}}_{{columnType}}" docFolderType="{{docFolderType}}" columnType="{{columnType}}" {{#useColumn}}checked="true"{{/useColumn}}{{^isEditable}}disabled="true"{{/isEditable}}>
+												<label for="{{docFolderType}}_{{columnType}}">{{columnName}}</label>
+											</span>	
+										</li>
+									{{/config.USER_TEMP}}
+	                			</ul>
+							</div>
+	                	</td>
+	                </tr>
+	                <tr>
+	                	<th>
+	                		<span class="title">{{lang.결재 문서함}}</span>
+	                	</th>
+	                	<td>
+	                		<div class="field_set">
+	                			<ul class="filed_set_list">
+	                				{{#config.USER_APPROVAL}}
+										<li>
+											<span class="wrap_option">
+												<input type="checkbox" id="{{docFolderType}}_{{columnType}}" docFolderType="{{docFolderType}}" columnType="{{columnType}}" {{#useColumn}}checked="true"{{/useColumn}}{{^isEditable}}disabled="true"{{/isEditable}}>
+												<label for="{{docFolderType}}_{{columnType}}">{{columnName}}</label>
+											</span>	
+										</li>
+									{{/config.USER_APPROVAL}}
+	                			</ul>
+							</div>	
+	                	</td>
+	                </tr>
+	                 <tr>
+	                	<th>
+	                		<span class="title">{{lang.공문 문서함}}</span>
+	                	</th>
+	                	<td>
+	                		<div class="field_set">
+	                			<ul class="filed_set_list">
+	                				{{#config.USER_OFFICIAL}}
+										<li>
+											<span class="wrap_option">
+												<input type="checkbox" id="{{docFolderType}}_{{columnType}}" docFolderType="{{docFolderType}}" columnType="{{columnType}}" {{#useColumn}}checked="true"{{/useColumn}}{{^isEditable}}disabled="true"{{/isEditable}}>
+												<label for="{{docFolderType}}_{{columnType}}">{{columnName}}</label>
+											</span>	
+										</li>
+									{{/config.USER_OFFICIAL}}
+	                			</ul>
+							</div>	
+	                	</td>
+	                </tr>
+	                <tr>
+	                	<th>
+	                		<span class="title">{{lang.참조/열람 문서함}}</span>
+	                	</th>
+	                	<td>
+	                		<div class="field_set">
+	                			<ul class="filed_set_list">
+	                				{{#config.USER_REF}}
+										<li>
+											<span class="wrap_option">
+												<input type="checkbox" id="{{docFolderType}}_{{columnType}}" docFolderType="{{docFolderType}}" columnType="{{columnType}}" {{#useColumn}}checked="true"{{/useColumn}}{{^isEditable}}disabled="true"{{/isEditable}}>
+												<label for="{{docFolderType}}_{{columnType}}">{{columnName}}</label>
+											</span>	
+										</li>
+									{{/config.USER_REF}}
+	                			</ul>
+							</div>
+	                	</td>
+	                </tr>
+	                <tr>
+	                	<th>
+	                		<span class="title">{{lang.수신 문서함}}</span>
+	                	</th>
+	                	<td>
+	                		<div class="field_set">
+	                			<ul class="filed_set_list">
+	                				{{#config.USER_RECEPTION}}
+										<li>
+											<span class="wrap_option">
+												<input type="checkbox" id="{{docFolderType}}_{{columnType}}" docFolderType="{{docFolderType}}" columnType="{{columnType}}" {{#useColumn}}checked="true"{{/useColumn}}{{^isEditable}}disabled="true"{{/isEditable}}>
+												<label for="{{docFolderType}}_{{columnType}}">{{columnName}}</label>
+											</span>	
+										</li>
+									{{/config.USER_RECEPTION}}
+	                			</ul>
+							</div>	
+	                	</td>
+	                </tr>
+	                <tr>
+	                	<th>
+	                		<span class="title">{{lang.발송 문서함}}</span>
+	                	</th>
+	                	<td>
+	                		<div class="field_set">
+	                			<ul class="filed_set_list">
+	                				{{#config.USER_SEND}}
+										<li>
+											<span class="wrap_option">
+												<input type="checkbox" id="{{docFolderType}}_{{columnType}}" docFolderType="{{docFolderType}}" columnType="{{columnType}}" {{#useColumn}}checked="true"{{/useColumn}}{{^isEditable}}disabled="true"{{/isEditable}}>
+												<label for="{{docFolderType}}_{{columnType}}">{{columnName}}</label>
+											</span>	
+										</li>
+									{{/config.USER_SEND}}
+	                			</ul>
+							</div>
+	                	</td>
+	                </tr>
+	                
+	                <tr>
+	                	<th>
+	                		<span class="title">{{lang.기안 완료함}}</span>
+	                	</th>
+	                	<td>
+	                		<div class="field_set">
+	                			<ul class="filed_set_list">
+	                				{{#config.DEPT_COMPLETE}}
+										<li>
+											<span class="wrap_option">
+												<input type="checkbox" id="{{docFolderType}}_{{columnType}}" docFolderType="{{docFolderType}}" columnType="{{columnType}}" {{#useColumn}}checked="true"{{/useColumn}}{{^isEditable}}disabled="true"{{/isEditable}}>
+												<label for="{{docFolderType}}_{{columnType}}">{{columnName}}</label>
+											</span>	
+										</li>
+									{{/config.DEPT_COMPLETE}}
+	                			</ul>
+							</div>	
+	                	</td>
+	                </tr>
+	                <tr>
+	                	<th>
+	                		<span class="title">{{lang.부서 참조함}}</span>
+	                	</th>
+	                	<td>
+	                		<div class="field_set">
+	                			<ul class="filed_set_list">
+	                				{{#config.DEPT_REF}}
+										<li>
+											<span class="wrap_option">
+												<input type="checkbox" id="{{docFolderType}}_{{columnType}}" docFolderType="{{docFolderType}}" columnType="{{columnType}}" {{#useColumn}}checked="true"{{/useColumn}}{{^isEditable}}disabled="true"{{/isEditable}}>
+												<label for="{{docFolderType}}_{{columnType}}">{{columnName}}</label>
+											</span>	
+										</li>
+									{{/config.DEPT_REF}}
+	                			</ul>
+							</div>
+	                	</td>
+	                </tr>
+	                <tr>
+	                	<th>
+	                		<span class="title">{{lang.부서 수신함}}</span>
+	                	</th>
+	                	<td>
+	                		<div class="field_set">
+	                			<ul class="filed_set_list">
+	                				{{#config.DEPT_RECEPTION}}
+										<li>
+											<span class="wrap_option">
+												<input type="checkbox" id="{{docFolderType}}_{{columnType}}" docFolderType="{{docFolderType}}" columnType="{{columnType}}" {{#useColumn}}checked="true"{{/useColumn}}{{^isEditable}}disabled="true"{{/isEditable}}>
+												<label for="{{docFolderType}}_{{columnType}}">{{columnName}}</label>
+											</span>	
+										</li>
+									{{/config.DEPT_RECEPTION}}
+	                			</ul>
+							</div>
+	                	</td>
+	                </tr>
+	                <tr>
+	                	<th>
+	                		<span class="title">{{lang.공문 발송함}}</span>
+	                	</th>
+	                	<td>
+	                		<div class="field_set">
+	                			<ul class="filed_set_list">
+	                				{{#config.DEPT_OFFICIAL}}
+										<li>
+											<span class="wrap_option">
+												<input type="checkbox" id="{{docFolderType}}_{{columnType}}" docFolderType="{{docFolderType}}" columnType="{{columnType}}" {{#useColumn}}checked="true"{{/useColumn}}{{^isEditable}}disabled="true"{{/isEditable}}>
+												<label for="{{docFolderType}}_{{columnType}}">{{columnName}}</label>
+											</span>	
+										</li>
+									{{/config.DEPT_OFFICIAL}}
+	                			</ul>
+							</div>
+	                	</td>
+	                </tr>
+	                <tr>
+	                	<th>
+	                		<span class="title">{{lang.추가된 문서함}}</span>
+	                		<span class="title">({{lang.개인/부서 공통}})</span>
+	                	</th>
+	                	<td>
+	                		<div class="field_set">
+	                			<ul class="filed_set_list">
+	                				{{#config.CUSTOM_ADD}}
+										<li>
+											<span class="wrap_option">
+												<input type="checkbox" id="{{docFolderType}}_{{columnType}}" docFolderType="{{docFolderType}}" columnType="{{columnType}}" {{#useColumn}}checked="true"{{/useColumn}}{{^isEditable}}disabled="true"{{/isEditable}}>
+												<label for="{{docFolderType}}_{{columnType}}">{{columnName}}</label>
+											</span>	
+										</li>
+									{{/config.CUSTOM_ADD}}
+	                			</ul>
+							</div>
+	                	</td>
+	                </tr>
+	                <tr>
+	                	<th>
+	                		<span class="title">{{lang.양식별 문서조회}}</span>
+	                	</th>
+	                	<td>
+	                		<div class="field_set">
+	                			<ul class="filed_set_list">
+	                				{{#config.MANAGE_FORM}}
+										<li>
+											<span class="wrap_option">
+												<input type="checkbox" id="{{docFolderType}}_{{columnType}}" docFolderType="{{docFolderType}}" columnType="{{columnType}}" {{#useColumn}}checked="true"{{/useColumn}}{{^isEditable}}disabled="true"{{/isEditable}}>
+												<label for="{{docFolderType}}_{{columnType}}">{{columnName}}</label>
+											</span>	
+										</li>
+									{{/config.MANAGE_FORM}}
+	                			</ul>
+							</div>	
+	                	</td>
+	                </tr>
+	                <tr>
+	                	<th>
+	                		<span class="title">{{lang.전사 공문 발송함}}</span>
+	                	</th>
+	                	<td>
+	                		<div class="field_set">
+	                			<ul class="filed_set_list">
+	                				{{#config.MANAGE_OFFICIAL}}
+										<li>
+											<span class="wrap_option">
+												<input type="checkbox" id="{{docFolderType}}_{{columnType}}" docFolderType="{{docFolderType}}" columnType="{{columnType}}" {{#useColumn}}checked="true"{{/useColumn}}{{^isEditable}}disabled="true"{{/isEditable}}>
+												<label for="{{docFolderType}}_{{columnType}}">{{columnName}}</label>
+											</span>	
+										</li>
+									{{/config.MANAGE_OFFICIAL}}
+	                			</ul>
+							</div>	
+	                	</td>
+	                </tr>
+	                
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="page_action">
+        <span id="btn_save_appr_config" class="btn">{{lang.저장}}</span>                 
+        <span id="btn_cancel_appr_config" class="btn_nega">{{lang.취소}}</span>
+    </div>
+</div>

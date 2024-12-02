@@ -1,0 +1,28 @@
+<span class="box_label_wrap">
+    {{^model.hideLabel}}
+	<label for="">{{{label}}}</label>
+	{{#model.required}}
+	<i class="asterisk">*</i>
+	{{/model.required}}
+	{{#model.guideAsTooltip}}
+    {{#model.guide}}
+	<span class="help">
+		<span class="tool_tip">{{model.guide}}<i class="tail_left"></i></span>
+	</span>
+    {{/model.guide}}
+	{{/model.guideAsTooltip}}
+    {{/model.hideLabel}}
+</span>
+<div class="build_box_data" {{#isMasking}}data-el-masking style="display: none"{{/isMasking}}>
+	<input name="{{clientId}}" type="text" class="txt" value="{{inputValue}}" maxlength="{{model.maxLength}}" {{#isReadonly}}readonly{{/isReadonly}} {{#editable?}}unselectable="on" onselectstart="return false" onmousedown="return false"{{/editable?}}>
+	{{^model.guideAsTooltip}}
+	<p class="txt_info">{{#model.guide}}* {{model.guide}}{{/model.guide}}</p>
+	{{/model.guideAsTooltip}}
+</div>
+{{#isMasking}}
+<div class="build_box_data" data-el-masking>
+	<div class="hidden_data">
+		<span class="help" title="{{lang.관리자에 의해 마스킹 처리 된 항목입니다}}"></span>
+	</div>
+</div>
+{{/isMasking}}

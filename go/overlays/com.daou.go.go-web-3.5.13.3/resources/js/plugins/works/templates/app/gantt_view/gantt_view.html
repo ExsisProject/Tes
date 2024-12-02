@@ -1,0 +1,48 @@
+<div class="com_divide"></div>
+<div class="tool_bar gantt_tool_bar">
+    <div class="critical">
+        <a class="btn_tool btnToggleNodes" data-state="opened" data-role="button">
+            <span class="ic_toolbar open"></span>
+            <span class="txt">{{lang.모두닫기}}</span>
+        </a>
+        {{#isAdmin}}
+        <a class="btn_tool btnGroupAdd" data-role="button">
+            <span class="ic_toolbar folderadd"></span>
+            <span class="txt">{{lang.그룹추가}}</span>
+        </a>
+        <a class="btn_tool btnSortable" data-role="button">
+            <span class="ic_toolbar change"></span>
+            <span class="txt">{{lang.순서바꾸기}}</span>
+        </a>
+        <a class="btn_tool btnBringDocNodes" data-role="button">
+            <span class="ic_toolbar plus"></span>
+            <span class="txt">{{lang.데이터불러오기}}</span>
+        </a>
+        {{/isAdmin}}
+    </div>
+    <div class="optional">
+        {{#isAdmin}}
+        <a id="fieldSettingBtn" class="btn_tool" data-role="button">
+            <span class="ic_toolbar check_all"></span>
+            <span class="txt">{{lang.사용중인항목}}</span>
+        </a>
+        {{/isAdmin}}
+        <a id="today" class="btn_tool" data-role="button">
+            <span class="ic_toolbar today" title="{{lang.오늘}}"></span>
+            <span class="txt">{{lang.오늘}}</span>
+        </a>
+    </div>
+</div>
+
+<div class="container_gantt">
+    <div id="gantt_list" class="wrap_gantt_list"></div>
+    <div class="wrap_gantt_graph">
+        <span class="toggleListView btn_gantt_fold" title="{{lang.접기}}">
+            <span class="ic_set ic_arrow_prev"></span>
+        </span>
+        <span class="toggleListView btn_gantt_unfold" title="{{lang.펴기}}" style="display:none;">
+            <span class="ic_set ic_arrow_next"></span>
+        </span>
+        <div id="gantt_graph" style="width: 100%"></div>
+    </div>
+</div>

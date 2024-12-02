@@ -1,0 +1,67 @@
+<div class="appr-doc-replyform" id="progress_{{docId}}_{{commentId}}"></div>
+<p class="appr-doc-replyform form_wrap edit_mode">
+	<span class="textarea_edit" style="height:auto;">
+		<textarea class="edit w_max">{{message}}</textarea>
+	</span>
+</p>
+
+<div data-emoticon-edit-part class="appr-doc-replyform {{#hasEmoticon}}thumb_append{{/hasEmoticon}}">
+	{{#hasEmoticon}}
+	<img class="emoticon" id="commentEmoticonImg" src="{{emoticonPathSrc}}" data-item-path="{{emoticonPath}}" alt="">
+	<a data-bypass="" class="ic ic_del_circle" data-emoticon-delete-btn="" title="{{lang.emoticonDelete}}"></a>
+	{{/hasEmoticon}}
+</div>
+
+<div data-attaches-edit-part class="appr-doc-replyform temp commentFileModifyWrap {{#isAttaches}}wrap_attach{{/isAttaches}}" id="commentFileModifyWrap_{{docId}}_{{commentId}}">
+	{{#hasFiles}}
+	<ul class="file_wrap">
+		{{#files}}
+			<li data-name="{{name}}" data-id="{{id}}" data-tmpname="{{path}}" data-size="{{size}}">
+				<span class="item_file">
+					<span class="btn_wrap">
+						<span class="ic_classic ic_del"></span>
+					</span>
+					<span class="ic_file ic_{{extention}}"></span>
+					<span class="name">{{name}}</span>
+					<span class="size">({{humanSize}})</span>
+				</span>
+			</li>	
+		{{/files}}
+	</ul>
+	{{/hasFiles}}
+	{{#hasImages}}
+	<ul class="img_wrap">
+		{{#images}}
+		<li data-name="{{name}}" data-id="{{id}}" data-tmpname="{{path}}" data-size="{{size}}" class="comment_reply_modify">
+			<span class="item_file">
+				<span class="item_image">
+					<span class="thumb">
+						<img src="{{thumbSmall}}" alt="{{name}}"  />
+					</span>
+					<span class="btn_wrap">
+						<span class="ic_classic ic_del" title="삭제" data-docId=""></span>
+					</span>
+				</span>	
+			</span>
+		</li>
+		{{/images}}
+	</ul>
+	{{/hasImages}}
+</div>
+
+<div class="appr-doc-replyform func" data-func-wrapper>
+	<a class="btn_ic24 btn_emoticon" id="emoticonBtn" el-backdrop-link data-bypass>
+		<span class="ic24 ic_emoticon"></span>
+	</a>
+
+	<span data-upload-btn class="btn_ic24 posi1">
+    	<span class="ic_con ic_file_up_s" id="commentAttach_{{docId}}_{{commentId}}"></span>
+	</span>
+
+	<div class="edit_reply optional" style="width:200px;text-align:right">
+		<span class="btn_minor_s comment_modify_cancel" style="position:static"><span class="txt">{{lang.취소}}</span></span>
+		<span class="btn_minor_s on comment_modify_save" data-docId="{{docId}}" data-commentid="{{commentId}}"><span class="txt">{{lang.등록}}</span></span>
+	</div>
+
+</div>
+

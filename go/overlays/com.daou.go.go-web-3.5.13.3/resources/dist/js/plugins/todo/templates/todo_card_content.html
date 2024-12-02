@@ -1,0 +1,283 @@
+<header>
+    <div class="ui-card-title title{{#editable?}} editable{{/editable?}}">
+        <span class="ic_board ic_card_b"></span>
+        <h1>{{{title}}}</h1>
+        <span class="ui-column-name txt">in {{{column_name}}}</span>
+    </div>
+    <a class="btn-close btn_layer_x" href="#" data-bypass>
+        <span class="ic"></span>
+        <span class="txt">{{label.close}}</span>
+    </a>
+    <a class="btn_fn7" url-copy>
+        <span class="ic_copy_url" title="{{lang.copy_url}}"></span>
+    </a>
+</header>
+
+<section class="detail_content">
+    <div class="detail_content_wrap ">
+        <div class="card-detail-container content_critical">
+            <div class="ui-content-container content_desc">
+                {{#model.content}}
+                <div class="ui-card-content card_desc{{#editable?}} editable{{/editable?}}">
+                    <span class="ic_board ic_desc"></span>
+                    {{{content}}}
+                </div>
+                {{/model.content}}
+                {{^model.content}}
+                {{#editable?}}
+                <a class="btn-edit-content create_item" data-bypass>
+                    <span class="ic_board ic_plus" title="{{label.add}}"></span>
+                    <span class="txt">{{label.input_description}}</span>
+                </a>
+                {{/editable?}}
+                {{/model.content}}
+            </div>
+
+            <div class="content_info ">
+                {{#hasMembers?}}
+                <div class="card_member_wrap">
+                    <h2>{{label.member}}</h2>
+                    <div class="ui-member-list member_data">
+                        {{#model.members}}
+                        {{> _member_button}}
+                        {{/model.members}}
+                        <a class="btn-add-member create" data-bypass><span class="ic_board ic_plus" title="{{label.add_member}}"></span></a>
+                    </div>
+                </div>
+                {{/hasMembers?}}
+                {{#hasLabels?}}
+                <div class="card_rabel_wrap">
+                    <h2>{{label.label}}</h2>
+                    <ul class="list_label">
+                        {{#model.labels}}
+                        <li><a class="card_label" style="background:{{color}}" data-bypass><span class="txt txt_ellipsis">{{title}}</span></a></li>
+                        {{/model.labels}}
+                        <li><a class="btn-edit-label create" data-bypass><span class="ic_board ic_plus" title="{{label.add_label}}"></span></a></li>
+                    </ul>
+                </div>
+                {{/hasLabels?}}
+                {{#hasDuedate?}}
+                <div class="card_duedate_wrap">
+                    <h2>{{label.duedate}}</h2>
+                    <div class="btn-duedate due_date{{#delayed?}} delay{{/delayed?}}">
+                        <span class="date">{{duedate}}</span>
+                    </div>
+                </div>
+                {{/hasDuedate?}}
+            </div>
+
+            {{#hasChecklists?}}
+            {{#checklists}}
+            <div class="ui-checklists-container">
+                <div class="ui-checklist-container content_title content_check clearfix" data-checklistid="{{id}}">
+                    <h2>
+                        <span class="ic_board ic_list_b"></span>
+                        <span class="txt">{{title}}</span>
+                    </h2>
+                    <div class="action_wrap">
+                        <a class="btn-checklist-remove wrap_btn_fn4" href="#" title="{{label.remove}}" data-bypass>
+                            <span class="btn_fn4"><span class="ic_feed ic_del_white"></span></span>
+                        </a>
+                    </div>
+                    <div class="ui-checklist-items todo_check_list">
+                        {{#checklistItems}}
+                        <div class="ui-checklist-item check_item{{#checked}} checked{{/checked}}" data-itemid="{{id}}">
+                            <span class="ui-checklist-checkbox ic_board ic_ckb"></span>
+                            <span class="wrap_item">
+                                {{#isMobile?}}
+                                <span class="txt">{{{title}}}</span>
+                                <a class="btn-checklistitem-remove btn_ic_del" href="#" data-bypass><span class="ic ic_del" title="{{label.remove}}"></span></a>
+                                {{/isMobile?}}
+                                {{^isMobile?}}
+                                <span class="ui-checklist-item-text txt">{{{title}}}</span>
+                                <span class="btn_wrap"><span class="btn-checklistitem-remove ic_classic ic_del" title="{{label.remove}}"></span></span>
+                                {{/isMobile?}}
+                            </span>
+                        </div>
+                        {{/checklistItems}}
+                        <a href="#" class="btn-add-checklist-item create_item" data-bypass>
+                            <span class="ic_board ic_plus" title="{{label.add_checklist_item}}"></span>
+                            <span class="txt">{{label.add_checklist_item}}</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {{/checklists}}
+            {{/hasChecklists?}}
+
+            {{#hasAttaches?}}
+            <div class="content_title content_attach">
+                <h2>
+                    <span class="ic_board ic_attach_bb"></span>
+                    <span class="txt">{{label.attach_file}}</span>
+                    {{^isMobile?}}
+                    {{#isSaaS}}
+                    <span class="help">
+                        <span class="tool_tip top" style="width:200px">{{label.첨부파일 1개의 최대 용량은 NNN MB 이며 최대 N개 까지 등록 가능합니다}}
+                            <i class="tail_left"></i>
+                        </span>
+                    </span>
+                    {{/isSaaS}}
+                    {{/isMobile?}}
+                </h2>
+
+                {{#isMobile?}}
+                <div class="add_file">
+                    <ul class="ui-attach-files file_wrap">
+                    {{#attaches.files}}
+                        <li class="ui-attach-file" data-attachid="{{id}}" data-size="{{size}}">
+                            <span class="item_file">
+                                <span class="ic_file ic_{{extention}}"></span>
+                                <span class="btn-file-download name">{{name}}</span>
+                                <span class="size">({{humanSize}})</span>
+
+                                <span class="optional">
+                                    {{#preview}}
+                                    {{#mobilePreview}}
+                                    <a href="#" class="btn-file-preview wrap_ic_file wrap_ic_file_preview" data-bypass>
+                                        <span class="txt ic ic_file_preview"></span>
+                                    </a>
+                                    {{/mobilePreview}}
+                                    {{/preview}}
+                                    {{#download}}
+                                    <a href="#" class="btn-file-download wrap_ic_file" data-bypass>
+                                        <span class="txt ic ic_file_download"></span>
+                                    </a>
+                                    {{/download}}
+                                    {{#removable}}
+                                    <a href="#" class="btn-file-remove wrap_ic_file" data-bypass><span class="txt ic ic_file_del"></span></a>
+                                    {{/removable}}
+                                </span>
+                            </span>
+                        </li>
+                    {{/attaches.files}}
+                    </ul>
+                </div>
+                {{/isMobile?}}
+                {{^isMobile?}}
+                <div id="dropZone" class="dd_attach attach_wrap">
+                    <p class="drag_txt">{{label.이 곳에 파일을 드래그 하세요}}</p>
+                    <div class="area_txt">
+                        <span class="ic_attach ic_upload"></span>
+                        <span class="msg">{{label.이 곳에 파일을 드래그 하세요 또는}}
+                            <span class="btn_file">
+                                <a class="txt" href="#" data-fileuploader data-url="{{fileUploadUrl.fileUrl}}" data-attachtype="file" data-bypass>{{label.파일선택}}</a>
+                            </span>
+                            <span id="total_size" class="size"></span>
+                        </span>
+                    </div>
+                    <div class="progress"></div>
+                </div>
+
+                <div>
+                    <ul class="ui-attach-files attach_wrap file_wrap">
+                        {{#attaches.files}}
+                        <li class="ui-attach-file" data-attachid="{{id}}" data-size="{{size}}">
+                            <span class="item_file">
+                                {{#removable}}
+                                <span class="btn_wrap">
+                                    <span class="btn-file-remove ic_classic ic_del" title="{{label.remove}}"></span>
+                                </span>
+                                {{/removable}}
+                                <span class="ic_file ic_{{extention}}"></span>
+                                <span class="btn-file-download name">{{name}}</span>
+                                <span class="size">({{humanSize}})</span>
+                                <span class="btn_wrap">
+                                    {{#preview}}
+                                    <span class="btn-file-preview btn_fn4">
+                                        <span class="txt">{{label.preview}}</span>
+                                    </span>
+                                    {{/preview}}
+                                    <span class="btn-file-download btn_fn4">
+                                        <span class="txt">{{label.download}}</span>
+                                    </span>
+                                </span>
+                            </span>
+                        </li>
+                        {{/attaches.files}}
+                    </ul>
+                </div>
+                {{/isMobile?}}
+
+                {{#attaches.images}}
+                <div class="ui-attach-file attach_wrap attach_thumb_wrap" data-attachid="{{id}}" data-size="{{size}}">
+                    {{#download}}
+                	<a href="{{downloadUrl}}" class="btn-image-view wrap_photo fancybox-thumbs fancybox-button"
+                       data-fancybox-group="thumb_{{view_cid}}"
+                       title="{{name}}" alt="{{name}}"
+                       data-bypass>
+                    	<img src="{{thumbSmall}}">
+                    </a>
+                    {{/download}}
+                    {{^download}}
+                    <span class="wrap_photo">
+                        <img src="{{thumbSmall}}">
+                    </span>
+                    {{/download}}
+                    <span class="item_file">
+                        <span class="btn-file-download name">{{name}}</span>
+                        <span class="size">({{humanSize}})</span>
+                        {{#removable}}
+                        <a class="btn-file-remove btn_ic_del" href="#" data-bypass><span class="ic ic_del" title="{{label.remove}}"></span></a>
+                        {{/removable}}
+                    </span>
+                    <span class="date">{{updatedAt}}</span>
+                </div>
+                {{/attaches.images}}
+            </div>
+            {{/hasAttaches?}}
+        </div>
+
+        {{#editable?}}
+        <aside class="action-buttons content_optional nav_card">
+            <h2>{{label.add}}</h2>
+            <a href="#" class="btn-add-member btn_flat_normal" data-bypass>
+                <span class="ic_board ic_member"> </span>
+                <span class="txt">{{label.member}}</span>
+            </a>
+            <a href="#" class="btn-edit-label btn_flat_normal" data-bypass>
+                <span class="ic_board ic_label"> </span>
+                <span class="txt">{{label.label}}</span>
+            </a>
+            <a href="#" class="btn-duedate btn_flat_normal" data-bypass>
+                <span class="ic_board ic_date"> </span>
+                <span class="txt">{{label.duedate}}</span>
+            </a>
+            <a href="#" class="btn-add-checklist btn_flat_normal" data-bypass>
+                <span class="ic_board ic_list"> </span>
+                <span class="txt">{{label.checklist}}</span>
+            </a>
+            {{#isMobile?}}
+            <a href="#" class="btn-add-file btn_flat_normal" data-fileuploader data-url="{{fileUploadUrl.fileUrl}}" data-attachtype="file" data-bypass>
+                <span class="ic_board ic_attach_b"> </span>
+                <span class="txt">{{label.attach_file}}</span>
+            </a>
+            {{#isWebFolderUsable?}}
+            <a href="#" class="btn_flat_normal" id="todoWebFolder" data-webfolder-uploader data-url="{{fileUploadUrl.webFolderUrl}}" data-bypass>
+                <span class="ic_board ic_folder"> </span>
+                <span class="txt">{{label.webfolder}}</span>
+            </a>
+            {{/isWebFolderUsable?}}
+            {{/isMobile?}}
+            {{#canAttachImage?}}
+            <a href="#" class="btn-add-image btn_flat_normal" data-fileuploader data-url="{{fileUploadUrl.fileUrl}}" data-attachtype="image" data-bypass>
+                <span class="ic_board ic_attach_img"> </span>
+                <span class="txt">{{label.attach_image}}</span>
+            </a>
+            {{/canAttachImage?}}
+            <h2>{{label.action}}</h2>
+            <a href="#" class="btn-card-move btn_flat_normal" data-bypass>
+                <span class="ic_board ic_move"> </span>
+                <span class="txt">{{label.move}}</span>
+            </a>
+            <a href="#" class="btn-card-remove btn_flat_normal" data-bypass>
+                <span class="ic_board ic_trash"> </span>
+                <span class="txt">{{label.remove_card}}</span>
+            </a>
+        </aside>
+        {{/editable?}}
+    </div>
+</section>
+<a id="scrollToTop_card_detail" class="btn_pageTop" style="display: none">
+    <span class="ic_v2 ic_pageTop"></span>
+</a>

@@ -1,0 +1,60 @@
+<div class="vertical_wrap" id="formSelect" style="display: none">
+	<span class="option_wrap"><input id="deptForm" type="radio" checked="checked" name="form" value="department"><label for="deptForm">{{lang.dept_form}}</label></span>
+	<span class="option_wrap"><input id="companyForm" type="radio" name="form" value="company"><label for="companyForm">{{lang.company_form}}</label></span>
+</div>
+<div id="department_form">
+	<table class="type_normal" id="department_form_table">	
+		<colgroup>
+			<col />
+			<col />
+			<col width="120px" />
+		</colgroup>
+		<thead>
+			<tr>
+				<th class="sorting_desc align_l"><span class="title_sort">{{lang.department}}<ins class="ic"></ins><span class="selected"></span></span></th><!-- 정렬지원하지않는 항목 th에 no_indent 추가 -->
+				<th class="sorting align_l"><span class="title_sort">{{lang.report_name}}<ins class="ic"></ins></span></th>
+				<th class="sorting_disabled"><span class="title_sort">{{lang.selection}}<ins class="ic"></ins></span></th>
+			</tr>
+		</thead>
+	</table>
+	<div class="table_search">
+		<select class="">
+			<option value="deptname">{{lang.department}}</option>
+			<option value="foldername">{{lang.report_name}}</option>
+		</select>			
+		<section class="search2">
+			<div class="search_wrap">
+				<input class="search2" type="text" placeholder="{{lang.search}}">								
+				<span class="btn_search2" title="{{lang.search}}"></span>								
+			</div>
+		</section>				
+	</div>
+</div>
+<div id="company_form">
+	<table class="type_normal" id="company_form_table">	
+		<colgroup>
+			<col />
+			<col />
+			<col width="120px" />
+		</colgroup>
+		<thead>
+			<tr>
+				<th class="sorting_desc align_l"><span class="title_sort">{{lang.createdAt}}<ins class="ic"></ins><span class="selected"></span></span></th><!-- 정렬지원하지않는 항목 th에 no_indent 추가 -->
+				<th class="sorting align_l"><span class="title_sort">{{lang.form_name}}<ins class="ic"></ins></span></th>
+				<th class="sorting_disabled"><span class="title_sort">{{lang.selection}}<ins class="ic"></ins></span></th>
+			</tr>
+		</thead>
+	</table>
+	
+	<div class="table_search">
+		<select>
+			<option value="name">{{lang.form_name}}</option>
+		</select>			
+		<section class="search2">
+			<div class="search_wrap">
+				<input class="search2" type="text" placeholder="{{lang.search}}">								
+				<span class="btn_search2" title="{{lang.search}}"></span>								
+			</div>
+		</section>				
+	</div>
+</div>

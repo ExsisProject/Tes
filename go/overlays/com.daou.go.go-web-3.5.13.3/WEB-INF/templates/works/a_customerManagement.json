@@ -1,0 +1,984 @@
+{
+	"meta": {
+		"key": "7ad8b41a-1184-48e0-81b3-106f421dcd1f",
+		"base": {
+			"name": "applet.customer.manage.template.name",
+			"desc": "applet.customer.manage.template.desc",
+			"icon": "ic_app3.png"
+		},
+		"exporter": {
+			"name": "관리자",
+			"companyName": "다우기술"
+		}
+	},
+	"components": {
+		"view": {
+			"charts": [],
+			"columns": [{
+				"fieldCid": "_clin4ua2z"
+			}, {
+				"fieldCid": "_zzv3du17w"
+			}, {
+				"fieldCid": "_uwvre485y"
+			}, {
+				"fieldCid": "_zawu9hr4q"
+			}, {
+				"fieldCid": "_594b0xict"
+			}, {
+				"fieldCid": "_d6mmq5mv5"
+			}, {
+				"fieldCid": "_tmnqkeue6"
+			}, {
+				"fieldCid": "_69whhxc9a"
+			}, {
+				"fieldCid": "create_date",
+				"columnName": "{{applet.form.createdat}}"
+			}],
+			"titleColumnIndex": 1,
+			"sortColumnIndex": 8,
+			"sortDirection": "DESC"
+		},
+		"form": {
+			"data": {
+				"type": "canvas",
+				"valueType": null,
+				"multiple": false,
+				"cid": "cxx1",
+				"parentCid": null,
+				"properties": null,
+				"components": [{
+					"type": "label",
+					"valueType": null,
+					"multiple": false,
+					"cid": "_neha54evo",
+					"parentCid": "cxx1",
+					"properties": {
+						"label": "◆  고객사 정보"
+					},
+					"components": []
+				}, {
+					"type": "columns",
+					"valueType": null,
+					"multiple": false,
+					"cid": "_14dvg0ivq",
+					"parentCid": "cxx1",
+					"properties": {
+						"count": 2
+					},
+					"components": [{
+						"type": "column",
+						"valueType": null,
+						"multiple": false,
+						"cid": "_j662ezl3y",
+						"parentCid": "_14dvg0ivq",
+						"properties": {},
+						"components": [{
+							"type": "text",
+							"valueType": "STEXT",
+							"multiple": false,
+							"cid": "_zzv3du17w",
+							"parentCid": "_j662ezl3y",
+							"properties": {
+								"label": "회사명",
+								"hideLabel": false,
+								"guide": "",
+								"guideAsTooltip": true,
+								"required": true,
+								"defaultValue": "",
+								"minLength": 0,
+								"maxLength": 100,
+								"width": "100",
+								"widthUnit": "percent",
+								"format": "all"
+							},
+							"components": []
+						}, {
+							"type": "text",
+							"valueType": "STEXT",
+							"multiple": false,
+							"cid": "_0lroxky6b",
+							"parentCid": "_j662ezl3y",
+							"properties": {
+								"label": "대표자명",
+								"hideLabel": false,
+								"guide": "",
+								"guideAsTooltip": true,
+								"required": false,
+								"duplicate": false,
+								"similar": false,
+								"defaultValue": "",
+								"minLength": 0,
+								"maxLength": 100,
+								"width": 100,
+								"widthUnit": "percent",
+								"format": "all"
+							},
+							"components": []
+						}, {
+							"type": "text",
+							"valueType": "STEXT",
+							"multiple": false,
+							"cid": "_3euholiq4",
+							"parentCid": "_j662ezl3y",
+							"properties": {
+								"label": "홈페이지",
+								"hideLabel": false,
+								"guide": "",
+								"guideAsTooltip": true,
+								"required": false,
+								"duplicate": false,
+								"similar": false,
+								"defaultValue": "",
+								"minLength": 0,
+								"maxLength": 100,
+								"width": 100,
+								"widthUnit": "percent",
+								"format": "url"
+							},
+							"components": []
+						}, {
+							"type": "file",
+							"valueType": "FILES",
+							"multiple": false,
+							"cid": "_gsznp665r",
+							"parentCid": "_j662ezl3y",
+							"properties": {
+								"label": "사업자등록증사본",
+								"hideLabel": false,
+								"guide": "",
+								"guideAsTooltip": true,
+								"required": false
+							},
+							"components": []
+						}]
+					}, {
+						"type": "column",
+						"valueType": null,
+						"multiple": false,
+						"cid": "_jbrlbpe1s",
+						"parentCid": "_14dvg0ivq",
+						"properties": {},
+						"components": [{
+							"type": "select",
+							"valueType": "SELECT",
+							"multiple": false,
+							"cid": "_uwvre485y",
+							"parentCid": "_jbrlbpe1s",
+							"properties": {
+								"label": "산업 분류",
+								"hideLabel": false,
+								"guide": "",
+								"guideAsTooltip": true,
+								"required": true,
+								"defaultValue": "0",
+								"items": [{
+									"value": "0",
+									"displayText": "IT, 인터넷",
+									"selected": true
+								}, {
+									"value": "1",
+									"displayText": "연구개발,설계",
+									"selected": false
+								}, {
+									"value": "2",
+									"displayText": "생산,제조",
+									"selected": false
+								}, {
+									"value": "3",
+									"displayText": "의료,보건",
+									"selected": false
+								}, {
+									"value": "4",
+									"displayText": "예술, 문화",
+									"selected": false
+								}, {
+									"value": "5",
+									"displayText": "서비스",
+									"selected": false
+								}, {
+									"value": "6",
+									"displayText": "기타",
+									"selected": false
+								}]
+							},
+							"components": []
+						}, {
+							"type": "radio",
+							"valueType": "SELECT",
+							"multiple": false,
+							"cid": "_peygutcge",
+							"parentCid": "_jbrlbpe1s",
+							"properties": {
+								"label": "병역특례지정 여부",
+								"hideLabel": false,
+								"guide": "",
+								"guideAsTooltip": true,
+								"required": false,
+								"defaultValue": "1",
+								"items": [{
+									"value": "0",
+									"displayText": "병역특례기업",
+									"selected": false
+								}, {
+									"value": "1",
+									"displayText": "해당사항 없음",
+									"selected": true
+								}],
+								"align": "horizontal"
+							},
+							"components": []
+						}, {
+							"type": "radio",
+							"valueType": "SELECT",
+							"multiple": false,
+							"cid": "_74ohob5rt",
+							"parentCid": "_jbrlbpe1s",
+							"properties": {
+								"label": "벤처기업 여부",
+								"hideLabel": false,
+								"guide": "",
+								"guideAsTooltip": true,
+								"required": false,
+								"defaultValue": "1",
+								"items": [{
+									"value": "0",
+									"displayText": "벤처 기업",
+									"selected": false
+								}, {
+									"value": "1",
+									"displayText": "해당사항 없음",
+									"selected": true
+								}],
+								"align": "horizontal"
+							},
+							"components": []
+						}, {
+							"type": "number",
+							"valueType": "NUMBER",
+							"multiple": false,
+							"cid": "_zawu9hr4q",
+							"parentCid": "_jbrlbpe1s",
+							"properties": {
+								"label": "직원 수",
+								"hideLabel": false,
+								"guide": "",
+								"guideAsTooltip": true,
+								"required": false,
+								"minLength": 1,
+								"maxLength": 100000000000,
+								"width": 250,
+								"widthUnit": "px",
+								"unitText": "여 명 내외",
+								"fixType": "postfix",
+								"decimalPoints": "0",
+								"thousandComma": true,
+								"useTableAutoAggr": false,
+								"tableAggrType": "",
+								"code": "number_731"
+							},
+							"components": []
+						}]
+					}]
+				}, {
+					"type": "textarea",
+					"valueType": "TEXT",
+					"multiple": false,
+					"cid": "_zi5k4oa1v",
+					"parentCid": "cxx1",
+					"properties": {
+						"label": "회사 소개",
+						"hideLabel": false,
+						"guide": "알려지지 않은 기업인 경우 반드시 입력",
+						"guideAsTooltip": false,
+						"required": false,
+						"defaultValue": "",
+						"width": 100,
+						"widthUnit": "percent",
+						"rows": "4"
+					},
+					"components": []
+				}, {
+					"type": "table",
+					"valueType": null,
+					"multiple": false,
+					"cid": "_8pm5p7yac",
+					"parentCid": "cxx1",
+					"properties": {
+						"label": " 컨택 포인트",
+						"hideLabel": false,
+						"guide": "[대상 업무]가 [기타]인 경우, 컨택 포인트가 변경된 경우 그 내역을 [활동 기록]에 작성합니다.",
+						"guideAsTooltip": false
+					},
+					"components": [{
+						"type": "select",
+						"valueType": "SELECT",
+						"multiple": true,
+						"cid": "_w6syhtj13",
+						"parentCid": "_8pm5p7yac",
+						"properties": {
+							"label": "대상 업무",
+							"hideLabel": false,
+							"guide": "",
+							"guideAsTooltip": true,
+							"required": false,
+							"defaultValue": "0",
+							"items": [{
+								"value": "0",
+								"displayText": "총괄",
+								"selected": true
+							}, {
+								"value": "1",
+								"displayText": "계약 관련",
+								"selected": false
+							}, {
+								"value": "2",
+								"displayText": "세금계산서(입금) 관련",
+								"selected": false
+							}, {
+								"value": "3",
+								"displayText": "계약 및 세금계산서(입금) 관련 ",
+								"selected": false
+							}, {
+								"value": "4",
+								"displayText": "사후 관리",
+								"selected": false
+							}, {
+								"value": "5",
+								"displayText": "기타",
+								"selected": false
+							}]
+						},
+						"components": []
+					}, {
+						"type": "text",
+						"valueType": "STEXT",
+						"multiple": true,
+						"cid": "_ohu82zt84",
+						"parentCid": "_8pm5p7yac",
+						"properties": {
+							"label": "부서",
+							"hideLabel": false,
+							"guide": "",
+							"guideAsTooltip": true,
+							"required": false,
+							"duplicate": false,
+							"similar": false,
+							"defaultValue": "",
+							"minLength": 0,
+							"maxLength": 100,
+							"width": 100,
+							"widthUnit": "percent",
+							"format": "all"
+						},
+						"components": []
+					}, {
+						"type": "text",
+						"valueType": "STEXT",
+						"multiple": true,
+						"cid": "_cuwjo4ssk",
+						"parentCid": "_8pm5p7yac",
+						"properties": {
+							"label": "이름",
+							"hideLabel": false,
+							"guide": "",
+							"guideAsTooltip": true,
+							"required": false,
+							"duplicate": false,
+							"similar": false,
+							"defaultValue": "",
+							"minLength": 0,
+							"maxLength": 100,
+							"width": 100,
+							"widthUnit": "percent",
+							"format": "all"
+						},
+						"components": []
+					}, {
+						"type": "text",
+						"valueType": "STEXT",
+						"multiple": true,
+						"cid": "_bxso57x1m",
+						"parentCid": "_8pm5p7yac",
+						"properties": {
+							"label": "직위",
+							"hideLabel": false,
+							"guide": "",
+							"guideAsTooltip": true,
+							"required": false,
+							"duplicate": false,
+							"similar": false,
+							"defaultValue": "",
+							"minLength": 0,
+							"maxLength": 100,
+							"width": 100,
+							"widthUnit": "percent",
+							"format": "all"
+						},
+						"components": []
+					}, {
+						"type": "text",
+						"valueType": "STEXT",
+						"multiple": true,
+						"cid": "_3qlbki1e1",
+						"parentCid": "_8pm5p7yac",
+						"properties": {
+							"label": "이메일",
+							"hideLabel": false,
+							"guide": "",
+							"guideAsTooltip": true,
+							"required": false,
+							"duplicate": false,
+							"similar": false,
+							"defaultValue": "",
+							"minLength": 0,
+							"maxLength": 100,
+							"width": 100,
+							"widthUnit": "percent",
+							"format": "email"
+						},
+						"components": []
+					}, {
+						"type": "text",
+						"valueType": "STEXT",
+						"multiple": true,
+						"cid": "_qrg06ers4",
+						"parentCid": "_8pm5p7yac",
+						"properties": {
+							"label": "휴대폰",
+							"hideLabel": false,
+							"guide": "",
+							"guideAsTooltip": true,
+							"required": false,
+							"duplicate": false,
+							"similar": false,
+							"defaultValue": "",
+							"minLength": 0,
+							"maxLength": 100,
+							"width": 100,
+							"widthUnit": "percent",
+							"format": "all"
+						},
+						"components": []
+					}]
+				}, {
+					"type": "hr",
+					"valueType": null,
+					"multiple": false,
+					"cid": "_yoeqjts7o",
+					"parentCid": "cxx1",
+					"properties": {},
+					"components": []
+				}, {
+					"type": "label",
+					"valueType": null,
+					"multiple": false,
+					"cid": "_ina6jrkqn",
+					"parentCid": "cxx1",
+					"properties": {
+						"label": "◆  매출 관리"
+					},
+					"components": []
+				}, {
+					"type": "columns",
+					"valueType": null,
+					"multiple": false,
+					"cid": "_f3p6cknb9",
+					"parentCid": "cxx1",
+					"properties": {
+						"count": 2
+					},
+					"components": [{
+						"type": "column",
+						"valueType": null,
+						"multiple": false,
+						"cid": "_72lzd5jwc",
+						"parentCid": "_f3p6cknb9",
+						"properties": {},
+						"components": [{
+							"type": "number",
+							"valueType": "NUMBER",
+							"multiple": false,
+							"cid": "_594b0xict",
+							"parentCid": "_72lzd5jwc",
+							"properties": {
+								"label": "매출 기준 (금년)",
+								"hideLabel": false,
+								"guide": "",
+								"guideAsTooltip": true,
+								"required": true,
+								"defaultValue": "",
+								"minLength": 1,
+								"maxLength": "2100",
+								"width": "100",
+								"widthUnit": "px",
+								"unitText": "년도",
+								"fixType": "postfix",
+								"decimalPoints": "0",
+								"thousandComma": false,
+								"useTableAutoAggr": false,
+								"tableAggrType": "",
+								"code": "number_1314"
+							},
+							"components": []
+						}, {
+							"type": "number",
+							"valueType": "NUMBER",
+							"multiple": false,
+							"cid": "_d6mmq5mv5",
+							"parentCid": "_72lzd5jwc",
+							"properties": {
+								"label": "Y년도 목표 매출",
+								"hideLabel": false,
+								"guide": "",
+								"guideAsTooltip": true,
+								"required": false,
+								"defaultValue": "0",
+								"minLength": 1,
+								"maxLength": 100000000000,
+								"width": "100",
+								"widthUnit": "px",
+								"unitText": "억 원",
+								"fixType": "postfix",
+								"decimalPoints": 2,
+								"thousandComma": true,
+								"useTableAutoAggr": false,
+								"tableAggrType": "",
+								"code": "number_1378"
+							},
+							"components": []
+						}]
+					}, {
+						"type": "column",
+						"valueType": null,
+						"multiple": false,
+						"cid": "_ivgabvmq0",
+						"parentCid": "_f3p6cknb9",
+						"properties": {},
+						"components": [{
+							"type": "number",
+							"valueType": "NUMBER",
+							"multiple": false,
+							"cid": "_tmnqkeue6",
+							"parentCid": "_ivgabvmq0",
+							"properties": {
+								"label": "Y-1년도 달성 매출",
+								"hideLabel": false,
+								"guide": "",
+								"guideAsTooltip": true,
+								"required": false,
+								"defaultValue": "0",
+								"minLength": 1,
+								"maxLength": 100000000000,
+								"width": "100",
+								"widthUnit": "px",
+								"unitText": "억 원",
+								"fixType": "postfix",
+								"decimalPoints": 2,
+								"thousandComma": true,
+								"useTableAutoAggr": false,
+								"tableAggrType": "",
+								"code": "number_1504"
+							},
+							"components": []
+						}, {
+							"type": "number",
+							"valueType": "NUMBER",
+							"multiple": false,
+							"cid": "_69whhxc9a",
+							"parentCid": "_ivgabvmq0",
+							"properties": {
+								"label": "Y+1년도 예상 매출",
+								"hideLabel": false,
+								"guide": "",
+								"guideAsTooltip": true,
+								"required": false,
+								"defaultValue": "0",
+								"minLength": 1,
+								"maxLength": 100000000000,
+								"width": "100",
+								"widthUnit": "px",
+								"unitText": "억 원",
+								"fixType": "postfix",
+								"decimalPoints": 2,
+								"thousandComma": true,
+								"useTableAutoAggr": false,
+								"tableAggrType": "",
+								"code": "number_1572"
+							},
+							"components": []
+						}]
+					}]
+				}, {
+					"type": "table",
+					"valueType": null,
+					"multiple": false,
+					"cid": "_tpa1iee7g",
+					"parentCid": "cxx1",
+					"properties": {
+						"label": "매출 History (위에 기입했던 이전 년도 자료들을 숫자 그대로 남길 것)",
+						"hideLabel": false,
+						"guide": "",
+						"guideAsTooltip": true
+					},
+					"components": [{
+						"type": "number",
+						"valueType": "NUMBER",
+						"multiple": true,
+						"cid": "_7j35urdp7",
+						"parentCid": "_tpa1iee7g",
+						"properties": {
+							"label": "매출 기준",
+							"hideLabel": false,
+							"guide": "",
+							"guideAsTooltip": true,
+							"required": false,
+							"minLength": 1,
+							"maxLength": 100000000000,
+							"width": "100",
+							"widthUnit": "px",
+							"unitText": "년도",
+							"fixType": "postfix",
+							"decimalPoints": "0",
+							"thousandComma": false,
+							"useTableAutoAggr": false,
+							"tableAggrType": "",
+							"code": "number_1874"
+						},
+						"components": []
+					}, {
+						"type": "number",
+						"valueType": "NUMBER",
+						"multiple": true,
+						"cid": "_uy49lok9n",
+						"parentCid": "_tpa1iee7g",
+						"properties": {
+							"label": "Y-1 달성",
+							"hideLabel": false,
+							"guide": "",
+							"guideAsTooltip": true,
+							"required": false,
+							"minLength": 1,
+							"maxLength": 100000000000,
+							"width": "100",
+							"widthUnit": "px",
+							"unitText": "억 원",
+							"fixType": "postfix",
+							"decimalPoints": 2,
+							"thousandComma": true,
+							"useTableAutoAggr": false,
+							"tableAggrType": "",
+							"code": "number_1879"
+						},
+						"components": []
+					}, {
+						"type": "number",
+						"valueType": "NUMBER",
+						"multiple": true,
+						"cid": "_ypzx8vkki",
+						"parentCid": "_tpa1iee7g",
+						"properties": {
+							"label": "Y 목표",
+							"hideLabel": false,
+							"guide": "",
+							"guideAsTooltip": true,
+							"required": false,
+							"minLength": 1,
+							"maxLength": 100000000000,
+							"width": "100",
+							"widthUnit": "px",
+							"unitText": "억 원",
+							"fixType": "postfix",
+							"decimalPoints": 2,
+							"thousandComma": true,
+							"useTableAutoAggr": false,
+							"tableAggrType": "",
+							"code": "number_1884"
+						},
+						"components": []
+					}, {
+						"type": "number",
+						"valueType": "NUMBER",
+						"multiple": true,
+						"cid": "_jpz53k0ni",
+						"parentCid": "_tpa1iee7g",
+						"properties": {
+							"label": "Y+1 예상",
+							"hideLabel": false,
+							"guide": "",
+							"guideAsTooltip": true,
+							"required": false,
+							"minLength": 1,
+							"maxLength": 100000000000,
+							"width": "100",
+							"widthUnit": "px",
+							"unitText": "억 원",
+							"fixType": "postfix",
+							"decimalPoints": 2,
+							"thousandComma": true,
+							"useTableAutoAggr": false,
+							"tableAggrType": "",
+							"code": "number_2144"
+						},
+						"components": []
+					}]
+				}, {
+					"type": "hr",
+					"valueType": null,
+					"multiple": false,
+					"cid": "_rpvb3xozg",
+					"parentCid": "cxx1",
+					"properties": {},
+					"components": []
+				}, {
+					"type": "label",
+					"valueType": null,
+					"multiple": false,
+					"cid": "_2wwig0bbg",
+					"parentCid": "cxx1",
+					"properties": {
+						"label": "◆  영업 담당자 정보"
+					},
+					"components": []
+				}, {
+					"type": "columns",
+					"valueType": null,
+					"multiple": false,
+					"cid": "_ikwrcjnkl",
+					"parentCid": "cxx1",
+					"properties": {
+						"count": 2
+					},
+					"components": [{
+						"type": "column",
+						"valueType": null,
+						"multiple": false,
+						"cid": "_ls0v3hwm6",
+						"parentCid": "_ikwrcjnkl",
+						"properties": {},
+						"components": [{
+							"type": "org",
+							"valueType": "USERS",
+							"multiple": false,
+							"cid": "_0kh7lzqdw",
+							"parentCid": "_ls0v3hwm6",
+							"properties": {
+								"label": "고객사 최초 등록자",
+								"hideLabel": false,
+								"guide": "",
+								"guideAsTooltip": true,
+								"required": false,
+								"noLimit": true,
+								"useDefaultRegister": true,
+								"allowMemberCount": "1",
+								"members": []
+							},
+							"components": []
+						}]
+					}, {
+						"type": "column",
+						"valueType": null,
+						"multiple": false,
+						"cid": "_0i27w938m",
+						"parentCid": "_ikwrcjnkl",
+						"properties": {},
+						"components": [{
+							"type": "date",
+							"valueType": "DATE",
+							"multiple": false,
+							"cid": "_clin4ua2z",
+							"parentCid": "_0i27w938m",
+							"properties": {
+								"label": "고객사 최초 등록일",
+								"hideLabel": false,
+								"guide": "",
+								"guideAsTooltip": true,
+								"required": false,
+								"defaultAsNow": true,
+								"defaultDate": "",
+								"code": "date_2026"
+							},
+							"components": []
+						}]
+					}]
+				}, {
+					"type": "table",
+					"valueType": null,
+					"multiple": false,
+					"cid": "_6jfp9bgb5",
+					"parentCid": "cxx1",
+					"properties": {
+						"label": "영업 담당자 History",
+						"hideLabel": false,
+						"guide": "",
+						"guideAsTooltip": true
+					},
+					"components": [{
+						"type": "text",
+						"valueType": "STEXT",
+						"multiple": true,
+						"cid": "_ysdl7za2i",
+						"parentCid": "_6jfp9bgb5",
+						"properties": {
+							"label": "이름과 직위(직접 입력)",
+							"hideLabel": false,
+							"guide": "",
+							"guideAsTooltip": true,
+							"required": false,
+							"duplicate": false,
+							"similar": false,
+							"defaultValue": "",
+							"minLength": 0,
+							"maxLength": 100,
+							"width": "100",
+							"widthUnit": "percent",
+							"format": "all"
+						},
+						"components": []
+					}, {
+						"type": "text",
+						"valueType": "STEXT",
+						"multiple": true,
+						"cid": "_q1qs7ybbu",
+						"parentCid": "_6jfp9bgb5",
+						"properties": {
+							"label": "핸드폰 번호",
+							"hideLabel": false,
+							"guide": "",
+							"guideAsTooltip": true,
+							"required": false,
+							"duplicate": false,
+							"similar": false,
+							"defaultValue": "",
+							"minLength": 0,
+							"maxLength": 100,
+							"width": 100,
+							"widthUnit": "percent",
+							"format": "all"
+						},
+						"components": []
+					}, {
+						"type": "text",
+						"valueType": "STEXT",
+						"multiple": true,
+						"cid": "_ixl39bk88",
+						"parentCid": "_6jfp9bgb5",
+						"properties": {
+							"label": "실제 사용중인 이메일",
+							"hideLabel": false,
+							"guide": "",
+							"guideAsTooltip": true,
+							"required": false,
+							"duplicate": false,
+							"similar": false,
+							"defaultValue": "",
+							"minLength": 0,
+							"maxLength": 100,
+							"width": 100,
+							"widthUnit": "percent",
+							"format": "all"
+						},
+						"components": []
+					}, {
+						"type": "select",
+						"valueType": "SELECT",
+						"multiple": true,
+						"cid": "_kcdxwkzej",
+						"parentCid": "_6jfp9bgb5",
+						"properties": {
+							"label": "비고",
+							"hideLabel": false,
+							"guide": "",
+							"guideAsTooltip": true,
+							"required": false,
+							"defaultValue": "0",
+							"items": [{
+								"value": "0",
+								"displayText": "현 담당자",
+								"selected": true
+							}, {
+								"value": "1",
+								"displayText": "업무 이관",
+								"selected": false
+							}, {
+								"value": "2",
+								"displayText": "퇴사",
+								"selected": false
+							}]
+						},
+						"components": []
+					}]
+				}, {
+					"type": "label",
+					"valueType": null,
+					"multiple": false,
+					"cid": "_axdrjdu11",
+					"parentCid": "cxx1",
+					"properties": {
+						"label": "※ 영업 담당자는  사건, 사고, 불만접수 등 특이사항 발생 시 반드시 [활동 기록]에 작성합니다."
+					},
+					"components": []
+				}]
+			}
+		},
+		"process": {
+			"useProcess": true,
+			"statuses": [{
+				"name": "{{applet.new.template.status.ready}}",
+				"start": true,
+				"doing": false,
+				"end": false,
+				"color": "0"
+			}, {
+				"name": "{{applet.new.template.status.progress}}",
+				"start": false,
+				"doing": true,
+				"end": false,
+				"color": "0"
+			}, {
+				"name": "{{applet.new.template.status.complete}}",
+				"start": false,
+				"doing": false,
+				"end": true,
+				"color": "0"
+			}],
+			"transitions": [{
+				"beforeStatus": "{{applet.new.template.status.ready}}",
+				"nextStatus": "{{applet.new.template.status.progress}}",
+				"actionName": "{{applet.new.template.action.progress}}",
+				"actionRoles": ["REGISTRANT", "ADMIN"],
+				"pushRoles": []
+			}, {
+				"beforeStatus": "{{applet.new.template.status.progress}}",
+				"nextStatus": "{{applet.new.template.status.complete}}",
+				"actionName": "{{applet.new.template.action.complete}}",
+				"actionRoles": ["REGISTRANT", "ADMIN"],
+				"pushRoles": []
+			}, {
+				"beforeStatus": "{{applet.new.template.status.complete}}",
+				"nextStatus": "{{applet.new.template.status.progress}}",
+				"actionName": "{{applet.new.template.action.cancel}}",
+				"actionRoles": ["REGISTRANT", "ADMIN"],
+				"pushRoles": []
+			}],
+			"addPushes": []
+		}
+	},
+	"messageKeys": [
+		"applet.new.template.status.ready",
+		"applet.new.template.status.progress",
+		"applet.new.template.status.complete",
+		"applet.new.template.action.progress",
+		"applet.new.template.action.complete",
+		"applet.new.template.action.cancel",
+		"applet.new.template.col.status",
+		"applet.form.createdat"
+	],
+	"guide" : {
+		"contents" : "applet.customer.manage.template.guide.content",
+		"imageFiles" : [
+			"a_customerManagement/a_01.png",
+			"a_customerManagement/a_02.png",
+			"a_customerManagement/a_03.png"
+		]
+	}
+}

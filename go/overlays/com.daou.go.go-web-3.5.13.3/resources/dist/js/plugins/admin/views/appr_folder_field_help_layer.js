@@ -1,0 +1,1 @@
+define(["jquery","underscore","backbone","app","hgn!admin/templates/appr_folder_field_help_layer","i18n!nls/commons","i18n!approval/nls/approval","i18n!admin/nls/admin"],function(e,t,n,r,i,s,o,u){var a=n.View.extend({initialize:function(e){this.$el=e.el},render:function(){return this.$el.html(i(o)),this.$el}});return a});

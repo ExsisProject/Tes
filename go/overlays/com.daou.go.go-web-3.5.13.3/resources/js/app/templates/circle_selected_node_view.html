@@ -1,0 +1,18 @@
+<span class="name">
+    {{nodeValue}}
+    {{#isDept}}
+    <span class="sub_depart">
+        <label for="include_sub_dept">(</label>
+        {{#subDeptType}}
+            <input type="checkbox" id="include_sub_dept" name="include_sub_dept" checked>
+        {{/subDeptType}}
+        {{^subDeptType}}
+            <input type="checkbox" id="include_sub_dept" name="include_sub_dept">
+        {{/subDeptType}}
+        <label for="include_sub_dept">{{includeSubDept}})</label>
+    </span>
+    {{/isDept}}
+</span>
+<span class="btn_wrap">
+    <span class="ic_classic ic_del" title="삭제"></span>
+</span>

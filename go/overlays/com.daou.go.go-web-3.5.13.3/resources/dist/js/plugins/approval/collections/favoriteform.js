@@ -1,0 +1,1 @@
+define(["backbone","approval/models/favoriteform"],function(e,t){var n=null,r=e.Collection.extend({model:t,url:function(){return console.log("return "),"/api/approval/favorite"}});return{getCollection:function(){return n==null&&(n=new r),n.fetch({data:{},async:!1}),n}}});

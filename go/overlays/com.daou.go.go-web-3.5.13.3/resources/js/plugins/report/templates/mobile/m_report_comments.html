@@ -1,0 +1,33 @@
+						<div class="content">
+						<header class="article_header">
+							{{^data.isPeriodic}}
+							<h2>{{data.name}}<span class="count">( {{data.commentCount}} )</span></h2>
+							<span class="photo">
+								<a>
+									<img alt="{{data.reporter.name}} {{data.reporter.position}}" title="{{data.reporter.name}} {{data.reporter.position}}" src="{{data.reporter.thumbnail}}">
+								</a>
+							</span>
+							<div class="info">								
+								<span class="name txt_ellipsis">{{data.reporter.name}} {{data.reporter.position}}</span>
+								<span class="date">{{data.createdAtBasicDate}}</span>
+							</div>
+							{{/data.isPeriodic}}
+							
+							{{#data.isPeriodic}}
+							<span class="photo">
+								<a>
+									<img alt="{{data.reporter.name}} {{data.reporter.position}}" title="{{data.reporter.name}} {{data.reporter.position}}" src="{{data.reporter.thumbnail}}">
+								</a>
+							</span>
+							<div class="info">
+								<span class="name txt_ellipsis">{{data.reporter.name}} {{data.reporter.position}}</span>
+								<span class="count">( {{data.commentCount}} )</span>
+								<span class="date">{{data.createdAtBasicDate}}</span>
+							</div>
+							{{/data.isPeriodic}}
+						</header>
+						<section class="article_reply">
+							<div class="reply_wrap" id="comment_list">
+							</div>
+						</section>
+						</div>

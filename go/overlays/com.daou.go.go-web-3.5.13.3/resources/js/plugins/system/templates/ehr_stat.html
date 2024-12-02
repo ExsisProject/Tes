@@ -1,0 +1,41 @@
+<div class="content_page">
+    <form name="formEhrStat" id="formEhrStat" >
+        <div class="container">
+            <div class="header">
+                <h2>{{lang.label_ehr_stat}}</h2>
+            </div>
+            <div class="content_tb">
+                <table class="chart" >
+                        <tr>
+                            <th><span class="title">{{lang.label_ehr_stat}}</span></th>
+                            <td>
+                                <span>{{lang.label_all}}</span>
+                                <span class="wrap_date">
+                                    <input id="allStartDate" class="txt wfix_small" type="text" value="" readyonly=""><span class="ic_go ic_calendar"></span>
+                                </span>
+                                    ~
+                                <span class="wrap_date">
+                                    <input id="allEndDate" class="txt wfix_small" type="text" value="" readyonly=""><span class="ic_go ic_calendar"></span>
+                                </span>
+                                <span class="btn_s btn_execution" id="ehrStat" name="{{lang.label_ehr_stat}}">{{lang.label_execution}}</span>
+                                <span class="vertical_wrap">
+                                	<span class="wrap_date">
+    									<label class="tit" title="">{{lang.label_siteName}}</label>
+    									<select class="companyList" id="companyList">
+                                		</select>
+									</span>
+									<span class="wrap_date">
+										<input id="startDate" class="txt wfix_small" type="text" value="" readyonly=""><span class="ic_go ic_calendar"></span>
+									</span>
+										~
+									<span class="wrap_date">
+										<input id="endDate" class="txt wfix_small" type="text" value="" readyonly=""><span class="ic_go ic_calendar"></span>
+									</span>
+								<span class="btn_s btn_execution" id="ehrStatWithCompany">{{lang.label_execution}}</span>
+								</span>
+                            </td>
+                        </tr>
+                </table>
+            </div>
+    </div>
+    </form>

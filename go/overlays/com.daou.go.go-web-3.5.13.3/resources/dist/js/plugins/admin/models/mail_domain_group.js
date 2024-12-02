@@ -1,0 +1,1 @@
+define(["backbone"],function(e){var t=e.Model.extend({urlRoot:GO.contextRoot+"ad/api/mailgroup"},{get:function(e){var n=new t;return n.fetch({data:{name:e},async:!1}),n}});return{read:function(e){return t.get(e)}}});

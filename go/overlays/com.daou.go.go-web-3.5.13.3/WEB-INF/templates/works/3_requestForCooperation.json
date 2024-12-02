@@ -1,0 +1,378 @@
+{
+	"meta": {
+		"key": "f5730b31-a38d-4757-83ec-3cc3361ffa88",
+		"base": {
+			"name": "applet.biz.cooperation.template.name",
+			"desc": "applet.biz.cooperation.template.desc",
+			"icon": "ic_app5.png"
+		},
+		"exporter": {
+			"name": "관리자",
+			"companyName": "다우기술"
+		}
+	},
+	"components": {
+		"view": {
+			"charts": [],
+			"columns": [{
+				"fieldCid": "status",
+				"columnName": "{{applet.new.template.col.status}}"
+			}, {
+				"fieldCid": "_olpdlbc3f"
+			}, {
+				"fieldCid": "_dqm0q55v4"
+			}, {
+				"fieldCid": "_yxrb7dqgj"
+			}, {
+				"fieldCid": "_bhpbqf3eu"
+			}, {
+				"fieldCid": "create_date",
+				"columnName": "{{applet.new.template.col.createdat}}"
+			}],
+			"titleColumnIndex": 1,
+			"sortColumnIndex": 5,
+			"sortDirection": "DESC"
+		},
+		"form": {
+			"data": {
+				"type": "canvas",
+				"multiple": false,
+				"cid": "cxx1",
+				"components": [{
+					"type": "text",
+					"valueType": "STEXT",
+					"multiple": false,
+					"cid": "_olpdlbc3f",
+					"parentCid": "cxx1",
+					"properties": {
+						"label": "요청 요약",
+						"hideLabel": false,
+						"guide": "",
+						"guideAsTooltip": true,
+						"required": true,
+						"defaultValue": "",
+						"minLength": 0,
+						"maxLength": 100,
+						"width": "70",
+						"widthUnit": "percent",
+						"format": "all"
+					},
+					"components": []
+				}, {
+					"type": "columns",
+					"multiple": false,
+					"cid": "_1dh7ij83i",
+					"parentCid": "cxx1",
+					"properties": {
+						"count": 2
+					},
+					"components": [{
+						"type": "column",
+						"multiple": false,
+						"cid": "_3zl84vlok",
+						"parentCid": "_1dh7ij83i",
+						"properties": {},
+						"components": [{
+							"type": "select",
+							"valueType": "SELECT",
+							"multiple": false,
+							"cid": "_bhpbqf3eu",
+							"parentCid": "_3zl84vlok",
+							"properties": {
+								"label": "제품명",
+								"hideLabel": false,
+								"guide": "",
+								"guideAsTooltip": true,
+								"required": true,
+								"items": [{
+									"value": "0",
+									"displayText": "제품1",
+									"selected": true
+								}, {
+									"value": "1",
+									"displayText": "제품2",
+									"selected": false
+								}, {
+									"value": "2",
+									"displayText": "제품3",
+									"selected": false
+								}],
+								"radio_button": "on"
+							},
+							"components": []
+						}]
+					}, {
+						"type": "column",
+						"multiple": false,
+						"cid": "_mlaabis5w",
+						"parentCid": "_1dh7ij83i",
+						"properties": {},
+						"components": [{
+							"type": "select",
+							"valueType": "SELECT",
+							"multiple": false,
+							"cid": "_mxtgts5nw",
+							"parentCid": "_mlaabis5w",
+							"properties": {
+								"label": "구분",
+								"hideLabel": false,
+								"guide": "",
+								"guideAsTooltip": true,
+								"required": false,
+								"items": [{
+									"value": "0",
+									"displayText": "구분1",
+									"selected": true
+								}, {
+									"value": "1",
+									"displayText": "구분2",
+									"selected": false
+								}, {
+									"value": "2",
+									"displayText": "구분3",
+									"selected": false
+								}]
+							},
+							"components": []
+						}]
+					}]
+				}, {
+					"type": "columns",
+					"multiple": false,
+					"cid": "_za0m7iky7",
+					"parentCid": "cxx1",
+					"properties": {
+						"count": 2
+					},
+					"components": [{
+						"type": "column",
+						"multiple": false,
+						"cid": "_ioxcyw4e7",
+						"parentCid": "_za0m7iky7",
+						"properties": {},
+						"components": [{
+							"type": "org",
+							"valueType": "USERS",
+							"multiple": false,
+							"cid": "_yxrb7dqgj",
+							"parentCid": "_ioxcyw4e7",
+							"properties": {
+								"label": "담당자",
+								"hideLabel": false,
+								"guide": "",
+								"guideAsTooltip": true,
+								"required": false,
+								"noLimit": true,
+								"useDefaultRegister": false,
+								"allowMemberCount": 30,
+								"members": []
+							},
+							"components": []
+						}]
+					}, {
+						"type": "column",
+						"multiple": false,
+						"cid": "_wyrkz5azt",
+						"parentCid": "_za0m7iky7",
+						"properties": {},
+						"components": [{
+							"type": "date",
+							"valueType": "DATE",
+							"multiple": false,
+							"cid": "_dqm0q55v4",
+							"parentCid": "_zgxbxn10l",
+							"properties": {
+								"label": "기한",
+								"hideLabel": false,
+								"guide": "",
+								"guideAsTooltip": true,
+								"required": false,
+								"defaultAsNow": false,
+								"defaultDate": ""
+							},
+							"components": []
+						}]
+					}]
+				}, {
+					"type": "text",
+					"valueType": "STEXT",
+					"multiple": false,
+					"cid": "_hawmd1vx1",
+					"parentCid": "cxx1",
+					"properties": {
+						"label": "특이사항",
+						"hideLabel": false,
+						"guide": "",
+						"guideAsTooltip": true,
+						"required": false,
+						"defaultValue": "",
+						"minLength": 0,
+						"maxLength": 100,
+						"width": "70",
+						"widthUnit": "percent",
+						"format": "all"
+					},
+					"components": []
+				}, {
+					"type": "columns",
+					"multiple": false,
+					"cid": "_ra1cimy8g",
+					"parentCid": "cxx1",
+					"properties": {
+						"count": 2
+					},
+					"components": [{
+						"type": "column",
+						"multiple": false,
+						"cid": "_5txqiwd94",
+						"parentCid": "_ra1cimy8g",
+						"properties": {},
+						"components": [{
+							"type": "org",
+							"valueType": "USERS",
+							"multiple": false,
+							"cid": "_h3z4jlwp8",
+							"parentCid": "_5txqiwd94",
+							"properties": {
+								"label": "참조자",
+								"hideLabel": false,
+								"guide": "비공개 업무라도 참조자는 업무를 확인할 수 있으며, [업무] 홈에서 해당 업무를 조회할 수 있습니다.",
+								"guideAsTooltip": true,
+								"required": false,
+								"noLimit": true,
+								"useDefaultRegister": false,
+								"allowMemberCount": 30,
+								"members": []
+							},
+							"components": []
+						}]
+					}, {
+						"type": "column",
+						"multiple": false,
+						"cid": "_u8377n5q7",
+						"parentCid": "_ra1cimy8g",
+						"properties": {},
+						"components": [{
+							"type": "org",
+							"valueType": "USERS",
+							"multiple": false,
+							"cid": "_jjv7cv628",
+							"parentCid": "_u8377n5q7",
+							"properties": {
+								"label": "승인자",
+								"hideLabel": false,
+								"guide": "승인자만 승인상태를 변경할 수 있습니다.",
+								"guideAsTooltip": true,
+								"required": false,
+								"noLimit": true,
+								"useDefaultRegister": false,
+								"allowMemberCount": 30,
+								"members": []
+							},
+							"components": []
+						}]
+					}]
+				}, {
+					"type": "textarea",
+					"valueType": "TEXT",
+					"multiple": false,
+					"cid": "_sg8zgbcun",
+					"parentCid": "cxx1",
+					"properties": {
+						"label": "상세내용",
+						"hideLabel": false,
+						"guide": "",
+						"guideAsTooltip": true,
+						"required": false,
+						"defaultValue": "",
+						"width": 100,
+						"widthUnit": "percent",
+						"rows": 10
+					},
+					"components": []
+				}, {
+					"type": "file",
+					"valueType": "FILES",
+					"multiple": false,
+					"cid": "_hl4gasj7f",
+					"parentCid": "cxx1",
+					"properties": {
+						"label": "파일첨부",
+						"hideLabel": false,
+						"guide": "",
+						"guideAsTooltip": true,
+						"required": false
+					},
+					"components": []
+				}]
+			}
+		},
+		"process": {
+			"useProcess": true,
+			"statuses": [{
+				"name": "{{applet.new.template.status.ready}}",
+				"start": true,
+				"doing": false,
+				"end": false,
+				"color": "0"
+			}, {
+				"name": "{{applet.new.template.status.progress}}",
+				"start": false,
+				"doing": true,
+				"end": false,
+				"color": "0"
+			}, {
+				"name": "{{applet.template.status.wait}}",
+				"start": false,
+				"doing": true,
+				"end": false,
+				"color": "0"
+			}, {
+				"name": "{{applet.new.template.status.complete}}",
+				"start": false,
+				"doing": false,
+				"end": true,
+				"color": "0"
+			}],
+			"transitions": [{
+				"beforeStatus": "{{applet.new.template.status.ready}}",
+				"nextStatus": "{{applet.new.template.status.progress}}",
+				"actionName": "{{applet.new.template.action.progress}}",
+				"actionRoles": ["REGISTRANT", "_yxrb7dqgj", "ADMIN"],
+				"pushRoles": ["ADMIN", "_h3z4jlwp8"]
+			}, {
+				"beforeStatus": "{{applet.new.template.status.progress}}",
+				"nextStatus": "{{applet.template.status.wait}}",
+				"actionName": "{{applet.biz.template.action.approval}}",
+				"actionRoles": ["REGISTRANT", "ADMIN"],
+				"pushRoles": ["REGISTRANT", "ADMIN", "_jjv7cv628", "_h3z4jlwp8"]
+			}, {
+				"beforeStatus": "{{applet.template.status.wait}}",
+				"nextStatus": "{{applet.new.template.status.complete}}",
+				"actionName": "{{applet.biz.template.action.approval.complete}}",
+				"actionRoles": ["ADMIN", "_jjv7cv628"],
+				"pushRoles": ["ADMIN", "_h3z4jlwp8"]
+			}],
+			"addPushes": []
+		}
+	},
+	"messageKeys": [
+		"applet.new.template.status.ready",
+		"applet.new.template.status.progress",
+		"applet.template.status.wait",
+		"applet.new.template.status.complete",
+		"applet.new.template.action.progress",
+		"applet.biz.template.action.approval",
+		"applet.biz.template.action.approval.complete",
+		"applet.new.template.col.status",
+		"applet.new.template.col.createdat"
+	],
+	"guide" : {
+		"contents" : "applet.biz.cooperation.template.guide.content",
+		"imageFiles" : [
+			"3_requestForCooperation/3_01.png",
+			"3_requestForCooperation/3_02.png",
+			"3_requestForCooperation/3_03.png"
+		]
+	}
+}

@@ -1,0 +1,55 @@
+<span class="wrap_date">
+	<input data-date-picker id="startDate" class="txt wfix_small" type="text" name="start_date" value="{{start_date}}" data-prev="{{start_date}}" readonly="readonly"{{^editable?}} disabled="disabled"{{/editable?}} />
+	<span class="ic ic_calendar"></span>
+</span>
+<!-- <span class="wrap_select">
+	<select id="start-time" name="start_time" class="wfix_small select_date" data-prev="{{start_time}}"{{#allday_event?}} style="display:none;"{{/allday_event?}}{{^editable?}} disabled="disabled"{{/editable?}}></select>
+</span> -->
+
+<span class="wrap_select">
+	<span class="wrap_select_list" {{#allday_event?}}style="display:none;"{{/allday_event?}}>
+		<input data-time-picker id="startTime" name="start_time" data-prev="{{start_time}}" {{^editable?}} disabled="disabled"{{/editable?}} type="text" class="txt wfix_small" data-outside="start">
+		<ul id="startTimeList" data-type="start" class="select_list" style="display:none" data-outside="start">
+		</ul>		
+	</span>
+</span>
+
+~
+<span class="wrap_date">
+	<input data-date-picker id="endDate" class="txt wfix_small" type="text" name="end_date" value="{{end_date}}" data-prev="{{end_date}}" readonly="readonly"{{^editable?}} disabled="disabled"{{/editable?}} />
+	<span class="ic ic_calendar"></span>
+</span>
+
+<span class="wrap_select">
+	<span class="wrap_select_list" id="sched_date" {{#allday_event?}}style="display:none;"{{/allday_event?}}>
+		<input data-time-picker id="endTime" name="end_time" data-prev="{{end_time}}" {{^editable?}} disabled="disabled"{{/editable?}} type="text" class="txt wfix_normal" data-outside="end">
+		<ul id="endTimeList" data-type="end" class="select_list" style="display:none" data-outside="end">
+		</ul>		
+	</span>	
+</span>
+
+<!-- <span class="wrap_select">
+	<select id="end-time" name="end_time" class="wfix_medium select_date" data-prev="{{end_time}}"{{#allday_event?}} style="display:none;"{{/allday_event?}}{{^editable?}} disabled="disabled"{{/editable?}}></select>
+</span> -->
+&nbsp;
+<span class="wrap_option{{^editable?}} disabled{{/editable?}}">
+    <input type="checkbox" name="timeType" value="allday" id="all_day"{{#allday_event?}} checked="checked"{{/allday_event?}}{{^editable?}} disabled="disabled"{{/editable?}}/>
+    <label for="all_day">{{label.allday}}</label>
+</span>
+
+{{#repeatable}}
+<span class="wrap_option{{^editable?}} disabled{{/editable?}}">
+    <input type="checkbox" name="is_recurrence" value="1" id="check-recurrence"{{#recurrence?}} checked="checked"{{/recurrence?}}{{^editable?}} disabled="disabled"{{/editable?}}/>
+    <label for="check-recurrence">{{label.recurrence}}</label>
+</span>
+{{/repeatable}}
+{{^repeatable}}<span class="txt" style="color: grey">{{unusual_repeat_msg}}</span>{{/repeatable}}
+
+<div id="recurrence-wrap" class="wrap_alert"{{^show_recurrence_wrap}} style="display:none"{{/show_recurrence_wrap}}>
+	<input type="hidden" name="recurrence" value="{{recurrence_code}}" />
+	<span class="alert_box">
+		<span id="recurrence-text" class="txt">{{current_recurrence}}</span>
+	    {{#editable?}}<span class="btn"><span class="ic_side ic_edit recur_edit" title="{{label.modify}}"></span></span>{{/editable?}}
+	    {{#editable?}}<span class="btn"><span class="ic_side ic_basket_bx recur_delete" title="{{label.remove}}"></span></span>{{/editable?}}
+	</span>
+</div>

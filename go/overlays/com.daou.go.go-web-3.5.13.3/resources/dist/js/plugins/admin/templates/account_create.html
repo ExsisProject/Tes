@@ -1,0 +1,851 @@
+            <form id="userCreateForm" class="content_page category_oganization">
+                <div class="wrap_info_content">
+                    <div class="wrap_header">
+                        <div class="wrap_photo">
+                            <a class="photo">
+                                <img src="/go/resources/images/photo_profile_large.jpg" id="thumbnail_image"/>
+                            </a>
+                            <span class="btn_circle">
+                    <span class="ic_adm ic_edit" id="swfupload-control"></span>
+                </span>
+                        </div>
+                        <div class="wrap_info">
+                            <span class="desc">{{type.photo_size_info}}</span>
+                        </div>
+                    </div>
+                </div>
+                    <div class="content">
+                        <table class="table_form_mini">
+                            <caption>{{type.account_add}}</caption>
+                            <tbody>
+                            <tr>
+                                <th>
+                                    <span class="title">
+                                        <ins class="asterisk">*</ins>{{type.name}}
+                                        {{#isKoLocale}} ({{type.locale_ko}}) {{/isKoLocale}}
+                                        {{#isEnLocale}} ({{type.locale_en}}) {{/isEnLocale}}
+                                        {{#isJpLocale}} ({{type.locale_jp}}) {{/isJpLocale}}
+                                        {{#isZhcnLocale}} ({{type.locale_zhcn}}) {{/isZhcnLocale}}
+                                        {{#isZhtwLocale}} ({{type.locale_zhtw}}) {{/isZhtwLocale}}
+                                        {{#isViLocale}} ({{type.locale_vi}}) {{/isViLocale}}
+                                    </span>
+                                </th>
+                                <td>
+                                    <input class="input w200" type="text" name="name" id="{{instalLocale}}Name" value="{{user.name}}" maxlength="64"/>
+                                    <span class="wrap_btn btn_clean" id="btnMultiLang">
+                                        <span class="txt">{{type.multi_lang}}</span>
+                                        <i class="ic_adm ic_accordion_s" title="{{type.open}}"></i>
+                                    </span>
+                                </td>
+                            </tr>
+                            {{^isKoLocale}}
+                            <tr id="koNameInput" style="display: none">
+                                <th><span class="title">{{type.name}} ({{type.locale_ko}})</span></th>
+                                <td>
+                                    <input class="input w200" id="koName" name="koName" value="" maxlength="64" type="text"/>
+                                </td>
+                            </tr>
+                            {{/isKoLocale}}
+                            {{^isEnLocale}}
+                            <tr id="enNameInput" style="display: none">
+                                <th><span class="title">{{type.name}} ({{type.locale_en}})</span></th>
+                                <td>
+                                    <input class="input w200" id="enName" name="enName" value="" maxlength="64" type="text"/>
+                                </td>
+                            </tr>
+                            {{/isEnLocale}}
+                            {{^isJpLocale}}
+                            <tr id="jpNameInput" style="display: none">
+                                <th><span class="title">{{type.name}} ({{type.locale_jp}})</span></th>
+                                <td>
+                                    <input class="input w200" id="jpName" name="jpName" value="" maxlength="64" type="text"/>
+                                </td>
+                            </tr>
+                            {{/isJpLocale}}
+                            {{^isZhcnLocale}}
+                            <tr id="zhcnNameInput" style="display: none">
+                                <th><span class="title">{{type.name}} ({{type.locale_zhcn}})</span></th>
+                                <td>
+                                    <input class="input w200" id="zhcnName" name="zhcnName" value="" maxlength="64" type="text"/>
+                                </td>
+                            </tr>
+                            {{/isZhcnLocale}}
+                            {{^isZhtwLocale}}
+                            <tr id="zhtwNameInput" style="display: none">
+                                <th><span class="title">{{type.name}} ({{type.locale_zhtw}})</span></th>
+                                <td>
+                                    <input class="input w200" id="zhtwName" name="zhtwName" value="" maxlength="64" type="text"/>
+                                </td>
+                            </tr>
+                            {{/isZhtwLocale}}
+                            {{^isViLocale}}
+                            <tr id="viNameInput" style="display: none">
+                                <th><span class="title">{{type.name}} ({{type.locale_vi}})</span></th>
+                                <td>
+                                    <input class="input w200" id="viName" name="viName" value="" maxlength="64" type="text"/>
+                                </td>
+                            </tr>
+                            {{/isViLocale}}
+                            {{#isJpInstall}}
+                            <tr>
+                                <th><span class="title">{{type.hurigana}}</span></th>
+                                <td>
+                                    <input class="input w200" type="text" name="nameHurigana" id="user_name_hurigana" value="{{user.namehurigana}}"/>
+                                </td>
+                            </tr>
+                            {{/isJpInstall}}
+                            <tr>
+                                <th>
+                                    <span class="title"><ins class="asterisk">*</ins>{{type.id}}</span>
+                                    <span class="wrap_ic_s"><span class="help">
+                                        <span class="tool_tip">{{type.id_tooltip}}<i class="tail_left"></i></span>
+                                    </span></span>
+                                </th> 
+                                <td> 
+                                    <input autocomplete="off" class="input w200" type="text" name="loginId" id="loginId" style="text-transform:lowercase"/>
+                                    <span class="txt">{{type.email_at}}{{companyInfo.domainName}}</span> 
+                                    <input type="hidden" id="email_domain" value="{{type.email_at}}{{companyInfo.domainName}}">
+                                    <p class="go_alert" id="email_error_message" style="display: none">{{type.email_exist}}</p>
+                                    <p class="go_alert" id="id_error_message"  style="display: none">{{type.id_exist}} </p> 
+                                </td>    
+                            </tr>
+                            <tr id="password">
+                                <th>
+                                    <span class="title">
+                                        <ins class="asterisk">*</ins>{{type.password}}
+                                        <span class="wrap_ic_s">
+                                            <span class="help"><span class="tool_tip">{{type.password_tooltip}}<i class="tail_left"></i></span></span>
+							            </span>
+                                    </span>
+                                </th>
+                                <td><input autocomplete="off" class="input w200" type="password" name="password"/></td>
+                            </tr>
+                            <tr id="password_confirm">
+                                <th><span class="title"><ins class="asterisk">*</ins>{{type.password_confirm}}</span></th>
+                                <td><input class="input w200" type="password" />
+                                    <p class="go_alert" id="password_error_message" style="display: none">{{type.password_not_match}}</p>    
+                                </td>
+                            </tr>
+                            <tr>
+                                <th><span class="title">{{type.position}}</span></th>
+                                <td>
+                                    <select name="positionId">
+                                        <option value="">{{type.position_select}}</option>
+                                        {{#positions}}
+                                        <option value="{{id}}">{{name}}</option>
+                                        {{/positions}}
+                                    </select>
+                                </td>
+                            </tr>
+                            {{#isOrgServiceOn}}
+                            {{#hasDeptInfo}}
+                            <tr>
+                                <th><span class="title">{{type.duty}}</span></th>
+                                <td>
+                                    <select name="dutyId">
+                                        <option value="">{{type.duty_select}}</option>
+                                        {{#duties}}
+                                        <option value="{{id}}">{{name}}</option>
+                                        {{/duties}}
+                                    </select>
+                                </td>
+                            </tr>
+                            {{/hasDeptInfo}}
+                            {{^hasDeptInfo}}
+                            <tr>
+                                <th><span class="title">{{type.dept}}-{{type.duty}}</span></th>
+                                <td>
+                                    <ul class="name_tag" id="dept_members">
+                                        <li class="creat" id="add_dept_member">
+                                            <span class="btn_wrap">
+                                                <span class="ic ic_addlist"></span>
+                                                <span class="txt">{{type.dept_add}}</span>
+                                            </span>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            {{/hasDeptInfo}}
+                            {{/isOrgServiceOn}}
+                            <tr class="detail_area">
+                                <th><span class="title">{{type.grade}}</span></th>
+                                <td>
+                                    <select name="gradeId">
+                                        <option value="">{{type.grade_select}}</option>
+                                        {{#grades}}
+                                        <option value="{{id}}">{{name}}</option>
+                                        {{/grades}}
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr class="detail_area">
+                                <th>
+                                    <span class="title">{{type.user_group}}</span>
+                                    <span class="wrap_ic_s"><span class="help">
+                                        <span class="tool_tip">{{type.usergroup_tooltip}}<i class="tail_left"></i></span>
+                                    </span></span>
+                                </th>
+                                <td>
+                                    <ul class="name_tag" id="group_members">
+                                        <li class="creat">
+                                            <span class="btn_wrap" id="add_user_group">
+                                                <span class="ic ic_addlist"></span>
+                                                <span class="txt">{{type.user_group_add}}</span>
+                                            </span>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr id="account_status" class="detail_area">
+                                <th><span class="title">{{type.status}}</span></th>
+                                <td>
+                                    <span class="option_wrap">
+                                        <input type="radio" checked="checked" value="online" name="status" id="status_online"/> 
+                                        <label for="status_online">{{type.normal}}</label>
+                                    </span>
+                                    <span class="option_wrap">
+                                        <input type="radio" value="stop" name="status" id="status_stop"/> 
+                                        <label for="status_stop">{{type.close}}</label>
+                                    </span>
+                                    <span class="option_wrap">
+                                        <input type="radio" value="dormant" name="status" id="status_dormant"/> 
+                                        <label for="status_dormant">{{type.dormant}}</label>
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr class="detail_area">
+                                <th><span class="title">{{type.employee_no}}</span></th>
+                                <td><input class="input w200" type="text" name="employeeNumber" id="employeeNo"/>
+                                    <p class="go_alert" id="employee_no_exist"  style="display: none">{{type.employee_no_exist}}</p></td>
+                            </tr>
+                            <tr class="detail_area">
+                                <th><span class="title">{{type.language}}</span></th>
+                                <td>
+                                    <select name="locale">
+                                        {{#locale}}
+                                        <option value="{{value}}" {{#isLocale?}} selected {{/isLocale?}}>{{text}}</option>
+                                        {{/locale}}
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr class="detail_area" id="useAbbroadIpCheck" style="display:none;">
+                                <th><span class="title">{{type.use_abbroad_ip_check}}</span></th>
+                                <td>
+                                    <span class="option_wrap">
+                                        <input type="radio" value="true" name="useAbbroadIpCheck" id="useAbbroadIpCheck_on"/> 
+                                        <label for="useAbbroadIpCheck_on">{{type.use}}</label>
+                                    </span>
+                                    <span class="option_wrap">
+                                        <input type="radio" value="false" name="useAbbroadIpCheck" id="useAbbroadIpCheck_off" checked="checked" />
+                                        <label for="useAbbroadIpCheck_off">{{type.not_use}}</label>
+                                    </span>
+                                </td>
+                            </tr>            
+                            <tr class="detail_area last">
+                                <th>
+                                    <span class="title"><ins class="asterisk">*</ins>{{type.mail}}</span>
+                                    <span class="help"><span class="tool_tip top">{{{type.mailgroup_tooltip}}}<i class="tail_left"></i></span></span>
+
+                                </th>
+                                <td>
+                                    <select name="mailGroup" id="mailGroup">
+                                        {{#mailGroups}}
+                                        <option value="{{mailGroup}}" {{#isSelected?}} selected {{/isSelected?}}>{{mailGroup}}</option>
+                                        {{/mailGroups}}
+                                    </select>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <div class="wrap_divider">
+                            <span class="wrap_btn" id="show_detail_btn">
+                                <span class="txt">{{type.detail_input}}</span>
+                                <i class="ic_adm ic_accordion_s" title="{{type.open}}"></i>
+                            </span>
+                        </div>
+                    </div>
+                <div class="container detail_area" id="mail_config">
+                    <div class="header">
+                        <h2>{{type.mail_group_personal_config}}</h2>
+                    </div>            
+                    <div class="content">
+                        <table class="detail">
+                            <colgroup>
+                                <col width="150px"/>
+                                <col width="*" />
+                            </colgroup>
+                            <tbody>
+                            <tr>
+                                <th><span class="title">{{type.add_mail_quota}}</span></th>
+                                <td>
+                                    <div class="vertical_wrap_s">
+                                        <input class="input t_num" type="text" value="0" name="mailAddQuota"/> MB 
+                                        <span id="groupMailQuota"></span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th><span class="title">{{type.quota_excess_warning}}</span></th>
+                                <td id="quotaWarningMode">
+                                    <span class="option_wrap">
+                                        <input type="radio" value="on" name="quotaWarningMode" id="quotaMode_on"/> 
+                                        <label for="quotaMode_on">{{type.use}}</label>
+                                    </span>
+                                    <span class="option_wrap">
+                                        <input type="radio" value="off" name="quotaWarningMode" id="quotaMode_off"/> 
+                                        <label for="quotaMode_off">{{type.not_use}}</label>
+                                    </span>
+                                    <span class="option_wrap">
+                                        <input type="radio" checked="checked" value="" name="quotaWarningMode" id="quotaMode_custom"/> 
+                                        <label for="quotaMode_custom">{{type.allow_group_config}}</label>
+                                        <span id="groupQuotaExcessWarning"></span>
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr style="display: none;" id="quotaWarningModeOnSetting">
+                                <th><span class="title">{{type.quota_excess_warning_ratio}}</span></th>
+                                <td>
+                                    <div class="vertical_wrap_s">
+                                        <input class="input t_num" type="text" value="90" name="quotaWarningRatio"/> %
+                                    </div>                                    
+                                </td>
+                            </tr>
+                            <tr>
+                                <th><span class="title">{{type.quota_excess_mode}}</span></th>
+                                <td id="quotaViolationActionMode">
+                                    <span class="option_wrap">
+                                        <input type="radio" value="return" name="quotaViolationAction" id="quotaAction_return"/> 
+                                        <label for="quotaAction_return">{{type.return_text}}</label>
+                                    </span>
+                                    <span class="option_wrap">
+                                        <input type="radio" value="store" name="quotaViolationAction" id="quotaAction_store"/> 
+                                        <label for="quotaAction_store">{{type.temporary_save}}</label>
+                                    </span>
+                                    <span class="option_wrap">
+                                        <input type="radio" value="" checked="checked" name="quotaViolationAction" id="quotaAction_custom"/> 
+                                        <label for="quotaAction_custom">{{type.allow_group_config}}</label>
+                                        <span id="groupQuotaViolationAction"></span>
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr style="display: none;" id="quotaViolationActionModeSetting">
+                                <th><span class="title">{{type.quota_excess_ratio}}</span></th>
+                                <td>
+                                    <div class="vertical_wrap_s">
+                                        <input class="input t_num" type="text" value="10" name="quotaOverlookRatio"/> %
+                                    </div>                                    
+                                </td>
+                            </tr>
+                            <tr>
+                                <th><span class="title">{{type.add_webfolder_quota}}</span></th>
+                                <td>
+                                    <div class="vertical_wrap_s">
+                                        <input class="input t_num" type="text" value="0" name="webFolderAddQuota"/> MB
+                                        <span id="groupWebFolderQuota"></span>
+                                    </div>                                    
+                                </td>
+                            </tr>
+                            <tr>
+                                <th><span class="title">{{type.forwarding_mode}}</span></th>
+                                <td id="forwardingMode">
+                                    <span class="option_wrap">
+                                        <input type="radio" value="on" name="forwardingUse" id="forwardingUse_on"/> 
+                                        <label for="forwardingUse_on">{{type.use}}</label>
+                                    </span>
+                                    <span class="option_wrap">
+                                        <input type="radio" value="off" checked="checked" name="forwardingUse" id="forwardingUse_off"/> 
+                                        <label for="forwardingUse_off">{{type.not_use}}</label>
+                                    </span>
+                                    <span class="option_wrap">
+                                        <input type="radio" value="" name="forwardingUse" checked="checked" id="forwardingUse_custom"/> 
+                                        <label for="forwardingUse_custom">{{type.allow_group_config}}</label>
+                                        <span id="forwardingUse"></span>
+                                    </span>
+                                    <div class="option_display"  id="forwardingList" style="display: none" >
+                                        <div class="vertical_wrap_s">
+                                            <span class="option_wrap">
+                                                <input type="radio" value="forwarding" name="forwardingMode" id="forwardingMode_forwarding"/> 
+                                                <label for="forwardingMode_forwarding">{{type.save_mail_on_server}}</label>
+                                            </span>
+                                            <span class="option_wrap">
+                                                <input type="radio" value="forwardingonly" name="forwardingMode" id="forwardingMode_forwardingonly"/> 
+                                                <label for="forwardingMode_forwardingonly">{{type.delete_mail_on_server}}</label>
+                                            </span>
+                                            <span class="option_wrap">
+                                                <input type="radio" checked="checked" value="none" name="forwardingMode" id="forwardingMode_none"/> 
+                                                <label for="forwardingMode_none">{{type.not_apply}}</label>
+                                            </span>
+                                        </div>    
+                                        <div class="vertical_wrap_s">
+                                            <input class="w200 input email_id_type email" type="text" id="forwardingEmail"/> 
+                                            <span class="btn_wrap">
+                                                   <span class="btn_s" id="addForwardingEmail">{{type.add}}</span>
+                                            </span>    
+                                        </div>    
+                                        <ul class="list_option" id="forwardingEmails">
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th><span class="title">{{type.mail_sender_mode}}</span></th>
+                                <td id="mailSenderMode">
+                                    <span class="option_wrap">
+                                        <input type="radio" value="on" name="mailSenderUse" id="mailSenderMode_on"/> 
+                                        <label for="mailSenderMode_on">{{type.use}}</label>
+                                    </span>
+                                    <span class="option_wrap">
+                                        <input type="radio" value="off" name="mailSenderUse" id="mailSenderMode_off"/> 
+                                        <label for="mailSenderMode_off">{{type.not_use}}</label>
+                                    </span>
+                                    <span class="option_wrap">
+                                        <input type="radio" value="" name="mailSenderUse" checked="checked" id="mailSenderMode_custom"/> 
+                                        <label for="mailSenderMode_custom">{{type.allow_group_config}}</label>
+                                        <span id="groupMailSenderMode"></span>
+                                    </span>
+                                    <div class="option_display"  id="mailSenderList" style="display: none" >
+                                        <div class="vertical_wrap_s">
+                                            {{type.mail_sender_name}} <input type="text" class="input name"/>
+                                            <ins class="space"></ins>
+                                            {{type.email}} <input type="text" class="input email" id="mailSender"/>
+                                            <span class="btn_wrap"><span class="btn_s" id="addMailSenderEmail">{{type.add}}</span></span>
+                                        </div>
+                                        <div class="vertical_wrap_s">
+                                            <ul class="list_option" id="mailSenderEmails">
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th><span class="title">{{type.limit_send}}</span></th>
+                                <td id="sendAllowModeMode">
+                                    <span class="option_wrap">
+                                        <input type="radio" value="on" name="sendAllowMode" id="sendAllowModeMode_on"/> 
+                                        <label for="sendAllowModeMode_on">{{type.use}}</label>
+                                    </span>
+                                    <span class="option_wrap">
+                                        <input type="radio" value="off" name="sendAllowMode" id="sendAllowModeMode_off"/> 
+                                        <label for="sendAllowModeMode_off">{{type.not_use}}</label>
+                                    </span>
+                                    <span class="option_wrap">
+                                        <input type="radio" value="group" name="sendAllowMode" checked="checked" id="sendAllowModeMode_custom"/> 
+                                        <label for="sendAllowModeMode_custom">{{type.allow_group_config}}</label>
+                                        <span id="sendAllowMode"></span>
+                                    </span>
+                                    <div class="option_display"  id="sendAllowModeList" style="display: none" >
+                                        <div class="vertical_wrap_s">
+                                            <input class="w200 input email_id_type email" type="text" id="sendAllowEmail"/> 
+                                            <span class="btn_wrap">
+                                                   <span class="btn_s" id="addSendAllowEmail">{{type.add}}</span>
+                                            </span>  
+                                        </div>
+                                        <div class="vertical_wrap_s">
+                                            <ul class="list_option" id="sendAllowModeEmails">
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                            	<th><span class="title">{{type.max_send_mail_count}}</span></th>
+                                <td id="maxSendMailCountMode">
+                                    <span class="option_wrap">
+                                        <input type="radio" value="on" name="maxSendMailCountUse" id="maxSendMailCountUse_on"/> 
+                                        <label for="maxSendMailCountUse_on">{{type.use}}</label>
+                                    </span>
+                                    <span class="option_wrap">
+                                        <input type="radio" value="off" name="maxSendMailCountUse" id="maxSendMailCountUse_off"/> 
+                                        <label for="maxSendMailCountUse_off">{{type.not_use}}</label>
+                                    </span>
+                                    <span class="option_wrap">
+                                        <input type="radio" checked="checked" value="group" name="maxSendMailCountUse" id="maxSendMailCountUse_custom"/> 
+                                        <label for="maxSendMailCountUse_custom">{{type.allow_group_config}}</label>
+                                        <span id="maxSendMailCountUseCustom"></span>
+                                    </span><br>
+                                    <div style="display: none;" id="maxSendMailCount">
+	                                    <div class="vertical_wrap_s">
+	                                	<span>{{type.max_trans_number}}</span>
+	                                        <input class="input t_num" type="text" value="100" name="maxSendMailCount"/> {{type.count}}
+	                                    </div>                                    
+	                                </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th><span class="title">{{type.mail_service}}</span></th>
+                                <td id="mailServices">
+                                    <span class="option_wrap">
+                                        <input type="checkbox" id="webmailUsed" name ="webmailUsed"/>
+                                        <label for="webmailUsed">Web-Mail</label>
+                                    </span>
+                                    <span class="option_wrap">
+                                        <input type="checkbox" id="popUsed" name="popUsed"/>
+                                        <label for="popUsed">POP</label>
+                                    </span>
+                                    <span class="option_wrap">
+                                        <input type="checkbox" id="imapUsed" name="imapUsed"/>
+                                        <label for="imapUsed">IMAP</label>
+                                    </span>
+                                    <span class="option_wrap">
+                                        <input type="checkbox" id="smtpAuthUsed" name="smtpAuthUsed"/>
+                                        <label for="smtpAuthUsed">SMTP AUTH</label>
+                                    </span>
+                                </td>
+                            </tr>
+                            {{#systemMailSetting}}
+                            <tr>
+                                <th><span class="title">{{type.maximum_message_size}}</span></th>
+                                <td>
+                                    <div class="vertical_wrap_s">
+                                        <input class="input t_num" type="text" value="" name="mailMaxSendSize" id="mailMaxSendSize"/> MB
+                                        <span id="groupMailMaxSendSize"></span>
+                                    </div>                                    
+                                </td>
+                            </tr>
+                            {{/systemMailSetting}}
+                            <tr>
+                                <th><span class="title">{{type.default_mailbox_expired}}</span></th>
+                                <td>
+                                    <select name="inboxExpireDays">
+                                        <option value="none">{{type.not_select}}</option>
+                                        <option value="0">{{type.unlimited}}</option>
+                                        <option value="30">30{{type.days}}</option>
+                                        <option value="60">60{{type.days}}</option>
+                                        <option value="90">90{{type.days}}</option>
+                                        <option value="120">120{{type.days}}</option>
+                                        <option value="custom">{{type.input}}</option>
+                                    </select> 
+                                    <span style="display: none;">
+                                        <input id="inboxExpireDaysCustom" class="input t_num" type="text" value="" /> {{type.days}}
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th><span class="title">{{type.trash_expired}}</span></th>
+                                <td>
+                                    <select name="trashExpireDays">
+                                        <option value="none">{{type.not_select}}</option>
+                                        <option value="0">{{type.unlimited}}</option>
+                                        <option value="30">30{{type.days}}</option>
+                                        <option value="60">60{{type.days}}</option>
+                                        <option value="90">90{{type.days}}</option>
+                                        <option value="120">120{{type.days}}</option>
+                                        <option value="custom">{{type.input}}</option>
+                                    </select>
+                                    <span style="display: none;">
+                                        <input id="trashExpireDaysCustom"  class="input t_num" type="text" value="" /> {{type.days}}
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr class="last">
+                                <th><span class="title">{{type.spam_expired}}</span></th>
+                                <td>
+                                    <select name="spamExpireDays">
+                                        <option value="none">{{type.not_select}}</option>
+                                        <option value="0">{{type.unlimited}}</option>
+                                        <option value="30">30{{type.days}}</option>
+                                        <option value="60">60{{type.days}}</option>
+                                        <option value="90">90{{type.days}}</option>
+                                        <option value="120">120{{type.days}}</option>
+                                        <option value="custom">{{type.input}}</option>
+                                    </select>
+                                    <span style="display: none;">
+                                        <input id="spamExpireDaysCustom" class="input t_num" type="text" value="" /> {{type.days}}
+                                    </span>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                {{#hasApproval}}
+                <div class="container detail_area">
+                    <div class="header">
+                        <h2>{{type.approval_info}}</h2>
+                    </div>            
+                    <div class="content" id="approval_content">
+                        <table class="detail">
+                            <caption>{{type.approval_info}}</caption>
+                            <colgroup>
+                                <col width="150px">
+                                <col width="*">
+                            </colgroup>
+                            <tbody>
+                            <tr>
+                                <th><span class="title">{{type.approval_sign_img}}</span></th>
+                                <td>
+                                    <div class="sign_type1 sign_type_new">
+                                        <table class="tb_sign_type1">
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <table class="sign_member">
+                                                            <tbody>
+                                                                <tr><td><span class="sign_rank">{{type.position}}</span></td></tr>
+                                                                <tr>
+                                                                    <td class="wrap_name wrap_sign">
+                                                                        <span class="sign_stamp stamp_approved"><img src="" id="approval_sign_img"/></span>
+                                                                        <span class="sign_name">{{type.name}}</span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr><td class="last"><span class="sign_date">{{type.approval_date}}</span></td></tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <br>
+                                    <span class="btn_minor_s" id="approval_img_upload" style="padding:0px !important;height:24px !important"></span>
+                                    <span class="desc">{{type.appr_sign_desc}}</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th><span class="title">{{type.approval_password}}</span></th>
+                                <td>
+                                    <span class="user_data editable">
+                                        <input class="w200 input" type="password" name="approvalPassword" id="approval_password">
+                                    </span>
+                                    <span class="desc vb">{{type.approval_password_info}}</span>
+                                </td>
+                            </tr>
+                            <tr class="last">
+                                <th><span class="title"><ins class="asterisk">*</ins>{{type.approval_grade}}</span></th>
+                                <td>
+                                    <select id="approval_security_options" name="approvalLevel">
+                                    </select>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                {{/hasApproval}}
+                
+                <div class="container detail_area" id="divEmailEtcConfig">
+                    <div class="header">
+                        <h2>{{type.email_etc_config}}</h2>
+                    </div>    
+
+                    <div class="content">
+                        <table class="detail">
+                            <caption>{{type.email_etc_config}}</caption>
+                            <colgroup>
+                                <col width="150px"/>
+                                <col width="*" />
+                            </colgroup>
+                            <tbody>
+                            <tr>
+                                <th><span class="title">{{type.alias_mail_id}}</span></th>
+                                <td>
+                                    <div class="vertical_wrap_s">
+                                        <input class="w200 input email_id_type email" type="text" id="alternateEmail" style="text-transform:lowercase"/> 
+                                        <span class="btn_wrap">
+                                            <span class="btn_s" id="addAlternateEmail">{{type.add}}</span>
+                                        </span>    
+                                    </div>    
+                                    <ul class="list_option" id="alternateEmails">
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th><span class="title">{{type.hidden_forwarding_mode}}</span></th>
+                                <td id="hiddenForwardingMode">
+                                    <span class="option_wrap">
+                                        <input type="radio" value="on" checked="checked"  name="hiddenForwardingMode" id="hiddenMode_on"/> 
+                                        <label for="hiddenMode_on">{{type.use}}</label>
+                                    </span>
+                                    <span class="option_wrap">
+                                        <input type="radio" value="off" checked="checked"  name="hiddenForwardingMode" id="hiddenMode_off"/> 
+                                        <label for="hiddenMode_off">{{type.not_use}}</label>
+                                    </span>
+                                    <div class="option_display" style="display: none" id="hiddenForwardingList">
+                                        <div class="vertical_wrap_s">
+                                            <input class="w200 input email_id_type email" type="text" id="hiddenForwardingEmail"/> 
+                                            <span class="btn_wrap">
+                                                <span class="btn_s" id="addHiddenForwardingEmail">{{type.add}}</span>
+                                            </span>    
+                                        </div>    
+                                        <ul class="list_option" id="hiddenForwardingEmails">
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr  id="otp" style="display:none;">
+                                <th><span class="title">{{type.apply_otp}}</span></th>
+                                <td>
+                                    <span class="option_wrap">
+                                        <input type="radio" value="true" name="otpService" id="otpService_on"/> 
+                                        <label for="otpService_on">{{type.use}}</label>
+                                    </span>
+                                    <span class="option_wrap">
+                                        <input type="radio" value="false" checked="checked"  name="otpService" id="otpService_off"/> 
+                                        <label for="otpService_off">{{type.not_use}}</label>
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th><span class="title">{{type.mail_expire_date}}</span></th>
+                                <td><input class="w_min input" type="text" name="mailExpireDate" id="mailExpireDate"/></td>
+                            </tr>
+                            <tr>
+                                <th><span class="title">{{type.user_virtual_domain}}</span></th>
+                                <td>
+                                    <select name="userVirtualDomains" id="userVirtualDomain">
+                                    	<option value="">{{type.user_virtual_domain}}</option>
+                                        {{#userVirtualDomains}}
+                                        <option value="{{virtualDomain}}" {{#isSelected?}} selected {{/isSelected?}}>{{virtualDomain}}</option>
+                                        {{/userVirtualDomains}}
+                                    </select>
+                                    <span class="btn_wrap">
+                                        <span class="btn_s" id="addUserVirtualDomain">{{type.add}}</span>
+                                    </span>   
+                                    <ul class="list_option" id="userVirtualDomains">
+                                   	</ul>
+                                </td>
+                            </tr>
+                            <tr class="last">
+                                <th><span class="title">{{type.rep_user_email}}</span></th>
+                                <td>
+                                    <select name="repUserEmail" id="repUserEmail">
+                                        {{#repUserEmail}}
+                                        <option value="{{repUserEmail}}" {{#isSelected?}} selected {{/isSelected?}}>{{repUserEmail}}</option>
+                                        {{/repUserEmail}}
+                                    </select>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                {{#hasMoreInfo}}
+                <div class="container detail_area" id="divMoreInfo">
+                    <div class="header">
+                        <h2>{{type.more_info}}</h2>
+                    </div>    
+
+                    <div class="content">
+                        <table class="detail">
+                            <caption>{{type.account_add}}</caption>
+                            <colgroup>
+                                <col width="150px"/>
+                                <col width="*" />
+                                <col width="150px" />
+                                <col width="*" />
+                            </colgroup>
+                            <tbody>
+                            {{#profileVisibleInfos.directTel}}
+                            <tr>
+                                <th><span class="title">{{type.direct_tel}}</span></th>
+                                <td><input class="w_full input" type="text" name="directTel" maxlength="20"/></td>
+                            </tr>
+                            {{/profileVisibleInfos.directTel}}
+                            {{#profileVisibleInfos.mobileNo}}
+                            <tr>
+                                <th><span class="title">{{type.phone}}</span></th>
+                                <td><input class="w_full input" type="text" name="mobileNo" maxlength="20"/></td>                            
+                            </tr>
+                            {{/profileVisibleInfos.mobileNo}}
+                            {{#profileVisibleInfos.repTel}}
+                            <tr>
+                                <th><span class="title">{{type.representive_tel}}</span></th>
+                                <td><input class="w_full input" type="text" name="repTel" maxlength="20"/></td>
+                            </tr>
+                            {{/profileVisibleInfos.repTel}}
+                            {{#profileVisibleInfos.fax}}
+                            <tr>
+                                <th><span class="title">{{type.fax}}</span></th>
+                                <td><input class="w_full input" type="text" name="fax" maxlength="20"/></td>
+                            </tr>
+                            {{/profileVisibleInfos.fax}}                                
+                            {{#profileVisibleInfos.selfInfo}}
+                            <tr>
+                                <th><span class="title">{{type.selfInfo}}</span></th>
+                                <td colspan="3"><textarea class="w_full input" name="selfInfo" maxlength="100"></textarea></td>                                                            
+                            </tr>
+                            {{/profileVisibleInfos.selfInfo}}
+                            {{#profileVisibleInfos.job}}
+                            <tr id="job" style="">
+                                <th><span class="title">{{type.job}}</span></th>
+                                <td colspan="3"><input class="w_full input" type="text" name="job" maxlength="150"/></td>
+                            </tr>
+                            {{/profileVisibleInfos.job}}
+                            {{#profileVisibleInfos.location}}
+                            <tr id="location" style="">
+                                <th><span class="title">{{type.location}}</span></th>
+                                <td colspan="3"><input class="w_full input" type="text" name="location" maxlength="100"/></td>
+                            </tr>
+                            {{/profileVisibleInfos.location}}
+                            {{#profileVisibleInfos.homePage}}
+                            <tr id="homepage" style="">
+                                <th><span class="title">{{type.homepage}}</span></th>
+                                <td colspan="3"><input class="w_full input" type="text" name="homePage" maxlength="50"/></td>
+                            </tr>
+                            {{/profileVisibleInfos.homePage}}
+                            {{#profileVisibleInfos.messanger}}
+                            <tr id="messanger" style="">
+                                <th><span class="title">{{type.messanger}}</span></th>
+                                <td colspan="3"><input class="w_full input" type="text" name="messanger" maxlength="50"/></td>
+                            </tr>
+                            {{/profileVisibleInfos.messanger}}
+                            {{#profileVisibleInfos.birthday}}
+                            <tr id="birthday" style="">
+                            	<th><span class="title">{{type.birthday}}</span></th>
+                            	<td colspan="3">
+	                            	<select name="birthdayYear" id="birthdayYear">
+				                	<option value="">{{type.select_desc}}</option>
+					                </select>
+					                <select name="birthdayMonth" id="birthdayMonth">
+					                	<option value="">{{type.select_desc}}</option>
+					                </select>
+					                <select name="birthdayDay" id="birthdayDay">
+					                	<option value="">{{type.select_desc}}</option>
+					                </select>
+									<input type="checkbox" name="lunarCal" id="lunarCal">
+									<label for="lunarCal">{{type.lunar_cal_desc}}</label>
+								</td>
+                            </tr>
+                            {{/profileVisibleInfos.birthday}}
+                            {{#profileVisibleInfos.anniversary}}
+                            <tr id="anniversary" style="">
+                                <th><span class="title">{{type.anniversary}}</span></th>
+                                <td colspan="3"><input class="w_half input" type="text" name="anniversary" id="anniversaryDate"/></td>
+                            </tr>
+                            {{/profileVisibleInfos.anniversary}}
+                            {{#profileVisibleInfos.address}}
+                            <tr id="address" style="">
+                                <th><span class="title">{{type.address}}</span></th>
+                                <td colspan="3"><input class="w_full input" type="text" name="address" maxlength="100"/></td>
+                            </tr>
+                            {{/profileVisibleInfos.address}}
+                            {{#profileVisibleInfos.memo}}
+                            <tr id="memo" style="">
+                                <th><span class="title">{{type.memo}}</span></th>
+                                <td colspan="3"><textarea class="w_full input" name="memo" maxlength="100"></textarea></td>
+                            </tr>
+                            {{/profileVisibleInfos.memo}}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                {{/hasMoreInfo}}
+                <div class="container detail_area" id="customInfo">
+                    <div class="header">
+                        <h2>{{type.custom_field_title}}</h2>
+                    </div>    
+
+                    <div class="content">
+                        <table class="detail">
+                            <caption>{{type.account_add}}</caption>
+                            <colgroup>
+                                <col width="150px"/>
+                                <col width="*" />
+                            </colgroup>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </form>

@@ -1,0 +1,24 @@
+<h1 class="cs_s_title">{{lang.file}}</h1>
+	<div class="cs_reference_gruop">
+		{{#dataset}}
+		<div class="article_wrap">
+			<span class="ic_file_b ic_{{ext}}_b"></span>
+			<div class="info">
+				<span class="item item_default">
+					<span class="name" id="downFiles" data-id="{{id}}" data-type="{{type}}" data-path="{{path}}" data-sroot="{{sroot}}" data-userseq="{{userSeq}}">{{subject}}</span>
+					<span class="date">{{createAt}}</span>
+				</span>
+				<span class="item">
+					<span class="sub"><a id="moveFile">개인 자료실 </a><!-- &gt; 기획팀 &gt; PT준비 --></span>
+				</span>
+			</div>
+		</div>
+		{{/dataset}}
+	</div>
+	
+	<div class="btn_more_wrap">
+	<a class="btn_more" id="btn_more" style="display:none;">
+		<span class="txt">{{lang.more}}</span>
+		<span class="ic ic_csm_arrow"></span>
+	</a>
+</div>

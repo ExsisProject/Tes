@@ -1,0 +1,40 @@
+<div class="content_page">
+    {{#useLabFeedback}}
+    <p> ※ 저장된 설정을 사용하려면, 꼭! 목록에서 사용변경을 수정해주세요.</p>
+    {{/useLabFeedback}}
+    <div class="dataTables_wrapper container">
+        <div id="controlButtons" style="display: none">
+            <span class="btn_tool" id="delete_config">삭제</span>
+            <span class="btn_tool" id="add_config">추가</span>
+        </div>
+        <div class="content_tb">
+            <table class="chart size popup_list" id="feedback_config_table">
+                {{^useLabFeedback}}
+                <tbody>
+                    <tr class="last">
+                        <th>
+                            <span class="title">
+                                사용할 수 없는 기능입니다.
+                                <br><br>
+                            </span>
+                        </th>
+                    </tr>
+                </tbody>
+                {{/useLabFeedback}}
+                {{#useLabFeedback}}
+                <thead>
+                    <tr>
+                        <th class="sorting id"><span class="title_sort">id<ins class="ic"></ins><span class="selected"></span></span></th>
+                        <th class="sorting subject"><span class="title_sort">title<ins class="ic"></ins><span class="selected"></span></span></th>
+                        <th class="sorting subject"><span class="title_sort">기능 적용 서버 버전<ins class="ic"></ins><span class="selected"></span></span></th>
+                        <th class="sorting period"><span class="title_sort">공지기간<ins class="ic"></ins><span class="selected"></span></span></th>
+                        <th class="sorting date"><span class="title_sort">등록일<ins class="ic"></ins><span class="selected"></span></span></th>
+                        <th class="sorting_desc"><span class="title_sort">사용 설정<ins class="ic"></ins><span class="selected"></span></span></th>
+                        <th class="sorting_disable last action"><span class="title_sort">설정</span></th>
+                    </tr>
+                </thead>
+                {{/useLabFeedback}}
+            </table>
+        </div>
+    </div>
+</div>

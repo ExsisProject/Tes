@@ -1,0 +1,41 @@
+
+<table class="type_list_box">
+    <tbody>
+    <tr>
+        <th class="col1" style="width: 120px">
+            <span class="title_txt">{{lang.연도}}</span>
+        </th>
+        <td class="col2">
+            {{data.year}}
+        </td>
+    </tr>
+    <tr>
+        <th class="col1">
+            <span class="title_txt">{{lang.ID(계정)}}</span>
+        </th>
+        <td class="col2">
+            {{data.loginId}}
+        </td>
+    </tr>
+    <tr>
+        <th class="col1">
+            <span class="title_txt">{{lang.입사일}}</span>
+        </th>
+        <td class="col2">
+            <span class="noti_date_wrap option_wrap">
+                <input id="hireDate" class="txt_mini wfix_small" name="toDate" type="text" value="" readonly="">
+                <span class="ic ic_calendar"></span>
+            </span>
+        </td>
+    </tr>
+    <tr>
+        <th class="col1">
+            <span class="title_txt">{{lang.년간 Point}}</span>
+        </th>
+        <td class="col2">
+            <input id="totalPoint" class="txt_mini wfix_small" type="number" value="{{data.totalPoint}}">
+        </td>
+    </tr>
+
+    </tbody>
+</table>

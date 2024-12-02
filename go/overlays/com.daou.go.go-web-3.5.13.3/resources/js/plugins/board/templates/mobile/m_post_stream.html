@@ -1,0 +1,120 @@
+<!-- 목록: 커뮤니티/게시판 피드  -->
+{{#isPageZero}}
+	<!-- 타임라인 -->
+	<div class="content">
+		<div class="feed_contents_wrap">
+			<ul class="feed_type" style="background:#F6F6F6" data-type="list">
+				{{/isPageZero}}
+
+				{{#dataset}}
+				{{#isSeparator}}
+				<li class="feed_time" data-date="{{date}}">
+					<span class="date">{{date}}</span>
+					<div class="tail_r"><div></div></div>
+				</li>
+				{{/isSeparator}}
+				{{^isSeparator}}
+				<li data-boardId="{{boardId}}" data-postId="{{id}}">
+					<!-- 원글 -->
+					<div class="article">
+					<span class="photo">
+						<a data-userid="{{writer.id}}" data-bypass>
+							<img title="{{writer.name}} {{writer.position}}" src="{{writer.thumbSmall}}" />
+						</a>
+					</span>
+    					<div class="info">
+    						<a class="name txt_ellipsis {{#writer}}{{#otherCompanyUser}}multi_user{{/otherCompanyUser}}{{/writer}}" data-bypass>{{#writer.otherCompanyUser}}{{writer.companyName}}{{/writer.otherCompanyUser}} {{writer.name}} {{writer.positionName}}</a>
+    						{{#isAlimPost}}
+						<span class="btn_wrap">
+							<span class="ic_classic ic_notice"></span>
+						</span>
+							{{/isAlimPost}}
+							<span class="date">{{dateParse}}</span>
+						</div>
+						<p class="article {{#summarizedFlagSet}}existMoreContent{{/summarizedFlagSet}}">
+							<span class="expander">{{{contentParse}}}</span>
+							{{#summarizedFlagSet}}
+							<span class="btn_fn3" data-btntype="moreBtn"><span class="txt">{{lang.more_content}}</span></span>
+							<span class="btn_fn3" data-btntype="closeBtn" style="display:none;"><span class="txt">{{lang.content_fold}}</span></span>
+							{{/summarizedFlagSet}}
+						</p>
+
+						<div class="meta_wrap">
+							{{#actions.updatable}}<a href="javascript:;" class="btn_tool" data-role="button" data-btntype="postmodify"><span class="txt">{{lang.modify}}</span></a>{{/actions.updatable}}
+							{{#actions.removable}}<a href="javascript:;" class="btn_tool" data-role="button" data-btntype="postdelete"><span class="txt_caution">{{lang.del}}</span></a>{{/actions.removable}}
+						</div>
+
+						<!-- 링크첨부 -->
+						{{#links}}
+						<div class="meta_info_wrap"><!-- 링크 동영상 등의 메타 정보  -->
+							<ul>
+								<li class="url">
+									<a class="url_type" data-url="{{url}}" href="{{url}}" target="_blank" data-bypass>{{url}}</a>
+								</li>
+								{{#imageSrc}}
+								<li class="thumb">
+									<a class="meta_thumb" data-url="{{url}}" href="{{url}}" target="_blank" data-bypass>
+										<img class="" src="{{imageSrc}}" alt="{{lang.meta_img}}" title="{{lang.link_meta}}" />
+									</a>
+								</li>
+								{{/imageSrc}}
+								<li>
+									<a class="title" data-url="{{url}}" href="{{url}}" target="_blank" data-bypass>{{title}}</a>
+									<p class="meta_contents">{{description}}</p>
+								</li>
+							</ul>
+						</div>
+						{{/links}}
+
+						<!-- 첨부파일  -->
+						{{{ postAttachFiles }}}
+
+					</div>
+					<!-- //원글 -->
+					<div class="tool_bar tool_bar_bottom">
+						{{#isCommentFlag}}
+						<div class="critical">
+							<a href="javascript:;" class="btn_wrap comment_view" data-role="button" data-list-id="{{id}}">
+								<span class="txt">{{lang.comment_count}}</span>
+							<span class="btn_wrap {{^commentsCount}}zero{{/commentsCount}}">
+								<span class="ic ic_reply_bubble"><span class="plus_num">{{commentsCount}}</span></span>
+							</span>
+							</a>
+						</div>
+						{{/isCommentFlag}}
+						<div class="optional">
+							<a id="recommend_view" class="btn_heartList" href="javascript:;" data-role="button">{{lang.title_recommender}}
+								<span class="txt">{{recommendCount}}</span>
+								{{lang.user_count}}
+							</a>
+							<a href="javascript:;" data-btntype="recommend" data-role="button" class="btn_heart">
+                                <span id="recommendHeart" class="wrap_heart {{#recommend}}on{{/recommend}}">
+									<img id="heartImg" alt="{{lang.label_like}}" title="{{lang.label_like}}" src="/resources/images/mobile/ic_heart{{#recommend}}_on{{/recommend}}.png" style="width:32px; height:30px;">
+									<span class="txt" id="txt_count">{{recommendCount}}</span>
+                                </span>
+							</a>
+						</div>
+					</div>
+				</li>
+				{{/isSeparator}}
+				{{/dataset}}
+				{{^dataset}}
+				{{#isPageZero}}
+				<li>
+					<p class="data_null">
+						<span class="ic_data_type ic_no_contents"></span>
+						<span class="txt">{{lang.no_content}}</span>
+					</p>
+				</li>
+				{{/isPageZero}}
+				{{/dataset}}
+
+				{{#isPageZero}}
+			</ul>
+		</div>
+	</div>
+	<!-- <div class="bottom_action" id="moreButton" style="display:{{isListNull}}">
+		<img src="{{contextRoot}}resources/images/img_loader_l.gif" style='display:none'/>
+		<a class="btn_list_reload" data-bypass><span class="ic"></span><span class="txt">{{lang.more_view}}</span></a>
+	</div> -->
+{{/isPageZero}}

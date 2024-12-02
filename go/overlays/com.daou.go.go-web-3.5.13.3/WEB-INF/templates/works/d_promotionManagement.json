@@ -1,0 +1,529 @@
+{
+  "meta": {
+    "key": "bba3125a-8460-d3f8-c038-776d12abd",
+    "base": {
+      "name": "applet.promotion.manage.template.name",
+      "desc": "applet.promotion.manage.template.desc",
+      "icon": "ic_app36.png"
+    },
+    "exporter": {
+      "name": "관리자",
+      "companyName": "다우기술"
+    }
+  },
+  "components": {
+    "view": {
+      "charts": [],
+      "columns": [
+        {
+          "fieldCid": "status"
+        },
+        {
+          "fieldCid": "_zzv3du17w"
+        },
+        {
+          "fieldCid": "_7o934bt0b"
+        },
+        {
+          "fieldCid": "_isl4ux8g7"
+        },
+        {
+          "fieldCid": "_yju6gpmkg"
+        },
+        {
+          "fieldCid": "_xp2mmd7zn"
+        },
+        {
+          "fieldCid": "_w46910t6n"
+        },
+        {
+          "fieldCid": "_9r4qfb4j9"
+        },
+        {
+          "fieldCid": "creator"
+        }
+      ],
+      "titleColumnIndex": 1,
+      "sortColumnIndex": -1,
+      "sortDirection": "DESC",
+      "docNoConfig": {
+        "useDocNo": false,
+        "docNoType": "simple",
+        "customDigit": 2
+      }
+    },
+    "form": {
+      "data": {
+        "type": "canvas",
+        "multiple": false,
+        "cid": "cxx1",
+        "components": [
+          {
+            "type": "columns",
+            "multiple": false,
+            "cid": "_9nr3qi5f4",
+            "parentCid": "cxx1",
+            "properties": {
+              "count": 2
+            },
+            "components": [
+              {
+                "type": "column",
+                "multiple": false,
+                "cid": "_ia4nkh00c",
+                "parentCid": "_9nr3qi5f4",
+                "properties": {},
+                "components": [
+                  {
+                    "type": "text",
+                    "valueType": "STEXT",
+                    "multiple": false,
+                    "cid": "_zzv3du17w",
+                    "parentCid": "_ia4nkh00c",
+                    "properties": {
+                      "label": "제목",
+                      "hideLabel": false,
+                      "guide": "",
+                      "guideAsTooltip": true,
+                      "required": false,
+                      "defaultValue": "",
+                      "minLength": 0,
+                      "maxLength": 100,
+                      "width": "50",
+                      "widthUnit": "percent",
+                      "format": "all"
+                    },
+                    "components": []
+                  },
+                  {
+                    "type": "date",
+                    "valueType": "DATE",
+                    "multiple": false,
+                    "cid": "_xp2mmd7zn",
+                    "parentCid": "_ia4nkh00c",
+                    "properties": {
+                      "label": "시작일",
+                      "hideLabel": false,
+                      "guide": "",
+                      "guideAsTooltip": true,
+                      "required": false,
+                      "defaultAsNow": false,
+                      "defaultDate": "",
+                      "code": "date_931"
+                    },
+                    "components": []
+                  },
+                  {
+                    "type": "date",
+                    "valueType": "DATE",
+                    "multiple": false,
+                    "cid": "_w46910t6n",
+                    "parentCid": "_ia4nkh00c",
+                    "properties": {
+                      "label": "완료일",
+                      "hideLabel": false,
+                      "guide": "",
+                      "guideAsTooltip": true,
+                      "required": false,
+                      "defaultAsNow": false,
+                      "defaultDate": "",
+                      "code": "date_1378"
+                    },
+                    "components": []
+                  },
+                  {
+                    "type": "date",
+                    "valueType": "DATE",
+                    "multiple": false,
+                    "cid": "_9r4qfb4j9",
+                    "parentCid": "_ia4nkh00c",
+                    "properties": {
+                      "label": "실제 적용일",
+                      "hideLabel": false,
+                      "guide": "",
+                      "guideAsTooltip": true,
+                      "required": false,
+                      "defaultAsNow": false,
+                      "defaultDate": "",
+                      "code": "date_1525"
+                    },
+                    "components": []
+                  }
+                ]
+              },
+              {
+                "type": "column",
+                "multiple": false,
+                "cid": "_y4yygnu39",
+                "parentCid": "_9nr3qi5f4",
+                "properties": {},
+                "components": [
+                  {
+                    "type": "org",
+                    "valueType": "USERS",
+                    "multiple": false,
+                    "cid": "_7o934bt0b",
+                    "parentCid": "_y4yygnu39",
+                    "properties": {
+                      "label": "담당자",
+                      "hideLabel": false,
+                      "guide": "",
+                      "guideAsTooltip": true,
+                      "required": false,
+                      "noLimit": true,
+                      "useDefaultRegister": false,
+                      "allowMemberCount": "1",
+                      "members": []
+                    },
+                    "components": []
+                  },
+                  {
+                    "type": "number",
+                    "valueType": "NUMBER",
+                    "multiple": false,
+                    "cid": "_isl4ux8g7",
+                    "parentCid": "_y4yygnu39",
+                    "properties": {
+                      "label": "진척률",
+                      "hideLabel": false,
+                      "guide": "",
+                      "guideAsTooltip": true,
+                      "required": false,
+                      "dataType": "PERCENT",
+                      "minLength": "0",
+                      "maxLength": "100",
+                      "width": 250,
+                      "widthUnit": "px",
+                      "unitText": "",
+                      "fixType": "postfix",
+                      "decimalPoints": 2,
+                      "thousandComma": true,
+                      "useTableAutoAggr": false,
+                      "tableAggrType": "",
+                      "code": "number_1020"
+                    },
+                    "components": []
+                  },
+                  {
+                    "type": "number",
+                    "valueType": "NUMBER",
+                    "multiple": false,
+                    "cid": "_yju6gpmkg",
+                    "parentCid": "_y4yygnu39",
+                    "properties": {
+                      "label": "프로모션 평가",
+                      "hideLabel": false,
+                      "guide": "",
+                      "guideAsTooltip": true,
+                      "required": false,
+                      "dataType": "POINT",
+                      "minLength": "1",
+                      "maxLength": "5",
+                      "width": 250,
+                      "widthUnit": "px",
+                      "unitText": "",
+                      "fixType": "postfix",
+                      "decimalPoints": 2,
+                      "thousandComma": true,
+                      "useTableAutoAggr": false,
+                      "tableAggrType": "",
+                      "code": "number_1383"
+                    },
+                    "components": []
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "datetime",
+            "valueType": "DATETIME",
+            "multiple": false,
+            "cid": "_mlx7jr1ah",
+            "parentCid": "cxx1",
+            "properties": {
+              "label": "날짜와 시간1",
+              "hideLabel": false,
+              "guide": "",
+              "guideAsTooltip": true,
+              "required": false,
+              "defaultAsNow": false,
+              "defaultDate": "",
+              "defaultTime": "",
+              "code": "datetime_986"
+            },
+            "components": []
+          }
+        ]
+      }
+    },
+    "process": {
+      "useProcess": true,
+      "statuses": [
+        {
+          "name": "{{applet.new.template.status.ready}}",
+          "start": true,
+          "doing": false,
+          "end": false,
+          "color": "0"
+        },
+        {
+          "name": "{{applet.promotion.manage.template.status.scheduled}}",
+          "start": false,
+          "doing": true,
+          "end": false,
+          "color": "6"
+        },
+        {
+          "name": "{{applet.promotion.manage.template.status.onging}}",
+          "start": false,
+          "doing": true,
+          "end": false,
+          "color": "17"
+        },
+        {
+          "name": "{{applet.promotion.manage.template.status.stop}}",
+          "start": false,
+          "doing": true,
+          "end": false,
+          "color": "4"
+        },
+        {
+          "name": "{{applet.promotion.manage.template.status.evaluating}}",
+          "start": false,
+          "doing": true,
+          "end": false,
+          "color": "11"
+        },
+        {
+          "name": "{{applet.new.template.status.complete}}",
+          "start": false,
+          "doing": false,
+          "end": true,
+          "color": "18"
+        }
+      ],
+      "transitions": [
+        {
+          "beforeStatus": "{{applet.new.template.status.ready}}",
+          "nextStatus": "{{applet.promotion.manage.template.status.scheduled}}",
+          "actionName": "{{applet.promotion.manage.template.action.scheduled}}",
+          "actionRoles": [
+            "REGISTRANT",
+            "ADMIN"
+          ],
+          "pushRoles": []
+        },
+        {
+          "beforeStatus": "{{applet.promotion.manage.template.status.scheduled}}",
+          "nextStatus": "{{applet.promotion.manage.template.status.stop}}",
+          "actionName": "{{applet.promotion.manage.template.action.stop}}",
+          "actionRoles": [
+            "REGISTRANT",
+            "ADMIN"
+          ],
+          "pushRoles": []
+        },
+        {
+          "beforeStatus": "{{applet.promotion.manage.template.status.scheduled}}",
+          "nextStatus": "{{applet.promotion.manage.template.status.onging}}",
+          "actionName": "{{applet.promotion.manage.template.action.progress}}",
+          "actionRoles": [
+            "REGISTRANT",
+            "ADMIN"
+          ],
+          "pushRoles": []
+        },
+        {
+          "beforeStatus": "{{applet.promotion.manage.template.status.onging}}",
+          "nextStatus": "{{applet.promotion.manage.template.status.stop}}",
+          "actionName": "{{applet.promotion.manage.template.action.stop}}",
+          "actionRoles": [
+            "REGISTRANT",
+            "ADMIN"
+          ],
+          "pushRoles": []
+        },
+        {
+          "beforeStatus": "{{applet.promotion.manage.template.status.onging}}",
+          "nextStatus": "{{applet.promotion.manage.template.status.evaluating}}",
+          "actionName": "{{applet.promotion.manage.template.action.promotion}}",
+          "actionRoles": [
+            "REGISTRANT",
+            "ADMIN"
+          ],
+          "pushRoles": []
+        },
+        {
+          "beforeStatus": "{{applet.promotion.manage.template.status.evaluating}}",
+          "nextStatus": "{{applet.new.template.status.complete}}",
+          "actionName": "{{applet.promotion.manage.template.action.complete}}",
+          "actionRoles": [
+            "REGISTRANT",
+            "ADMIN"
+          ],
+          "pushRoles": []
+        },
+        {
+          "beforeStatus": "{{applet.new.template.status.complete}}",
+          "nextStatus": "{{applet.promotion.manage.template.status.evaluating}}",
+          "actionName": "{{applet.promotion.manage.template.action.revaluation}}",
+          "actionRoles": [
+            "REGISTRANT",
+            "ADMIN"
+          ],
+          "pushRoles": []
+        },
+        {
+          "beforeStatus": "{{applet.promotion.manage.template.status.evaluating}}",
+          "nextStatus": "{{applet.promotion.manage.template.status.onging}}",
+          "actionName": "{{applet.promotion.manage.template.action.reprogression}}",
+          "actionRoles": [
+            "REGISTRANT",
+            "ADMIN"
+          ],
+          "pushRoles": []
+        },
+        {
+          "beforeStatus": "{{applet.promotion.manage.template.status.scheduled}}",
+          "nextStatus": "{{applet.new.template.status.ready}}",
+          "actionName": "{{applet.promotion.manage.template.action.ready}}",
+          "actionRoles": [
+            "REGISTRANT",
+            "ADMIN"
+          ],
+          "pushRoles": []
+        },
+        {
+          "beforeStatus": "{{applet.promotion.manage.template.status.stop}}",
+          "nextStatus": "{{applet.new.template.status.ready}}",
+          "actionName": "{{applet.promotion.manage.template.action.ready}}",
+          "actionRoles": [
+            "REGISTRANT",
+            "ADMIN"
+          ],
+          "pushRoles": []
+        }
+      ],
+      "addPushes": [],
+      "template": "[{\"type\":\"stat\",\"name\":\"{{applet.new.template.status.ready}}\",\"geometryX\":220,\"geometryY\":280},{\"type\":\"stat\",\"name\":\"{{applet.promotion.manage.template.status.scheduled}}\",\"geometryX\":420,\"geometryY\":275},{\"type\":\"stat\",\"name\":\"{{applet.promotion.manage.template.status.onging}}\",\"geometryX\":590,\"geometryY\":275},{\"type\":\"stat\",\"name\":\"{{applet.promotion.manage.template.status.stop}}\",\"geometryX\":420,\"geometryY\":170},{\"type\":\"stat\",\"name\":\"{{applet.promotion.manage.template.status.evaluating}}\",\"geometryX\":770,\"geometryY\":280},{\"type\":\"stat\",\"name\":\"{{applet.new.template.status.complete}}\",\"geometryX\":930,\"geometryY\":280},{\"type\":\"transition\",\"beforeStatus\":\"대기\",\"nextStatus\":\"{{applet.promotion.manage.template.status.scheduled}}\",\"geometryX\":[260,460],\"geometryY\":[370,370]},{\"type\":\"transition\",\"beforeStatus\":\"{{applet.promotion.manage.template.status.scheduled}}\",\"nextStatus\":\"{{applet.promotion.manage.template.status.stop}}\",\"geometryX\":[],\"geometryY\":[]},{\"type\":\"transition\",\"beforeStatus\":\"{{applet.promotion.manage.template.status.scheduled}}\",\"nextStatus\":\"{{applet.promotion.manage.template.status.onging}}\",\"geometryX\":[580,580],\"geometryY\":[300,300]},{\"type\":\"transition\",\"beforeStatus\":\"{{applet.promotion.manage.template.status.onging}}\",\"nextStatus\":\"{{applet.promotion.manage.template.status.stop}}\",\"geometryX\":[630],\"geometryY\":[195]},{\"type\":\"transition\",\"beforeStatus\":\"{{applet.promotion.manage.template.status.onging}}\",\"nextStatus\":\"{{applet.promotion.manage.template.status.evaluating}}\",\"geometryX\":[630,810],\"geometryY\":[370,370]},{\"type\":\"transition\",\"beforeStatus\":\"{{applet.promotion.manage.template.status.evaluating}}\",\"nextStatus\":\"{{applet.new.template.status.complete}}\",\"geometryX\":[910,910],\"geometryY\":[310,310]},{\"type\":\"transition\",\"beforeStatus\":\"{{applet.new.template.status.complete}}\",\"nextStatus\":\"{{applet.promotion.manage.template.status.evaluating}}\",\"geometryX\":[970,810],\"geometryY\":[370,370]},{\"type\":\"transition\",\"beforeStatus\":\"{{applet.promotion.manage.template.status.evaluating}}\",\"nextStatus\":\"{{applet.promotion.manage.template.status.onging}}\",\"geometryX\":[],\"geometryY\":[]},{\"type\":\"transition\",\"beforeStatus\":\"{{applet.promotion.manage.template.status.scheduled}}\",\"nextStatus\":\"{{applet.new.template.status.ready}}\",\"geometryX\":[],\"geometryY\":[]},{\"type\":\"transition\",\"beforeStatus\":\"{{applet.promotion.manage.template.status.stop}}\",\"nextStatus\":\"{{applet.new.template.status.ready}}\",\"geometryX\":[460],\"geometryY\":[155]},{\"type\":\"stat\",\"geometryX\":20,\"geometryY\":275},{\"type\":\"transition\",\"nextStatus\":\"{{applet.new.template.status.ready}}\"}]"
+    },
+    "ganttView": {
+      "name": "간트 뷰",
+      "titleFieldCid": "_zzv3du17w",
+      "startFieldCid": "_xp2mmd7zn",
+      "endFieldCid": "_9r4qfb4j9",
+      "userFieldCid": "_7o934bt0b",
+      "progressFieldCid": "_isl4ux8g7"
+    }
+  },
+  "messageKeys": [
+    "applet.new.template.status.ready",
+    "applet.new.template.status.complete",
+    "applet.promotion.manage.template.status.scheduled",
+    "applet.promotion.manage.template.status.stop",
+    "applet.promotion.manage.template.status.onging",
+    "applet.promotion.manage.template.status.evaluating",
+    "applet.promotion.manage.template.action.ready",
+    "applet.promotion.manage.template.action.scheduled",
+    "applet.promotion.manage.template.action.stop",
+    "applet.promotion.manage.template.action.progress",
+    "applet.promotion.manage.template.action.promotion",
+    "applet.promotion.manage.template.action.reprogression",
+    "applet.promotion.manage.template.action.revaluation",
+    "applet.promotion.manage.template.action.complete"
+  ],
+  "guide": {
+    "contents": "applet.promotion.manage.template.guide.content",
+    "imageFiles": [
+      "d_promotionManagement/d_01.png",
+      "d_promotionManagement/d_02.png",
+      "d_promotionManagement/d_03.png"
+    ]
+  },
+  "sampleData": {
+    "ganttGroupName": "Sample Group",
+    "docValues": [
+      {
+        "status": "{{applet.promotion.manage.template.status.onging}}",
+        "_zzv3du17w": "[Sample] 유튜브 채널 런칭 이벤트",
+        "_xp2mmd7zn": {
+          "baseDate": "now",
+          "operation": "MINUS",
+          "days": 18
+        },
+        "_9r4qfb4j9": {
+          "baseDate": "now",
+          "operation": "PLUS",
+          "days": 2
+        },
+        "_7o934bt0b": "creator",
+        "_isl4ux8g7": 50
+      },
+      {
+        "status": "{{applet.promotion.manage.template.status.stop}}",
+        "_zzv3du17w": "[Sample] 홈페이지 리뉴얼 추가 기능 검토",
+        "_xp2mmd7zn": {
+          "baseDate": "now",
+          "operation": "MINUS",
+          "days": 17
+        },
+        "_9r4qfb4j9": {
+          "baseDate": "now",
+          "operation": "PLUS",
+          "days": 8
+        },
+        "_7o934bt0b": "creator",
+        "_isl4ux8g7": 60
+      },
+      {
+        "status": "{{applet.new.template.status.complete}}",
+        "_zzv3du17w": "[Sample] 콘텐츠 제작 요청",
+        "_xp2mmd7zn": {
+          "baseDate": "now",
+          "operation": "MINUS",
+          "days": 12
+        },
+        "_9r4qfb4j9": {
+          "baseDate": "now",
+          "operation": "PLUS",
+          "days": 3
+        },
+        "_7o934bt0b": "creator",
+        "_isl4ux8g7": 100
+      },
+      {
+        "status": "{{applet.promotion.manage.template.status.ready}}",
+        "_zzv3du17w": "[Sample] 패션 크리에이터 콘텐츠 사전 제작",
+        "_xp2mmd7zn": {
+          "baseDate": "now",
+          "operation": "NONE",
+          "days": 0
+        },
+        "_9r4qfb4j9": {
+          "baseDate": "now",
+          "operation": "PLUS",
+          "days": 16
+        },
+        "_7o934bt0b": "creator",
+        "_isl4ux8g7": 0
+      },
+      {
+        "status": "{{applet.promotion.manage.template.status.evaluating}}",
+        "_zzv3du17w": "[Sample] 크리에이터 콘텐츠 제작의 건",
+        "_xp2mmd7zn": {
+          "baseDate": "now",
+          "operation": "MINUS",
+          "days": 10
+        },
+        "_9r4qfb4j9": {
+          "baseDate": "now",
+          "operation": "PLUS",
+          "days": 14
+        },
+        "_7o934bt0b": "creator",
+        "_isl4ux8g7": 80
+      }
+    ]
+  }
+}

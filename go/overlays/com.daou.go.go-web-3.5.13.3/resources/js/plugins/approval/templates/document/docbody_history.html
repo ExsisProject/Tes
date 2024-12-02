@@ -1,0 +1,16 @@
+{{#docHistories}}
+<tr data-index="{{index}}">
+	<td class="date"><span class="date">{{date}}</span></td>
+	<td class="func">{{actionLogTypeName}}
+        {{^isSiteAdmin}}
+		{{#hasDocVersion}}<a class="btn_fn7 showApprChangeLog" data-bypass>{{lang.보기}}</a>{{/hasDocVersion}}
+        {{/isSiteAdmin}}
+	</td>
+	<td class="user">{{actor}}</td>
+</tr>
+{{/docHistories}}
+{{^docHistories}}
+<tr>
+    <td colspan="3">{{lang.변경이력이 없습니다.}}</td>
+</tr>
+{{/docHistories}}

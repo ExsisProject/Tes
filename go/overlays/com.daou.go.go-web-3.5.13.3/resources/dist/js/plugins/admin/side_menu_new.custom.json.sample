@@ -1,0 +1,62 @@
+/*
+* 사용되지 않는 파일입니다.
+* side_menu_new.custom.json 정의시에 참고하세요.
+*
+*/
+[
+	{
+		"pUid" : "D-j",
+		"uid": "D-j-cutsom2",
+		"labelKey": "근태 연동 내역",
+		"href": "company/notice",
+		"contentsPath": "",
+		"routingName": "",
+		"level": [
+			"site",
+			"service"
+		],
+		"order": 31714,
+		"childs": []
+	},
+	{
+		"pUid" : "D-j", // pUid 정의 시, 해당 uid를 가진 메뉴의 하단에 위치하게됨.
+		"uid": "D-j-cutsom3",
+		"labelKey": "아이디",
+		"href": "http://www.naver.com/",
+		"contentsPath": "",
+		"routingName": "",
+		"level": [
+			"site",
+			"service"
+		],
+		"order": 31713,
+		"childs": []
+	},
+	{
+		"uid": "ECustom",
+		"labelKey": "내맴대로",
+		"href": "",
+		"contentsPath": "",
+		"routingName": "",
+		"level": [
+			"site",
+			"service"
+		],
+		"order": 0,
+		"childs": [
+			{
+				"uid": "ECustom-1", // 고유키
+				"labelKey": "아이디", // 사이드메뉴에 표시될 메뉴명
+				"href": "company/quota", // Backbone Router에 등록된 routes (routes.json에 정의)
+				"contentsPath": "", // Backbone Router에 의해 호출되어, 로딩될 뷰 컴포넌트명 (require.js에 선언한)
+				"routingName": "", // Backbone Router에 등록될 라우팅 명칭
+				"level": [  // 설치형 or 서비스(cloud)에서 메뉴 사용 유무
+					"site",
+					"service"
+				],
+				"order": 0, // 사이드메뉴 목록에 표시될 정렬 우선순위
+				"childs": [] // 하위 메뉴
+			}
+		]
+	}
+]

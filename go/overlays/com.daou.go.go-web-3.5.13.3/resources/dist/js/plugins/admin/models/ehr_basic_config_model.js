@@ -1,0 +1,1 @@
+define("admin/models/ehr_basic_config_model",function(require){var e=require("backbone"),t=require("app"),n=e.Model.extend({urlRoot:function(){return t.contextRoot+"ad/api/ehr/config/basic"},initialize:function(e){}});return n});

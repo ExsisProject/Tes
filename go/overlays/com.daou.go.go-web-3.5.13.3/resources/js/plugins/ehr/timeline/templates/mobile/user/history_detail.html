@@ -1,0 +1,22 @@
+{{#data}}
+<div class="content write">
+    <div class="content">
+        <dl class="list_type4">
+            <dt><span class="txt">{{TimelineLang.일시}}</span></dt>
+            <dd>{{checkTimeDate}}</dd>
+            <dt><span class="txt">{{TimelineLang.시간}}</span></dt>
+            <dd>{{checkTimeHour}}:{{checkTimeMinute}} {{#isNightWork}} (+1){{/isNightWork}}</dd>
+            <dt><span class="txt">{{TimelineLang.상태}}</span></dt>
+            <dd>{{statusName}}</dd>
+            {{#content}}
+            <dt><span class="txt">{{CommonLang.내용}}</span></dt>
+            <dd>{{content}}</dd>
+            {{/content}}
+            {{#reason}}
+            <dt><span class="txt">{{{TimelineLang.수정삭제사유}}}</span></dt>
+            <dd>{{reason}}</dd>
+            {{/reason}}
+        </dl>
+    </div>
+</div>
+{{/data}}

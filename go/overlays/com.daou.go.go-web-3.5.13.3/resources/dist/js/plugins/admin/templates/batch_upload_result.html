@@ -1,0 +1,37 @@
+<div class="file_upload_result">
+    <h4>{{lang.upload_result}}</h4>
+    <p class="desc">{{lang.upload_result_guide}}</p>
+    <div class="info_type1" style="display:none;">
+        <p class="tit">
+            {{{lang.upload_result_cnt}}}
+        </p>
+        <p class="ment">
+            {{{lang.upload_result_table_desc}}}
+        </p>
+    </div>
+</div>
+
+<div class="toolbar_top">
+    <div class="critical">
+        <span class="btn_tool primer" id="reupload" style="display:none;">
+            <span class="ic_adm ic_upload"></span>
+            <span class="txt">{{lang.reupload}}</span>
+        </span>
+        {{#orgSyncable}}
+        <span class="btn_tool" id="manualSync" style="display:none;"></span>
+        {{/orgSyncable}}
+    </div>
+    <div class="optional">
+        <span class="btn_tool" id="listDownload" style="display:none;">
+            <span class="ic_adm ic_down"></span>
+            <span class="txt">{{lang.list_download}}</span>
+        </span>
+    </div>
+</div>
+
+<table class="chart tb_collective_upload" id="batchUploadResultTable">
+    <thead id="uploadResultTh">
+    </thead>
+    <tbody id="uploadResultList">
+    </tbody>
+</table>

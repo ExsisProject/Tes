@@ -1,0 +1,1 @@
+define(["backbone"],function(e){var t=e.Model.extend({urlRoot:GO.contextRoot+"api/user/config"},{get:function(e){return config=new t,config.set("id",e,{silent:!0}),config.fetch({async:!1}),config}});return{read:function(e){return config=t.get(e)}}});

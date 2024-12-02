@@ -1,0 +1,219 @@
+<table class="table_form_mini">
+	<caption>{{lang.default_info}}</caption>
+	<colgroup>
+		<col width="120px">
+			<col width="*">
+		</colgroup>
+		<tbody>
+		<tr>
+			<th>
+                <span class="title">
+                    <ins class="asterisk">*</ins>{{lang.dept_name}}
+                    {{#isKoLocale}} ({{lang.locale_ko}}) {{/isKoLocale}}
+                    {{#isEnLocale}} ({{lang.locale_en}}) {{/isEnLocale}}
+                    {{#isJpLocale}} ({{lang.locale_jp}}) {{/isJpLocale}}
+                    {{#isZhcnLocale}} ({{lang.locale_zhcn}}) {{/isZhcnLocale}}
+                    {{#isZhtwLocale}} ({{lang.locale_zhtw}}) {{/isZhtwLocale}}
+					{{#isViLocale}} ({{lang.locale_vi}}) {{/isViLocale}}
+                </span>
+            </th>
+			<td>
+				<span class="user_data editable" id="data" data-formname="name" data-value="{{data.name}}">
+					{{data.name}}
+					{{^isRootDept}}
+					<span class="btn_box" data-btntype="changeform">
+						<span class="ic ic_edit" title="{{lang.edit}}"></span>
+					</span>
+				</span>
+				<span class="wrap_btn" id="btnMultiLang">
+					<span class="txt">{{lang.multi_lang}}</span>
+					<i class="ic_adm {{#isOpenLang}}ic_accordion_c{{/isOpenLang}}{{^isOpenLang}}ic_accordion_s{{/isOpenLang}}" title="{{#isOpenLang}}{{lang.close}}{{/isOpenLang}}{{^isOpenLang}}{{lang.open}}{{/isOpenLang}}"></i>
+					{{/isRootDept}}
+				</span>
+			</td>
+		</tr>
+        {{^isKoLocale}}
+        <tr id="koNameInput" {{^isOpenLang}} style="display: none"{{/isOpenLang}}>
+            <th><span class="title">{{lang.dept_name}} ({{lang.locale_ko}})</span></th>
+            <td>
+                <span class="user_data editable" data-formname="koName" data-value="{{additions.koName}}">
+                    <span id="data">{{additions.koName}}</span>
+					{{^isRootDept}}
+                    <span class="btn_box" data-btntype="changeform">
+                        <span class="ic ic_edit" title="{{lang.edit}}"></span>
+                    </span>
+					{{/isRootDept}}
+                </span>
+            </td>
+        </tr>
+        {{/isKoLocale}}
+        {{^isEnLocale}}
+        <tr id="enNameInput" {{^isOpenLang}} style="display: none"{{/isOpenLang}}>
+            <th><span class="title">{{lang.dept_name}} ({{lang.locale_en}})</span></th>
+            <td>
+                <span class="user_data editable" data-formname="enName" data-value="{{additions.enName}}">
+                    <span id="data">{{additions.enName}}</span>
+                    <span class="btn_box" data-btntype="changeform">
+                        <span class="ic ic_edit" title="{{lang.edit}}"></span>
+                    </span>
+                </span>
+            </td>
+        </tr>
+        {{/isEnLocale}}
+        {{^isJpLocale}}
+        <tr id="jpNameInput" {{^isOpenLang}} style="display: none"{{/isOpenLang}}>
+            <th><span class="title">{{lang.dept_name}} ({{lang.locale_jp}})</span></th>
+            <td>
+                <span class="user_data editable" data-formname="jpName" data-value="{{additions.jpName}}">
+                    <span id="data">{{additions.jpName}}</span>
+                    <span class="btn_box" data-btntype="changeform">
+                        <span class="ic ic_edit" title="{{lang.edit}}"></span>
+                    </span>
+                </span>
+            </td>
+        </tr>
+        {{/isJpLocale}}
+        {{^isZhcnLocale}}
+        <tr id="zhcnNameInput" {{^isOpenLang}} style="display: none"{{/isOpenLang}}>
+            <th><span class="title">{{lang.dept_name}} ({{lang.locale_zhcn}})</span></th>
+            <td>
+                <span class="user_data editable" data-formname="zhcnName" data-value="{{additions.zhcnName}}">
+                    <span id="data">{{additions.zhcnName}}</span>
+                    <span class="btn_box" data-btntype="changeform">
+                        <span class="ic ic_edit" title="{{lang.edit}}"></span>
+                    </span>
+                </span>
+            </td>
+        </tr>
+        {{/isZhcnLocale}}
+        {{^isZhtwLocale}}
+        <tr id="zhtwNameInput" {{^isOpenLang}} style="display: none"{{/isOpenLang}}>
+            <th><span class="title">{{lang.dept_name}} ({{lang.locale_zhtw}})</span></th>
+            <td>
+                <span class="user_data editable" data-formname="zhtwName" data-value="{{additions.zhtwName}}">
+                    <span id="data">{{additions.zhtwName}}</span>
+                    <span class="btn_box" data-btntype="changeform">
+                        <span class="ic ic_edit" title="{{lang.edit}}"></span>
+                    </span>
+                </span>
+            </td>
+        </tr>
+        {{/isZhtwLocale}}
+		{{^isViLocale}}
+		<tr id="viNameInput" {{^isOpenLang}} style="display: none"{{/isOpenLang}}>
+			<th><span class="title">{{lang.dept_name}} ({{lang.locale_vi}})</span></th>
+			<td>
+                <span class="user_data editable" data-formname="viName" data-value="{{additions.viName}}">
+                    <span id="data">{{additions.viName}}</span>
+                    <span class="btn_box" data-btntype="changeform">
+                        <span class="ic ic_edit" title="{{lang.edit}}"></span>
+                    </span>
+                </span>
+			</td>
+		</tr>
+		{{/isViLocale}}
+		<tr>
+			<th>
+				<span class="title">
+					{{lang.dept_mail_id}}
+				<span class="wrap_ic_s">
+					<span class="help"><span class="tool_tip">{{{lang.dept_mail_id_desc}}}<i class="tail_left"></i></span></span>
+				</span>
+				</span>
+			</th>
+			<td>
+				<span class="user_data editable" data-formname="emailId" data-value="{{data.emailId}}">
+					<span id="data">{{data.emailId}}{{^data.emailId}}{{lang.none}}{{/data.emailId}}</span><span class="btn_box" data-btntype="changeform"><span class="ic ic_edit" title="{{lang.edit}}"></span></span></span>
+				<span class="go_alert" id="deptDetailEmailValidate"></span>
+			</td>
+		</tr>
+		<tr>
+			<th>
+				<span class="title">{{lang.dept_code}}
+					<span class="wrap_ic_s">
+					<span class="help"><span class="tool_tip">{{{lang.dept_code_desc}}}<i class="tail_left"></i></span></span>
+				</span>
+				</span>
+			</th>
+			<td>
+				<span class="user_data editable" data-formname="code" data-value="{{data.code}}">
+					<span id="data">{{data.code}}{{^data.code}}{{lang.none}}{{/data.code}}</span><span class="btn_box" data-btntype="changeform"><span class="ic ic_edit" title="{{lang.edit}}"></span></span></span>
+				<span class="go_alert" id="deptDetailCodeValidate"></span>
+			</td>
+		</tr>
+		{{#hasApprovalServicePack}}
+		<tr>
+			<th>
+				<span class="title">{{lang.dept_alias}}
+					<span class="wrap_ic_s">
+						<span class="help"><span class="tool_tip">{{{lang.dept_alias_desc}}}<i class="tail_left"></i></span></span>
+					</span>
+				</span>
+			</th>
+			<td>
+				<span class="user_data editable" data-formname="deptAlias" data-value="{{data.deptAlias}}">
+					<span id="data">{{data.deptAlias}}{{^data.deptAlias}}{{lang.none}}{{/data.deptAlias}}</span><span class="btn_box" data-btntype="changeform"><span class="ic ic_edit" title="{{lang.edit}}"></span></span></span>
+				<span class="go_alert" id="deptDetailAliasValidate"></span>
+			</td>
+		</tr>
+		{{/hasApprovalServicePack}}
+		<tr>
+			<th><span class="title">{{lang.created_at}}</span></th>
+			<td>
+				<span class="user_data">
+					{{dateformat}}
+				</span>
+			</td>
+		</tr>
+		<tr>
+			<th><span class="title">{{lang.used_total}}</span></th>
+			<td>
+				<span class="user_data">
+					{{total}} {{lang.mb}}
+				</span>
+			</td>
+		</tr>
+		<tr>
+			<th><span class="title">{{lang.parent_dept}}</span></th>
+			<td>
+				{{#data.parent}}
+				<ul class="name_tag">										
+				<li>
+					<a data-type="move_upper" data-id="{{data.parent.id}}" data-root="{{data.parent.isRoot}}"data-bypass>
+						<span class="name">
+							{{data.parent.name}} {{#data.parent.masterName}} - {{data.parent.masterName}}{{/data.parent.masterName}}
+						</span>
+					</a>
+				</li>
+				</ul>
+				{{/data.parent}}
+				{{^data.parent}}
+				<span class="user_data">{{lang.none}}</span>
+				{{/data.parent}}
+				
+			</td>
+		</tr>
+		<tr class="last">
+			<th><span class="title">{{lang.child_dept}}</span></th>
+			<td>
+				<ul class="name_tag">										
+				{{#data.children}}
+				<li>
+					<a data-type="move_dept" data-id="{{id}}" data-bypass><span class="name">{{name}} {{#hasMasterName}}- {{masterName}}{{/hasMasterName}}</span></a>
+				</li>
+				{{/data.children}}
+				</ul>
+				{{^data.children}}
+				<span class="user_data">{{lang.none}}</span>
+				{{/data.children}}
+			</td>
+		</tr>
+		</tbody>
+</table>
+<div class="page_action">
+	<span id="btnActionGroup" style="display:none">
+		<span id="btnPagePut" class="btn">{{lang.save}}</span>
+		<span id="btnPageReset" class="btn_nega">{{lang.cancel}}</span>
+	</span>
+</div>
+</div>

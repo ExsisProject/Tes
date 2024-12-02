@@ -1,0 +1,72 @@
+<div class="tool_bar">
+    <div class="critical">
+
+        <span class="info_group">
+            <span class="tit">{{groupName}}</span>
+            <span class="txt">{{workingTimeRange}}</span>
+        </span>
+
+        <span class="btn_wrap">
+            <span class="ic ic_info btn-toggle-desc" title="근태 설명보기" id="timeline_info">
+                <span class="layer_tail tooltip-desc" el-backdrop="" style="display: none" id="timeline_info_desc">
+                    <i class="ic ic_tail"></i>
+                    <div>
+                        {{#groupDesc}}
+                            {{{groupDesc}}}<br><br>
+                        {{/groupDesc}}
+                        [{{TimelineLang.그룹 변경 내역}}]
+                        <br> <br>
+                        {{#groupHistories}}
+                         {{day}} : {{^isFlexibleWorkingType}} {{timelinGroup.thumbnailText}} {{/isFlexibleWorkingType}}
+                                    {{#isFlexibleWorkingType}} {{timelinGroup.name}} {{/isFlexibleWorkingType}}
+                        <br>
+                        {{/groupHistories}}
+
+                    </div>
+                    <div>
+                        {{TimelineLang.근태그룹설명1}}<br/>
+                        {{TimelineLang.근태그룹설명2}}<br/>
+                        {{TimelineLang.근태그룹설명3}}<br/>
+                    </div>
+                </span>
+            </span>
+        </span>
+    </div>
+    <div class="optional">
+        {{#canApplyOvertimeAppr}}
+        <a class="btn_tool" id="overtime" data-bypass="">
+            <span class="ic_toolbar doc"></span>
+            <span class="txt">{{TimelineLang.연장근무신청}}</span>
+        </a>
+        {{/canApplyOvertimeAppr}}
+        <a class="btn_tool" id="download" data-bypass="">
+            <span class="ic_toolbar download"></span>
+            <span class="txt">{{CommonLang.목록 다운로드}}</span>
+        </a>
+    </div>
+</div>
+<div class="wrap_ehr_data">
+    <div class="ehr_stat_data">
+        <p class="stat_tit">{{TimelineLang.이번주 누적}}</p>
+        <p class="stat_txt {{#isOverTotalWorkingTime}} caution {{/isOverTotalWorkingTime}}">{{weekTotalWorkingTime}}</p>
+    </div>
+    <span class="divide_bar"></span>
+    <div class="ehr_stat_data">
+        <p class="stat_tit">{{TimelineLang.이번주 초과}}</p>
+        <p class="stat_txt">{{weekExtensionWorkingTime}}</p>
+    </div>
+    <div class="ehr_stat_data">
+        <p class="stat_tit">{{TimelineLang.이번주 잔여}}</p>
+        <p class="stat_txt">{{weekRestWorkingTime}}</p>
+    </div>
+    <span class="divide_bar"></span>
+    <div class="ehr_stat_data month_data">
+        <p class="stat_tit">{{TimelineLang.이번달 누적}}</p>
+        <p class="stat_txt">{{monthTotalWorkingTime}}</p>
+    </div>
+    <div class="ehr_stat_data month_data">
+        <p class="stat_tit">{{TimelineLang.이번달 연장}}</p>
+        <p class="stat_txt">{{monthTotalApprovalTime}}</p>
+    </div>
+
+</div>

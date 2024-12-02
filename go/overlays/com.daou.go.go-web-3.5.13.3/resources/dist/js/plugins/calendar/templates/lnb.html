@@ -1,0 +1,37 @@
+<ul class="{{ul_classes}}">
+	{{#use_check_all?}}
+	<li class="star cb-check-all ui-state-disabled">
+		<p class="title">
+		<input type="checkbox" name="check_all" />
+		<label>
+			<span class="txt">{{label.all}}</span>
+		</label>
+		</p>
+	</li>
+	{{/use_check_all?}}
+	
+    {{#items}}
+    {{#.}}
+    <li class="{{li_classes}}" data-id="{{id}}">
+        <p class="title">
+            {{#checkbox?}}
+            <input id="{{name}}_{{value}}" class="normalmode" type="checkbox" name="{{name}}" value="{{value}}"{{#checked?}} checked="checked"{{/checked?}}{{#disabled?}} disabled="disabled"{{/disabled?}} {{&attrs}}/>
+            {{/checkbox?}}
+            {{#tags?}}
+                {{#.}}<span class="{{tag_classes}}"><span class="txt">{{tag_label}}</span></span>{{/.}}
+            {{/tags?}}
+            <label {{#checkbox?}}for="{{name}}_{{value}}"{{/checkbox?}}>
+            	<span class="txt" title="{{label}}">{{label}}</span>
+            </label>
+            {{#buttons?}}
+            <span class="btn_wrap">
+                {{#buttons}}
+                <span class="{{btn_classes}}"{{&attributes}}">{{btn_label}}</span>
+                {{/buttons}}
+            </span>
+            {{/buttons?}}
+        </p>
+    </li>
+    {{/.}}
+    {{/items}}
+</ul>

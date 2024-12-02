@@ -1,0 +1,35 @@
+<tbody>
+<tr>
+	<th>
+		<span class="title">{{lang.label_date}}</span>
+	</th>
+	<td>
+		<span class="wrap_date">
+			<input id="startDate" class="txt wfix_small txt_mini" type="text" readonly="readonly">
+			<span class="ic ic_calendar"></span>
+		</span>
+				<span class="date_wave">~</span>
+			<span class="wrap_date">
+			<input id="endDate" class="txt wfix_small txt_mini" type="text" readonly="readonly">
+			<span class="ic ic_calendar"></span>
+		</span>
+	</td>
+</tr>
+
+<tr>
+	<th>
+		<span class="title">{{lang.label_status}}</span>
+	</th>
+	<td>
+		<div class="mb_5 go_type_option" id="StatusBox">
+			<select class="select_status" id="AttendStatusSelect">
+				<option data-type="">{{lang.label_select}}</option>
+				{{#status}}
+				<option data-type="{{type}}" data-id="{{id}}" >{{name}}</option>
+				{{/status}}
+			</select>
+		</div>
+		<span class="txt">{{lang.label_delete_description}}</span>
+	</td>
+</tr>
+</tbody>

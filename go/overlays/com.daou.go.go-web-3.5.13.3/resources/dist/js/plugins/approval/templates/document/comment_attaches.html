@@ -1,0 +1,43 @@
+{{#hasFiles}}
+	<ul class="file_wrap origin">
+		{{#files}}
+		<li data-name="{{name}}" data-id="{{id}}" data-tmpname="{{path}}" data-size="{{size}}">
+			<span class="item_file">
+				<span class="ic_file ic_{{extention}}"></span>
+				<a href="{{^isBrowseByReference}}{{contextRoot}}api/approval/document/{{docId}}/comment/{{commentId}}/download/{{id}}{{/isBrowseByReference}}{{#isBrowseByReference}}{{contextRoot}}api/approval/document/{{docId}}/reference/{{originalDocId}}/comment/{{commentId}}/download/{{id}}{{/isBrowseByReference}}" data-bypass>
+					<span class="name">{{name}}</span>
+				</a>
+				<span class="size">({{humanSize}})</span>
+				{{#preview}}
+				<a href="javascript:;" class="btn_fn4 preview" data-bypass data-id="{{encrypt}}">
+					<span class="txt">{{lang.preview}}</span>
+				</a>
+				{{/preview}}
+				{{#download}}
+				<a title="" class="btn_fn4" href="{{^isBrowseByReference}}{{contextRoot}}api/approval/document/{{docId}}/comment/{{commentId}}/download/{{id}}{{/isBrowseByReference}}{{#isBrowseByReference}}{{contextRoot}}api/approval/document/{{docId}}/reference/{{originalDocId}}/comment/{{commentId}}/download/{{id}}{{/isBrowseByReference}}" data-bypass>
+					<span>
+						<span class="txt">{{lang.download}}</span>
+					</span>
+				</a>
+				{{/download}}
+			</span>
+		</li>
+		{{/files}}
+	</ul>
+{{/hasFiles}}
+{{#hasImages}}
+	<!-- 이미지 첨부 -->
+	<ul class="img_wrap origin">
+		{{#images}}
+		<li data-name="{{name}}" data-docId="{{docId}}" data-id="{{id}}" data-tmpname="{{path}}" data-size="{{size}}">
+			<span class="item_image">
+				<span class="thumb">
+					<a href="{{^isBrowseByReference}}{{contextRoot}}api/approval/document/{{docId}}/comment/{{commentId}}/download/{{id}}{{/isBrowseByReference}}{{#isBrowseByReference}}{{contextRoot}}api/approval/document/{{docId}}/reference/{{originalDocId}}/comment/{{commentId}}/download/{{id}}{{/isBrowseByReference}}" data-bypass class="fancybox-thumbs fancybox-button" data-fancybox-group="commentThumb_{{docId}}" title="{{name}}">
+						<img src="{{thumbSmall}}" alt="{{name}}"  />
+					</a>
+				</span>
+			</span>								
+		</li>		
+		{{/images}}											
+	</ul>	
+{{/hasImages}}

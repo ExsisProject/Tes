@@ -1,0 +1,57 @@
+<div class="critical">
+
+{{#data.approvable}}
+        <a id="actApprove" class="btn_major_s" data-role="button">
+            <span class="ic_toolbar agree"></span>
+            <span class="txt">{{lang.승인}}</span>
+        </a>
+        <a id="actReturn" class="btn_tool" data-role="button">
+			<span class="ic_toolbar return"></span>
+			<span class="txt">{{lang.반려}}</span>
+		</a>
+{{/data.approvable}}
+{{#data.retractable}}
+        <a id="actRetractable" class="btn_tool" data-role="button">
+            <span class="ic_toolbar cancel"></span>
+            <span class="txt">{{lang.공문 발송 취소}}</span>
+        </a>        
+{{/data.retractable}}
+{{#data.reRequestable}}
+        <a id="actReRequestable" class="btn_tool" data-role="button">
+            <span class="ic_toolbar approval"></span>
+            <span class="txt">{{lang.공문 재발송}}</span>
+        </a>
+{{/data.reRequestable}}
+
+		<a id="officialFlow" class="btn_tool" data-role="button">
+            <span class="ic_toolbar doc_official"></span>
+            <span class="txt">{{lang.공문서 수신처}}</span>
+        </a>
+        <a id="show_document_popup" class="btn_tool" data-role="button">
+            <span class="ic_toolbar source"></span>
+            <span class="txt">{{lang.원문 보기}}</span>
+        </a>
+</div>
+
+<ul class="optional">
+{{^isPopup}}
+ 	<li>
+ 		<a id="show_popup" class="btn_tool" data-role="button" >
+ 			<span class="ic_toolbar popup" title="{{lang.팝업보기}}"></span>
+			<span class="txt">{{lang.팝업보기}}</span>
+ 		</a>
+ 	</li>
+ 	<li>
+ 		<a id="act_list" class="btn_tool" data-role="button" >
+ 			<span class="ic_toolbar list" title="{{lang.목록}}"></span>
+            <span class="txt">{{lang.목록}}</span>
+ 		</a>
+ 	</li>
+{{/isPopup}}
+	<li>
+		<a id="doPrint" class="btn_tool" data-role="button">
+            <span class="ic_toolbar print" title="{{lang.인쇄}}"></span>
+            <span class="txt">{{lang.인쇄}}</span>
+		</a>
+	</li>
+</ul>

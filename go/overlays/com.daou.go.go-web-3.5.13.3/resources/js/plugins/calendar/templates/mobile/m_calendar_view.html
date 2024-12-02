@@ -1,0 +1,66 @@
+{{#dataset}}
+<div class="content">
+	<section class="classic_detail">
+		<header class="article_header calander_header">
+			<h2> 
+				{{#isPrivate}}
+				<span class="ic ic_lock"></span>
+				{{/isPrivate}}
+				<span class="txt">{{{summary}}}</span>
+			</h2>
+			<div class="article_wrap">
+				<span class="date">{{eventDateParse}}</span>
+                <a href="javascript:;" class="btn_share" id="copyUrl">
+                    <span class="ic ic_link"></span>
+                </a>
+			</div>
+		</header>
+		<dl class="list_type4">
+            {{#showAttendeesParse?}}
+			<dt><span class="txt">{{lang.attendees}}</span></dt>
+			<dd>
+				<ul class="name_tag">
+					{{{attendeesParse}}}					
+				</ul>
+			</dd>
+            {{/showAttendeesParse?}}
+			
+			<dt data-type="external" {{^hasExternal}}style="display:none"{{/hasExternal}}>
+				<span class="txt">{{lang.externalAttendees}}</span>
+			</dt>
+			<dd data-type="external" {{^hasExternal}}style="display:none"{{/hasExternal}}>
+				<ul class="name_tag">
+					{{{externalAttendees}}}					
+				</ul>
+			</dd>
+	
+		{{#locationCheck}}
+			<dt><span class="txt">{{lang.location}}</span></dt>
+			<dd>{{{location}}}</dd>
+		{{/locationCheck}}
+		{{#descriptionCheck}}
+			<dt><span class="txt">{{lang.content}}</span></dt>
+			<dd>{{{descriptionParse}}}</dd>
+		{{/descriptionCheck}}
+		{{#existReminders}}
+			<dt><span class="txt">{{lang.reminder}}</span></dt>
+			<dd>
+				<ul>
+					{{#reminders}}
+					<li>
+						<span class="txt">{{reminderParse}}</span>
+					</li>			
+					{{/reminders}}		
+				</ul>
+			</dd>
+		{{/existReminders}}
+		</dl>
+	</section>
+</div>
+<!-- >div class="tool_bar tool_bar_bottom">
+	<div class="optional">
+		{{#permission.update}}<a class="btn_tool" data-role="button" href="javascript:;" data-eventid="{{id}}" data-btntype="modify" data-bypass><span class="txt">{{lang.modify}}</span></a>{{/permission.update}}
+		{{#permission.delete}}<a class="btn_tool" data-role="button" href="javascript:;" data-btntype="delete" data-bypass><span class="txt_caution">{{lang.delete}}</span></a>{{/permission.delete}}
+	</div>
+</div-->
+{{/dataset}}

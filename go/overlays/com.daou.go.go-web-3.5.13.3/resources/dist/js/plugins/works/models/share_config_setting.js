@@ -1,0 +1,1 @@
+define("works/models/share_config_setting",function(require){return Backbone.Model.extend({defaults:{share:[],baseFilterConfig:[]},initialize:function(e){e=e||{},this.appletId=e.appletId},url:function(){return GO.contextRoot+"api/works/applets/"+this.appletId+"/settings/share"}})});

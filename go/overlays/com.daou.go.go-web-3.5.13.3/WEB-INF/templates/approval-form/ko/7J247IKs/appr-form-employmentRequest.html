@@ -1,0 +1,248 @@
+<meta name ="form:name" content="채용요청" folder-name="인사"/>
+<body id="go-approval-form">
+<span><div style="font-family:돋움;font-size:9pt;"><span> 
+ <table style="border: 0px solid rgb(0, 0, 0); width: 800px; font-family: malgun gothic,dotum,arial,tahoma; margin-top: 1px; border-collapse: collapse;"> 
+  <!-- Header --> 
+  <colgroup> 
+   <col width="310"> 
+   <col width="490"> 
+  </colgroup> 
+  <tbody> 
+   <tr> 
+    <td style="background: white; padding: 0px !important; border: 0px currentColor; height: 90px; text-align: center; color: black; font-size: 36px; font-weight: bold; vertical-align: middle;" colspan="2"> 인원 채용 요청 </td> 
+   </tr> 
+   <tr> 
+    <td style="background: white; padding: 0px !important; border: currentColor; text-align: left; color: black; font-size: 12px; font-weight: normal; vertical-align: top;"> 
+     <table style="border: 1px solid rgb(0, 0, 0); font-family: malgun gothic,dotum,arial,tahoma; margin-top: 1px; border-collapse: collapse;"> 
+      <!-- User --> 
+      <colgroup> 
+       <col width="90"> 
+       <col width="220"> 
+      </colgroup> 
+      <tbody> 
+       <tr> 
+        <td style="background: rgb(221, 221, 221); padding: 5px; border: 1px solid black; height: 18px; text-align: center; color: rgb(0, 0, 0); font-size: 12px; font-weight: bold; vertical-align: middle;"> 기안자 </td> 
+        <td style="background: rgb(255, 255, 255); padding: 5px; border: 1px solid black; text-align: left; color: rgb(0, 0, 0); font-size: 12px; font-weight: normal; vertical-align: middle;"><span data-type="system" data-dsl="{{label:draftUser}}" data-id="draftUser" data-name="draftUser" data-value="" data-require="false" data-maxlength="" data-width="" data-defaultstr="" data-editable="true"></span> </td> 
+       </tr> 
+       <tr> 
+        <td style="background: rgb(221, 221, 221); padding: 5px; border: 1px solid black; height: 18px; text-align: center; color: rgb(0, 0, 0); font-size: 12px; font-weight: bold; vertical-align: middle;"> 소속 </td> 
+        <td style="background: rgb(255, 255, 255); padding: 5px; border: 1px solid black; text-align: left; color: rgb(0, 0, 0); font-size: 12px; font-weight: normal; vertical-align: middle;"><span data-type="system" data-dsl="{{label:draftDept}}" data-id="draftDept" data-name="draftDept" data-value="" data-require="false" data-maxlength="" data-width="" data-defaultstr="" data-editable="true"></span> </td> 
+       </tr> 
+       <tr> 
+        <td style="background: rgb(221, 221, 221); padding: 5px; border: 1px solid black; height: 18px; text-align: center; color: rgb(0, 0, 0); font-size: 12px; font-weight: bold; vertical-align: middle;"> 기안일 </td> 
+        <td style="background: rgb(255, 255, 255); padding: 5px; border: 1px solid black; text-align: left; color: rgb(0, 0, 0); font-size: 12px; font-weight: normal; vertical-align: middle;"><span data-type="system" data-dsl="{{label:draftDate}}" data-id="draftDate" data-name="draftDate" data-value="" data-require="false" data-maxlength="" data-width="" data-defaultstr="" data-editable="true"></span> </td> 
+       </tr> 
+       <tr> 
+        <td style="background: rgb(221, 221, 221); padding: 5px; border: 1px solid black; height: 18px; text-align: center; color: rgb(0, 0, 0); font-size: 12px; font-weight: bold; vertical-align: middle;"> 문서번호 </td> 
+        <td style="background: rgb(255, 255, 255); padding: 5px; border: 1px solid black; text-align: left; color: rgb(0, 0, 0); font-size: 12px; font-weight: normal; vertical-align: middle;"><span data-type="system" data-dsl="{{label:docNo}}" data-id="docNo" data-name="docNo" data-value="" data-require="false" data-maxlength="" data-width="" data-defaultstr="" data-editable="true"></span> </td> 
+       </tr> 
+      </tbody> 
+     </table> </td> 
+    <td style="background: white; padding: 0px !important; border: currentColor; text-align: right; color: black; font-size: 12px; font-weight: normal; vertical-align: top;"> 
+     <div class="sign_type1 sign_type_new" data-group-type="type1" data-group-max-count="1" data-group-name="신청" data-group-seq="0"> 
+      <table class="tb_sign_type1"> 
+       <tbody> 
+        <tr> 
+         <th>신청</th> 
+         <td> 
+          <table class="sign_member"> 
+           <tbody> 
+            <tr> 
+             <td><span class="sign_rank"></span></td> 
+            </tr> 
+            <tr> 
+             <td><span class="sign_name" id="status_"></span></td> 
+            </tr> 
+            <tr> 
+             <td class="last"><span class="sign_date" id="date_"></span></td> 
+            </tr> 
+           </tbody> 
+          </table></td> 
+        </tr> 
+       </tbody> 
+      </table> 
+     </div> 
+     <div class="sign_type1 sign_type_new" data-group-type="type1" data-group-max-count="7" data-group-name="승인" data-group-seq="1"> 
+      <table class="tb_sign_type1"> 
+       <tbody> 
+        <tr> 
+         <th>승인</th> 
+         <td> 
+          <table class="sign_member"> 
+           <tbody> 
+            <tr> 
+             <td><span class="sign_rank"></span></td> 
+            </tr> 
+            <tr> 
+             <td><span class="sign_name" id="status_"></span></td> 
+            </tr> 
+            <tr> 
+             <td class="last"><span class="sign_date" id="date_"></span></td> 
+            </tr> 
+           </tbody> 
+          </table></td> 
+         <td> 
+          <table class="sign_member"> 
+           <tbody> 
+            <tr> 
+             <td><span class="sign_rank"></span></td> 
+            </tr> 
+            <tr> 
+             <td><span class="sign_name" id="status_"></span></td> 
+            </tr> 
+            <tr> 
+             <td class="last"><span class="sign_date" id="date_"></span></td> 
+            </tr> 
+           </tbody> 
+          </table></td> 
+         <td> 
+          <table class="sign_member"> 
+           <tbody> 
+            <tr> 
+             <td><span class="sign_rank"></span></td> 
+            </tr> 
+            <tr> 
+             <td><span class="sign_name" id="status_"></span></td> 
+            </tr> 
+            <tr> 
+             <td class="last"><span class="sign_date" id="date_"></span></td> 
+            </tr> 
+           </tbody> 
+          </table></td> 
+         <td> 
+          <table class="sign_member"> 
+           <tbody> 
+            <tr> 
+             <td><span class="sign_rank"></span></td> 
+            </tr> 
+            <tr> 
+             <td><span class="sign_name" id="status_"></span></td> 
+            </tr> 
+            <tr> 
+             <td class="last"><span class="sign_date" id="date_"></span></td> 
+            </tr> 
+           </tbody> 
+          </table></td> 
+         <td> 
+          <table class="sign_member"> 
+           <tbody> 
+            <tr> 
+             <td><span class="sign_rank"></span></td> 
+            </tr> 
+            <tr> 
+             <td><span class="sign_name" id="status_"></span></td> 
+            </tr> 
+            <tr> 
+             <td class="last"><span class="sign_date" id="date_"></span></td> 
+            </tr> 
+           </tbody> 
+          </table></td> 
+         <td> 
+          <table class="sign_member"> 
+           <tbody> 
+            <tr> 
+             <td><span class="sign_rank"></span></td> 
+            </tr> 
+            <tr> 
+             <td><span class="sign_name" id="status_"></span></td> 
+            </tr> 
+            <tr> 
+             <td class="last"><span class="sign_date" id="date_"></span></td> 
+            </tr> 
+           </tbody> 
+          </table></td> 
+         <td> 
+          <table class="sign_member"> 
+           <tbody> 
+            <tr> 
+             <td><span class="sign_rank"></span></td> 
+            </tr> 
+            <tr> 
+             <td><span class="sign_name" id="status_"></span></td> 
+            </tr> 
+            <tr> 
+             <td class="last"><span class="sign_date" id="date_"></span></td> 
+            </tr> 
+           </tbody> 
+          </table></td> 
+        </tr> 
+       </tbody> 
+      </table> 
+     </div> 
+     </td> 
+   </tr> 
+  </tbody> 
+ </table> 
+ <table style="border: 0px solid rgb(0, 0, 0); width: 800px; font-family: malgun gothic,dotum,arial,tahoma; margin-top: 10px; border-collapse: collapse;"> 
+  <!-- Data1 --> 
+  <colgroup> 
+   <col width="140"> 
+   <col width="110"> 
+   <col width="550"> 
+  </colgroup> 
+  <tbody> 
+   <tr> 
+    <td style="background: rgb(221, 221, 221); padding: 5px; border: 1px solid black; height: 25px; text-align: center; color: rgb(0, 0, 0); font-size: 14px; font-weight: bold; vertical-align: middle;"> 채용사유 </td> 
+    <td style="background: rgb(255, 255, 255); padding: 5px; border: 1px solid black; text-align: left; color: rgb(0, 0, 0); font-size: 14px; font-weight: normal; vertical-align: middle;" colspan="2"><span data-type="radio" data-dsl="{{radio_신규충원_조직개편_신규사업_단기작업_결원발생}}" data-id="" data-name="" data-label="" data-value="" data-select="" data-autotype="false" data-require="false"></span><span class="editor_num" data-type="num" data-dsl="{{number}}" data-id="" data-name="" data-value="" data-require="false" data-maxlength="" data-width="" data-defaultstr="" data-editable="true"></span> </td> 
+   </tr> 
+   <tr> 
+    <td style="background: rgb(221, 221, 221); padding: 5px; border: 1px solid black; height: 25px; text-align: center; color: rgb(0, 0, 0); font-size: 14px; font-weight: bold; vertical-align: middle;"> 채용구분 </td> 
+    <td style="background: rgb(255, 255, 255); padding: 5px; border: 1px solid black; text-align: left; color: rgb(0, 0, 0); font-size: 14px; font-weight: normal; vertical-align: middle;" colspan="2"><span data-type="radio" data-dsl="{{radio_정규직_계약직_파견직_아르바이트}}" data-id="" data-name="" data-label="" data-value="" data-select="" data-autotype="false" data-require="false"></span> </td> 
+   </tr> 
+   <tr> 
+    <td style="background: rgb(221, 221, 221); padding: 5px; border: 1px solid black; height: 25px; text-align: center; color: rgb(0, 0, 0); font-size: 14px; font-weight: bold; vertical-align: middle;"> 근무기간 </td> 
+    <td style="background: rgb(255, 255, 255); padding: 5px; border: 1px solid black; text-align: left; color: rgb(0, 0, 0); font-size: 14px; font-weight: normal; vertical-align: middle;" colspan="2"><span data-type="period" data-dsl="{{period}}" data-id="" data-name="" data-value=""></span> </td> 
+   </tr> 
+   <tr> 
+    <td style="background: rgb(221, 221, 221); padding: 5px; border: 1px solid black; text-align: center; color: rgb(0, 0, 0); font-size: 14px; font-weight: bold; vertical-align: middle;" rowspan="6"> 인력사항 </td> 
+    <td style="background: rgb(221, 221, 221); padding: 5px; border: 1px solid black; height: 25px; text-align: center; color: rgb(0, 0, 0); font-size: 14px; font-weight: normal; vertical-align: middle;"> 경력 </td> 
+    <td style="background: rgb(255, 255, 255); padding: 5px; border: 1px solid black; text-align: left; color: rgb(0, 0, 0); font-size: 14px; font-weight: normal; vertical-align: middle;"><span data-type="radio" data-dsl="{{radio_신입_경력_무관}}" data-id="" data-name="" data-label="" data-value="" data-select="" data-autotype="false" data-require="false"></span> </td> 
+   </tr> 
+   <tr> 
+    <td style="background: rgb(221, 221, 221); padding: 5px; border: 1px solid black; height: 25px; text-align: center; color: rgb(0, 0, 0); font-size: 14px; font-weight: normal; vertical-align: middle;"> 성별 </td> 
+    <td style="background: rgb(255, 255, 255); padding: 5px; border: 1px solid black; text-align: left; color: rgb(0, 0, 0); font-size: 14px; font-weight: normal; vertical-align: middle;"><span data-type="radio" data-dsl="{{radio_남_여_무관}}" data-id="" data-name="" data-label="" data-value="" data-select="" data-autotype="false" data-require="false"></span> </td> 
+   </tr> 
+   <tr> 
+    <td style="background: rgb(221, 221, 221); padding: 5px; border: 1px solid black; height: 25px; text-align: center; color: rgb(0, 0, 0); font-size: 14px; font-weight: normal; vertical-align: middle;"> 직책 </td> 
+    <td style="background: rgb(255, 255, 255); padding: 5px; border: 1px solid black; text-align: left; color: rgb(0, 0, 0); font-size: 14px; font-weight: normal; vertical-align: middle;"><span data-type="text" data-dsl="{{text}}" data-id="" data-name="" data-value="" data-require="false" data-maxlength="" data-width="" data-defaultstr="" data-editable="true"></span> </td> 
+   </tr> 
+   <tr> 
+    <td style="background: rgb(221, 221, 221); padding: 5px; border: 1px solid black; height: 25px; text-align: center; color: rgb(0, 0, 0); font-size: 14px; font-weight: normal; vertical-align: middle;"> 직급 </td> 
+    <td style="background: rgb(255, 255, 255); padding: 5px; border: 1px solid black; text-align: left; color: rgb(0, 0, 0); font-size: 14px; font-weight: normal; vertical-align: middle;"><span data-type="text" data-dsl="{{text}}" data-id="" data-name="" data-value="" data-require="false" data-maxlength="" data-width="" data-defaultstr="" data-editable="true"></span> </td> 
+   </tr> 
+   <tr> 
+    <td style="background: rgb(221, 221, 221); padding: 5px; border: 1px solid black; height: 25px; text-align: center; color: rgb(0, 0, 0); font-size: 14px; font-weight: normal; vertical-align: middle;"> 직무 </td> 
+    <td style="background: rgb(255, 255, 255); padding: 5px; border: 1px solid black; text-align: left; color: rgb(0, 0, 0); font-size: 14px; font-weight: normal; vertical-align: middle;"><span data-type="text" data-dsl="{{text}}" data-id="" data-name="" data-value="" data-require="false" data-maxlength="" data-width="" data-defaultstr="" data-editable="true"></span> </td> 
+   </tr> 
+   <tr> 
+    <td style="background: rgb(221, 221, 221); padding: 5px; border: 1px solid black; height: 25px; text-align: center; color: rgb(0, 0, 0); font-size: 14px; font-weight: normal; vertical-align: middle;"> 담당업무 </td> 
+    <td style="background: rgb(255, 255, 255); padding: 5px; border: 1px solid black; text-align: left; color: rgb(0, 0, 0); font-size: 14px; font-weight: normal; vertical-align: middle;"><span data-type="text" data-dsl="{{text}}" data-id="" data-name="" data-value="" data-require="false" data-maxlength="" data-width="" data-defaultstr="" data-editable="true"></span> </td> 
+   </tr> 
+   <tr> 
+    <td style="background: rgb(221, 221, 221); padding: 5px; border: 1px solid black; text-align: center; color: rgb(0, 0, 0); font-size: 14px; font-weight: bold; vertical-align: middle;" rowspan="5"> 자격요건 및<br>우대사항 </td> 
+    <td style="background: rgb(221, 221, 221); padding: 5px; border: 1px solid black; height: 25px; text-align: center; color: rgb(0, 0, 0); font-size: 14px; font-weight: normal; vertical-align: middle;"> 학력 </td> 
+    <td style="background: rgb(255, 255, 255); padding: 5px; border: 1px solid black; text-align: left; color: rgb(0, 0, 0); font-size: 14px; font-weight: normal; vertical-align: middle;"><span data-type="text" data-dsl="{{text}}" data-id="" data-name="" data-value="" data-require="false" data-maxlength="" data-width="" data-defaultstr="" data-editable="true"></span> </td> 
+   </tr> 
+   <tr> 
+    <td style="background: rgb(221, 221, 221); padding: 5px; border: 1px solid black; height: 25px; text-align: center; color: rgb(0, 0, 0); font-size: 14px; font-weight: normal; vertical-align: middle;"> 전공 </td> 
+    <td style="background: rgb(255, 255, 255); padding: 5px; border: 1px solid black; text-align: left; color: rgb(0, 0, 0); font-size: 14px; font-weight: normal; vertical-align: middle;"><span data-type="text" data-dsl="{{text}}" data-id="" data-name="" data-value="" data-require="false" data-maxlength="" data-width="" data-defaultstr="" data-editable="true"></span> </td> 
+   </tr> 
+   <tr> 
+    <td style="background: rgb(221, 221, 221); padding: 5px; border: 1px solid black; height: 25px; text-align: center; color: rgb(0, 0, 0); font-size: 14px; font-weight: normal; vertical-align: middle;"> 필요경력 </td> 
+    <td style="background: rgb(255, 255, 255); padding: 5px; border: 1px solid black; text-align: left; color: rgb(0, 0, 0); font-size: 14px; font-weight: normal; vertical-align: middle;"><span data-type="text" data-dsl="{{text}}" data-id="" data-name="" data-value="" data-require="false" data-maxlength="" data-width="" data-defaultstr="" data-editable="true"></span> </td> 
+   </tr> 
+   <tr> 
+    <td style="background: rgb(221, 221, 221); padding: 5px; border: 1px solid black; height: 25px; text-align: center; color: rgb(0, 0, 0); font-size: 14px; font-weight: normal; vertical-align: middle;"> 자격사항 </td> 
+    <td style="background: rgb(255, 255, 255); padding: 5px; border: 1px solid black; text-align: left; color: rgb(0, 0, 0); font-size: 14px; font-weight: normal; vertical-align: middle;"><span data-type="text" data-dsl="{{text}}" data-id="" data-name="" data-value="" data-require="false" data-maxlength="" data-width="" data-defaultstr="" data-editable="true"></span> </td> 
+   </tr> 
+   <tr> 
+    <td style="background: rgb(221, 221, 221); padding: 5px; border: 1px solid black; height: 25px; text-align: center; color: rgb(0, 0, 0); font-size: 14px; font-weight: normal; vertical-align: middle;"> 우대사항 </td> 
+    <td style="background: rgb(255, 255, 255); padding: 5px; border: 1px solid black; text-align: left; color: rgb(0, 0, 0); font-size: 14px; font-weight: normal; vertical-align: middle;"><span data-type="text" data-dsl="{{text}}" data-id="" data-name="" data-value="" data-require="false" data-maxlength="" data-width="" data-defaultstr="" data-editable="true"></span> </td> 
+   </tr> 
+   <tr> 
+    <td style="background: rgb(221, 221, 221); padding: 5px; border: 1px solid black; height: 25px; text-align: center; color: rgb(0, 0, 0); font-size: 14px; font-weight: bold; vertical-align: middle;"> 기타 </td> 
+    <td style="background: rgb(255, 255, 255); border-width: medium 1px 1px; border-style: none solid solid; border-color: currentColor black black; padding: 5px; text-align: left; color: rgb(0, 0, 0); font-size: 14px; font-weight: normal; vertical-align: middle;" colspan="2"><span data-type="text" data-dsl="{{text}}" data-id="" data-name="" data-value="" data-require="false" data-maxlength="" data-width="" data-defaultstr="" data-editable="true"></span> </td> 
+   </tr> 
+  </tbody> 
+ </table> <br><br> </span></div></span>
+</body>

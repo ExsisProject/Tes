@@ -1,0 +1,26 @@
+<form onsubmit="return false;">
+	<div class="list_wrap div_scroll">
+		<ul class="side_depth mail_folder">
+			<li class="folder_sys">
+				<p class="title">
+					<a><ins class="ic"></ins><span class="txt">{{deptName}}</span></a>
+				</p>
+				<ul>
+					{{#dataset}}
+					<li class="folder">
+						<p class="title folder">
+							<a><ins class="ic"></ins><span class="txt" data-folderId="{{folderId}}">{{folderName}}</span></a>
+						</p>
+					</li>
+					{{/dataset}}
+				</ul>
+				{{^dataset}}
+				<p class="title">
+					<ins class="ic"></ins><span class="txt">{{lang.문서함이 없습니다}}</span>
+				</p>
+				{{/dataset}}
+			</li>
+		</ul>
+	</div>	
+	<div id="deptFolderError"></div>
+</form>

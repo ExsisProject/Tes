@@ -1,0 +1,288 @@
+{
+	"meta": {
+		"key": "0e9e192a-930f-4ac6-848f-d2e302969ea0",
+		"base": {
+			"name": "applet.postal.manage.template.name",
+			"desc": "applet.postal.manage.template.desc",
+			"icon": "ic_app9.png"
+		},
+		"exporter": {
+			"name": "관리자",
+			"companyName": "다우기술"
+		}
+	},
+	"components": {
+		"view": {
+			"charts": [],
+			"columns": [{
+				"fieldCid": "status",
+				"columnName": "{{applet.new.template.col.status}}"
+			}, {
+				"fieldCid": "_h69s2bffn"
+			}, {
+				"fieldCid": "_uzoddrjly"
+			}, {
+				"fieldCid": "_p7s2xczc0"
+			}, {
+				"fieldCid": "_x7tctazbs"
+			}, {
+				"fieldCid": "create_date",
+				"columnName": "{{applet.new.template.col.createdat}}"
+			}],
+			"titleColumnIndex": 2,
+			"sortColumnIndex": 5,
+			"sortDirection": "DESC"
+		},
+		"form": {
+			"data": {
+				"type": "canvas",
+				"multiple": false,
+				"cid": "cxx1",
+				"components": [{
+					"type": "label",
+					"multiple": false,
+					"cid": "_5pae6t9p0",
+					"parentCid": "cxx1",
+					"properties": {
+						"label": "※ 접수된 우편/택배를 수령한 경우, 상태를 변경해주세요. "
+					},
+					"components": []
+				}, {
+					"type": "columns",
+					"multiple": false,
+					"cid": "_ljtpsps13",
+					"parentCid": "cxx1",
+					"properties": {
+						"count": 2
+					},
+					"components": [{
+						"type": "column",
+						"multiple": false,
+						"cid": "_7re294d86",
+						"parentCid": "_ljtpsps13",
+						"properties": {},
+						"components": [{
+							"type": "select",
+							"valueType": "SELECT",
+							"multiple": false,
+							"cid": "_h69s2bffn",
+							"parentCid": "_7re294d86",
+							"properties": {
+								"label": "구분",
+								"hideLabel": false,
+								"guide": "",
+								"guideAsTooltip": true,
+								"required": false,
+								"items": [{
+									"value": "0",
+									"displayText": "일반 우편",
+									"selected": true
+								}, {
+									"value": "1",
+									"displayText": "등기",
+									"selected": false
+								}, {
+									"value": "2",
+									"displayText": "소포/택배",
+									"selected": false
+								}, {
+									"value": 3,
+									"displayText": "퀵",
+									"selected": false
+								}]
+							},
+							"components": []
+						}]
+					}, {
+						"type": "column",
+						"multiple": false,
+						"cid": "_03zpnaylf",
+						"parentCid": "_ljtpsps13",
+						"properties": {},
+						"components": [{
+							"type": "datetime",
+							"valueType": "DATETIME",
+							"multiple": false,
+							"cid": "_p7s2xczc0",
+							"parentCid": "_03zpnaylf",
+							"properties": {
+								"label": "도착시간",
+								"hideLabel": false,
+								"guide": "",
+								"guideAsTooltip": true,
+								"required": false,
+								"defaultAsNow": true,
+								"defaultDate": "",
+								"defaultTime": "00:00"
+							},
+							"components": []
+						}]
+					}]
+				}, {
+					"type": "columns",
+					"multiple": false,
+					"cid": "_pa9si0n31",
+					"parentCid": "cxx1",
+					"properties": {
+						"count": 2
+					},
+					"components": [{
+						"type": "column",
+						"multiple": false,
+						"cid": "_rupyhsw94",
+						"parentCid": "_pa9si0n31",
+						"properties": {},
+						"components": [{
+							"type": "org",
+							"valueType": "USERS",
+							"multiple": false,
+							"cid": "_uzoddrjly",
+							"parentCid": "_rupyhsw94",
+							"properties": {
+								"label": "수신인",
+								"hideLabel": false,
+								"guide": "",
+								"guideAsTooltip": true,
+								"required": false,
+								"noLimit": true,
+								"useDefaultRegister": false,
+								"allowMemberCount": "1",
+								"members": []
+							},
+							"components": []
+						}]
+					}, {
+						"type": "column",
+						"multiple": false,
+						"cid": "_y512dj373",
+						"parentCid": "_pa9si0n31",
+						"properties": {},
+						"components": [{
+							"type": "text",
+							"valueType": "STEXT",
+							"multiple": false,
+							"cid": "_x7tctazbs",
+							"parentCid": "_y512dj373",
+							"properties": {
+								"label": "발신인 / 발신 장소",
+								"hideLabel": false,
+								"guide": "",
+								"guideAsTooltip": true,
+								"required": false,
+								"defaultValue": "",
+								"minLength": 0,
+								"maxLength": 100,
+								"width": 100,
+								"widthUnit": "percent",
+								"format": "all"
+							},
+							"components": []
+						}]
+					}]
+				}, {
+					"type": "textarea",
+					"valueType": "TEXT",
+					"multiple": false,
+					"cid": "_nh6j9c80v",
+					"parentCid": "cxx1",
+					"properties": {
+						"label": "특이사항",
+						"hideLabel": false,
+						"guide": "",
+						"guideAsTooltip": true,
+						"required": false,
+						"defaultValue": "",
+						"width": 100,
+						"widthUnit": "percent",
+						"rows": 10
+					},
+					"components": []
+				}, {
+					"type": "org",
+					"valueType": "USERS",
+					"multiple": false,
+					"cid": "_z061zrnzb",
+					"parentCid": "cxx1",
+					"properties": {
+						"label": "접수자",
+						"hideLabel": false,
+						"guide": "",
+						"guideAsTooltip": true,
+						"required": false,
+						"noLimit": true,
+						"useDefaultRegister": true,
+						"allowMemberCount": "1",
+						"members": []
+					},
+					"components": []
+				}]
+			}
+		},
+		"process": {
+			"useProcess": true,
+			"statuses": [{
+				"name": "{{applet.postal.template.status.reception}}",
+				"start": true,
+				"doing": false,
+				"end": false,
+				"color": "0"
+			}, {
+				"name": "{{applet.postal.template.status.delivery}}",
+				"start": false,
+				"doing": false,
+				"end": true,
+				"color": "0"
+			}, {
+				"name": "{{applet.postal.template.status.returned}}",
+				"start": false,
+				"doing": false,
+				"end": true,
+				"color": "0"
+			}],
+			"transitions": [{
+				"beforeStatus": "{{applet.postal.template.status.reception}}",
+				"nextStatus": "{{applet.postal.template.status.delivery}}",
+				"actionName": "{{applet.postal.template.action.delivery}}",
+				"actionRoles": ["REGISTRANT", "ADMIN"],
+				"pushRoles": []
+			}, {
+				"beforeStatus": "{{applet.postal.template.status.delivery}}",
+				"nextStatus": "{{applet.postal.template.status.returned}}",
+				"actionName": "{{applet.postal.template.action.returned}}",
+				"actionRoles": ["REGISTRANT", "ADMIN"],
+				"pushRoles": []
+			}, {
+				"beforeStatus": "{{applet.postal.template.status.delivery}}",
+				"nextStatus": "{{applet.postal.template.status.reception}}",
+				"actionName": "{{applet.postal.template.action.reception}}",
+				"actionRoles": ["REGISTRANT", "ADMIN"],
+				"pushRoles": []
+			}, {
+				"beforeStatus": "{{applet.postal.template.status.returned}}",
+				"nextStatus": "{{applet.postal.template.status.reception}}",
+				"actionName": "{{applet.postal.template.action.reception}}",
+				"actionRoles": ["REGISTRANT", "ADMIN"],
+				"pushRoles": []
+			}],
+			"addPushes": []
+		}
+	},
+	"messageKeys": [
+		"applet.postal.template.status.reception",
+		"applet.postal.template.status.delivery",
+		"applet.postal.template.status.returned",
+		"applet.postal.template.action.delivery",
+		"applet.postal.template.action.returned",
+		"applet.postal.template.action.reception",
+		"applet.new.template.col.status",
+		"applet.new.template.col.createdat"
+	],
+	"guide" : {
+		"contents" : "applet.postal.manage.template.guide.content",
+		"imageFiles" : [
+			"9_mailParcelReceiptManagement/9_01.png",
+			"9_mailParcelReceiptManagement/9_02.png",
+			"9_mailParcelReceiptManagement/9_03.png"
+		]
+	}
+}

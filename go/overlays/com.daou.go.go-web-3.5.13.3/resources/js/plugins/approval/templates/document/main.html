@@ -1,0 +1,79 @@
+<header class="content_top">
+</header>
+<!-- 결재문서 상세-->
+<div class="content_page report_detail">
+    <!-- 툴바 -->
+    <div class="tool_bar">
+    </div>
+    <div class="wrap_container">
+	    <!-- 3단 레이아웃 멀티클래스 -->
+	    <section class="content_wrapper">
+            <!--전자결제 상세-->
+            <div class="report_type approval_type">
+            </div>
+	    </section>
+	    <!-- aside : right-->
+		<section class="aside_wrapper article_reply">
+	    	<div class="doc-meta-container reply_wrap">
+	    		<!--tab1 :  결재선 -->
+		        <header>
+		        	<div class="wrap_swipe">
+						<div id="prev" class="tab_control tab_btn_prev tab_disabled">
+							<span class="btn_wrap">
+								<span class="ic_prev" title="{{lang.이전}}"></span>
+							</span>
+						</div>
+						<div class="swipe">
+							<ul id="slideLayer" class="tab_nav tab_nav_approval" style="left:0">
+				                <li id="tab_apprflow" class="first on">
+				                    <span class="txt" title="{{lang.결재선}}">{{lang.결재선}}</span>
+				                </li>
+				                <li id="tab_docinfo">
+			                        <span class="txt" title="{{lang.문서정보}}">{{lang.문서정보}}</span>
+			                    </li>
+				                <li id="tab_dochistory">
+				                    <span class="txt" title="{{lang.변경이력}}">{{lang.변경이력}}</span>
+				                </li>
+				                <li id="tab_readerhistory">
+				                    <span class="txt" title="{{lang.열람기록}}">{{lang.열람기록}}</span>
+				                </li>
+				                <li id="tab_receptiondocument">
+				                    <span class="txt" title="{{lang.수신}}">{{lang.수신}}</span>
+				                </li>
+		                        <li id="tab_officialdocreceiver">
+		                            <span class="txt" title="{{lang.공문발송}}">{{lang.공문발송}}</span>
+		                        </li>
+				            </ul>
+						</div>
+						<div id="next" class="tab_control tab_btn_next">
+							<span class="btn_wrap">
+								<span class="ic_next" title="{{lang.다음}}"></span>
+							</span>
+						</div>
+					</div>
+		        </header>
+	    	</div>
+	    </section>
+
+	    <!--[if IE 8]>
+	    <style>
+	    	/* IE8 hack */
+			@media \0screen {
+				div.wrap_swipe div.tab_control {display: none!important}
+				div.wrap_swipe div.swipe {margin-left: 0!important}
+				div.wrap_swipe ul.tab_nav li {width: auto;}
+			} /* // IE8 hack */
+	    </style>
+	    <![endif]-->
+
+		<section class="article_reply"></section>
+    </div>
+	<div class="tool_bar">
+	</div>
+    <section class="tool_bar">
+		<ul class="critical">
+		</ul>
+		<ul class="optional">
+		</ul>
+	</section>
+</div>

@@ -1,0 +1,232 @@
+<!--기본 문서 생성시 메타정보를 통해 처리가 되므로 메타정보 수정시 확인후 변경 필요 -->
+<meta content="(신규)휴가신청-연차관리연동" folder-name="근태" name="form:name">
+<meta name="form:config" content="appr-form-halfVacationIntegration.json">
+
+<body id="go-approval-form">
+	<table class="__se_tbl" style="width: 800px; border-collapse: collapse !important; color: black; background: white; border: 0px solid black; font-size: 12px; font-family: malgun gothic,dotum,arial,tahoma;"><!-- Header -->
+		<tbody>
+			<tr>
+				<td style="width:300px; padding: 3px !important; border: 0px solid black; height: 90px !important; font-size: 22px; font-weight: bold; text-align: center; vertical-align: middle;" colspan="2" class="dext_table_border_t dext_table_border_r dext_table_border_b dext_table_border_l">연차신청서</td>
+			</tr>
+			<tr>
+				<td style="width:300px; border: 0; padding: 0 !important" class="dext_table_border_t dext_table_border_r dext_table_border_b dext_table_border_l">
+					<table class="__se_tbl" style="background: white; margin: 0px; border: 1px solid black; border-image: none; color: black; font-family: malgun gothic,dotum,arial,tahoma; font-size: 12px; border-collapse: collapse !important;"><!-- User -->
+						<tbody>
+							<tr>
+								<td style="width: 100px; height: 22px; vertical-align: middle; border: 1px solid black; text-align: center; font-weight: bold; background: rgb(221, 221, 221); padding: 3px !important;">기안자</td>
+								<td style="width: 200px; height: 22px; vertical-align: middle; border: 1px solid black; text-align: left; padding: 3px !important;">
+									<span data-type="system" data-dsl="{{label:draftUser}}" data-id="draftUser" data-name="draftUser" data-value="" data-require="false" data-maxlength="" data-width="" data-defaultstr="" data-editable="true"></span>
+								</td>
+							</tr>
+							<tr>
+								<td style="width:100px;padding: 3px !important; height: 22px; vertical-align: middle; border: 1px solid black; text-align: center; font-weight: bold; background: #ddd;">기안부서</td>
+								<td style="width:200px;padding: 3px !important; height: 22px; vertical-align: middle; border: 1px solid black; text-align: left;">
+									<span data-type="system" data-dsl="{{label:draftDept}}" data-id="draftDept" data-name="draftDept" data-value="" data-require="false" data-maxlength="" data-width="" data-defaultstr="" data-editable="true"></span>
+								</td>
+							</tr>
+							<tr>
+								<td style="width:100px;padding: 3px !important; height: 22px; vertical-align: middle; border: 1px solid black; text-align: center; font-weight: bold; background: #ddd;">기안일</td>
+								<td style="width:200px;padding: 3px !important; height: 22px; vertical-align: middle; border: 1px solid black; text-align: left;">
+									<span data-type="system" data-dsl="{{label:draftDate}}" data-id="draftDate" data-name="draftDate" data-value="" data-require="false" data-maxlength="" data-width="" data-defaultstr="" data-editable="true"></span>
+								</td>
+							</tr>
+							<tr>
+								<td style="width:100px;padding: 3px !important; height: 22px; vertical-align: middle; border: 1px solid black; text-align: center; font-weight: bold; background: #ddd;">문서번호</td>
+								<td style="width:200px;padding: 3px !important; height: 22px; vertical-align: middle; border: 1px solid black; text-align: left;">
+									<span data-type="system" data-dsl="{{label:docNo}}" data-id="docNo" data-name="docNo" data-value="" data-require="false" data-maxlength="" data-width="" data-defaultstr="" data-editable="true"></span>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+				<td style="width: 500px; text-align: right; padding: 0px!important; border: 0!important; vertical-align: top !important" class="dext_table_border_t dext_table_border_r dext_table_border_b dext_table_border_l">
+					<!-- 결재선 기본값으로 신청 1명, 승인 7명으로 설정-->
+					<div class="sign_type1 sign_type_new" data-group-type="type1" data-group-max-count="1" data-group-name="신청" data-group-seq="0">
+						<table class="tb_sign_type1">
+							<tbody>
+								<tr>
+									<th>신청</th>
+									<td>
+										<table class="sign_member">
+											<tbody>
+												<tr>
+													<td><span class="sign_rank"></span></td>
+												</tr>
+												<tr>
+													<td><span class="sign_name" id="status_"></span></td>
+												</tr>
+												<tr>
+													<td class="last"><span class="sign_date" id="date_"></span></td>
+												</tr>
+											</tbody>
+										</table>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div class="sign_type1 sign_type_new" data-group-type="type1" data-group-max-count="7" data-group-name="승인" data-group-seq="1">
+						<table class="tb_sign_type1">
+							<tbody>
+								<tr>
+									<th>승인</th>
+									<td>
+										<table class="sign_member">
+											<tbody>
+												<tr>
+													<td><span class="sign_rank"></span></td>
+												</tr>
+												<tr>
+													<td><span class="sign_name" id="status_"></span></td>
+												</tr>
+												<tr>
+													<td class="last"><span class="sign_date" id="date_"></span></td>
+												</tr>
+											</tbody>
+										</table>
+									</td>
+									<td>
+										<table class="sign_member">
+											<tbody>
+												<tr>
+													<td><span class="sign_rank"></span></td>
+												</tr>
+												<tr>
+													<td><span class="sign_name" id="status_"></span></td>
+												</tr>
+												<tr>
+													<td class="last"><span class="sign_date" id="date_"></span></td>
+												</tr>
+											</tbody>
+										</table>
+									</td>
+									<td>
+										<table class="sign_member">
+											<tbody>
+												<tr>
+													<td><span class="sign_rank"></span></td>
+												</tr>
+												<tr>
+													<td><span class="sign_name" id="status_"></span></td>
+												</tr>
+												<tr>
+													<td class="last"><span class="sign_date" id="date_"></span></td>
+												</tr>
+											</tbody>
+										</table>
+									</td>
+									<td>
+										<table class="sign_member">
+											<tbody>
+												<tr>
+													<td><span class="sign_rank"></span></td>
+												</tr>
+												<tr>
+													<td><span class="sign_name" id="status_"></span></td>
+												</tr>
+												<tr>
+													<td class="last"><span class="sign_date" id="date_"></span></td>
+												</tr>
+											</tbody>
+										</table>
+									</td>
+									<td>
+										<table class="sign_member">
+											<tbody>
+												<tr>
+													<td><span class="sign_rank"></span></td>
+												</tr>
+												<tr>
+													<td><span class="sign_name" id="status_"></span></td>
+												</tr>
+												<tr>
+													<td class="last"><span class="sign_date" id="date_"></span></td>
+												</tr>
+											</tbody>
+										</table>
+									</td>
+									<td>
+										<table class="sign_member">
+											<tbody>
+												<tr>
+													<td><span class="sign_rank"></span></td>
+												</tr>
+												<tr>
+													<td><span class="sign_name" id="status_"></span></td>
+												</tr>
+												<tr>
+													<td class="last"><span class="sign_date" id="date_"></span></td>
+												</tr>
+											</tbody>
+										</table>
+									</td>
+									<td>
+										<table class="sign_member">
+											<tbody>
+												<tr>
+													<td><span class="sign_rank"></span></td>
+												</tr>
+												<tr>
+													<td><span class="sign_name" id="status_"></span></td>
+												</tr>
+												<tr>
+													<td class="last"><span class="sign_date" id="date_"></span></td>
+												</tr>
+											</tbody>
+										</table>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<br>
+	<table class="__se_tbl" style="width: 800px; margin-top : 0px; border-collapse: collapse !important; color: black; background: white; border: 1px solid black; font-size: 12px; font-family: malgun gothic,dotum,arial,tahoma;">
+		<tbody>
+			<tr>
+				<td style="background: rgb(221, 221, 221); padding: 5px; border: 1px solid black; height: 25px; text-align: center; color: rgb(0, 0, 0); font-size: 14px; font-weight: bold; vertical-align: middle;">휴가&nbsp;종류</td>
+				<td style="background: rgb(255, 255, 255); padding: 5px; border: 1px solid black; height: 25px; text-align: left; color: rgb(0, 0, 0); font-size: 14px; font-weight: normal; vertical-align: middle;">
+					<span id="vacationTypeArea" name="select" style="font-family: malgun gothic, dotum, arial, tahoma; font-size: 11pt; line-height: normal; margin-top: 0px; margin-bottom: 0px;"></span>
+				</td>
+			</tr>
+			<tr>
+				<td style="background: rgb(221, 221, 221); padding: 5px; border: 1px solid black; height: 25px; text-align: center; color: rgb(0, 0, 0); font-size: 14px; font-weight: bold; vertical-align: middle;">기간&nbsp;및&nbsp;일시</td>
+				<td style="padding: 3px; border: 1px solid black; width: 700px; height: 22px; text-align: left; color: rgb(0, 0, 0); font-size: 12px;  vertical-align: middle; background: rgb(255, 255, 255);">
+					<span data-type="calendar" data-dsl="{{calendar:startDate}}" data-id="startDate}" data-name="startDate}" data-value="" data-require="false" data-maxlength="" data-width="" data-defaultstr="" data-editable="true"></span>&nbsp;~&nbsp;
+					<span data-type="calendar" data-dsl="{{calendar:endDate}}" data-id="endDate" data-name="endDate" data-value="" data-require="false" data-maxlength="" data-width="" data-defaultstr="" data-editable="true"></span>
+					<span id="usingPointArea"></span>
+				</td>
+			</tr>
+			<tr>
+				<td style="background: rgb(221, 221, 221); padding: 5px; border: 1px solid black; height: 25px; text-align: center; color: rgb(0, 0, 0); font-size: 14px; font-weight: bold; vertical-align: middle;">반차&nbsp;여부</td>
+				<td style="background: rgb(255, 255, 255); padding: 5px; border: 1px solid black; height: 25px; text-align: left; color: rgb(0, 0, 0); font-size: 14px; font-weight: normal; vertical-align: middle;">
+					<span id="vacationHalfArea" style="font-family: malgun gothic, dotum, arial, tahoma; font-size: 11pt; line-height: normal; margin-top: 0px; margin-bottom: 0px;"></span>
+				</td>
+			</tr>
+			<tr>
+				<td style="background: rgb(221, 221, 221); padding: 5px; border: 1px solid black; height: 25px; text-align: center; color: rgb(0, 0, 0); font-size: 14px; font-weight: bold; vertical-align: middle;">연차&nbsp;일수</td>
+				<td style="padding: 3px; border: 1px solid black; width: 700px; height: 22px; text-align: left; color: rgb(0, 0, 0); font-size: 12px;  vertical-align: middle; background: rgb(255, 255, 255);">
+					<span id="restPointArea" style="font-family: malgun gothic, dotum, arial, tahoma; font-size: 9pt; line-height: normal; margin-top: 0px; margin-bottom: 0px;"></span><span id="applyPointArea" style="font-family: malgun gothic, dotum, arial, tahoma; font-size: 9pt; line-height: normal; margin-top: 0px; margin-bottom: 0px;"></span>
+				</td>
+			</tr>
+			<tr>
+				<td style="background: rgb(221, 221, 221); padding: 5px; border: 1px solid black; height: 80px; text-align: center; color: rgb(0, 0, 0); font-size: 14px; font-weight: bold; vertical-align: middle;">
+					<b style="color: rgb(255, 0, 0);">*</b>&nbsp;휴가&nbsp;사유
+				</td>
+				<td style="padding: 3px; border: 1px solid black; width: 700px; height: 100px; text-align: left; color: rgb(0, 0, 0); font-size: 12px;  vertical-align: top; background: rgb(255, 255, 255);">
+					<span data-type="textarea" data-dsl="{{textarea:description}}" data-id="description" data-name="description" data-value="" data-require="false" data-maxlength="" data-width="" data-defaultstr="" data-editable="true"></span>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2" style="width:800px; padding: 20px !important; height: 22px; vertical-align: middle; border: 1px solid black; text-align: left; background: #ddd;">
+					1. 연차의 사용은 근로기준법에 따라 전년도에 발생한 개인별 잔여 연차에 한하여 사용함을 원칙으로 한다. 단, 최초 입사시에는 근로 기준법에 따라 발생 예정된 연차를 차용하여 월 1회 사용 할 수 있다.<br>
+					2. 경조사 휴가는 행사일을 증명할 수 있는 가족 관계 증명서 또는 등본, 청첩장 등 제출<br>
+					3. 공가(예비군/민방위)는 사전에 통지서를, 사후에 참석증을 반드시 제출
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</body>

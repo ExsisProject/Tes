@@ -1,0 +1,60 @@
+<span class="photo">
+	<a data-bypass href="javascript:;">
+		<img src="{{thumbnail}}">
+	</a>
+</span>
+<div class="msg_wrap" id="info_mode">
+	<div class="info">
+		<span class="name">{{data.writer.name}} {{data.writer.position}}</span>
+		{{#data.writer.name}}<span class="part">|</span>{{/data.writer.name}}
+		<span class="date">{{data.createdAtBasicDate}}</span>
+	</div>
+	<p class="subject">
+		<span class="txt">{{{data.showMessage}}}</span>
+	</p>
+	{{#hasEmoticon}}
+	<div class="thumb_append" id="emoticonPart">
+		<img class="emoticon" src="{{emoticonPathSrc}}" >
+	</div>
+	{{/hasEmoticon}}
+	<div class="wrap_attach">
+		<div id="attach-placeholder"></div>
+	</div>
+	<div class="btn_wrap comment_control">
+		<!-- 인라인 버튼들은 개행하면 안됨 -->
+		{{#data.isWritableReply}}<a href="javascript:;" data-bypass class="btn_bdr_s reply"><span class="txt">{{lang.reply}}</span></a>{{/data.isWritableReply}}{{#data.actions.updatable}}<a href="javascript:;" data-bypass class="btn_bdr_s modify"><span class="txt">{{lang.modify}}</span></a>{{/data.actions.updatable}}{{#data.actions.removable}}<a href="javascript:;" data-bypass class="btn_bdr_s remove"><span class="ic ic_del" title="{{lang.remove}}"></span><span class="txt">{{lang.remove}}</span></a>{{/data.actions.removable}}
+	</div>
+</div>
+
+<div class="msg_wrap cmt" id="edit_mode" style="display: none">
+	<div class="ipt_wrap">
+		<textarea class="edit w_max edit_content">{{{data.editMessage}}}</textarea>
+	</div>
+	{{#hasEmoticon}}
+	<div data-emoticon-edit-part class="thumb_append">
+		<img class="emoticon" id="commentEmoticonImg" src="{{emoticonPathSrc}}" data-item-path="{{emoticonPath}}" alt="">
+		<span class="btn btn_del_type2" id="emoticonDeleteBtn" title="{{lang.emoticonDelete}}"></span>
+	</div>
+	{{/hasEmoticon}}
+	<div class="option_display" style="display:none" id="item_attach_wrap">
+		<div id="attach-placeholder-edit"></div>
+	</div>
+	<div class="btn_wrap btn_wrap_writer" id="comment_edit_control">
+		<div class="critical wrap_btn_attach" id="item_fileuploader"></div>
+		<div class="optional">
+			{{#anonymFlag}}
+			{{#availableAnonymousWriterOptionInPostComment}}
+			<span id="publicWriterSettingPart">
+				<span class="btn_action action_off">
+					<label>
+						<input type="checkbox" id="isOpenWriter" disabled="disabled" checked="checked">{{lang.public_writer}}
+					</label>
+				</span>
+			</span>
+			{{/availableAnonymousWriterOptionInPostComment}}
+			{{/anonymFlag}}
+			<!-- 인라인 버튼들은 개행하면 안됨 -->
+			<a href="javascript:;" data-bypass class="btn_type2 comment_modify_cancel cancel"><span class="txt">{{lang.cancel}}</span></a><a href="javascript:;" data-bypass class="btn_major_s comment_modify_save save"><span class="txt">{{lang.save}}</span></a>
+		</div>
+	</div>
+</div>

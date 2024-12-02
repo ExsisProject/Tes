@@ -1,0 +1,16 @@
+<header class="board_column">
+    <h1 class="column_title">
+        <span class="title">{{category.title}}</span>
+        <span class="ui-card-count badge" style="display:none"></span>
+    </h1>
+    <span class=" ic_board ic_more"></span>
+</header>
+
+<div class="board_card_wrap">
+    <div class="ui-scroll-container" id="column-container-{{category.id}}" data-scroll-axis="y">
+        <div class="ui-card-container ui-scroll-content" id="column-content-{{category.id}}"></div>
+    </div>
+    <div class="card_create">
+        <a href="#" class="btn-add-card create_box" data-bypass><span class="ic_board ic_plus_w" title="{{label.add_card}}"></span></a>
+    </div>
+</div>

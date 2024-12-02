@@ -1,0 +1,32 @@
+define("todo/constants", [], function() {
+
+    var Constants = {};
+
+    // selectors
+    Constants.SELECTORS = {
+        "common": {
+            "scrollContainer": '.ui-scroll-container'
+        },
+
+        "detail": {
+            "todoColumn": '.ui-todocolumn', 
+            "todoCard":'.ui-todocard', 
+            "columnContainer": '.ui-column-container', 
+            "cardContainer":'.ui-card-container', 
+            "columnAddForm": '.ui-column-add-form', 
+            "addColumnButton": '.btn-add-column', 
+            "addCardButton": '.ui-add-card', 
+            "addCloumnContainer": '.ui-add-cloumn-container', 
+            "boardContainer": '#board-container', 
+            "boardContent": '#board-content', 
+            "columnAddButton": '.ui-column-add-btn', 
+            "timelineContainer": '.board-timeline-container', 
+            "timelineContents": '.board-timeline-contents', 
+            "timelineLoadMore": '.btn-load-more', 
+            "timelineCloseButton": '.btn-close-timeline', 
+            "timelineBottomButtons": '.timeline-bottom-buttons'
+        }
+    };
+
+    return Constants;
+});

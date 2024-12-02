@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <title>ToDO Menu</title>
+    <meta name = "gadget:name-ko" content="ToDO+" />
+    <meta name = "gadget:name-en" content="ToDO+" />
+    <meta name = "gadget:name-ja" content="ToDO+" />
+    <meta name = "gadget:name-zhcn" content="ToDO+" />
+    <meta name = "gadget:name-zhtw" content="ToDO+" />
+    <meta name = "gadget:name-vi" content="ToDO+" />
+    <meta name = "gadget:description" content="각 앱의 주요 기능과 관련된 링크를 제공하는 가젯입니다." />
+    <meta name = "gadget:version" content="1.6.0" />
+    <meta name = "gadget:app-dependency" content="TODO" />
+    <meta name = "gadget:thumbnail" content="gadget_todo.png" />
+    
+    <!-- 테스트 할 로케일은 여기에 설정하세요.-->
+    <meta name = "locale" content="ko" />
+    
+    <!-- 컨텍스트 루트는 여기서 설정하세요 -->
+    <meta name = "contextRoot" content="/" />
+
+    <!-- <link rel="stylesheet" href="css/go-gadget-standalone.css" media="screen, print" /> -->
+    <link rel="stylesheet" href="css/go_style.css" media="screen, print" />
+    <link rel="stylesheet" href="css/go_app_style2.css" media="screen, print" />
+    <link rel="stylesheet" href="css/go_home_dashboard.css" media="screen, print" />
+
+    <!--[if IE]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="js/go-gadget-standalone.js"></script>
+
+    <!-- ajax mock: 개발시 크로스 도메인 문제가 발생할 경우 ajax mock request를 이용하여 테스트 할 수 있습니다-->
+    <script type="text/javascript">
+    $.ajaxMock.register('/api/todo/my', {
+        responseText:$.parseJSON('{"data" : [ {"id" : 1,"createdAt" : "2014-05-27T14:42:58","updatedAt" : "2014-05-27T14:42:58","title" : "보드 시작하기","seq" : 0,"pubilcFlag" : "N","openFlag" : "Y","favoriteFlag" : "N","owner" : {"id" : 2,"name" :"진범동1","email" : "test1@daou.co.kr","position" : "부회장","thumbnail" : "/go/resources/images/photo_profile_small.jpg","status" : "ONLINE"},"themeNo" : 0,"members" : [ {"id" : 2,"name" : "진범동1","email" :"test1@daou.co.kr","position" : "부회장","thumbnail" : "/go/resources/images/photo_profile_small.jpg","status" : "ONLINE"} ],"labels" : [ {"id" : 1,"title" : "","color" : "#34b27d","todoId" : 1}, {"id" : 2,"title" : "","color" : "#dbdb57","todoId" : 1}, {"id" : 3,"title" : "","color" : "#e09952","todoId" : 1}, {"id" : 4,"title" : "","color" : "#cb4d4d","todoId" : 1}, {"id" : 5,"title" : "","color" : "#93c","todoId" : 1}, {"id" : 6,"title" : "","color" : "#4d77cb","todoId" : 1} ],"categories" : [ {"id" : 1,"seq" : 0,"title" : "대기","deleteFlag" : "N","todoId" : 1}, {"id" : 2,"seq" : 1,"title" : "진행","deleteFlag" : "N","todoId" : 1}, {"id" : 3,"seq" : 2,"title" : "완료","deleteFlag" : "N","todoId" : 1} ]}, {"id" : 2,"createdAt" : "2014-05-27T14:42:58","updatedAt" : "2014-05-27T14:42:58","title" : "보드 시작하기1111","seq" : 0,"pubilcFlag" : "N","openFlag" : "Y","favoriteFlag" : "N","owner" : {"id" : 2,"name" :"진범동2","email" : "test1@daou.co.kr","position" : "부회장","thumbnail" : "/go/resources/images/photo_profile_small.jpg","status" : "ONLINE"},"themeNo" : 0,"members" : [ {"id" : 2,"name" : "진범동2","email" :"test1@daou.co.kr","position" : "부회장","thumbnail" : "/go/resources/images/photo_profile_small.jpg","status" : "ONLINE"},{"id" : 3,"name" : "진범동3","email" :"test3@daou.co.kr","position" : "부회장","thumbnail" : "/go/resources/images/photo_profile_small.jpg","status" : "ONLINE"} ],"labels" : [ {"id" : 1,"title" : "","color" : "#34b27d","todoId" : 1}, {"id" : 2,"title" : "","color" : "#dbdb57","todoId" : 1}, {"id" : 3,"title" : "","color" : "#e09952","todoId" : 1}, {"id" : 4,"title" : "","color" : "#cb4d4d","todoId" : 1}, {"id" : 5,"title" : "","color" : "#93c","todoId" : 1}, {"id" : 6,"title" : "","color" : "#4d77cb","todoId" : 1} ],"categories" : [ {"id" : 1,"seq" : 0,"title" : "대기1","deleteFlag" : "N","todoId" : 1}, {"id" : 2,"seq" : 1,"title" : "진행1","deleteFlag" : "N","todoId" : 1}, {"id" : 3,"seq" : 2,"title" : "완료1","deleteFlag" : "N","todoId" : 1}, {"id" : 4,"seq" : 2,"title" : "완료222","deleteFlag" : "N","todoId" : 1} ]} ],"message" : "OK","code" : "200","__go_checksum__" : true}'),
+        statusCode: 200,
+        status:'OK',
+        type: 'GET'
+    });
+    </script>
+
+    <script type="text/javascript">
+    $.ajaxMock.register('/api/todo/1/item/list?serialized=%7B%22categories%22%20%3A%20%5B2%5D%20%2C%20%22members%22%20%20%3A%20%5B1%2C2%2C3%5D%2C%20%22page%22%20%3A%200%2C%20%22offset%22%20%3A%206%20%7D', {
+        responseText:$.parseJSON('{ "data": [{ "id": 3, "createdAt": "2014-06-02T14:37:52", "updatedAt": "2014-06-02T14:37:52", "title": "title3", "seq": 0, "deleteFlag": "N", "todoId": 1, "todoCategoryId": 1, "dueDate": "2014-05-27T14:42:58", "commentCount": 0, "labels": [], "attaches": [], "members": [{ "id": 2, "name": "진범동1", "email": "test1@daou.co.kr", "position": "부회장", "thumbnail": "/go/resources/images/photo_profile_small.jpg", "status": "ONLINE" }], "checklists": [] }, { "id": 4, "createdAt": "2014-06-02T14:38:07", "updatedAt": "2014-06-02T14:38:07", "title": "title4111111111111111111", "seq": 1, "deleteFlag": "N", "todoId": 1, "todoCategoryId": 1, "dueDate": "2014-05-27T14:42:58", "commentCount": 0, "labels": [], "attaches": [], "members": [{ "id": 2, "name": "진범동1", "email": "test1@daou.co.kr", "position": "부회장", "thumbnail": "/go/resources/images/photo_profile_small.jpg", "status": "ONLINE" }], "checklists": [] }, { "id": 5, "createdAt": "2014-06-02T14:38:20", "updatedAt": "2014-06-02T14:38:20", "title": "title5", "seq": 0, "deleteFlag": "N", "todoId": 1, "todoCategoryId": 2, "dueDate": "2014-05-27T14:42:58", "commentCount": 0, "labels": [], "attaches": [], "members": [{ "id": 2, "name": "진범동1", "email": "test1@daou.co.kr", "position": "부회장", "thumbnail": "/go/resources/images/photo_profile_small.jpg", "status": "ONLINE" }], "checklists": [] }, { "id": 1, "createdAt": "2014-06-02T14:37:25", "updatedAt": "2014-06-02T14:37:25", "title": "title3", "seq": 0, "deleteFlag": "N", "todoId": 1, "todoCategoryId": 3, "dueDate": "2014-05-27T14:42:58", "commentCount": 0, "labels": [{ "id": 1, "title": "", "color": "#34b27d", "todoId": 1, "todoItemId": 1 }, { "id": 2, "title": "", "color": "#dbdb57", "todoId": 1, "todoItemId": 1 }, { "id": 3, "title": "", "color": "#e09952", "todoId": 1, "todoItemId": 1 }, { "id": 4, "title": "", "color": "#cb4d4d", "todoId": 1, "todoItemId": 1 }, { "id": 5, "title": "", "color": "#93c", "todoId": 1, "todoItemId": 1 }, { "id": 6, "title": "", "color": "#4d77cb", "todoId": 1, "todoItemId": 1 }], "attaches": [], "members": [{ "id": 2, "name": "진범동1", "email": "test1@daou.co.kr", "position": "부회장", "thumbnail": "/go/resources/images/photo_profile_small.jpg", "status": "ONLINE" }], "checklists": [] }, {  "id": 2, "createdAt": "2014-06-02T14:37:37", "updatedAt": "2014-06-02T14:37:37", "title": "title3", "seq": 1, "deleteFlag": "N", "todoId": 1, "todoCategoryId": 3, "dueDate": "2014-05-27T14:42:58", "commentCount": 0, "labels": [], "attaches": [],  "members": [{ "id": 2, "name": "진범동1", "email": "test1@daou.co.kr", "position": "부회장", "thumbnail": "/go/resources/images/photo_profile_small.jpg", "status": "ONLINE" }], "checklists": [] }, { "id": 6, "createdAt": "2014-06-02T14:41:19", "updatedAt": "2014-06-02T14:41:19", "title": "title3", "seq": 2, "deleteFlag": "N", "todoId": 1, "todoCategoryId": 3, "dueDate": "2014-05-27T14:42:58", "commentCount": 0, "labels": [], "attaches": [], "members": [{  "id": 2, "name": "진범동1", "email": "test1@daou.co.kr", "position": "부회장", "thumbnail": "/go/resources/images/photo_profile_small.jpg", "status": "ONLINE" }], "checklists": [] }], "page": { "page": 0,  "offset": 6,   "total": 9, "lastPage": false }, "message": "OK", "code": "200", "__go_checksum__": true }'),
+        statusCode: 200,
+        status:'OK',
+        type: 'GET'
+    });
+    </script>
+
+    <script type="text/javascript">
+    $.ajaxMock.register('/api/todo/3/item/list?serialized', {
+        responseText:$.parseJSON('{  "data" : [ { "id" : 3, "createdAt" : "2014-06-23T16:34:07",  "updatedAt" : "2014-06-23T16:36:13", "title" : "진행1", "seq" : 0, "deleteFlag" : "N", "todoId" : 1, "todoCategoryId" : 2, "dueDate" : "2014-06-25T12:00:00", "commentCount" : 0, "labels" : [ {  "id" : 1, "title" : "", "color" : "#ee3b72",  "todoId" : 1,  "todoItemId" : 3 }, { "id" : 2, "title" : "", "color" : "#f67cab", "todoId" : 1, "todoItemId" : 3  }, { "id" : 3, "title" : "", "color" : "#5a8adc", "todoId" : 1, "todoItemId" : 3 }, { "id" : 4, "title" : "", "color" : "#88acea", "todoId" : 1, "todoItemId" : 3 }, { "id" : 5, "title" : "", "color" : "#fbcf3b", "todoId" : 1, "todoItemId" : 3 }, { "id" : 6, "title" : "", "color" : "#ff965f", "todoId" : 1, "todoItemId" : 3 }, { "id" : 7, "title" : "", "color" : "#62bf66", "todoId" : 1, "todoItemId" : 3 }, { "id" : 8,  "title" : "", "color" : "#b2d770",         "todoId" : 1,  "todoItemId" : 3      }, { "id" : 9, "title" : "", "color" : "#c04ac4",  "todoId" : 1, "todoItemId" : 3 }, { "id" : 10, "title" : "", "color" : "#ea91ed", "todoId" : 1, "todoItemId" : 3 } ],  "attaches" : [ ], "members" : [ { "id" : 2, "name" : "진범동1", "email" : "test1@daou.co.kr", "position" : "부회장", "thumbnail" : "/go/resources/images/photo_profile_small.jpg", "status" : "ONLINE" }, { "id" : 10, "name" : "최경영1",  "email" : "test9@daou.co.kr", "position" : "회장", "thumbnail" : "/go/resources/images/photo_profile_small.jpg", "status" : "ONLINE" }, { "id" : 11, "name" : "최경영2", "email" : "test10@daou.co.kr", "position" : "부회장", "thumbnail" : "/go/resources/images/photo_profile_small.jpg", "status" : "ONLINE" } ], "checklists" : [ ] }, {  "id" : 5, "createdAt" : "2014-06-23T16:34:48", "updatedAt" : "2014-06-23T16:34:48", "title" : "진행2",  "seq" : 1, "deleteFlag" : "N", "todoId" : 1, "todoCategoryId" : 2, "commentCount" : 0, "labels" : [ ], "attaches" : [ ], "members" : [ { "id" : 2, "name" : "진범동1", "email" : "test1@daou.co.kr", "position" : "부회장", "thumbnail" : "/go/resources/images/photo_profile_small.jpg", "status" : "ONLINE" }, { "id" : 10, "name" : "최경영1", "email" : "test9@daou.co.kr", "position" : "회장", "thumbnail" : "/go/resources/images/photo_profile_small.jpg", "status" : "ONLINE" }, { "id" : 11, "name" : "최경영2", "email" : "test10@daou.co.kr", "position" : "부회장", "thumbnail" : "/go/resources/images/photo_profile_small.jpg", "status" : "ONLINE" } ], "checklists" : [ ] }, { "id" : 6, "createdAt" : "2014-06-23T16:34:54", "updatedAt" : "2014-06-23T16:34:54", "title" : "진행3", "seq" : 2, "deleteFlag" : "N", "todoId" : 1, "todoCategoryId" : 2, "commentCount" : 0, "labels" : [ ], "attaches" : [ ], "members" : [ { "id" : 2, "name" : "진범동1", "email" : "test1@daou.co.kr", "position" : "부회장", "thumbnail" : "/go/resources/images/photo_profile_small.jpg", "status" : "ONLINE" }, { "id" : 10, "name" : "최경영1", "email" : "test9@daou.co.kr", "position" : "회장", "thumbnail" : "/go/resources/images/photo_profile_small.jpg", "status" : "ONLINE" }, { "id" : 11, "name" : "최경영2", "email" : "test10@daou.co.kr", "position" : "부회장", "thumbnail" : "/go/resources/images/photo_profile_small.jpg", "status" : "ONLINE" } ], "checklists" : [ ] }, { "id" : 7, "createdAt" : "2014-06-23T16:34:59", "updatedAt" : "2014-06-23T16:34:59", "title" : "진행4", "seq" : 3, "deleteFlag" : "N", "todoId" : 1, "todoCategoryId" : 2, "commentCount" : 0, "labels" : [ ], "attaches" : [ ], "members" : [ { "id" : 2, "name" : "진범동1", "email" : "test1@daou.co.kr", "position" : "부회장", "thumbnail" : "/go/resources/images/photo_profile_small.jpg",  "status" : "ONLINE" }, { "id" : 10, "name" : "최경영1", "email" : "test9@daou.co.kr", "position" : "회장", "thumbnail" : "/go/resources/images/photo_profile_small.jpg", "status" : "ONLINE" }, { "id" : 11, "name" : "최경영2", "email" : "test10@daou.co.kr", "position" : "부회장", "thumbnail" : "/go/resources/images/photo_profile_small.jpg", "status" : "ONLINE" } ], "checklists" : [ ] }, { "id" : 8, "createdAt" : "2014-06-23T16:35:03", "updatedAt" : "2014-06-23T16:35:03", "title" : "진행5", "seq" : 4, "deleteFlag" : "N", "todoId" : 1, "todoCategoryId" : 2, "commentCount" : 0, "labels" : [ ], "attaches" : [ ], "members" : [ { "id" : 2, "name" : "진범동1", "email" : "test1@daou.co.kr", "position" : "부회장", "thumbnail" : "/go/resources/images/photo_profile_small.jpg", "status" : "ONLINE" }, { "id" : 10, "name" : "최경영1", "email" : "test9@daou.co.kr", "position" : "회장", "thumbnail" : "/go/resources/images/photo_profile_small.jpg", "status" : "ONLINE" }, { "id" : 11,  "name" : "최경영2", "email" : "test10@daou.co.kr", "position" : "부회장", "thumbnail" : "/go/resources/images/photo_profile_small.jpg", "status" : "ONLINE" } ], "checklists" : [ ] }, { "id" : 9, "createdAt" : "2014-06-23T16:35:08", "updatedAt" : "2014-06-23T16:35:08", "title" : "진행6", "seq" : 5, "deleteFlag" : "N", "todoId" : 1, "todoCategoryId" : 2, "commentCount" : 0,  "labels" : [ ], "attaches" : [ ], "members" : [ { "id" : 2, "name" : "진범동1", "email" : "test1@daou.co.kr", "position" : "부회장", "thumbnail" : "/go/resources/images/photo_profile_small.jpg", "status" : "ONLINE" }, { "id" : 10, "name" : "최경영1", "email" : "test9@daou.co.kr", "position" : "회장", "thumbnail" : "/go/resources/images/photo_profile_small.jpg", "status" : "ONLINE" }, { "id" : 11, "name" : "최경영2", "email" : "test10@daou.co.kr", "position" : "부회장", "thumbnail" : "/go/resources/images/photo_profile_small.jpg", "status" : "ONLINE" } ], "checklists" : [ ] } ], "page" : { "page" : 0, "offset" : 6, "total" : 6, "lastPage" : true }, "message" : "OK", "code" : "200",  "__go_checksum__" : true }'),
+        statusCode: 200,
+        status:'OK',
+        type: 'GET'
+    });
+    </script>
+
+
+    <script type="text/javascript">
+    $.ajaxMock.register('/api/todo/1/item/list?serialized', {
+        responseText:$.parseJSON('{"data" : [ {  "id" : 2, "createdAt" : "2014-06-23T13:42:21", "updatedAt" : "2014-06-23T13:42:21", "title" : "2222", "seq" : 0, "deleteFlag" : "N", "todoId" : 1, "todoCategoryId" : 2, "commentCount" : 0, "labels" : [ ], "attaches" : [ ], "members" : [ { "id" : 2, "name" : "진범동1", "email" : "test1@daou.co.kr", "position" : "부회장", "thumbnail" : "/go/resources/images/photo_profile_small.jpg", "status" : "ONLINE" }, { "id" : 3, "name" : "진범동2", "email" : "test2@daou.co.kr", "position" : "부장", "thumbnail" : "/go/resources/images/photo_profile_small.jpg", "status" : "ONLINE" } ], "checklists" : [ ]  } ], "page" : { "page" : 0, "offset" : 6, "total" : 1, "lastPage" : true }, "message" : "OK", "code" : "200", "__go_checksum__" : true }'),
+        statusCode: 200,
+        status:'OK',
+        type: 'GET'
+    });
+    </script>
+
+    <script type="text/javascript">
+    $.ajaxMock.register('/api/todo/2/item/list?serialized', {
+        responseText:$.parseJSON('{"data" : [ ],"page" : {"page" : 0,"offset" : 6,"total" : 0,"lastPage" : true},"message" : "OK","code" : "200","__go_checksum__" : true}'),
+        statusCode: 200,
+        status:'OK',
+        type: 'GET'
+    });
+    </script>
+
+    <script type="text/javascript" id="go-gadget-script">    
+    gadget.load({
+    	
+    	highlightable : true,
+    	
+        refreshable: false, 
+                        
+		langs: {
+
+            //셋팅 화면 
+            "title_label": "가젯 제목",
+            "todo_card_list": "ToDO+ 카드 목록",
+            "title_default_label": "태스크보드 카드 목록", 
+            "board_label": "보드", 
+            "board_empty_label": "보드가 없습니다.", 
+            "responsibility_label": "담당자", 
+            "column_label": "대상 칼럼", 
+            "view_setting_label": "보기설정", 
+            "list_label": "목록형", 
+            "card_label": "카드형", 
+            
+            //validate message 
+            "message_select_board":"보드를 선택해 주세요.",
+            "message_select_responsibility":"담당자를 선택해 주세요.",
+            "message_select_column":"칼럼을 선택해 주세요.",
+
+            //list view 
+            "list_card":"카드명",
+            "list_duedate":"기한일",
+            "list_reply":"댓글",
+            "list_attatch":"첨부",
+            "list_empty":"목록이 없습니다.",
+            "title_size_limit":"가젯제목은 2~20자 까지만 입력할 수 있습니다.",
+            "todo_me":"나",
+
+
+            //요일 
+            "day_mon":"월",
+            "day_tue":"화",
+            "day_wed":"수",
+            "day_thu":"목",
+            "day_fri":"금",
+            "day_sat":"토",
+            "day_sun":"일",
+            
+            // 시간 표시
+            "just_ago" : "방금 전", 
+
+            "en": {
+	            //셋팅 화면 
+	            "title_label": "Gadget Title",
+	            "todo_card_list": "ToDO+ Card List",
+	            "title_default_label": "Task Board Card List", 
+	            "board_label": "Boards", 
+	            "board_empty_label": "No boards found.", 
+	            "responsibility_label": "In Charge", 
+	            "column_label": "Display", 
+	            "view_setting_label": "Output Type", 
+	            "list_label": "List Type", 
+	            "card_label": "Card Type", 
+	            
+	            //validate message 
+	            "message_select_board":"Please select a board.",
+	            "message_select_responsibility":"Please select who'll be in charge.",
+	            "message_select_column":"Please select a column.",
+	
+	            //list view 
+	            "list_card":"Card Name",
+	            "list_duedate":"Due Date",
+	            "list_reply":"Comment",
+	            "list_attatch":"Attachment",
+	            "list_empty":"No lists found.",
+	            "title_size_limit":"You can enter 2 characters or more and 20 characters or less.",
+	            "todo_me":"Me",
+	            //요일 
+	            "day_mon":"Mon",
+	            "day_tue":"Tue",
+	            "day_wed":"Wed",
+	            "day_thu":"Thu",
+	            "day_fri":"Fri",
+	            "day_sat":"Sat",
+	            "day_sun":"Sun",
+	            
+	         	// 시간 표시
+	            "just_ago" : "Just a moment ago", 
+            }, 
+
+            "ja": {
+	            //셋팅 화면 
+	            "title_label": "ガジェット件名", 
+	            "todo_card_list": "ToDO+ カードリスト",
+	            "title_default_label": "タスクボードカードリスト", 
+	            "board_label": "ボード", 
+	            "board_empty_label": "ボードがありません。", 
+	            "responsibility_label": "担当者", 
+	            "column_label": "対象コラム", 
+	            "view_setting_label": "ビュー設定", 
+	            "list_label": "リスト型", 
+	            "card_label": "カード型", 
+	            
+	            //validate message 
+	            "message_select_board":"ボードを選択してください。",
+	            "message_select_responsibility":"担当者を選択してください。",
+	            "message_select_column":"コラムを選択してください。",
+	
+	            //list view 
+	            "list_card":"カード名",
+	            "list_duedate":"期限日",
+	            "list_reply":"コメント",
+	            "list_attatch":"添付",
+	            "list_empty":"リストがありません。",
+	            "title_size_limit":"カジェット件名は2～20文字まで入力することができます。",
+	            "todo_me":"私",
+	
+	            //요일 
+	            "day_mon":"月",
+	            "day_tue":"火",
+	            "day_wed":"水",
+	            "day_thu":"木",
+	            "day_fri":"金",
+	            "day_sat":"土",
+	            "day_sun":"日",
+	            
+	         	// 시간 표시
+	            "just_ago" : "先ほど", 
+            }, 
+            
+            "zh_CN": {
+	            //셋팅 화면 
+	            "title_label": "小工具主题", 
+	            "todo_card_list": "ToDO+ 卡的列表",
+	            "title_default_label": "桌面卡片列表", 
+	            "board_label": "板", 
+	            "board_empty_label": "没有板。", 
+	            "responsibility_label": "负责人", 
+	            "column_label": "对象列", 
+	            "view_setting_label": "设置查看", 
+	            "list_label": "目录型", 
+	            "card_label": "卡型", 
+	            
+	            //validate message 
+	            "message_select_board":"请选择板。",
+	            "message_select_responsibility":"请选择负责人。",
+	            "message_select_column":"请选择列。",
+	
+	            //list view 
+	            "list_card":"卡名",
+	            "list_duedate":"期限日",
+	            "list_reply":"注释",
+	            "list_attatch":"附件",
+	            "list_empty":"没有列表。",
+	            "title_size_limit":"小工具的主题可以输入2～20个字符。",
+	            "todo_me":"我",
+	
+	            //요일 
+	            "day_mon":"月",
+	            "day_tue":"火",
+	            "day_wed":"水",
+	            "day_thu":"木",
+	            "day_fri":"金",
+	            "day_sat":"土",
+	            "day_sun":"日",
+	            
+	         	// 시간 표시
+	            "just_ago" : "刚才", 
+            }, 
+            
+            "zh_TW": {
+	            //셋팅 화면 
+	            "title_label": "小工具主題", 
+	            "todo_card_list": "ToDO+ 卡的列表",
+	            "title_default_label": "桌面卡片列表", 
+	            "board_label": "板", 
+	            "board_empty_label": "沒有板。", 
+	            "responsibility_label": "負責人", 
+	            "column_label": "對象列", 
+	            "view_setting_label": "設置查看", 
+	            "list_label": "目錄型", 
+	            "card_label": "卡型", 
+	            
+	            //validate message 
+	            "message_select_board":"請選擇板。",
+	            "message_select_responsibility":"請選擇負責人。",
+	            "message_select_column":"請選擇列。",
+	
+	            //list view 
+	            "list_card":"卡名",
+	            "list_duedate":"期限日",
+	            "list_reply":"註釋",
+	            "list_attatch":"附件",
+	            "list_empty":"沒有列表。",
+	            "title_size_limit":"小工具的主題可以輸入2～20個字符。",
+	            "todo_me":"我",
+	
+	            //요일 
+	            "day_mon":"月",
+	            "day_tue":"火",
+	            "day_wed":"水",
+	            "day_thu":"木",
+	            "day_fri":"金",
+	            "day_sat":"土",
+	            "day_sun":"日",
+	            
+	         	// 시간 표시
+	            "just_ago" : "剛才"
+            },
+            "vi": {
+            	//셋팅 화면
+                "title_label": "Tiêu đề gadget",
+                "todo_card_list": "Danh sách thẻ ToDO+",
+                "title_default_label": "Danh sách thẻ Deskboard",
+                "board_label": "Board",
+                "board_empty_label": "Không có board.",
+                "responsibility_label": "Người phụ trách",
+                "column_label": "Cột đối tượng",
+                "view_setting_label": "Cài đặt xem",
+                "list_label": "Dạng mục lục",
+                "card_label": "Dạng thẻ",
+
+                //validate message
+                "message_select_board":"Vui lòng chọn board.",
+                "message_select_responsibility":"Vui lòng chọn người phụ trách.",
+                "message_select_column":"Vui lòng chọn cột.",
+
+                //list view
+                "list_card":"Tên thẻ",
+                "list_duedate":"Ngày hết hạn",
+                "list_reply":"Bình luận",
+                "list_attatch":"Đính kèm",
+                "list_empty":"Không có danh sách.",
+                "title_size_limit":"Có thể nhập tiêu đề gadget từ 2~20 ký tự.",
+                "todo_me":"Tôi",
+
+
+                //요일
+                "day_mon":"Thứ Hai",
+                "day_tue":"Thứ Ba",
+                "day_wed":"Thứ Tư",
+                "day_thu":"Thứ Năm",
+                "day_fri":"Thứ Sáu",
+                "day_sat":"Thứ Bảy",
+                "day_sun":"Chủ Nhật",
+
+                // 시간 표시
+                "just_ago" : "Ngay trước đó"
+            }
+        }, 
+
+        page : 0,
+        offset : 6,
+        totalPage : 0,
+        isBoardChange : false,
+        defaultOptions: {
+
+        }, 
+
+        events: {
+            "click .paginate_button": "_clickPageButton",
+            "click .listItem": "_clickListItem",
+            "click .cardItem": "_clickCardItem"
+        },
+
+        url: function() {
+        	this.model = this.options;
+            var savedBorderId = this._getSaveBoardData();
+            if(savedBorderId < 0){
+                return;
+            }
+
+            //데이터 셋팅 
+            var selectmember = this._getSaveMemberData();
+            var columnArray = this._getSaveColumnData().toString();
+            var ajax_data = '{"categories" : ['+ columnArray +'] , "members"  : ['+ selectmember +'], "page" : '+this.page+', "offset" : '+this.offset+' }';
+            //savedBorderId = this.page+1;
+            var postData = encodeURIComponent(ajax_data);
+            var returnUrl = this.contextRoot + 'api/todo/'+savedBorderId+'/item/list?serialized='+ postData;
+
+            return returnUrl;
+        }, 
+
+        _contentBorderDecorator: function(content, tvars) {
+        	
+            return this.template(
+                '<div class="gadget_design_wrap">{{>content}}</div>', 
+                _.defaults(tvars || {}, { "has_border?": false }), 
+                {"content": content}
+            );
+        }, 
+
+        validate: function(el) {
+            var selectedBoardID  = this._selectedBoardID(el);
+            var selectmember = this._selectedMemberID(el);
+            var columnArray = this._selectColumnArray(el);
+            var titleValue =  this._selectedGadgetTitle(el);
+
+            if(titleValue.length > 20 || titleValue.length < 2)
+            {
+                var message = this.i18n.parse('title_size_limit');
+                return message;
+            }
+            if(selectedBoardID == -1){
+                var message = this.i18n.parse('message_select_board');
+                return message;
+            }
+            else if(selectmember == -1){
+                var message = this.i18n.parse('message_select_responsibility');
+                return message;
+            }
+            else if(columnArray == ""){
+                var message = this.i18n.parse('message_select_column');
+                return message;
+            }
+
+            return false;
+        }, 
+
+        renderConfig: function(el) {
+            this.el = el;
+            var self = this;
+            this.model = _.extend(this.model,this.options);
+            var selectLayout = $("#btn-change-layout li.on");
+            var layout = selectLayout.attr("data-boxcount") + "_" + selectLayout.attr("data-layout");
+            $(el).append(this._configTemplate());
+            $(el).find("#layout").val(layout);
+            $(el).find("#column").val(this.options.column);
+            var urlstr = this.contextRoot + "api/todo/my";
+            //var urlstr = "http://localhost:8080/go/api/todo/my";
+            jQuery.ajax({
+                url : urlstr,
+                type : "GET",
+                success : function(resp) {
+                    //함수 접근 
+                    self._borderArrayParsing(el, resp.data);
+                }
+            })
+        }, 
+        
+        onMoved : function(el, newBoxNumber, layout) {
+        	
+        	$(el).find("#column").val(parseInt(newBoxNumber));
+        	this.model.column = parseInt(newBoxNumber);
+        	this.model.layout = layout;
+        	//다시그리기
+        	this._renderContent(el, this.arrayModel);
+        },
+
+        onSuccess: function(el, resp) {
+            //화면 초기 구성 
+            this.el = el;
+            this.isBoardChange = false;
+            var totalPage = Math.floor((resp.page == undefined ? 0 : resp.page.total-1)/this.offset);
+            this.totalPage = totalPage;
+           	this._renderContent(el,resp);
+        },    
+        
+        _renderContent : function(el,data) {
+        	var viewType = this._getViewTypeData();
+        	if(viewType == "list"){//리스트 화면 
+                $(el).empty().append(this._contentTemplateList());
+            }else{//카드 화면 
+                $(el).empty().append(this._contentTemplateCard(this._isTwoColumn()));
+            }
+        	this._itemArrayParsing(el, data);
+        },
+        
+        _isTwoColumn : function(){
+        	//고정레이어에 있는 가젯일 경우 컬럼이 한줄로 표현되어야한다.
+        	var layer = this.model.layout;
+        	var columnid = this.model.column;
+        	if(layer == "undefined_undefined"){
+        		return false;
+        	}
+        	var sets = [
+    			{"layer":"3_1","column":"1"},
+    			{"layer":"3_3","column":"1"},
+    			{"layer":"3_3","column":"3"},
+    			{"layer":"5_1","column":"1"},
+    			{"layer":"5_1","column":"3"}
+    		];
+        	var mem = sets.filter(function(set){
+    			return set.layer == layer && set.column == columnid;
+    		});
+			if(mem.length > 0){
+    			return false;
+    		}
+			return true;
+        },
+
+        //데이터 파싱 
+        _borderArrayParsing: function(el, borderArray){
+            var self = this;
+            var borderCount = borderArray.length == undefined ? 0 : borderArray.length;
+            
+            if(borderCount == 0){
+                var emptyborderTitle = this.i18n.parse('board_empty_label'),
+                	emptyResponsibilityTitle = this.i18n.parse('message_select_responsibility');
+                $(el).find('#id_board_select').append('<option value= -1> ' + emptyborderTitle + '   </option>');
+                $(el).find('#id_responsibility_select').append('<option value= -1> ' + emptyResponsibilityTitle + '   </option>');
+            }
+
+            var savedBorderId = this._getSaveBoardData();
+            
+            var todoIds = [];
+            _.each(borderArray, function(boarder) {
+            	todoIds.push(boarder.id);
+            });
+
+            if(!_.contains(todoIds, savedBorderId)) {
+            	savedBorderId = -1;
+            }
+            
+            for (var  i = 0; i < borderCount; i++) {
+                //보드 타이틀 
+                var borderTitle = borderArray[i].title;
+                var borderid = borderArray[i].id;
+                $(el).find('#id_board_select').append('<option value=' + borderid +'> ' +
+                    GO.util.escapeHtml(borderTitle) + '   </option>');
+                if(savedBorderId == -1){//저장된 값이 없는 경우 
+                    if(i == 0){
+                        $(el).find('#id_board_select').val(borderid);
+                        self._memberArrayParsing(el, borderArray[i].members);
+                        self._categoriesArrayParsing(el, borderArray[i].categories); 
+                    }
+                }else{//저장된 값이 있을 경우 
+                    if(borderid == savedBorderId){
+                        $(el).find('#id_board_select').val(borderid);
+                        self._memberArrayParsing(el, borderArray[i].members);
+                        self._categoriesArrayParsing(el, borderArray[i].categories); 
+                    }
+                }
+            }
+
+            $(el).find("#id_board_select").on("change",function(e){
+                //기존 항목 제거 (담당자)
+                $(el).find('#id_responsibility_select option').remove();
+                // $('#id_responsibility_select').empty();
+
+                //기존 항목 제거 (칼럼)
+                $(el).find('#id_checkbox_area input').remove();
+                $(el).find('#id_checkbox_area label').remove();
+                $(el).find('#id_checkbox_area span').remove();
+                //$('#id_checkbox_area br').empty();
+
+                self.isBoardChange = true;
+
+                //항목 다시 설정 
+                var $target = $(e.target);
+                var selectid = $target.val()
+
+                 for (var i = 0; i < borderCount; i++) {
+                     var borderid = borderArray[i].id;
+                     if(selectid == borderid){
+                        self._memberArrayParsing(el, borderArray[i].members);
+                        self._categoriesArrayParsing(el, borderArray[i].categories); 
+                        break;
+                     }
+                 };
+            })
+        },
+        
+        _memberArrayParsing: function(el, membersArray){
+            var savedMemberId = this._getSaveMemberData();
+
+            //담당자 
+            var membersCount1 = membersArray.length;
+            for(var i = 0; i < membersCount1; i++)
+            {
+                var member =  membersArray[i];
+                var memeber_name = member.name;
+                var memeber_id = member.id;
+                var myId = GO.session('id');
+                if(  myId == memeber_id ){
+                    //담당자 나 표시 
+                    memeber_name = this.i18n.parse('todo_me');
+                    $(el).find('#id_responsibility_select').append('<option value=' + memeber_id +' selected="selected">'+ memeber_name +'</option>');
+                }
+                else{
+                    $(el).find('#id_responsibility_select').append('<option value=' + memeber_id +'>'+ memeber_name +'</option>');    
+                }
+
+                
+
+                if(savedMemberId == -1){//저장된 값이 없는 경우 
+                    if(i == 0){
+                        $(el).find('#id_responsibility_select').val(memeber_id);
+                    }
+                }else{//저장된 값이 있을 경우 
+                    if(savedMemberId == memeber_id){
+                        $(el).find('#id_responsibility_select').val(memeber_id);
+                    }
+                }
+            }
+        },
+
+        _categoriesArrayParsing: function(el, categoriesArray){
+            //대상 칼럼 
+            var checkedData = this._getSaveColumnData();
+            var columnArray = _.isArray(checkedData) ? checkedData : [checkedData];
+            var categoriesCount = categoriesArray.length;
+            for(var  i= 0; i < categoriesCount; i++)
+            {
+                var categories =  categoriesArray[i];
+                var categories_title = categories.title;
+                var categories_id = categories.id;
+                var input_id = "id_input_categories" + i;
+                var input_name = "id_input_categories";
+
+                var savedCategoriesId = -1;
+                var savedColumnCaount = columnArray.length;
+                for (var k = 0; k < savedColumnCaount; k++) {
+                    var item = columnArray[k];
+                    if(item == categories_id){
+                        savedCategoriesId = item;
+                        break;
+                    }
+                };
+
+                var checkedString = "";
+                if(savedCategoriesId > -1 || this.isBoardChange == true  || savedColumnCaount==0){
+                    checkedString = "checked=\"checked\"";
+                }
+                $(el).find('#id_checkbox_area').append('<span class="wrap_option wrap_label"><input id = '+input_id+' name='+input_name+' type="checkbox" value='+categories_id+' '+checkedString  +'><label for= '+input_id+'>'+categories_title+'</label></span>');
+            }
+        },
+
+        _itemArrayParsing: function(el, request_data){
+            //아이템 정보 
+            this.arrayModel = request_data; //onMoved할때 쓰기위해 일단 저장
+            var itemArray = request_data.data;
+            var itemCount = itemArray == undefined ? 0 : itemArray.length;
+
+            //목록 없음 문구 삭제 
+            if(itemCount > 0){
+                $(el).find('#list_todo_card_empty').remove();
+                //화면 구성 초기화 
+                //리스트 화면 삭제 
+                $(el).find('#list_todo_card_table').empty();
+                //카드 화면 삭제 
+                $(el).find('#card_todo_card_left').empty();
+                $(el).find('#card_todo_card_right').empty();
+                $(el).find('#card_todo_card').empty();
+            }else{
+                //$(el).find('#list_todo_card_empty').attatch();
+            }
+
+            for(var  i= 0; i < itemCount; i++)
+            {
+                var item = itemArray[i];
+
+                var viewType = this._getViewTypeData();
+                if(viewType == "list"){//리스트 화면 
+                    this._drawListItem(el, item, i);
+                }else{//카드 화면 
+                    if(this._isTwoColumn()){
+                    	if(i%2 == 0){
+                            this._drawCardItemLeft(el, item, i);
+                        }else{
+                            this._drawCardItemRight(el, item, i);
+                        }
+                    }else{
+                    	this._drawCardItemOneColumn(el, item, i);
+                    }
+                    
+                }
+            }
+        },
+
+        //초기 셋팅화면 구성
+        _configTemplate: function() {
+            var html = [];
+            //가젯 제목
+            html.push('<ul class="static_style">');
+            html.push('<li>');
+            html.push('<ul class="standard_style display-options">');    
+                html.push('<p class="title">' + this.i18n.parse('title_label') + '</p>');
+                var title_data = this._getTitleData();
+                html.push('<span class="wrap_txt wrap_label">');
+                    html.push('<input class="txt w_max" id="id_gadget_title" type="text" value="'+title_data+'" name = "id_gadget_title">');
+                html.push('</span>');
+            html.push('</ul>');
+            html.push('</li>');
+
+            //보드 
+            html.push('<li>');
+            html.push('<ul class="static_style display-options">');    
+                html.push('<p class="title">' + this.i18n.parse('board_label') + '</p>');
+                html.push(this._buildSelect("id_board_select"));
+            html.push('</ul>');
+            html.push('</li>');
+
+            //담당자 
+            html.push('<li>');
+            html.push('<ul class="static_style display-options">');    
+                html.push('<p class="title">' + this.i18n.parse('responsibility_label') + '</p>');
+                html.push(this._buildSelect("id_responsibility_select"));
+            html.push('</ul>');
+            html.push('</li>');
+
+            //대상 칼럼 
+            html.push('<li>');
+            html.push('<ul class="static_style display-options">');
+                html.push('<p class="title">' + this.i18n.parse('column_label') + '</p>');
+                html.push(this._buildCheckArea('id_checkbox_area'));
+            html.push('</ul>');
+            html.push('</li>');
+                
+            //보기설정
+            html.push('<li>');
+            var is_list_checked = "";
+            var is_card_checked = "checked";
+
+            var checked = this._getViewTypeData();
+            if(checked == "list"){
+                is_list_checked = "checked";
+                is_card_checked = "";
+            }else{
+                is_list_checked = "";
+                is_card_checked = "checked";
+            }
+            html.push('<ul class="static_style display-options">');
+                html.push('<p class="title">' + this.i18n.parse('view_setting_label') + '</p>');
+                
+                html.push('<span class="wrap_option"><input id="id_view_setting_list" name = "view_setting_radio" type="radio" value="list" '+is_list_checked+'><label for="id_view_setting_list">'+ this.i18n.parse('list_label') +'</label></span>');
+                html.push('<span class="wrap_option"><input id="id_view_setting_card" name = "view_setting_radio" type="radio" value="card" '+is_card_checked+'><label for="id_view_setting_card">'+ this.i18n.parse('card_label') +'</label></span>');
+
+            html.push('</ul>');
+            html.push('</li>');
+            html.push('</ul>');
+            
+            html.push('<input type="text" id="layout" name="layout" class="txt" style="display:none" value="">');
+            html.push('<input type="text" id="column" name="column" class="txt" style="display:none" value="">');
+            
+            return html.join("\n");
+        }, 
+
+        _buildSelect: function(id_value) {
+            var html = [];
+            html.push('<span class="wrap_option wrap_label">');
+            html.push(' <select id = {{id}} name = {{id}} > ');
+            html.push(' </select>');
+            html.push('</span>');
+            
+            return this.template(html.join("\n"), {
+                "id": id_value
+            });
+        },
+
+        _buildCheckArea: function(id_value) {            
+            var html = [];
+            html.push('<span class="wrap_option wrap_label" id = \"'+ id_value +'\" name = \"'+ id_value +'\"  >');
+            html.push('</span>');
+            return html.join("\n");
+        }, 
+
+        _selectedBoardID: function(el) {
+            var board_id = $(el).find('#id_board_select').val();
+            return board_id;
+        },
+
+        _selectedMemberID: function(el) {
+            var member_id = $(el).find('#id_responsibility_select').val();
+            return member_id;
+        },
+
+        _selectedGadgetTitle: function(el) {
+            var titleStr = $(el).find('#id_gadget_title').val();
+            return titleStr;
+        },
+
+        _selectColumnArray: function(el) {
+            var columnArray = [];
+            var column_count = $(el).find('#id_checkbox_area').find('input[type=checkbox]').length;
+
+            for (var i = 0; i < column_count; i++) {
+                if( $(el).find('#id_checkbox_area').find('input[type=checkbox]')[i].checked == true){
+                    var chlumn_id = $(el).find('#id_checkbox_area').find('input[type=checkbox]')[i].value;
+                    columnArray.push(chlumn_id);
+                }
+            };
+            return columnArray.toString();
+        },
+
+        _contentTemplateList: function() {
+            var html = [];
+            var title_data = this._getTitleData();
+            html.push('<div class="go-gadget-header go_gadget_header">');
+		            html.push('<div class="gadget_h1">');
+			            html.push('<span class="type"><span class="ic_dashboard2 ic_type_todo" title="예약"></span></span>');
+			            html.push('<span class="title">'+title_data+'</span>');
+		            html.push('</div>');
+        	html.push('</div>'); 
+
+        	
+         	html.push('<table class="type_normal list_todo_card "> ');
+                html.push('<thead>');
+                    html.push('<tr>');
+                        html.push('<th class="subject">'+this.i18n.parse('list_card')+'</th>');
+                        html.push('<th class="duedate">'+this.i18n.parse('list_duedate')+'</th>');
+                        html.push('<th class="reply">'+this.i18n.parse('list_reply')+'</th>');
+                        html.push('<th class="attatch">'+this.i18n.parse('list_attatch')+'</th>');
+                    html.push('</tr>');
+                html.push('</thead>');
+                html.push('<tbody  id = "list_todo_card_table"> ');
+                html.push('</tbody>');
+            html.push('</table>'); 
+            
+            html.push('<div class="board_card_wrap">');
+            html.push('<div class="layout_left_wrap" id = "card_todo_card_left" >');
+            html.push('</div>');
+            html.push('<div class="layout_right_wrap" id = "card_todo_card_right">');      
+            html.push('</div>');
+                html.push('<div style="display:" id = "list_todo_card_empty">');
+                    html.push('<div colspan="4">');
+                        html.push('<p class="data_null">');
+                            html.push('<span class="ic_data_type ic_no_contents"></span>');
+                            html.push('<span class="txt">'+this.i18n.parse('list_empty')+'</span>');
+                        html.push('</p>');
+                    html.push('</div>');
+                html.push('</div>');
+        	html.push('</div>');
+        
+            //페이지 
+            var previous_page_btn_disabled = "";
+            var next_page_btn_disabled = "";
+            if(this.page == 0){
+                previous_page_btn_disabled  = "paginate_button_disabled btnDisable";
+            }
+            if(this.page == this.totalPage || this.totalPage < 0){
+                next_page_btn_disabled = "paginate_button_disabled btnDisable";
+            }
+
+            html.push('     <div class="tool_bar tool_absolute">');
+            html.push('         <div class="dataTables_paginate paging_full_numbers">');            
+            html.push('             <a data-bypass="" class="previous paginate_button '+previous_page_btn_disabled+'" title="이전"></a>');
+            html.push('             <a data-bypass="" class="next paginate_button '+next_page_btn_disabled+'" title="다음"></a>');
+            html.push('         </div>');   
+            html.push('     </div>');
+
+            return this._contentBorderDecorator(html.join("\n") );
+        }, 
+
+        _contentTemplateCard: function(isTwoColumn) {
+            var html = [];
+            var title_data = this._getTitleData();
+            html.push('<div class="go-gadget-header go_gadget_header">');
+		            html.push('<div class="gadget_h1">');
+			            html.push('<span class="type"><span class="ic_dashboard2 ic_type_todo" title="예약"></span></span>');
+			            html.push('<span class="title">'+title_data+'</span>');
+		            html.push('</div>');
+    		html.push('</div>'); 
+
+
+            html.push('<div class="board_card_wrap">');
+            	if(isTwoColumn){
+	                html.push('<div class="layout_left_wrap" id = "card_todo_card_left" >');
+	                html.push('</div>');
+	                html.push('<div class="layout_right_wrap" id = "card_todo_card_right">');      
+	                html.push('</div>');
+            	}else{
+            		html.push('<div class="layout_wrap" id = "card_todo_card" >');
+	                html.push('</div>');
+            	}
+                    html.push('<div style="display:" id = "list_todo_card_empty">');
+                        html.push('<div colspan="4">');
+                            html.push('<p class="data_null">');
+                                html.push('<span class="ic_data_type ic_no_contents"></span>');
+                                html.push('<span class="txt">'+this.i18n.parse('list_empty')+'</span>');
+                            html.push('</p>');
+                        html.push('</div>');
+                    html.push('</div>');
+            html.push('</div>');
+
+            //페이지 
+            var previous_page_btn_disabled = "";
+            var next_page_btn_disabled = "";
+            if(this.page == 0){
+                previous_page_btn_disabled  = "paginate_button_disabled btnDisable";
+            }
+            if(this.page == this.totalPage || this.totalPage < 0){
+                next_page_btn_disabled = "paginate_button_disabled btnDisable";
+            }
+
+            html.push('     <div class="tool_bar tool_absolute">');
+            html.push('         <div class="dataTables_paginate paging_full_numbers">');            
+            html.push('             <a data-bypass="" class="previous paginate_button '+previous_page_btn_disabled+'" title="이전"></a>');
+            html.push('             <a data-bypass="" class="next paginate_button '+next_page_btn_disabled+'" title="다음"></a>');
+            html.push('         </div>');   
+            html.push('     </div>');
+
+            return this._contentBorderDecorator(html.join("\n"));
+        }, 
+
+        _buildTodoCard: function(id) {
+            var html = [];
+            html.push('<span class="wrap_option wrap_card" >');
+            html.push('</span>');
+            return html.join("\n");
+        }, 
+
+        _getSaveBoardData: function(){
+            var savedBorderId = -1;
+            if( _.has(this.options, 'id_board_select') ){
+                savedBorderId = this.options.id_board_select;
+            }
+            return savedBorderId;
+        },
+
+        _getSaveMemberData: function(){
+            var savedMemberId = -1;
+            if( _.has(this.options, 'id_responsibility_select') ){
+                savedMemberId = this.options.id_responsibility_select;
+            }
+            return  savedMemberId;
+        },
+
+        _getSaveColumnData: function(){
+            var columnArray = [];
+            if( _.has(this.options, 'id_input_categories') ){
+                columnArray = this.options.id_input_categories;
+            }
+            return  columnArray;
+        },
+
+
+         _getTitleData: function(){
+            var title_data = this.i18n.parse('todo_card_list');
+            if( _.has(this.options, 'id_gadget_title') ){   
+                title_data = this.options.id_gadget_title;
+            }
+            return title_data;
+        },
+
+        _getViewTypeData: function(){
+            var view_type_data = "card";
+            if( _.has(this.options, 'view_setting_radio') ){   
+                view_type_data = this.options.view_setting_radio;
+            }
+            return view_type_data;
+        },
+
+        _drawListItem: function(el, item, count_i){
+            var item_id  = item.id;
+            var item_title  = item.title;
+            var item_dueDate  = item.dueDate;
+            var item_labels  = item.labels;
+            var item_attaches  = item.attaches;
+            var itme_attache_count = item_attaches.length;
+            var item_commentCount  = item.commentCount;
+            var show_duDate = this._changeViewDate(item_dueDate);
+            if(show_duDate == false){
+                show_duDate = "";
+            }
+            $(el).find('#list_todo_card_table').append('<tr id = "list_todo_card_tr'+count_i+'"  class = "listItem" value = '+item_id+'>');
+            $(el).find('#list_todo_card_table #list_todo_card_tr'+count_i+'').append('<td class="subject">'+item_title+'</td>');
+            $(el).find('#list_todo_card_table #list_todo_card_tr'+count_i+'').append('<td class="duedate">'+show_duDate+'</td>');
+            $(el).find('#list_todo_card_table #list_todo_card_tr'+count_i+'').append('<td class="reply">'+item_commentCount+'</td>');
+            $(el).find('#list_todo_card_table #list_todo_card_tr'+count_i+'').append('<td class="attatch">'+itme_attache_count+'</td>');
+            $(el).find('#list_todo_card_table').append('</tr>');
+        },
+        
+        _cardItemTemplate: function(){
+        	var html = [];
+        	html.push('<div class="board_card cardItem" value="{{item.id}}">');
+	        html.push("		{{#itemLabels}}");
+	        html.push('			<div class="card_label">');
+	        html.push('				{{#item.labels}}');
+	        html.push('					<span class="chip" style = "background: {{color}}" ></span>');
+	        html.push('				{{/item.labels}}');	
+	        html.push('			</div>');
+			html.push('		{{/itemLabels}}');
+			html.push('		<div class="title"><span class="txt">{{item.title}}</span></div>');
+			html.push('		<div class="meta_data">');
+			html.push('			<span class="ic_wrap"> <span class="ic_board ic_comment_s"></span> <span class="txt">{{item.commentCount}}</span> </span>');
+			html.push('			<span class="ic_wrap"> <span class="ic_board ic_attach_s"></span> <span class="txt">{{item.attaches.length}}</span> </span>');
+			html.push('			{{#item.dueDate}}');
+			html.push('				 <span class="ic_wrap"><span class="ic_board ic_date_s"></span> <span class="txt_ellipsis">{{itemDueDate}}</span></span>');
+			html.push('			{{/item.dueDate}}');
+			html.push('		</div>');
+			html.push('</div>');
+            return html.join("\n");
+        },
+        
+        _getCardItem : function(item){
+        	var cardItem = Hogan.compile(this._cardItemTemplate()).render({
+        		item : item,
+        		itemLabels : function(){
+        			if(this.item.labels.length > 0){
+        				return true;
+        			}
+        			return false;
+        		},
+        		itemDueDate : this._changeViewDate(item.dueDate)
+        	});
+        	return cardItem;
+        },
+        
+        //고정레이어일때 one column
+        _drawCardItemOneColumn: function(el, item, count_i){
+        	var $target = $(el).find('#card_todo_card');
+        	$target.append(this._getCardItem(item));
+        },
+
+        //고정레이어 아닐때 two column
+        _drawCardItemLeft: function(el, item, count_i){
+        	var $target = $(el).find('#card_todo_card_left');
+        	$target.append(this._getCardItem(item));
+        },
+
+        //고정레이어 아닐때 two column
+        _drawCardItemRight: function(el, item, count_i){
+        	var $target = $(el).find('#card_todo_card_right');
+        	$target.append(this._getCardItem(item));
+        },
+
+        //클릭 이벤트 
+        _clickPageButton:function(e) {
+            var target = $(e.currentTarget);
+            if(target.hasClass("btnDisable")){
+                return;
+            }
+            //이전
+            if(target.hasClass("previous")){
+                if(this.page == 0)
+                    return;
+
+                this.page = this.page - 1;
+            }else{
+                if(this.page == this.totalPage)
+                    return;
+                this.page = this.page + 1;
+            }
+            $(this.el).trigger('gadget:request-content');
+        }, 
+
+        _clickListItem:function(e) {
+            var target = e.currentTarget;
+            var itemId = target.attributes.value;
+            var selectedBoardID  = this._getSaveBoardData();
+            //window.open($(e.currentTarget).attr('href'), (new Date).valueOf(), popupOptions);
+            location.href = this.contextRoot + 'app/todo/'+selectedBoardID+'/card/'+itemId.value;
+        }, 
+
+        _clickCardItem:function(e) {
+            var target = e.currentTarget;
+            var itemId = target.attributes.value;
+            var selectedBoardID  = this._getSaveBoardData();
+            location.href = this.contextRoot + 'app/todo/'+selectedBoardID+'/card/'+itemId.value;
+        }, 
+
+        //날짜 셋팅 
+        _changeViewDate: function(dateStr) 
+        {
+            if(dateStr == null)
+            {
+                return false;
+            }
+            
+            var mDate = moment(dateStr);
+            var today = moment(new Date());
+            var output = '';
+            
+            if(mDate.isSame(today, 'day')) {
+            	output = mDate.format('HH:mm');
+            } else if(mDate.isSame(today, 'year')) {
+            	output = mDate.format('MM-DD(dd) HH:mm');
+            } else {
+            	output = mDate.format('YY-MM-DD(dd)');
+            }
+            
+            return output;
+        },
+
+        _checkDayName: function(daycount) 
+        {
+            var dayname = "";
+            if(daycount==0){
+                dayname = this.i18n.parse('day_sun');
+            }else if(daycount==1){
+                dayname = this.i18n.parse('day_mon');
+            }else if(daycount==2){
+                dayname = this.i18n.parse('day_tue');
+            }else if(daycount==3){
+                dayname = this.i18n.parse('day_wed');
+            }else if(daycount==4){
+                dayname = this.i18n.parse('day_thu');
+            }else if(daycount==5){
+                dayname = this.i18n.parse('day_fri');
+            }else if(daycount==6){
+                dayname = this.i18n.parse('day_sat');
+            }
+            return dayname;
+        }
+    });
+    </script>
+</head>
+
+<body id="main" class="go_skin_home_default" data-role="main">
+    <div class="go-dashboard go-dashboard-editing go_dashboard_3_2">
+        <div class="go-gadget-column gadget-col-1" data-columnid="1">
+            <!-- empty -->
+        </div>
+        
+        <div class="gripper"></div>
+
+        <div id="gadget-containter" class="go-gadget-column gadget-col-2" data-columnid="2">
+            <!-- empty -->
+        </div>
+
+        <div class="gripper"></div>
+
+        <div class="go-gadget-column gadget-col-3" data-columnid="3">
+            <!-- empty -->
+        </div>
+    </div>
+</body>
+</html>

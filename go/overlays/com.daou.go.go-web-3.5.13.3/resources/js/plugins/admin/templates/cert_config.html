@@ -1,0 +1,41 @@
+<form name="certConfig">
+    <div class="container">
+        <div class="header">
+            <h2>{{lang.label_cert_login}}</h2>
+        </div>
+        <div class="content">
+            <table class="detail">
+                <colgroup>
+                    <col width="130px" />
+                    <col width="*" />
+                </colgroup>
+                <tbody>
+                    <tr class="last">
+                        <th>
+                            <span class="title">{{lang.label_cert_login}}</span>
+                        </th>
+                        <td>
+                             <div class="vertical_wrap_s">
+                                <span class="option_wrap">
+                                    <input type="radio" value="true" id="show_radio" name="useCert" {{#model.useCert}} checked="checked" {{/model.useCert}} />
+                                    <label for="show_radio">{{lang.label_use}}</label>
+                                </span>
+                                <span class="option_wrap">
+                                    <input type="radio" value="false" id ="hide_radio" name="useCert" {{^model.useCert}} checked="checked" {{/model.useCert}} />
+                                    <label for="hide_radio">{{lang.label_unuse}}</label>
+                                </span>
+                             </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="page_action mini">
+            <span class="btn" id="ok">{{lang.label_ok}}</span>
+            <span class="btn_nega" id="cancel">{{lang.label_cancel}}</span>
+        </div>
+    </div>
+</form>
+<div class="container">
+    <div id="certListPage"></div>
+</div>

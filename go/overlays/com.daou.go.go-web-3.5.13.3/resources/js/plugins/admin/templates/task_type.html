@@ -1,0 +1,156 @@
+<div class="container">
+	<div class="header">
+		<h2>{{lang.typeAdministration}}</h2>
+	</div>
+	<div class="content">
+		<form>
+
+		<table class="detail">
+			<colgroup>
+				<col width="120px">
+					<col width="*">
+				</colgroup>
+				<tbody>
+				<tr>
+					<th><span class="title">{{lang.typeName}}</span></th>
+					<td>
+						<div class="option_wrap">
+							<input type="text" class="input w_large" id="typeName" value="{{model.name}}">
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<th><span class="title">{{lang.typeDescription}}</span></th>
+					<td>
+						<textarea class="w_max" id="description">{{model.description}}</textarea>
+					</td>
+				</tr>
+				<tr>
+					<th><span class="title">{{lang.status}}</span></th>
+					<td>
+
+						<span class="option_wrap">
+							<input type="text" class="input w_normal" id="stateName">
+							<span class="btn_s" id="addState">{{lang.add}}</span>
+							<span class="desc"><strong id="stateNameLength">0</strong>/10{{lang.letter}}</span>
+							<br>
+						</span>
+
+						<div class="tb_wrap">
+							<table class="in_table task_state">
+								<thead>
+									<tr>
+										<th class="state sorting_disable"><span class="title_sort">{{lang.statusName}}</span></th>
+										<th class="check sorting_disable"><span class="title_sort">{{lang.completionStatus}}</span></th>
+										<th class="action sorting_disable"><span class="title_sort">{{lang.destroy}}</span></th>
+									</tr>
+								</thead>
+								<tbody id="stateList">
+								</tbody>
+							</table>
+							<p class="desc"></p>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<th><span class="title">{{lang.workFlow}}</span></th>
+					<td>
+						<div class="tb_wrap">
+							<table class="in_table task_state_edit">
+								<thead>
+									<tr>
+										<th class="start sorting_disable"><span class="title_sort">{{lang.startStatus}}</span></th>
+										<th class="next sorting_disable"><span class="title_sort">{{lang.nextStatus}}</span></th>
+										<th class="button sorting_disable"><span class="title_sort">{{lang.statusModifierButton}}</span></th>
+										<th class="editor sorting_disable"><span class="title_sort">{{lang.statusModifiers}}</span></th>
+										<th class="noti sorting_disable"><span class="title_sort">{{lang.notificationTarget}}</span></th>
+										<th class="action sorting_disable"><span class="title_sort">{{lang.administration}}</span></th>
+									</tr>
+								</thead>
+								<tbody id="flowList">
+								</tbody>
+							</table>
+						</div>
+                        <span class="desc vb">{{lang.statusModifyDescription}}</span>
+					</td>
+				</tr>
+                <tr>
+                    <th><span class="title">{{lang.modifyPermissions}}</span></th>
+                    <td>
+                        <div class="tb_wrap">
+                            <table class="in_table task_state_right">
+                                <thead>
+                                    <tr>
+                                        <th class="item sorting_disable"><span class="title_sort">{{lang.item}}</span></th>
+                                        <th class="right sorting_disable"><span class="title_sort">{{lang.fixPermissions}}</span></th>
+                                        <th class="noti sorting_disable"><span class="title_sort">{{lang.revisedNotificationTargets}}</span></th>
+                                    </tr>
+                                </thead>
+                                <tbody id="editPermissionList">
+                                </tbody>
+                            </table>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th><span class="title">{{lang.deleteTaskPermissions}}</span></th>
+                    <td>
+                        <div class="tb_wrap">
+                            <table class="in_table task_state_right">
+                                <thead>
+                                    <tr>
+                                        <th class="item sorting_disable"><span class="title_sort">{{lang.item}}</span></th>
+                                        <th class="right sorting_disable"><span class="title_sort">{{lang.deletePermissions}}</span></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                   <tr>
+                                        <td class="item">{{lang.task}}</td>
+                                        <td id="deletePrivileges" class="right">
+                                            <span class="option_wrap">
+                                                <input type="checkbox" value="REGISTRANT" id="DELETE_REGISTRANT"><label for="DELETE_REGISTRANT">{{lang.REGISTRANT}}</label>
+                                            </span>
+                                            <span class="option_wrap">
+                                                <input type="checkbox" value="ASSIGNEE" id="DELETE_ASSIGNEE"><label for="DELETE_ASSIGNEE">{{lang.ASSIGNEE}}</label>
+                                            </span>
+                                            <span class="option_wrap">
+                                                <input type="checkbox" value="ADMIN" id="DELETE_ADMIN"><label for="DELETE_ADMIN">{{lang.ADMIN}}</label>
+                                            </span>
+                                            <span class="option_wrap">
+                                                <input type="checkbox" value="REFERER" id="DELETE_REFERER"><label for="DELETE_REFERER">{{lang.REFERER}}</label>
+                                            </span>
+                                            <span class="option_wrap">
+                                                <input type="checkbox" value="APPROVER" id="DELETE_APPROVER"><label for="DELETE_APPROVER">{{lang.APPROVER}}</label>
+                                            </span>
+                                         </td>
+                                   </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </td>
+                </tr>
+				<tr class="last">
+					<th><span class="title">{{lang.availability}}</span></th>
+					<td>
+						<span class="option_wrap">
+							<input type="radio" name="status" id="HIDDEN" {{^isShow}}checked{{/isShow}}>
+							<label for="HIDDEN">{{lang.hide}}</label>
+						</span>
+						<span class="option_wrap">
+							<input type="radio" name="status" id="SHOW" {{#isShow}}checked{{/isShow}}>
+							<label for="SHOW">{{lang.normal}}</label>
+						</span>
+					</td>
+				</tr>
+				</tbody>
+			</table>
+		</form>
+	</div>
+</div>
+<div class="page_action">
+	<span>
+		<span class="btn" id="submit">{{lang.confirm}}</span>
+		<span class="btn_nega" id="cancel">{{lang.cancel}}</span>
+	</span>
+</div>

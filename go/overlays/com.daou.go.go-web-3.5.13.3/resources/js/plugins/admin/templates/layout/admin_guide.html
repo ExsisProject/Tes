@@ -1,0 +1,108 @@
+
+{{#step1}}
+<header>
+    <h1>DO 3.0 {{AdminLang.사이트어드민 둘러보기}}</h1>
+    <a class="btn_layer_x"><span class="ic"></span><span class="txt">{{CommonLang.닫기}}</span></a>
+</header>
+<div class="content">
+    <div class="img_wrap">
+        <img src="/go/resources/images/admin/tutorial_intro_{{lang}}.png" />
+    </div>
+</div>
+<footer class="btn_layer_wrap">
+    <a class="align_right" value="stepOrg1"><span class="txt">{{AdminLang.조직관리 튜토리얼 보기}}</span><span class="ic_adm ic_arrow_right_s"></span></a>
+</footer>
+{{/step1}}
+
+{{#stepOrg1}}
+<header>
+    <h1>{{AdminLang.조직관리 튜토리얼}}</h1>
+    <a class="btn_layer_x"><span class="ic"></span><span class="txt">{{CommonLang.닫기}}</span></a>
+</header>
+<div class="content">
+    <div class="img_wrap">
+        <img src="/go/resources/images/admin/tutorial_01_{{lang}}.gif" />
+    </div>
+    <a  class="btn_next"  value="stepOrg2">
+        <span class="ic_adm ic_arrow_right_l"></span>
+    </a>
+</div>
+<div class="content_desc">
+    <div class="paging">
+        <span class="tutorial_pg on">1</span>
+        <span class="tutorial_pg">2</span>
+        <span class="tutorial_pg">3</span>
+    </div>
+    <p class="tit">STEP 1 {{AdminLang.조직체계 구성하기}}</p>
+    <p class="txt">{{AdminLang.직위직책직급사용자그룹 구성안내}}</p>
+    <p class="txt">{{AdminLang.템플릿의 샘플을 활용하면}}</p>
+</div>
+<footer class="btn_layer_wrap">
+    <a  class="align_left"  value="step1"><span class="ic_adm ic_arrow_left_s"></span><span class="txt">DO 3.0 {{AdminLang.사이트어드민 둘러보기}}</span></a>
+</footer>
+{{/stepOrg1}}
+
+
+{{#stepOrg2}}
+<header>
+    <h1>{{AdminLang.조직관리 튜토리얼}}</h1>
+    <a class="btn_layer_x"><span class="ic"></span><span class="txt">{{CommonLang.닫기}}</span></a>
+</header>
+<div class="content">
+    <div class="img_wrap">
+        <img src="/go/resources/images/admin/tutorial_02_{{lang}}.gif" />
+    </div>
+    <a  class="btn_prev"  value="stepOrg1">
+        <span class="ic_adm ic_arrow_left_l"></span>
+    </a>
+    <a  class="btn_next"  value="stepOrg3">
+        <span class="ic_adm ic_arrow_right_l"></span>
+    </a>
+</div>
+<div class="content_desc">
+    <div class="paging">
+        <span class="tutorial_pg">1</span>
+        <span class="tutorial_pg on">2</span>
+        <span class="tutorial_pg">3</span>
+    </div>
+    <p class="tit">STEP 2 {{AdminLang.부서 구성하기}}</p>
+    <p class="txt">{{AdminLang.조직설계에서 부서 생성}}.</p>
+    <p class="txt">{{AdminLang.드래그앤드랍기능을 통해 부서 쉽게 지정 가능}}</p>
+    <p class="desc">* {{AdminLang.조직 일괄등록메뉴에서 많은 부서를 한번에 등록 가능}}</p>
+</div>
+<footer class="btn_layer_wrap">
+    <a  class="align_left" value="step1" ><span class="ic_adm ic_arrow_left_s"   value="step1"></span><span class="txt">DO 3.0 {{AdminLang.사이트어드민 둘러보기}}</span></a>
+</footer>
+
+{{/stepOrg2}}
+
+{{#stepOrg3}}
+<header>
+    <h1>{{AdminLang.조직관리 튜토리얼}}</h1>
+    <a class="btn_layer_x"><span class="ic"></span><span class="txt">{{CommonLang.닫기}}</span></a>
+</header>
+<div class="content">
+    <div class="img_wrap">
+        <img src="/go/resources/images/admin/tutorial_03_{{lang}}.gif" />
+    </div>
+    <a  class="btn_prev" value="stepOrg2">
+        <span class="ic_adm ic_arrow_left_l"></span>
+    </a>
+</div>
+<div class="content_desc">
+    <div class="paging">
+        <span class="tutorial_pg">1</span>
+        <span class="tutorial_pg">2</span>
+        <span class="tutorial_pg on">3</span>
+    </div>
+    <p class="tit">STEP 3 {{AdminLang.멤버 생성하기}}</p>
+    <p class="txt">{{AdminLang.조직설계 혹은 멤버통합관리 메뉴에서 멤버 생성}}</p>
+    <p class="txt">{{AdminLang.멤버의 부서직위메일 조직구성 완료}}</p>
+    <p class="desc">* {{AdminLang.조직설계에서 부서가 미지정된 멤버 확인}}</p>
+    <p class="desc">* {{AdminLang.일괄등록 메뉴에서 많은 멤버 한번에 등록 가능}}</p>
+</div>
+<footer class="btn_layer_wrap">
+    <a class="align_left" value="step1"><span class="ic_adm ic_arrow_left_s"></span><span class="txt">DO 3.0 {{AdminLang.사이트어드민 둘러보기}}</span></a>
+    <a class="align_right btn toOrgMenu" value="orgMenu"><span class="txt">{{AdminLang.직위체계 구성하러 가기}}</span></a>
+</footer>
+{{/stepOrg3}}

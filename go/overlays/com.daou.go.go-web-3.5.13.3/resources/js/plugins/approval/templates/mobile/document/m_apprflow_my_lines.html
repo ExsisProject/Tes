@@ -1,0 +1,12 @@
+{{#hasMyLines}}
+<ul class="list list_myApproval">
+    {{#myLines}}
+    <li>
+        <a data-bypass data-id={{id}}>{{title}}({{groupCount}})</a>
+    </li>
+    {{/myLines}}
+</ul>
+{{/hasMyLines}}
+{{^hasMyLines}}
+<p class="null">{{lang.msg_empty_my_lines}}</p>
+{{/hasMyLines}}

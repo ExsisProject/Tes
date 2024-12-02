@@ -1,0 +1,42 @@
+<li style="min-height:20px;padding:10px 5px">
+	<p>{{lang.keyword}} : <strong>{{searchData.keyword}}</strong></p>									
+</li>
+{{^dataset}}								
+<li class="creat data_null">
+	<span class="txt">{{lang.non_result}}</span>
+</li>
+{{/dataset}}
+{{#dataset}}
+<li data-boardType="{{boardType}}" data-boardid="{{boardId}}" data-postid="{{id}}" data-hidden="{{hiddenPost}}">
+	<a class="tit" href="javascript:;" >
+		{{^isStream}}
+		<span class="subject">
+			<span class="title">
+                       {{#postHeaderName}}[{{postHeaderName}}]&nbsp;{{/postHeaderName}}{{{title}}}
+        	</span>
+       	</span>    
+       {{/isStream}}
+       <span class="content"> {{{resultContentParse}}}</span>
+		
+		{{#attachFileNames}}  
+           <ul class="file_wrap_normal">
+			<li>
+				<span class="ic ic_attach">
+					<span class="ic_file ic_{{checkFileType}}"></span>
+					<span class="txt">{{{attachFileNames}}}</span>
+					<!-- <span class="size">(34KB)</span> -->
+				</span>
+			</li>
+		</ul>
+		{{/attachFileNames}}
+		
+		<span class="info">
+			<span class="name">{{writer.name}} {{writer.positionName}}</span>
+			{{#writer.name}}<span class="part">|</span>{{/writer.name}}
+			<span class="date">{{dateParse}}</span>
+			<span class="part">|</span>
+			<span class="category">{{boardName}}</span>
+		</span>
+	</a>
+</li>
+{{/dataset}}

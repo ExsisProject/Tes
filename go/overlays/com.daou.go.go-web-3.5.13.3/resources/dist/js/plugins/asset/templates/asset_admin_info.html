@@ -1,0 +1,62 @@
+<p class="desc">※ {{lang.info}}</p>
+
+<div class="dataTables_wrapper">
+	<div class="tool_bar">
+		<!--  상단 메뉴와 동일 -->
+		<div class="critical">
+			<!-- 커스텀 버튼 편집 가능  -->
+			<a class="btn_tool" data-role="button" data-btntype="attrAdd"><span class="ic_toolbar plus"></span><span class="txt">{{lang.add}}</span></a>
+		</div>
+	</div>
+{{#dataset}}	
+	<!-- 테이블 -->		
+	<table class="type_normal table_fix">	
+		<thead>
+			<tr>
+				<th class="sorting_disabled"><span class="title_sort">{{lang.field_name}}</span></th>
+				<th class="sorting_disabled"><span class="title_sort">{{lang.show_user}}</span></th>
+				<th class="sorting_disabled"><span class="title_sort">{{lang.delete}}</span></th>
+			</tr>
+		</thead>
+		<tbody id="infoTbody">	
+			<tr>
+				<td><span class="name">{{lang.name}}</span></td>
+				<td><input type="checkbox" checked disabled="disabled"></td>							
+				<td><span class="action txt_caution">{{lang.no_delete}}</span></td>
+			</tr>
+            <tr>
+                <td><span class="code">{{lang.code}}</span></td>
+                <td><input type="checkbox" id="useCodeVisibility" {{#useCodeVisibility}}checked{{/useCodeVisibility}}></td>
+                <td><span class="txt_caution">{{lang.no_delete}}</span></td>
+            </tr>
+			{{#attributes}}			
+			<tr class="attribute" data-attrid="{{id}}">
+				<td><input type="text" class="txt comp" value="{{name}}"/></td>
+				<td><input type="checkbox" class="visibleCheck" {{#visibility}}checked{{/visibility}}></td>							
+				<td><span class="ic_side ic_basket_bx" title="{{lang.delete}}" data-btntype="attrDel"></span></td>
+			</tr>
+			{{/attributes}}
+			<!-- 		
+			<tr>
+				<td><input type="text"/></td>
+				<td><input type="checkbox"></td>							
+				<td><span class="ic_side ic_basket_bx" title="삭제"></span></td>
+			</tr>
+			-->						
+		</tbody>
+	</table>
+	<!-- //테이블 -->	
+{{/dataset}}				
+	<!--<div class="tool_bar custom_bottom">
+		&lt;!&ndash;  상단 메뉴와 동일 &ndash;&gt;
+		<div class="critical">						
+			&lt;!&ndash; 커스텀 버튼 편집 가능  &ndash;&gt;
+			<a class="btn_tool" data-role="button" data-btntype="attrAdd"><span class="txt">{{lang.add}}</span></a>
+		</div>	
+	</div>-->
+</div>
+
+<div class="page_action_wrap">
+	<span class="btn_major" data-role="button" id="btn_ok" data-btntype="infoSubmit"><span class="txt">{{lang.ok}}</span></span>
+	<span class="btn_minor" data-role="button" id="btn_cancel" data-btntype="infoCancel"><span class="txt">{{lang.cancel}}</span></span>
+</div>

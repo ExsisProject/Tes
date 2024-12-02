@@ -1,0 +1,12 @@
+<form name="{{form_name}}">
+    <span class="wrap_txtarea">
+        <textarea class="mousetrap txtarea" name="content" rows="{{textareaRows}}">{{content}}</textarea>
+    </span>
+    <footer class="btn_wrap">
+        <a href="#" class="btn-submit btn_major_s" data-bypass><span class="txt">{{label.save}}</span></a>
+        <a href="#" class="btn-cancel btn_minor_s" data-bypass><span class="txt">{{label.cancel}}</span></a>
+        {{#removable}}
+        <a href="#" class="btn-remove btn_caution_s" data-bypass><span class="txt">{{label.remove}}</span></a>
+        {{/removable}}
+    </footer>
+</form>

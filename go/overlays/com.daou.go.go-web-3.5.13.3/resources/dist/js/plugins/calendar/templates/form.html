@@ -1,0 +1,290 @@
+<div class="content_page schedule_form go_renew ">
+
+    {{#detail?}}
+    <div class="tool_bar">
+        <div class="critical">
+            {{#editable?}}
+            <a id="btn-confirm" class="btn_tool" data-role="button">
+                <span class="ic_toolbar check"></span>
+                <span class="txt">{{label.confirm}}</span>
+            </a>
+            <a id="btn-cancel"class="btn_tool" data-role="button">
+                <span class="ic_toolbar close"></span>
+                <span class="txt">{{label.cancel}}</span>
+            </a>
+            {{/editable?}}
+            {{^regist?}}
+            {{#editable?}}
+            <a id="btn-leave-attendee"class="btn_tool" data-role="button">
+                <span class="ic_toolbar member_cancel"></span>
+                <span class="txt">{{label.leave_attendee}}</span>
+            </a>
+            {{/editable?}}
+            {{#removable?}}
+            <a id="btn-remove-event"class="btn_tool" data-role="button">
+                <span class="ic_toolbar del"></span>
+                <span class="txt">{{label.remove_event}}</span>
+            </a>
+            {{/removable?}}
+            {{#editable?}}
+            <a id="btn-copy-event"class="btn_tool" data-role="button">
+                <span class="ic_toolbar copy"></span>
+                <span class="txt">{{label.copy_event}}</span>
+            </a>
+            {{/editable?}}
+            {{/regist?}}
+        </div>
+        <div class="optional">
+            <a class="btn_tool" url-copy>
+                <span class="ic_toolbar copy_url"></span>
+                <span class="txt">{{label.copy_url}}</span>
+            </a>
+            <a id="btn-goto-list" class="btn_tool" data-role="button">
+                <span class="ic_toolbar calendar"></span>
+                <span class="txt">{{label.goto_list}}</span>
+            </a>
+        </div>
+    </div>
+    {{/detail?}}
+
+    <div class="wrap_container" data-form-wrapper>
+        <section class="content_wrapper" data-schedule-wrapper>
+            <form id="form-event">
+                <fieldset>
+                    <table class="form_type form_add04">
+                        <tbody>
+                        {{>title_and_date}}
+                        </tbody>
+                    </table>
+                    <table class="form_type form_add04">
+                        <tbody>
+                        {{#show_calendar_select?}}
+                        <tr id="calendar-list-row">
+                            <th><span class="title">{{label.my_calendar}}</span></th>
+                            <td>
+								<span class="wrap_multiselect">
+									<span class="wrap_select"><select name="calendar_id"></select></span>
+								</span>
+                            </td>
+                        </tr>
+                        {{/show_calendar_select?}}
+                        {{#show_inner_attendees?}}
+                        <tr id="attendee-list-row">
+                            <th>
+		                    	<span class="title">
+		                    	{{label.attendees}}
+		                    	<span class="help"><span class="tool_tip">{{{msg.atendee_alarm_msg}}}<i
+                                        class="tail_left"></i></span></span>
+		                    	</span>
+                            </th>
+                            <td>
+                                <div class="wrap_name_tag">
+                                    <ul id="attendee-list" class="name_tag">
+                                        {{#editable?}}
+                                        <li class="creat" data-button="true">
+			                                <span class="btn_wrap" id="btn-add-attendees">
+			                                    <span class="ic_form ic_addlist"></span>
+			                                    <span class="txt">{{label.select_attendees}}</span>
+			                                </span>
+                                            {{#isCopiedNotAlone}}
+                                            <a id="delete_all_attendees" class="btn_rest">
+                                                <span class="ic16 allDel"></span>
+                                                <span class="txt">{{label.delete_all}}</span>
+                                            </a>
+                                            {{/isCopiedNotAlone}}
+                                        </li>
+                                        {{/editable?}}
+                                        <li class="add" id="moreAttendee" data-button="true" style="display:none">
+			                            	<span class="name">
+			                            		{{label.more}}
+			                            		<span class="ic ic_arrow_down" title=""></span>
+		                            		</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                        {{/show_inner_attendees?}}
+                        <tr>
+                            <th>
+								<span class="title">
+									{{label.external_participants}}
+								</span>
+                            </th>
+                            <td>
+                                {{#editable?}}
+                                <div class="s_wrap_add">
+                                    <input type="text" class="input wfix_large" id="externalForm">
+                                    <span class="btn_minor_s" id="addExternal">
+										<span class="txt">{{label.add}}</span>
+									</span>
+                                    <span class="alert_wrap go_error go_renew"><span class="desc caution"
+                                                                                     id="externalValidatiion"></span></span>
+                                </div>
+                                {{/editable?}}
+                                <div class="wrap_name_tag" id="externalArea" style="display:none">
+                                    <ul class="name_tag" id="externals">
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                        {{#show_location?}}
+                        <tr>
+                            <th><span class="title">{{label.location}}</span></th>
+                            <td
+                                    {{^regist?}} class="text"{{/regist?}}>
+                            <div class="wrap_txt">
+                                <input id="form-field-location" type="text" name="location"
+                                       class="txt w_max{{^editable?}} readonly{{/editable?}}" value="{{&location}}"
+                                       {{^editable?}} readonly="readonly" {{/editable?}}/>
+                            </div>
+                            </td>
+                        </tr>
+                        {{/show_location?}}
+                        {{#show_description?}}
+                        <tr>
+                            <th><span class="title">{{label.desc}}</span></th>
+                            <td
+                                    {{^regist?}} class="text"{{/regist?}}>
+                            <div class="wrap_txtarea"><textarea id="textarea-desc" name="description"
+                                                                class="w_max textarea{{^editable?}} readonly{{/editable?}}"
+                                                                rows="10" {{^editable?}} readonly="readonly" {{/editable?}}>{{&description}}</textarea>
+                            </div>
+                            </td>
+                        </tr>
+                        {{/show_description?}}
+                        {{#show_reminder?}}
+                        {{^regist?}}
+                        <tr>
+                            <td colspan="2">
+                                <hr/>
+                            </td>
+                        </tr>
+                        {{/regist?}}
+                        <tr>
+                            <th><span class="title">{{label.reminder}}</span></th>
+                            <td id="form-reminder-wrapper">
+                                <ul id="reminder-list" class="multi_select_option"></ul>
+                                {{#editable?}}
+                                <span id="btn-add-reminder" class="btn_wrap creat"><span
+                                        class="ic_form ic_addlist"></span><span class="txt txt_bold">{{label.add_reminder}}</span></span>
+                                {{/editable?}}
+                            </td>
+                        </tr>
+                        {{/show_reminder?}}
+                        {{#use_asset?}}
+                        <tr id="asset-list-row" style="display:none">
+                            <th>
+		                		<span class="title">
+		                			{{label.reserving_asset}}
+		                			<span class="help"><span class="tool_tip">{{{msg.asset_reservation_msg}}}<i
+                                            class="tail_left"></i></span></span>
+		                		</span>
+                            </th>
+                            <td id="asset-wrapper"></td>
+                        </tr>
+                        {{/use_asset?}}
+                        <tr class="line"><td colspan="2"><hr /></td></tr>
+                        </tbody>
+                    </table>
+                </fieldset>
+            </form>
+
+            {{^detail?}}
+            <div class="page_action_wrap">
+                {{#editable?}}
+                <a id="btn-confirm" class="btn_major btn_group_confirm" data-role="button" data-bypass{{^regist?}} style="display:none;"{{/regist?}}><span class="txt">{{label.confirm}}</span></a>
+                <a id="btn-cancel" class="btn_minor btn_group_confirm" data-role="button" data-bypass{{^regist?}} style="display:none;"{{/regist?}}><span class="txt">{{label.cancel}}</span></a>
+                {{/editable?}}
+                {{^regist?}}
+                <a id="btn-goto-list" class="btn_major btn_group_action" data-bypass><span class="text">{{label.goto_list}}</span></a>
+                {{#editable?}}
+                <a id="btn-leave-attendee" class="btn_minor btn_group_action" data-bypass style="display:none;"><span class="text">{{label.leave_attendee}}</span></a>
+                {{/editable?}}
+                {{#removable?}}
+                <a id="btn-remove-event" class="btn_minor btn_group_action" data-bypass style=""><span class="text">{{label.remove_event}}</span></a>
+                {{/removable?}}
+                {{#editable?}}
+                <a id="btn-copy-event" class="btn_minor btn_group_action" data-role="button"><span class="txt">{{label.copy_event}}</span></a>
+                {{/editable?}}
+                {{/regist?}}
+            </div>
+            {{/detail?}}
+        </section>
+
+        <!-- 참석자 일정 -->
+        <div class="attendees" data-attendees-schedule-wrapper>
+
+
+
+        </div>
+        <!-- //참석자 일정 -->
+    </div>
+        {{^regist?}}
+        <section class="aside_wrapper article_reply">
+            <div class="reply_wrap">
+                <header>
+                    <ul class="tab_nav">
+                        <li id="commentTab" class="first on" data-tag="tab" data-type="comment">
+                            <span class="ic_classic ic_reply"></span>
+                            <span class="txt">{{label.comment}}</span>
+                            <span class="num" id="commentCount"></span>
+                        </li>
+                        <li id="logTab" class="last" data-tag="tab" data-type="log">
+                            <span class="txt">{{label.history}}</span>
+                            <span class="num" id="logCount"></span>
+                        </li>
+                    </ul>
+                </header>
+                <div data-replies-wrapper id="commentArea"></div>
+                <div id="logArea" style="display:none"></div>
+            </div>
+        </section>
+        {{/regist?}}
+    {{#detail?}}
+    <div class="tool_bar">
+        <div class="critical">
+            {{#editable?}}
+            <a id="bottom-btn-confirm" class="btn_tool" data-role="button">
+                <span class="ic_toolbar check"></span>
+                <span class="txt">{{label.confirm}}</span>
+            </a>
+            <a id="bottom-btn-cancel"class="btn_tool" data-role="button">
+                <span class="ic_toolbar close"></span>
+                <span class="txt">{{label.cancel}}</span>
+            </a>
+            {{/editable?}}
+            {{^regist?}}
+            {{#editable?}}
+            <a id="bottom-btn-leave-attendee"class="btn_tool" data-role="button">
+                <span class="ic_toolbar member_cancel"></span>
+                <span class="txt">{{label.leave_attendee}}</span>
+            </a>
+            {{/editable?}}
+            {{#removable?}}
+            <a id="bottom-btn-remove-event"class="btn_tool" data-role="button">
+                <span class="ic_toolbar del"></span>
+                <span class="txt">{{label.remove_event}}</span>
+            </a>
+            {{/removable?}}
+            {{#editable?}}
+            <a id="bottom-btn-copy-event"class="btn_tool" data-role="button">
+                <span class="ic_toolbar copy"></span>
+                <span class="txt">{{label.copy_event}}</span>
+            </a>
+            {{/editable?}}
+            {{/regist?}}
+        </div>
+        <div class="optional">
+            <a class="btn_tool" url-copy>
+                <span class="ic_toolbar copy_url"></span>
+                <span class="txt">{{label.copy_url}}</span>
+            </a>
+            <a id="bottom-btn-goto-list" class="btn_tool" data-role="button">
+                <span class="ic_toolbar calendar"></span>
+                <span class="txt">{{label.goto_list}}</span>
+            </a>
+        </div>
+    </div>
+    {{/detail?}}
+</div>

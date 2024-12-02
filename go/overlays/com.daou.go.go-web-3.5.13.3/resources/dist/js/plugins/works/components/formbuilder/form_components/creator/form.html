@@ -1,0 +1,23 @@
+<span class="box_label_wrap">
+    {{^model.hideLabel}}
+	<label for="">{{{label}}}</label>
+	{{#model.required}}
+	<i class="asterisk">*</i>
+	{{/model.required}}
+	{{#model.guideAsTooltip}}
+    {{#model.guide}}
+	<span class="help">
+		<span class="tool_tip">{{model.guide}}<i class="tail_left"></i></span>
+	</span>
+    {{/model.guide}}
+	{{/model.guideAsTooltip}}
+    {{/model.hideLabel}}
+</span>
+<div class="build_box_data">
+	<span class="wrap_txt disabled">
+       {{lang.자동입력}}
+    </span>
+    {{^model.guideAsTooltip}}
+	<p class="txt_info">{{#model.guide}}* {{model.guide}}{{/model.guide}}</p>
+	{{/model.guideAsTooltip}}
+</div>
