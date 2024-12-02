@@ -1,4 +1,4 @@
 # Tes
 
-git clone 이후
-intellij를 실행하여 go파일 프로젝트 열기
+git clone ->
+intellij를 실행하여 'go'파일을 오픈하여 프로젝트 수정
