@@ -1,0 +1,13 @@
+<span class="box_label_wrap simple_label">
+	<label for="">{{{label}}}</label>
+	{{#model.required}}
+	<i class="asterisk">*</i>
+	{{/model.required}}
+	{{#model.guideAsTooltip}}
+    {{#model.guide}}
+	<span class="help">
+		<span class="tool_tip">{{model.guide}}<i class="tail_left"></i></span>
+	</span>
+    {{/model.guide}}
+	{{/model.guideAsTooltip}}
+</span>

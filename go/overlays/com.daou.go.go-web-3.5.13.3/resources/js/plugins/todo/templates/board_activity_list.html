@@ -1,0 +1,27 @@
+<header class="timeline_header">
+    <h1 class="title">{{label.timeline}}</h1>
+    <div class="critical">
+        <a href="#" class="btn-close-timeline btn_side_close" data-bypass alt="{{label.close_timeline}}" title="{{label.close_timeline}}">
+            <span class="ic_board ic_slide_close"></span>
+        </a>
+    </div>
+</header>
+<div class="timeline_wrap">
+    <div class="ui-scroll-container" data-scroll-axis="y">
+        <ul class="board-timeline-contents type_simple_list simple_list_alarm" data-scrollcontent="true">
+            {{#activities}}
+            {{> _board_activity_item}}
+            {{/activities}}
+
+            {{^activities}}
+            <li class="null_data">
+                <p class="desc">{{msg.no_activities}}</p>
+            </li>
+            {{/activities}}
+        </ul>
+    </div>
+    
+    <div class="timeline-bottom-buttons bottom_action">
+            <a class="btn-load-more btn_list_reload" data-bypass><span class="ic"></span><span class="txt">{{label.load_more}}</span></a>
+    </div>
+</div>

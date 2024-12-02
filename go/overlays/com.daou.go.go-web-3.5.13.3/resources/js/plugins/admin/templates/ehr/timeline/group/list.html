@@ -1,0 +1,19 @@
+<table class="tb tb_ehr_group_set">
+    <thead>
+    <tr>
+        <th class="subject">{{AdminLang.그룹명}}</th>
+        <th class="date">{{TimelineLang.근무시간}}</th>
+    </tr>
+    </thead>
+    <tbody>
+    {{#collection}}
+    <tr class="group_item" data-origingroupId="{{attributes.originGroupId}}" data-id="{{attributes.id}}">
+        <td class="subject">
+            {{#isExpired}}<span class="state finished">{{TimelineLang.만료}}</span>{{/isExpired}}
+            <span class="txt els">{{attributes.name}}</span>
+        </td>
+        <td class="date">{{getWorkingTimeRange}}</td>
+    </tr>
+    {{/collection}}
+    </tbody>
+</table>

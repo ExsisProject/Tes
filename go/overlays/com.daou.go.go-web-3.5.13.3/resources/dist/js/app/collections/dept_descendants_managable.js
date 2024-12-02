@@ -1,0 +1,1 @@
+define(["backbone","models/dept_descendant"],function(e,t){var n=e.Collection.extend({model:t,initialize:function(){},url:function(){return GO.contextRoot+"api/department/descendant/managable"}},{fetch:function(){var e=new n;return e.fetch({async:!1}),e}});return n});

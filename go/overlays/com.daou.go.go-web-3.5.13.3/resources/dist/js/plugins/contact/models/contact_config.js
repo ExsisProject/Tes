@@ -1,0 +1,1 @@
+define(["backbone"],function(e){var t=null,n=e.Model.extend({url:function(){return"/api/contactconfig"}},{get:function(){return t==null&&(t=new n),t.fetch({async:!1}),t}});return{read:function(e){return ContactConfigdModel=n.get()}}});

@@ -1,0 +1,545 @@
+<div class="content addr_write">
+	<form name="formContactCreate">
+		{{#data}}
+		<fieldset>
+			<table class="form_type tb_addr_write_header">
+				<tbody>
+				<tr>
+					<td class="photo">
+						<a data-bypass>
+							<span class="img_profile" style="height:70px;overflow:hidden">
+								<span class="btn_edit_photo">{{lang.photoupload}}</span>
+									<img data-filepath="" data-filename="{{photo.fileName}}" id="contactImage" src="{{thumbSmall}}" alt="{{lang.profilephoto}}" />
+									<span id="contact-fileuploader"></span>
+							</span>
+						</a>
+					</td>
+				</tbody>
+			</table>
+		</fieldset>
+		<fieldset>
+			<table class="form_type tb_addr_write">
+				<tr>
+					<th><span class="title">{{lang.lastName}}</span></th>
+					<td><div class="ipt_wrap"><span class="txt_edit"><input name="lastName" value="{{lastName}}" class="input w_max" type="text"></span></div></td>
+				</tr>
+				<tr>
+					<th><span class="title">{{lang.firstName}}</span></th>
+					<td><div class="ipt_wrap"><span class="txt_edit"><input name="firstName" value="{{firstName}}" class="input w_max" type="text"></span></div></td>
+				</tr>
+				<tr>
+					<th><span class="title">{{lang.middleName}}</span></th>
+					<td><div class="ipt_wrap"><span class="txt_edit"><input name="middleName" value="{{middleName}}" class="input w_max" type="text"></span></div></td>
+				</tr>
+				<tr>
+					<th><span class="title">{{lang.name}}<ins class="asterisk">*</ins></span></th>
+					<td><div class="ipt_wrap"><span class="txt_edit"><input name="name" value="{{name}}" class="input w_max" type="text"></span></div></td>
+				</tr>
+				<tr>
+					<th><span class="title">{{lang.company}}</span></th>
+					<td>
+						<div class="ipt_wrap">
+							<span class="txt_edit" >
+									<input value="{{companyName}}" name="companyName" class="input w_max" type="text">
+							</span>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<th><span class="title">{{lang.dept}}</span></th>
+					<td>
+						<div class="ipt_wrap">
+							<span class="txt_edit" >
+									<input value="{{departmentName}}" name="departmentName" class="input w_max" type="text">
+							</span>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<th><span class="title">{{lang.position}}</span></th>
+					<td>
+						<div class="ipt_wrap">
+							<span class="txt_edit" >
+									<input value="{{positionName}}" name="positionName" class="input w_max" type="text">
+							</span>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<th><span class="title">{{lang.group}}</span></th>
+					<td>
+						{{^isCompany}}
+						<div class="div_ipt_wrap">	
+							<div class="div_ipt">
+								<ul id="groupNameTag" class="name_tag">
+									{{#groups}} 
+									<li class="edit" data-id="{{id}}">
+										<input type="hidden" name="groupId" value='{{id}}'>
+										<span class="name">{{name}}</span>
+										<span class="btn_wrap"><span class="ic ic_del" title="삭제"></span></span>
+									</li>
+									 {{/groups}}
+								</ul>
+							</div>
+						</div>
+						{{/isCompany}}
+						{{#isCompany}}
+						<ul id="groupNameTag" class="name_tag">
+							<li class="edit" data-id="{{companyGroup.id}}">
+								<input type="hidden" name="groupId" value="{{companyGroup.id}}">
+								<span class="name">{{companyGroup.name}}</span>
+							</li>
+						</ul>
+						{{/isCompany}}
+					</td>
+				</tr>
+				{{^isCompany}}
+				<tr>
+					<th></th>
+					<td>
+						<select name="selectGroup">
+							<option value="none">{{lang.group_create}}</option>
+							{{#allGroups}}
+								<option value="{{id}}">{{name}}</option>
+							{{/allGroups}}
+						</select>
+					</td>
+				</tr>
+				{{/isCompany}}
+				<tr>
+					<th><span class="title">{{lang.email}}</span></th>
+					<td>
+						<div class="ipt_wrap">
+							<span class="txt_edit" >
+								<input value="{{email}}" name="email" class="input w_max" type="email">
+							</span>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<th><span class="title">{{lang.phone}}</span></th>
+					<td>
+						<div class="ipt_wrap">
+							<span class="txt_edit" >
+								<input value="{{mobileNo}}" name="mobileNo" class="input w_max" type="text">
+							</span>
+						</div>
+					</td>
+				</tr>
+				{{#office}}
+				<tr>
+					<th><span class="title">{{lang.company_tel}}</span></th>
+					<td>
+						<div class="ipt_wrap">
+							<span class="txt_edit" >
+								<input value="{{tel}}" name="company_tel" class="input w_max" type="text">
+							</span>
+						</div>
+					</td>
+				</tr>
+				{{/office}}
+				{{^office}}
+				<tr>
+					<th><span class="title">{{lang.company_tel}}</span></th>
+					<td>
+						<div class="ipt_wrap">
+							<span class="txt_edit" >
+								<input name="company_tel" class="input w_max" type="text">
+							</span>
+						</div>
+					</td>
+				</tr>
+				{{/office}}
+				{{#office}}
+				<tr>
+					<th><span class="title">{{lang.company_addr}}</span></th>
+					<td>
+						<div class="ipt_wrap">
+							<span class="txt_edit" >
+								<input value="{{basicAddress}}" name="company_addr" class="input w_max" type="text">
+							</span>
+						</div>
+					</td>
+				</tr>
+				{{/office}}
+				{{^office}}
+				<tr>
+					<th><span class="title">{{lang.company_addr}}</span></th>
+					<td>
+						<div class="ipt_wrap">
+							<span class="txt_edit" >
+								<input name="company_addr" class="input w_max" type="text">
+							</span>
+						</div>
+					</td>
+				</tr>
+				{{/office}}
+				<tr>
+					<th><span class="title">{{lang.description}}</span></th>
+					<td>
+						<div class="ipt_wrap">
+							<span class="textarea">
+								<textarea id="contactDescription" name="description" class="edit w_max">{{description}}</textarea>									
+							</span>
+						</div>
+					</td>
+				</tr>
+				{{#nickName}}
+				<tr>
+					<th><span class="title">{{lang.nickName}}</span></th>
+					<td>
+						<div class="ipt_wrap">
+							<span class="txt_edit">
+								<input name="nickName" class="input w_max" type="text" value={{nickName}}>
+							</span>
+						</div>
+					</td>
+				</tr>
+				{{/nickName}}
+				{{^nickName}}
+				<tr style="display:none">
+					<th><span class="title">{{lang.nickName}}</span></th>
+					<td>
+						<div class="ipt_wrap">
+							<span class="txt_edit" >
+									<input name="nickName" class="input w_max" type="text">
+							</span>
+						</div>
+					</td>
+				</tr>
+				{{/nickName}}
+				{{#birthday}}
+				<tr>
+					<th><span class="title">{{lang.birthday}}</span></th>
+					<td>
+						<div class="ipt_wrap">
+							<span class="txt_edit">
+								<input name="birthday" class="input w_max" type="text" id="birthdayDate" value="{{birthday}}" readonly="readonly"/>
+							</span>
+						</div>
+					</td>
+				</tr>
+				{{/birthday}}
+				{{^birthday}}
+				<tr style="display:none">
+					<th><span class="title">{{lang.birthday}}</span>
+					</th>
+					<td>
+						<div class="ipt_wrap">
+							<span class="txt_edit">
+								<input name="birthday" class="input w_max" type="text" id="birthdayDate" readonly="readonly"/>
+							</span>
+						</div>
+					</td>
+				</tr >
+				{{/birthday}}
+				{{#anniversary}}
+				<tr>
+					<th><span class="title">{{lang.anniversary}}</span></th>
+					<td>
+						<div class="ipt_wrap">
+							<span class="txt_edit">
+								<input name="anniversary" class="input w_max" type="text" id="anniversaryDate" value="{{anniversary}}" readonly="readonly"/>
+							</span>
+						</div>
+					</td>
+				</tr>
+				{{/anniversary}}
+				{{^anniversary}}
+				<tr style="display:none">
+					<th><span class="title">{{lang.anniversary}}</span>
+					</th>
+					<td>
+						<div class="ipt_wrap">
+							<span class="txt_edit">
+								<input name="anniversary" class="input w_max" type="text" id="anniversaryDate" readonly="readonly"/>
+							</span>
+						</div>
+					</td>
+				</tr>
+				{{/anniversary}}
+				{{#home}}
+					{{#tel}}
+					<tr>
+						<th><span class="title">{{lang.home_tel}}</span></th>
+						<td>
+							<div class="ipt_wrap">
+								<span class="txt_edit">
+									<input name="home_tel" class="input w_max" type="text" value="{{tel}}">
+								</span>
+							</div>
+						</td>
+					</tr>
+					{{/tel}}
+					{{^tel}}
+					<tr style="display:none">
+						<th><span class="title">{{lang.home_tel}}</span></th>
+						<td>
+							<div class="ipt_wrap">
+								<span class="txt_edit" >
+										<input name="home_tel" class="input w_max" type="text">
+								</span>
+							</div>
+						</td>
+					</tr>
+					{{/tel}}
+				{{/home}}
+				{{#home}}
+					{{#basicAddress}}
+					<tr>
+						<th><span class="title">{{lang.home_addr}}</span></th>
+						<td>
+							<div class="ipt_wrap">
+								<span class="txt_edit">
+									<input name="home_addr" class="input w_max" type="text" value="{{basicAddress}}"/>
+								</span>
+							</div>
+						</td>
+					</tr>
+					{{/basicAddress}}
+					{{^basicAddress}}
+					<tr style="display:none">
+						<th><span class="title">{{lang.home_addr}}</span>
+						</th>
+						<td>
+							<div class="ipt_wrap">
+								<span class="txt_edit"><input name="home_addr" class="input w_max" type="text"/></span>
+							</div>
+						</td>
+					</tr>
+					{{/basicAddress}}
+				{{/home}}
+				{{#home}}
+					{{#fax}}
+					<tr>
+						<th><span class="title">{{lang.home_fax}}</span></th>
+						<td>
+							<div class="ipt_wrap">
+								<span class="txt_edit">
+									<input name="home_fax" class="input w_max" type="text" value="{{fax}}">
+								</span>
+							</div>
+						</td>
+					</tr>
+					{{/fax}}
+					{{^fax}}
+					<tr style="display:none">
+						<th><span class="title">{{lang.home_fax}}</span></th>
+						<td>
+							<div class="ipt_wrap">
+								<span class="txt_edit" >
+										<input name="home_fax" class="input w_max" type="text">
+								</span>
+							</div>
+						</td>
+					</tr>
+					{{/fax}}
+				{{/home}}
+				{{#home}}
+					{{#homepage}}
+					<tr>
+						<th><span class="title">{{lang.home_homepage}}</span></th>
+						<td>
+							<div class="ipt_wrap">
+								<span class="txt_edit">
+									<input name="home_homepage" class="input w_max" type="text" value="{{homepage}}">
+								</span>
+							</div>
+						</td>
+					</tr>
+					{{/homepage}}
+					{{^homepage}}
+					<tr style="display:none">
+						<th><span class="title">{{lang.home_homepage}}</span></th>
+						<td>
+							<div class="ipt_wrap">
+								<span class="txt_edit" >
+										<input name="home_homepage" class="input w_max" type="text">
+								</span>
+							</div>
+						</td>
+					</tr>
+					{{/homepage}}
+				{{/home}}
+				{{#office}}
+					{{#fax}}
+					<tr>
+						<th><span class="title">{{lang.company_fax}}</span></th>
+						<td>
+							<div class="ipt_wrap">
+								<span class="txt_edit">
+									<input name="company_fax" class="input w_max" type="text" value="{{fax}}">
+								</span>
+							</div>
+						</td>
+					</tr>
+					{{/fax}}
+					{{^fax}}
+					<tr style="display:none">
+						<th><span class="title">{{lang.company_fax}}</span></th>
+						<td>
+							<div class="ipt_wrap">
+								<span class="txt_edit" >
+									<input name="company_fax" class="input w_max" type="text">
+								</span>
+							</div>
+						</td>
+					</tr>
+					{{/fax}}
+				{{/office}}
+				{{#office}}
+					{{#homepage}}
+					<tr>
+						<th><span class="title">{{lang.company_homepage}}</span></th>
+						<td>
+							<div class="ipt_wrap">
+								<span class="txt_edit">
+									<input name="company_homepage" class="input w_max" type="text"  value="{{homepage}}">
+								</span>
+							</div>
+						</td>
+					</tr>
+					{{/homepage}}
+					{{^homepage}}
+					<tr style="display:none">
+						<th><span class="title">{{lang.company_homepage}}</span></th>
+						<td>
+							<div class="ipt_wrap">
+								<span class="txt_edit" >
+										<input name="company_homepage" class="input w_max" type="text">
+								</span>
+							</div>
+						</td>
+					</tr>
+					{{/homepage}}
+				{{/office}}
+                {{^home}}
+                <tr style="display:none">
+                    <th>
+                        <span class="title">{{lang.home_tel}}</span>
+                        <span class="help"><span class="tool_tip">{{{lang.phone_desc}}}<i class="tail_left"></i></span></span>
+                    </th>
+                    <td>
+                        <span class="txt_edit" >
+                                <input name="home_tel" class="input wfix_large" type="text">
+                        </span>
+                    </td>
+                </tr>
+                <tr style="display:none">
+                    <th><span class="title">{{lang.home_addr}}</span>
+                    </th>
+                    <td>
+                        <span id="homeDetail" class="txt_edit">
+                            <input name="home_basicAddress" class="input wfix_max" type="text" value="{{basicAddress}}" readonly="readonly">
+                            <input name="home_country" class="input wfix_max" type="hidden" value="{{country}}">
+                            <input name="home_postalCode" class="input wfix_max" type="hidden" value="{{postalCode}}">
+                            <input name="home_state" class="input wfix_max" type="hidden" value="{{state}}">
+                            <input name="home_city" class="input wfix_max" type="hidden" value="{{city}}">
+                            <input name="home_extAddress" class="input wfix_max" type="hidden" value="{{extAddress}}">
+                            <span title="{{lang.gname_detail}}" class="ic_con ic_detail" evt-rol="viewLayerAddress" type="office"></span>
+                        </span>
+                        
+                    </td>
+                </tr>
+                <tr style="display:none">
+                    <th>
+                        <span class="title">{{lang.home_fax}}</span>
+                        <span class="help"><span class="tool_tip">{{{lang.phone_desc}}}<i class="tail_left"></i></span></span>
+                    </th>
+                    <td>
+                        <span class="txt_edit" >
+                                <input name="home_fax" class="input wfix_large" type="text">
+                        </span>
+                    </td>
+                </tr>
+                <tr style="display:none">
+                    <th><span class="title">{{lang.home_homepage}}</span></th>
+                    <td>
+                        <span class="txt_edit" >
+                                <input name="home_homepage" class="input wfix_large" type="text">
+                        </span>
+                    </td>
+                </tr>
+                {{/home}}
+                {{^office}}
+                <tr style="display:none">
+                    <th>
+                        <span class="title">{{lang.company_fax}}</span>
+                        <span class="help"><span class="tool_tip">{{{lang.phone_desc}}}<i class="tail_left"></i></span></span>
+                    </th>
+                    <td>
+                        <span class="txt_edit" >
+                                <input name="company_fax" class="input wfix_large" type="text">
+                        </span>
+                    </td>
+                </tr>               
+                <tr style="display:none">
+                    <th><span class="title">{{lang.company_homepage}}</span></th>
+                    <td>
+                        <span class="txt_edit" >
+                                <input name="company_homepage" class="input wfix_large" type="text">
+                        </span>
+                    </td>
+                </tr>
+                {{/office}}
+				<tr>
+					<th><span class="title">{{lang.item_add}}</span></th>
+					<td>
+						<select name="contactItem">
+							<option>{{lang.select_desc}}</option>
+							{{^nickName}}
+								<option value="nickName">{{lang.nickName}}</option>
+							{{/nickName}}
+							
+							{{^birthday}}
+								<option value="birthday">{{lang.birthday}}</option>
+							{{/birthday}}
+							
+							{{^anniversary}}
+								<option value="anniversary">{{lang.anniversary}}</option>
+							{{/anniversary}}
+							
+							{{#home}}
+								{{^tel}}
+								<option value="home_tel">{{lang.home_tel}}</option>
+								{{/tel}}
+								{{^basicAddress}}
+								<option value="home_addr">{{lang.home_addr}}</option>
+								{{/basicAddress}}
+								{{^fax}}
+								<option value="home_fax">{{lang.home_fax}}</option>
+								{{/fax}}
+								{{^homepage}}
+								<option value="home_homepage">{{lang.home_homepage}}</option>
+								{{/homepage}}
+							{{/home}}
+							{{^home}}
+								<option value="home_tel">{{lang.home_tel}}</option>
+								<option value="home_addr">{{lang.home_addr}}</option>
+								<option value="home_fax">{{lang.home_fax}}</option>
+								<option value="home_homepage">{{lang.home_homepage}}</option>
+							{{/home}}
+							
+							{{#office}}
+								{{^fax}}
+								<option value="company_fax">{{lang.company_fax}}</option>
+								{{/fax}}
+								{{^homepage}}
+								<option value="company_homepage">{{lang.company_homepage}}</option>
+								{{/homepage}}
+							{{/office}}
+							{{^office}}
+								<option value="company_fax">{{lang.company_fax}}</option>
+								<option value="company_homepage">{{lang.company_homepage}}</option>
+							{{/office}}
+						</select>
+					</td>
+				</tr>
+				<tr><td colspan="2"><hr /></td></tr>
+										
+				</tbody>
+			</table>
+		</fieldset>
+		{{/data}}
+	</form>
+</div>

@@ -1,0 +1,148 @@
+<h2>{{docsModel.title}}</h2>
+<div id="docsInfo" class="module_drop">
+	<div class="module_drop_head">
+		<hr>
+		<div class="tit">
+			<span data-action="docsInfoArrow" class="txt">{{lang.자세히}}</span>
+			<span data-action="docsInfoArrow" class="ic ic_arrow_close" title="{{lang.닫기}}"></span>
+		</div>
+	</div>
+	<div class="module_drop_body" id="docsInfoLayout">
+		<ul class="list_property">
+			<li class="item">
+                <div class="wrap">
+                    <span class="tit">{{lang.등록자}} :</span>
+                    <span class="data">
+                        <span class="member">
+                            <img src="{{docsModel.thumbnail}}" alt="{{docsModel.creatorName}} {{docsModel.creatorPosition}}"
+                                 title="{{docsModel.creatorName}} {{docsModel.creatorPosition}}">
+                            <span class="txt">{{docsModel.creatorName}} {{docsModel.creatorPosition}}</span>
+                        </span>
+                    </span>
+                </div>
+            </li>
+            <li class="item item_r">
+                <div class="wrap">
+                    <span class="tit">{{lang.보존연한}} :</span>
+                    <span class="data">{{preserveYear}}</span>
+                </div>
+            </li>
+            <li class="item">
+                <div class="wrap">
+                    <span class="tit">{{lang.등록일}} :</span>
+                    <span class="data">{{completeDate}}</span>
+                </div>
+            </li>
+            {{#needState}}
+            <!-- 문서 상태 표기 -->
+            <li class="item item_r">
+                <div class="wrap">
+                    <span class="tit">{{lang.문서상태}} :</span>
+                    <span class="data">
+                        <span class="state {{#wait}}wait{{/wait}}{{#reject}}return{{/reject}}">{{#wait}}{{lang.승인대기}}{{/wait}}{{#reject}}{{lang.반려}}{{/reject}}</span>
+                    </span>
+                </div>
+            </li>
+            {{/needState}}
+            {{^needState}}
+            <!-- 문서 버전 표기 -->
+            <li class="item item_r">
+                <div class="wrap">
+                    <span class="tit">{{lang.문서버전}} :</span>
+                    <span class="data">
+                        <span class="bar_ver current">{{version}}</span>
+                    </span>
+                </div>
+            </li>
+            {{/needState}}
+            {{#useDocNum}}
+            <li class="item">
+                <div class="wrap">
+                    <span class="tit">{{lang.문서번호}} :</span>
+                    <span class="data">{{docsModel.docNum}}</span>
+                </div>
+            </li>
+            {{/useDocNum}}
+		</ul>
+	</div>
+</div>
+{{#needState}}
+<div id="docsReason" class="module_drop">
+    <div class="module_drop_head">
+        <hr>
+        <div class="tit">
+            <span data-action="docsReasonArrow" class="txt">{{lang.변경사유}}</span>
+            <span data-action="docsReasonArrow" class="ic ic_arrow_close" title="{{lang.닫기}}"></span>
+        </div>
+    </div>
+    <div class="module_drop_body" id="docsReasonLayout">{{{docsModel.reason}}}</div>
+</div>
+{{/needState}}
+<div id="docsContent" class="module_drop">
+    <div class="module_drop_head">
+        <hr>
+        <div class="tit">
+            <span data-action="docsContentArrow" class="txt">{{lang.상세내용}}</span>
+            <span data-action="docsContentArrow" class="ic ic_arrow_close" title="{{lang.닫기}}"></span>
+        </div>
+    </div>
+    <div class="module_drop_body" id="docsContentLayout">
+        <span class="editor_view">
+            {{{docsModel.content}}}
+        </span>
+    </div>
+</div>
+<div id="docsAttach" class="module_drop">
+    <div class="module_drop_head">
+        <hr>
+        <div class="tit">
+            <span data-action="docsAttachArrow" class="txt">{{lang.첨부파일}} {{attachSize}}</span>
+            <span data-action="docsAttachArrow" class="ic ic_arrow_close" title="{{lang.닫기}}"></span>
+        </div>
+    </div>
+    <div class="module_drop_body" id="docsAttachLayout">
+        {{^isPrint}}
+        <div id="attaches{{docsModel.id}}"></div>
+        {{/isPrint}}
+        {{#isPrint}}
+        <ul id="fileWrap" class="file_wrap">
+            {{#files}}
+            <li data-id="{{id}}">
+                <span class="item_file">
+                    <span class="ic_file {{icon}}"></span>
+                    <span class="name">{{name}}</span>
+                    <span class="size">({{fileSizeString}})</span>
+                </span>
+            </li>
+            {{/files}}
+        </ul>
+        <ul class="img_wrap" id="img_wrap">
+            {{#images}}
+            <li data-id="{{id}}" data-type="attach" data-path="{{path}}" data-name="{{name}}">
+                <span class="item_image">
+                    <span class="thumb"><img src="{{thumbSmall}}"></span>
+                </span>
+            </li>
+            {{/images}}
+        </ul>
+        {{/isPrint}}
+    </div>
+</div>
+{{^isPrint}}
+{{^needState}}
+<div id="docsVersionInfo" class="module_drop">
+    <div class="module_drop_head">
+        <hr>
+        <div class="tit">
+            <span data-action="docsVersionArrow" class="txt">{{lang.버전}} {{versionSize}}</span>
+            <span data-action="docsVersionArrow" class="ic {{#isChangeDocsContent}} ic_arrow_close {{/isChangeDocsContent}}{{^isChangeDocsContent}} ic_arrow_open {{/isChangeDocsContent}}" title="{{#isChangeDocsContent}}{{lang.닫기}}{{/isChangeDocsContent}}{{^isChangeDocsContent}}{{lang.열기}}{{/isChangeDocsContent}}"></span>
+        </div>
+    </div>
+    <div class="module_drop_body" id="docsVersionLayout" {{^isChangeDocsContent}}style="display: none;" {{/isChangeDocsContent}}>
+        <ul id="versionWrap" class="list_version">
+
+        </ul>
+    </div>
+</div>
+{{/needState}}
+{{/isPrint}}

@@ -1,0 +1,80 @@
+<fieldset>
+    <table class="form_type">
+        <colgroup>
+            <col>
+            <col>
+        </colgroup>
+        <tbody>
+        <tr id="title_setting">
+            <th><ins class="asterisk">*</ins><span class='title'>{{lang.제목}}</span></th>
+            <td>
+                <span class="wrap_select">
+                    <select {{#isTitleFieldEmpty}}disabled="disabled"{{/isTitleFieldEmpty}}>
+                        <option value='' data-value-type="none">{{lang.제목선택}}</option>
+                        {{#titleFields}}
+                        <option value="{{cid}}" data-value-type='{{valueType}}'>{{label}}</option>
+                        {{/titleFields}}
+                </select>
+                </span>
+            </td>
+        </tr>
+        <tr id="startdate_setting">
+            <th><ins class="asterisk">*</ins><span class='title'>{{lang.시작날짜}}</span></th>
+            <td>
+                <span class="wrap_select">
+                    <select>
+                        <option value='' data-value-type="none">{{lang.시작날짜선택}}</option>
+                        {{#dateFields}}
+                        <option value="{{cid}}" data-value-type='{{valueType}}'>{{label}}</option>
+                        {{/dateFields}}
+                    </select>
+                </span>
+            </td>
+        </tr>
+        <tr id="enddate_setting">
+            <th><ins class="asterisk">*</ins><span class='title'>{{lang.종료날짜}}</span></th>
+            <td>
+                <span class="wrap_select">
+                    <select>
+                        <option value='' data-value-type="none">{{lang.종료날짜선택}}</option>
+                        {{#dateFields}}
+                        <option value="{{cid}}" data-value-type='{{valueType}}'>{{label}}</option>
+                        {{/dateFields}}
+                    </select>
+                </span>
+            </td>
+        </tr>
+        <tr id="user_setting">
+            <th><span class='title'>{{lang.담당자}}</span></th>
+            <td>
+                <span class="wrap_select">
+                    <select>
+                        <option value='' data-value-type="none">{{lang.담당자선택}}</option>
+                        {{#userFields}}
+                        <option value="{{cid}}" data-value-type='{{valueType}}'>{{label}}</option>
+                        {{/userFields}}
+                    </select>
+                </span>
+            </td>
+        </tr>
+        <tr id="progress_setting">
+            <th>
+                <span class='title'>{{lang.진행률}}</span>
+                <span class="help">
+                    <span class="tool_tip">{{lang.진행률설명}}<i class="tail_left"></i></span>
+                </span>
+            </th>
+            <td>
+                <span class="wrap_select">
+                    <select {{#isProgressFieldEmpty}}disabled="disabled"{{/isProgressFieldEmpty}}>
+                        <option value='' data-value-type="none">{{lang.진행률선택}}</option>
+                        {{#progressFields}}
+                        <option value="{{cid}}" data-value-type='{{valueType}}'>{{label}}</option>
+                        {{/progressFields}}
+                    </select>
+                </span>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</fieldset>

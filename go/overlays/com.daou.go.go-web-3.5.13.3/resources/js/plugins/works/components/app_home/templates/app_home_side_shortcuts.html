@@ -1,0 +1,29 @@
+<a class="btn_home" el-works-home></a>
+
+<span class="select_nav" el-shortcuts backdrop-toggle="true">
+	<span class="comm_name">
+		<a>
+			<span class="txt">{{lang.앱 목록}}</span>
+			<span class="ic ic_dropdown"></span>
+		</a>
+	</span>
+</span>
+
+<div el-backdrop class="layer_transition works_type" style="z-index: 100; display: none;">
+	<header>
+		<section class="search">
+			<div class="search_wrap" id="appNameSearchWrap">
+				<input class="search" id="appName" type="text" class="txt" placeholder="{{lang.앱명 검색}}">
+				<input class="btn_c_search btn_search" type="submit" value="{{lang.앱명 검색}}" id="btn-search">
+			</div>
+		</section>
+	</header>
+	<div class="ui-menu-container container">
+		<div id="todo-list-menu" class="content">
+			<div class="row_wrap menuitem my-todo-list foldable" el-toggle-applets>
+				<ul class="submenu-list" el-applets style="max-height: 500px; overflow-y: auto;"></ul>
+			</div>
+			<hr>
+		</div>
+	</div>
+</div>

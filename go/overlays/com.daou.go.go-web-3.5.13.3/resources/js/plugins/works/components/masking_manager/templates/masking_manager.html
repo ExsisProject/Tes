@@ -1,0 +1,31 @@
+<form>
+    <fieldset>
+        <div class="app_write_tit">
+            <h5>{{lang.앱 내 사용하는 항목}}</h5>
+        </div>
+        <table class="form_type">
+            <tbody>
+            <tr el-add-roles>
+                <th>
+                    <span class="title">{{lang.마스킹 할 항목}}</span>
+                </th>
+                <td>
+                    <div data-el-maskable-fields></div>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <span class="title">{{lang.항목 조회 허용 대상}}</span>
+                </th>
+                <td>
+                    <div>
+                        <div id="circleArea" style="display: block;">
+                            <span id="accessUser"></span>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </fieldset>
+</form>

@@ -1,0 +1,65 @@
+{
+	"config" :{
+		"height" : "450",
+		"mailWritePrefixHtml" : {
+			"activeDesigner" : "<P>&nbsp;</P><P>&nbsp;</P><P>&nbsp;</P><P>&nbsp;</P><P>&nbsp;</P><P>&nbsp;</P>",
+			"dext5" : "<P>&nbsp;</P><P>&nbsp;</P><P>&nbsp;</P><P>&nbsp;</P><P>&nbsp;</P><P>&nbsp;</P>",
+			"smartEditor" : "<br><p><br></p><p><br></p><br>"
+		}
+	},
+	
+	"ko" :{
+		"defaultLanguage" : "korean",
+		"defaultFontStyle" : "돋움,dotum,AppleGothic,arial,Helvetica,sans-serif",
+		"defaultFont" : "맑은 고딕",
+		"defaultFontSize" : "10",
+		"additionalFont" :  ""
+	},
+	
+	"ja" : {
+		"defaultLanguage" : "japanese",
+		"defaultFontStyle" : "MS PGothic,Osaka,arial,sans-serif",
+		"defaultFont" : "MS PGothic",
+		"defaultFontSize" : "10",
+		"additionalFont" : ""
+	},
+	
+	"en" : {
+		"defaultLanguage" : "english",
+		"defaultFontStyle" : "arial,AppleGothic,Helvetica,sans-serif",
+		"defaultFont" : "arial",
+		"defaultFontSize" : "10",
+		"additionalFont" : ""
+	},
+	
+	"zh_CN" : {
+		"defaultLanguage" : "chinese_simplified",
+		"defaultFontStyle" : "arial,AppleGothic,Helvetica,sans-serif",
+		"defaultFont" : "arial",
+		"defaultFontSize" : "10",
+		"additionalFont" : ""
+	},
+	
+	"zh_TW" : {
+		"defaultLanguage" : "chinese_traditional",
+		"defaultFontStyle" : "arial,AppleGothic,Helvetica,sans-serif",
+		"defaultFont" : "arial",
+		"defaultFontSize" : "10",
+		"additionalFont" : ""	
+	},
+	
+	"vi" : {
+		"defaultLanguage" : "english",
+		"defaultFontStyle" : "arial,AppleGothic,Helvetica,sans-serif",
+		"defaultFont" : "arial",
+		"defaultFontSize" : "10",
+		"additionalFont" : ""
+	}
+}
+
+
+
+
+
+
+

@@ -1,0 +1,19 @@
+<ul id="reminder-list" class="multi_select_option">
+    <li>
+        <input class="input wfix_mini" type="text" name="reminder_value" value="{{reminder_value}}" />
+        <select name="reminder_type">
+            <option value="minute">{{type.minute}}</option>
+            <option value="hour">{{type.hour}}</option>
+            <option value="day">{{type.date}}</option>
+            <option value="week">{{type.week}}</option>
+        </select>
+        <select name="reminder_send_type">
+            <option value="noti">{{method.noti}}</option>
+            <option value="email">{{method.email}}</option>
+        </select>
+        <span class="btn_wrap">
+            <span class="ic_classic ic_del" title="{{remove}}"></span>
+        </span>
+    </li>
+</ul>
+<span id="btn-add-reminder" class="btn_wrap creat"><span class="ic_form ic_addlist"></span><span class="txt txt_bold">{{add_reminder}}</span></span>

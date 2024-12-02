@@ -1,0 +1,40 @@
+<div class="box flat">
+    <div class="app_write_tit">
+        <h5>{{lang.차트}}</h5>
+        <p class="desc">{{lang.차트 설명}}</p>
+        <div class="optional" data-el-setting-list-wrapper></div>
+    </div>
+
+    <div class="wrap_works app_admin_list">
+        <ul el-charts>
+            <li id="addChartButton">
+                <div class="column_create">
+                    <a el-add-chart>
+                        <div class="wrap_works_info">
+                            <div class="wrap_img_ic"><i class="ic_works ic_add_l "></i></div>
+                            <div class="inner_works_info">
+                                <span class="tit">{{lang.차트 추가}}</span>
+                                <span class="card_info">
+                                    <p>{{lang.차트 설정 설명1}}</p>
+                                    <p>{{lang.차트 설정 설명2}}</p>
+                                </span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="app_write_tit">
+        <h5>{{lang.목록 화면 관리}}</h5>
+    </div>
+    <div data-el-private-list_setting></div>
+</div>
+<div class="page_action_wrap">
+    <a class="btn_major" data-role="button" data-el-type="save"><span class="txt">{{lang.목록 저장}}</span></a>
+    <a class="btn_minor" data-role="button" data-el-type="saveAs"><span class="txt">{{lang.새 목록 저장}}</span></a>
+    <a class="btn_minor" data-role="button" data-el-type="delete"><span class="txt">{{lang.삭제}}</span></a>
+    <a class="btn_minor" data-role="button" data-el-type="navigateList"><span class="txt">{{lang.목록으로 이동}}</span></a>
+</div>
+<!--// works 앱 기본 설정 완료-->

@@ -1,0 +1,55 @@
+<div class="content" id="accessBeaconBlock">
+    <table class="detail">
+        <caption>{{adminLang.접속 허용 비콘 정보}}</caption>
+        <colgroup>
+            <col width="150px">
+            <col width="*">
+        </colgroup>
+        <tbody>
+        <tr>
+            <th><span class="title">{{adminLang.설치장소}}</span></th>
+            <td>
+                <div class="beacon_location">
+                    <input type="text" name="beaconLocation" id="beaconLocation" class="w_space_r" value="{{#model}}{{model.location}}{{/model}}" maxlength="16">
+                    <p class="go_alert" id="beaconLocationAlert"></p>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <th><span class="title">{{adminLang.UUID}}</span></th>
+            <td>
+                <div class="beacon_uuid">
+                    <input type="text" name="beaconUuid" id="beaconUuid" class="w_space_r" value="{{#model}}{{model.uuid}}{{/model}}">
+                    <p class="go_alert" id="beaconUuidAlert"></p>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <th><span class="title">{{adminLang.MAJOR}}</span></th>
+            <td>
+                <div class="beacon_major">
+                    <input type="number" name="beaconMajor" id="beaconMajor" class="w_space_r" value="{{#model}}{{model.major}}{{/model}}" maxlength="5">
+                    <p class="go_alert" id="beaconMajorAlert"></p>
+                </div>
+            </td>
+        </tr>
+        <tr class="last">
+            <th><span class="title">{{adminLang.MINOR}}</span></th>
+            <td>
+                <div class="beacon_minor">
+                    <input type="number" name="beaconMinor" id="beaconMinor" class="w_space_r" value="{{#model}}{{model.minor}}{{/model}}" maxlength="5">
+                    <p class="go_alert" id="beaconMinorAlert"></p>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <th><span class="title">{{adminLang.상세정보}}</span></th>
+            <td>
+                <div class="beacon_description">
+                    <input type="text" name="beaconDescription" id="beaconDescription" class="w_space_r" value="{{#model}}{{model.description}}{{/model}}">
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>

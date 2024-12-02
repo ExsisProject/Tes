@@ -1,0 +1,68 @@
+<div class="content">
+	<form onsubmit="return false;">
+		<fieldset>
+			<table class="form_type tb_calendar_write">
+				<tbody>
+					<tr>
+						<th><span class="title">{{lang.location}}</span></th>
+						<td>
+							<select id="deptList" {{^isCreate}}disabled="disabled"{{/isCreate}}>
+								<option value="">{{lang.selectDept}}</option>
+								{{#departments}}
+								<option value={{id}} {{#currentFlag}}selected{{/currentFlag}}>{{name}}</option>
+								{{/departments}}
+							</select>										
+							<select id="folderList" {{^isCreate}}disabled="disabled"{{/isCreate}}>
+								<option value="">{{lang.selectFolder}}</option>
+								{{#folders}}
+								<option value={{id}} {{#currentFlag}}selected{{/currentFlag}}>{{name}}</option>
+								{{/folders}}
+							</select>										
+						</td>
+					</tr>
+					<tr id="typeArea">
+						<th><span class="title">{{lang.type}}</span></th>
+						<td>
+							<select class="w_max" id="typeList" name="" value="{{data.issueType.id}}" {{^isCreate}}disabled="disabled"{{/isCreate}} data-type="type">
+							{{^isCreate}}
+								<option value={{data.issueType.id}}>{{data.issueType.name}}</option>
+							{{/isCreate}}
+							{{#isCreate}}{{#folder.types}}
+								<option value={{id}}>{{name}}</option>
+							{{/folder.types}}{{/isCreate}}
+							</select>										
+						</td>
+					</tr>
+					
+					<tr id="partialArea"></tr>
+					
+					<tr>
+						<td colspan="2">
+							<div class="ipt_wrap">
+								<textarea {{^editable.CONTENT}}disabled="disabled"{{/editable.CONTENT}}>{{{content}}}</textarea>
+							</div>
+						</td>									
+					</tr>									
+					<tr>
+						<th></th>
+						<td class="display_position">											
+							<div class="optional wrap_btn_attach" id="go-fileuploader">
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2">
+						<!-- 첨부파일 삽입 -->
+							<div class="option_display" id="attachWrap" style="display:none;">
+								<ul class="file_wrap" id="fileWrap">
+								</ul>
+								<ul class="img_wrap" id="imageWrap">
+								</ul>													
+							</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</fieldset>
+	</form>
+</div>

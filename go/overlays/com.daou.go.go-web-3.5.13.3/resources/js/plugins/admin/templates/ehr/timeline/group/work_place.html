@@ -1,0 +1,17 @@
+<ul class="name_tag name_place">
+    {{#selectedWorkPlaces}}
+    <li>
+        <span class="name">{{name}}</span>
+        <span data-id="{{id}}" class="btn_wrap workPlaceCancelBtn">
+            <input type="hidden" name="" value="">
+            <span class="ic_classic ic_del"></span>
+        </span>
+    </li>
+    {{/selectedWorkPlaces}}
+    <li class="creat">
+        <span class="btn_wrap" id="selectWorkPlacesBtn">
+            <span class="ic ic_addlist"></span>
+            <span class="txt">{{AdminLang.근무지 추가}}</span>
+        </span>
+    </li>
+</ul>

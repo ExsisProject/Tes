@@ -1,0 +1,117 @@
+<div class="tool_bar" id="toolBar">
+    <div class="critical" id="memberControlBtn">
+        <input type="checkbox" id="allCheck">
+        <div class="btn_submenu">
+            <a class="btn_tool btn_tool_multi changePosition" data-type="position">
+                <span class="ic_adm ic_person"></span>
+                <span class="txt">{{lang.직위 변경}}</span>
+            </a>
+            <span class="btn_func_more" id="positionCtr">
+                 <span class="ic_adm ic_accordion_s"></span>
+            </span>
+            <!--layer-->
+            <div id="subPositionMenu" class="array_option reply" style="display:none;">
+                <ul class="array_type">
+                    <li data-type="position" class="changePosition"><span>{{lang.직위 변경}}</span></li>
+                    <li data-type="duty" class="changePosition"><span>{{lang.직책 변경}}</span></li>
+                    <li data-type="grade" class="changePosition"><span>{{lang.직급 변경}}</span></li>
+                    <li data-type="user_group" class="changePosition"><span>{{lang.사용자그룹 변경}}</span></li>
+                    <li data-type="mail_group" class="changePosition"><span>{{lang.메일그룹 변경}}</span></li>
+                    <li data-type="status" class="changePosition"><span>{{lang.계정상태 변경}}</span></li>
+                </ul>
+            </div>
+            <!--//layer-->
+        </div>
+        <div class="btn_submenu" id="delegateBtnArea">
+            <a class="btn_tool btn_tool_multi setManager" data-type="MASTER">
+                <span class="ic_adm ic_person_manager"></span>
+                <span class="txt">{{lang.부서장 위임}}</span>
+            </a>
+            <span class="btn_func_more" id="managerCtr">
+                <span class="ic_adm ic_accordion_s"></span>
+            </span>
+            <!--layer-->
+            <div id="subManagerMenu" class="array_option reply" style="display:none;">
+                <ul class="array_type">
+                    <li class="setManager" data-type="MASTER"><span>{{lang.부서장 위임}}</span></li>
+                    <li class="setManager" data-type="MODERATOR"><span>{{lang.부부서장 위임}}</span></li>
+                    <li class="setManager" data-type="MEMBER"><span>{{lang.부서원 위임}}</span></li>
+                </ul>
+            </div>
+            <!--//layer-->
+        </div>
+        <div class="btn_submenu">
+            <a class="btn_tool btn_tool_multi moveDeptMembers">
+                <span class="ic_adm ic_person_check"></span>
+                <span class="txt">{{lang.부서 이동}}</span>
+            </a>
+            <span class="btn_func_more" id="deptCtr">
+                <span class="ic_adm ic_accordion_s"></span>
+            </span>
+            <!--layer-->
+            <div id="subDeptMenu" class="array_option reply" style="display:none;">
+                <ul class="array_type">
+                    <li class="moveDeptMembers"><span>{{lang.부서 이동}}</span></li>
+                    <li id="deleteDeptMembers"><span>{{lang.부서 해제}}</span></li>
+                </ul>
+            </div>
+            <!--//layer-->
+        </div>
+        <span class="btn_tool" id="deleteMembers" style="display:none;">
+            <span class="ic_adm ic_delete"></span>
+            <span class="txt">{{lang.멤버 삭제}}</span>
+        </span>
+    </div>
+    <div class="optional">
+        <div class="wrap_order">
+            <span class="txt orderArea">{{lang.자동정렬}}</span><!--자동정렬 끔 wrap_order active-->
+            <span class="wrap_ic_s orderArea">
+                <span class="help">
+                    <span class="tool_tip right">{{lang.자동정렬 툴팁}}<i class="tail_right"></i></span>
+                </span>
+            </span>
+            <div class="com_switch orderArea">
+                <input id="autoOrder" class="com_toggle com_toggle_round" type="checkbox" checked>
+                <label for="autoOrder"></label>
+            </div>
+            <span class="btn_tool" id="btnReorderDeptMembers">
+                <span class="ic_adm ic_array"></span>
+                <span class="txt">{{lang.순서바꾸기}}</span>
+            </span>
+        </div>
+    </div>
+</div>
+
+<div class="wrap_column" id="deptMemberContent">
+    <div id="deptMemberDiv" class="column wrap_member_list simplebar-content-wrapper notNullData">
+        <ul class="com_list_static wrap_member_list simplebar-content" id="deptMembers">
+        </ul>
+    </div>
+    <div class="column wrap_member_info notNullData" id="deptMemberInfo">
+        <div class="tab_menu_wrap" style="display:none;">
+            <ul class="sticky_menu">
+                <li id="mainInfo" class="active"><span class="txt">{{lang.기본정보}}</span></li>
+                <li id="mailInfo" class=""><span class="txt">{{lang.메일그룹}}</span></li>
+                <li id="apprInfo" class=""><span class="txt">{{lang.전자결재}}</span></li>
+                <li id="etcFeatureInfo" class=""><span class="txt">{{lang.부가 기능}}</span></li>
+                <li id="moreInfo" class=""><span class="txt">{{lang.부가정보}}</span></li>
+            </ul>
+        </div>
+        <div id="memberInfoArea">
+            <div class="wrap_info_content" id="accountDetail" style="padding-right: 20px">
+            </div>
+        </div>
+        <div class="page_action mini" style="display:none; margin-bottom: 0;">
+            <span class="btn" id="save">{{lang.저장}}</span>
+            <span class="btn_nega" id="cancel">{{lang.취소}}</span>
+        </div>
+    </div>
+    <div class="column nullData" style="display:none">
+        <div class="wrap_null_data">
+            <p class="desc" id="noMembers">{{lang.소속된 부서원이 없습니다.}}</p>
+            <div class="btn_func_wrap" id="createMember">
+                <a class="btn_minor_s"><span class="ic_adm ic_plus"></span><span class="txt">{{lang.신규 부서원 생성}}</span></a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,160 @@
+@charset "utf-8";
+
+@import url("http://fonts.googleapis.com/earlyaccess/notosanskr.css");
+
+/* common */
+html,body,div,span,applet,object,iframe,
+h1,h2,h3,h4,h5,h6,p,blockquote,pre,
+a,abbr,acronym,address,big,cite,code,
+del,dfn,em,font,img,ins,kbd,q,s,samp,
+small,strike,strong,sub,sup,tt,var,
+dl,dt,dd,ol,ul,li,
+fieldset,form,label,legend,
+table,caption,tbody,tfoot,thead,tr,th,td {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-family: notosanskr, malgun gothic,dotum,AppleGothic,arial,Helvetica,sans-serif;
+    font-size: 100%;
+    font-style: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+    vertical-align: baseline;
+    background: transparent;
+}
+article, aside, figure, footer, header, hgroup, nav, section {
+    display: block;
+}
+body {color:#424140; font-size:15px; line-height: 1.5; background: #f1f1f1}
+div,h1,h2,h3,h4,h5,h6,fieldset,ul,ol,dl,li,dd,dt,
+article, aside, figure, footer, header, hgroup,
+menu, nav, section  {display:block;}
+fieldset,img 			{border:0 none;}
+input,select			{color: inherit; font-family: malgun gothic,dotum,AppleGothic,verdana,san-serif; font-size: inherit; margin: 0; padding: 0; vertical-align:middle; box-shadow: none;}
+a 					{text-decoration:none; color:#424140;}
+h1,h2,h3,h4,h5,h6 {line-height:100%; text-align:left; line-height:1.3; letter-spacing: -1px; color:#333;}
+h1 {font-size:38px;}
+h2 {font-size:32px; text-align:center; }
+h3 {font-size:16px; text-align:center;}
+h4 {font-size:20px;}
+
+select 				{margin:0; padding:0; vertical-align:middle;}
+table 				{width:100%; border-collapse: collapse; border-spacing: 0; background: #fff}
+
+caption,th,td,ul,li	{text-align: left; font-weight: normal;}
+ul,ol  {list-style:none outside;}
+button {border:0; cursor: pointer; outline: 0}
+
+/**new apply**/
+.inner {position:relative; margin:0 auto; width:960px;}
+
+.step_nav {position: relative; }
+/*.step_nav > div {margin:-53px auto 50px; width:310px; height:1px; background:#c6c8cc; z-index: -1}  */
+.step_nav > div {position: absolute; top:57px; left:50%; width:310px; margin-left:-155px; height:1px;  background:#c6c8cc; z-index: -1}
+.util_steps {margin: 60px auto 0; overflow: hidden; width:690px; box-sizing: border-box;}
+.util_steps li {float:left; margin-right:50px; width:135px; color:#afb4bc; background: url(../images/ic_step.png) no-repeat center;}
+.util_steps li.on {color:#25cad3; }
+.util_steps li:last-child {margin-right: 0}
+.util_steps li h3 {padding-top:50px;}
+.util_steps li:first-child,
+.util_steps li:first-child.on   {background-position: 50px -100px}
+.util_steps li:nth-child(2)   {background-position: -50px 0px}
+.util_steps li:nth-child(3)     {background-position: -150px 0px}
+.util_steps li:nth-child(4)   {background-position: -250px 0px}
+.util_steps li:nth-child(2).on  {background-position: -50px -100px}
+.util_steps li:nth-child(3).on  {background-position: -150px -100px}
+.util_steps li:nth-child(4).on  {background-position: -250px -100px}
+.util_steps li.complete {color:#5f6166; background-position: 50px -200px}
+
+.apply_service .banner_top {display:block; width:100%; height:120px; background:#29375a; box-sizing:border-box;}
+.apply_service .banner_top .inner {position:relative; margin:0 auto; max-width:960px; width: 100%}
+.apply_service .banner_top .inner a img {width:100%; max-width: 960px}
+.apply_service .banner_top a {display:block; text-align:center}
+.apply_service .banner_top a.btn_close {position:absolute; top:12px; right:0; display:inline-block; width:22px; height:22px; background: url("../images/btn_close04.png") no-repeat; z-index:600; cursor:pointer;}
+.apply_service .banner_top a.btn_close:hover {background: url("../images/btn_close05.png") no-repeat;}
+.apply_service .banner_top .blind {width:0; height:0; left:0; top:0; border: 0 none; font-size:0; line-height:0;}
+
+/*TOP EVENT */
+.apply_service .banner_top.event_180724 {background: #fff;}
+.apply_service .banner_top.event_180724 a.btn_close {background: url("../images/btn_close05.png") no-repeat;}
+
+
+.apply_service .header {height: 44px; line-height: 44px; background: #25cad3}
+.apply_service .header h1 {position:absolute; width:200px; cursor:pointer; line-height: 100%; text-align: left}
+.apply_service .header h1.logo_b {position:absolute; top:-2px; right:0; width:150px; text-align: right;}
+.apply_service .step_nav > div {top:18px; width:540px; margin-left:-270px;}
+.apply_service .box {margin-top:8px; position:relative; padding:15px 0;}
+.apply_service .box th {color:#000;}
+.apply_service .terms_note p {margin-right:20px;}
+
+.apply_service .box_wrap.notice_top .tit {padding-top: 10px;font-size:18px; font-weight: bold; color:#25cad3; letter-spacing: -1px }
+.apply_service .box_wrap.notice_top .box:first-child .tit {padding-top: 20px;}
+.apply_service .box_wrap.notice_top .tit,
+.apply_service .box_wrap.notice_top .list_notice > li {padding-left: 40px;}
+.apply_service .box_wrap.notice_top .account_number tr:first-child td,
+.apply_service .box_wrap.notice_top .account_number tr:first-child th {padding-top: 10px}
+.apply_service .box_wrap.notice_top .account_number th {width:12%; color:#888;  font-size: 14px;}
+.apply_service .box_wrap.notice_top .account_number td p {margin-top: 5px;}
+.apply_service .box_wrap.notice_top .account_number td p.fc_grey {font-size: 14px;}
+.apply_service .box_wrap.notice_top .account_number td p:first-child {margin-top: 0}
+.apply_service .box_wrap.notice_top .account_number .account_number_daou {font-size: 16px}
+.apply_service .box_wrap.notice_top .box {margin-top:-1px; padding-bottom:24px; border:1px solid #dcdcdc; border-top:1px solid #f1f1f1; box-sizing: border-box;}
+.apply_service .box_wrap.notice_top .box:first-child {margin-top: 8px;  padding-bottom:0;border-top:1px solid #dcdcdc;}
+.apply_service .box_wrap.notice_top .box:last-child {padding-bottom:40px; }
+
+.apply_service .step2 .basicinfo_1 th {width: 18%}
+.apply_service .step2 .basicinfo_1 td {width: 32%}
+.apply_service .step2 .basicinfo_1 td input[type="text"] {width:250px;}
+.apply_service .step2 .basicinfo_1 td .select_box {width:250px; background-position: 200px center}
+.apply_service .step2 .basicinfo_1 td .select_box.phone1 {display: inline-block; width:90px; background: url(../images/ic_select_02.png) 54px center no-repeat; }
+.apply_service .step2 .basicinfo_1 input[type="text"].phone2,
+.apply_service .step2 .basicinfo_1 input[type="text"].phone3 {width:65px; text-align: center; padding-left: 0}
+.apply_service .step2 .basicinfo_2 input[type="text"].url {width: 260px}
+.apply_service .step2 .basicinfo_3 th{width: 35% }
+.apply_service .step2 .basicinfo_3 td
+
+.apply_service .step3 ul.groupware_type li {color:#888; letter-spacing: 0}
+.apply_service .step3 ul.groupware_type li span {color:#000; font-weight: bold}
+.apply_service .step3 ul.groupware_type li:last-child {padding-bottom:0;}
+.apply_service .step3 .option input[type="text"].special_note {width:200px; padding:10px;letter-spacing:-1px;}
+.apply_service .step3 .option td {position:relative; padding-right: 8px; padding-left: 8px}
+.apply_service .step3 .option td:first-child {width: 31%; padding-left: 40px}
+.apply_service .step3 .option td:nth-child(2) {width:18%; text-align: right; color:#888;}
+.apply_service .step3 .option td:nth-child(3) {width:15%; text-align: center; color:#888}
+.apply_service .step3 .option td:nth-child(4) {width:12%; text-align: center;}
+.apply_service .step3 .option td:nth-child(5) {width:24%; padding-right: 40px; font-size: 14px;}
+.apply_service .step3 .option tr {border-bottom:1px solid #f1f1f1}
+.apply_service .step3 .option tbody:last-child tr {border-bottom:none}
+.apply_service .step3 h4 {padding-bottom:8px; border-bottom:1px solid #d0d3d9;}
+.apply_service .step3 .box {margin-top: -1px}
+.apply_service .step3 .box.purchase_list .tb_basic2 td:first-child  {width: 46%; text-align: left; color:#000;}
+.apply_service .step3 .box.purchase_list .tb_basic2 td:nth-child(2) {width: 18%; text-align: center}
+.apply_service .step3 .box.purchase_list .tb_basic2 td:nth-child(3) {width: 18%; text-align: center;}
+.apply_service .step3 .box.purchase_list .tb_basic2 td:nth-child(4) {width: 18%; text-align: right;}
+.apply_service .step3 .box.purchase_list + .box {margin-top:16px; border:1px solid #25cad3;}
+.apply_service .step3 .box.purchase_list + .box table {background: transparent;}
+.apply_service .step3 .box .sum td {color:#000;}
+.apply_service .step3 .noti p{padding: 0}
+
+.apply_service .step4 .box.purchase_list,
+.apply_service .step4 .box.total {margin-top:16px;}
+.apply_service .step4 .confirm_basicinfo th {width: 19%}
+.apply_service .step4 .confirm_basicinfo th span {color:#888;}
+.apply_service .step4 .confirm_basicinfo td {width: 31%}
+.apply_service .step4 .confirm_basicinfo th.col3 {width:15%; padding-left: 0}
+.apply_service .step4 .confirm_basicinfo th.col4 {width:35%; padding-left: 0;}
+.apply_service .step4 .confirm_order_list td {border-right: 1px solid #f1f1f1}
+.apply_service .step4 .confirm_order_list td:first-child    {width: 34%; text-align: left;}
+.apply_service .step4 .confirm_order_list td:nth-child(2) {width: 15%;}
+.apply_service .step4 .confirm_order_list td:nth-child(3) {width: 15%;}
+.apply_service .step4 .confirm_order_list td:nth-child(4) {width: 15%; border-bottom: none;  vertical-align: middle}
+.apply_service .step4 .confirm_order_list td:nth-child(5) {width: 15%; text-align: right; border-bottom: none; padding-right: 40px; vertical-align: middle;}
+.apply_service .step4 .confirm_order_list td span {font-weight: bold; letter-spacing: 0}
+.apply_service .step4 .notice h4 {padding-top:20px; border-top:1px dashed #cccccc; color:#25cad3; font-weight: bold}
+.apply_service .step4 .list_notice {margin-top:5px;}
+.apply_service .step4 .list_notice > li {margin-top:7px;}
+.apply_service .step4 .list_notice > li:first-child {margin-top:0;}
+.apply_service .step4 .list_notice_detail  {margin-top: 3px}
+.apply_service .step4 .list_notice_detail li {padding-left: 20px; font-size: 14px;}
+

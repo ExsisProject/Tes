@@ -1,0 +1,19 @@
+{{#data}}
+<tr data-id="{{id}}" class="topMenu">
+    <td class="align_c check"><input type="checkbox"/></td>
+    <td class="align_c">{{companyName}}</td>
+    <td class="align_c">{{configName}}</td>
+    <td class="align_c">{{key}}</td>
+    <td class="align_c">{{vendor}}</td>
+    <td class="align_c">{{host}}</td>
+    <td class="align_c">{{description}}</td>
+</tr>
+{{/data}}
+{{^data}}
+<td class="align_c" colspan="7">
+    <p class="data_null">
+        <span class="ic_data_type ic_no_data"></span>
+        <span class="txt">{{lang.label_empty_list}}</span>
+    </p>
+</td>
+{{/data}}

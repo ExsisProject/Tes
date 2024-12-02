@@ -1,0 +1,13 @@
+<div class="tit_type2">
+	<a class="save-myapprline-btn btn_fn6" href="#" data-bypass>{{lang.saveMyApprLine}}</a>
+	<span class="horspace1"></span>
+    <span class="tit" {{^useAgreementType}}style="display:none;"{{/useAgreementType}}>{{lang.agreementType}} : </span>
+    <span class="option_wrap" {{^useAgreementType}}style="display:none;"{{/useAgreementType}}>
+    	<input id="series" type="radio" name="useParallelAgreement" value="false"{{^useParallelAgreement}} checked{{/useParallelAgreement}}{{#disableParallelAgreementModify}} disabled="disabled"{{/disableParallelAgreementModify}} >
+    	<label for="series">{{lang.agreementLinear}}</label>
+   	</span>
+    <span class="option_wrap" {{^useAgreementType}}style="display:none;"{{/useAgreementType}}>
+    	<input id="parallel" type="radio" name="useParallelAgreement" value="true"{{#useParallelAgreement}} checked{{/useParallelAgreement}}{{#disableParallelAgreementModify}} disabled="disabled"{{/disableParallelAgreementModify}} >
+    	<label for="parallel">{{lang.agreementParallel}}</label>
+   	</span>
+</div>

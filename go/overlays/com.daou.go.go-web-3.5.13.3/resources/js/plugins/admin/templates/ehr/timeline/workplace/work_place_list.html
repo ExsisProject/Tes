@@ -1,0 +1,39 @@
+<div class="header">
+    <h2>
+        <span class="title">{{adminLang.근무지 목록}}</span>
+    </span>
+    </h2>
+</div>
+<div class="content">
+    <div class="wrap_organogram_opt">
+        <div class="critical">
+            <div class="btn_func_wrap">
+                <a id="placeAddBtn" class="btn_tool" ><span class="ic_adm ic_plus"></span><span
+                        class="txt">{{commonLang.추가}}</span></a>
+                <a id="placeDelBtn" class="btn_tool" data-id="id"><span class="ic_adm ic_delete"></span><span
+                        class="txt">{{commonLang.삭제}}</span></a>
+            </div>
+        </div>
+    </div>
+    <div class="wrap_authority_list">
+        <ul id="workPlacesTable" class="com_list_static wrap_authority_list list_workplace">
+            {{#places}}
+            <li class="work_place" value="{{attributes.id}}">
+                <input type="checkbox" value="{{attributes.id}}">
+                <span class="subject">{{attributes.name}}</span>
+                <span class="kind">
+                {{#attributes.useIp}}IP{{/attributes.useIp}}
+                {{#attributes.useGps}}GPS{{/attributes.useGps}}
+                {{#attributes.useBeacon}}Beacon{{/attributes.useBeacon}}
+            </span>
+                <span class="date">{{getCreatedAt}}</span>
+            </li>
+            {{/places}}
+            {{^places}}
+            <p class="data_null">
+                <span class="txt">{{adminLang.등록된 근태 근무지가 없습니다}}</span>
+            </p>
+            {{/places}}
+        </ul>
+    </div>
+</div>

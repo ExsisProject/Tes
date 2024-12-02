@@ -1,0 +1,1 @@
+define(["backbone"],function(e){var t=e.Collection.extend({model:e.Model,url:function(){return GO.contextRoot+"ad/api/virtualdomains"}});return{getCollection:function(){var e=new t;return e.fetch({async:!1,contentType:"application/json"}),e}}});

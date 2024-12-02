@@ -1,0 +1,58 @@
+<header class="content_top">
+	<h1><span class="title">{{lang.부서 문서함 관리}}</span></h1>
+</header>
+{{^isDeletedDept}}
+<div class="content_info_wrap2">
+	<table class="detail tb_admin_doc_host">
+		<colgroup>
+			<col width="140">
+			<col width="*">
+		</colgroup>
+		<tbody>
+		<tr class="last">
+			<th><span class="title">{{{lang.부서 문서함 담당자}}}</span></th>
+			<td>
+				<ul class="name_tag" id="addMembers">
+					{{#managerData}}
+					<li data-id="{{id}}" data-userId="{{userId}}" data-name="members">
+						<span class="name">{{userName}} {{userPositionName}}</span>
+						{{#delFlag}}
+							<span class="btn_wrap">
+								<span class="ic_classic ic_del" title="{{lang.삭제}}"></span>
+							</span>
+						{{/delFlag}}
+					</li>
+					{{/managerData}}
+					<li class="creat">
+							<span class="btn_wrap"><span class="ic_form ic_addlist"></span>
+							<span class="txt">{{lang.담당자 추가}}</span></span>
+					</li>
+				</ul>
+			</td>
+		</tr>
+		</tbody>
+	</table>
+</div>
+{{/isDeletedDept}}
+<div class="tool_bar">
+	<span class="btn_wrap">
+		<span id="sort" class="btn_s">{{lang.순서 바꾸기}}</span>
+		<span id="add" class="btn_s">{{lang.추가}}</span>
+		<span id="delete" class="btn_s"><span class="txt_caution">{{lang.삭제}}</span></span>
+	</span>
+</div>
+<div class="tb_wrap">
+	<table class="chart tb_depart_set">
+		<thead>
+			<tr>
+				<th class="sorting_disable check">
+					<input id="checkAll" type="checkbox">
+				</th>
+				<th class="sorting_disable doc_name"><span class="title_sort">{{lang.문서함 이름}}</span></th>
+				<th class="sorting_disable date"><span class="title_sort">{{lang.생성일}}</span></th>
+				<th class="sorting_disable num"><span class="title_sort">{{lang.문서 개수}}</span></th>
+			</tr>
+		</thead>
+		<tbody id="manageFolderList"></tbody>
+	</table>
+</div>

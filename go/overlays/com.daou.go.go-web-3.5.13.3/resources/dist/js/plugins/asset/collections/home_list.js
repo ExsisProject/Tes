@@ -1,0 +1,1 @@
+define(["backbone"],function(e){var t=e.Collection.extend({model:e.Model,url:function(){return"/api/asset/"+this.urlPart},setUrlPart:function(e){e=="assetList"?this.urlPart="list":this.urlPart="my/reservation/remnant"}});return{getCollection:function(e){var n=new t;return n.setUrlPart(e),n.reset(),n.fetch({async:!0,reset:!0}),n}}});

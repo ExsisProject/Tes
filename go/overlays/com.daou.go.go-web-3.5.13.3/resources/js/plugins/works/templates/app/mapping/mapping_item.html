@@ -1,0 +1,8 @@
+<select class="dataMap_from" data-source-cid>
+    <option value="0">{{unselectedLabel}}</option>
+    {{#sourceFields}}
+    <option value="{{cid}}" title="{{label}}">{{label}}</option>
+    {{/sourceFields}}
+</select>
+<span class="ic ic_arrow5"></span>
+<span class="dataMap_to" data-target-cid="{{targetCid}}" title="{{targetLabel}}">{{targetLabel}}</span>

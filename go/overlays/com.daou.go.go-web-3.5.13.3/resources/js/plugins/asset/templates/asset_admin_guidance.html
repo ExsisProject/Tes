@@ -1,0 +1,37 @@
+<table class="form_type">
+	<colgroup>
+		<col width="120px">
+		<col width="*">
+	</colgroup>
+	<tbody>
+		<tr>
+			<td colspan="2">
+			<!-- editor -->	
+				<div id="writeEditorWrap" class="wrap_txtarea single">	
+					<span class="wrap_desc_btm">
+						<span class="desc">※  {{lang.info}}</span>
+					</span>
+					<div class="w_max txtarea" id="description" style="width:100%"></div>
+				</div>						
+			<!-- //editor -->						
+			</td>
+		</tr>
+		<tr class="line"><td colspan="2"><hr></td></tr>
+	</tbody>
+</table>
+
+<div class="form_file_wrap">
+	<span class="wrap_btn">
+		<span class="btn_minor_s" id="swfupload-control" style="padding:0 !important; line-height: 0px !important"></span>
+	</span>
+	<span id="progressBarWriteWrap" style="margin:0 0 0 5px; display:inline-block; vertical-align:top; position:relative; padding:0 17px 0 0; line-height:110%"></span>	
+	<div class="feed">
+		<ul class="file_wrap" id="fileWrap">
+		</ul>
+	</div>								
+</div>
+
+<div class="page_action_wrap">
+	<span class="btn_major" data-role="button" id="btn_ok" data-btntype="guideSubmit"><span class="txt">{{lang.ok}}</span></span>
+	<span class="btn_minor" data-role="button" id="btn_cancel" data-btntype="guideCancel"><span class="txt">{{lang.cancel}}</span></span>
+</div>

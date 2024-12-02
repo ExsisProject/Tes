@@ -1,0 +1,90 @@
+{{#data}}
+<div class="content_page">
+    <div class="container">
+        <div class="header">
+            <h2>{{lang.label_base}}</h2>
+        </div>
+        <div class="content">
+            <form name="formUpdateMenu" onsubmit="return false;">
+    <table class="detail">
+        <tbody>
+            <tr>
+                <th><span class="title">{{lang.label_fmenu}}</span></th>
+                <td>
+                    <span class="major">{{nameValue}}</span>
+                </td>
+            </tr>
+            <tr class="last">
+                <th><span class="title">{{lang.label_status}}</span></th>
+                <td>
+                    <span class="option_wrap">
+                        <input type="radio" id="online" name="status" value="online" {{#isOnline}} checked="checked" {{/isOnline}}/>
+                        <label for="online">{{lang.label_online}}</label>
+                    </span>
+                    <span class="option_wrap">
+                        <input type="radio" id="stop" name="status" value="stop" {{^isOnline}} checked="checked" {{/isOnline}}/>
+                        <label for="stop">{{lang.label_stop}}</label>
+                    </span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</form></div>
+        </div>
+
+        <div class="container" id="accessControll">
+            <div class="header">
+                <h2>{{lang.label_access}}</h2>
+            </div>
+            <div class="content">
+                <table class="detail">
+                    <colgroup>
+                        <col width="140px">
+                        <col width="*">
+                    </colgroup>
+                    <tbody>
+						<tr class="last">
+						<th><span class="title">{{lang.label_policy}}</span></th>
+							<td>
+								<span class="action" style="left: 200px;" id="selectAccessPolicy">
+									<div class="vertical_wrap_s">
+		                                <span class="wrap_opt">
+		                                    <input type="radio" id="black" name="accessSetting" value="black">
+		                                    <label for="black">{{lang.label_white}}</label>
+		                                </span>&nbsp;&nbsp;
+		                                <span class="wrap_opt">
+		                                    <input type="radio" id="white" name="accessSetting" value="white">
+		                                    <label for="white">{{lang.label_black}}</label>
+		                                </span>
+	                                </div>
+                            	</span>
+							</td>
+						</tr>
+						<tr class="last">
+	                		<th><span class="title access_class_label">{{lang.설정}}</span></th>
+	                		<td>
+								<div class="vertical_tit_wrap">
+									<span id="selectedClass" class="tit">{{lang.label_selectClass}}</span>
+		                        	<span id="accessUser"></span>
+		                        	<span id="exceptedClass" class="tit">{{lang.label_addExceptionClass}}</span>
+                                    <span class="help">
+                                        <span id="exceptedClassToolTip" class="tool_tip"></span>
+                                    </span>
+		                        	<span id="exceptionUser"></span>
+		                        </div>
+	                    	</td>
+	                	</tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="container" id="customFunctionMenu" style="display:none">
+            <span id="customConfigArea"></span>
+        </div>
+
+        <div class="page_action">
+            <span class="btn" data-btntype="submit_modify">{{lang.label_ok}}</span>
+            <span class="btn_nega" data-btntype="cancel">{{lang.label_cancel}}</span>
+        </div>
+    </div>
+{{/data}}

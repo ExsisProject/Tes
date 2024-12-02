@@ -1,0 +1,59 @@
+<form onsubmit="return false;">
+    <!-- 결재 진행 상황 -->
+    {{^isEmpty}}
+    <ul class="reply" id="apprflow">
+        {{#dataset}}
+	<input type="hidden" class="activityGroup"  data-groupSeq="{{seq}}" data-groupId="{{id}}" data-groupCount="{{activities.length}}"/>
+        {{#activities}}
+        {{#isActive}}
+    		<li {{#isCurrent}}class="current"{{/isCurrent}}>
+        {{/isActive}}
+        {{^isActive}}
+        <li class="inactive"><!-- 비활성화 결재선 -->
+            {{/isActive}}
+    			<span class="photo"><a data-userid="{{userId}}"><img alt="{{lang.portrait}}" src="{{#thumbnail}}{{thumbnail}}{{/thumbnail}}{{^thumbnail}}{{contextRoot}}resources/images/photo_profile_small.jpg{{/thumbnail}}"></a></span>
+            <div class="msg_wrap">
+    				<div class="info" data-userid="{{userId}}" data-userName="{{userName}}" data-userPosition="{{userPosition}}"  data-userDeptId="{{deptId}}" data-userDeptName="{{deptName}}"  data-userActivityType="{{type}}" data-userActivityName="{{name}}">
+    					{{#isActive}}{{#userId}}<a data-userid="{{userId}}"><span class="name">{{userName}} {{userPosition}}</span></a>{{/userId}}{{^userId}}<span class="name">{{userName}} {{userPosition}}</span>{{/userId}}{{/isActive}}
+    					{{^isActive}}{{#userId}}<span class="name">{{userName}} {{userPosition}}</span>{{/userId}}{{^userId}}<span class="name">{{userName}} {{userPosition}}</span>{{/userId}}{{/isActive}}
+    					<span class="department">{{deptName}}</span>
+	    				{{#holdingActivity}}
+	    				<div class="doc"><span class="status {{#statusNotable}}notable_activity{{/statusNotable}}">{{lang.보류}}</span>{{#completedAt}}<span class="part">|</span><span class="date">{{formattedCompletedAt}}</span>{{/completedAt}}</div>
+	    				{{#comment}}<p class="opinion">{{{comment}}}</p>{{/comment}}
+	    				{{/holdingActivity}}
+    					<div class="doc"><span class="status {{#statusNotable}}notable_activity{{/statusNotable}}">{{name}}{{#statusName}} {{statusName}} {{/statusName}}</span>{{#completedAt}}<span class="part">|</span><span class="date">{{formattedCompletedAt}}</span>{{/completedAt}}</div>
+    				</div>
+    				{{#comment}}<p class="opinion">{{{comment}}}</p>{{/comment}}
+    			</div>		
+                {{#isCurrent}}<div class="bar_current"></div>{{/isCurrent}}<!-- 현재 결재 위치 표시 -->													
+    		</li>
+    		{{#deputyActivity}}
+				{{#isActive}}
+				<li {{#isCurrent}}class="current"{{/isCurrent}}>
+				{{/isActive}}
+				{{^isActive}}
+				<li class="inactive"><!-- 비활성화 결재선 -->
+				{{/isActive}}
+                {{#isCurrent}}<div class="bar_current"></div>{{/isCurrent}}<!-- 현재 결재 위치 표시 -->
+                <span class="photo"><a data-userid="{{userId}}"><img alt="{{lang.portrait}}" src="{{thumbnail}}"></a></span>
+                <div class="msg_wrap" >
+                    <div class="info"  data-userid="{{userId}}" data-userName="{{userName}}" data-userPosition="{{userPosition}}"  data-userDeptId="{{deptId}}" data-userDeptName="{{deptName}}"  data-userActivityType="{{type}}" data-userActivityName="{{name}}">
+    	                <span class="name">{{userName}} {{userPosition}}</span>
+    	                <span class="department">{{deptName}}</span>
+    	                <div class="doc"><span class="status accent_default notable_activity">{{name}}{{#statusName}} {{statusName}} {{/statusName}}</span>{{#completedAt}}<span class="part">|</span><span class="date">{{formattedCompletedAt}}</span>{{/completedAt}}</div>
+    	            </div>
+                    {{#comment}}<p class="opinion">{{{comment}}}</p>{{/comment}}
+                </div>                                                          
+            </li>
+            {{/deputyActivity}}
+    	{{/activities}}
+    {{/dataset}}
+</ul>
+{{/isEmpty}}
+{{#isEmpty}}
+<ul class="reply" id="apprflow">
+    <li class="inactive last" style="margin-left: 10px">{{lang.noApprline}}</li>
+</ul>
+{{/isEmpty}}
+<!-- // 결재 진행 상황 -->
+</form>

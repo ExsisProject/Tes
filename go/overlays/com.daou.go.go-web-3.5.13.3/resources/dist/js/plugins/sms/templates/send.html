@@ -1,0 +1,118 @@
+﻿<div class="content_page content_message">
+   <!-- 문자작성 페이지 연출 -->	
+   <form>
+      <fieldset>
+         <div class="tool_bar">
+            <ul class="critical">
+               <a class="btn_major_s">
+                   <span class="ic_toolbar send"></span>
+                   <span class="txt send_message">{{lang.send}}</span>
+               </a>
+            </ul>
+         </div>
+         <div class="dashboard_box">
+            <div class="message_write_wrap">
+               <!-- 문자작성 -->						
+               <section class="message_box">
+                  <header class="article_header">
+                     <div class="article_wrap">
+                        <span class="photo">
+                        <a data-userid="{{user.id}}"><img alt="{{user.name}}" title="{{user.name}}" src="{{user.thumbSmall}}"></a>
+                        </span>
+                        <div class="info">
+                           <a class="name">{{user.name}} {{user.position}}</a><br>
+                           {{#user.deptMembers}}                           
+                           <span class="team">{{deptName}}</span>
+                           {{/user.deptMembers}}
+                        </div>
+                     </div>
+                     <div class="meta_wrap">
+                        <span id="messageCount" class="sub_info num">0 / {{#isLms}}2000 {{/isLms}}{{^isLms}}90 {{/isLms}} Byte</span>
+                        <span id="lmsType" class="state mms" style="display: none;">{{lang.lms}}</span>
+                     </div>
+                  </header>
+                  
+                  <div class="wrap_txtarea {{^isMms}} no_photo{{/isMms}}">
+                     <span class="ic_sms ic_tail"></span>
+                     <input id="subject" type="text" class="input w_max" name="subject" placeholder="{{lang.subjectPlaceholder}}">
+                     <textarea id="messageContent" class="txtarea" name="content" rows="0" placeholder="{{lang.contentPlaceholder}}"></textarea>
+                  </div>
+                                    
+                  <div class="message_info">
+                     <table class="form_type form_message">
+                        <tbody>
+                           <tr>
+                              <th>
+                                 <span class="title">{{lang.senderNumber}}</span>
+                              </th>
+                              <td>
+                                <span class="wrap_select">
+                                     <select id="select_number" class="wfix_large">
+                                        {{#user.mobileNo}}<option data-id="" value="{{user.mobileNo}}">{{user.mobileNo}}</option>{{/user.mobileNo}}
+                                     </select>
+                                 </span>
+                              </td>
+                           </tr>
+                           {{#isMms}}
+                           <tr class="wrap_photo">
+                              <th>
+                                <span class="title">{{lang.photo}}</span>
+                                 <span class="help">&nbsp;
+                                 <span class="tool_tip">{{lang.fileSizeDesc}}<i class="tail_left"></i></span>
+                                 </span>
+                              </th>
+                              <td>
+                                <span class="button text" id="attachButton">
+                                    <span class="btn_minor_s fileUpload" id="file-control" style="padding:0 !important;">
+                                    </span>
+                                </span>
+                                <ul class="img_wrap" id="fileComplete">
+                                </ul>
+                              </td>
+                           </tr>
+                           {{/isMms}}
+                        </tbody>
+                     </table>
+                  </div>
+               </section>
+               
+               <!-- // 문자작성 -->
+               <!-- 수신자 추가 -->
+               <section class="address_box">
+                  <header class="address_header">
+                     <div class="s_wrap_add">
+                        <input id="receiverName" type="text" class="input wfix_small" placeholder="{{lang.name}}">
+                        <input id="receiverNumber" type="text" class="input wfix_small" placeholder="{{lang.phone}}">
+                        <span id="addReceiver" class="btn_minor_s">
+                        <span class="txt">{{lang.add}}</span>
+                        </span>
+                     </div>
+                     <div class="meta_wrap" id="openConnector">
+                        <span class="ic_sms ic_address"></span>
+                     </div>
+                  </header>
+                  <div class="address_wrap">
+                     <table class="address_list">
+                        <tbody>                          
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="total_wrap">
+                     <span id="totalCount" class="total_num"></span>
+                  </div>
+               </section>
+               <!-- //수신자 추가 -->
+            </div>
+         </div>
+         <div class="tool_bar">
+            <ul class="critical">
+               <a class="btn_major_s" data-role="button">
+                   <span class="ic_toolbar send"></span>
+                   <span class="txt send_message">{{lang.send}}</span>
+               </a>
+            </ul>
+         </div>
+      </fieldset>
+   </form>
+   <!-- // 문자작성 페이지 연출 -->	
+</div>

@@ -1,0 +1,20 @@
+<span class="box_label_wrap">
+	<label for="">{{{label}}}</label>
+</span>
+<div class="build_box_data">
+	{{#isMobile?}}
+		<ul class="name_tag">
+		{{#userData}}
+			<li><span class="name">{{displayName}}</span></li>
+		{{/userData}}
+		</ul>	
+	{{/isMobile?}}
+	{{^isMobile?}}
+		{{#userData}}
+			<span class="member">
+				<img src="{{thumbnail}}" alt="{{displayName}}" title="{{displayName}}">
+				<span class="txt">{{displayName}}</span>
+			</span>
+		{{/userData}}	
+	{{/isMobile?}}
+</div>

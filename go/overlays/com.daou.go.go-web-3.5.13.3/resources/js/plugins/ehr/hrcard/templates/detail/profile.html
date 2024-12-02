@@ -1,0 +1,40 @@
+<table class="type_list_box">
+   {{#data}}
+   <tr>
+      <td class="profile_image" rowspan="4">
+         <span class="img_profile">
+            <!-- span class="btn_edit_photo">사진 올리기</span-->
+            <img src="{{thumbnail}}" alt="{{name}}">
+         </span>
+      </td>
+      <th class="name">{{lang.label_name}}</th>
+      <th class="team">{{lang.label_group}}</th>
+      <td class="last" colspan="3">{{deptName}}</td>
+   </tr>
+   <tr>
+      <td class="name_txt" rowspan="3">
+         <p class="kor">{{name}}</p>
+         <p class="eng"> {{enName}}</p>
+         <p class="chi"> {{jpName}}</p>
+         <p class="chi"> {{hanjaName}}</p>
+         <p class="chi"> {{zhtwName}}</p>
+      </td>
+      <th class="number">{{lang.label_employeeNumber}}</th>
+      <td class="number_txt">{{employeeNumber}}</td>
+      <th class="telephone">{{lang.label_telephone}}</th>
+      <td class="telephone_txt last">{{directTel}}</td>
+   </tr>
+   <tr>
+      <th class="email">{{lang.label_email}}</th>
+      <td class="email_txt">{{email}}</td>
+      <th class="mobile">{{lang.label_mobile}}</th>
+      <td class="mobile_txt last">{{mobileNo}}</td>
+   </tr>
+   <tr>
+      <th class="rank">{{lang.label_rank}}</th>
+      <td class="rank_txt">{{position}} / {{duty}}</td>
+      <th class="phone">{{lang.label_phone}}</th>
+      <td class="phone_txt last">{{repTel}}</td>
+   </tr>
+   {{/data}}
+</table>

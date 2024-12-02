@@ -1,0 +1,20 @@
+{{#dataset}}
+<li class="depth{{depth}}" data-id="{{id}}" data-thread="{{thread}}">
+	<span class="ic ic_reply"></span>
+	<div class="msg_wrap">
+		<p class="subject">
+			<span class="txt">{{message}}</span>
+		</p>
+		<div class="info">
+			<span class="name">{{writer.name}} {{writer.positionName}}</span>
+			<span class="part">|</span>
+			<span class="date">{{dateformat}}</span>
+		</div>
+		<div class="btn_wrap">
+			{{#commentReply}}<a href="javascript:;" class="btn_type2 comment_reply"><span class="txt">{{lang.reply}}</span></a>{{/commentReply}}
+			{{#actions.updatable}}<a href="javascript:;" class="btn_type2 comment_modify"><span class="txt">{{lang.modify}}</span></a>{{/actions.updatable}}
+			{{#actions.removable}}<a href="javascript:;" class="btn_type2 comment_delete"><span class="txt_caution">{{lang.delete}}</span></a>{{/actions.removable}}
+		</div>
+	</div>					
+</li>
+{{/dataset}}

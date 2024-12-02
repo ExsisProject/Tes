@@ -1,0 +1,65 @@
+<form>
+	<table class="form_type">
+		<tbody>
+			<tr>
+				<th>
+					<span class="title">{{lang.location}}</span>
+					<ins class="asterisk">*</ins>
+				</th>
+				<td>
+					<span class="wrap_select">
+						<select class="wfix_large" id="deptId">
+							{{#depts}}
+							<option value="{{id}}">{{name}}</option>
+							{{/depts}}
+						</select>
+					</span>
+					<span class="wrap_select" id="select_board">
+						<select class="wfix_large" id="boardId">
+							<!-- <option value="all">{{lang.all}}</option> -->
+							{{#companyClassicBoards}}
+							<option value="{{id}}">{{name}}</option>
+							{{/companyClassicBoards}}
+						</select>
+					</span>
+				</td>
+			</tr>
+			<tr id="headerArea" style="display:none">
+				<th>
+					<span class="title">{{lang.head}}</span>
+					<ins id="headerAsterisk" class="asterisk" style="display:none">*</ins>
+				</th>
+				<td>
+					<select class="wfix_large" id="headerId">
+						<option value="default">{{lang.selectHeader}}</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<th>
+					<span class="title">{{lang.postTitle}}<span>
+					<ins class="asterisk">*</ins>
+				</span></span></th>
+				<td>
+					<input class="input w_max" type="text" id="postTitle">
+				</td>
+			</tr>
+			<tr>
+				<th><span class="title">{{lang.content}}</span></th>
+				<td>
+					<div class="m_contents">
+						{{{content}}}
+					</div>
+				</td>
+			</tr>
+			{{#hasAttach}}
+			<tr>
+				<th><span class="title">{{lang.attach}}</span></th>
+				<td>
+					<div id="attachArea"></div>
+				</td>
+			</tr>
+			{{/hasAttach}}
+		</tbody>
+	</table>
+</form>

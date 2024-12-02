@@ -1,0 +1,99 @@
+<header class="go_header" id="preview_header">
+	<!-- nav -->
+	<div class="nav">
+		<h1>{{title}}</h1>
+		<div class="critical">
+			<a class="ic_nav_wrap" title="{{btn_cancel}}" data-btn='cancel' style="-webkit-tap-highlight-color:rgba(0, 0, 0, 0)"><span class="ic_nav ic_nav_prev"></span></a>
+		</div>
+	</div>
+	<!-- // nav -->
+</header>
+<div class="go_body preview" style="padding-top:50px">
+		<div class="go_content">
+			<div class="content_page">
+				<!-- 상세 -->
+				<div class="content scroll" id="preview_doc_iscroll">
+					<div id="preview_doc_hscroll">
+						<section class="classic_detail">
+							<article class="article_view"  style="margin-bottom:0px;padding-bottom:10px">
+								<div id="preview_document" style="display: inline-block;">
+								<p class="article_view_area">
+									</p>
+									{{{docBody}}}
+								</div>
+									<!-- 첨부파일 -->
+									<div class="wrap_file" id="preview_attachFile">
+										{{#hasFiles}}
+										<div class="add_file">
+											<ul class="file_wrap">
+												{{#files}}
+												<li data-name="{{name}}" data-id="{{id}}">
+													<!-- a href="javascript:;" data-role="button"  data-size="{{byteSize}}" title="{{name}}" data-boardid="{{boardId}}" data-postid="{{postId}}" data-id="{{id}}"><!-- href="{{contextRoot}}api/board/{{boardId}}/post/{{postId}}/attaches/{{id}}" data-bypass -->
+														<span class="item_file">
+															<span class="ic_file ic_{{extention}}"></span>
+															<span class="name">{{#download}}<a href="javascript:;" {{^isDocReadAuthority}}style="pointer-events: none;cursor: default;"{{/isDocReadAuthority}} data-bypass data-role="button"  data-size="{{byteSize}}" title="{{name}}" data-id="{{id}}">{{name}}</a>{{/download}}{{^download}}{{name}}{{/download}}</span>
+															<span class="size">({{size}})</span>
+															{{#isDocReadAuthority}}
+															<span class="optional">
+																{{#preview}}
+																	{{#isMobile}}
+																	<a href="javascript:;" data-bypass data-id="{{encrypt}}" class="wrap_ic_file wrap_ic_file_preview">
+																	     <span class="ic_cmm ic_file_preview"></span>
+																	</a>
+																	{{/isMobile}}
+																	{{^isMobile}}
+																	<a href="javascript:;" class="btn_fn4 preview" data-bypass data-id="{{encrypt}}">
+																		<span class="txt ic_nav ic_nav_search">{{lang.preview}}</span>
+																	</a>
+																	{{/isMobile}}
+																{{/preview}}
+																{{#download}}
+																	<a href="javascript:;" class="btn_fn4 filedown" data-bypass data-role="button"  data-size="{{byteSize}}" title="{{name}}" data-id="{{id}}">
+																		<span class="txt ic_nav ic_nav_down">{{lang.download}}</span>
+																	</a>
+																{{/download}}
+															</span>
+															{{/isDocReadAuthority}}
+														</span>
+													<!-- /a-->
+
+												</li>
+												{{/files}}
+											</ul>
+										</div>
+										{{/hasFiles}}
+										{{#hasImages}}
+											<!-- 이미지 첨부 -->
+										<div class="img_wrap" {{#hasFiles}}style="margin-top:20px"{{/hasFiles}}>
+											<ul class="feed_img {{getImageClass}}">
+												{{#images}}
+												<li data-name="{{name}}" data-id="{{id}}">
+													{{^isDocReadAuthority}}
+													<img class="lazy" border="0"
+														 src="{{#isGif}}{{contextRoot}}api/approval/document/{{docId}}/download/{{id}}{{/isGif}}{{^isGif}}{{#midImageSize}}{{thumbMid}}{{/midImageSize}}{{#smallImageSize}}{{thumbSmall}}{{/smallImageSize}}{{/isGif}}"
+														 alt="{{name}}" onload="{{{reoffsetImg}}}"/>
+													{{/isDocReadAuthority}}
+													{{#isDocReadAuthority}}
+													<a class="imageview" href="javascript:;" data-role="button" data-group="thumb_{{postId}}" title="{{name}}" data-id="{{id}}">
+														<img class="lazy" border="0"
+															src="{{#isGif}}{{contextRoot}}api/approval/document/{{docId}}/download/{{id}}{{/isGif}}{{^isGif}}{{#midImageSize}}{{thumbMid}}{{/midImageSize}}{{#smallImageSize}}{{thumbSmall}}{{/smallImageSize}}{{/isGif}}" alt="{{name}}" onload="{{{reoffsetImg}}}" />
+													</a>
+													{{/isDocReadAuthority}}
+												</li>
+												{{/images}}
+											</ul>
+										</div>
+										{{/hasImages}}
+
+									</div>
+									<!-- 관련문서 -->
+							<div class="wrap_file" id="refDocPart"></div>
+								<p></p>
+							</article>
+						</section>
+					</div>
+				</div>
+				<!-- toolbar -->
+			</div>
+		</div>
+	</div>

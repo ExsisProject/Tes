@@ -1,0 +1,1 @@
+(function(){var e={icon:{p_selectedcontent:"\uc120\ud0dd\ub41c \ucee8\ud150\uce20"},title:"\uc120\ud0dd\ub41c \ucee8\ud150\uce20"};try{if(G_DEPlugin){G_DEPlugin.selectedcontent.lang=e,dext5_lang.plugins.selectedcontent=e;var t=document.getElementById("ue_"+DEXTTOP.G_CURREDITOR.ID+"p_selectedcontent");t&&t.setAttribute("title",e.icon.p_selectedcontent)}}catch(n){}})();

@@ -1,0 +1,204 @@
+<div class="container">
+    <div class="header">
+        <h2>{{lang.label_title}}</h2>
+    </div>
+    <div class="content">
+        <table class="detail">
+            <colgroup>
+                <col width="130px" />
+                <col width="*" />
+            </colgroup>
+            <tbody>
+                <tr class="last">
+                    <th>
+                        <span class="title">{{lang.label_otp_login}}</span>
+                    </th>
+                    <td>
+                         <div class="vertical_wrap_s">
+                            <span class="option_wrap"> 
+                                <input type="radio" value=true id="show_radio" name="enabled" {{#data.enabled}} checked="checked" {{/data.enabled}} />
+                                <label for="show_radio">{{lang.label_use}}</label>
+                            </span>
+                            <span class="option_wrap"> 
+                                <input type="radio" value=false id ="hide_radio" name="enabled" {{^data.enabled}} checked="checked" {{/data.enabled}} />
+                                <label for="hide_radio">{{lang.label_unuse}}</label>
+                            </span>
+                         </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="container">
+    <div class="header">
+        <h2>{{lang.otp_exception_ip_title}}</h2>
+    </div>
+    <div class="content">
+        <table class="detail">
+            <colgroup>
+                <col width="100px">
+                <col width="*">
+            </colgroup>
+            <tbody>
+                <tr>
+                    <th>
+                        <span class="title">{{lang.otp_exception_ip_active}}</span>
+                    </th>
+                    <td class="last">
+                        <div class="vertical_wrap_s">
+                            <span class="option_wrap">
+                                <input type="radio" id="exceptionIpsEnable" name="exceptionIpsEnabled" value="true" {{#data.exceptionIpsEnabled}}checked="checked"{{/data.exceptionIpsEnabled}}>
+                                <label for="exceptionIpsEnable">{{lang.label_use}}</label>
+                            </span>
+                            <span class="option_wrap">
+                                <input type="radio" id="exceptionIpsDisable" name="exceptionIpsEnabled" value="false" {{^data.exceptionIpsEnabled}}checked="checked"{{/data.exceptionIpsEnabled}}>
+                                <label for="exceptionIpsDisable">{{lang.label_unuse}}</label>
+                            </span>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="last">
+                    <th class="last">
+                        <span class="title">{{lang.ip_address}}</span>
+                    </th>
+                    <td class="last">
+                        <table class="TB_noborder">
+                            <tbody>
+                                <tr>
+                                    <td class="ipAddress">
+                                        <input name="ip_from_1" type="text" size="4" maxlength="3">.
+                                        <input name="ip_from_2" type="text" size="4" maxlength="3">.
+                                        <input name="ip_from_3" type="text" size="4" maxlength="3">.
+                                        <input name="ip_from_4" type="text" size="4" maxlength="3">
+                                        -
+                                        <input name="ip_to_1" type="text" size="4" maxlength="3">.
+                                        <input name="ip_to_2" type="text" size="4" maxlength="3">.
+                                        <input name="ip_to_3" type="text" size="4" maxlength="3">.
+                                        <input name="ip_to_4" type="text" size="4" maxlength="3">
+                                    </td>
+                                    <td class="wrap_btn">
+                                        <table class="TB_noborder">
+                                            <tbody>
+                                                <tr>
+                                                    <td id="exception_ip_add_button">
+                                                        <span class="btn_s" title="{{lang.add}}">
+                                                            <span class="ic_con ic_arrow_type4"></span>
+                                                        </span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td id="exception_ip_remove_button">
+                                                        <span class="btn_s" title="{{lang.remove}}">
+                                                            <span class="ic_con ic_arrow_type5"></span>
+                                                        </span>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                    <td width="auto" valign="top">
+                                        <select multiple="multiple" class="selectBox" name="exceptionIps" id="exceptionIps">
+                                            {{#data.exceptionIps}}
+                                                <option value="{{.}}">{{.}}
+                                            {{/data.exceptionIps}}
+                                        </select>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <span class="desc">{{lang.otp_exception_ip_desc}}</span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="page_action">
+    <span class="btn" id="ok">{{lang.label_ok}}</span>
+    <span class="btn_nega" id="cancel">{{lang.label_cancel}}</span>
+</div>
+
+
+
+<div class="container">
+    <div class="tab_menu_wrap">
+        <ul class="tab_menu">
+            <li id="otp_enabled_users" class="active"><span class="txt type">{{lang.otp_enabled_users}}</span></li>
+            <li id="otp_disabled_users" class=""><span class="txt type">{{lang.otp_disabled_users}}</span></li>
+        </ul>
+    </div>
+
+    <form id="user_otp_search_form">
+        <div class="dataTables_wrapper container">
+            <div class="content_tb">
+                <div id="codeList_wrapper" class="dataTables_wrapper" role="grid">
+                    <table id="otp_user_table" class="chart size dataTable" style="width: 100%; margin-bottom: 0px;">
+                        <thead>
+                            <tr role="row">
+                                <th class="sorting_disabled" role="columnheader" rowspan="1" colspan="1" aria-label="" style="width: 35px;"><input type="checkbox" id="checkedAll">
+                                </th>
+                                <th class="sorting_desc align_c" role="columnheader" tabindex="0" aria-controls="codeList" rowspan="1" colspan="1" aria-label="이름: activate to sort column ascending" style="width:180px;">
+                                <span id="sort_name" class="title_sort">
+                                    <label>{{lang.name}}</label>
+                                    <ins class="ic"></ins>
+                                    <span class="selected"></span>
+                                </span>
+                                </th>
+                                <th class="sorting" role="columnheader" tabindex="0" aria-controls="codeList" rowspan="1" colspan="1" aria-label="직위: activate to sort column ascending" style="width: 180px;">
+                                <span id="sort_email" class="title_sort">
+                                    <label>{{lang.email}}</label>
+                                    <ins class="ic"></ins>
+                                    <span class="selected"></span>
+                                </span>
+                                </th>
+                                <th class="sorting">
+	                            <span>
+	                                <label>{{lang.ostype}}</label>
+	                                <span></span>
+	                            </span>
+                                </th>
+                                <th class="sorting">
+	                            <span>
+	                                <label>{{lang.deviceModel}}</label>
+	                                <span></span>
+	                            </span>
+                                </th>
+                                <th class="sorting_disable sorting_disabled align_c" role="columnheader" tabindex="0" aria-controls="codeList" rowspan="1" colspan="1" aria-label="부서: activate to sort column ascending" style="width: 180px;">
+                                <span>
+                                    <label>{{lang.deviceId}}</label>
+                                    <span></span>
+                                </span>
+                                </th>
+                                <th class="sorting_disable sorting_disabled align_c" role="columnheader" tabindex="0" aria-controls="codeList" rowspan="1" colspan="1" aria-label="이메일: activate to sort column ascending" style="width: 180px;">
+                                <span>
+                                    <label>{{lang.otp_registered_at}}</label>
+                                    <span></span>
+                                </span>
+                                </th>
+                            </tr>
+                        </thead>
+                        <!--
+                                            <tbody id="user_list_tbody">
+                                            </tbody>
+                         -->
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="table_search">
+            <select id="user_search_select">
+                <option value="userName">{{lang.name}}</option>
+                <option value="userEmail">{{lang.email}}</option>
+            </select>
+            <span class="search_wrap">
+            <input id="user_search_keyword" class="input" type="text">
+            <span id="user_search_submit" class="btn_search" title="{{lang.search}}"></span>
+            <input class="submit" type="submit" value="">
+        </span>
+        </div>
+    </form>
+</div>
+

@@ -1,0 +1,103 @@
+<fieldset>
+	<table class="form_type">
+		<colgroup>
+			<col width="80px">
+			<col width="*">
+		</colgroup>
+		<tbody>
+		<tr>
+			<th><span class="title">{{lang.context}}</span></th>
+			<td>
+				<span class="wrap_select">
+					 <select id="departments">
+						<option value="all">{{lang.all}}</option>
+					 	{{#departments}}
+						<option value="{{id}}">{{name}}</option>
+						{{/departments}}
+					 </select>
+				</span>
+				<span id="foldersWrap" class="wrap_select" style="display:none">
+					<select id="folders">
+						<option value="all">{{lang.all}}</option>
+					</select>
+				</span>
+			</td>
+		</tr>
+		<tr id="statusWrap" style="display:none">
+			<th><span class="title">{{lang.status}}</span></th>
+			<td>
+				 <select id="status" name="statusName">
+				 	<option value="">{{lang.all}}</option>
+				 </select>
+			</td>
+		</tr>
+        <tr>
+            <th class="th_multi"><span class="title">{{lang.register}}</span></th>
+            <td><input id="creator" name="creator" class="txt_mini w_max" type="text"></td>
+        </tr>
+        <tr>
+            <th class="th_multi"><span class="title">{{lang.assignee}}</span></th>
+            <td><input id="assignees" name="assignees" class="txt_mini w_max" type="text"></td>
+        </tr>
+        <tr>
+            <th><span class="title">{{lang.keyword}}</span></th>
+            <td>
+                <span class="vertical_option">
+                    <span class="wrap_option"><input id="name" name="name" type="checkbox"><label for="name">{{lang.title}}</label></span>
+                    <span class="horspace1"></span>
+                    <span class="wrap_option"><input id="content" name="content" type="checkbox"><label for="content">{{lang.detail}}</label></span>
+                    <span class="horspace1"></span>
+                    <span class="wrap_option"><input id="activityContents" name="activityContents" type="checkbox"><label for="activityContents">{{lang.activity}}</label></span>
+                    <span class="horspace1"></span>
+                    <span class="wrap_option"><input id="comments" name="comments" type="checkbox"><label for="comments">{{lang.comment}}</label></span>
+                    <span class="horspace1"></span>
+                    <span class="wrap_option"><input id="attachFileNames" name="attachFileNames" type="checkbox"><label for="attachFileNames">{{lang.attachName}}</label></span>
+                    <span class="horspace1"></span>
+                    <span class="wrap_option"><input id="attachFileContents" name="attachFileContents" type="checkbox"><label for="attachFileContents">{{lang.attachContent}}</label></span>
+                </span>
+                <input id="stext" class="txt_mini w_max" type="text">
+            </td>
+        </tr>
+		<tr>
+			<th><span class="title">{{lang.term}}</span></th>
+			<td class="last">
+				<ul class="select_option">
+					<li>
+						<span class="option_wrap">
+							<input id="radioAll" name="term" type="radio" checked="" value="all">
+							<label for="radioAll">{{lang.all}}</label>
+						</span>
+					</li>
+					<li>
+						<span class="option_wrap">
+							<input id="radio1Week" name="term" type="radio" value="-1">
+							<label for="radio1Week">1{{lang.week}}</label>
+						</span>
+					</li>
+					<li>
+						<span class="option_wrap">
+							<input type="radio" id="radio2Week" name="term" value="-2">
+							<label for="radio2Week">2{{lang.week}}</label>
+						</span>
+					</li>
+					<li>
+						<span class="option_wrap">
+							<input type="radio" id="radioDirectly" name="term" value="directly">
+							<label for="radioDirectly">{{lang.directly}}</label>
+						</span>
+						<span class="noti_date_wrap option_wrap">
+							<input name="fromDate" data-type="datepicker" id="fromDate" class="input wfix_medium" type="text" disabled="disabled">
+							<span class="ic ic_calendar"></span>
+						</span>
+						~
+						<span class="noti_date_wrap option_wrap">
+							<input name="toDate" data-type="datepicker" id="toDate" class="input wfix_medium" type="text" disabled="disabled">
+							<span class="ic ic_calendar"></span>
+						</span>
+					</li>
+				</ul>
+			</td>	
+		</tr>							
+		</tbody>
+	</table>						
+</fieldset>

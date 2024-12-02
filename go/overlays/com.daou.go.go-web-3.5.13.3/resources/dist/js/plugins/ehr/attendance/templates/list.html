@@ -1,0 +1,81 @@
+<header class="content_top"></header>
+<div class="content_page">
+   <!-- tool bar -->
+   <section class="tool_bar calendar_tool_bar" id="attndToolbar">
+   </section>
+   <!-- //tool bar -->
+   <!-- attend_list -->
+   <div class="go_body">
+      <table class="type_normal tb_agenda tb_attend" id="attndMyList">
+         <!--tb_attend 멀티클래스 추가-->
+         <thead>
+            <tr>
+               <th class="sorting_desc day">
+                  <span class="title_sort" sort-data="logDate" sort-direction="desc">
+                  {{lang.label_date}}<ins class="ic"></ins>
+                  </span>
+               </th>
+               <th class="sorting_desc go">
+                  <span class="title_sort" sort-data="clockInTime" sort-direction="desc">
+                  {{lang.label_clockInTime}}<ins class="ic"></ins>
+                  </span>
+               </th>
+               <th class="sorting_desc leave">
+                  <span class="title_sort" sort-data="clockOutTime" sort-direction="desc">
+                  {{lang.label_clockOutTime}}<ins class="ic"></ins>
+                  </span>
+               </th>
+               <th class="sorting_desc time">
+                  <span class="title_sort" sort-data="workingTime" sort-direction="desc">
+                  {{lang.label_workingTime}}<ins class="ic"></ins>
+                  </span>
+               </th>
+               <th class="sorting_desc status">{{lang.label_status}}</th>
+            </tr>
+         </thead>
+         <tbody>
+         </tbody>
+      </table>
+   </div>
+   <!-- 부서 근태현황에서 부서원을 클릭했을 때 등장 -->
+   <!-- 테이블 검색 -->
+   <div class="tool_bar tool_absolute">
+      <div class="critical">
+         <section class="marker">
+            <ul>
+               <li class="normal"><span></span>{{lang.label_normal}}</li>
+               <li class="late"><span></span>{{lang.label_late}}</li>
+               <li class="modify"><span></span>{{lang.label_modify}}</li>
+            </ul>
+         </section>
+      </div>
+   </div>
+   <section class="aside_wrapper article_reply" id="attendActivityLogs">
+      <div class="reply_wrap">
+         <header class="single_title">
+            <span class="txt">{{lang.label_actionLogs}}</span><span class="num"></span>
+         </header>
+         <div class="aside_wrapper_body">
+            <ul class="type_simple_list simple_list_alarm">
+               
+               
+               {{#log}}
+               <li>
+                  <p class="photo">
+                     <img src="{{actor.thumbnail}}"><!--외부메일발신자,프로필사진이 없는 발신자 사진 동일-->
+                  </p>
+                  <div class="info">
+                     <p class="name">{{actor.name}} {{actor.position}} </p>
+                     <span class="date">{{date}}</span>
+                     <p class="subject">{{message}}</p>
+                  </div>
+               </li>
+               {{/log}}
+               
+               
+            </ul>
+            <div id="moreLog" class="bottom_action"><a class="btn_list_reload"><span class="ic"></span><span class="txt">{{lang.label_more}}</span></a></div>
+         </div>
+      </div>
+   </section>
+</div>

@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <title>생일</title>
+    <meta name = "gadget:name-ko" content="생일" />
+    <meta name = "gadget:name-en" content="Birthday" />
+    <meta name = "gadget:name-ja" content="誕生日" />
+    <meta name = "gadget:name-zhcn" content="生日" />
+    <meta name = "gadget:name-zhtw" content="生日" />
+    <meta name = "gadget:name-vi" content="Ngày sinh" />
+    <meta name = "gadget:app-dependency" content="NONE" />
+    <meta name = "gadget:description" content="생일 목록입니다." />
+    <meta name = "gadget:version" content="1.6.3" />
+    <meta name = "gadget:thumbnail" content="gadget_birthday.png" />
+    
+    <!-- 테스트 할 로케일은 여기에 설정하세요.-->
+    <meta name = "locale" content="ko" />
+    
+    <!-- 컨텍스트 루트는 여기서 설정하세요 -->
+    <meta name = "contextRoot" content="/" />
+
+    <link rel="stylesheet" href="css/go-gadget-standalone.css" media="screen, print" />
+    <!--[if IE]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="js/go-gadget-standalone.js"></script>
+    <script type="text/javascript" src="../../resources/js/libs/go-util.js"></script>
+    
+    <!-- ajax mock: 개발시 크로스 도메인 문제가 발생할 경우 ajax mock request를 이용하여 테스트 할 수 있습니다-->    
+   <!--  
+    <script type="text/javascript">
+    $.ajaxMock.register('/api/birthday/list/date=2014-10-20&page=0&offset=5', {
+        responseText:$.parseJSON('{  "data":{  "pageInfo":{  "page":2,"offset":5,"total":64,"sort":[  { "direction":"DESC","property":"id","ignoreCase":false,"ascending":false}],"lastPage":false},"content":[  { "userProfileId":52,"birthday":"2014-10-17T10:29:13","name":"최세범1"},{  "userProfileId":51,"birthday":"2014-10-17T10:29:13","name":"예비군2"},{  "userProfileId":50,"birthday":"2014-10-17T10:29:13","name":"예비군1"},{ "userProfileId":49,"birthday":"2014-10-17T10:29:13","name":"송동수2"},{  "userProfileId":48,"birthday":"2014-10-17T10:29:13","name":"송동수1"},{  "userProfileId":47,"birthday":"2014-10-17T10:29:13","name":"김예술2"}]},"message":"OK","code":"200","__go_checksum__":true}'),
+        statusCode: 200,
+        status:'OK',
+        type: 'GET'
+    });
+    </script>
+      -->
+
+    <script type="text/javascript" id="go-gadget-script">
+    $(function() {
+        var ProfileCard = Backbone.Model.extend({
+            url: function(userId) {
+                return GO.config("contextRoot") + 'api/user/profile/'+ userId;
+            },
+            get : function() {
+                return this.model;
+            }
+        }); 
+        
+        var ProfilePopupView = Backbone.View.extend({
+            initialize: function() {
+            	this.isAvailableMail = GO.isAvailableApp('mail');
+            },
+            render: function(userId) {
+                var profileModel = new ProfileCard();
+                profileModel.fetch({
+                    url: GO.config("contextRoot") + 'api/user/profile/' + userId,
+                    async : false
+                    });
+                var data = profileModel.toJSON();
+                this.model = profileModel;
+                
+                var tmpl = this.dataRender({
+                    "dataset": data,
+                    "getDeptName" : function() {
+                        var departmentName = [];
+                        if(data.deptMembers) {
+                            departmentName = $(data.deptMembers).map(function(k,v) {
+                                return v.deptName + (v.dutyName ? '  ' + v.dutyName : '');
+                            }).get();
+                        }
+                        return departmentName.join('<br />');
+                    },
+                    "isAvailableMail" : GO.isAvailableApp('mail'),
+                    "isOrgServiceOn" : GO.session("useOrgAccess")
+                });
+                this.$el.off("click", "a.btnSendMail");
+                this.$el.on("click", "a.btnSendMail", $.proxy(this.checkContent, this));
+                return this.$el.html(tmpl);
+            },
+    		checkContent : function(e) {
+    			var type = $(e.currentTarget).attr("data-type");
+    			this.performActions(type);
+    		},
+    		performActions : function(type) {
+    			if (type == "mail") {
+    				this.moveToSendMail();
+    			}    			
+    		},
+    		moveToSendMail : function() {
+    			var data = this.model.toJSON(),
+    				url = GO.router.getSendMailUrl({
+    					name : data.name,
+    					position : data.position,
+    					email : data.email,
+    					department : $.isArray(data.deptMembers) && data.deptMembers[0] ? data.deptMembers[0].deptName : ''
+    				});
+    			if(url) window.open(url,"popupRead"+Math.floor(Math.random()*1000000)+1,"scrollbars=yes,resizable=yes,width=1280,height=760");
+    		},
+    		
+            dataRender: function(data) {
+                var html = [];
+                html.push('<div  style="position:absolute;top:0;left:0;width:89%;display:inline-block;height:30px" class="handle"></div>');
+                html.push('{{#dataset.name}}');
+                html.push('<div class="member_wrap info_main">');
+                html.push('    <span class="photo wrap_photo">');
+                html.push('        <span class="showProfilePhoto" data-path="{{dataset.thumbLarge}}" data-bypass><img alt="{{dataset.name}}" src="{{dataset.thumbSmall}}" title="{{dataset.name}}" /></span>');
+                html.push('    </span>');
+                html.push('    <div class="info">');
+                html.push('        <span href="#" class="name" data-bypass]>{{dataset.name}}</span>');
+                html.push('        <span class="position"><strong>{{dataset.position}}</strong></span>');
+                html.push('        {{#isOrgServiceOn}}');
+                html.push('        <p class="department">{{{getDeptName}}}</p>');
+                html.push('        {{/isOrgServiceOn}}');
+                html.push('    </div>');
+                html.push('    <div class="info_meta">');
+                html.push('        <span class="meta">{{dataset.email}}</span>');
+                html.push('        {{#dataset.directTel}}');
+                html.push('        <span class="meta">{{dataset.directTel}}</span>');
+                html.push('        {{/dataset.directTel}}');
+                html.push('        {{#dataset.mobileNo}}');
+                html.push('        <span class="meta">{{dataset.mobileNo}}</span>');
+                html.push('        {{/dataset.mobileNo}}');
+                html.push('    </div>');    
+                html.push('</div>');
+                html.push('<ul class="menber_menu">');
+                //html.push('{{#isAvailableMail}}<li class="mail"><a class="btnSendMail" data-type="mail" target="_blank" data-bypass><span class="ic"></span>메일보내기</a></li>{{/isAvailableMail}}');
+                html.push('{{#isAvailableCal}}<li class="schedule"><a class="btnProfileCalendar" data-type="calendar" data-bypass><span class="ic"></span>{{lang.show_calendar}}</a></li>{{/isAvailableCal}}');
+                html.push('</ul>');
+                html.push('{{/dataset.name}}');
+                html.push('{{^dataset.name}}');
+                html.push('<div class="member_wrap info_main">');
+                html.push('    <span class="photo wrap_photo">');
+                html.push('        <img src="{{dataset.thumbLarge}}" alt="삭제된 멤버" title="삭제된 멤버">');
+                html.push('    </span>');
+                html.push('    <div class="info_noti">');
+                html.push('        <p class="desc">삭제된 멤버</p>');
+                html.push('    </div>');
+                html.push('</div>');
+                html.push('{{/dataset.name}}');
+                html.push('<div  style="position:absolute;bottom:0;left:0;width:100%;display:inline-block;height:15px" class="handle"></div>');
+                return Hogan.compile(html.join('')).render(data);
+            }
+            
+        });
+        
+        gadget.load({
+            
+            refreshable: true,
+            
+            highlightable : true,
+                            
+            langs: {
+                "label_birthdayTitle" : "임직원 생일",
+                "birthday_birthday" : "생일",
+                "birthday_no_list" : "생일자가 없습니다.",
+                "birthday_offset" : "표시 개수",
+                "label_lunar" : "(음)",
+                "label_month" : "월",
+                "en": {
+                	"label_birthdayTitle" : "Employee Birthday",
+                    "birthday_birthday" : "Birthday",
+                    "birthday_no_list" : "No Birthday.",
+                    "birthday_offset" : "Number of Birthdays",
+                    "label_lunar" : "(lunar)",
+                    "label_month" : "month"
+                },
+                "ja": {
+                	"label_birthdayTitle" : "社員の誕生日",
+                    "birthday_birthday" : "誕生日",
+                    "birthday_no_list" : "誕生日がありません。",
+                    "birthday_offset" : "表示件数",
+                    "label_lunar" : "(陰暦)",
+                    "label_month" : "月"
+                },
+                "zh_CN": {
+                	"label_birthdayTitle" : "员工生日",
+                    "birthday_birthday" : "生日",
+                    "birthday_no_list" : "没有生日。",
+                    "birthday_offset" : "显示数目",
+                    "label_lunar" : "(农历)",
+                    "label_month" : "月"
+                },
+                "zh_TW": {
+                	"label_birthdayTitle" : "員工生日",
+                    "birthday_birthday" : "生日",
+                    "birthday_no_list" : "沒有生日。",
+                    "birthday_offset" : "顯示數目",
+                    "label_lunar" : "(農曆)",
+                    "label_month" : "月"
+                },
+                "vi": {
+                	"label_birthdayTitle" : "Ngày sinh",
+                    "birthday_birthday" : "Ngày sinh",
+                    "birthday_no_list" : "Không bữa tiệc sinh nhật.",
+                    "birthday_offset" : "Số hiển thị",
+                    "label_lunar" : "(âm)",
+                    "label_month" : "Tháng"
+                }
+            }, 
+            defaultOptions: {
+                "draftedAt": "Y", 
+                "formName": "Y",
+                "title" : "Y",
+                "attach" : "Y",
+                "offset" : "5"
+            },
+            page : 0,
+            date : moment().format('YYYY-MM-DD'),
+            url: function() {
+                 var params = {
+                         "date" : this.date || moment().format('YYYY-MM-DD'),
+                         "page" : this.page || "0",
+                         "offset" : this.options.offset || "5",
+                         "type" : this.type || "init"
+                     };
+                return this.contextRoot + "api/user/birthdaylist?" +  $.param(params);
+            }, 
+            setTitle: function() {
+                return this.i18n.parse("label_birthdayTitle");
+            }, 
+            
+            renderConfig: function(el) {
+                this._renderConfigTemplate(el);
+                this.el = el;
+            }, 
+    
+            onSuccess: function(el, resp) {
+                var self = this;
+                var dataset = resp.data.content;
+                _.each(dataset, function(item) {
+                	var solarBirthdayText = GO.util.shortDate(item.solarBirthday.split('T')[0]);
+                    item.birthday = solarBirthdayText.slice(5,7) + ' / ' + solarBirthdayText.slice(8, 10);
+                    if(item.lunarBirthday){
+                        var lunarBirthdayText = GO.util.shortDate(item.lunarBirthday.split('T')[0]);
+                    	item.lunarBirthday = lunarBirthdayText.slice(5,7) + ' / ' + lunarBirthdayText.slice(8, 10); 
+                    }
+                });
+                this._renderContent(el, resp);
+                this.page = resp.data.pageInfo.page;
+                this.el = el;
+            },
+            
+            validate: function(el) {
+                return false;
+            }, 
+            changeOffset : function(e){
+                var offset = $(e.currentTarget).val();
+                this.options.offset = offset;
+            },
+            _previous : function(e){
+                if($(e.currentTarget).hasClass('btnDisable')){
+                    return;
+                }
+                this.page = this.page - 1;
+                this.type = "moveDay";
+                if(this.popupEl != undefined) {
+                	this.popupEl.close();
+                }
+                $(this.el).trigger('gadget:request-content');
+            },
+            _next : function(e){
+                if($(e.currentTarget).hasClass('btnDisable')){
+                    return;
+                }
+                this.page = this.page + 1;
+                this.type = "moveDay";
+                if(this.popupEl != undefined) {
+                	this.popupEl.close();
+                }
+                $(this.el).trigger('gadget:request-content');
+            },
+            
+            _previousMonth : function(e){
+                if($(e.currentTarget).hasClass('btnDisable')){
+                    return;
+                }
+                this.page = 0;
+                this.date = moment(this.date).subtract(1, 'month').format('YYYY-MM-DD');
+                this.type = "moveMonth";
+                if(this.popupEl != undefined) {
+                	this.popupEl.close();
+                }
+                $(this.el).trigger('gadget:request-content');
+            },
+            _nextMonth : function(e){
+                if($(e.currentTarget).hasClass('btnDisable')){
+                    return;
+                }
+                this.page = 0;
+                this.date = moment(this.date).add(1, 'month').format('YYYY-MM-DD')
+                this.type = "moveMonth";
+                if(this.popupEl != undefined) {
+                	this.popupEl.close();
+                }
+                $(this.el).trigger('gadget:request-content');
+            },
+            _viewProfile : function(e){
+                var userId = $(e.currentTarget).attr("data-userid");
+                var self = this;
+                
+                this.popupEl = $.goPopup({
+                    lang : "",
+                    modal : false,
+                    pclass: 'layer_card layer_member_card_type2',
+                    width : 220,
+                    contents : "",
+                    offset : {
+						top : e.pageY,
+						left : self._getProfileOffset(e.clientX),
+					}
+                });
+                var profilePopupView = new ProfilePopupView();
+                var tmpl = profilePopupView.render(userId);
+                this.popupEl.find('div.content').html(tmpl);
+            },
+            _getProfileOffset : function(clientX) {
+            	var window_width = $(window).width();
+            	
+            	if (clientX + 250 > window_width ) {
+            		return window_width - 250;
+            	} else {
+            		return clientX + 20;
+            	}
+            },
+            _renderContent: function(el, data) {
+                var _this = this;
+                
+                $(el).off("click", "a#previousBirthdayList");
+                $(el).off("click", "a#nextBirthdayList");
+                $(el).on("click", "a#previousBirthdayList", $.proxy(this._previous, this));
+                $(el).on("click", "a#nextBirthdayList", $.proxy(this._next, this));
+                
+                $(el).off("click", "span#previousBirthdayMonthList");
+                $(el).off("click", "span#nextBirthdayMonthList");
+                $(el).on("click", "span#previousBirthdayMonthList", $.proxy(this._previousMonth, this));
+                $(el).on("click", "span#nextBirthdayMonthList", $.proxy(this._nextMonth, this));
+                
+                $(el).off("click", "span#birthdayUserProfile");
+                $(el).on("click", "span#birthdayUserProfile", $.proxy(this._viewProfile, this));
+                $(el).empty().append(this.template(this._contentTemplate(), {
+                    "contextRoot" : _this.contextRoot,
+                    "dataset": data.data.content,
+                    "isPage" : function(){
+                        if(parseInt(data.data.pageInfo.total / data.data.pageInfo.offset) > 0){
+                            return true;
+                        }
+                        return false;
+                    },
+                    "isPrevBtn" : function(){
+                        if(data.data.pageInfo.page != 0){
+                            return false;
+                        }
+                        return true;
+                    },
+                    "isNextBtn" : function(){
+                        return data.data.pageInfo.lastPage;
+                    }
+                })); 
+            }, 
+            _contentTemplate: function() {
+                var html = [];
+                html.push('<div class="gadget_design_wrap gadget_board_wrap gadget_birthday_wrap">');
+                html.push(    '<div class="go_gadget_header">');
+                html.push(        '<div class="gadget_h1">');
+                html.push(            '<span class="type"><span class="ic_dashboard2 ic_type_cal" title="'+this.i18n.parse("birthday_birthday")+'"></span></span>');
+                html.push(            '<span class="title">'+this.i18n.parse('label_birthdayTitle')+'</span>');
+                html.push(        '</div>');
+                html.push(    '</div>');
+                html.push('<div class="design_content_header">');
+                html.push(' <div class="tab_header_wrap">');
+                html.push('     <div class=" tab_header_big" style="width:120px">');
+                html.push('         <div class="tab_control tab_btn_prev tab_enabled"><!--좌측 이전 버튼 있을 경우 tab_enabled클래스 삽입, 비활성일 경우 tab_disabled삽입-->');
+                html.push('             <span class="btn_wrap"><span class="ic_prev" id="previousBirthdayMonthList" title="이전"></span></span>');
+                html.push('         </div>');
+                html.push('         <div class="gadget_tab_wrap"> <!--라이브러리 구조상 필요한 래퍼-->');
+                html.push('             <div><div>');
+                html.push('                 <div class="tab_title"><span class="txt" style="font-size:18px">'+moment(this.date).format('YYYY.MM') + '</span></div>');
+                html.push('             </div></div>');
+                html.push('         </div>');
+                html.push('         <div class="tab_control tab_btn_next tab_enabled"><!--좌측 이전 버튼 있을 경우 tab_enabled클래스 삽입, 비활성일 경우 tab_disabled삽입-->');
+                html.push('             <span class="btn_wrap"><span class="ic_next" id="nextBirthdayMonthList" title="다음"></span></span>');
+                html.push('         </div>');
+                html.push('     </div>');
+                html.push(' </div>');
+                html.push('</div>');
+                html.push('<ul class="type_simple_list  simple_list_tab">');
+                html.push('    {{^dataset}}');
+                html.push('        <li class="null_data">');
+                html.push('            <p class="desc">'+this.i18n.parse('birthday_no_list')+'</p>')
+                html.push('        </li>');
+                html.push('    {{/dataset}}');
+                html.push('    {{#dataset}}');
+                html.push('        <li>');
+                html.push('            <div class="info">');
+                html.push('                <span class="date">{{birthday}}</span><span class="name" id="birthdayUserProfile" data-userid="{{userId}}"><a>{{name}} {{position}}</a></span>{{#lunarCal}} <span class="date">' + this.i18n.parse('label_lunar') +' {{lunarBirthday}}</span>{{/lunarCal}}');
+                html.push('            </div>');
+                html.push('        </li>');
+                html.push('    {{/dataset}}');
+                html.push('</ul>');
+                html.push('        {{#isPage}}');
+                html.push('        <div class="tool_bar tool_absolute">');
+                html.push('            <div class="dataTables_paginate paging_full_numbers">');            
+                html.push('                <a data-bypass="" id="previousBirthdayList" class="previous paginate_button {{#isPrevBtn}}paginate_button_disabled btnDisable{{/isPrevBtn}}" title="이전"></a>');
+                html.push('                <a data-bypass="" id="nextBirthdayList" class="next paginate_button {{#isNextBtn}}paginate_button_disabled btnDisable{{/isNextBtn}}" title="다음"></a>');
+                html.push('            </div>');    
+                html.push('        </div>');
+                html.push('        {{/isPage}}');
+                html.push('</div>');
+                return html.join('');
+            }, 
+            _renderConfigTemplate: function(el) {
+                $(el).off("change", ".offsetType");
+                $(el).on("change", ".offsetType", $.proxy(this.changeOffset, this));
+                
+                var _this = this;
+                var html=[];
+                html.push('<ul class="static_style">');
+                html.push('    <li>');
+                html.push('        <p class="title">'+this.i18n.parse("birthday_offset")+'</p>');
+                html.push('        <select name="offset" class="offsetType">');
+                html.push(            this._makeOffset());
+                html.push('        </select>');
+                html.push('    </li>');
+                html.push('</ul>');
+                $(el).append(html.join(''));
+            },
+            _makeOptionTemplate : function(data){
+                var html = ['{{#dataset}}',
+                            '<option value="{{value}}" {{#selected}}selected{{/selected}}>{{label}}</option>',
+                        '{{/dataset}}'];
+                var template = this.template(html.join(''), {"dataset" : data});
+                return template;
+            },
+            _makeOffset : function(){
+                var _this = this;
+                var offset = [5,10,15,20,25,30];
+                var data = [];
+                var param = {};
+                $.each(offset,function(k,v){
+                    param = {
+                        value : v,
+                        selected : (_this.options['offset'] == v) ? true : false,
+                        label : v
+                    };
+                    data.push(param);
+                });
+                
+                return this._makeOptionTemplate(data);
+            }
+        });
+    });
+    </script>
+</head>
+
+<body id="main" class="go_skin_home_default" data-role="main">
+    <div class="go-dashboard go-dashboard-editing go_dashboard_3_2">
+        <div class="go-gadget-column gadget-col-1" data-columnid="1">
+            <!-- empty -->
+        </div>
+        
+        <div class="gripper"></div>
+
+        <div id="gadget-containter" class="go-gadget-column gadget-col-2" data-columnid="2">
+            <!-- empty -->
+        </div>
+
+        <div class="gripper"></div>
+
+        <div class="go-gadget-column gadget-col-3" data-columnid="3">
+            <!-- empty -->
+        </div>
+    </div>
+</body>
+</html>

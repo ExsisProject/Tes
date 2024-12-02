@@ -1,0 +1,97 @@
+<h3 class="tab_title" style="display:none;">{{lang.label_evaluation}}</h3>
+    <!--탭 전체 펼치기시 타이틀 나옴-->
+    <div class="ehr_assessment viewForm">
+        <table class="type_list_box">
+            <tr>
+                <th class="num"><span class="title_txt">No</span></th>
+                <th class="year"><span class="title_txt">{{lang.label_evaluation_evalYear}}</span></th>
+                <th class="capability"><span class="title_txt">{{lang.label_evaluation_capability}}</span></th>
+                <th class="result"><span class="title_txt">{{lang.label_evaluation_outcome}}</span></th>
+                <th class="evaluator"><span class="title_txt">{{lang.label_evaluation_evaluator}}</span></th>
+                <th class="team"><span class="title_txt">{{lang.label_evaluation_organization}}</span></th>
+                <th class="etc"><span class="title_txt">{{lang.label_evaluation_etc}}</span></th>
+                {{#editable}}
+			    <th class="modify"><span class="title_txt">{{lang.label_modify}}</span></th>
+			    {{/editable}}
+            </tr>
+            {{#data}}
+            <tr class="dataRow" {{#dataId.useColumn}}data-id="{{dataId.value}}"{{/dataId.useColumn}}>
+                <td class="num">
+                    <span>{{number}}</span>
+                </td>
+                <td class="year">
+                    {{#evalYear.useColumn}}
+                    <span class="txt">{{evalYear.value}}</span>
+                    {{#editable}}
+                    <input class="txt w_max" type="text" name="evalYear" value="{{evalYear.value}}" style="display:none;"/>
+                    {{/editable}}
+                    {{/evalYear.useColumn}}
+                    {{^evalYear.useColumn}}
+                    <span class="txt hide">{{lang.label_private}}</span>
+                    {{/evalYear.useColumn}}
+                </td>
+                <td class="capability">
+                    {{#capability.useColumn}}
+                    <span class="txt">{{capability.value}}</span>
+                    {{#editable}}
+                    <input class="txt w_max" type="text" name="capability" value="{{capability.value}}" style="display:none;"/>
+                    {{/editable}}
+                    {{/capability.useColumn}}
+                    {{^capability.useColumn}}
+                    <span class="txt hide">{{lang.label_private}}</span>
+                    {{/capability.useColumn}}
+                </td>
+                <td class="result">
+                    {{#outcome.useColumn}}
+                    <span class="txt">{{outcome.value}}</span>
+                    {{#editable}}
+                    <input class="txt w_max" type="text" name="outcome" value="{{outcome.value}}" style="display:none;"/>
+                    {{/editable}}
+                    {{/outcome.useColumn}}
+                    {{^outcome.useColumn}}
+                    <span class="txt hide">{{lang.label_private}}</span>
+                    {{/outcome.useColumn}}
+                </td>
+                <td class="evaluator">
+                    {{#evaluator.useColumn}}
+                    <span class="txt">{{evaluator.value}}</span>
+                    {{#editable}}
+                    <input class="txt w_max" type="text" name="evaluator" value="{{evaluator.value}}" style="display:none;"/>
+                    {{/editable}}
+                    {{/evaluator.useColumn}}
+                    {{^evaluator.useColumn}}
+                    <span class="txt hide">{{lang.label_private}}</span>
+                    {{/evaluator.useColumn}}
+                </td>
+                <td class="team">
+                    {{#organization.useColumn}}
+                    <span class="txt">{{organization.value}}</span>
+                    {{#editable}}
+                    <input class="txt w_max" type="text" name="organization" value="{{organization.value}}" style="display:none;"/>
+                    {{/editable}}
+                    {{/organization.useColumn}}
+                    {{^organization.useColumn}}
+                    <span class="txt hide">{{lang.label_private}}</span>
+                    {{/organization.useColumn}}
+                </td>
+                <td class="etc">
+                    {{#etc.useColumn}}
+                    <span class="txt">{{etc.value}}</span>
+                    {{#editable}}
+                    <input class="txt w_max" type="text" name="etc" value="{{etc.value}}" style="display:none;"/>
+                    {{/editable}}
+                    {{/etc.useColumn}}
+                    {{^etc.useColumn}}
+                    <span class="txt hide">{{lang.label_private}}</span>
+                    {{/etc.useColumn}}
+                </td>
+                {{#editable}}
+    		    <td class="modify">
+    		         <span class="ic_con ic_remove" title="삭제"></span>
+    		         <span class="ic_con ic_add" title="추가"></span>
+    		    </td>
+    		    {{/editable}}
+            </tr>
+            {{/data}}
+        </table>
+    </div>

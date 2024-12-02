@@ -1,0 +1,44 @@
+<td class="start">
+	{{^isFirst}}
+	<select data-type="before">
+		<option value="">{{lang.select}}</option>
+	</select>
+	{{/isFirst}}
+	{{#isFirst}}최초등록{{/isFirst}}
+</td>
+<td class="next">
+	<select data-type="next">
+		<option value="">{{lang.select}}</option>
+	</select>
+</td>
+<td class="button">
+	{{^isFirst}}
+	<input type="text" value="{{model.actionName}}" name="actionName" class="w110">
+	{{/isFirst}}
+	{{#isFirst}}-{{/isFirst}}
+</td>
+<td class="editor" data-type="action">
+	{{^isFirst}}
+	{{#roles}}
+	<span class="option_wrap">
+		<input type="checkbox" value="{{value}}" id="{{cid}}_action_{{value}}">
+		<label for="{{cid}}_action_{{value}}">{{lang}}</label>
+	</span>
+	{{/roles}}
+	{{/isFirst}}
+	{{#isFirst}}-{{/isFirst}}
+</td>
+<td class="noti" data-type="push">
+	{{#roles}}
+	<span class="option_wrap">
+		<input type="checkbox" value="{{value}}" id="{{cid}}_push_{{value}}">
+		<label for="{{cid}}_push_{{value}}">{{lang}}</label>
+	</span>
+	{{/roles}}
+</td>											
+<td class="action">
+	<span class="wrapBtn"><span class="ic ic_row_add" title="{{lang.add}}"></span></span>
+	{{^isFirst}}
+	<span class="wrapBtn" id="delete"><span class="ic ic_delete" title="{{lang.delete}}"></span></span>											
+	{{/isFirst}}
+</td>

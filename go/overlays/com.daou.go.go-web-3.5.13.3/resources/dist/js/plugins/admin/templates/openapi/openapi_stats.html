@@ -1,0 +1,88 @@
+<div class="container ">
+    <div class="content">
+        <form>
+            <fieldset>
+                <table class="table_info tb_site_info" id="stat_search">
+                    <tbody>
+                    <tr>
+                        <th class="sorting_disabled">
+                            <span class="title">{{lang.기간}}</span>
+                        </th>
+                        <td>
+							<span class="wrap_date">
+								<input id="startDate" class="txt wfix_small" type="text" value="" readonly /><span class="ic_go ic_calendar"></span>
+							</span>
+                            ~
+                            <span class="wrap_date">
+								<input id="endDate" class="txt wfix_small" type="text" value="" readonly /><span class="ic_go ic_calendar"></span>
+							</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <span class="title">{{lang.구분}}</span>
+                        </th>
+                        <td>
+							<span class="wrap_select">
+								<select name="apiType" id="apiType" style="width:120px;">
+									<option value="">{{lang.전체}}</option>
+                                    <option value="USER">{{lang.사용자}} API</option>
+                                    <option value="SERVER">{{lang.서버}} API</option>
+								</select>
+							</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <span class="title">{{lang.카테고리}}</span>
+                        </th>
+                        <td>
+							<span class="wrap_select">
+								<select name="category" id="category" style="width:120px;">
+									<option value="">{{lang.전체}}</option>
+                                    {{#openApiScope}}
+                                    <option value="{{key}}">{{value}}</option>
+                                    {{/openApiScope}}
+								</select>
+							</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="sorting_disabled"><span class="title">API</span></th>
+                        <td>
+                            <div class="wrap_txt "><input id="apiOperation" class="txt w_max" type="text"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="sorting_disabled"><span class="title">Client Id</span></th>
+                        <td>
+                            <div class="wrap_txt "><input id="clientId" class="txt w_max" type="text"></div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </fieldset>
+        </form>
+
+        <div class="page_action_wrap">
+            <a id="btn_stat_search" class="btn_major" data-role="button"><span class="btn">{{lang.검색}}</span></a>
+        </div>
+    </div>
+</div>
+
+<div class="content_tb">
+    <table class="chart popup_list" id="stat_table">
+        <thead>
+        <tr>
+            <th class="">{{lang.날짜}}</th>
+            <th class="">Client Id</th>
+            <th class="">{{lang.구분}}</th>
+            <th class="">{{lang.카테고리}}</th>
+            <th class="">API</th>
+            <th class="">{{lang.성공}}</th>
+            <th class="">{{lang.실패}}</th>
+            <th class="">{{lang.전체}}</th>
+        </tr>
+        </thead>
+    </table>
+</div>

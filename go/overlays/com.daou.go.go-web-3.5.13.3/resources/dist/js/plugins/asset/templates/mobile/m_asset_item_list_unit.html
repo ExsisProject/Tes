@@ -1,0 +1,29 @@
+{{#dataset}}
+{{#isRental}}
+<!-- 대여 -->
+<li data-type="rent" data-status="{{rentStatus}}" data-assetid="{{assetId}}" data-itemid="{{id}}" data-list-id="{{id}}">
+	<a href="#" class="tit" data-bypass data-list-id="{{id}}">
+		<span class="subject"><span class="title">{{name}}</span></span>
+		<span class="info">
+			{{{parseAttr}}}
+		</span>
+	</a>
+</li>
+<!-- 대여 -->
+{{/isRental}}
+{{^isRental}}
+<!-- 예약 -->
+<li data-type="reservation" data-assetid="{{assetId}}" data-itemid="{{id}}" data-assetname="{{name}}" data-list-id="{{id}}">
+	<a href="#" class="tit" data-bypass data-list-id="{{id}}">
+		<span class="subject"><span class="title">{{name}}</span></span>
+		<span class="info">
+			{{{parseAttr}}}
+		</span>
+	</a>
+</li>
+<!-- 예약 -->
+{{/isRental}}
+{{/dataset}}
+{{^dataset}}
+<li class="creat data_null"><span class="txt_ellipsis">{{lang.no_asset}}</span></li>	
+{{/dataset}}

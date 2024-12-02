@@ -1,0 +1,47 @@
+<div class="content_page activity_record">
+	<div class="content">
+		<section class="classic_detail">
+			<header class="article_header" id="doc_header">
+			<span class="photo">
+				<a><img alt="" title="{{data.writer.name}}" src="{{data.writer.thumbnail}}"></a>
+			</span>
+				<div class="info">
+					<span class="name txt_ellipsis">{{data.writer.name}} {{#data.writer.position}}{{data.writer.position}}{{/data.writer.position}}</span><br>
+					<span class="date">{{snsDate}}</span>
+				</div>
+				<div id="fontResizeWrap" class="wrap_fontsize"></div>
+			</header>
+			<!-- activity_record -->
+			<article id="activityItemWrapper" class="article_view" style="padding:0">
+				<div id="iScrollContentWrap" class="scroll">
+					<div id="activityContentWrapper" style="width:100%">
+						<div id="activityContent" class="editor_view">
+							{{{content}}}
+						</div>
+						<div class="tool_bar editor_view">
+							<div class="critical" id="goCommentList">
+								<a class="btn_tool" data-role="button">
+									<span class="txt">{{lang.comment}}</span>
+									<span class="plus_num">{{data.commentCount}}</span>
+								</a>
+							</div>
+							<div class="optional">
+								<div class="meta_wrap">
+									{{#data.actions.updatable}}
+									<a class="btn_tool" data-role="button" id="editActivityBtn"><span class="txt">{{lang.edit}}</span></a>
+									{{/data.actions.updatable}}
+									{{#data.actions.removable}}
+									<a class="btn_tool" data-role="button" id="deleteActivityBtn"><span class="txt_caution">{{lang.delete}}</span></a>
+									{{/data.actions.removable}}
+								</div>
+							</div>
+						</div>
+						<div id="attachArea{{data.id}}"> <!-- class="wrap_attach" -->
+						</div>
+					</div>
+				</div>
+			</article>
+			<!-- // activity_record -->
+		</section>
+	</div>
+</div>

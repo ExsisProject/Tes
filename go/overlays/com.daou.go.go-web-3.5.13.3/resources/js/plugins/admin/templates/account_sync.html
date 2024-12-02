@@ -1,0 +1,77 @@
+<div class="dataTables_wrapper container" >
+    <div id="controlButtons1" style="display: none">
+        <span class="btn_tool" id="sync_start">
+            <span class="txt">{{lang.doSyncJob}}</span>
+        </span>
+        <span class="btn_tool" id="sync_detail">{{lang.detailJob}}</span>
+        <span class="btn_tool" id="sync_delete">{{lang.deleteJob}}</span>
+    </div>
+    <div class="content_tb over_visi">
+        <table class="chart size list_account" id="admin_job_list">
+            <thead>
+            <tr>
+                <th class="sorting_desc">
+                  <span class="title_sort">
+                  <label>jobId</label>
+                  </span>
+                </th>
+                <th class="sorting_desc">
+                  <span class="title_sort">
+                  <label>companyId</label>
+                  <ins class="ic"></ins><span class="selected"></span>
+                  </span>
+                </th>
+                <th class="sorting_desc">
+                  <span class="title_sort">
+                  <label>size</label>
+                  <ins class="ic"></ins><span class="selected"></span>
+                  </span>
+                </th>
+                <th class="sorting_desc">
+                  <span class="title_sort">
+                  <label>successCount</label>
+                  <ins class="ic"></ins><span class="selected"></span>
+                  </span>
+                </th>
+                <th class="sorting_desc">
+                  <span class="title_sort">
+                  <label>failCount</label>
+                  <ins class="ic"></ins><span class="selected"></span>
+                  </span>
+                </th>
+                <th class="sorting_desc">
+                  <span class="title_sort">
+                  <label>startedAt</label>
+                  <ins class="ic"></ins><span class="selected"></span>
+                  </span>
+                </th>
+                <th class="sorting_disable last">
+                  <span class="title_sort">
+                  <label>endedAt</label>
+                  <ins class="ic"></ins><span class="selected"></span>
+                  </span>
+                </th>
+                <th class="sorting_disable last">
+                  <span class="title_sort">
+                  <label>operator</label>
+                  </span>
+                </th>
+                <th class="sorting_disable last">
+                  <span class="title_sort">
+                  <label>jobName</label>
+                  <ins class="ic"></ins><span class="selected"></span>
+                  </span>
+                </th>
+            </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+<div class="dataTables_wrapper container" id="admin_job_item_container">
+
+    <div class="content_tb over_visi">
+        <table class="chart size list_account" id="admin_job_item_list">
+
+        </table>
+    </div>
+</div>

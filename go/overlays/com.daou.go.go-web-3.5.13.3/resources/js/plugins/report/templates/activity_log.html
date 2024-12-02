@@ -1,0 +1,15 @@
+{{#data}}
+<li>
+	<p class="photo"><img src="{{actor.thumbnail}}" title="{{actor.name}} {{actor.position}}" alt="{{actor.name}} {{actor.position}}"></p>
+	<div class="info">
+		<p class="name"> {{actor.name}} {{actor.position}}</p>
+		<p class="date"> {{createdAtBasicDate}} </p>
+		<p class="subject"> {{message}} </p>
+	</div>
+</li>
+{{/data}}
+{{^data}}
+	<li>
+		<p class="desc">{{lang.activity_empty_msg}}
+	</li>
+{{/data}}

@@ -1,0 +1,1 @@
+define(["underscore","backbone","admin/models/approval/integration_query"],function(e,t,n){var r=t.Collection.extend({model:n,initialize:function(){}});return r});

@@ -1,0 +1,52 @@
+<div class="article_wrap">							
+	<div class="article article_edit">
+		<span class="photo" data-tag="profile" data-userid={{data.createdBy.id}}>
+			<a id="profile">
+				<img src="{{data.createdBy.thumbnail}}" alt="{{data.createdBy.name}} {{#data.createdBy.position}}{{data.createdBy.position}}{{/data.createdBy.position}}" title="{{data.createdBy.name}} {{#data.createdBy.position}}{{data.createdBy.position}}{{/data.createdBy.position}}">
+			</a>
+		</span>
+		<div class="info">
+			<a class="name" data-tag="profile" data-userid={{data.createdBy.id}}>
+			{{data.createdBy.name}} {{#data.createdBy.position}}{{data.createdBy.position}}{{/data.createdBy.position}}
+			</a>	
+			<span class="txt">- {{lang.report}} </span><span class="date">{{snsDate.date}} {{#snsDate.modifyFlag}}({{lang.edit}}){{/snsDate.modifyFlag}}</span>
+		</div>
+		<div id="activityContent" class="article_activity editor_view">
+			<span class="expander"></span>
+		</div>
+		<div data-type="view" class="feed origin" id="viewModeAttachArea">
+		</div>
+		<div data-type="view" class="tool_bar">
+		{{#data.actions.updatable}}
+		<span class="btn_fn4" id="editActivity"><span class="ic_feed ic_edit_white"></span></span>
+		{{/data.actions.updatable}}
+		{{#data.actions.removable}}
+		<span class="btn_fn4" id="deleteActivity"><span class="ic_feed ic_del_white"></span></span>
+		{{/data.actions.removable}}
+		</div>												
+		<div data-type="edit" class="write_wrap" style="display:none">
+			<div id="activityEditor{{data.id}}" style="width:100%;">
+			
+			</div>
+			<span class="wrap_btn">
+				<span id="file-control-activity-{{data.id}}" data-id="{{data.id}}" class="btn_minor_s" style="padding:0 !important;">
+				</span>
+			</span>
+			<div class="file_wrap" id="editModeAttachArea">
+			</div>
+		</div>
+		<div data-type="edit" class="page_action_wrap" style="display:none">
+			<a id="editActivityBtn" class="btn_major" data-role="button"><span class="txt">{{lang.save}}</span></a>
+			<a id="closeEditorBnt" class="btn_minor" data-role="button"><span class="txt">{{lang.cancel}}</span></a>			
+		</div>
+	</div>
+	<div class="reply_wrap">
+		<header class="single_title">									
+			<span class="ic_classic ic_reply"></span>
+			<span class="txt_b">{{lang.comment}}</span><span class="num">{{#commentPresent}}{{commentCount}}{{/commentPresent}}</span>
+			<span class="txt_b" id="showAllComment" {{^hasMoreComment}}style="display:none"{{/hasMoreComment}}>{{lang.showAll}}</span>
+			<span class="txt_b" id="foldComment" style="display:none">{{lang.fold}}</span>
+		</header>	
+		<div data-replies-wrapper id="activityReply" class="reply_common"></span>
+	</div>
+</div>

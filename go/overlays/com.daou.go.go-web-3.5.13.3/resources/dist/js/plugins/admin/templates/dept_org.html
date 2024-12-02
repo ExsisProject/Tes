@@ -1,0 +1,115 @@
+<div class="content_page category_oganization">
+    <div class="container left" id="leftContainer">
+        <div class="header">
+            <h2>
+                <span class="title">{{lang.org}}</span>
+                <span class="wrap_ic_s">
+                    <span class="help">
+                        <span class="tool_tip">{{{lang.org_desc}}}<i class="tail_left"></i></span>
+                    </span>
+                </span>
+            </h2>
+            <div class="optional">
+                <a class="btn_ic_s" id="orgSetting">
+                    <span class="ic_adm ic_gear"></span>
+                </a>
+                <div class="layer_mini layer_organogram_setting" id="orgSettingView" style="display: none">
+                    <ul class="list_item">
+                        <li>
+                            <a id="btnOrderConfig">
+                                <span class="ic_adm ic_array"></span>
+                                <span class="txt">{{lang.dept_member_order_config}}</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a id="btnOrgExposureConfig">
+                                <span class="ic_adm ic_view"></span>
+                                <span class="txt">{{lang.org_exposure_config}}</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a id="btnMailExposureConfig">
+                                <span class="ic_adm ic_view"></span>
+                                <span class="txt">{{lang.mail_exposure_config}}</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+        <div class="content">
+            <div class="wrap_organogram_opt">
+                <div class="critical">
+                    <div class="btn_func_wrap">
+                        <span class="tit">{{lang.dept_s}}</span>
+                        <span class="btn_tool" id="orgDeptCreate">
+										<span class="ic_adm ic_plus" title="{{lang.dept_add}}"></span>
+						</span>
+                        <span class="btn_tool" id="orgDeptDelete">
+										<span class="ic_adm ic_delete" title="{{lang.dept_delete}}">
+									</span>
+								</span>
+                    </div>
+                </div>
+
+                <div class="optional">
+                    <!--search -->
+                    <span class="search_micro">
+									<span class="ipt_search">
+										<span class="ic_adm ic_search" title="{{lang.search}}"></span>
+										<a class="btn_cancel" id="searchInputReset" style="display: none">
+											<span class="ic_adm ic_cancel" title="{{lang.delete}}"></span>
+										</a>
+										<input id="search" type="text">
+									</span>
+					</span>
+                </div>
+            </div>
+            <div class="wrap_organogram">
+                <div class="content_wrap" id="treeContainer">
+                    <div id="orgMemTree"></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="column_space"></div>
+    <div class="container right" id="rightContainer">
+        <div class="header">
+            <h2>
+                <span class="title" id="deptName">{{rootDeptName}}</span>
+                <span class="num" id="deptMemCount"> ({{rootDeptCount}})</span>
+            </h2>
+        </div>
+        <div class="container_opt">
+            <a class="btn_minor_s" id="createNewMember"><span class="ic_adm ic_plus"></span><span class="txt">{{#isUnspecified}}{{lang.create_new_member}}{{/isUnspecified}}{{^isUnspecified}}{{lang.create_new_dept_Member}}{{/isUnspecified}}</span></a>
+            <a class="btn_minor_s" id="deptUnspecifiedMember">
+                <span class="ic_adm ic_person_unknown"></span>
+                <span class="txt"> {{lang.dept_unspecified_member}}</span>
+                <span class="txt_caution" id="deptUnspecifiedMemberCount"></span>
+            </a>
+            <a class="btn_minor_s" id="downloadBatchRegister"><span class="ic_adm ic_shortcut"></span><span
+                    class="txt">{{lang.download_batch_register}}</span></a>
+            {{#orgSyncable}}
+            <a class="btn_minor_s" id="manualSync"></a>
+            {{/orgSyncable}}
+        </div>
+        <div class="content" id="contentArea">
+            <div class="tab_menu_wrap">
+                <ul class="tab_menu content_tab">
+                    <li class="active"><span class="txt" data-type="dept_info">{{lang.dept_info}}</span></li>
+                    <li class=""><span class="txt" data-type="member_list">{{lang.dept_member_list}}</span></li>
+                    <li class=""><span class="txt" data-type="dept_file">{{lang.dept_file}}</span></li>
+                </ul>
+            </div>
+
+            <div class="tab_content" id="deptInfoContent" style="display:none">
+                <div></div>
+            </div>
+
+        </div>
+    </div>
+
+
+</div>

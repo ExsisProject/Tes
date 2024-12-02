@@ -1,0 +1,1 @@
+define("approval/components/apprflow_editor/views/activity_list/activity_items_base",["backbone"],function(e){var t=e.View.extend({addItem:function(e){}});return t});

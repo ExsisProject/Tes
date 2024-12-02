@@ -1,0 +1,15 @@
+<ul class="tab_menu">
+    {{#tabs}}
+    <li id="{{id}}" {{#isActive}} class="active"{{/isActive}}>
+        <span>
+            <span class="txt">{{name}}</span>
+        </span>
+    </li>
+    {{/tabs}}   
+</ul>
+<div class="tool_bar">
+	<span class="btn_wrap">
+		<span class="ic_classic ic_close" id="foldTab" style="display:none"></span>
+		<span class="ic_classic ic_open" id="unfoldTab"></span>
+	</span>
+</div>

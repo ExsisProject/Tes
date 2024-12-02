@@ -1,0 +1,102 @@
+<div class="critical">
+{{#isManageable}}
+	{{#authWrite}}
+		{{#isRecvWaiting}}
+			<a id="act_force_recv_returned" class="btn_tool" data-role="button">
+				<span class="ic_toolbar return"></span>
+				<span class="txt">{{lang.강제반송}}</span>
+			</a>
+			<a id="act_reassign_receiver" class="btn_tool" data-role="button">
+				<span class="ic_toolbar member"></span>
+				<span class="txt">{{lang.담당자 지정}}</span>
+			</a>
+		{{/isRecvWaiting}}
+		{{#isReceived}}
+			<a id="act_cancel_reception" class="btn_tool" data-role="button">
+				<span class="ic_toolbar cancel"></span>
+				<span class="txt">{{lang.접수취소}}</span>
+			</a>
+		{{/isReceived}}
+	    {{#useForceReturn}}
+	    <a id="act_forcereturn" class="btn_tool" data-role="button">
+			<span class="ic_toolbar return"></span>
+			<span class="txt">{{lang.강제반려}}</span>
+		</a>
+	    {{/useForceReturn}}
+	    {{^isActCopy}}
+	    <span class="btn_tool_group">
+		<a id="act_save" class="btn_tool" data-role="button">
+			<span class="ic_toolbar save"></span>
+			<span class="txt">{{lang.저장}}</span>
+		</a>
+		<a id="act_cancel" class="btn_tool" data-role="button">
+			<span class="ic_toolbar cancel"></span>
+			<span class="txt">{{lang.취소}}</span>
+		</a>
+		</span>
+        {{#isEditableDocument}}
+	    <a id="act_edit" class="btn_tool" data-role="button">
+			<span class="ic_toolbar modify"></span>
+			<span class="txt">{{lang.문서 수정}}</span>
+		</a>
+        {{/isEditableDocument}}
+		{{/isActCopy}}
+	{{/authWrite}}
+	{{#authRead}}
+		<a id="act_edit_apprflow" class="btn_tool" data-role="button">
+			<span class="ic_toolbar info"></span>
+			<span class="txt">{{lang.결재 정보}}</span>
+		</a>
+	{{/authRead}}
+{{/isManageable}}
+{{^isManageable}}
+	<a id="act_edit_apprflow" class="btn_tool" data-role="button">
+		<span class="ic_toolbar info"></span>
+		<span class="txt">{{lang.결재 정보}}</span>
+	</a>
+{{/isManageable}}
+{{#isManageable}}
+	{{#authRemove}}
+		{{#isComplete}}
+	    <a id="act_delete" class="btn_tool" data-role="button">
+			<span class="ic_toolbar del"></span>
+			<span class="txt">{{lang.문서 삭제}}</span>
+		</a>
+	    {{/isComplete}}
+		{{#isReturn}}
+	    <a id="act_delete" class="btn_tool" data-role="button">
+			<span class="ic_toolbar del"></span>
+			<span class="txt">{{lang.문서 삭제}}</span>
+		</a>
+	    {{/isReturn}}
+		{{#isRecvReturned}}
+		<a id="act_delete" class="btn_tool" data-role="button">
+			<span class="ic_toolbar del"></span>
+			<span class="txt">{{lang.문서 삭제}}</span>
+		</a>
+		{{/isRecvReturned}}
+	{{/authRemove}}    
+{{/isManageable}}
+</div>
+<ul class="optional">
+	{{#showUrlCopy}}
+	<li>
+		<a class="btn_tool" url-copy>
+			<span class="ic_toolbar copy_url" title="{{lang.복사}}"></span>
+			<span class="txt">{{lang.복사}}</span>
+		</a>
+	</li>
+	{{/showUrlCopy}}
+ 	<li>
+		<a id="act_list" class="btn_tool" data-role="button" >
+			<span class="ic_toolbar list" title="{{lang.목록}}"></span>
+			<span class="txt">{{lang.목록}}</span>
+		</a>
+	</li>
+ 	<li>
+		<a id="act_doc_print" class="btn_tool" data-role="button">
+			<span class="ic_toolbar print"></span>
+			<span class="txt">{{lang.인쇄}}</span>
+		</a>
+	</li>
+</ul>

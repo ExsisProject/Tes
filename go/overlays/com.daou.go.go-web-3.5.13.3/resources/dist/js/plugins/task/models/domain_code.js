@@ -1,0 +1,1 @@
+define(["backbone"],function(e){var t=e.Model.extend({}),n=e.Collection.extend({model:t,url:function(){return"/api/"+this.type+"/list"},getList:function(e){var t=this,n=$.Deferred();return this.type=e,this[e]?(this.models=_.clone(this[e]),n.resolve(this)):this.fetch({success:function(r){t[e]=_.clone(r.models),n.resolve(t)}}),n}});return n});

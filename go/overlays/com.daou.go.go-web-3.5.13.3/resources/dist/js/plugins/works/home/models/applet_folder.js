@@ -1,0 +1,1 @@
+define("works/home/models/applet_folder",function(require){return Backbone.Model.extend({initialize:function(){},urlRoot:function(){return GO.contextRoot+"api/works/folders"},validate:function(){var e=this.get("name");if(e.length<2||e.length>20)return"folder.name.length"}})});

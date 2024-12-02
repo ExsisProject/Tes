@@ -1,0 +1,1 @@
+define("works/views/app/report/report_item",function(require){var e=require("backbone"),t=require("works/components/formbuilder/core/cid_generator");return e.View.extend({initialize:function(e){this.rid=e.rid?e.rid:t.generate()},getRid:function(){return this.rid},toJson:function(){console.log("toJson")},toObject:function(){console.log("toObject")}})});

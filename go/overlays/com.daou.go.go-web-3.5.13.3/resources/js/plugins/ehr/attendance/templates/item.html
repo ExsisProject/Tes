@@ -1,0 +1,41 @@
+<tr {{^isToday}}{{#isDayOff}}class="holiday{{^isAfter}}{{#hasTimeEditAuth}}{{^hasStatusEditAuth}} attend_modify_attend{{/hasStatusEditAuth}}{{/hasTimeEditAuth}}{{#hasStatusEditAuth}}{{^hasTimeEditAuth}} attend_modify_status{{/hasTimeEditAuth}}{{/hasStatusEditAuth}}{{^hasTimeEditAuth}}{{^hasStatusEditAuth}} attend_none{{/hasStatusEditAuth}}{{/hasTimeEditAuth}}{{/isAfter}}{{#isAfter}}{{#hasStatusEditAuth}} attend_modify{{/hasStatusEditAuth}}{{^hasStatusEditAuth}} attend_none{{/hasStatusEditAuth}}{{/isAfter}}"{{/isDayOff}}{{/isToday}}{{#isToday}}class="today{{#hasTimeEditAuth}}{{^hasStatusEditAuth}} attend_modify_attend{{/hasStatusEditAuth}}{{/hasTimeEditAuth}}{{#hasStatusEditAuth}}{{^hasTimeEditAuth}} attend_modify_status{{/hasTimeEditAuth}}{{/hasStatusEditAuth}}{{^hasTimeEditAuth}}{{^hasStatusEditAuth}} attend_none{{/hasStatusEditAuth}}{{/hasTimeEditAuth}}"{{/isToday}}{{#isAfter}}{{#hasStatusEditAuth}}class="attend_modify"{{/hasStatusEditAuth}}{{^hasStatusEditAuth}}class="attend_none"{{/hasStatusEditAuth}}{{/isAfter}}{{#isBefore}}class="{{#hasTimeEditAuth}}{{^hasStatusEditAuth}} attend_modify_attend{{/hasStatusEditAuth}}{{/hasTimeEditAuth}}{{#hasStatusEditAuth}}{{^hasTimeEditAuth}} attend_modify_status{{/hasTimeEditAuth}}{{/hasStatusEditAuth}}{{^hasTimeEditAuth}}{{^hasStatusEditAuth}} attend_none{{/hasStatusEditAuth}}{{/hasTimeEditAuth}}"{{/isBefore}} data-id="{{record.id}}" data-item-date="{{logDate}}">
+	<th class="day {{#isSatday}}sat{{/isSatday}}{{#isSunday}} sun{{/isSunday}}{{^isSatday}}{{#isHoliday}} holi{{/isHoliday}}{{/isSatday}}">{{formattedLogDate}}</th>
+	
+	
+	<td class="go{{#isLate}} late{{/isLate}}{{#isClockInTimeEdited}} modify{{/isClockInTimeEdited}} {{#hasId}}valid{{/hasId}}" data-type="in" {{#hasTimeEditAuth}}style="cursor:pointer"{{/hasTimeEditAuth}}>
+	{{#hasId}}
+		{{#hasUserClockInTime}}
+        <span class="time">{{userClockInTime}}</span>
+		{{#isUseGPS}}<span class="ic_con ic_gps">{{/isUseGPS}}
+		{{/hasUserClockInTime}}
+		{{^hasUserClockInTime}}{{#isToday}}<span class="none"></span>{{/isToday}}{{^isToday}}{{#isAfter}}<span class="none"></span>{{/isAfter}}{{^isAfter}}{{#hasDateStatus}}<span class="none">-</span>{{/hasDateStatus}}{{^hasDateStatus}}<span class="none">-</span>{{/hasDateStatus}}{{/isAfter}}{{/isToday}}{{/hasUserClockInTime}}
+	{{/hasId}}
+	{{^hasId}}
+		<span class="time"></span>
+	{{/hasId}}
+	</td>
+	<td class="leave{{#isClockOutTimeEdited}} modify{{/isClockOutTimeEdited}} {{#hasId}}valid{{/hasId}}" data-type="out" {{#hasTimeEditAuth}}style="cursor:pointer"{{/hasTimeEditAuth}}>
+	{{#hasId}}
+		{{#hasUserClockOutTime}}
+        <span class="time">{{userClockOutTime}}</span>
+		{{#isUseGPS}}<span class="ic_con ic_gps">{{/isUseGPS}}
+        {{/hasUserClockOutTime}}
+		{{^hasUserClockOutTime}}{{#isToday}}<span class="none"></span>{{/isToday}}{{^isToday}}{{#isAfter}}<span class="none"></span>{{/isAfter}}{{^isAfter}}{{#hasDateStatus}}<span class="none">-</span>{{/hasDateStatus}}{{^hasDateStatus}}<span class="none">-</span>{{/hasDateStatus}}{{/isAfter}}{{/isToday}}{{/hasUserClockOutTime}}
+	{{/hasId}}
+	{{^hasId}}
+		<span class="time"></span>
+	{{/hasId}}
+	</td>
+	
+	<td class="time">{{workingTime}}</td>
+	<td class="status">
+		<ul>
+			{{#statuses}}
+			<li {{#isLast}}class='last'{{/isLast}} data-type="{{companyStatus.type}}" data-id ="{{id}}" status-id = "{{companyStatus.id}}" {{#hasStatusEditAuth}}style="cursor:pointer"{{/hasStatusEditAuth}} >
+				<p class="tit">{{companyStatus.name}} {{formattedTime}}</p>
+				<p class="con">{{memo}}</p>
+			</li>
+			{{/statuses}}
+		</ul>
+	</td>
+</tr>

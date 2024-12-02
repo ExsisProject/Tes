@@ -1,0 +1,12 @@
+<form class="form_static" onsubmit="return false;">
+    <div class="form_static_wrap">
+        <span class="wrap_txt w_max"><label></label><input class="txt w_max" type="text" name="query" value="" placeholder="{{label.search_member}}"></span>
+    </div>
+</form>
+<div class="list_member_wrap div_scroll">
+    <ul class="ui-member-list list_default list_member">
+        {{#members}}
+        {{> _search_member_list}}
+        {{/members}}
+    </ul>
+</div>  

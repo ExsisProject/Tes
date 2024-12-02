@@ -1,0 +1,1 @@
+define(["backbone","models/joined_dept"],function(e,t){var n=e.Collection.extend({url:GO.contextRoot+"api/department/list/joined",model:t},{fetch:function(e){var t=new n;return t.fetch({async:!1},e),t}});return n});

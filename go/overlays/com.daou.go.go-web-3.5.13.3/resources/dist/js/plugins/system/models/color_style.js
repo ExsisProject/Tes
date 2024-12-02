@@ -1,0 +1,1 @@
+define(["backbone"],function(e){var t=null,n=e.Model.extend({url:function(){return"/ad/api/company/colorstyle"}},{get:function(){return t=new n,t.set({silent:!0}),t.fetch({async:!1}),t}});return{read:function(){return colorStyle=n.get()}}});

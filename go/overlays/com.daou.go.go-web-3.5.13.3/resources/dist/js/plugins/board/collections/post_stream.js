@@ -1,0 +1,1 @@
+define(["backbone","board/models/post"],function(e,t){var n=e.Collection.extend({model:t,initialize:function(e,t){this.boardId=t.boardId},url:function(){return["/api/board",this.boardId,"posts/stream"].join("/")}});return n});

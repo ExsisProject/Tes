@@ -1,0 +1,159 @@
+{{^isNullGroup?}}
+<!-- <div class="approval_line">  -->
+    <div class="tit_type3">
+	    <span class="ic_classic ic_open_s" title="{{lang.열기}}" evt-role="appr-official-toggle"></span>
+	    <span class="txt">{{groupName}}</span>
+		{{#hasComment}}
+			<a class="btn_fn6" evt-role="showOfficialComment">{{lang.의견}}</a>
+		{{/hasComment}}
+		{{#failSent}}
+			<span class="ic ic_fail" title="{{lang.공문 발송 실패 메세지}}"></span>
+		{{/failSent}}
+		{{#isApproved}}
+			<span class="date">{{sentAt}}</span>
+		{{/isApproved}}
+    </div>
+	<div class="approval_line">
+	    <div class="list_approval_line{{^isEnabled}} disable_line{{/isEnabled}}">
+	        <div class="btn_langth add_activity" title="{{lang.add}}" data-id="{{groupId}}"><span class="ic_con ic_arrow_type4"></span></div>
+	        <div class="tb_approval_line_wrap">
+	            <table class="appr-activity-table type_normal tb_approval_line">
+	                <tbody>
+	                {{#hasActivities}}
+	                    {{#receivers}}
+							<tr class="{{#isEnabled}}appr-activity{{/isEnabled}} activity{{^isEnabled}} inactive{{/isEnabled}}{{#isEnabled}}{{^removable}} inactive{{/removable}}{{/isEnabled}} {{#isLast}}last{{/isLast}}" data-id="{{email}}">
+							    <td class="name">{{name}}</td>
+							    <td>{{email}}</td>
+							    <td class="company">{{company}}</td>
+								<td class="func">
+									{{#isEnabled}}
+									{{#removable}}
+									<span class="delete_activity ic_classic ic_basket" title="{{lang.remove}}" data-id="{{email}}"></span>
+									{{/removable}}
+									{{/isEnabled}}
+								</td>
+							</tr>
+	                    {{/receivers}}
+	                {{/hasActivities}}
+	                {{^hasActivities}}
+	                    <tr class="activity appr-activity inactive last">
+	                        <td colspan="4">
+	                            <p class="data_null null_activity_p">
+	                                <span class="ic_file_drag"></span>
+	                                <span class="txt">{{#disabled}}{{lang.msg_not_addable_item}}{{/disabled}}{{^disabled}}{{lang.add_activity}}{{/disabled}}</span>
+	                            </p>
+	                        </td>
+	                    </tr>
+	                {{/hasActivities}}
+	                </tbody>
+	            </table>
+	        </div>
+	    </div>
+	    {{#dockedVisible}}
+		<div class="approval_history">
+				{{#isOnlyView}}
+					{{#senderVisible}}
+		    	<span class="wrap_opt">
+					<span class="txt">{{lang.발신 명의}} : </span>
+		    		<select name="senderSelect" disabled="disabled">
+							<option value="{{asignedSender.id}}" selected="selected">{{asignedSender.name}}</option>
+		    		</select>
+				</span>	
+		    		{{/senderVisible}}
+				{{/isOnlyView}}
+				{{^isOnlyView}}
+					{{#senderVisible}}
+				<span class="wrap_opt">
+						<span class="txt">{{lang.발신 명의}} : </span>
+			    		<select name="senderSelect" {{^senderEditable}}disabled="disabled"{{/senderEditable}}>
+			    			<option value="">{{lang.선택}}</option>
+			    			{{#senders}}
+			    			<option value="{{id}}" {{#isSelected}}selected="selected"{{/isSelected}}>{{name}}</option>
+			    			{{/senders}}
+			    		</select>
+				</span>
+					{{/senderVisible}}
+				{{/isOnlyView}}
+			
+			
+				{{#isOnlyView}}
+					{{#signVisible}}
+				    <span class="wrap_opt">
+						<span class="txt">{{lang.직인}} : </span>
+				    		<select name="signSelect" disabled="disabled">
+								<option value="{{asignedSign.id}}" selected="selected">{{asignedSign.name}}</option>
+				    		</select>
+					</span>
+					{{/signVisible}}
+				{{/isOnlyView}}				
+				{{^isOnlyView}}
+					{{#signVisible}}
+					<span class="wrap_opt">
+						<span class="txt">{{lang.직인}} : </span>
+				    		<select name="signSelect" {{^signEditable}}disabled="disabled"{{/signEditable}}>
+				    			<option value="">{{lang.선택}}</option>
+				    			{{#signs}}
+				    			<option value="{{id}}" {{#isSelected}}selected="selected"{{/isSelected}}>{{name}}</option>
+				    			{{/signs}}
+				    		</select>
+					</span>
+					{{/signVisible}}
+				{{/isOnlyView}}
+			
+			
+				{{#isOnlyView}}
+					{{#formVisible}}
+				<span class="wrap_opt">
+					<span class="txt">{{lang.시행문}} : </span>
+			    		<select name="formSelect" disabled="disabled">
+							<option value="{{asignedForm.id}}" selected="selected">{{asignedForm.name}}</option>						
+			    		</select>
+				</span>
+					{{/formVisible}}
+				{{/isOnlyView}}
+				{{^isOnlyView}}
+					{{#formVisible}}
+				<span class="wrap_opt">
+					<span class="txt">{{lang.시행문}} : </span>
+			    		<select name="formSelect" {{^formEditable}}disabled="disabled"{{/formEditable}}>
+				    			<option value="">{{lang.선택}}</option>
+				    			{{#forms}}
+				    			<option value="{{id}}" {{#isSelected}}selected="selected"{{/isSelected}}>{{name}}</option>
+				    			{{/forms}}						
+			    		</select>
+				</span>
+					{{/formVisible}}				
+				{{/isOnlyView}}
+		   	
+		   	
+		   	{{#formVisible}}
+			   	{{#showBtn}}
+			   		{{#isCreate}}
+						<a class="btn_minor_s showOfficialFormPreview" evt-rol="write-signData">
+							<span class="txt">{{lang.시행문 보기}}</span>
+						</a>
+					{{/isCreate}}
+					{{^isCreate}}
+						<a class="btn_minor_s showOfficial" evt-rol="write-signData">
+							<span class="txt">{{lang.문서 보기}}</span>
+						</a>
+					{{/isCreate}}
+				{{/showBtn}}
+			{{/formVisible}}
+		</div>
+		{{/dockedVisible}}
+    </div>
+
+<!-- </div> -->
+{{/isNullGroup?}}
+{{#isNullGroup?}}
+     <div class="empty_approval_line" style="height: 100%">
+         <table style="height: 100%">
+             <tbody style="height: 100%">
+                 <tr class="appr-activity activity last" data-isnullactivity="true" style="height: 100%">
+                     <td style="width: 100%; height: 100%"></td>
+                 </tr>
+             </tbody>
+         </table>
+     </div>
+{{/isNullGroup?}}

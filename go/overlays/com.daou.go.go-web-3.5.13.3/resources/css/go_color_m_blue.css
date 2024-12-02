@@ -1,0 +1,23 @@
+@charset "UTF-8";
+/*
+-----------------
+blue color schema
+-----------------
+#4179dd - default : GNB bg, text, button, form border (*)
+#143F9A - deep dark : GNB on
+#2353b8 - dark : GNB Menu on
+#3266ca - mideum dark : GNB Menu:hover 
+#80abf8 - mideum : file gage
+#bdd2fa - medium light : img hover
+#f1f9fe -light : tr/li hover, name UI (*)
+--------
+structure
+--------
+go_header
+go_side
+go_footer
+common - button, form, univeral style
+app style
+*/
+
+div.nav {background:#4179dd}/*top navigation*/

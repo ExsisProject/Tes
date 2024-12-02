@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <title>투데이 프로필</title>
+    <meta name = "gadget:name-ko" content="투데이 프로필" />
+    <meta name = "gadget:name-en" content="Today Profile" />
+    <meta name = "gadget:name-ja" content="Today Profile" />
+    <meta name = "gadget:name-zhcn" content="Today Profile" />
+    <meta name = "gadget:name-zhtw" content="Today Profile" />
+    <meta name = "gadget:name-vi" content="Thông tin cá nhân hôm nay" />
+    <meta name = "gadget:description" content="로그인 사용자와 관련된 일정, 업무 등을 표시해 주는 가젯입니다." />
+    <meta name = "gadget:version" content="1.5.2" />
+    <meta name = "gadget:thumbnail" content="gadget_today.png" />
+    
+    <!-- 테스트 할 로케일은 여기에 설정하세요.-->
+    <meta name = "locale" content="ko" />
+    
+    <!-- 컨텍스트 루트는 여기서 설정하세요 -->
+    <meta name = "contextRoot" content="/" />
+
+    <link rel="stylesheet" href="css/go-gadget-standalone.css" media="screen, print" />
+    <!--[if IE]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="js/go-gadget-standalone.js"></script>
+
+    <!-- ajax mock: 개발시 크로스 도메인 문제가 발생할 경우 ajax mock request를 이용하여 테스트 할 수 있습니다-->
+    <script type="text/javascript">
+    $.ajaxMock.register('/api/user/today', {
+        responseText:$.parseJSON('{"data" : {"summaries" : {"task" : 0, "report" : 2, "approval" : 4, "survey" : 0, "calendar" : 3}, "profile" : {"id" : 2, "name" : "진범동1", "email" : "test1@daou.co.kr", "employeeNumber" : "9998", "mailGroup" : "default", "loginId" : "test1", "locale" : "ko", "timeZone" : "Asia/Seoul", "status" : "online", "position" : "부회장", "grade" : "", "deptMembers": []}},  "message" : "OK",  "code" : "200",  "__go_checksum__" : true}'),
+        statusCode: 200,
+        status:'OK',
+        type: 'GET'
+    });
+    </script>
+    
+    <script type="text/javascript">
+    $.ajaxMock.register('/api/mail/message/count', {
+        responseText:'{"data": 12}',
+        statusCode: 200,
+        status:'OK',
+        type: 'POST'
+    });
+    </script>
+
+    <script type="text/javascript" id="go-gadget-script">    
+    gadget.load({
+    	
+    	refreshable: true, 
+    	
+    	highlightable: true, 
+    	    	    	
+    	langs: {
+    		"mail_label": "오늘 온 메일", 
+    		"community_label": "내 커뮤니티 새글", 
+    		"calendar_label": "오늘의 일정", 
+    		"asset_label": "내 예약/대여 현황", 
+    		"survey_label": "참여할 설문", 
+    		"report_label": "작성할 보고", 
+    		"task_label": "담당 업무", 
+    		"approval_label": "결재할 문서", 
+    		"approval2_label": "결재 수신 문서", 
+    		"option_display_title": "표시", 
+    		"show_profile": "프로필", 
+    		"msg_validate": "한개 이상의 표시 옵션을 선택해주시기 바랍니다.", 
+    		"msg_need_config": "가젯 설정이 필요합니다. 가젯을 편집하시거나 운영자에게 문의해 주시기 바랍니다.", 
+    		
+    		"en": {
+    			"mail_label": "Today's Emails", 
+        		"community_label": "New Posts on Communities", 
+        		"calendar_label": "Today's Events", 
+        		"asset_label": "My Reserve/Rent Status", 
+        		"survey_label": "Surveys to respond", 
+        		"report_label": "Reports to Write", 
+        		"task_label": "My Tasks", 
+        		"approval_label": "To Approve", 
+        		"approval2_label": "Received documents", 
+        		"option_display_title": "Show", 
+        		"show_profile": "Profile", 
+        		"msg_validate": "Please select at least one option.", 
+        		"msg_need_config": "You need to set gadgets. Please edit it or ask for your administrator."
+    		}, 
+    		
+    		"ja": {
+    			"mail_label": "本日着メール", 
+        		"community_label": "参加コミュニティの新規投稿", 
+        		"calendar_label": "今日の予定", 
+        		"asset_label": "マイ予約/貸出現況", 
+        		"survey_label": "参加するアンケート", 
+        		"report_label": "作成するレポート",
+        		"task_label": "担当タスク", 
+        		"approval_label": "決裁文書", 
+        		"approval2_label": "決裁受信文書", 
+        		"option_display_title": "表示", 
+        		"show_profile": "プロフィール", 
+        		"msg_validate": "表示オプションは一つ以上を選択してください。", 
+        		"msg_need_config": "ガジェット設定が必要です。ガジェットを変更するか、管理者にお問合わせください。"
+    		}, 
+    		
+    		"zh_CN": {
+    			"mail_label": "今天收到的邮件", 
+        		"community_label": "我的社区的新留言", 
+        		"calendar_label": "今天的日程", 
+        		"asset_label": "我的预约/出租状况", 
+        		"survey_label": "參加的問卷", 
+        		"report_label": "创建报告", 
+        		"task_label": "负责的业务", 
+        		"approval_label": "需要批准的文件", 
+        		"approval2_label": "决裁收件文件", 
+        		"option_display_title": "显示", 
+        		"show_profile": "简介", 
+        		"msg_validate": "请选择一个以上的显示项目。", 
+        		"msg_need_config": "需要设置小工具。请编辑小工具或联系管理员。"
+    		}, 
+    		
+    		"zh_TW": {
+    			"mail_label": "今天收到的郵件", 
+        		"community_label": "我的社區的新留言", 
+        		"calendar_label": "今天的日程", 
+        		"asset_label": "我的預約/出租狀況", 
+        		"survey_label": "参加的问卷", 
+        		"report_label": "創建報告", 
+        		"task_label": "負責的業務", 
+        		"approval_label": "需要批准的文件", 
+        		"approval2_label": "決載收件文件", 
+        		"option_display_title": "顯示", 
+        		"show_profile": "簡介", 
+        		"msg_validate": "請選擇一個以上的顯示項目。", 
+        		"msg_need_config": "需要設置小工具。請編輯小工具或聯繫管理員。"
+    		},
+    		"vi": {
+    			"mail_label": "Thư đến hôm nay",
+        		"community_label": "Bài mới trao đổi tập thể của tôi",
+        		"calendar_label": "Lịch trình hôm nay",
+        		"asset_label": "Tình trạng đặt trước/thuê mượn của tôi",
+        		"survey_label": "Thăm dò ý kiến sẽ tham gia",
+        		"report_label": "Báo cáo sẽ viết",
+        		"task_label": "Công việc phụ trách",
+        		"approval_label": "Văn bản sẽ phê duyệt",
+        		"approval2_label": "Văn bản nhận phê duyệt",
+        		"option_display_title": "Hiển thị",
+        		"show_profile": "Thông tin cá nhân",
+        		"msg_validate": "Vui lòng chọn biểu thị trên một hiển thị.",
+        		"msg_need_config": "Cần cài đặt gadget. Vui lòng biên tập gadget hoặc liên hệ với người điều hành."
+    		}
+    	}, 
+    	
+    	defaultOptions: {
+    		"show_profile": "Y", 
+    		"show_mail": "Y", 
+    		"show_calendar": "Y"
+    	},
+        
+        url: function() {
+            return this.contextRoot + "api/user/today";
+        }, 
+
+        renderConfig: function(el) {
+        	$(el).append(this._configTemplate());
+        }, 
+
+        onSuccess: function(el, resp) {
+            this._renderContent(el, resp.data);
+        },
+        
+        validate: function(el) {
+			var $target = $(el).find('.display-options');
+        	
+        	if($target.find('input[type=checkbox]:checked').length < 1) {
+        		return this.i18n.parse("msg_validate");
+        	}
+        	
+        	return false;
+        }, 
+        
+        _connectedApp: ['mail', 'calendar', 'community', 'asset', 'survey', 'report', 'task', 'approval', 'approval2'], 
+
+        _renderContent: function(el, data) {        
+        	var userInfo = this._getUserInfo(data.profile), 
+        		position = userInfo.position || '', 
+        		isShowProfile = _.has(this.options, 'show_profile'), 
+        		summaries = this._buildSummaries(data);
+        	
+        	if(!isShowProfile && summaries.length < 1) {
+        		this._renderNeedConfigPage(el);
+        		return;
+        	} 
+        	
+            $(el).empty().append(this._contentTemplate({
+            	"show_profile?": isShowProfile, 
+            	"highlight?": _.has(this.options, 'highlight'), 
+            	"userinfo": {
+            		"name": userInfo.name,
+            		"position": position, 
+            		"department": userInfo.department || '',
+            		"thumbnail": userInfo.thumbnail || '', 
+            		"display_name": userInfo.name + (!!position ? ' ' + position: '')
+            	}, 
+            	"summaries": summaries
+            }));
+            
+            this._reqMailCount(el);
+        }, 
+        
+        _renderNeedConfigPage: function(el) {                        
+            $(el).empty().append(this._contentBorderDecorator(this.pageTemplate.empty(this.i18n.parse("msg_need_config"))));
+        }, 
+        
+        _reqMailCount: function(el) {
+        	$.post('/api/mail/message/count', {"today":"on"}, function(resp) {
+        		var mailBadgeEl = $(el).find('.summary-mail').find('.badge');
+        		mailBadgeEl.text(resp.data);
+        		
+        		if(+resp.data > 0){
+        			mailBadgeEl.removeClass("badge_zero");
+        		}
+        	});
+        }, 
+        
+        _contentBorderDecorator: function(content, tvars) {
+        	return this.template(
+       			'<div class="gadget_design_wrap">{{>content}}</div>', 
+       			_.defaults(tvars || {}, { "highlight?": _.has(this.options, 'highlight') }), 
+       			{"content": content}
+     		);
+        }, 
+        
+        _contentTemplate: function(tvars) {
+        	var html = [];
+        	
+       		html.push('{{#show_profile?}}');
+   	    	html.push('<div class="profile">');
+   				html.push('<span class="photo"><img src="{{userinfo.thumbnail}}" title="{{userinfo.display_name}}" alt="{{label.my_photo}}"></span>');
+   				html.push('<span class="info">');
+   					html.push('<span class="name" title="{{userinfo.name}}">{{userinfo.name}}</span>');
+   					html.push('<span class="position">{{userinfo.position}}</span>');
+   					html.push('<span class="part">{{userinfo.department}}</span>');
+   				html.push('</span>');
+   			html.push('</div>');
+   			html.push('{{/show_profile?}}');
+   			
+   			html.push('<ul class="type_simple_list today_list">');
+   				html.push('{{#summaries}}');
+   				html.push('<li class="summary-{{app_name}}">');
+   					html.push('<a href="{{link_url}}" data-bypass>');
+   						html.push('<span class="type"><span class="ic_dashboard2 {{classname}}" title="{{app_name}}"></span></span>');
+   						html.push('<span class="txt">{{label}}</span>');
+   						html.push('<span class="badge{{^count}} badge_zero{{/count}}">{{count}}</span>');
+   					html.push('</a>');
+   				html.push('</li>');
+   				html.push('{{/summaries}}');
+   			html.push('</ul>');    	
+
+        	return this._contentBorderDecorator(html.join("\n"), tvars);
+        }, 
+        
+        _configTemplate: function() {
+        	var html = [];
+        	html.push('<ul class="static_style display-options">');
+        		html.push('<li>');
+	        		html.push('<p class="title">' + this.i18n.parse('option_display_title') + '</p>');
+	        		html.push(this._buildCheckOption('show_profile', 'Y', this.i18n.parse('show_profile'), this.options['show_profile'] === 'Y'));
+	        		html.push('<p class="bar"></p>');
+        		
+        		_.each(this._connectedApp, function(appName) {
+        			if(this._usablePackage(appName)) {
+        				var key = 'show_' + appName;
+        				html.push(this._buildCheckOption(key, 'Y', this.i18n.parse(appName + '_label'), this.options[key] === 'Y'));
+        			}
+        		}, this);
+				
+        		html.push('</li>');
+        	html.push('</ul>');
+        	
+        	return html.join("\n");
+        }, 
+        
+        _buildSummaries: function(data) {
+        	var summaries = data.summaries, 
+        		result = [];
+        	
+        	_.each(summaries, function(summary) {
+        		var count = summary.count,
+        			key = summary.appName;
+        		if(this._usablePackage(key) && this._isCheckedApp(key)) {            		
+            		result.push(this._buildSummary(key, count));
+        		}
+        	}, this);
+        	
+        	return result;
+        }, 
+        
+        _buildSummary: function(key, count) {
+        	return {
+    			"classname": this._getAppIconClass(key), 
+    			"app_name": key, 
+    			"label": this.i18n.parse(key + '_label'), 
+    			"count": count, 
+    			"link_url": this._getAppLinkUrl(key)
+    		};
+        }, 
+        
+        _getAppIconClass: function(key) {
+        	if(key == 'approval2') key = 'approval';
+        	var classPrefix = 'ic_type_', 
+	    		appType = {
+        			"mail": 'mail', 
+        			"calendar": 'cal', 
+        			"community": 'comm', 
+        			"board": 'bbs', 
+        			"survey": 'survey', 
+        			"report": 'report', 
+        			"task": "task", 
+        			"approval": 'approval', 
+        			"asset": "asset"
+       			};
+	    	
+	    	return classPrefix + (appType[key] || 'bbs');
+        }, 
+        
+        _getAppLinkUrl: function(key) {
+        	return {
+        		"mail": this.contextRoot + "app/mail?work=quick&folder=today", 
+        		"calendar": this.contextRoot + "app/calendar/daily/" + moment().format('YYYY-MM-DD'), 
+        		"survey": this.contextRoot + "app/survey", 
+        		"community": this.contextRoot + "app/community", 
+        		"report": this.contextRoot + "app/report", 
+        		"task": this.contextRoot + "app/task", 
+        		"approval": this.contextRoot + "app/approval/todo", 
+        		"approval2" : this.contextRoot + "app/approval/todoreception/all",
+        		"asset": this.contextRoot + "app/asset"
+        	}[key];
+        }, 
+        
+        _buildCheckOption: function(key, value, text, checked) {
+        	var html = [], 
+        		idAttr = key + '_' + value;
+        	
+        	html.push('<span class="wrap_option wrap_label">');
+        		html.push('<input id="{{id_attr}}" type="checkbox" name="{{name}}" value="{{value}}"{{#checked?}} checked="checked"{{/checked?}}>');
+        		html.push('<label for="{{id_attr}}">{{text}}</label>');
+        	html.push('</span>');
+        	
+        	return this.template(html.join(''), {
+        		"id_attr": idAttr, 
+        		"name": key, 
+        		"value": value, 
+        		"text": text, 
+        		"checked?": checked || false
+        	});
+        }, 
+        
+        _usablePackage: function(appName) {
+        	if(appName == 'approval2') appName = 'approval';
+        	return _.indexOf(GO.config('packages'), appName) > -1;
+        }, 
+        
+        _isCheckedApp: function(appName) {
+        	var key = 'show_' + appName;
+        	return _.has(this.options, key) && this.options[key] === 'Y';
+        }, 
+        
+        _getUserInfo: function(profile) {
+        	var userinfo = _.defaults(profile || {}, {
+        		"name": GO.session('name'),
+        		"position": GO.session('position'), 
+        		"department": '', 
+        		"thumbnail": GO.session('thumbnail')
+        	});
+        	
+        	if(profile && profile["deptMembers"].length > 0) {
+        		userinfo.department = profile['deptMembers'][0]['deptName'];
+        	}
+        	
+        	return userinfo;
+        }
+    });
+    </script>
+</head>
+
+<body id="main" class="go_skin_home_default" data-role="main">
+    <div class="go-dashboard go-dashboard-editing go_dashboard_3_2">
+        <div class="go-gadget-column gadget-col-1" data-columnid="1">
+            <!-- empty -->
+        </div>
+        
+        <div class="gripper"></div>
+
+        <div id="gadget-containter" class="go-gadget-column gadget-col-2" data-columnid="2">
+            <!-- empty -->
+        </div>
+
+        <div class="gripper"></div>
+
+        <div class="go-gadget-column gadget-col-3" data-columnid="3">
+            <!-- empty -->
+        </div>
+    </div>
+</body>
+</html>

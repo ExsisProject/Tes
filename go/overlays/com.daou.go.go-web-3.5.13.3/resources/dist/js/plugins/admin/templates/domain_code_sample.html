@@ -1,0 +1,41 @@
+<div class="dataTables_wrapper">
+    <form name="formCodeSampleList">
+        <div class="toolbar_top header_tb">
+            <div class="critical">
+                <h3>{{lang.template}}</h3>
+            </div>
+            <div class="optional">
+                <select class="slt_template" id="selectCategory">
+                    {{#targetSample}}
+                    <option value="{{category}}">{{category}}</option>
+                    {{/targetSample}}
+                </select>
+            </div>
+        </div>
+        <div class="content_tb">
+            <table class="chart list_position_template" id="codeSampleTable">
+                <thead>
+                    <tr>
+                        <th class="sorting_disable chk" role="columnheader">
+                            <input type="checkbox" id="sampleCheckAll">
+                        </th>
+                        <th class="sorting_asc subject">
+                            <span class="title_sort">
+                                <label>{{lang.name}}</label>
+                            </span>
+                        </th>
+                        <th class="sorting code">
+                            <span class="title_sort">
+                                <label>{{lang.code}}</label>
+                            </span>
+                        </th>
+                    </tr>
+                </thead>
+                <div class="wrap_list_position">
+                <tbody id="codeSampleList">
+                </tbody>
+                </div>
+            </table>
+        </div>
+    </form>
+</div>

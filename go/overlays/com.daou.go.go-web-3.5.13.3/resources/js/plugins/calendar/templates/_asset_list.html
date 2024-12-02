@@ -1,0 +1,39 @@
+<caption>
+    {{label.reservation}}/{{label.rental}}
+</caption>   
+<thead>
+    <tr>    
+        <th class="sorting_asc name"><span class="title_sort">{{label.item}}</span></th>
+        
+        {{#asset_option_headers}}
+            {{#visibility}}
+                <th class="sorting_disable"><span class="title">{{name}}</th>
+            {{/visibility}} 
+        {{/asset_option_headers}}
+        
+        <th class="sorting_disable action"><span class="title">{{label.reservation}}</th>   
+    </tr>   
+</thead>    
+
+<tbody id="data-assetItems">
+    {{#asset_item_list}}
+        <tr data-id="{{id}}" data-name="{{name}}" data-assetid="{{assetId}}">   
+            <td class="name"><span class="txt">{{name}}</span></td>
+            
+            {{#properties}}
+                <td class="count"><span class="txt">{{content}}</span></td>
+            {{/properties}}
+            
+            <td class="action"><span class="btn_fn7 btn-reservation">{{label.reservation}}</span></td>  
+        </tr>
+    {{/asset_item_list}}
+    {{^asset_item_list}}
+        <tr>
+            <td colspan="{{column_counts}}">    
+                <p class="data_null">
+                    <span class="txt">{{emptyMessage}}</span>
+                </p>
+            </td>   
+        </tr>
+    {{/asset_item_list}}
+</tbody>

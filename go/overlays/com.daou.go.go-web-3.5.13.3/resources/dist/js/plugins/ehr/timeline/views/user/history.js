@@ -1,0 +1,1 @@
+define("timeline/views/user/history",function(require){var e=require("backbone"),t=require("hgn!timeline/templates/user/history"),n=require("i18n!timeline/nls/timeline"),r=e.View.extend({initialize:function(e){this.options=e},render:function(){this.$el.html(t({TimelineLang:n}))}});return r});

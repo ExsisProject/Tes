@@ -1,0 +1,123 @@
+/* body, input, textarea, select, a, p, span, div,ul,h1,h1 span.txt,ul.briefing_list li p.title span.date,a.btn_bk,.go_intro p.title,span.title,span.btn_feedwrite span.txt ,div.current_date span.date span.week,div.layer_mail_popup h2 span.title,ul.briefing_list li p.title span.date{font-family:MS PGothic,Osaka,arial,sans-serif!important} */
+*{font-family:MS PGothic,Osaka,'Noto Sans KR', arial,sans-serif!important}
+
+input[type="text"], textarea, {}
+
+/* form */
+.date_wave {display: inline-block; padding-top: 10px}
+
+span.date {font-family:tahoma !important}
+
+table.form_type.mail_write div.div_ipt_wrap select.date_list {width:130px!important; right:84px}
+section.form_admin div.optional_posi {left:176px}
+div.array span.title {width:200px}
+div.array:hover ul.array_condition {width:212px}
+div.array:hover ul.array_condition li {text-align:left}
+div.mail_search_wrap div.array ul.array_type li>span:first-child {width:100%}
+.go_addr_list .form_speed input.w_mini {min-width:120px}
+
+a.zero span.plus, a.plus_wrap span.plus {letter-spacing:0; font-family:tahoma !important}
+ul.side_depth li p.on span.num,
+ul.side_depth li p span.num {font-family:tahoma !important}
+a.plus_wrap span.num {font-family:arial !important}
+div.content_info_wrap ul li span.title {display:inline-block}
+.btn_fn7 {letter-spacing:0}
+
+div.layer_item_move dt {width:65px}
+div.layer_item_move dd {margin-left:65px}
+
+div.column_inline .list_mail001 .check   {width:40px}/* go-2323 예약메일 리스트 가로분리레이아웃  */
+div.column_inline .list_mail001 .action  {width:70px}
+div.column_inline .list_mail001 .mailbox {width:70px}
+div.column_inline .list_mail001 .to      {width:80px}
+div.column_inline .list_mail001 .subject {min-width:100px; max-width:230px}
+div.column_inline .list_mail001 .redate  {width:70px}
+div.column_inline .list_mail001 .size    {width:50px}
+
+.list_mail002 .pop3   {width:90px}/* go-5756 메일 환경설정 외부메일 */
+.list_mail002 .port   {width:80px}
+.list_mail002 .ssl    {width:90px}
+.list_mail002 .id     {min-width:90px}
+.list_mail002 .savemail  {min-width:100px}
+.list_mail002 .delete    {width:120px}
+.list_mail002 .action    {min-width:80px}
+
+.list_mail003 .mailbox   {min-width:100px}/* go-5746 메일 환경설정 개인메일함 */
+.list_mail003 .expired   {width:80px}
+.list_mail003 .unread    {min-width:80px; max-width:120px}
+.list_mail003 .usage     {min-width:60px; max-width:100px}
+.list_mail003 .manage    {min-width:100px; max-width:265px}
+
+/* mail context menu */
+div.array_option.fastSearch {width:130px}
+div.array_option.tag {}
+div.array_option.delete {}
+div.array_option.spam {}
+div.array_option.reply {}
+div.array_option.forward {width:160px}
+div.array_option.read {}
+div.array_option.move {}
+div.array_option.option {}
+
+table.form_mail003 {} /* 메일 > 메일보내기 */
+table.form_mail003 tbody th {width:170px}
+table.form_mail003 tbody td {}
+
+div.move_wrap ul li:first-child span.btn_bg span.txt {text-indent:-8px}/* 메일쓰기 주소록팝업 */
+
+div.layer_addr_import  .table_form_mini th {width:130px!important}
+/* add width ja language custom
+.go_renew .alert_box span {width:100%}
+ */
+
+section.combine_search .c_search_wrap a.c_btn_detail .txt {letter-spacing:0}
+div.layer_calendar_speed div.content table.form_type th {width:90px}
+div.layer_calendar_speed {width:630px!important}
+
+/* profile_card style*/
+.btn_v2_normal {padding:0 8px!important;}
+@media \0screen { .btn_v2_normal {padding:0 5px!important;} }
+.btn_v2_mail {margin-right:2px!important;}
+.btn_v2_mail .txt, .btn_v2_calendar .txt {font-size:12px; letter-spacing:0px}
+
+/*3.0*/
+.go-gadget-content div.layer_calendar table.tb_calendar_mini thead tr th {font-size: 11px; letter-spacing: -1px;}
+.go-dashboard .go-gadget .gadget_birthday_wrap .tab_title .txt {font-weight: bold; font-weight: 400}
+.go-dashboard ul.briefing_list li .title {width: 70px; position: relative; left: -6px;}
+.go-dashboard ul.briefing_list li ul.item {margin-left: 70px;}
+
+div.mail_search_wrap {width:570px} /*메일상세검색레이어*/
+
+table.form_type.mail_write div.div_ipt_wrap div.div_ipt {margin-right:80px} /*메일 최근보낸 주소 마진값*/
+
+/* div.move_wrap ul li:nth-child(2) span.btn_bg span.txt {text-indent:-8px} */ /*메일 주소록 그룹/유저 이동 버튼*/
+
+.dd_attach .area_txt .msg .btn_file {width: 80px} /*메일 파일 드래그*/
+
+input.tit[type="text"] {font-weight: bold; font-weight: 500}
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {font-weight: bold; font-weight: 400}/*jquery-ui*/
+.ui-datepicker .ui-datepicker-title select {height: 27px; vertical-align:baseline; }/*jquery-ui calendar UI*/
+
+table.tb_admin_favorCalendar .state {width: 150px!important; min-width: 120px!important} /*캘린더 즐겨찾기 상세*/
+
+.works_info_table tr th {width: 120px}/*works 차트관리*/
+
+.wrap_works.app_admin_card ul li .wrap_works_info {height: 270px !important;} /*works 관리 홈*/
+.app_admin_card+.sub_app_menu {margin-top: 30px}
+
+.go_side section.side_nav span.select_nav {width: 170px}/*works 앱이동 셀렉트*/
+
+.activity_type .box_sub_h .build_situation .tool_bar .optional {margin: 3px 24px 0 0}/*works활동기록 헤더 버튼*/
+
+.tb_stair .set {width: 85px}/*게시판 트리구조 설정*/
+
+.in_table td.mgmt .wrap_btn_m .ic_setting {width: 19px; height:19px; vertical-align: inherit;}/*업무 폴더 추가*/
+
+.ehr_stat_data.detail .type_flexible_detail .wrap_title {width: 190px} /*내근태 현황*/
+
+.wrap_tb_box .marker2 ul li {min-width: 80px;} /*내 근태 상세*/
+
+div.layer_reading {width: 550px!important} /*전자결재 상태버튼 레이어 탭*/
+section.my_info .btn_docare .txt,
+.layer_docare_alarm {display: none}
+.card_item .form .form_tr .form_th {width: 80px}

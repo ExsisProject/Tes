@@ -1,0 +1,1 @@
+define(["backbone"],function(e){var t=e.Collection.extend({model:e.Model,url:function(){return"/api/asset/"+this.assetId+"/item/"+this.itemId+"/weekly"},setParam:function(e){this.assetId=e.assetId,this.itemId=e.itemId}});return{getCollection:function(e){var n=new t,r={fromDate:e.fromDate};return n.setParam(e),n.fetch({data:r,async:!0,reset:!0}),n}}});

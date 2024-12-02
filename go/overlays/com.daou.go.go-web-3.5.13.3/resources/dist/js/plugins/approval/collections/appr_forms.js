@@ -1,0 +1,1 @@
+define(["approval/models/appr_form","backbone"],function(e,t){var n=t.Collection.extend({model:e,initialize:function(e){this.isAdmin=e},url:function(){return this.isAdmin?GO.contextRoot+"ad/api/approval/apprform/admin/normal":GO.contextRoot+"api/approval/apprform/admin"}});return n});

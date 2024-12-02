@@ -1,0 +1,32 @@
+<div class="layer_type_bottom layer_add_manager" style="bottom: -300px"><!--        style="transform: translate3d(0px, 0%, 0px);"-->
+    <header>
+        <h1>{{lang.assign_a_receiver}}</h1>
+        <a class="btn_layer_close"><span class="ic ic_del"></span></a>
+    </header>
+    <div class="content">
+        <p class="desc">{{lang.incoming_document_recipient_designation_guide}}</p>
+        <div class="article_wrap">
+            <dl class="article_explain">
+                <dt>{{lang.receiver}}</dt>
+                <dd>
+                    <div class="wrap_name_tag" name="nameTagArea">
+                        <ul class="name_tag">
+                            {{#receiverUserId}}
+                            <li><span class="name" id="displayName">{{lang.displayName}}</span></li>
+                            {{/receiverUserId}}
+                        </ul>
+                        <a>
+                            <span class="btn_item_add" id="change_receiver" data-userId="{{receiverUserId}}" data-userDeptId="{{receiverDeptId}}">
+                                <span class="ic ic_plus"></span>
+                                <span class="txt">{{lang.change}}</span>
+                            </span>
+                        </a>
+                    </div>
+                </dd>
+            </dl>
+        </div>
+    </div>
+    <footer class="btn_layer_wrap">
+        <a class="btn_major_s" id="confirm"><span class="txt">{{lang.confirm}}</span></a>
+    </footer>
+</div>

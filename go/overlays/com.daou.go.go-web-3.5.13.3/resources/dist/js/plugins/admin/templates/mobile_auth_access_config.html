@@ -1,0 +1,108 @@
+<form name="formMobileConfig" id="formMobileConfig" >
+	<div class="container">
+		<div class="header">
+			<h2>{{lang.label_mobile_access}}</h2>
+		</div>
+		<div class="content">
+			<div class="vertical_wrap_s">
+				<span class="option_wrap">
+					<input type="radio" id="mobileAccessControl_true" value ="true" name="mobileAccessControl" {{#model.mobileAccessControl}} checked="checked" {{/model.mobileAccessControl}}>
+					<label for="mobileAccessControl_true">{{lang.label_use}}</label>
+				</span>
+			</div>
+			<div class="vertical_wrap_s">
+				<span class="option_wrap">
+					<input type="radio" id="mobileAccessControl_false" value ="false" name="mobileAccessControl" {{^model.mobileAccessControl}} checked="checked" {{/model.mobileAccessControl}}>
+					<label for="mobileAccessControl_false">{{lang.label_not_use}}</label>
+				</span>
+			</div>
+		</div>
+		<div class="page_action mini">
+			<span class="btn" id="btn_ok">{{lang.label_ok}}</span>
+			<span class="btn_nega" id="btn_cancel">{{lang.label_cancel}}</span>
+		</div>
+	</div>
+</form>
+
+<div id = "mobile_access_management_wrap" class="container" {{^model.mobileAccessControl}} style="display: none;" {{/model.mobileAccessControl}}>
+	<header class="content_top">
+		<h1><span class="title">{{lang.label_all}}</span></h1>
+	</header>
+
+	<p class="desc">* {{lang.uuid_desc}}</p>
+
+	<div id="btnGroup" style="display:none">
+		<span class="btn_tool" id="btn_add">{{lang.label_add}}</span>
+		<span class="btn_tool txt_caution" id="btn_delete">{{lang.label_delete}}</span>
+	</div>
+
+
+	<div class="tab_menu_wrap">
+		<ul class="tab_menu">
+			<li id="access_enabled_users" class="active"><span class="txt type">{{lang.access_enabled_users}}</span></li>
+			<li id="access_request_users" class=""><span class="txt type">{{lang.access_request_users}}</span></li>
+		</ul>
+	</div>
+
+	<div class="dataTables_wrapper container" >
+		<div class="content_tb">
+			<table class="chart size" id="mobileAccessList">
+				<thead>
+					<tr>
+						<th class="sorting">
+							<span class="title_sort">
+								<label>{{lang.label_name}}</label>
+								<ins class="ic"></ins><span class="selected"></span>
+							</span>
+						</th>
+						<th class="sorting">
+							<span class="title_sort">
+								<label>{{lang.label_email}}</label>
+								<ins class="ic"></ins><span class="selected"></span>
+							</span>
+						</th>
+						<th class="sorting">
+							<span class="title_sort">
+								<label>{{lang.label_ostype}}</label>
+								<ins class="ic"></ins><span class="selected"></span>
+							</span>
+						</th>
+						<th class="sorting">
+							<span class="title_sort">
+								<label>{{lang.label_deviceModel}}</label>
+								<ins class="ic"></ins><span class="selected"></span>
+							</span>
+						</th>
+						<th class="sorting">
+							<span class="title_sort">
+								<label>{{lang.label_deviceid}}</label>
+							</span>
+						</th>
+						<th class="sorting">
+							<span class="title_sort">
+								<label>{{lang.label_status}}</label>
+								<ins class="ic"></ins><span class="selected"></span>
+							</span>
+						</th>
+					</tr>
+				</thead>
+			</table>
+
+			<div class="table_search">
+				<select>
+					<option value="name">{{lang.label_name}}</option>
+					<option value="email">{{lang.label_email}}</option>
+					<option value="osType">{{lang.label_ostype}}</option>
+					<option value="deviceModel">{{lang.label_deviceModel}}</option>
+					<option value="deviceId">{{lang.label_deviceid}}</option>
+				</select>
+
+				<span class="search_wrap">
+					<input class="input" type="text" />
+					<span class="btn_search" title="{{lang.label_search}}"></span>
+					<input class="submit" type="submit" value="" />
+				</span>
+			</div>
+		</div>
+	</div>
+</div>

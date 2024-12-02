@@ -1,0 +1,29 @@
+<tbody>
+{{#activities}}
+<tr class="{{dndDropClassName}} activity{{^isEnabled}} inactive{{/isEnabled}}{{#isEnabled}}{{^removable}} inactive{{/removable}}{{/isEnabled}}" data-id="{{reader.id}}">
+	<td class="name many" {{#hasMany}}title="{{displayTooltipText}}"{{/hasMany}}>
+		{{#reader.deptType}}
+			{{#displayName}}
+				{{displayName}}
+			{{/displayName}}
+		{{/reader.deptType}}
+		{{^reader.deptType}}
+			{{reader.name}}
+		{{/reader.deptType}}
+	</td>
+	<td class="depart">{{reader.deptName}}</td>
+	<td class="time_chk">{{displayReadAt}}</td>
+	<td class="func">
+		{{#isEnabled}}
+		{{#removable}}
+		<span class="btn-remove ic_classic ic_basket" title="{{lang.remove}}" data-id="{{reader.id}}"></span>
+		{{/removable}}
+		{{/isEnabled}}
+	</td>
+</tr>
+{{/activities}}
+
+{{^activities}}
+{{>emptyActivity}}
+{{/activities}}
+</tbody>

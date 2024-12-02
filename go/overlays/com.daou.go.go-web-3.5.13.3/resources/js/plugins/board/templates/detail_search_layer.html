@@ -1,0 +1,90 @@
+<span id="searchMessage"></span>
+<form id="boardDetailSearch" onSubmit="return false;">
+	<fieldset>
+		<table class="form_type">
+			<colgroup>
+				<col width="100px">
+				<col width="">
+			</colgroup>
+			<tbody>
+			<tr>
+				<th><span class="title">{{lang.board}}</span></th>
+				<td>
+				 <span id="detail_select_wrap"></span>
+				</td>
+			</tr>
+			<tr>
+				<th class="th_multi"><span class="title">{{lang.writer}}</span></th>
+				<td><div class="wrap_txt w_max"><input class="txt w_max" type="text" id="detail_writer"></div></td>
+			</tr>							
+            <tr>
+                <th><span class="title">{{lang.keyword}}</span></th>
+                <td>
+                    <span class="vertical_option">
+                        <span class="wrap_option"><input id="detail_content" name="detail_content" type="checkbox"><label for="detail_content">{{lang.content}}</label></span>
+                        <span class="horspace1"></span>
+                        <span class="wrap_option"><input id="detail_comment" name="detail_comment" type="checkbox"><label for="detail_comment">{{lang.comment}}</label></span>
+                        <span class="horspace1"></span>
+                        <span class="wrap_option"><input id="detail_attachFileName" name="detail_attachFileName" type="checkbox"><label for="detail_attachFileName">{{lang.attach_name}}</label></span>
+                        <span class="horspace1"></span>
+                        <span class="wrap_option"><input id="detail_attachFileContents" name="detail_attachFileContents" type="checkbox"><label for="detail_attachFileContents">{{lang.attach_content}}</label></span>
+                    </span>
+                    <input id="stext" class="txt_mini w_max" type="text">
+                </td>
+            </tr>
+			<tr>
+				<th><span class="title">{{lang.term}}</span></th>
+				<td class="last">
+					<ul id="detailSearchTermRadio" class="select_option">
+						<li>
+							<span class="wrap_option">
+								<input value="detail_term_all" id="detail_term_all" name="searchType" type="radio" checked>
+								<label for="detail_term_all">{{lang.term_all}}</label>
+							</span>
+						</li>
+						<li>
+							<span class="wrap_option">
+								<input value="detail_term_1week" id="detail_term_1week" data-key="weeks" data-amount="-1" name="searchType" type="radio">
+								<label for="detail_term_1week">1{{lang.week}}</label>
+							</span>
+						</li>
+						<li>
+							<span class="wrap_option">
+								<input type="radio" value="detail_term_2week" id="detail_term_2week" data-key="weeks" data-amount="-2" name="searchType">
+								<label for="detail_term_2week">2{{lang.week}}</label>
+							</span>
+						</li>
+						<li>
+							<span class="wrap_option">
+								<input type="radio" value="detail_term_1month" id="detail_term_1month" data-key="months" data-amount="-1" name="searchType">
+								<label for="detail_term_1month">1{{lang.month}}</label>
+							</span>
+						</li>
+						<li>
+							<span class="wrap_option">
+								<input type="radio" value="detail_term_custom" id="detail_term_custom" name="searchType">
+								<label for="detail_term_custom">{{lang.custom_term}}</label>
+							</span>
+						</li>
+						<li id="selectDirect" style="display:none">
+						<!-- 직접선택 체크시 div.select_deirect 보임 -->
+							<span class="wrap_dateselect">
+								<span class="noti_date_wrap wrap_date">
+									<input class="input wfix_medium" type="text" id="searchStartDate" readonly/>
+									<span class="ic ic_calendar" id="searchSDate"></span>
+								</span>
+								<span class="date_wave">~</span>
+								<span class="noti_date_wrap wrap_date" >
+									<input class="input wfix_medium" type="text" id="searchEndDate" readonly/>
+									<span class="ic ic_calendar" id="searchEDate"></span>
+								</span>
+							</span>
+						</li>
+					</ul>
+				</td>	
+			</tr>							
+			</tbody>
+		</table>						
+	</fieldset>
+	<input type="submit" value="search" style="visibility: hidden;" />
+</form>	

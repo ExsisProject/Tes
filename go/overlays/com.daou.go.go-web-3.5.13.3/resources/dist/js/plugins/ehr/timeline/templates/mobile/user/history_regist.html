@@ -1,0 +1,66 @@
+{{#data}}
+<div class="content write">
+	<form>
+    	<fieldset>
+    		<table class="form_type tb_attend_write">
+    			<tbody>
+    				<tr>
+    					<th><span class="title">{{TimelineLang.일시}}</span></th>
+    					<td>
+    						<div class="ipt_wrap">
+                                <input class="input w_small" id="timelineDatePicker" type="text" name="" value="" readonly="readonly">
+                            </div>
+    					</td>
+    				</tr>
+    				<tr>
+    					<th><span class="title">{{TimelineLang.시간}}</span></th>
+    					<td>	
+    						<div class="vertical_wrap">
+    							<select id="checkTimeHour">
+                                    {{#HOUR}}
+                                    <option value="{{.}}" {{#isCheckTimeHour}} selected {{/isCheckTimeHour}}>{{.}}</option>
+                                    {{/HOUR}}
+                                </select>
+                                :
+                                <select id="checkTimeMinute">
+                                    {{#MINUTE}}
+                                    <option value="{{.}}" {{#isCheckTimeMinute}} selected {{/isCheckTimeMinute}}>{{.}}</option>
+                                    {{/MINUTE}}
+                                </select>
+    						</div>
+                            <span class="option_wrap">
+                                <input id="isNightWork" type="checkbox" {{#isNightWork}}checked{{/isNightWork}}>
+                                <label for="isNightWork" class="txt">{{TimelineLang.철야}} <span id="nightWorkDescription" {{^isNightWork}}style="display: none" {{/isNightWork}}>{{TimelineLang.철야 설명}}</span></label>
+                            </span>
+    					</td>
+    				</tr>
+    				<tr>
+    					<th><span class="title">{{TimelineLang.상태}}</span></th>
+    					<td>	
+                            <select class="w_max" id="status">
+                                {{#status}}
+                                <option value="{{id}}" {{#isSelected}} selected {{/isSelected}}>{{name}}</option>
+                                {{/status}}
+                            </select>
+    					</td>
+    				</tr>
+    				<tr>
+    					<th><span class="title">{{CommonLang.내용}}</span></th>
+    					<td>	
+    						<div class="ipt_wrap"><textarea id="content" placeholder="{{TimelineLang.상태에 대한 간단 설명을 입력하세요}}">{{data.content}}</textarea></div>		
+    					</td>
+    				</tr>
+                    {{^isNew}}
+    				<tr>
+    					<th><span class="title">{{{TimelineLang.수정삭제사유}}}<ins class="asterisk">*</ins></span></th>
+    					<td>	
+    						<textarea id="reason" placeholder="{{TimelineLang.내용을 입력해주세요}}"></textarea>
+    					</td>
+    				</tr>
+                    {{/isNew}}
+    			</tbody>
+    		</table>
+    	</fieldset>
+    </form>
+</div>
+{{/data}}

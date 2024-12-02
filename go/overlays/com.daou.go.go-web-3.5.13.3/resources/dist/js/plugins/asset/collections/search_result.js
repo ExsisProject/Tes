@@ -1,0 +1,1 @@
+define(["backbone"],function(e){var t=GO.BaseCollection.extend({url:function(){return"/api/asset/"+this.assetId+"/item"},setAssetId:function(e){this.assetId=e}});return{getCollection:function(e){var n=new t;return n.setAssetId(e.assetId),n.fetch({data:e,async:!0,type:"GET",contentType:"application/json",reset:!0}),n}}});

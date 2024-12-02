@@ -1,0 +1,33 @@
+{{#hasFavorite}}
+<h3>
+	<span class="btn_wrap">
+		<span class="txt_ellipsis">{{lang.favorite}}</span>
+	</span>
+</h3>
+<ul>
+	{{#favorites}}
+	<li data-id="{{id}}">
+		<a>
+			<span class="btn_wrap">
+				<span class="ic_side ic_add_tag"></span>
+				<span class="txt_ellipsis">{{name}}</span>
+			</span>
+		</a>
+	</li>
+	{{/favorites}}
+</ul>
+{{/hasFavorite}}
+<h3>
+	<span class="btn_wrap">
+		<span class="txt_ellipsis">{{lang.deptFolder}}</span>
+	</span>
+</h3>
+<ul id="sideDeptList" class="side_depth">
+</ul>			
+<h3>
+	<span class="btn_wrap">
+		<span class="txt_ellipsis">{{lang.companyFolder}}</span>
+	</span>
+</h3>
+<ul id="companyList" class="side_depth">
+</ul>

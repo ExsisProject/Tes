@@ -1,0 +1,18 @@
+<!-- span class="option_wrap vertical_wrap"><input type="radio" name="noticeTerm" data-key="notNotice" data-amount="0" id="noNotice"/><label for="noNotice">공지 안함</label></span-->
+<span class="option_wrap vertical_wrap"><input type="radio" name="noticeTerm" data-key="weeks" data-amount="1" id="1week" value="1week" checked/><label for="1week">{{lang.oneWeek}}</label></span>
+<span class="option_wrap vertical_wrap"><input type="radio" name="noticeTerm" data-key="weeks" data-amount="2" id="2week" value="2week"/><label for="2week" value="">{{lang.twoWeek}}</label></span>
+<span class="option_wrap vertical_wrap"><input type="radio" name="noticeTerm" data-key="months" data-amount="1"  id="1month" value="1month"/><label for="1month" value="">{{lang.oneMonth}}</label></span>
+<span class="option_wrap vertical_wrap"><input type="radio" name="noticeTerm" data-key="months" data-amount="2" id="2month" value="2month"/><label for="2month" value="">{{lang.twoMonth}}</label></span>
+<span class="option_wrap vertical_wrap"><input type="radio" name="noticeTerm" data-key="months" data-amount="10000" id="limitless" value="eternal"/><label for="limitless" value="">{{lang.eternal}}</label></span>
+<span class="option_wrap vertical_wrap"><input type="radio" name="noticeTerm" value="custom" id="noticeCustom"/><label for="noticeCustom">{{lang.customTerm}}</label></span>
+<div id="noticeCustomTerm" style="display:none">
+	<span class="noti_date_wrap option_wrap">
+		<input class="input wfix_medium" type="text" id="noticeStartDate" readonly/>
+		<span class="ic ic_calendar" id="noticeStartDateIcon"></span>
+	</span>
+	~
+	<span class="noti_date_wrap option_wrap">
+		<input class="input wfix_medium" type="text" id="noticeEndDate" readonly/>
+		<span class="ic ic_calendar" id="noticeEndDateIcon"></span>
+	</span>
+</div>

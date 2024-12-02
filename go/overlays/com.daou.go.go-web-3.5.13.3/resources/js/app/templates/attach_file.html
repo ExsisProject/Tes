@@ -1,0 +1,58 @@
+{{^isImageType}}
+<li data-name="{{name}}" data-id="{{id}}">
+	<span class="item_file">
+		<span class="ic_file {{icon_class}}"></span>
+		<span class="name">
+			{{#download_url}}
+			<a href="{{download_url}}" class="btn-download" data-bypass>{{name}}</a>
+			{{/download_url}}
+		</span>
+		{{^download_url}}
+		{{name}}
+		{{/download_url}}
+		<span class="size">({{file_size}})</span>
+		<span class="optional">
+			{{#previewable?}}
+			<a class="btn-preview btn_fn4" data-id="{{encrypt}}" data-bypass style="margin-right: 0px">
+				<span class="btn-text txt">{{label.preview}}</span>
+			</a>
+			{{/previewable?}}
+			{{#downloadable?}}
+			<a class="btn-download btn_fn4" href="{{download_url}}" data-bypass>
+				<span class="btn-text txt">{{label.save}}</span>
+			</a>
+			{{/downloadable?}}
+			{{^downloadable?}}
+			{{^isMobile}}
+			<a class="btn-file-remove">
+				<span class="btn-text ic_classic ic_del"></span>
+			</a>
+			{{/isMobile}}
+			{{#isMobile}}
+			<a href="javascript:;" data-bypass class="btn-text ic_classic ic ic_del"></a>
+			{{/isMobile}}
+			{{/downloadable?}}
+		</span>
+	</span>
+</li>
+{{/isImageType}}
+{{#isImageType}}
+<li data-name="{{name}}" data-id="{{id}}">
+	<span class="item_image">
+		<span class="thumb">
+			<a {{#downloadable?}}href="{{download_url}}"{{/downloadable?}} class="{{#downloadable?}}fancybox-thumbs fancybox-button{{/downloadable?}}" data-fancybox-group="thumb_{{imageGroupId}}" data-bypass title="{{name}}">
+				<img src="{{thumbSmall}}">
+			</a>
+		</span>
+		{{^downloadable?}}
+		{{^isMobile}}
+		<span class="name">{{name}}</span>
+		<span class="size">({{file_size}})</span>
+		{{/isMobile}}
+		{{/downloadable?}}
+	</span>
+	{{^downloadable?}}
+	<span class="btn_wrap"><span class="ic_classic ic_del"></span></span>
+	{{/downloadable?}}
+</li>
+{{/isImageType}}

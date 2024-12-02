@@ -1,0 +1,13 @@
+		{{#communityRankData}}
+		<li class="classic" data-id="{{id}}" data-communitystatus="{{status}}" data-membertype="{{memberType}}" data-memberstatus="{{memberStatus}}"  data-publicFlag={{publicFlag}}>
+			<div class="wrap_info">
+				<span class="title">{{cnt}}.{{name}}</span>
+				<span class="master">{{lang.master}} : {{masterUser}}</span>
+				<span class="date">{{lang.date_of_opening}} : {{basicDate}}</span>
+			</div>
+			<div class="wrap_meta">
+				<span class="wrap_member"><span class="ic_classic ic_member"></span><span class="count">{{memberCount}}</span></span>
+				<span class="wrap_reply"><span class="ic_classic ic_reply2"></span><span class="count">{{postCount}}</span></span>
+			</div>
+		</li>
+		{{/communityRankData}}

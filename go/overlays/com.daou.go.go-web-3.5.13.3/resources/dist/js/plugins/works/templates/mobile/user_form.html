@@ -1,0 +1,27 @@
+<div class="content_page">
+	<!-- 상세 -->
+	<div class="content" id="taskArea">
+		<div id="iScrollContentWrap">
+			<div class="build_prev_wrap build_write_wrap">
+				<div class="build_content_inner">
+					<div class="build_box_data">
+						<span class="docu_form_name">
+							<span class="txt">{{formName}}</span>
+							{{#mainForm}}<span class="label_state normal">main</span>{{/mainForm}}
+						</span>
+					</div>
+					{{#canUsePrivateOption}}
+					<div class="opt_privacy">
+						<span class="wrap_option">
+							<input type="checkbox"  id="privateFlag" name="privateFlag" value="true"{{#isPrivateOptionClosed}} checked="checked" disabled="disabled"{{/isPrivateOptionClosed}}>
+							<label for="privateFlag">{{lang.privateOptionTitle}}</label>
+						</span>
+					</div>
+					{{/canUsePrivateOption}}
+					<div id="fb-canvas" class="build_prev_content">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

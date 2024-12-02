@@ -1,0 +1,1 @@
+define("timeline/collections/weekly_stats",function(require){var e=require("timeline/models/weekly_stat"),t=require("collections/paginated_collection"),n=t.extend({model:e,initialize:function(){t.prototype.initialize.apply(this,arguments)},getDeptId:function(){return null}});return n});

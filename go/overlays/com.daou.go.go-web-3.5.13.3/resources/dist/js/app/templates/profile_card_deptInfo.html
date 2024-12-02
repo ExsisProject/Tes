@@ -1,0 +1,17 @@
+
+<ul class="list_position_team">
+    <li>
+        {{#depts}}
+            <p class="position">{{position}}</p>
+            <p class="team">{{team}}</p>
+        {{/depts}}
+    </li>
+</ul>
+{{#isMultiDept}}
+    {{#isMoreView}}
+        <a class="txt_link">{{lang.직책부서접기}}</a>
+    {{/isMoreView}}
+    {{^isMoreView}}
+        <a class="txt_link">{{lang.직책부서더보기}}</a>
+    {{/isMoreView}}
+{{/isMultiDept}}

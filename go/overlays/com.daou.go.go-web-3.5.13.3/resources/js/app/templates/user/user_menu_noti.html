@@ -1,0 +1,51 @@
+{{#model}}
+<div class="module_drop app_events" data-app-name="{{appName}}">
+	<div class="module_drop_head">
+		<span class="tit">
+			<span class="ic {{#hasSubOption}}ic_arrow_d{{/hasSubOption}}" title="열기"></span>
+			<!-- <span class="ic ic_arrow_t" title="닫기"></span> -->
+			<span class="txt">{{appTitle}}</span>
+		</span>
+		<div class="optional">
+			<span class="wrap_btn_toggle">
+				<button class="btn_toggle pc {{#appUseWebPush}}on{{/appUseWebPush}}{{^appUseWebPush}}off{{/appUseWebPush}}" type="button" title="{{#appUseWebPush}}ON{{/appUseWebPush}}{{^appUseWebPush}}OFF{{/appUseWebPush}}">{{lang.pc_push}}</button>
+				<button class="btn_toggle mobile {{getMobileCss}}" type="button" title="{{getMobileTitle}}">{{getMobileText}}</button>
+				<button class="btn_toggle mail {{getMailCss}}" type="button" title="{{getMailTitle}}">{{getMailText}}</button>
+			</span>
+		</div>
+	</div>
+	<div class="module_drop_body">
+		<ul class="list list_setting">
+		{{#model.events}}
+			<li class="app_event" data-event-code="{{event}}">
+				<span class="tit">
+					<span class="txt">{{convertEventName}}</span>
+					<span class="ic ic_info" title="{{lang.noti_setting_desc}}"></span>
+				</span>
+				<ul class="list_guide_set">
+					{{#eventDescription}}
+					<li>{{desc}}</li>
+					{{/eventDescription}}
+				</ul>
+				<div class="data">
+				{{#checkTargets}}
+					<span class="wrap_option">
+						<input type="checkbox" id="{{getEventKey}}_{{getRole}}" value="{{getRole}}" {{isChecked}} {{isDisable}}>
+						<label for="{{getEventKey}}_{{getRole}}">{{getRoleName}}</label>
+					</span>
+					<span class="horspace1"></span>
+				{{/checkTargets}}
+				</div>
+				<div class="optional">
+					<span class="wrap_btn_toggle">
+						<button class="btn_toggle pc {{#useWebPush}}on{{/useWebPush}}{{^useWebPush}}off{{/useWebPush}}" type="button" title="{{#useWebPush}}ON{{/useWebPush}}{{^useWebPush}}OFF{{/useWebPush}}">{{lang.pc_push}}</button>
+						<button class="btn_toggle mobile {{^isFile}}{{#useMobilePush}}on{{/useMobilePush}}{{^useMobilePush}}off{{/useMobilePush}}{{/isFile}}{{#isFile}}none{{/isFile}}" type="button" title="{{^isFile}}{{#useMobilePush}}ON{{/useMobilePush}}{{^useMobilePush}}OFF{{/useMobilePush}}{{/isFile}}{{#isFile}}NONE{{/isFile}}">{{^isFile}}{{lang.mobile_push}}{{/isFile}}{{#isFile}}-{{/isFile}}</button>
+						<button class="btn_toggle mail {{#isUseMail}}{{#useMail}}on{{/useMail}}{{^useMail}}off{{/useMail}}{{/isUseMail}}{{^isUseMail}}none{{/isUseMail}}" type="button" title="{{#isUseMail}}{{#useMail}}ON{{/useMail}}{{^useMail}}OFF{{/useMail}}{{/isUseMail}}{{^isUseMail}}NONE{{/isUseMail}}">{{#isUseMail}}{{lang.mail}}{{/isUseMail}}{{^isUseMail}}-{{/isUseMail}}</button>
+					</span>
+				</div>
+			</li>
+			{{/model.events}}
+		</ul>
+	</div>
+</div>
+{{/model}}

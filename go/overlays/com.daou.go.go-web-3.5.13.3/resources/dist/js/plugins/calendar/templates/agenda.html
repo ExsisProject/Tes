@@ -1,0 +1,23 @@
+<table class="type_normal tb_agenda">
+<thead>
+    <tr>
+        <th class="day">{{label.date}}</th>
+        <th class="time">{{label.period}}</th>
+        <th class="subject">{{label.title}}</th>
+        <th class="attend">{{label.attendees}}</th>
+    </tr>
+</thead>
+<tbody>
+    {{>agenda_list}}
+</tbody>
+</table>
+
+<span class="wrap_alert agenda-duration-wrap" style="display: none;">
+	<span class="alert_box">
+		<span class="txt" id="agenda-duration">{{duration}}</span>
+	</span>
+</span>
+
+<div class="bottom_action" style="display:none;">
+	<a id="more-load-btn" class="btn_list_reload"><span class="ic"></span><span class="txt">{{label.more}}</span></a>
+</div>

@@ -1,0 +1,98 @@
+{{#dataset}}
+<!-- <li data-boardId="{{boardId}}" data-postId="{{id}}"> -->					
+	<div class="article_wrap">							
+<!-- 원글 -->							
+		<div class="article dropZone">
+			<span class="photo">
+				<a data-userid="{{writer.id}}" data-bypass>
+					<img title="{{writer.name}} {{writer.positionName}}" src="{{writer.thumbSmall}}" />
+				</a>
+			</span>
+
+			<div class="info">
+				<a data-userid="{{writer.id}}" class="name{{#writer.otherCompanyUser}} multi_user{{/writer.otherCompanyUser}}" data-bypass>{{writer.name}} {{writer.positionName}}</a>
+				{{#isAlimPost}}<span class="ic_classic ic_notice"></span>{{/isAlimPost}}
+				<span class="date">{{dateParse}}</span>
+			</div>
+			<!-- <p class="article {{#summarizedFlag}}existMoreContent{{/summarizedFlag}}"> -->
+			<p class="article">
+				<span class="expander">{{{contentParse}}}</span>
+				{{#isSummarized}}
+				<span class="btn_fn3" data-btntype="moreBtn"><span class="txt">{{lang.more_content}}</span></span>
+				<span class="btn_fn3" data-btntype="closeBtn" style="display:none;"><span class="txt">{{lang.content_fold}}</span></span>
+				{{/isSummarized}}
+			</p>
+			<!-- 링크첨부 -->
+			{{#links}}
+			<div class="meta_info_wrap" data-linkid="{{id}}"><!-- 링크 동영상 등의 메타 정보  -->
+				<ul>
+					<li class="url">
+						<a class="url_type" href="{{url}}" target="_blank" data-bypass>{{url}}</a>
+						<span class="btn_wrap metaInfoDelete" style="display:none"><span class="ic_classic ic_del"></span></span>
+					</li>
+					{{#imageSrc}}
+					<li class="thumb">
+						<a class="meta_thumb" href="{{url}}" target="_blank" data-bypass>
+							<img height="100%" class="" src="{{imageSrc}}" alt="{{lang.meta_img}}" title="{{lang.link_meta}}" />
+						</a>
+					</li>
+					{{/imageSrc}}
+					<li>
+						<a class="title" href="{{url}}" target="_blank" data-bypass>{{title}}</a>
+						<p class="meta_contents">{{description}}</p>
+					</li>
+				</ul>
+				<!--a class="youtube_thum" data-videourl="{{videoSrc}}" data-btntype="youtubeVideoPlay"></a-->
+			</div>
+			{{/links}}
+
+			<!-- 피드게시물에 대한 메일 보내기, 수정, 삭제  -->
+			{{{ postAttachFiles }}}
+			<div class="tool_bar" id="toolbar_{{boardId}}_{{id}}" data-boardId="{{boardId}}" data-postId="{{id}}"><!-- 내 글에 대한 수정 및 삭제 버튼 over시에 보임 -->
+				{{#sendMailFlag}}<span class="btn_fn4"><span class="ic_feed ic_send_mail" title="{{lang.send_mail}}" data-btntype="postsendmail"></span></span>{{/sendMailFlag}}
+				{{#actions.updatable}}<span class="btn_fn4"><span class="ic_feed ic_edit_white" title="{{lang.modify}}" data-btntype="postmodify"></span></span>{{/actions.updatable}}
+				<span class="btn_fn4"><span class="ic_feed ic_copy_url" title="{{lang.copy_url}}" url-copy="{{directUrl}}"></span></span>
+				{{#actions.removable}}<span class="btn_fn4"><span class="ic_feed ic_del_white" title="{{lang.del}}" data-btntype="postdelete"></span></span>{{/actions.removable}}
+			</div>
+		</div>
+<!-- //원글 -->						
+        <div class="reply_header">
+            <span class="ic_classic ic_reply"></span>
+            <span class="txt_b">{{lang.post_comment}}<span class="num txt_b" id="commentCount"> {{commentsCount}}</span> {{lang.count}}</span>
+            <a class="txt_b btn_viewAll" style="display:{{commentCheck}}">
+                <span class="txt_b commentFold" data-comment="part" data-loading="false">{{lang.all_view}}</span>
+            </a>
+            <span class="ic ic_feedPlus_s"></span>
+            <span class="txt_ txt_b">
+                {{lang.plus_user}} 
+                {{^anonymFlag}}<a id="listPostRecommend" class="linkNum"> {{recommendCount}}</a> {{/anonymFlag}}
+                {{#anonymFlag}}<span class="num txt_b" id="listPostRecommend">{{recommendCount}} </span>{{/anonymFlag}}
+                {{lang.user_count}}
+            </span>
+        </div>
+        {{#hasComment}} 
+		<div class="reply_wrap" data-boardId="{{boardId}}" data-postId="{{id}}">
+            <!-- 댓글 시작 -->	
+			<div data-replies-wrapper class="reply_common" id="replyArea">
+				{{{streamComment}}}
+			</div>
+		</div>							
+		{{/hasComment}}
+        <!-- //댓글 -->	
+	</div>
+<!-- 사이드 좋아요 액션  -->
+	<div class="side_action_wrap">								
+		{{#isActiveDept}}
+		<a class="btn_heart">
+            <span data-btntype="recommend" class="heartbeat wrap_heart {{#recommend}}on{{/recommend}}"
+                  title="{{#recommend}}{{lang.title_recommend_cancel}}{{/recommend}}{{^recommend}}{{lang.title_recommend}}{{/recommend}}">
+                <span class="txt">{{recommendCount}}</span>
+            </span>
+        </a>
+        {{/isActiveDept}}
+	</div>
+<!-- //사이드 좋아요 액션  -->
+<!-- </li> -->				
+{{/dataset}}
+{{^dataset}}
+{{/dataset}}

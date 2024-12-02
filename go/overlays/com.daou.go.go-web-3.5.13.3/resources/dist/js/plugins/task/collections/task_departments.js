@@ -1,0 +1,1 @@
+define(["backbone"],function(e){var t=e.Model.extend({}),n=e.Collection.extend({model:t,initialize:function(){},url:function(){return GO.contextRoot+"api/task/folder/dept/low"},isOneTeam:function(){return this.models.length==1},first:function(){return this.models[0]}});return n});

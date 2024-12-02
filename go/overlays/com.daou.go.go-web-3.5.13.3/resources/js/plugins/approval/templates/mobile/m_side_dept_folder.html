@@ -1,0 +1,138 @@
+<!--data_display_control-->
+{{#dataset}}
+<h3>
+	<a data-bypass data-deptid="{{deptId}}">
+		<span class="btn_wrap">
+			<span class="txt_ellipsis">{{deptName}}</span>
+		</span>
+	</a>
+</h3>
+	
+
+<ul class="side_depth">
+	<li class="folder">
+		<p class="title">
+			<a href="#">
+				<span class="btn_wrap">
+					<span class="ic_side ic_folder"></span>
+					<span class="txt_ellipsis">{{lang.base_docfolder}}</span>						
+				</span>
+			</a>
+		</p>
+		<ul>
+			<li class="folder">
+				<p class="title">
+					<a data-deptId="{{deptId}}" data-navi="deptdraft" data-bypass href="#">
+						<span class="btn_wrap">
+							<span class="ic ic_root"></span>
+							<span class="ic_side ic_appr_compl"></span>
+							<span class="txt_ellipsis">{{lang.dept_draft}}</span>
+						</span>
+					</a>
+				</p> 
+			</li>
+			<li class="folder">
+				<p class="title">
+					<a data-deptId="{{deptId}}" data-navi="deptreference" data-bypass href="#">
+						<span class="btn_wrap">
+							<span class="ic ic_root"></span>
+							<span class="ic_side ic_appr_cc"></span>
+							<span class="txt_ellipsis">{{lang.dept_ref}}</span>
+						</span>
+					</a>
+				</p> 
+			</li>
+			{{#subscribeMaster}}
+			<li class="folder">
+				<p class="title">
+					<a data-deptId="{{deptId}}" data-navi="deptreceive" data-bypass href="#">
+						<span class="btn_wrap">
+							<span class="ic ic_root"></span>
+							<span class="ic_side ic_appr_reception"></span>
+							<span class="txt_ellipsis">{{lang.dept_rcpt}}</span>
+						</span>
+					</a>
+				</p> 
+			</li>
+			{{/subscribeMaster}}
+			<li class="folder">
+				<p class="title">
+					<a data-deptId="{{deptId}}" data-navi="deptofficial" data-bypass href="#">
+						<span class="btn_wrap">
+							<span class="ic ic_root"></span>
+							<span class="ic_side ic_appr"></span>
+							<span class="txt_ellipsis">{{lang.dept_official}}</span>
+						</span>
+					</a>
+				</p> 
+			</li>
+			
+			
+		</ul>
+	</li>
+	{{#addedFolder}}
+	<li class="folder">
+		<p class="title">
+			<a href="#">
+				<span class="btn_wrap">
+					<span class="ic_side ic_folder"></span>
+					<span class="txt_ellipsis">{{lang.added_docfolder}}</span>						
+				</span>
+			</a>
+		</p>
+		<ul>
+			{{#deptFolders}}
+			<li class="folder">
+				<p class="title">
+					<a data-navi="deptdoc" data-id="{{folderId}}" data-deptId="{{deptId}}" data-bypass href="#">
+						<span class="btn_wrap">
+							<span class="ic ic_root"></span>
+							<span class="ic_side ic_appr"></span>
+							<span class="txt_ellipsis">{{folderName}}</span>
+						</span>
+					</a>
+				</p> 
+			</li>
+			{{/deptFolders}}
+		</ul>
+	</li>
+	{{/addedFolder}}
+	{{#sharedFolder}}
+		<li class="folder">
+			<p class="title">
+				<a href="#">
+					<span class="btn_wrap">
+						<span class="ic_side ic_folder"></span>
+						<span class="txt_ellipsis">{{lang.shared_docfolder}}</span>						
+					</span>
+				</a>
+			</p>
+			<ul>
+				{{#sharedDocFolders}}
+				<li class="folder">
+					<p class="title">
+						<a data-id="{{folderId}}" {{#isfolderTypeUser}}data-navi="shareuserdoc"{{/isfolderTypeUser}}{{^isfolderTypeUser}}data-navi="sharedeptdoc"{{/isfolderTypeUser}} data-belong="indept" data-deptid="{{deptId}}" data-bypass href="#">
+							<span class="btn_wrap">
+								<span class="ic ic_root"></span>
+								<span class="ic_side ic_appr"></span>
+								<span class="txt_ellipsis">{{folderName}}</span>
+							</span>
+						</a>
+					</p> 
+				</li>
+				{{/sharedDocFolders}}
+			</ul>
+		</li>
+	{{/sharedFolder}}
+</ul>
+{{/dataset}}
+
+{{#containsSubDept}}
+<h3>
+	<a href="{{contextRoot}}app/approval/deptfolder/subfolder" href="#">
+		<span class="btn_wrap">
+			<span class="txt_ellipsis">{{lang.sub_dept_folder}}</span>
+		</span>
+	</a>
+</h3>
+{{/containsSubDept}}

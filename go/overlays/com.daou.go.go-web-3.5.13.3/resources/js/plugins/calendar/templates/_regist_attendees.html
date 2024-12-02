@@ -1,0 +1,8 @@
+<li {{^isVisible}}data-more="true"{{/isVisible}} style="{{^isVisible}}display:none{{/isVisible}}" id="attendee-{{id}}" {{#me?}} class="default_option"{{/me?}} data-id="{{id}}" data-name="{{username}}" data-email="{{email}}" data-position="{{position}}">
+    <span class="name">{{title}}</span>
+    {{#editable?}}
+    <span class="btn_wrap">
+        <span class="ic_classic ic_del" title="{{remove}}"></span>
+    </span>
+    {{/editable?}}
+</li>

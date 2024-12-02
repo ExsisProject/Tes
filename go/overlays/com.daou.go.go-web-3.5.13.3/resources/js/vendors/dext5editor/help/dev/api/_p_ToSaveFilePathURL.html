@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+<title>DEXT5 Developer Manual</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<link href="../../css/help.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div class="dext5help_content_right">
+<div class="right_con">           
+    <h3 class="title">DEXT5 Editor :: Config :: ToSaveFilePathURL</h3>
+    <p class="ttl">config.ToSaveFilePathURL</p>
+    <p class="txt">
+        이미지 또는 파일 삽입 등 저장 할 때 서버에 연결 된 저장소의 URL 경로를 지정합니다.
+    </p>
+    <p class="mttl01">remarks</p>
+    <p class="txt">
+        기본값은 dext5editor 폴더의 아래에 "dext5editordata" 폴더가 됩니다.<br />
+        에디터에서 등록된 파일들은 설정된 폴더의 아래에 저장이 됩니다. <br />
+        이 경로는 서버의 상대 경로 또는 루트(/) 절대 경로만 허용합니다.<br />
+        SaveFileFolderNameRule 과 같이 사용할 수 있습니다. 
+    </p>
+    <p class="mttl01">sample code</p>            
+    <div class="cord">
+        <pre class="pre">
+&#60;script type="text/javascript" src="dext5/js/dext5editor.js"&#62;&#60;/script&#62;	
+ 
+&#60;!-- ..... 생략 ..... --&#62;
+ 
+&#60;div style="width:900px;height:550px"&#62; 
+        &#60;script type="text/javascript"&#62;
+
+        // dext5editor의 폴더가 dext5_sample이라는 폴더 아래에 있다고 가정할 경우
+        // 업로드된 파일을 dext5_sample/dext5editordata/user 폴더 아래에 저장합니다.
+        DEXT5.config.ToSaveFilePathURL = "dext5editordata/user";
+
+        new Dext5editor("editor1");
+
+    &#60;/script&#62;                               
+&#60;/div&#62;        
+        </pre>  
+    </div>                   
+    </div>
+</div>
+</body>
+</html>
+

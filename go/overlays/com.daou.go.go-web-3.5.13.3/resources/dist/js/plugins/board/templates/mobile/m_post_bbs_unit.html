@@ -1,0 +1,34 @@
+<li class="depth{{depth}} {{#isNotice?}}notice{{/isNotice?}} {{^readPost}}read_no{{/readPost}}" {{^isVisible}}style="display:none"{{/isVisible}} data-notice="{{isNotice?}}" >
+	<a class="tit" href="javascript:;" data-role="button" data-postid="{{id}}" data-list-id="{{id}}" data-hidden="{{isHidden?}}">
+		{{#isReply?}}<span class="ic ic_reply"></span>{{/isReply?}}<!-- depth가 생길 경우 아이콘 추가 -->
+		<span class="subject">
+			{{#isClose?}}<span class="ic ic_lock"></span>{{/isClose?}}
+			{{#publicWriter}}
+			<span class="state ghost" title="{{writer.name}} {{writer.positionName}}">{{lang.public}}</span>
+			{{/publicWriter}}
+			<span class="title">
+				{{#orphanFlag}}<strong>[{{lang.post_orphan_msg}}]</strong>{{/orphanFlag}}
+				{{#isHidden?}}{{lang.hidden_post}}{{/isHidden?}}{{^isHidden?}}{{#header}}[{{name}}] {{/header}}{{{postTitle}}}{{/isHidden?}}
+			</span>
+			{{#commentsCount}}
+				<span class="count"> [{{^readPost}}<strong>{{/readPost}}{{commentsCount}}{{^readPost}}</strong>{{/readPost}}]</span>
+			{{/commentsCount}}
+			{{#newFlag}}
+				<span class="ic ic_new"></span>
+			{{/newFlag}}
+		</span>
+		<span class="info">
+			{{#writer}}
+			<span class="name txt_ellipsis {{#writer}}{{#otherCompanyUser}}multi_user{{/otherCompanyUser}}{{/writer}}">{{#writer.otherCompanyUser}}{{writer.companyName}}{{/writer.otherCompanyUser}} {{writer.name}} {{writer.positionName}}</span>
+			{{#writer.name}}<span class="part">|</span>{{/writer.name}}
+			{{/writer}}
+			<span class="date">{{dateformat}}</span>
+			{{#readCount}}
+			<span class="part">|</span>
+			<span class="num">{{lang.read}} {{readCount}}</span>
+			{{/readCount}}
+            <span class="part">|</span>
+            <span class="">{{lang.plus}} {{recommendCount}}</span>
+		</span>
+	</a>
+</li>

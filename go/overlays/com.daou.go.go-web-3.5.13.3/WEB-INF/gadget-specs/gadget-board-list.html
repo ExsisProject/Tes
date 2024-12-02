@@ -1,0 +1,1502 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <title>전사게시판 최근글</title>
+    <meta name = "gadget:name-ko" content="전사게시판 최근글" />
+    <meta name = "gadget:name-ja" content="全体掲示板" />
+    <meta name = "gadget:name-en" content="Company Board" />
+    <meta name = "gadget:name-zhcn" content="全公司留言板" />
+    <meta name = "gadget:name-zhtw" content="全公司留言板" />
+    <meta name = "gadget:name-vi" content="Bảng tin toàn công ty" />
+    <meta name = "gadget:description" content="게시판 최근글" />
+    <meta name = "gadget:version" content="1.7.0" />
+    <meta name = "gadget:app-dependency" content="BOARD" />
+    <meta name = "gadget:thumbnail" content="gadget_bbs.png" />
+    
+    <meta name = "locale" content="ko" />
+    <meta name = "contextRoot" content="/" />
+    <link rel="stylesheet" href="css/go-gadget-standalone.css" media="screen, print" />
+    <!--[if IE]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="js/go-gadget-standalone.js"></script>
+    <style>
+	
+	/* Swipe 2 required styles */
+	
+	.swipe {
+	  overflow: hidden;
+	  visibility: hidden;
+	  position: relative;
+	}
+	.swipe-wrap {
+	  overflow: hidden;
+	  position: relative;
+	}
+	.swipe-wrap > div {
+	  float:left;
+	  width:100%;
+	  position: relative;
+	}
+	
+	/* END required styles */
+	
+	</style>
+
+    <script type="text/javascript" id="go-gadget-script">
+    try{
+	    gadget.load({
+	    	
+	    	highlightable : true,
+	    	
+	        refreshable: true, 
+	        
+	        defaultOffset: 1, 
+	        
+	        langs: {
+	            "gadget_title": "전사게시판 최근글",
+	            "board_notice": "공지",
+	            "refresh": "새로고침 간격",
+	            "offset": "표시 개수",
+	            "board": "전사게시판 선택",
+	            "board_desc": "(첫 번째 게시판 이름이 표시됨.)",
+	            "board_desc2": "선택하신 게시판은 부분공개 게시판입니다. 권한이 없는 사용자는 볼 수 없으니, 해당 게시판의 공개 범위를 사이트 어드민에게 확인해 주십시요.",
+	            "empty": "등록된 게시물이 없습니다.",
+	            "none": "안함",
+	            "min": "분",
+	            "hour": "시간",
+	            "total": "전체",
+	            "classic": "클래식",
+	            "feed": "피드",
+	            "sharefalse": "전체공개",
+	            "sharetrue": "부분공개",
+	            "notauth": "열람권한이 없는 게시물입니다.",
+	            "sharedDesc":"선택하신 게시판은 부분공개 게시판입니다. 권한이 없는 사용자는 볼 수 없으니, 해당 게시판의 공개 범위를 사이트 어드민에게 확인해 주십시요.",
+	            "alreadyExist" : "이미 추가되어 있습니다.",
+	            "next" : "다음",
+                "prev" : "이전",
+                "add" : "추가",
+                "gadget_type" : "가젯 뷰 타입",
+                "gadget_classic" : "클래식",
+                "gadget_album" : "앨범형",
+                "gadget_thumbnail" : "썸네일형",
+                
+	            "en": {
+	            	"gadget_title" : "Recent Posts",
+	            	"board_notice" : "Notice",
+	            	"refresh" : "Auto Refresh Cycle",
+	            	"offset" : "Number of Posts",
+	            	"board" : "Select Company Board",
+	            	"board_desc" : "(The first board name will be displayed)",
+	            	"board_desc2" : "The board you\"ve selected is open to specified users. Those who do not have permission to read cannot access it. You can ask your administration to check who can access the board.",
+	            	"empty" : "No Posts Found.",
+	            	"none" : "None",
+	            	"min" : "min",
+	            	"hour" : "hour",
+	            	"etc" : "Others",
+	            	"total" : "All",
+	            	"classic" : "Classic",
+	            	"feed" : "Feed",
+	            	"sharefalse" : "Public",
+	            	"sharetrue" : "Private",
+	            	"notauth" : "You need permission to read.",
+	            	"sharedDesc" : "The board you\"ve selected is private. You cannot access it because you don\"t have permission. If you want to know who can access it, please ask your administrator for help.",
+	            	"alreadyExist" : "It's already been added.",
+	            	"next" : "Previous",
+                    "prev" : "Next",
+                    "add" : "Add",
+                    "gadget_type" : "Gadget view type",
+                    "gadget_classic" : "Classic",
+                    "gadget_album" : "Album",
+                    "gadget_thumbnail" : "Thumbnail"
+	            },
+	            
+	            "ja": {
+	            	"gadget_title" : "最近の投稿",
+	            	"board_notice" : "お知らせ",
+	            	"refresh" : "更新間隔",
+	            	"offset" : "表示件数",
+	            	"board" : "全体掲示板選択",
+	            	"board_desc" : "(一番目の掲示板名が表示される)",
+	            	"board_desc2" : "選択した掲示板は、部分公開の掲示板です。権限がないユーザは閲覧ができませんので、該当掲示板の公開範囲をサイト管理者に確認してください。",
+	            	"empty" : "登録された投稿内容がありません。",
+	            	"none" : "更新しない",
+	            	"min" : "分",
+	            	"hour" : "時間",
+	            	"etc" : "その他オプション",
+	            	"total" : "全体",
+	            	"classic" : "クラシック型",
+	            	"feed" : "フィード型",
+	            	"sharefalse" : "全体公開",
+	            	"sharetrue" : "部分公開",
+	            	"notauth" : "閲覧権限がない投稿です。",
+	            	"sharedDesc" : "選択した掲示板は、部分公開の掲示板です。権限がないユーザは閲覧ができませんので、該当掲示板の公開範囲をサイト管理者に確認してください。",
+	            	"alreadyExist" : "既に追加されています。",
+	            	"next" : "次へ",
+                    "prev" : "前へ",
+                    "add" : "追加",
+                    "gadget_type" : "ガゼットビュータイプ",
+                    "gadget_classic" : "Classic",
+                    "gadget_album" : "Album",
+                    "gadget_thumbnail" : "Thumbnail"
+	            },
+	            
+	            "zh_CN": {
+	            	"gadget_title" : "最新公告板",
+	            	"board_notice" : "通知",
+	            	"refresh" : "更新间隔",
+	            	"offset" : "显示数目",
+	            	"board" : "选择全体公告板",
+	            	"board_desc" : "(显示第一个公告板的名称)",
+	            	"board_desc2" : "选定的公告板是部分公开的公告板。所以没有权限的用户无法浏览此公告板。请于网站管理员确认一下该公告板的公开范围。",
+	            	"empty" : "没有已被登录的公告语。",
+	            	"none" : "不",
+	            	"min" : "分",
+	            	"hour" : "时间",
+	            	"etc" : "其他选项",
+	            	"total" : "全体",
+	            	"classic" : "Classic",
+	            	"feed" : "Feed",
+	            	"sharefalse" : "全体公开",
+	            	"sharetrue" : "部分公开",
+	            	"notauth" : "没有阅览权限的公告板。",
+	            	"sharedDesc" : "选定的公告板是部分公开的公告板，所以没有权限的用户无法阅览该公告板。请与管理员查看该公告板的公开范围。",
+	            	"alreadyExist" : "已添加。",
+	            	"next" : "下一頁",
+                    "prev" : "前一頁",
+                    "add" : "追加",
+                    "gadget_type" : "Gadget view type",
+                    "gadget_classic" : "Classic",
+                    "gadget_album" : "Album",
+                    "gadget_thumbnail" : "Thumbnail"
+	            },
+	            
+	            "zh_TW": {
+	            	"gadget_title" : "最新公告板",
+	            	"board_notice" : "通知",
+	            	"refresh" : "更新間隔",
+	            	"offset" : "顯示數目",
+	            	"board" : "選擇全體公告板",
+	            	"board_desc" : "(顯示第一個公告板的名稱)",
+	            	"board_desc2" : "選定的公告板是部分公開的公告板。所以沒有權限的用戶無法瀏覽此公告板。請於網站管理員確認一下該公告板的公開範圍。",
+	            	"empty" : "沒有已被登錄的公告語。",
+	            	"none" : "不",
+	            	"min" : "分",
+	            	"hour" : "時間",
+	            	"etc" : "其他選項",
+	            	"total" : "全體",
+	            	"classic" : "Classic",
+	            	"feed" : "Feed",
+	            	"sharefalse" : "全體公開",
+	            	"sharetrue" : "部分公開",
+	            	"notauth" : "沒有閱覽權限的公告板。",
+	            	"sharedDesc" : "選定的公告板是部分公開的公告板，所以沒有權限的用戶無法閱覽該公告板。請與管理員查看該公告板的公開範圍。",
+	            	"alreadyExist" : "已添加。",
+	            	"next" : "下一页",
+                    "prev" : "前一页",
+                    "add" : "追加",
+                    "gadget_type" : "Gadget view type",
+                    "gadget_classic" : "Classic",
+                    "gadget_album" : "Album",
+                    "gadget_thumbnail" : "Thumbnail"
+	            },
+	            "vi": {
+	            	"gadget_title": "Bảng đăng gần đây",
+		            "board_notice": "Thông báo",
+		            "refresh": "Khoảng cách làm mới dữ liệu",
+		            "offset": "Số hiển thị",
+		            "board": "Chọn bảng tin toàn công ty",
+		            "board_desc": "(Hiển thị tên bảng tin đầu tiên.)",
+		            "board_desc2": "Bảng tin đã chọn là bảng tin công khai bộ phận. Người sử dụng không có quyền hạn thì không được xem, vui lòng xác nhận phạm vi công khai của bảng tin với người quản trị Site.",
+		            "empty": "Không có bài đăng.",
+		            "none": "Không",
+		            "min": "Phút",
+		            "hour": "Thời gian",
+		            "total": "Toàn bộ",
+		            "classic": "Classic",
+		            "feed": "Feed",
+		            "sharefalse": "Công khai toàn bộ",
+		            "sharetrue": "Công khai một phần",
+		            "notauth": "Thông báo không có quyền hạn xem.",
+		            "sharedDesc":"Bảng tin đã chọn là bảng tin công khai bộ phận. Người sử dụng không có quyền hạn thì không được xem, vui lòng xác nhận phạm vi công khai của bảng tin với người quản trị Site.",
+		            "alreadyExist" : "Đã được thêm.",
+		            "next" : "Tiếp theo",
+	                "prev" : "Trang trước",
+	                "add" : "Thêm",
+	                "gadget_type" : "Gadget view type",
+	                "gadget_classic" : "Classic",
+	                "gadget_album" : "Album",
+	                "gadget_thumbnail" : "Thumbnail"
+	            }
+	        }, 
+	        
+	        _initData: function() {
+	        	var deferred = $.Deferred();
+            		
+           		this.model = new Model(_.extend(this.options, {i18n : this.i18n}));
+           		this.accessBoards = new AccessBoards();
+           		this.accessBoards.fetch().done($.proxy(function(resp) {
+           			this.model.accessibleBoardIds = resp.data;
+            		this.model.fetchAccessibleBoardIds.resolve();
+            		deferred.resolve();
+           		}, this));
+           		
+           		return deferred;
+	        },
+            
+            url: function() {
+            	var pn = this.contextRoot + "api/board/posts/company";
+                var params = this._makeParams();
+            	
+            	if (!this.model) {
+            		var deferred = $.Deferred();
+            		
+            		this._initData().done($.proxy(function() {
+	            		this.model.renewalBoardName().done($.proxy(function() {
+	            			var boardId = this.model.getIds()[0];
+			               	if (boardId && parseInt(boardId)) {
+			                	pn = this.contextRoot + "api/board/"+boardId+"/posts";
+			               	}
+			               	var url = pn + "?" + $.param(params);
+	            			deferred.resolve(url);
+	            		}, this));
+            		}, this));
+            		
+            		return deferred;
+            	} else if(this.model.getIds()){
+            		var boardId = this.model.getIds()[0];
+            		if (boardId && parseInt(boardId)) {
+	                	pn = this.contextRoot + "api/board/"+boardId+"/posts";
+	               	}
+            	} else if(this.options.boardIds){
+            		var boardInfoList = this.options.boardIds.split(",");
+            		var boardId = boardInfoList[0].split("|")[0];
+            		if (boardId && parseInt(boardId)) {
+	                	pn = this.contextRoot + "api/board/"+boardId+"/posts";
+	               	}
+            	}
+                
+                return pn + "?" + $.param(params);
+            }, 
+            
+            _makeParams : function(){
+            	var params;
+            	var params = { offset : this.options.offset || this.defaultOffset, page : 0 };
+            	params.viewtype = this.options.viewType;
+            	this.viewtype = params.viewtype;
+            	return params;
+            },
+            
+	        renderConfig: function(el) {
+	        	if (!this.model) {
+            		this._initData();
+            	} 
+	        	
+	        	this.model = this.model || new Model(_.extend(this.options, {i18n : this.i18n}));
+	        	this.model.set("boardIds", this.options.boardIds);
+	        	this.model.set("offset",this.options.offset);
+	        	this.model.set("viewType",this.options.viewType);
+	        	
+	        	this.configView = new ConfigView({
+	        		model : this.model,
+	        		i18n : this.i18n,
+	        		contextRoot : this.contextRoot
+	        	});
+	        	
+	        	$(el).html(this.configView.render().el);
+	        	this.configView.on("change:sort", function() {
+	        		this.changeTabData();
+	        	});
+	        	this.configView.initSortable();
+	        },
+	        
+	        onSuccess: function(el, resp) {
+	        	this.el = el;
+	        	this.collection = new Posts(resp.data, {
+	        		currentBoard : this.model.getCurrentBoardId(),
+	        		offset : this.model.get("offset") || this.defaultOffset,
+	        		contextRoot : this.contextRoot,
+	        		viewtype : this.viewtype
+	        	});
+	        	this.collection.setPage(resp.page);
+	        	this.render();
+	        },
+	        
+	        onMoved : function(el, resp) {
+	        	this.tabView.render();
+	        },
+	        
+	        render : function() {
+	        	this.renderContentView();
+	        	this.renderTabView();
+	        },
+	        
+	        renderContentView : function(collection) {
+	        	this.contentView = new ContentView({
+	        		highlight : this.options.highlight,
+	        		collection : this.collection,
+	        		model : this.model,
+	        		i18n : this.i18n,
+	        		contextRoot : this.contextRoot
+        		});
+	        	$(this.el).append(this.contentView.render(collection).el);
+	        },
+	        
+	        renderTabView : function() {
+	        	this.tabView = new TabView({
+                    i18n : this.i18n,
+                    collection : this.model.getBoards(),
+                    selectedTab : this.model.getCurrentBoard()
+                });
+	        	$(this.el).find("div.go_gadget_header").after(this.tabView.el);
+	        	this.tabView.render();
+	        	this.tabView.initResize();
+	        	
+	        	var self = this;
+	        	this.tabView.on("change:tab", function(selectedTab) {
+	        		self.contentView.fetchCollection(selectedTab);
+	        	});
+	        }
+	    });
+	    
+	    var ActiveCompanyBoards = Backbone.Collection.extend({
+	    	url: function() {
+	    		return contextRoot + "api/company/boards/ACTIVE?page=0&offset=1000";
+	    	},
+	    	
+	    	parse: function(resp) {
+	    		var parsed = _.map(resp.data, function(model) {
+	    			return _.extend(model.board, {
+	    				isClassic: model.board ? model.board.type === "CLASSIC" : null,
+						otherCompany : model.nodeType  === 'SHARE'? 'true' : 'false',
+					});
+	    		});
+	    		return parsed;
+	    	},
+	    	
+	    	getAccessibleBoards: function(accessibleBoardIds) {
+	    		return this.filter(function(board) {
+		    		return _.contains(accessibleBoardIds, board.id + "");
+	    		});
+	    	}
+	    });
+	    
+	    var ConfigView = Backbone.View.extend({
+	    	initialize: function(options) {
+	    		this.i18n = options.i18n;
+	    		this.contextRoot = options.contextRoot;
+	    		this.collection = new ActiveCompanyBoards();
+	    		this.collection.on('sync', this._renderBoardList, this);
+	    		this.collection.fetch();
+	    	},
+	    	
+	    	events : {
+	    		"click #addBoard" : "addBoard",
+	    		"click span.ic_d_delete" : "deleteBoard",
+	    		"change #viewTypeRadio input" : "_changeViewType"
+	    	},
+	    	
+	    	_renderBoardList: function() {
+	    		var offset = this.model.get("offset");
+	    		
+    			this.model.fetchAccessibleBoardIds.done($.proxy(function() {
+    				var collection = new Backbone.Collection(this.collection.getAccessibleBoards(this.model.accessibleBoardIds));
+		    		$(this.el).append(Hogan.compile(this.makeTemplate()).render({
+						dataset : collection.toJSON(),
+						model : this.model.toJSON()
+					}));
+		    		this.renderTabList();
+		    		this.initSortable();
+		    		
+		    		this.$("#boardOffset").val(offset || 1);
+		    		//기존 가젯뷰 타입저장 값이 없을때 대응
+		            if(this.model.get("viewType")){
+		            	this.$("input:radio[name=viewType][value='"+this.model.get("viewType")+"']").prop('checked',true);
+		            	if(this.model.get("viewType") != "normal"){
+								this._offsetOptionChange(true);
+						}
+		            }
+		    		
+    			}, this));
+	    	},
+	    	
+	    	render : function() {
+		    	var self = this;
+	            this.renderTabList();
+	            this.toggleDeleteBtn();
+	            return this;
+	    	},
+	    	
+	    	_changeViewType : function(e){
+	    		var value = $(e.currentTarget).val();
+	    		var isImageType = false;
+	    		if(value != "normal"){
+	    			isImageType = true;
+	    		}
+	    		this._offsetOptionChange(isImageType);
+	    	},
+	    	
+	    	_makeOption : function(arr) {
+	    		var options = [];
+	    		$.each(arr,function(k,n){
+	    			options.push('<option value="'+n+'">'+n+'</option>');
+	    		});
+	    		return options.join('');
+	    	},
+	    	
+	    	_offsetOptionChange : function(isImageType){
+	    		var offset = this.model.get("offset") ? this.model.get("offset") : 1;
+	    		if(isImageType){
+	    			if(parseInt(this.model.get("offset")) > 5){
+		    			offset = 1;
+		    		}
+	    			if(parseInt(this.$("#boardOffset").val()) <= 5){
+	    				offset = this.$("#boardOffset").val();
+	    			}
+	    			this.$("#boardOffset").html(this._makeOption([1,3,5]));
+	    		}else{
+	    			this.$("#boardOffset").html(this._makeOption([1,3,5,10,15,20,25,30]));
+	    		}
+	    		this.$("#boardOffset").val(offset);
+	    	},
+	    	
+	    	renderTabList : function() {
+	    		_.each(this.model.getBoards(), function(board) {
+	    			this.$("#boardTabList").append(Hogan.compile(this.boardItemTpl()).render(board))
+	    		}, this);
+	    	},
+	    	
+	    	toggleDeleteBtn : function() {
+	    		if (this.isOneFolder()) {
+		    		this.$("span.btn_wrap").hide();
+	    		} else {
+		    		this.$("span.btn_wrap").show();
+	    		}
+	    	},
+	    	
+	    	isOneFolder : function() {
+	    		var boards = this.$("#boardTabList").find("li[data-id]");
+	        	return boards.length < 2 ? true : false;
+	    	},
+	    	
+	    	getBoardIds : function() {
+	    		return _.map(this.$("#boardTabList li"), function(tab) {
+	        		return $(tab).attr("data-id").split("|")[0];
+	        	});
+	    	},
+	    	
+	    	addBoard : function() {
+	        	var target = this.$("#selectTab");
+	        	var targetId = target.val().split("|")[0];
+	        	var boardIds = this.getBoardIds();
+	        	
+	        	if (_.contains(boardIds, targetId)) {
+	        		alert(this.i18n.parse("alreadyExist"));
+	        		return;
+	        	}
+	        	
+	        	var data = target.val().split("|");
+	        	var item = Hogan.compile(this.boardItemTpl()).render({
+	        		id : data[0],
+	        		name : data[1],
+	        		otherCompany : data[2],
+	        		data : target.val()
+        		});
+	        	
+	        	this.$("#boardTabList").append(item);
+	        	
+	        	boardIds.push(targetId);
+	        	this.changeTabData();
+	        	this.toggleDeleteBtn();
+	        },
+	        
+	        deleteBoard : function(e) {
+	        	if (this.isOneFolder()) return;
+	        	$(e.currentTarget).parents("li[data-id]").remove();
+	        	this.changeTabData();
+	        	this.toggleDeleteBtn();
+	        },
+	        
+	        changeTabData : function() {
+	        	var boardIds = _.map(this.$("#boardTabList").find("li[data-id]"), function(boardEl) {
+	        		return $(boardEl).attr("data-id");
+	        	});
+	        	this.$("#boardIds").val(boardIds.join(","));
+	        },
+	        
+	    	boardItemTpl : function() {
+	        	var html = [];
+	        	html.push('<li class="" data-id="{{id}}|{{name}}|{{otherCompany}}">');
+					html.push('<span class="txt">{{name}}</span>');
+					html.push('<span class="btn_wrap"><span class="ic_dashboard2 ic_d_delete"></span></span>');
+				html.push('</li>');
+				return html.join("\n");
+	        },
+	    	
+	    	makeTemplate : function() {
+		    	var html = [];
+	            html.push('<ul class="static_style">');
+	            html.push('     <li>');
+	            html.push('         <p class="title">' + this.i18n.parse("offset") + '</p>');
+	            html.push('         <select id="boardOffset" name="offset">');
+	            html.push('             <option value="1">1</option>');
+	            html.push('             <option value="3">3</option>');
+	            html.push('             <option value="5">5</option>');
+	            html.push('             <option value="10">10</option>');
+	            html.push('             <option value="15">15</option>');
+	            html.push('             <option value="20">20</option>');
+	            html.push('             <option value="25">25</option>');
+	            html.push('             <option value="30">30</option>');
+	            html.push('         </select>');
+	            html.push('     </li>');
+	            html.push('</ul>');
+	            
+	            html.push('<ul class="static_style">');
+		            html.push('<li>');
+		            	html.push('<p class="title">' + this.i18n.parse("board") + '</p>');
+		           		
+		           		html.push('<ul id="boardTabList" class="drag_option_wrap">');
+						html.push('</ul>');
+		           		
+		           		html.push('<div class="create_option">');
+		           			html.push('<select id="selectTab">');
+								html.push('<option value="0|' + this.i18n.parse("total") + '">' + this.i18n.parse("total") + '</option>');
+					            html.push('{{#dataset}}');
+			            		html.push('<option value="{{id}}|{{name}}|{{otherCompany}}">{{#isClassic}}[' + this.i18n.parse("classic") + '{{/isClassic}}{{^isClassic}}[' + this.i18n.parse("feed") + '{{/isClassic}}{{#sharedFlag}}/' + this.i18n.parse("sharetrue") + ']{{/sharedFlag}}{{^sharedFlag}}/' + this.i18n.parse("sharefalse") + ']{{/sharedFlag}} {{name}}</option>');
+					            html.push('{{/dataset}}');
+							html.push('</select>');
+							html.push('<span class="btn_formal" id="addBoard">');
+								html.push('<span class="txt">'+this.i18n.parse("add")+'</span>');
+							html.push('</span>');
+						html.push('</div>');
+		            html.push('</li>');
+	            html.push('</ul>');
+	            
+	            html.push('<ul class="static_style">');
+            	html.push('<li>');
+	            	html.push('<p class="title">' + this.i18n.parse("gadget_type") + '</p>');
+	            	html.push('<span class="wrap_option wrap_label" id="viewTypeRadio">');
+		            	html.push('<input id="gadgetType_classic"  type="radio" name="viewType" value="normal" checked><label for="gadgetType_classic">' + this.i18n.parse("gadget_classic") + '</label>&nbsp;');
+		            	html.push('<input id="gadgetType_album"    type="radio" name="viewType" value="album"><label for="gadgetType_album">' + this.i18n.parse("gadget_album") + '</label>&nbsp;');
+		            	html.push('<input id="gadgetType_thumbnail" type="radio" name="viewType" value="thumbnail"><label for="gadgetType_thumbnail">' + this.i18n.parse("gadget_thumbnail") + '</label>');
+	            	html.push('</span>');
+            	html.push('</li>');
+           		html.push('</ul>');
+	            
+	            html.push('<input type="text" id="boardIds" name="boardIds" class="txt" style="display:none" value="{{model.boardIds}}">');
+	            
+	            return html.join("\n");
+	    	},
+	    	
+	    	initSortable : function(){
+	    		var self = this;
+                this.$('#boardTabList').sortable({
+                    opacity : '1',
+                    delay: 100,
+                    cursor : "move",
+                    items : "li",
+                    containment : this.$('#boardTabList'),
+                    hoverClass: "move",
+                    placeholder : 'ui-sortable-placeholder',
+                    start : function (event, ui) {
+                        ui.placeholder.html(ui.helper.html());
+                        ui.placeholder.find('li').css('padding','5px 10px');
+                    },
+                    stop : function() {
+                    	self.trigger("change:sort");
+                    }
+                });
+            }
+	    });
+	    
+	    
+	    var TabView = Backbone.View.extend({
+            className : "design_content_header",
+            events : {
+                "click li" : "changeTab",
+                "click div.tab_btn_next" : "nextPage",
+                "click div.tab_btn_prev" : "prevPage"
+            },
+            
+            initialize : function(){
+                var self = this;
+                
+                this.i18n = this.options.i18n;
+                this.folders = _.isArray(this.options.collection) ? this.options.collection : [this.options.collection]
+                this.selectedTab = this.options.selectedTab;
+                this.currentPage = 1;
+                this.totalPage = 1;
+            },
+            
+            render : function(){
+            	if ($(this.$el).width() == 0) return;
+                this.$el.html(this.makeItemGroup());
+                this.swipe = Swipe(this.$el.find("#gadget_tabs")[0], {
+        			startSlide : (this.currentPage - 1),
+            		continuous : false,
+            		speed : 300
+                });
+                return this;
+            },
+            
+            makeItemGroup : function(baseTab){
+                var html = [],
+                    self = this,
+                    tabGroupWidth = $(this.$el).width() - 54,
+                    tabItemWidth = tabGroupWidth < 250 ? 75 : 102,
+                    offset = parseInt(tabGroupWidth / tabItemWidth),
+                    totalSize = this.folders.length,
+                    totalPage = Math.ceil(this.folders.length / offset);
+                
+                this.totalPage = totalPage;
+                
+                if(this.selectedTab != undefined){
+                	this.currentPage = this._detectCurrentPage({
+                		offset : offset,
+                		totalSize : totalSize,
+                		totalPage : totalPage,
+                		baseTab : this.selectedTab
+                	});
+                }
+                
+                if(this.totalPage == 1){
+                	html.push("<div class='tab_control tab_btn_prev tab_disabled'>");
+                    	html.push("<span class='btn_wrap'><span class='ic_prev' title='" + this.i18n.parse("prev") + "'></span></span>");
+                    html.push("</div>");
+                }else{
+                	html.push("<div class='tab_control tab_btn_prev " + (this.currentPage == 1 ? "tab_disabled" : "tab_enabled") + "' style='z-index:100'>");
+                		html.push("<span class='btn_wrap'><span class='ic_prev' title='" + this.i18n.parse("prev") + "'></span></span>");
+                	html.push("</div>");
+                }
+                    
+                html.push("<div id='gadget_tabs' class='swipe gadget_tab_wrap'>");
+                    html.push("<div class='swipe-wrap'>")
+                        for(var page=0 ; page < totalPage ; page++){
+                            html.push("<div>");
+                                var itemsEl = this._makeItems({offset : offset,page : page,totalSize : totalSize})
+                                
+                                html.push("<ul class='dashboard_tab gadget_tab'>");
+                                html.push(itemsEl);
+                            	html.push("</ul>");
+                            html.push("</div>");
+                        }
+                    html.push("</div>");
+                html.push("</div>");
+                
+                var isLastPage = (this.currentPage == totalPage) ? true : false;
+                
+                if(this.totalPage == 1){
+                	html.push("<div class='tab_control tab_btn_next tab_disabled'>");
+                    	html.push("<span class='btn_wrap'><span class='ic_next' title='" + this.i18n.parse("next") + "'></span></span>");
+                    html.push("</div>");
+                }else{
+                	html.push("<div class='tab_control tab_btn_next " + (isLastPage ? "tab_disabled" : "tab_enabled") + "' style='z-index:100'>");
+                		html.push("<span class='btn_wrap'><span class='ic_next' title='" + this.i18n.parse("next") + "'></span></span>");
+                	html.push("</div>");
+                } 
+                    
+                return html.join("");
+            },
+            
+            _detectCurrentPage : function(options){
+                var breakFlag = false,
+                	pageData = [],
+                	currentPage = 0;
+            
+                for(var page = 0; page < options.totalPage ; page++){
+                    var tabData = [];
+                    for(var i = 0; i < options.offset ; i++){
+                        var index = ((options.offset * page) + i);
+                        
+                        if(index > (this.folders.length - 1)){
+                            break;
+                        }
+                        tabData.push(this.folders[index]); 
+                    }
+                    pageData.push(tabData);
+                }
+                
+                for(var page = 0; page < options.totalPage ; page++){
+                    if(breakFlag){
+                        break;
+                    }
+                    
+                    var ids = _.map(pageData[page], function(obj) {
+                    	return obj.id;
+                    });
+                    
+                    var id = typeof(options.baseTab) == "object" ? options.baseTab.id : options.baseTab;
+                    
+                    if(_.contains(ids, id)){
+                        currentPage = page + 1;
+                        breakFlag = true;
+                        break;
+                    }
+                }
+                
+                return currentPage;
+            },
+            
+            _makeItems : function(options){
+                var self = this,
+                	html = [],
+                	maxIndex = (options.offset * (options.page + 1));
+                $.each(this.folders, function(i, value){
+                    var index = ((options.offset * options.page) + i);
+                    if( self._isCurrentPageIndex({index : index, maxIndex : maxIndex, totalSize : options.totalSize})){
+                        return false;
+                    }
+                    
+                    var data = self.folders[index],
+                    	name = data.name;
+                    var id = typeof(self.selectedTab) == "object" ? self.selectedTab.id : self.selectedTab;
+                    html.push("<li class='"+ (id == data.id ? "on" : "") +"' data-type='" + data.id + "'>");
+                        html.push("<a data-bypass title='"+ name +"'>");
+                            if(data.otherCompany == 'true'){
+                                html.push("<span class='ic_con ic_share'></span>");                    	
+                            }
+                            html.push(name);
+                        html.push("</a>");
+                	html.push("</li>");
+                });
+                	
+                return html.join("");
+            },
+            
+            _isCurrentPageIndex : function(options){
+            	return options.index >= options.maxIndex || options.index > (options.totalSize - 1);
+            },
+            
+            changeTab : function(e){
+                var currentEl = $(e.currentTarget),
+                    parentEl = currentEl.parents("#gadget_tabs:first");
+                    
+                parentEl.find("li").removeClass("on");
+                this.selectedTab = currentEl.attr("data-type");
+                parentEl.find("li[data-type='" + this.selectedTab + "']").addClass("on");
+                
+                this.trigger("change:tab", this.selectedTab);
+            },
+            
+            initResize : function(){
+                var winResizer = new Resizer(),
+                    self = this;
+                
+                $(window).on('activator', function(e) {
+                	self.render();
+                });
+                
+                $(window).on('resize.dashboard_layout', function(e) {
+                    winResizer.bind(e, function() {
+                        self.render();
+                    });
+                });
+            },
+            
+            nextPage : function(){
+                var nextEl = this.$el.find("div.tab_btn_next"),
+                	prevEl = this.$el.find("div.tab_btn_prev");
+                
+                if(nextEl.hasClass("tab_disabled")){
+                	return;
+                }
+                
+                this.swipe.next();
+                this.currentPage = this.currentPage + 1;
+                
+                if(this.currentPage == this.totalPage){
+                    nextEl.removeClass("tab_enabled").addClass("tab_disabled");
+                }else{
+                	nextEl.removeClass("tab_disabled").addClass("tab_enabled");
+                }
+                
+                prevEl.removeClass("tab_disabled").addClass("tab_enabled");
+            },
+            
+            prevPage : function(){
+                var prevEl = this.$el.find("div.tab_btn_prev"),
+                	nextEl = this.$el.find("div.tab_btn_next");
+                
+                if(prevEl.hasClass("tab_disabled")){
+                	return;
+                }
+                
+                this.swipe.prev();
+                this.currentPage = this.currentPage - 1;
+                
+                if(this.currentPage == 1){
+                	prevEl.removeClass("tab_enabled").addClass("tab_disabled");
+                }else{
+                	prevEl.removeClass("tab_disabled").addClass("tab_enabled");
+                }
+                
+                nextEl.removeClass("tab_disabled").addClass("tab_enabled");
+            }
+        });
+	    
+	    
+	    var ContentView = Backbone.View.extend({
+	    	initialize : function(options) {
+	    		this.highlight = options.highlight;
+	    		this.i18n = options.i18n;
+	    		this.contextRoot = options.contextRoot;
+				this.$el.attr("data-cid", this.cid);
+				this.gadgetModel = options.model;
+	    	},
+	    	
+	    	events : {
+	    		"click li.board a[data-link='goPost']": "goPost",
+	    		"click li.board a.board_link": "goBoard",
+	    		"click #pageControl a" : "paging",
+	    		"mouseover a[data-type='preview']" : "showTooltip",
+	    		"mouseout a[data-type='preview']" : "hideTooltip"
+	    	},
+	    	
+	    	render : function() {
+	    		//리스트를 감싸는 껍데기
+				$(this.el).html(Hogan.compile(this.contentTpl()).render());
+	    		
+				// 가젯뷰 타입별로 리스트 렌더링
+	            this._renderList(this.gadgetModel);
+				
+	        	 // 가젯 공통 footer 렌더링
+	            this.renderFooter();
+	            
+	            return this;
+	    	},
+	    	_renderList : function(gadgetModel) {
+	    		var listEl = $(this.el).find("#postList");
+	    		var viewType = gadgetModel.get("viewType") ? gadgetModel.get("viewType") : "normal";
+	    		
+	            if(viewType == "normal"){
+	            	//클래식
+	            	listEl.addClass("simple_list_notice");
+	            	this._renderClassicList(); 
+	            }else if (viewType == "album"){
+	            	//앨범형
+	            	var offset = gadgetModel.get("offset");
+		            var offsetClass = {
+		            	"1" : "type_album_1",
+		            	"3" : "type_album_2",
+		            	"5" : "type_album_3"
+		            }
+		            listEl.addClass("type_album_list").addClass(offsetClass[offset]);
+		            this._renderAlbumList();
+	            } else if(viewType == "thumbnail") { 
+	            	//썸네일형
+					listEl.addClass("simple_list_notice type_thumbnail_list");
+					this._renderThumbnailList();
+				}
+	    	},
+	    	
+	    	showTooltip : function(e){
+	    		var self = this;
+	    		var currentEl = $(e.currentTarget);
+    			var subject = currentEl.text();
+    			var subjectWrap = currentEl.parents("p:first");
+    			var left = subjectWrap.offset().left;
+    			var top = subjectWrap.offset().top;
+    			var wtop = $(window).height();
+    			var preview = currentEl.attr("preview-data");
+    			
+    			if(!preview){
+    				preview = "";
+    			}	
+    			top = ((top+100) < wtop)?top:top-100;
+    			
+  				if(!$("#previewContentLayer").length){
+	   				this.preview = setTimeout(function(){
+	   					if(!$("div[data-cid='" + self.cid + "']").length) return;
+    					var previewPane = jQuery("<dl id='previewContentLayer'></dl>").addClass("preview");					
+    					previewPane.append(jQuery("<dt></dt>").append(subject));
+    					if(preview != ""){
+    						previewPane.append(jQuery("<dd></dd>").append(preview));
+    					}
+    					jQuery("body").append(previewPane.css({"position":"absolute","top":top+20,"left":left}));
+    					previewPane.css("z-index","3");		
+    					previewPane.show();	
+	   				},500);
+	    		}
+	    	},
+	    	
+	    	hideTooltip : function(){
+	    		$("dl.preview").remove();
+	    		clearTimeout(this.preview);
+	    	},
+	    	
+	    	_renderClassicList : function() {
+	            var listEl = $(this.el).find("#postList");
+	            listEl.empty();
+	            _.each(this.collection.models, function(model) {
+	            	listEl.append(Hogan.compile(this.boardItemTemplate()).render({
+	            		isMyHome : this.collection.currentBoard == "0" ? true : false,
+	            		model : model.toJSON(),
+	            		isClassic : model.isClassic(),
+	            		hasComments : model.hasComments(),
+	            		isPostHidden : model.isPostHidden(),
+	            		isStreamType : model.isStreamType(),
+	            		createdAt : model.createdAt()
+	            	}));
+	            }, this);
+	            
+	            if (this.collection.length == 0) listEl.html($("<li class='null_data'><p class='desc'>" + this.i18n.parse("empty") + "</p></li>"));
+	    	},
+	    	
+	    	_renderAlbumList : function() {
+	    		 var listEl = $(this.el).find("#postList");
+		         listEl.empty();
+		         var layer = this.gadgetModel.get("layout");
+		         var column = this.gadgetModel.get("column");
+		         var offset = this.gadgetModel.get("offset");
+		         _.each(this.collection.models, function(model,index) {
+		        	 listEl.append(Hogan.compile(this._boardItemAlbumTemplate()).render({
+                         isMyHome : this.collection.currentBoard == "0" ? true : false,
+		        		 model : model.toJSON(),
+		        		 createdAt : model.createdAt(),
+		        		 thumbnail : model.thumbnail(layer,column,offset,index),
+		        		 isClassic : model.isClassic(),
+		        		 isStreamType : model.isStreamType(),
+		            	 isPostHidden : model.isPostHidden(),
+                         hasComments : model.hasComments()
+		        	 }));
+		         }, this);
+		         
+		         this._addEmptyImage();
+		         
+	    	},
+	    	
+	    	_renderThumbnailList : function() {
+	    		var listEl = $(this.el).find("#postList");
+		        listEl.empty();
+		        _.each(this.collection.models, function(model) {
+		        	 listEl.append(Hogan.compile(this._boardItemThumbnailTemplate()).render({
+                         isMyHome : this.collection.currentBoard == "0" ? true : false,
+		        		 model : model.toJSON(),
+		        		 createdAt : model.createdAt(),
+		        		 isRepImageExist : model.isRepImageExist(),
+		        		 isClassic : model.isClassic(),
+		        		 isStreamType : model.isStreamType(),
+		            	 isPostHidden : model.isPostHidden(),
+                         hasComments : model.hasComments()
+		        	 }));
+		         }, this);
+	    	},
+	    	
+	    	_addEmptyImage : function() {
+	    		var listEl = $(this.el).find("#postList");
+	    		var colLength = this.collection.length;
+	    		var offset = this.collection.offset;
+	    		if(offset > colLength){
+		        	 for(var i=0 ; i<offset-colLength ; i++){
+		        		 listEl.append('<li class="info board"><div class="no_image">'+ this.i18n.parse("empty") +'</div></li>');
+		        	 }
+		         }
+	    	},
+	    	
+	    	renderFooter : function() {
+	        	$(this.el).find("#pageControl").html(Hogan.compile(this.footerTpl()).render({
+	        		isPrev : this.collection.isPrev(),
+	        		isNext : this.collection.isNext()
+	        	}));
+	    	},
+	    	
+	    	fetchCollection : function(currentBoard) {
+	    		var self = this;
+	    		
+	    		this.collection.page.page = 0;
+	    		this.collection.setCurrentBoard(currentBoard)
+	    		
+	    		if (!document.domain) {
+		    		$.ajax(this.collection.url(), {success : function(data) {
+		    			self.collection.reset(data.data);
+		    			self._renderList(self.gadgetModel);
+	    	            self.renderFooter();	
+		    		}});
+	    		} else {
+		    		this.collection.fetch({
+		    			success : function() {
+		    				self._renderList(self.gadgetModel);
+		    	            self.renderFooter();	
+		    			},
+		    			error : function(a, b, c) {
+		    				console.log("error");
+		    			}
+		    		});
+	    		}
+	    	},
+	    	
+	    	contentTpl: function() {
+	            var html = [];
+	            html.push('<div class="gadget_design_wrap gadget_board_wrap">');
+		            html.push('<div class="go_gadget_header">')
+		            html.push('    <div class="gadget_h1">');
+		            html.push('        <span class="type"><span class="ic_dashboard2 ic_type_bbs" title="' + this.i18n.parse("gadget_title") + '"></span></span>');
+		            html.push('        <span class="title">'+ this.i18n.parse("gadget_title") +'</span>');
+		            html.push('    </div>');
+		            html.push('</div>');
+		            html.push('<ul class="type_simple_list" id="postList">');
+		            html.push("</ul>");
+		            html.push('<div class="tool_bar tool_absolute" id="pageControl">');
+		            html.push('</div>');
+	            html.push('</div>');
+	            
+	            return html.join("\n");
+	        },
+	        
+	        footerTpl : function() {
+	        	var html = [];
+	        	
+	        	if (!this.collection.length) return "";
+	        	
+	            html.push('<div class="dataTables_paginate paging_full_numbers">');
+		            html.push('<a class="previous {{^isPrev}}paginate_button_disabled{{/isPrev}}" data-value="-1" data-type="prev" id="prev">');
+		            html.push('</a>');
+		            html.push('<a class="next {{^isNext}}paginate_button_disabled{{/isNext}}" data-value="1" data-type="next" id="next">');
+		            html.push('</a>');
+	            html.push('</div>');
+	            
+	            return html.join("\n"); 
+	        },
+	        
+	        boardItemTemplate : function() {
+	        	var html = [];
+	        	html.push("{{#isPostHidden}}");
+	            html.push("<div class='info'>"); 
+	            	html.push("<li>");
+	            		html.push("<p class='subject private'><span class='ic_side ic_private'></span>" + this.i18n.parse("notauth") + "</p>"); 
+            			html.push("<span class='date'>{{createdAt}}</span>");
+	            	html.push("</li>"); 
+	            html.push("</div>"); 
+	            html.push("{{/isPostHidden}}");
+	            
+	            html.push("{{^isPostHidden}}");
+            	html.push("<li class='{{#model.stickable}}notice{{/model.stickable}} {{^model.stickable}}info{{/model.stickable}} board {{#isClassic}}{{^model.readPost}}read_no{{/model.readPost}}{{/isClassic}}' data-boardType='{{model.type}}' data-boardId='{{model.boardId}}' data-postId='{{model.id}}'>"); 
+					html.push("<div class='info'>"); 
+						html.push("<p class='subject article'>");
+							html.push("{{#model.stickable}}");
+							html.push("<span class='ic_classic ic_notice' title='" + this.i18n.parse("board_notice") + "'></span>");
+							html.push("{{/model.stickable}}");
+							html.push("<a data-type='preview' data-link='goPost' preview-data='{{model.summary}}'>");
+							html.push("{{#isStreamType}}");
+								html.push("{{model.summary}} {{#hasComments}}[{{model.commentsCount}}]{{/hasComments}}</a>");
+							html.push("{{/isStreamType}}");
+							html.push("{{^isStreamType}}");
+								html.push("{{model.title}} {{#hasComments}}[{{model.commentsCount}}]{{/hasComments}}</a>");
+							html.push("{{/isStreamType}}");
+						html.push("</p>"); 
+						html.push("<span class='date'>{{createdAt}}</span> <span class='name'>{{model.writer.name}} {{model.writer.positionName}}</span>");
+						html.push("{{#isMyHome}}");
+							html.push("<span class='category'>");
+                                html.push('<span class="arrow">|</span>');
+								html.push("<a class='board_link'>{{model.boardName}}</a>");
+							html.push("</span>");
+						html.push("{{/isMyHome}}");
+					html.push("</div>"); 
+				html.push("</li>"); 
+				html.push("{{/isPostHidden}}");
+	            return html.join("\n");
+	        },
+	        
+	        _boardItemAlbumTemplate : function() {
+	        	var html = [];
+	        	
+	        	html.push("{{#isPostHidden}}");
+	        	html.push('<li class="info board">');
+	        		html.push('<a>');
+	        			html.push('<div class="info">');
+	        				html.push('<p class="subject article">');      
+    							html.push('<span>'+ this.i18n.parse("notauth") +'</span>');         
+    						html.push('</p>');     
+    						html.push('<p class="date">{{createdAt}}</p>');      
+    						html.push('<p class="name">-</p>');  
+	        			html.push('</div>');
+	        			html.push('<div class="img_area img_lock"><img src="/resources/images/ic_lock_w.png" alt=""></div>');
+	        		html.push('</a>');
+	        	html.push('</li>');
+	        	html.push("{{/isPostHidden}}");
+	        	html.push("{{^isPostHidden}}");
+	        	html.push('<li class="{{#model.stickable}}notice{{/model.stickable}} {{^model.stickable}}info{{/model.stickable}} board {{#isClassic}}{{^model.readPost}}read_no{{/model.readPost}}{{/isClassic}}" data-boardType="{{model.type}}" data-boardId="{{model.boardId}}" data-postId="{{model.id}}">');
+	        		html.push('<a data-link="goPost">');
+	        			html.push('<div class="info">');  
+	        				html.push('<p class="subject article">');
+                                html.push("{{#model.stickable}}");
+                                html.push("<span class='ic_classic ic_notice' title='" + this.i18n.parse("board_notice") + "'></span>");
+                                html.push("{{/model.stickable}}");
+	        					html.push('<span>{{model.title}} {{#hasComments}}[{{model.commentsCount}}]{{/hasComments}}</span>');
+	        				html.push('</p>');     
+	        				html.push('<p class="date">{{createdAt}}</p>');      
+	        				html.push('<p class="name">');
+	        				html.push('{{model.writer.name}} {{model.writer.positionName}}');
+	        				html.push('{{#isMyHome}}');
+                            html.push('{{#model.writer.name}} | {{/model.writer.name}}');
+                            html.push('{{model.boardName}}');
+                            html.push('{{/isMyHome}}');
+	        				html.push('</p>');
+	        			html.push('</div>');   
+	        			html.push('<div class="img_area" style="background-image:url({{thumbnail}});"></div>');   
+	        		html.push('</a>');
+	        	html.push('</li>');
+	        	html.push("{{/isPostHidden}}");
+	         	return html.join("\n");
+	        },
+	        
+	        _boardItemThumbnailTemplate : function() {
+	        	//TODO
+	        	//비밀글 처리, 썸네일 크기는 어느걸로?, 마크업 확인(변경된거 있는지)
+	        	var html = [];
+	        	html.push("{{#isPostHidden}}");
+	        	html.push('<li class="info board">');
+	        			html.push('<div class="info">');
+	        				html.push('<p class="subject article">');      
+    							html.push('<span class="ic_side ic_private"></span><a>'+ this.i18n.parse("notauth") +'</a>');         
+    						html.push('</p>');     
+    						html.push('<span class="date">{{createdAt}}</span>');      
+	        			html.push('</div>');
+	        	html.push('</li>');
+	        	html.push("{{/isPostHidden}}");
+	        	html.push("{{^isPostHidden}}");
+	        	html.push('<li class="{{#model.stickable}}notice{{/model.stickable}} {{^model.stickable}}info{{/model.stickable}} board {{#isClassic}}{{^model.readPost}}read_no{{/model.readPost}}{{/isClassic}}" data-boardType="{{model.type}}" data-boardId="{{model.boardId}}" data-postId="{{model.id}}">');
+	        		html.push('{{#isRepImageExist}}');
+	        		html.push('<div class="img_area">');
+	        			html.push('<img src="{{model.repImage.thumbMid}}" alt="" width="104px" height="104px">');  
+	        		html.push('</div>');
+	        		html.push('{{/isRepImageExist}}');
+	        		html.push('<div class="info">');
+	        			html.push('<p class="subject article">');
+                            html.push("{{#model.stickable}}");
+                            html.push("<span class='ic_classic ic_notice' title='" + this.i18n.parse("board_notice") + "'></span>");
+                            html.push("{{/model.stickable}}");
+	        				html.push('<a data-link="goPost">{{model.title}} {{#hasComments}}[{{model.commentsCount}}]{{/hasComments}}</a>');
+	        			html.push('</p>');  
+	        			html.push('<p class="article_con">{{model.summary}}</p>');  
+	        			html.push('<span class="date">{{createdAt}}</span>');
+	        			html.push('{{#model.writer.name}}');
+	        			html.push('<span class="name">{{model.writer.name}} {{model.writer.positionName}}</span>');
+                        html.push('{{/model.writer.name}}');
+                        html.push('{{#isMyHome}}');
+	        			html.push('<span class="category">');
+                            html.push('{{#model.writer.name}}');
+	        				html.push('<span class="arrow">|</span>');
+                            html.push('{{/model.writer.name}}');
+	        				html.push('<a class="board_link">{{model.boardName}}</a>');
+	        			html.push('</span>');
+                        html.push('{{/isMyHome}}');
+	        		html.push('</div>');
+	        	html.push('</li>');
+	        	html.push("{{/isPostHidden}}");
+	        	return html.join("\n");
+	        },
+	    	
+	    	goPost : function(e) {
+            	var currentTarget = $(e.currentTarget),
+            		infoTarget = currentTarget.parents('li.board'),
+            	 	boardType = infoTarget.attr("data-boardType"),
+    				boardId = infoTarget.attr("data-boardId"),
+    			 	postId = infoTarget.attr("data-postId"),
+    			 	url = "";
+            	
+    			if(boardType == "CLASSIC"){
+    			    url = "board/"+boardId+"/post/"+postId;
+    			}else if (boardType == "STREAM"){
+    			    url = "board/"+boardId+"/post/"+postId+"/stream";
+    			} else {
+    			    url = "board/"+boardId;
+    			}
+            	
+            	window.location.href = this.contextRoot + "app/" + url;
+            },
+            
+            goBoard : function(e) {   
+            	var currentTarget = $(e.currentTarget),
+            		infoTarget = currentTarget.parents('li.info,li.notice'),
+    				boardId = infoTarget.attr("data-boardId"),
+    			    url = "board/"+boardId;
+            	
+            	window.location.href = this.contextRoot + "app/" + url;
+            },
+            
+            paging : function(e) {
+	        	var self = this;
+	        	var target = $(e.currentTarget);
+	        	if (target.hasClass("paginate_button_disabled")) return;
+	        	this.collection.page.page += parseInt(target.attr("data-value"));
+	        	if (!document.domain) {
+		        	$.ajax(this.collection.url(), {success : function(data) {
+		    			self.collection.reset(data.data);
+		    			self._renderList(self.gadgetModel);
+		    			self.renderFooter();
+		    		}});
+	        	} else {
+        		this.collection.fetch({
+	        		success : function(collection) {
+		    			self._renderList(self.gadgetModel);
+		    			self.renderFooter();
+	        		}
+	        	});
+	        	}
+	        }
+	    });
+	    
+	    
+	    var Post = Backbone.Model.extend({
+	    	isClassic : function() {
+	    		return this.get("type") == "CLASSIC" ? true : false;
+	    	},
+	    	
+	    	hasComments : function() {
+	    		return this.get("commentsCount") > 0 ? true : false;
+	    	},
+	    	
+	    	isPostHidden : function() {
+	    		return this.get("summary") == " $$#HIDDEN_POST#$$ " ? true : false; 
+	    	},
+	    	isStreamType : function() {
+				return this.get("type") == "STREAM" ? true : false;	    		
+	    	},
+	    	createdAt : function() {
+	    		return moment(this.get("createdAt")).format("YYYY-MM-DD HH:mm");
+	    	},
+	    	
+	    	isRepImageExist : function(){
+	    		return this.get("repImage").id ? true : false;
+	    	},
+	    	
+	    	thumbnail : function(layer,columnid,offset,index){
+	    		//사진크기 결정해주는 로직 필요.
+	    		if(index == "0" && (offset == "1" || offset == "3")){
+	    			var sets = [
+		    			{"layer":"3_1","column":"2"},
+		    			{"layer":"3_1","column":"3"},
+		    			{"layer":"3_2","column":"1"},
+		    			{"layer":"3_2","column":"2"},
+		    			{"layer":"3_2","column":"3"},
+		    			{"layer":"3_3","column":"2"},
+		    			{"layer":"5_1","column":"2"}
+		    		];
+	    			var mem = sets.filter(function(set){
+		    			return set.layer == layer && set.column == columnid;
+		    		});
+	    			if(mem.length > 0){
+		    			return this.get("repImage").thumbLarge;
+		    		}
+	    		}
+	    		return this.get("repImage").thumbMid;
+	    	}
+	    });
+	    
+	    
+	    var Posts = Backbone.Collection.extend({
+	    	model : Post,
+	    	
+	    	initialize : function(data, options) {
+	    		this.currentBoard = options.currentBoard;
+	    		this.offset = options.offset;
+	    		this.contextRoot = options.contextRoot;
+	    		this.viewtype = options.viewtype;
+	    	},
+	    	
+	    	url : function() {
+	        	var params = { offset : this.offset || this.defaultOffset, page : this.page.page, viewtype : this.viewtype};
+	            var url = this.contextRoot + "api/board/";
+	            
+	            if(this.currentBoard == "0"){
+	            	url += "posts/company?"
+	            }else{
+	            	url += this.currentBoard + "/posts?"
+	            }
+	            return url + $.param(params);
+	            
+	    	},
+	    	
+	    	setCurrentBoard : function(currentBoard) {
+	    		this.currentBoard = currentBoard;
+	    	},
+	    	
+	    	setPage : function(page) {
+	    		this.page = page;
+	    	},
+	    	
+	    	isPrev : function() {
+	    		return this.page.page > 0 ? true : false;
+	    	},
+	    	
+	    	isNext : function() {
+	    		return ((this.page.page + 1) * this.page.offset < this.page.total) ? true : false; 
+	    	}
+	    });
+	    
+        var contextRoot = $("meta[name='base']").attr("content");
+        
+        var AccessBoards = Backbone.Collection.extend({
+        	url: function() {
+        		return contextRoot + "api/board/company/boardsWithIp";
+        	},
+        	
+        	parse: function(resp) {
+        		var ids = _.map(resp.data.boards, function(data) {
+        			if(data.board){
+	        			return data.board.id ? data.board.id + "" : null;
+        			}else{
+        				return null;
+        			}
+        		});
+        		ids = _.compact(ids);
+        		ids.push('0');
+        		resp.data = ids;
+        		return resp;
+        	}
+        });
+        
+	    var Model = Backbone.Model.extend({
+	    	initialize : function(options) {
+	    		this.i18n = options.i18n;
+	    	},
+	    	
+	    	fetchAccessibleBoardIds: $.Deferred(),
+	    	accessibleBoardIds: ['0'],
+	    	
+	    	renewalBoardName : function() {
+	    		var contextRoot = $("meta[name='base']").attr("content");
+	    		var boardIds = this.getIds();
+	    		var self = this;
+	    		
+	    		var totalIndex = $.inArray('0', boardIds);	    		
+	    		var defaultData = this.defaultData();	    		
+	    		
+	    		return $.ajax({
+	    			url : contextRoot + "api/board/gadget?" + $.param({boardId : boardIds}),
+	    			success : function(resp) {
+	    				var boards = _.map(resp.data, function(data) {
+	    					return data.id + "|" + data.name + "|" + data.otherCompany;
+	    				});
+	    				
+	    				if(totalIndex > -1) {
+	    					boards.splice(totalIndex, 0, defaultData);
+	    				}
+	    				self.set("boardIds", boards.join(","));
+	    			}
+	    		});
+	    	},
+	    	
+	    	defaultData : function() {
+	    		return ["0|" + this.i18n.parse("total")];
+	    	},
+	    	
+	    	dataParser : function() {
+	    		if (!this.get("boardIds")) return this.defaultData();
+	    		return this.get("boardIds").split(",");
+	    	},
+	    	
+	    	getIds : function() {
+	    	    var boardIds = _.map(this.dataParser(), function(board) {
+	    			return board.split("|")[0];
+	    		});
+	    	    var returnIds = _.reject(boardIds, function(boardId){
+	                return !this.isAccessBoard(boardId);
+	            }, this);
+	    	    
+	    	    return returnIds;
+	    	},
+	    	
+	    	getCurrentBoardId : function() {
+	    		var boards = this.getBoards();
+	    		return boards[0] ? boards[0].id : 0;
+	    	},
+	    	
+	    	getCurrentBoard : function() {
+	    		return this.getBoards()[0];
+	    	},
+	    	
+	    	isAccessBoard : function(id){
+	    	    return $.inArray(id, this.accessibleBoardIds) >= 0;
+	    	},
+	    	
+	    	getBoards : function() {
+	    	    var boards = []
+	    	    _.each(this.dataParser(), function(board, index) {
+	    			var split = board.split("|");
+	    			var id = split[0];
+	    			var name = split[1];
+	    			var otherCompany = split[2] ? split[2] : 'false';
+	    			var data = board;
+	    			
+	    			if(this.isAccessBoard(id)){
+		    			boards.push({
+		    				id : id,
+		    				name : name,
+		    				otherCompany : otherCompany,
+		    				data : board
+		    			});
+	    			}
+	    		}, this);
+	    		return boards;
+	    	},
+	    	
+	    	isMultiBoard : function() {
+	    		return _.isArray(this.get("boardIds"));
+	    	}
+	    });
+	    
+	    var Resizer = (function($, undefined) {
+	        
+	        function WindowResizer(delay) {
+	            this.ignoreWindowResize = 0;
+	            this.resizeUID = 0;
+	            this.delay = delay || 200;
+	        }
+	        
+	        WindowResizer.prototype = {
+	            setDelay: function(delay) {
+	                this.delay = delay;
+	            }, 
+	            
+	            bind: function(e, callback) {
+	                var self = this;
+	                
+	                if(e.target === window || e.target === document) {
+	                    var args = Array.prototype.slice.call( arguments, 1 );
+	                    if(!this.ignoreWindowResize) {
+	                        var uid = ++this.resizeUID; 
+	                        setTimeout(function() {
+	                            if(uid == self.resizeUID && !self.ignoreWindowResize) {
+	                                self.ignoreWindowResize++;
+	                                callback.apply(undefined, args);
+	                                self.ignoreWindowResize--;
+	                            }
+	                        }, this.delay);
+	                    }
+	                }
+	            }
+	        };
+	        
+	        window.WindowResizer = WindowResizer;
+	        return WindowResizer;
+	        
+	    })(jQuery);
+    }catch(e){
+    	console.info(e);
+    }
+    </script>
+</head>
+
+<body id="main" class="go_skin_home_default" data-role="main">
+    <div class="go-dashboard go-dashboard-editing go_dashboard_3_2"> 
+        <div class="go-gadget-column gadget-col-1" data-columnid="1">
+            <!-- empty -->
+        </div>
+        
+        <div class="gripper"></div>
+
+        <div id="gadget-containter" class="go-gadget-column gadget-col-2" data-columnid="2">
+            <!-- empty -->
+        </div>
+
+        <div class="gripper"></div>
+
+        <div class="go-gadget-column gadget-col-3" data-columnid="3">
+            <!-- empty -->
+        </div>
+    </div>
+</body>
+</html>

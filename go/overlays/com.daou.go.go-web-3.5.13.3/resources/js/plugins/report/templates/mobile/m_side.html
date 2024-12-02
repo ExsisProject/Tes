@@ -1,0 +1,59 @@
+			{{#hasFavorite}}
+			<h3>
+				<span class="btn_wrap">
+					<span class="txt_ellipsis">{{lang.favorite}}</span>
+				</span>
+			</h3>
+			<ul>
+				{{#favorite}}
+				<li>
+					<a href="" data-navigate="{{id}}">
+						<span class="btn_wrap">
+							<span class="ic_side ic_add_tag"></span>
+							<span class="txt_ellipsis">{{name}}</span>
+						</span>
+					</a>
+				</li>
+				{{/favorite}}
+			</ul>
+			{{/hasFavorite}}
+			
+			{{#hasData}}
+			<h3>
+				<span class="btn_wrap">
+					<span class="txt_ellipsis">{{lang.deptReport}}</span>
+				</span>
+			</h3>
+			
+			<ul class="side_depth">
+				{{#data}}
+				<li class="folder">
+					<p class="title">
+						<a href="#">
+							<span class="btn_wrap">
+								<span class="ic_side ic_part"></span>
+								<span class="txt_ellipsis">{{name}}</span>						
+							</span>
+						</a>
+					</p>	
+					<ul>
+						{{#folders}}
+						<li class="folder">
+							<p class="title">
+								<a href="#" data-navigate="{{id}}">
+									<span class="btn_wrap">
+										<span class="ic ic_root"></span>
+										{{#isPrivate}}
+										<span class="ic_side ic_board_secret"></span>
+										{{/isPrivate}}
+										<span class="txt_ellipsis">{{name}}</span>
+									</span>
+								</a>
+							</p> 
+						</li>
+						{{/folders}}						
+					</ul>					
+				</li>
+				{{/data}}
+			</ul>
+			{{/hasData}}

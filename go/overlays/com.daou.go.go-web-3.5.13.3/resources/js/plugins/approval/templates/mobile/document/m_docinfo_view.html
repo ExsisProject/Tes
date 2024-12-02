@@ -1,0 +1,137 @@
+<dl class="list_type4">
+	<dt>
+		<span class="txt">{{lang.문서번호}}</span>
+	</dt>
+	<dd>{{docInfo.docNum}}</dd>
+	<dt>
+		<span class="txt">{{lang.공개여부}}</span>
+	</dt>
+	<dd>
+		<span class="txt">
+      	{{#docInfo.isPublic}}{{lang.공개}}{{/docInfo.isPublic}}
+      	{{^docInfo.isPublic}}{{lang.비공개}}{{/docInfo.isPublic}}
+        </span>
+    </dd>
+    {{#action.companyDocFolderUseFlag}}
+	<dt>
+		<span class="txt">{{lang.전사문서함}}</span>
+	</dt>
+	<dd id="companyDocFolderUse">
+		<ul class="name_tag" id="addFolder">        	                 
+	    	{{#docInfo.docFolders}}
+            	<li>
+					<span class="name" title="{{parentName}}">{{parentName}}</span>
+				</li>
+   	        {{/docInfo.docFolders}}
+       	</ul>
+	</dd>
+   	{{/action.companyDocFolderUseFlag}}
+	<dt{{^action.securityLevelActive}} style="display:none;"{{/action.securityLevelActive}}>
+		<span class="txt">{{lang.보안등급}}</span>
+	</dt>
+	<dd{{^action.securityLevelActive}} style="display:none;"{{/action.securityLevelActive}}>
+		<span class="txt">{{docInfo.securityLevelName}}</span>
+	</dd>
+	<dt>
+		<span class="txt">{{lang.보존연한}}</span>
+	</dt>
+	<dd>
+		<span class="txt">{{#docInfo.docYear}}{{docInfo.docYear}}{{lang.년}}{{/docInfo.docYear}}{{^docInfo.docYear}}{{lang.영구}}{{/docInfo.docYear}}</span>
+	</dd>
+	<dt>
+		<span class="txt">{{lang.기안부서}}</span>
+	</dt>
+	<dd>
+		<span class="txt">{{docInfo.drafterDeptName}}</span>
+	</dd>
+    {{#action.referenceActive}}
+    	<dt>
+			<span class="txt">{{lang.문서참조}}</span>
+		</dt>
+		<dd>
+			<div class="wrap_name_tag">
+ 	           <ul class="name_tag" id="addReference">
+               	{{#docInfo.docReferenceReaders}}
+                    <li>
+						<span class="name">{{reader.name}} {{reader.position}}</span>
+					</li>
+				{{/docInfo.docReferenceReaders}}
+     	       </ul>
+            </div>   
+		</dd>
+    {{/action.referenceActive}}
+    {{^isComplete}}
+    {{#action.receptionActive}} 
+    	<dt>
+			<span class="txt">{{lang.문서수신}}</span>
+		</dt>
+		<dd>
+			<div class="wrap_name_tag">
+            	<ul class="name_tag" id="addReceive">
+	                {{#docInfo.docReceptionReaders}}
+                    	<li>
+							<span class="name">{{reader.name}} {{reader.position}}</span>
+						</li>
+					{{/docInfo.docReceptionReaders}}
+                </ul>
+            </div>
+		</dd>
+    {{/action.receptionActive}}
+    {{/isComplete}}
+	{{#isComplete}}
+    {{#action.receptionActive}}    
+    <dt>
+		<span class="txt">{{lang.문서수신}}</span>
+	</dt>
+	<dd>
+		<div class="wrap_name_tag">
+            <ul class="name_tag" id="addReceive">
+                {{#docInfo.docReceptionReaders}}
+                <li data-id="{{reader.id}}" data-userId="{{reader.id}}" data-userName="{{reader.name}}" data-userPosition="{{reader.position}}" data-sid="{{id}}" data-deptType={{reader.deptType}}>
+                    <span class="name">{{reader.name}} {{reader.position}}</span>
+                </li>
+                {{/docInfo.docReceptionReaders}}
+            </ul>
+        </div>
+	</dd>
+    {{/action.receptionActive}}
+    {{/isComplete}}         
+    <dt>
+		<span class="txt">{{lang.문서열람}}</span>
+	</dt>
+	<dd>
+		<ul class="name_tag" id="addReading">
+        {{#docInfo.docReadingReaders}}
+            <li data-id="{{reader.id}}" data-userId="{{reader.id}}" data-userName="{{reader.name}}" data-userPosition="{{reader.position}}" data-sid="{{id}}" data-deptType={{reader.deptType}}>
+				<span class="name">{{reader.name}} {{reader.position}}</span>
+			</li>
+		{{/docInfo.docReadingReaders}}
+        </ul>  
+	</dd>
+    {{#action.officialDocumentSendable}}         
+    <dt>
+		<span class="txt">{{lang.공문발송}}</span>
+	</dt>
+	<dd>
+		<div class="wrap_name_tag">
+        	<ul class="name_tag" id="addOfficialDoc">
+            	{{#docInfo.officialVersions}}
+					{{#receivers}}            	
+               		<li>
+						<span class="name">{{company}} {{name}}</span>
+					</li>
+					{{/receivers}}
+				{{/docInfo.officialVersions}}
+            </ul>
+        </div>    
+	</dd>
+    {{/action.officialDocumentSendable}}    
+    <dt>
+		<span class="txt">{{lang.긴급문서}}</span>
+	</dt>
+	<dd>
+		{{#isEmergency}}
+        	<span class="txt">{{lang.긴급}}</span>
+        {{/isEmergency}}
+	</dd>       
+</dl>

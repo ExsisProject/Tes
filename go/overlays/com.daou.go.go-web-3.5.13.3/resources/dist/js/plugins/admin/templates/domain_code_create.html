@@ -1,0 +1,83 @@
+<form id="formCreateCode" name="formCreateCode">
+    <table class="table_form_mini">
+        <tbody>
+            <tr>
+                <th><span class="title"><ins class="asterisk">*</ins>{{lang.label_code}}</span></th>
+                <td>
+                    <input class="input w200"  id="code" name="code" value="" />
+                </td>
+            </tr>
+
+            <tr>
+                <th>
+                    <span class="title">
+                        <ins class="asterisk">*</ins>{{lang.label_name}}
+                        {{#isKoLocale}} ({{lang.label_ko}}) {{/isKoLocale}}
+                        {{#isEnLocale}} ({{lang.label_en}}) {{/isEnLocale}}
+                        {{#isJpLocale}} ({{lang.label_jp}}) {{/isJpLocale}}
+                        {{#isZhcnLocale}} ({{lang.label_zhcn}}) {{/isZhcnLocale}}
+                        {{#isZhtwLocale}} ({{lang.label_zhtw}}) {{/isZhtwLocale}}
+                        {{#isViLocale}} ({{lang.label_vi}}) {{/isViLocale}}
+                    </span>
+                </th>
+                <td>
+                    <input class="input w200" type="text" name="{{companyLocale}}Name" id="{{companyLocale}}Name"/>
+                    <span class="wrap_btn btn_clean" id="btnMultiLang">
+                        <span class="txt">{{lang.label_multi_lang}}</span>
+                        <i class="ic_adm ic_accordion_s" title="{{lang.label_open}}"></i>
+                    </span>
+                </td>
+            </tr>
+
+            {{^isKoLocale}}
+            <tr id="koNameInput" style="display: none">
+                <th><span class="title">{{lang.label_name}} ({{lang.label_ko}})</span></th>
+                <td>
+                    <input class="input w200" id="koName" name="koName" value="" />
+                </td>
+            </tr>
+            {{/isKoLocale}}
+            {{^isEnLocale}}
+            <tr id="enNameInput" style="display: none">
+                <th><span class="title">{{lang.label_name}} ({{lang.label_en}})</span></th>
+                <td>
+                    <input class="input w200" id="enName" name="enName" value="" />
+                </td>
+            </tr>
+            {{/isEnLocale}}
+            {{^isJpLocale}}
+            <tr id="jpNameInput" style="display: none">
+                <th><span class="title">{{lang.label_name}} ({{lang.label_jp}})</span></th>
+                <td>
+                    <input class="input w200" id="jpName" name="jpName" value="" />
+                </td>
+            </tr>
+            {{/isJpLocale}}
+            {{^isZhcnLocale}}
+            <tr id="zhcnNameInput" style="display: none">
+                <th><span class="title">{{lang.label_name}} ({{lang.label_zhcn}})</span></th>
+                <td>
+                    <input class="input w200" id="zhcnName" name="zhcnName" value="" />
+                </td>
+            </tr>
+            {{/isZhcnLocale}}
+            {{^isZhtwLocale}}
+            <tr id="zhtwNameInput" style="display: none">
+                <th><span class="title">{{lang.label_name}} ({{lang.label_zhtw}})</span></th>
+                <td>
+                    <input class="input w200" id="zhtwName" name="zhtwName" value="" />
+                </td>
+            </tr>
+            {{/isZhtwLocale}}
+            {{^isViLocale}}
+            <tr id="viNameInput" style="display: none">
+                <th><span class="title">{{lang.label_name}} ({{lang.label_vi}})</span></th>
+                <td>
+                    <input class="input w200" id="viName" name="viName" value="" />
+                </td>
+            </tr>
+            {{/isViLocale}}
+
+        </tbody>
+    </table>
+</form>

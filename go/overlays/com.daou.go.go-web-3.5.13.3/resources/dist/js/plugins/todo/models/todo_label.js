@@ -1,0 +1,1 @@
+define("todo/models/todo_label",["app","todo/models/base"],function(e,t){var n;return n=t.Model.extend({urlRoot:function(){return e.config("contextRoot")+"api/todo/"+this.get("todoId")+"/label"}}),n});

@@ -1,0 +1,122 @@
+<div class="wrap_filter_title">
+    <div class="critical custom_header">
+        <span class="title">{{CommonLang.상세검색}}</span>
+    </div>
+</div>
+<div class="tool_bar filter_option">
+    <!-- 정의한 필터 리스트 -->
+    <div class="btn_submenu layer_a">
+        <a id="ck_main" class="btn_tool ">
+            <span class="txt"><strong>+ {{CommonLang.조건 추가}}</strong> </span>
+        </a>
+        <!--//display none block-->
+        <div class="array_option fastSearch input_layer " style="display:none;">
+            <ul id="toolbar_quick_search" class="array_type ">
+                <li><input id="deptCk" type="checkbox"><label for="deptCk">{{CommonLang.부서명}}</label></li>
+                <li><input id="nameCk" type="checkbox"><label for="nameCk">{{CommonLang.부서원}}</label></li>
+                <li><input id="dateCk" type="checkbox"><label for="dateCk">{{CommonLang.날짜}}</label></li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="deptOpt" class="btn_submenu search_box" style="display:none">
+        <a class="btn_tool btn_tool_multi">
+            <span class="txt"><span>{{CommonLang.부서명}} :</span> <strong id="dept-filter"></strong> </span>
+            <span class="ic ic_arrow_type3"></span>
+        </a>
+        <span class="btn_func_more" evt-rol="toolbar" sub="on">
+								<span class="ic ic_close"></span> </span>
+
+
+        <div class="array_option form_box_basic" id="deptInput" style="display:none">
+            <div class="box_basic_inner">
+                <div class="wrap_box_small"><input id="dept-value" class="txt_mini w_max" type="text" value="" ></div>
+            </div><footer class="btn_layer_wrap">
+            <a id="deptConfirm" class="btn_major_s" el-type="submit">
+                <span class="ic"></span><span class="txt">{{CommonLang.확인}}</span>
+            </a>
+            <a class="btn_minor_s cancel"  el-type="cancel">
+                <span class="ic"></span><span class="txt">{{CommonLang.취소}}</span>
+            </a>
+        </footer>
+        </div>
+    </div>
+    <div  id="nameOpt" class="btn_submenu search_box" style="display:none">
+        <a class="btn_tool btn_tool_multi">
+            <span class="txt"><span>{{CommonLang.부서원}} :</span> <strong id="name-filter"></strong> </span>
+            <span class="ic ic_arrow_type3"></span>
+        </a>
+        <span class="btn_func_more" evt-rol="toolbar" sub="on">
+								<span class="ic ic_close"></span>
+							</span>
+
+        <div class="array_option form_box_basic" id="nameInput" style="display:none">
+            <div class="box_basic_inner">
+                <div class="wrap_box_small"><input id="name-value" class="txt_mini w_max" type="text" value="" ></div>
+            </div><footer class="btn_layer_wrap">
+            <a id="nameConfirm" class="btn_major_s" el-type="submit">
+                <span class="ic"></span><span class="txt">{{CommonLang.확인}}</span>
+
+            </a>
+            <a class="btn_minor_s cancel"el-type="cancel">
+                <span class="ic"></span><span class="txt">{{CommonLang.취소}}</span>
+            </a>
+        </footer>
+        </div>
+    </div>
+    <div  id="dateOpt" class="btn_submenu search_box" style="display:none">
+        <a class="btn_tool btn_tool_multi">
+            <span class="txt"><span>{{CommonLang.날짜}} :</span> <strong id="dateRange">2020-03-01 ~ 2020-03-31</strong> </span>
+        </a>
+        <span class="btn_func_more" evt-rol="toolbar" sub="on">
+								<span class="ic ic_close"></span>
+							</span>
+        <div class="array_option form_box_basic" id="dateInput" style="display:none ;">
+            <div class="wrap_box_small ">
+                <!--테이블-->
+                <table class="form_type go_form_basic">
+                    <tbody>
+                    <tr>
+                        <td>
+                            <!--날짜 선택-->
+                            <ul class="select_option">
+                                <li>
+															<span class="wrap_dateselect" >
+																<span class="wrap_date" id="startDateInput">
+																<input id="start-date"
+                                                                       class="txt wfix_small hasDatepicker" type="text"
+                                                                       name="start_date" value="2020-05-07"
+                                                                       data-prev="2020-05-07" readonly="readonly">
+																<span class="ic ic_calendar"> </span>
+																</span>
+																<span class="date_wave">~</span>
+																<span class="wrap_date" id="endDateInput">
+																	<input id="end-date"
+                                                                           class="txt wfix_small hasDatepicker"
+                                                                           type="text" name="start_date"
+                                                                           value="2020-05-07" data-prev="2020-05-07"
+                                                                           readonly="readonly">
+																	<span class="ic ic_calendar"></span>
+																</span>
+															</span>
+
+                                </li>
+                            </ul>
+
+                        </td>
+                    </tr>
+                    </tbody>
+                    <input id="startDatePicker" type="text" style="border:0px;width:0px;height:0px;" class="datepicker">
+                    <input id="endDatePicker" type="text" style="border:0px;width:0px;height:0px;" class="datepicker">
+                </table>
+                <!--//테이블-->
+            </div>
+            <footer class="btn_layer_wrap">
+                <a class="btn_major_s" id="dateConfirm"><span class="txt">{{CommonLang.확인}}</span></a>
+                <a class="btn_minor_s cancel"><span class="txt">{{CommonLang.취소}}</span></a>
+            </footer>
+        </div>
+    </div>
+
+</div>
+    <!-- //정의한 필터 리스트 -->

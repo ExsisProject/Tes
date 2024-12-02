@@ -1,0 +1,38 @@
+{{#hasFiles}}
+	<ul class="file_wrap origin">
+		{{#files}}
+		<li data-name="{{name}}" data-id="{{id}}">
+			<span class="item_file">
+				<span class="ic_file ic_{{extention}}"></span>
+				<span class="name"><a href="{{contextRoot}}api/{{typeUrl}}/{{typeId}}/download/{{id}}" data-bypass>{{name}}</a></span>
+				<span class="size">({{size}})</span>
+				<a class="preview" title="" href="javascript:;" data-bypass data-id="{{id}}">
+					<span class="btn_fn4">
+						<span class="txt">{{lang.preview}}</span>
+					</span>
+				</a>
+				<a title="" href="{{contextRoot}}api/{{typeUrl}}/{{typeId}}/download/{{id}}" data-bypass>
+					<span class="btn_fn4">
+						<span class="txt">{{lang.save}}</span>
+					</span>
+				</a>														
+			</span>
+		</li>
+		{{/files}}
+	</ul>
+{{/hasFiles}}
+{{#hasImages}}
+	<ul class="img_wrap origin">
+		{{#images}}
+		<li data-name="{{name}}" data-boardid="{{boardId}}" data-postid="{{postId}}" data-id="{{id}}">
+			<span class="item_image">
+				<span class="thumb">
+					<a href="{{contextRoot}}api/{{typeUrl}}/{{typeId}}/download/{{id}}" data-bypass class="fancybox-thumbs fancybox-button" data-fancybox-group="commentThumb_{{typeId}}" title="{{name}}">		
+						<img src="{{thumbSmall}}" alt="{{name}}"  />
+					</a>
+				</span>
+			</span>								
+		</li>		
+		{{/images}}											
+	</ul>	
+{{/hasImages}}

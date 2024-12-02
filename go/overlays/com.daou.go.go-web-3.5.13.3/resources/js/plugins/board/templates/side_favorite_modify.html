@@ -1,0 +1,18 @@
+<h1 class="star">
+	<ins class="ic"></ins>
+	<span class="txt">{{lang.favorite_edit_title}}</span>
+	<span class="btn_wrap">
+		<span id="reorderSave" class="ic_side ic_done" title="{{lang.save}}"></span>
+		<span id="reorderCancel" class="ic_side ic_cancel" title="{{lang.cancel}}"></span>
+	</span>
+</h1>
+<ul class="side_depth" style="margin-top:3px">
+{{#data}}
+	<li  class="{{getBoardTypeClass}}" data-id="{{id}}" data-boardId="{{boardId}}">
+		<p class="title">
+			<ins class="ic"></ins><span class="txt">{{name}}</span>
+			<span class="btn_wrap"><span class="ic_side ic_list_del"></span></span>
+		</p>
+	</li>
+{{/data}}		
+</ul>

@@ -1,0 +1,139 @@
+@charset "UTF-8";
+
+/* reset */
+.gnb_layer.gnb_profile_layer a.btn_layer_x .ic {width: 26px; height: 24px; background-position: 0 -350px;}
+a.btn_layer_x {position: absolute; top: 8px; right: 8px; border-radius: 4px; padding: 8px;}
+a.btn_layer_x:hover {background-color:#f0f0f0;}
+a.btn_layer_x span.ic {display: inline-block; width: 16px; height: 16px; background: url(../images/ic_gnb.png?v3.1) no-repeat -100px -100px; vertical-align: middle;}
+a.btn_layer_x span.txt {display: none;}
+* [unresolved] {display: none}
+article, aside, figure, footer, header, hgroup, nav, section {display:block}
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,form,fieldset,p,button,input,figure {margin:0;padding:0}
+body,input, textarea, select {font-size: 14px; font-family: 'Noto Sans KR',맑은 고딕,돋움, malgun gothic, dotum,AppleGothic,Helvetica,sans-serif; color: #333}
+body,input, select {*word-break:break-all; -ms-word-wrap:break-all; white-space:normal; word-break:break-all; letter-spacing: -0.5px}
+button {vertical-align: middle; font-size: 13px;}
+img {vertical-align: top}
+a{color: #333; text-decoration:none; cursor: pointer}
+a:hover{text-decoration: none}
+a img, img {border:0}
+ul, ol {list-style:none}
+body {min-width:1000px; position: relative}
+dl, font, p, ol {line-height:150%}
+/* vertical-align */
+.go_renew input[type=radio],
+input, select,
+.tool_bar .btn_tool span.ic_txtPlus,
+section.comm_list ul.article_list li div.article_wrap .btn_wrap span.num,
+header.content_top h1>span.txt ,
+input[type="text"], input[type="password"],
+.wrap_txt, .wrap_select, .wrap_label, .wrap_date,
+.go_renew .wrap_btn,
+.wrap_btn_m, .wrap_btn_s, .wrap_inbtn, span.wrap_txtarea,
+.verspace1, .verspace2, .horspace1, .horspace2,
+.mini_gnb_btn_minor_s,
+span.ic_classic,
+.type_normal td .ic_reply,
+.board_card .meta_data .ic_wrap span,
+section.comm_list ul.article_list li div.article_wrap .info span.photo,
+header.content_top h1 span.action,
+.type_normal td span.ic_file_s,
+section.comm_list ul.article_list li div.article_wrap span.title,
+.go_renew input[type=checkbox] {vertical-align: middle}
+.mini_gnb_btn_minor_s {display: inline-block; cursor: pointer; padding: 0 8px; color: #333; height: 26px; line-height: 26px; background: #fff; border: 1px solid #ddd; border-radius: 2px; font-size: 13px; vertical-align: middle;}
+span.mini_gnb_help {display: inline-block; position: relative; width: 16px; height: 16px; background: url(../images/ic_con.png?v2.6.0.0) no-repeat 0 0; margin-left: 1px; cursor: pointer; vertical-align: middle; line-height: 1.4;}
+span.mini_gnb_help:hover>span {position: relative; display: block; position: absolute; top: 1px; left: 26px; background: #444; width: 185px; color: #ddd; border-radius: 3px; padding: 12px; font-weight: normal; text-indent: 0; z-index: 100; white-space: normal; font-size: 13px;}
+
+.go_wrap .wrap_channel .mini_gnb_profile {margin: 4px 6px 0!important;}
+.wrap_channel .mini_gnb_profile {position: relative; margin: 6px 6px 0 ; float:initial!important; width:32px; height:32px;}
+.wrap_channel .mini_gnb_profile .mini_gnb_photo a {display:inline-block;}
+.wrap_channel .mini_gnb_profile .mini_gnb_photo img {width: 32px; height: 32px; border-radius: 32px;}
+.wrap_channel .mini_gnb_profile .mini_gnb_photo {display:inline-block;}
+
+section.my_info ul.ctrl {margin-right:0!important;}
+.go_wrap .wrap_channel {float:right; position:relative; top:0; right:-2px;}
+.wrap_channel {display:inline-block; position:absolute; top:14px; right:20px;}
+.go_wrap .wrap_channel a.btn_channel {background-position:-100px 0;}
+.wrap_channel a.btn_channel {background-position:-100px -50px;}
+.wrap_channel > div {display:inline-block; width:40px; height:43px; vertical-align:top; text-align:center;}
+.wrap_channel > div:hover {background:#eee; border-radius:4px;}
+.go_wrap .wrap_channel > div:hover {background-color:#0392a7;}
+.go_skin_advanced .wrap_channel > div:hover {background-color:#eee; border-radius:4px;}
+.wrap_channel > div.profile:hover {background:none;}
+.go_wrap .wrap_channel > div > a {margin-top:9px;}
+.go_skin_advanced .go_wrap .wrap_channel > div > a {margin-top:8px;}
+.wrap_channel > div > a {display: inline-block; margin-top:10px; background: url(../images/ic_snb.png?v2.6.0.0) no-repeat; width: 26px; height: 26px;}
+.wrap_channel > div > a.btn_setting span,
+.wrap_channel > div > a.btn_channel span {display:none!important;}
+.go_skin_advanced .wrap_channel a.btn_channel {background-position:-100px -50px;}
+.go_skin_advanced .wrap_channel a.btn_setting {background-position:-200px -50px;}
+
+/* gnb Layer */
+.gnb_layer {position:absolute; top:46px; right:0; width:240px; box-shadow:0 0 8px rgba(0,0,0,0.2); background:#fff; border-radius:4px; z-index:100;}
+.gnb_layer .mini_gnb_content {text-align:left; letter-spacing: -0.7px;}
+.gnb_layer.gnb_profile_layer {display:none;}
+.gnb_layer.gnb_profile_layer.on {display:block;}
+.gnb_layer.gnb_profile_layer header {text-align:right;}
+.gnb_layer.gnb_profile_layer a.btn_layer_x {display:inline-block; margin:16px 16px 0; position:relative; top:initial; right:initial;}
+.gnb_layer.gnb_profile_layer a.btn_layer_x .ic {width:26px; height:24px; background-position:0 -350px;}
+.gnb_layer.gnb_profile_layer img {width:72px; height:72px; border-radius:32px!important;}
+.gnb_layer.gnb_profile_layer .mini_gnb_content {padding: 32px 24px; text-align:center;}
+.gnb_layer.gnb_profile_layer p.mini_gnb_name {margin-top:14px; font-size:16px; font-weight:400;}
+.gnb_layer.gnb_profile_layer p.mini_gnb_txt {color:#8d8d8d; font-size:13px;}
+.gnb_layer.gnb_profile_layer .mini_gnb_btn_wrap {margin:16px auto 0;}
+.gnb_layer.gnb_profile_layer .mini_gnb_btn_major_s {display: inline-block; cursor: pointer; padding: 0 8px; color: #ACACAC; height: 26px; line-height: 22px; background: #fff; border: 1px solid #cacaca; border-radius: 2px; font-size: 13px; vertical-align: middle;}
+.gnb_layer.gnb_profile_layer .mini_gnb_btn_minor_s,
+.gnb_layer.gnb_profile_layer .mini_gnb_btn_major_s {height: 30px!important; padding:0 32px; width:100%; height:auto; box-sizing:border-box; border-radius:4px;}
+.gnb_layer.gnb_profile_layer .mini_gnb_btn_minor_s {background:#f3f3f3; color:#999; border:0;}
+.gnb_layer.gnb_profile_layer .mini_gnb_btn_major_s {margin-top:8px;}
+.gnb_layer.gnb_profile_layer .mini_gnb_btn_minor_s:hover {background:#eee;}
+.gnb_layer.gnb_profile_layer .mini_gnb_btn_major_s:hover {padding-top: 1px; background:linear-gradient(90deg, rgba(89,216,211,1) 0%, rgba(85,159,227,1) 50%, rgba(73,92,221,1) 100%); border:none;}
+.gnb_layer.gnb_profile_layer .mini_gnb_btn_minor_s span.mini_gnb_txt,
+.gnb_layer.gnb_profile_layer .mini_gnb_btn_major_s span.mini_gnb_txt {font-size:13px!important; font-weight: 400; letter-spacing: -0.5px; line-height:27px;}
+.gnb_layer.gnb_profile_layer .mini_gnb_btn_major_s:hover span.mini_gnb_txt {color: #fff;}
+.gnb_layer.gnb_channel_layer {display:none; width:300px; top:50px; right:6px;}
+.gnb_layer.gnb_channel_layer.on {display:block;}
+.gnb_layer.gnb_channel_layer a.btn_layer_x {margin:20px;}
+.gnb_layer.gnb_channel_layer header {position:relative; left:initial!important;}
+.gnb_layer.gnb_channel_layer footer {position:relative; padding:24px 32px 32px; /*border-top:1px solid #eee;*/ text-align: left; color: #ACACAC;}
+.gnb_layer.gnb_channel_layer footer .channel_logo {text-align:left;}
+.gnb_layer.gnb_channel_layer footer .channel_logo img {border-radius:0}
+.gnb_layer.gnb_channel_layer footer span.mini_gnb_help {position:absolute; top:26px; right:25px; width:18px; height:18px; background:url(../images/ic_channel.png) no-repeat -90px 0;}
+.gnb_layer.gnb_channel_layer footer span.mini_gnb_help > span {display:none;}
+.gnb_layer.gnb_channel_layer footer span.mini_gnb_help:hover > span {left:initial; display:block!important; top:-120px; right:0; text-align:left;}
+.gnb_layer.gnb_channel_layer footer span.mini_gnb_help:hover > span strong {font-weight:bold;}
+.gnb_layer.gnb_channel_layer footer .mini_gnb_copyright {font-size: 11px; font-weight: 400}
+.gnb_layer.gnb_channel_layer .channel_btn_list:hover {background:none;}
+.gnb_layer.gnb_channel_layer .channel_list {padding:32px 18px 0;}
+.gnb_layer.gnb_channel_layer .channel_btn_list {padding:24px 32px 0; width:100%; box-sizing:border-box;}
+.gnb_layer.gnb_channel_layer .channel_btn_list li {opacity: 0.9; margin-top:8px; width:100%!important;}
+.gnb_layer.gnb_channel_layer .channel_btn_list li.mini_gnb_line {height: 0; margin:0; padding-bottom: 8px; border-bottom: 1px solid #ededed;}
+
+.gnb_layer.gnb_channel_layer .channel_btn_list li:first-child {margin-top:0;}
+.gnb_layer.gnb_channel_layer .channel_btn_list li a span + .mini_gnb_txt {margin-left: 8px; display:inline; width:100%; vertical-align:middle; font-size: 13px; font-weight: 400;}
+.gnb_layer.gnb_channel_layer .channel_btn_list li a span + .mini_gnb_txt:hover {color: #000;}
+.gnb_layer.gnb_channel_layer .channel_btn_list.btn_txt li {float:left; width:50%!important; display:inline-block; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+.gnb_layer.gnb_channel_layer .channel_btn_list.btn_txt li a span.mini_gnb_txt {display:inline;}
+.gnb_layer.gnb_channel_layer .channel_btn_list.btn_txt li:nth-child(1),
+.gnb_layer.gnb_channel_layer .channel_btn_list.btn_txt li:nth-child(2) {margin-top:8px;}
+.gnb_layer.gnb_channel_layer .channel_btn_list.btn_txt:after {display:block; clear:both; content:""}
+
+.ic_channel {display:inline-block; background:url(../images/ic_channel.png) no-repeat 0 0; background:url(../images/ic_channel.svg) no-repeat 0 0;}
+.ic_channel.ic_docare {width:20px; height:20px; background-position:0 0; vertical-align:middle;}
+.ic_channel.ic_card {width:19px; height:15px; background-position:-30px 0; vertical-align:middle;}
+.ic_channel.ic_subscription {width:18px; height:19px; background-position:-60px 0; vertical-align:middle;}
+.ic_channel.ic_member {width:19px; height:18px; background-position:-120px 0; vertical-align:middle;}/*미사용*/
+.ic_channel.ic_video {width:19px; height:18px; background-position:-150px 0; vertical-align:middle;}
+.ic_channel.ic_usage {width:19px; height:18px; background-position:-180px 0; vertical-align:middle;}
+.ic_channel.ic_membership {width:19px; height:18px; background-position:-240px 0; vertical-align:middle;}
+.ic_channel.ic_notice {width:19px; height:18px; background-position:-270px 0; vertical-align:middle;}
+
+.channel_list img {width: 64px; height: 64px;}
+.channel_list a > .mini_gnb_txt {position:absolute; top:70px; width:100%; vertical-align:middle; text-align:center; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+.channel_list a > .mini_gnb_txt:hover {color: #000;}
+
+.more_channel {display:inline-block; padding:21px 0; width:64px; border:1px dashed #aaa; text-align:center; box-sizing:border-box; border-radius:50%}
+.channel_list li {float:left; display:block; position:relative; height:96px;}
+.channel_list li a {display:inline-block; position:relative; width:88px; text-align:center;}
+.channel_list li a .badge {position:absolute; top:7px; right:17px; width:10px; height:10px; padding:0; background-color: #fd1e1e; border-radius:100%;}
+.channel_list:after {display:block; clear:both; content:""}
+.my_info ul.ctrl li a.btn_setting + .gnb_top_menu {right:60px;}

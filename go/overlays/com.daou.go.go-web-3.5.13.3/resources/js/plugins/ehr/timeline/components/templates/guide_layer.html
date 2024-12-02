@@ -1,0 +1,18 @@
+{{^viewGuideBanner}}
+<div class="wrap_help_guide_l" id="guideBadge" style="top:330px; left:125px;">
+    <a class="btn_help_guide_close" id="closeBadge">
+        <span class="ic_works ic_help_guide_close" title="{{{TimelineLang.근태관리가이드}}}"></span>
+    </a>
+    <a class="btn_help_guide_attend" id="goToGuide">
+        <span class="ic_attend ic_help_guide" title="{{{TimelineLang.근태관리가이드}}}"></span>
+        <p class="tit" style="width: 110px">{{{TimelineLang.가이드설명}}}</p>
+    </a>
+</div>
+{{/viewGuideBanner}}
+
+<div class="wrap_help_guide_s" id="guideBanner" {{^viewGuideBanner}}style="display: none"{{/viewGuideBanner}} >
+    <a id="goToGuide">
+        <span class="ic_works ic_help_guide_s" title="{{{TimelineLang.근태관리가이드}}}"></span>
+        <p class="tit">{{{TimelineLang.가이드설명}}}</p>
+    </a>
+</div>

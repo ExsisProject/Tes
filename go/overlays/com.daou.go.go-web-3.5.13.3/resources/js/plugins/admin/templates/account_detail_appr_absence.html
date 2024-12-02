@@ -1,0 +1,49 @@
+<span id="absenceSettingBtn" class="btn_s settingAbsence openSetting">{{lang.취소}}</span>
+<br>
+<div class="option_display">
+    <table class="in_table tb_vertical">
+        <colgroup>
+            <col width="">
+            <col width="">
+        </colgroup>
+        <thead></thead>
+        <tbody>
+        <tr>
+            <th class="align_l"><ins class="asterisk">*</ins>{{lang.부재 기간}}</th>
+            <td>
+                <span class="option_wrap">
+                    <span class="wrap_date">
+                        <input id="startDate" class="txt wfix_medium txt_mini" type="text" name="startDate" value="" data-prev="" readonly="readonly">
+                        <span class="ic_go ic_calendar"></span>
+                    </span>
+                    <span class="wave">~</span>
+                    <span class="wrap_date">
+                        <input id="endDate" class="txt wfix_medium txt_mini" type="text" name="endDate" value="" data-prev="" readonly="readonly">
+                        <span class="ic_go ic_calendar"></span>
+                    </span>
+                </span>
+            </td>
+        </tr>
+        <tr>
+            <th class="align_l"><ins class="asterisk">*</ins>{{lang.부재 사유}}</th>
+            <td><input class="w_full input" style="text-transform:lowercase" name="absenceContent" type="text"></td>
+        </tr>
+        <tr>
+            <th class="align_l"><ins class="asterisk">*</ins>{{lang.대결자}}</th>
+            <td>
+                <span class="btn_wrap">
+                    <ul class="name_tag" id="addMembers">
+                        <li class="creat">
+                            <span class="btn_wrap">
+                                <span class="ic_form ic_addlist"></span>
+                                <span class="txt">{{lang.대결자 선택}}</span>
+                            </span>
+                        </li>
+                    </ul>
+                </span>
+            </td>
+        </tr>
+
+        </tbody>
+    </table>
+</div>

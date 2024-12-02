@@ -1,0 +1,42 @@
+<div class="content_search_wrap">
+    <h1><ins class="bullet"></ins><span class="title">{{label.keyword}} :</span></h1>
+    {{^detail_search?}}
+    <span class="info">{{keyword}}</span>
+    {{/detail_search?}}
+    {{#detail_search?}}
+    <dl class="info">   
+        {{#keyword.summary}}
+        <dt>[{{label.summary}}]</dt>
+        <dd>{{keyword.summary}}</dd>
+        {{/keyword.summary}}
+        {{#keyword.attendees}}
+        <dt>[{{label.attendee}}]</dt>
+        <dd>{{keyword.attendees}}</dd>
+        {{/keyword.attendees}}
+        {{#keyword.period}}
+        <dt>[{{label.period}}]</dt>
+        <dd><span class="date">{{keyword.period}}</span></dd>
+        {{/keyword.period}}
+    </dl>
+    {{/detail_search?}}
+</div>
+
+<div class="calendar_body">
+    <table class="type_normal tb_agenda tb_search_result">
+        <thead>
+            <tr>
+                <th class="day">{{label.date}}</th>
+                <th class="time">{{label.period}}</th>
+                <th class="subject">{{label.summary}}</th>
+                <th class="attend">{{label.attendee}}</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{>search_results}}
+        </tbody>
+    </table>
+</div>
+
+<div class="bottom_action" id="searchMoreButton" style="display:none">
+    <a class="btn_list_reload" data-bypass><span class="ic"></span><span class="txt">{{label.more}}</span></a>
+</div>

@@ -1,0 +1,15 @@
+<span class="action">
+    <a href="#" class="btn-star btn_star{{#favorite?}} btn_star_favor{{/favorite?}}" title="{{attr_title_favorite}}" data-bypass>
+        <ins class="ic_star{{^favorite?}} ic_star_off{{/favorite?}}"></ins>
+    </a>
+    {{#isAdmin?}}
+    <span class="btn-public-status btn_board_private"></span>
+    {{/isAdmin?}}
+</span>
+
+<a href="#" class="btn-board todo_board{{#favorite?}} todo_favor_board{{/favorite?}}" data-bypass>
+    <span class="tit">{{{name}}}</span>
+    <ul class="list_share">
+        <img src="{{thumbSmall}}" border="0">
+    </ul>
+</a>

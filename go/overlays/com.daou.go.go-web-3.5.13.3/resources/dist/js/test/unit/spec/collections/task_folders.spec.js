@@ -1,0 +1,1 @@
+define(["task/collections/task_folders","jquery.ajaxmock","GO.util"],function(e){describe("taskFolders!)",function(){it("url. url \ud655\uc778",function(){var t=new e;t.setDeptId(1),expect(t.url()).toBe("/api/task/folder/dept/1/low")})})});

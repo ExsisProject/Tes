@@ -1,0 +1,19 @@
+<h1 class="star {{^category_is_open}}folded{{/category_is_open}}">
+	<ins class="ic"></ins>
+    <span class="ic_side toggle_btn ic_hide_up"
+          title="{{#category_is_open}}{{lang.collapse}}{{/category_is_open}}{{^category_is_open}}{{lang.outspread}}{{/category_is_open}}"
+          data-slide="true">
+    </span>
+	<a class="txt" data-role="button" data-bypass>{{title}}</a>
+	<span class="btn_wrap">
+        <span class="btn_ic_list_reorder">
+           <span class="ic_side ic_list_reorder" title="{{lang.favorite_edit}}"></span>
+        </span>
+	</span>
+	<span class="btn_wrap" style="display: none;">
+		<span class="ic_side ic_done" title="{{lang.save}}"></span>
+		<span class="ic_side ic_cancel" title="{{lang.cancel}}" data-slide="true"></span>
+	</span>
+</h1>
+<ul class="side_depth" {{^category_is_open}} style="display: none" {{/category_is_open}}>
+</ul>

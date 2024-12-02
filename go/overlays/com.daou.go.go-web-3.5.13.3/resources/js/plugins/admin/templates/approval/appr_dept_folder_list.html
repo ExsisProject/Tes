@@ -1,0 +1,79 @@
+<header class="content_top">
+    <h1><span class="title">{{name}}</span></h1>
+</header>
+<div class="tool_bar">
+	<span class="btn_wrap">
+		{{#isPredefined}}
+            {{^isOfficial}}
+	    	<span class="btn_s" data-categorizeType="add" id="addCategory">{{lang.add}}</span>
+            <span class="btn_s" id="bulkReaderAdd">{{lang.열람자 추가}}</span>
+	        {{/isOfficial}}
+     	{{/isPredefined}}
+		{{^isPredefined}}
+		<span class="btn_s" data-categorizeType="move" id="moveCategory">{{lang.move}}</span>
+		<span class="btn_s" data-categorizeType="remove" id="removeCategory">{{lang.remove}}</span>
+        <span class="btn_s" id="bulkReaderAdd">{{lang.열람자 추가}}</span>
+		{{/isPredefined}}
+	</span>
+    <div class="dataTables_length"></div>
+</div>
+<div class="tb_wrap">
+    <table class="chart tb_admin">
+        <thead>
+        <tr>
+            <th class="check sorting_disable">
+                <input id="checkAll" type="checkbox">
+            </th>
+            <th class="date sorting_disable" data-direction="desc" data-property="draftedAt">
+                <span class="title_sort">{{lang.기안일}}<ins class="ic"></ins><span class="selected"></span></span>
+            </th>
+            <th class="name sorting_disable" data-direction="desc" data-property="drafterName">
+                <span class="title_sort">{{lang.기안자}}<ins class="ic"></ins><span class="selected"></span></span>
+            </th>
+            <th class="type sorting_disable" data-direction="desc" data-property="formName">
+                <span class="title_sort">{{lang.결재양식}}<ins class="ic"></ins><span class="selected"></span></span>
+            </th>
+            <th class="subject sorting_disable" data-direction="desc" data-property="title">
+                <span class="title_sort">{{lang.제목}}<ins class="ic"></ins><span class="selected"></span></span>
+            </th>
+            {{#isPredefined}}
+            <th class="doc sorting_disable">
+                <span class="title_sort">{{lang.부서문서함}}<ins class="ic"></ins></span>
+            </th>
+            {{/isPredefined}}
+        </tr>
+        </thead>
+        <tbody id="documentList">
+        {{#collection}}
+        <tr>
+            <td class="check">
+                {{#isCompleted}}
+                <input data-docId="{{id}}" type="checkbox">
+                {{/isCompleted}}
+            </td>
+            <td class="date">{{shortDraftedAt}}</td>
+            <td class="name">{{drafterName}}</td>
+            <td class="type">{{formName}}</td>
+            <td class="subject">
+                {{#isReceive}}<span class="state ghost">{{lang.수신}}</span>{{/isReceive}}
+                {{title}}
+            </td>
+            {{#isPredefined}}
+            <td class="doc">{{deptFolderName}}</td>
+            {{/isPredefined}}
+        </tr>
+        {{/collection}}
+        {{^collection}}
+        <tr>
+            <td colspan="{{#isPredefined}}6{{/isPredefined}}{{^isPredefined}}5{{/isPredefined}}">
+                <p class="data_null">
+                    <span class="ic_data_type ic_no_contents"></span>
+                    <span class="txt">{{lang.문서가 없습니다}}</span>
+                </p>
+            </td>
+        </tr>
+        {{/collection}}
+        </tbody>
+    </table>
+    <div class="dataTables_paginate paging_full_numbers" id="paginateArea"></div>
+</div>

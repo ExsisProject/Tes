@@ -1,0 +1,11 @@
+<p class="title">
+	{{#renderFn}}
+		{{renderFn}}
+	{{/renderFn}}
+	{{^renderFn}}
+		{{#data}}
+		<ins class="ic"></ins><span class="txt">{{data.name}}</span>
+		<span class="btn_wrap"><span class="ic_side ic_list_del"></span></span>
+		{{/data}}
+	{{/renderFn}}
+</p>

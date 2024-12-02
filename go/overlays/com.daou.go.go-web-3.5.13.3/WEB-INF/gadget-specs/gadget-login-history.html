@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <title>최근 로그인 정보</title>
+    <meta name = "gadget:name-ko" content="최근 로그인 정보" />
+    <meta name = "gadget:name-en" content="Recently Signed In" />
+    <meta name = "gadget:name-ja" content="最近の接続情報" />
+    <meta name = "gadget:name-zhcn" content="最近的登录信息" />
+    <meta name = "gadget:name-zhtw" content="最近的登錄信息" />
+    <meta name = "gadget:name-vi" content="Thông tin đăng nhập mới nhất" />
+    <meta name = "gadget:description" content="최근 로그인 접속기록 목록을 보여줍니다." />
+    <meta name = "gadget:version" content="1.5.0" />
+    <meta name = "gadget:thumbnail" content="gadget_login.png" />
+    
+    <meta name = "locale" content="ko" />
+    <meta name = "contextRoot" content="/" />
+    <link rel="stylesheet" href="css/go-gadget-standalone.css" media="screen, print" />
+    <!--[if IE]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="js/go-gadget-standalone.js"></script>
+
+    <script type="text/javascript">
+    $.ajaxMock.register('api/login/history?clientTypes[]=BROWSER&clientTypes[]=ANDROID&clientTypes[]=IPHONE&sort=createdAt&direction=desc&page=0&offset=3', {
+        responseText:$.parseJSON('{ "data" : [ { "id" : 2, "ip" : "127.0.0.1", "clientType" : "BROWSER", "createdAt" : "2013-05-28T13:08:31" } ], "page" : { "page" : 0, "offset" : 50, "total" : 2, "sort" : [ { "direction" : "DESC", "property" : "updatedAt", "ascending" : false } ], "lastPage" : true }, "message" : "OK", "code" : "200", "__go_checksum__" : true }'),
+        statusCode: 200,
+        status:'OK',
+        type: 'GET'
+    });
+    </script>
+
+    <script type="text/javascript" id="go-gadget-script">
+        gadget.load({
+        	
+        	highlightable : true,
+        	
+            pageNum: "0", 
+            
+            url: function() {
+                var params = {
+					"clientTypes": ["BROWSER", "ANDROID", "IPHONE"], 
+					"sort": "createdAt", 
+					"direction": "desc", 
+					"page": this.pageNum, 
+					"offset": this.options.offset || "3"
+                };
+
+                return this.contextRoot + 'api/login/history?' + $.param(params);
+            },
+            
+            langs: {
+                "gadget_title": "최근 로그인 정보", 
+                "date": "일시", 
+                "ip": "IP", 
+                "device": "접속기기", 
+                "offset": "출력 개수",
+                
+                "en": {
+                    "gadget_title" : "Recently Signed In",
+                    "date" : "Date/Time",
+                    "ip" : "IP",
+                    "device" : "Device",
+                    "offset" : " Number of Histories"
+                },
+                
+                "ja": {
+                    "gadget_title" : "最近の接続情報",
+                    "date" : "日付/時間",
+                    "ip" : "IPアドレス",
+                    "device" : "接続端末",
+                    "offset" : "表示件数" 
+                },
+                
+                "zh_CN": {
+                    "gadget_title" : "最近的登录信息",
+                    "date" : "日期/时间",
+                    "ip" : "IP",
+                    "device" : "连接机器",
+                    "offset" : "显示数目"
+                },
+                
+                "zh_TW": {
+                    "gadget_title" : "最近的登錄信息",
+                    "date" : "日期/時間",
+                    "ip" : "IP",
+                    "device" : "連接機器",
+                    "offset" : "顯示數目"
+                },
+
+                "vi": {
+                	"gadget_title": "Thông tin đăng nhập mới nhất",
+                    "date": "Ngày tháng/Thời gian",
+                    "ip": "IP",
+                    "device": "Thiết bị truy cập",
+                    "offset": "Số lượng xuất"
+                }
+            }, 
+    
+            setTitle: function() {
+                return this.getTitle();
+            }, 
+            
+            getTitle: function() {
+            	return this.i18n.parse("gadget_title");
+            },
+    
+            renderConfig: function(el) {
+                var savedOffset = (this.options && this.options.offset) || 1;
+                $(el).append(this._makeConfigHtml(savedOffset));
+            },
+    
+            onSuccess: function(el, resp) {
+                var loginList = resp.data;
+                _.map(loginList, function(item) {
+                    item.createdAt = moment(item.createdAt).format("YYYY-MM-DD HH:mm");
+                    item.device = (item.clientType == "BROWSER") ? "PC" : "Mobile"
+                });
+                
+                $(el).append(this.template(this._makeContentTemplate(), {
+                    "label": {
+                        "date": this.i18n.parse("date"), 
+                        "ip": this.i18n.parse("ip"), 
+                        "device": this.i18n.parse("device")
+                    }, 
+                    "loginList": loginList
+                }));
+            },
+
+            _makeConfigHtml: function(offset) {
+                var html = [];
+                html.push("<ul class=\"static_style\"><li>");
+                html.push(" <p class=\"title\">" + this.i18n.parse("offset") + "</p>");
+                html.push(" <select name=\"offset\">");
+
+                _.each([1,3,5,10], function(num) {
+                    var selectedValue = (num == offset) ? " selected=\"selected\"" : "";
+                    html.push("  <option value=\"" + num + "\"" + selectedValue + ">" + num + "</option>");
+                });
+
+                html.push(" </select>");
+                html.push("</li></ul>");
+                return html.join("\n");
+            },
+    
+            _makeContentTemplate: function() {
+                var html = [];
+            	html.push('<div class="gadget_design_wrap">');
+                
+                html.push('<div class="go_gadget_header">');
+                html.push('    <div class="gadget_h1">');
+                html.push('        <span class="type"><span class="ic_dashboard2 ic_type_login"></span></span>');
+                html.push('        <span class="title">'+ this.getTitle() +'</span>');
+                html.push('    </div>');
+                html.push('</div>');
+                
+                html.push("<table class=\"type_normal table_fix gadget_login_info\">");
+                html.push(" <thead>");
+                html.push("     <tr>");
+                html.push("         <th class=\"time sorting_disabled\"><span class=\"title_sort\">{{label.date}}</span></th>");
+                html.push("         <th class=\"ip sorting_disabled\"><span class=\"title_sort\">{{label.ip}}</span></th>");
+                html.push("         <th class=\"device sorting_disabled\"><span class=\"title_sort\">{{label.device}}</span></th>");
+                html.push("     </tr>");
+                html.push(" </thead>");
+                html.push(" <tbody>");
+                html.push("     {{#loginList}}");
+                html.push("     <tr>");
+                html.push("         <td class=\"time\">{{createdAt}}</td>");
+                html.push("         <td class=\"ip\">{{ip}}</td>");
+                html.push("         <td class=\"device\">{{device}}</td>");
+                html.push("     </tr>");
+                html.push("     {{/loginList}}");
+                html.push(" </tbody>");
+                html.push("</table>");
+                
+                html.push("</div>");
+                return html.join("\n");
+            }
+        });
+    </script>
+</head>
+
+<body id="main" class="go_skin_home_default" data-role="main">
+    <div class="go-dashboard go-dashboard-editing go_dashboard_3_2">
+        <div class="go-gadget-column gadget-col-1" data-columnid="1">
+            <!-- empty -->
+        </div>
+        
+        <div class="gripper"></div>
+
+        <div id="gadget-containter" class="go-gadget-column gadget-col-2" data-columnid="2">
+            <!-- empty -->
+        </div>
+
+        <div class="gripper"></div>
+
+        <div class="go-gadget-column gadget-col-3" data-columnid="3">
+            <!-- empty -->
+        </div>
+    </div>
+</body>
+</html>

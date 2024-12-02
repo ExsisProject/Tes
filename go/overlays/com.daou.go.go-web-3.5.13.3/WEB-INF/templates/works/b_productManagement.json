@@ -1,0 +1,256 @@
+{
+	"meta": {
+		"key": "87e3a41f-770a-4306-82c9-66d16423f93e",
+		"base": {
+			"name": "applet.product.manage.template.name",
+			"desc": "applet.product.manage.template.desc",
+			"icon": "ic_app1.png"
+		},
+		"exporter": {
+			"name": "관리자",
+			"companyName": "다우기술"
+		}
+	},
+	"components": {
+		"view": {
+			"charts": [],
+			"columns": [{
+				"fieldCid": "create_date",
+				"columnName": "{{applet.form.createdat}}"
+			}, {
+				"fieldCid": "_zzv3du17w"
+			}, {
+				"fieldCid": "_68jpsab89"
+			}],
+			"titleColumnIndex": 1,
+			"sortColumnIndex": 0,
+			"sortDirection": "DESC"
+		},
+		"form": {
+			"data": {
+				"type": "canvas",
+				"valueType": null,
+				"multiple": false,
+				"cid": "cxx1",
+				"parentCid": null,
+				"properties": null,
+				"components": [{
+					"type": "columns",
+					"valueType": null,
+					"multiple": false,
+					"cid": "_h2n48ugzi",
+					"parentCid": "cxx1",
+					"properties": {
+						"count": 2
+					},
+					"components": [{
+						"type": "column",
+						"valueType": null,
+						"multiple": false,
+						"cid": "_sp24lfzda",
+						"parentCid": "_h2n48ugzi",
+						"properties": {},
+						"components": [{
+							"type": "text",
+							"valueType": "STEXT",
+							"multiple": false,
+							"cid": "_zzv3du17w",
+							"parentCid": "_sp24lfzda",
+							"properties": {
+								"label": "제품(서비스)명",
+								"hideLabel": false,
+								"guide": "",
+								"guideAsTooltip": true,
+								"required": true,
+								"defaultValue": "",
+								"minLength": 0,
+								"maxLength": 100,
+								"width": "100",
+								"widthUnit": "percent",
+								"format": "all"
+							},
+							"components": []
+						}, {
+							"type": "file",
+							"valueType": "FILES",
+							"multiple": false,
+							"cid": "_hdz1ftvb7",
+							"parentCid": "_sp24lfzda",
+							"properties": {
+								"label": "일반 소개 자료",
+								"hideLabel": false,
+								"guide": "",
+								"guideAsTooltip": true,
+								"required": false
+							},
+							"components": []
+						}, {
+							"type": "file",
+							"valueType": "FILES",
+							"multiple": false,
+							"cid": "_45ljgrns7",
+							"parentCid": "_sp24lfzda",
+							"properties": {
+								"label": "원가 분석 등 정책 자료",
+								"hideLabel": false,
+								"guide": "",
+								"guideAsTooltip": true,
+								"required": false
+							},
+							"components": []
+						}]
+					}, {
+						"type": "column",
+						"valueType": null,
+						"multiple": false,
+						"cid": "_6zd85m4fm",
+						"parentCid": "_h2n48ugzi",
+						"properties": {},
+						"components": [{
+							"type": "select",
+							"valueType": "SELECT",
+							"multiple": false,
+							"cid": "_68jpsab89",
+							"parentCid": "_6zd85m4fm",
+							"properties": {
+								"label": "현재 상태",
+								"hideLabel": false,
+								"guide": "",
+								"guideAsTooltip": true,
+								"required": false,
+								"defaultValue": "0",
+								"items": [{
+									"value": "0",
+									"displayText": "판매(서비스)중",
+									"selected": true
+								}, {
+									"value": "1",
+									"displayText": "일시중지-업그레이드중",
+									"selected": false
+								}, {
+									"value": "2",
+									"displayText": "단종-판매(서비스)중단",
+									"selected": false
+								}]
+							},
+							"components": []
+						}, {
+							"type": "date",
+							"valueType": "DATE",
+							"multiple": false,
+							"cid": "_stqqsx447",
+							"parentCid": "_6zd85m4fm",
+							"properties": {
+								"label": "재개 예정일",
+								"hideLabel": false,
+								"guide": "",
+								"guideAsTooltip": true,
+								"required": false,
+								"defaultAsNow": false,
+								"defaultDate": "",
+								"code": "date_767"
+							},
+							"components": []
+						}, {
+							"type": "datetime",
+							"valueType": "DATETIME",
+							"multiple": false,
+							"cid": "_1opepamz0",
+							"parentCid": "_6zd85m4fm",
+							"properties": {
+								"label": "단종 일시",
+								"hideLabel": false,
+								"guide": "",
+								"guideAsTooltip": true,
+								"required": false,
+								"defaultAsNow": false,
+								"defaultDate": "",
+								"defaultTime": "",
+								"code": "datetime_782"
+							},
+							"components": []
+						}]
+					}]
+				}, {
+					"type": "textarea",
+					"valueType": "TEXT",
+					"multiple": false,
+					"cid": "_zi5k4oa1v",
+					"parentCid": "cxx1",
+					"properties": {
+						"label": "가격 정책",
+						"hideLabel": false,
+						"guide": "",
+						"guideAsTooltip": true,
+						"required": false,
+						"defaultValue": "",
+						"width": 100,
+						"widthUnit": "percent",
+						"rows": "5"
+					},
+					"components": []
+				}]
+			}
+		},
+		"process": {
+			"useProcess": true,
+			"statuses": [{
+				"name": "{{applet.new.template.status.ready}}",
+				"start": true,
+				"doing": false,
+				"end": false,
+				"color": "0"
+			}, {
+				"name": "{{applet.new.template.status.progress}}",
+				"start": false,
+				"doing": true,
+				"end": false,
+				"color": "0"
+			}, {
+				"name": "{{applet.new.template.status.complete}}",
+				"start": false,
+				"doing": false,
+				"end": true,
+				"color": "0"
+			}],
+			"transitions": [{
+				"beforeStatus": "{{applet.new.template.status.ready}}",
+				"nextStatus": "{{applet.new.template.status.progress}}",
+				"actionName": "{{applet.new.template.action.progress}}",
+				"actionRoles": ["REGISTRANT", "ADMIN"],
+				"pushRoles": []
+			}, {
+				"beforeStatus": "{{applet.new.template.status.progress}}",
+				"nextStatus": "{{applet.new.template.status.complete}}",
+				"actionName": "{{applet.new.template.action.complete}}",
+				"actionRoles": ["REGISTRANT", "ADMIN"],
+				"pushRoles": []
+			}, {
+				"beforeStatus": "{{applet.new.template.status.complete}}",
+				"nextStatus": "{{applet.new.template.status.progress}}",
+				"actionName": "{{applet.new.template.action.cancel}}",
+				"actionRoles": ["REGISTRANT", "ADMIN"],
+				"pushRoles": []
+			}],
+			"addPushes": []
+		}
+	},
+	"messageKeys": [
+		"applet.new.template.status.ready",
+		"applet.new.template.status.progress",
+		"applet.new.template.status.complete",
+		"applet.new.template.action.progress",
+		"applet.new.template.action.complete",
+		"applet.new.template.action.cancel",
+		"applet.new.template.col.status",
+		"applet.form.createdat"
+	],
+	"guide" : {
+		"contents" : "applet.product.manage.template.guide.content",
+		"imageFiles" : [
+			"b_productManagement/b_01.png",
+			"b_productManagement/b_02.png",
+			"b_productManagement/b_03.png"
+		]
+	}
+}

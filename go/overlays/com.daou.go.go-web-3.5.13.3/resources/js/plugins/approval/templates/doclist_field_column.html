@@ -1,0 +1,117 @@
+	<tr>
+	{{#columns.선택}}
+	<th id="header_checkbox" class="sorting_disabled" style="width: 35px;">
+	<input type="checkbox" id="{{checkboxColumn.id}}" name="{{checkboxColumn.name}}">
+	</th>
+	{{/columns.선택}}
+
+	{{#columns.문서ID}}
+	<th id="header_document_id" sort-id="{{sorts.문서ID}}" {{#sorts.문서ID}}sorting{{/sorts.문서ID}}{{^sorts.문서ID}}sorting_disabled{{/sorts.문서ID}} first"><span class="title_sort">{{columns.문서ID}}<ins class="ic"></ins><span class="selected"></span></span></th>
+	{{/columns.문서ID}}
+
+	{{#columns.기안일}}
+	<th id="header_drafted_at" sort-id="{{sorts.기안일}}" class="date {{#sorts.기안일}}sorting{{/sorts.기안일}}{{^sorts.기안일}}sorting_disabled{{/sorts.기안일}} first"><span class="title_sort">{{columns.기안일}}<ins class="ic"></ins><span class="selected"></span></span></th>
+	{{/columns.기안일}}
+
+	{{#columns.원문기안일}}
+	<th id="header_org_drafted_at" sort-id="{{sorts.원문기안일}}" class="date {{#sorts.원문기안일}}sorting{{/sorts.원문기안일}}{{^sorts.원문기안일}}sorting_disabled{{/sorts.원문기안일}} first"><span class="title_sort">{{columns.원문기안일}}<ins class="ic"></ins><span class="selected"></span></span></th>
+	{{/columns.원문기안일}}
+
+	{{#columns.완료일}}
+	<th id="header_end_at" sort-id="{{sorts.완료일}}" class="deadline {{#sorts.완료일}}sorting{{/sorts.완료일}}{{^sorts.완료일}}sorting_disabled{{/sorts.완료일}}"><span class="title_sort">{{columns.완료일}}<ins class="ic"></ins><span class="selected"></span></span></th>
+	{{/columns.완료일}}
+
+	{{#columns.원문완료일}}
+	<th id="header_org_end_at" sort-id="{{sorts.원문완료일}}" class="deadline {{#sorts.원문완료일}}sorting{{/sorts.원문완료일}}{{^sorts.원문완료일}}sorting_disabled{{/sorts.원문완료일}}"><span class="title_sort">{{columns.원문완료일}}<ins class="ic"></ins><span class="selected"></span></span></th>
+	{{/columns.원문완료일}}
+
+	{{#columns.접수일}}
+	<th id="header_received_at" sort-id="{{sorts.접수일}}" class="date {{#sorts.접수일}}sorting{{/sorts.접수일}}{{^sorts.접수일}}sorting_disabled{{/sorts.접수일}} first"><span class="title_sort">{{columns.접수일}}<ins class="ic"></ins><span class="selected"></span></span></th>
+	{{/columns.접수일}}
+	{{#columns.생성일}}
+	<th id="header_created_at" sort-id="{{sorts.생성일}}" class="date {{#sorts.생성일}}sorting{{/sorts.생성일}}{{^sorts.생성일}}sorting_disabled{{/sorts.생성일}} first"><span class="title_sort">{{columns.생성일}}<ins class="ic"></ins><span class="selected"></span></span></th>
+	{{/columns.생성일}}
+	{{#columns.구분}}
+	<th id="header_doc_type_name" sort-id="{{sorts.구분}}" class="doc {{#sorts.구분}}sorting{{/sorts.구분}}{{^sorts.구분}}sorting_disabled{{/sorts.구분}}"><span class="title_sort">{{columns.구분}}<ins class="ic"></ins><span class="selected"></span></span></th>
+	{{/columns.구분}}
+	{{#columns.결재양식}}
+	<th id="header_form_name" sort-id="{{sorts.결재양식}}" class="doc {{#sorts.결재양식}}sorting{{/sorts.결재양식}}{{^sorts.결재양식}}sorting_disabled{{/sorts.결재양식}}"><span class="title_sort">{{columns.결재양식}}<ins class="ic"></ins><span class="selected"></span></span></th>
+	{{/columns.결재양식}}
+	{{#columns.긴급}}
+	<th id="header_emergency" sort-id="{{sorts.긴급}}" class="doc_emergency {{#sorts.긴급}}sorting{{/sorts.긴급}}{{^sorts.긴급}}sorting_disabled{{/sorts.긴급}}"><span class="title_sort">{{columns.긴급}}<ins class="ic"></ins><span class="selected"></span></span></th>
+	{{/columns.긴급}}
+	{{#columns.제목}}
+	<th id="header_title" sort-id="{{sorts.제목}}" class="subject {{#sorts.제목}}sorting{{/sorts.제목}}{{^sorts.제목}}sorting_disabled{{/sorts.제목}}"><span class="title_sort">{{columns.제목}}<ins class="ic"></ins><span class="selected"></span></span></th>
+	{{/columns.제목}}
+	{{#columns.첨부}}
+	<th id="header_attach" class="attach sorting_disabled"><span class="title_sort">{{columns.첨부}}</span></th>
+	{{/columns.첨부}}
+	{{#columns.기안자}}
+	<th id="header_drafter_name" sort-id="{{sorts.기안자}}" class="writer {{#sorts.기안자}}sorting{{/sorts.기안자}}{{^sorts.기안자}}sorting_disabled{{/sorts.기안자}}"><span class="title_sort">{{columns.기안자}}<ins class="ic"></ins><span class="selected"></span></span></th>
+	{{/columns.기안자}}
+
+	{{#columns.상태}}
+	<th id="header_appr_status" sort-id="{{sorts.상태}}" class="writer sorting_disabled"><span class="title_sort">{{columns.상태}}<ins class="ic"></ins><span class="selected"></span></span></th>
+	{{/columns.상태}}
+
+	{{#columns.승인자}}
+	<th id="header_official_approval_name" sort-id="{{sorts.승인자}}" class="writer {{#sorts.승인자}}sorting{{/sorts.승인자}}{{^sorts.승인자}}sorting_disabled{{/sorts.승인자}}"><span class="title_sort">{{columns.승인자}}<ins class="ic"></ins><span class="selected"></span></span></th>
+	{{/columns.승인자}}
+	{{#columns.승인상태}}
+	<th id="header_official_state" sort-id="{{sorts.승인상태}}" class="writer {{#sorts.승인상태}}sorting{{/sorts.승인상태}}{{^sorts.승인상태}}sorting_disabled{{/sorts.승인상태}}"><span class="title_sort">{{columns.승인상태}}<ins class="ic"></ins><span class="selected"></span></span></th>
+	{{/columns.승인상태}}
+
+	{{#columns.기안부서}}
+	<th id="header_drafter_dept_name" sort-id="{{sorts.기안부서}}" class="writer {{#sorts.기안부서}}sorting{{/sorts.기안부서}}{{^sorts.기안부서}}sorting_disabled{{/sorts.기안부서}}"><span class="title_sort">{{columns.기안부서}}<ins class="ic"></ins><span class="selected"></span></span></th>
+	{{/columns.기안부서}}
+
+	{{#columns.원문기안부서}}
+	<th i="header_org_drafter_dept_name" sort-id="{{sorts.원문기안부서}}" class="writer {{#sorts.원문기안부서}}sorting{{/sorts.원문기안부서}}{{^sorts.원문기안부서}}sorting_disabled{{/sorts.원문기안부서}}"><span class="title_sort">{{columns.원문기안부서}}<ins class="ic"></ins><span class="selected"></span></span></th>
+	{{/columns.원문기안부서}}
+
+	{{#columns.현재결재자}}
+	<th id="header_drafter_name" sort-id="{{sorts.현재결재자}}" class="writer {{^sorts.현재결재자}}sorting_disabled{{/sorts.현재결재자}}"><span class="title_sort">{{columns.현재결재자}}<ins class="ic"></ins><span class="selected"></span></span></th>
+	{{/columns.현재결재자}}
+
+	{{#columns.최종결재자}}
+	<th id="header_drafter_name" sort-id="{{sorts.최종결재자}}" class="writer {{^sorts.최종결재자}}sorting_disabled{{/sorts.최종결재자}}"><span class="title_sort">{{columns.최종결재자}}<ins class="ic"></ins><span class="selected"></span></span></th>
+	{{/columns.최종결재자}}
+
+	{{#columns.시행문}}
+	<th id="header_official_form_name" sort-id="{{sorts.시행문}}" class="writer {{^sorts.시행문}}sorting_disabled{{/sorts.시행문}}"><span class="title_sort">{{columns.시행문}}<ins class="ic"></ins><span class="selected"></span></span></th>
+	{{/columns.시행문}}
+	{{#columns.발신명의}}
+	<th id="header_official_sender_name" sort-id="{{sorts.발신명의}}" class="writer {{^sorts.발신명의}}sorting_disabled{{/sorts.발신명의}}"><span class="title_sort">{{columns.발신명의}}<ins class="ic"></ins><span class="selected"></span></span></th>
+	{{/columns.발신명의}}
+	{{#columns.직인}}
+	<th id="header_official_sign_name" sort-id="{{sorts.직인}}" class="writer {{^sorts.직인}}sorting_disabled{{/sorts.직인}}"><span class="title_sort">{{columns.직인}}<ins class="ic"></ins><span class="selected"></span></span></th>
+	{{/columns.직인}}
+
+	{{#columns.담당자}}
+	<th id="header_receiver" sort-id="{{sorts.담당자}}" class="name {{#sorts.담당자}}sorting{{/sorts.담당자}}{{^sorts.담당자}}sorting_disabled{{/sorts.담당자}}"><span class="title_sort">{{columns.담당자}}<ins class="ic"></ins><span class="selected"></span></span></th>
+	{{/columns.담당자}}
+	{{#columns.문서번호}}
+	<th id="header_doc_no" sort-id="{{sorts.문서번호}}" class="doc_num {{#sorts.문서번호}}sorting{{/sorts.문서번호}}{{^sorts.문서번호}}sorting_disabled{{/sorts.문서번호}}"><span class="title_sort">{{columns.문서번호}}<ins class="ic"></ins><span class="selected"></span></span></th>
+	{{/columns.문서번호}}
+	{{#columns.연동여부}}
+	<th id="header_use_integration" class="sorting_disabled"><span class="title_sort">{{columns.연동여부}}</span></th>
+	{{/columns.연동여부}}
+	{{#columns.원문번호}}
+	<th id="header_recept_origin_doc_num" sort-id="{{sorts.원문번호}}" class="recept_origin_doc_num {{#sorts.원문번호}}sorting{{/sorts.원문번호}}{{^sorts.원문번호}}sorting_disabled{{/sorts.원문번호}}"><span class="title_sort">{{columns.원문번호}}<ins class="ic"></ins><span class="selected"></span></span></th>
+	{{/columns.원문번호}}
+	{{#columns.발송일}}
+	<th id="header_create_at" sort-id="{{sorts.발송일}}" class="date {{#sorts.발송일}}sorting{{/sorts.발송일}}{{^sorts.발송일}}sorting_disabled{{/sorts.발송일}}"><span class="title_sort">{{columns.발송일}}<ins class="ic"></ins><span class="selected"></span></span></th>
+	{{/columns.발송일}}
+	{{#columns.결재상태}}
+	<th id="header_doc_status" sort-id="{{sorts.결재상태}}" class="state_wrap {{#sorts.결재상태}}sorting{{/sorts.결재상태}}{{^sorts.결재상태}}sorting_disabled{{/sorts.결재상태}}"><span class="title_sort">{{columns.결재상태}}<ins class="ic"></ins><span class="selected"></span></span></th>
+	{{/columns.결재상태}}
+	{{#columns.수신부서}}
+	<th id="header_receive_dept" sort-id="{{sorts.수신부서}}" class="state_wrap {{#sorts.수신부서}}sorting{{/sorts.수신부서}}{{^sorts.수신부서}}sorting_disabled{{/sorts.수신부서}}"><span class="title_sort">{{columns.수신부서}}<ins class="ic"></ins><span class="selected"></span></span></th>
+	{{/columns.수신부서}}
+	{{#columns.개인 문서함}}
+	<th id="header_user_folder" class="assort sorting_disabled"><span class="title_sort">{{columns.개인 문서함}}</span></th>
+	{{/columns.개인 문서함}}
+	{{#columns.부서 문서함}}
+	<th id="header_dept_folder" class="assort sorting_disabled"><span class="title_sort">{{columns.부서 문서함}}</span></th>
+	{{/columns.부서 문서함}}
+	</tr>

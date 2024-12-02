@@ -1,0 +1,38 @@
+<table class="type_normal list_approval">
+	<thead>
+		<tr>
+            {{#columns.수신일}}
+            <th id="header_received_at" class="sorting_disabled hp date"><span class="title_sort">{{columns.수신일}}<ins class="ic"></ins><span class="selected"></span></span></th>
+            {{/columns.수신일}}
+			{{#columns.기안일}}
+			<th id="header_drafted_at" class="sorting_disabled hp date"><span class="title_sort">{{columns.기안일}}<ins class="ic"></ins><span class="selected"></span></span></th>
+			{{/columns.기안일}}
+			{{#columns.결재양식}}
+			<th id="header_form_name" class="sorting_disabled doc"><span class="title_sort">{{columns.결재양식}}<ins class="ic"></ins></span></th>
+			{{/columns.결재양식}}
+			{{#columns.긴급}}
+            <th id="header_emergency" class="sorting_disabled doc_emergency"><span class="title_sort">{{columns.긴급}}<ins class="ic"></ins></span></th>
+            {{/columns.긴급}}
+			{{#columns.제목}}
+			<th id="header_title" class="sorting_disabled subject"><span class="title_sort">{{columns.제목}}<ins class="ic"></ins></span></th>
+			{{/columns.제목}}
+			{{#columns.첨부}}
+			<th id="header_attach" class="sorting_disabled attach"><span class="title_sort">{{columns.첨부}}</span></th>
+			{{/columns.첨부}}
+			{{#columns.기안자}}
+			<th id="header_drafter_name" class="sorting_disabled writer"><span class="title_sort">{{columns.기안자}}</span></th>
+			{{/columns.기안자}}
+			{{#columns.문서번호}}
+			<th id="header_doc_no" class="sorting_disabled doc_num"><span class="title_sort">{{columns.문서번호}}<ins class="ic"></ins></span></th>
+			{{/columns.문서번호}}
+			{{#columns.결재상태}}
+			<th id="header_doc_status" class="sorting_disabled state_wrap"><span class="title_sort">{{columns.결재상태}}</span></th>
+			{{/columns.결재상태}}
+			{{#columns.결재일}}
+			<th id="header_end_at" class="sorting_disabled deadline"><span class="title_sort">{{columns.결재일}}<ins class="ic"></ins></span></th>
+			{{/columns.결재일}}
+		</tr>
+	</thead>
+	<tbody>
+	</tbody>
+</table>

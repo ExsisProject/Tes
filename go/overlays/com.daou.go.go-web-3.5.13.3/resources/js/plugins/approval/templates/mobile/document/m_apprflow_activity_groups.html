@@ -1,0 +1,49 @@
+<!-- 나의 결재선 -->
+<div class="box my">
+    <div class="box_body">
+        <div class="form_tr">
+            <div class="form_th my">
+                <div class="label">
+                    <a class="txt">{{lang.my_lines}}</a>
+                </div>
+                <div class="desc">
+                    {{lang.my_save}}<br>
+                    {{lang.only_pc_modify}}
+                </div>
+                <a class="btn_toggle" data-bypass id="myApprFlowButton">
+                    <span class="ic_v2_form ic_toggle"></span>
+                </a>
+                <div class="wrap_list_myApproval" id="myApprFlowList" style="display: none;">
+                </div>
+            </div>
+        </div>
+    </div>
+</div><!-- //나의 결재선 -->
+<!-- 결재방 -->
+<div id="activityGroupsWrap"></div>
+<!-- //결재방 -->
+<!-- 합의방식 -->
+<div class="box">
+    <div class="box_body">
+        <div class="form_tr">
+            <div class="form_th">
+                <div class="label">
+                    <span class="txt">{{lang.agreement_type}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="form_tr">
+            <div class="form_td">
+                                    <span class="wrap_option">
+                                        <input id="series" type="radio" name="useParallelAgreement" value="false" {{^useParallelAgreement}}checked{{/useParallelAgreement}}/>
+                                        <label for="series">{{lang.agreement_linear}}</label>
+                                    </span>
+                <span class="space"></span>
+                <span class="wrap_option">
+                                        <input id="parallel" type="radio" name="useParallelAgreement" value="true" {{#useParallelAgreement}}checked{{/useParallelAgreement}}/>
+                                        <label for="parallel">{{lang.agreement_parallel}}</label>
+                                    </span>
+            </div>
+        </div>
+    </div>
+</div><!-- //합의방식 -->

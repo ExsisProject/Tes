@@ -1,0 +1,1 @@
+define("admin/collections/recently_menus",function(require){var e=require("backbone"),t=require("admin/models/layout/side_menu"),n=e.Collection.extend({model:t,initialize:function(){},url:function(){return"/ad/api/menu/recent"}});return n});

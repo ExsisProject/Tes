@@ -1,0 +1,1 @@
+(function(){define(["underscore","backbone"],function(e,t){var n=t.Model.extend({url:function(){return"/api/calendar/permission/user/"+this.get("userId")+"/calendar"}});return n})}).call(this);

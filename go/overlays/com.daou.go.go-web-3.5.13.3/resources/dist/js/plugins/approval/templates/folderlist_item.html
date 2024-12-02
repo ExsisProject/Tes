@@ -1,0 +1,32 @@
+{{#columns.선택}}
+<td class="check"><input type="checkbox" value="{{folder.folderId}}"></td>
+{{/columns.선택}}
+{{#columns.부서명}}
+<td class="subject">{{folder.deptName}}</td>
+<td id="subjectFolder" class="subject folder"><a>{{folder.folderName}}</a></td>
+{{/columns.부서명}}
+{{^columns.부서명}}
+<td class="subject" data-id="{{folder.folderId}}">
+	<span class="txt_form" id="showArea" data-type="show">
+		<a>
+		{{folder.folderName}}
+		</a>
+		<span class="btn_wrap ui_edit">
+			<span class="ic_side ic_edit" title="{{lang.수정}}"></span>
+		</span>
+	</span>
+	
+	<span class="txt_edit" style="display: none;" id="editArea">
+		<input value="{{folder.folderName}}" class="input edit wfix_large" type="text" name="" id="name">
+		<span class="btn_wrap ui_edit_ing">
+			<span title="{{lang.수정완료}}" class="ic_side ic_done" id="editName"></span>
+			<span title="{{lang.취소}}" class="ic_side ic_cancel" data-type="edit" id="editCancle"></span>
+		</span>
+	</span>
+</td>
+{{/columns.부서명}}
+<td class="date">{{folder.createdAt}}</td>
+<td class="count">{{folder.docCount}}</td>
+<td class="public">
+	<span class="btn_fn7" name="docFolderShare" data-id="{{folder.folderId}}"><span class="txt">{{lang.공유}} {{folder.shareCount}}</span></span>
+</td>

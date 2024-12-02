@@ -1,0 +1,33 @@
+<span class="btn_ic_s btn_favor">
+        <span class="ic_adm ic_info"></span>
+        <div class="layer_info layer_info_position" el-backdrop style="display: none;">
+            <div class="content">
+                <h2>{{title}}</h2>
+                <p class="ment">{{title_desc}}</p>
+                <ul class="tab_v">
+
+                    {{#contents}}
+                    <li>
+                        <span class="menu on">
+                            <span class="txt">{{title}}</span>
+                        </span>
+                        <div class="tab_v_content">
+                                {{#sub_titles}}
+                                    <div class="txt">{{info}}</div>
+                                {{/sub_titles}}
+
+                            <ul class="list_bullet_dot">
+                                {{#description}}
+                                <li>
+                                    <span class="txt">{{info}}</span>
+                                </li>
+                                {{/description}}
+                            </ul>
+                        </div>
+                    </li>
+                    {{/contents}}
+
+                </ul>
+            </div>
+        </div>
+    </span>

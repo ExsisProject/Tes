@@ -1,0 +1,262 @@
+<div class="content_page">
+    {{#dataset}}
+    <div class="container">
+        <div class="header">
+            <h2>{{lang.board_info}}</h2>
+        </div>
+        <div class="content">
+            <input type="hidden" id="boardId" value="{{id}}"/>
+            <table class="detail article_head">
+                <colgroup>
+                    <col width="110px"/>
+                    <col width="*" />
+                </colgroup>
+                <tbody>
+                <tr>
+                    <th><span class="title"><ins class="asterisk">*</ins>{{lang.board_title}}</span></th>
+                    <td><span class="user_data editable"><span class="editWrap" data-type="title">{{name}}</span><span class="btn_box"><span class="ic ic_edit" title="{{lang.board_modify}}"></span></span></span>
+                    </td>
+                </tr>
+                {{#pathInfo}}
+                <tr>
+                    <th><span class="title">{{lang.board_group}}</th>
+                    <td><span class="user_data">{{{pathInfo}}}</span></td>
+                </tr>
+                {{/pathInfo}}
+                <tr>
+                    <th><span class="title">{{lang.board_description}}</span></th>
+                    <td><span class="user_data editable"><span class="editWrap" data-type="description">{{description}}</span><span class="btn_box"><span class="ic ic_edit" title="{{lang.board_modify}}"></span></span></span>
+                    </td>
+                </tr>
+                <tr>
+                    <th><span class="title">{{lang.board_type}}</span></th>
+                    <td>
+                        <span class="user_data">{{boardType}}</span>
+                    </td>
+                </tr>
+                <tr>
+                    <th><span class="title">{{lang.share_range}}</span></th>
+                    <td>
+                        <div class="vertical_wrap_s">
+							<span class="option_wrap">
+								<input type="radio" name="share" value="false" id="wholePublic">
+								<label for="wholePublic">{{lang.share_public}}</label>
+							</span>
+                        </div>
+                        <div class="vertical_wrap_s">
+							<span class="option_wrap">
+								<input type="radio" name="share" value="true" id="partPublic">
+								<label for="partPublic">{{lang.share_private}}</label>
+							</span>
+                        </div>
+                        <div class="vertical_wrap_s" id="partPublicWrap">
+
+                        </div>
+                        <ul id="groupUl"></ul>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <span class="title">{{lang.anonym_flag}}
+                            <span class="help">
+                                <span class="tool_tip">{{{lang.anonym_tooltip}}}<i class="tail_left"></i></span>
+                            </span>
+                        </span>
+                    </th>
+                    <td>
+                        <span class="user_data">{{isAnonym}}</span>
+                        {{#anonymFlag}}
+                        <div id="anonymFlagOption">
+                            <div class="vertical_wrap_s">
+                                <div class="vertical_wrap_s">
+                                    <span class="wrap_option">
+                                        <input type="checkbox" id="publicWriterSettingForPost" name="publicWriterSettingForPost" disabled="disabled" {{#anonymousWriterPostOption.allowed}} checked="checked" {{/anonymousWriterPostOption.allowed}}>
+                                        <label for="publicWriterSettingForPost">{{lang.public_writer_for_post}}</label>
+                                    </span>
+                                </div>
+                                {{#anonymousWriterPostOption.allowed}}
+                                <div class="vertical_wrap_s" name="publicWriterDetailForPost">
+                                    <span class="wrap_option">
+                                        <input type="radio" id="allUserForPost" name="targetForPost" value="true" {{#anonymousWriterPostOption.allUser}} checked="checked" {{/anonymousWriterPostOption.allUser}}>
+                                        <label for="allUserForPost">{{lang.all_user_option}}</label>
+                                    </span>
+                                    <span class="wrap_option">
+                                        <input type="radio" id="specificUserForPost" name="targetForPost" value="false" {{^anonymousWriterPostOption.allUser}} checked="checked" {{/anonymousWriterPostOption.allUser}}>
+                                        <label for="specificUserForPost">{{lang.specific_user_option}}</label>
+                                    </span>
+                                    <div class="vertical_wrap_s" id="postGroupWrap">
+                                        <div>
+                                            <span class="btn_wrap" id="addPostGroup" {{#anonymousWriterPostOption.allUser}} style="display:none;"{{/anonymousWriterPostOption.allUser}}>
+                                                <span class="ic ic_addlist"></span>
+                                                <span class="txt">{{lang.add_user}}</span>
+                                            </span>
+                                        </div>
+                                        <ul class="name_tag" id="groupUl"></ul>
+                                    </div>
+                                </div>
+                                {{/anonymousWriterPostOption.allowed}}
+                                <div class="vertical_wrap_s">
+                                    <span class="wrap_option">
+                                        <input type="checkbox" id="publicWriterSettingForPostComment" name="publicWriterSettingForPostComment" disabled="disabled" {{#anonymousWriterPostCommentOption.allowed}}checked="checked" {{/anonymousWriterPostCommentOption.allowed}} >
+                                        <label for="publicWriterSettingForPostComment">{{lang.public_writer_for_post_comment}}</label>
+                                    </span>
+                                </div>
+                                {{#anonymousWriterPostCommentOption.allowed}}
+                                <div class="vertical_wrap_s" name="publicWriterDetailForPostComment">
+                                    <span class="wrap_option">
+                                        <input type="radio" id="allUserForPostComment" name="targetForPostComment" value="true" {{#anonymousWriterPostCommentOption.allUser}} checked="checked" {{/anonymousWriterPostCommentOption.allUser}}>
+                                        <label for="allUserForPostComment">{{lang.all_user_option}}</label>
+                                    </span>
+                                    <span class="wrap_option">
+                                        <input type="radio" id="specificUserForPostComment" name="targetForPostComment" value="false" {{^anonymousWriterPostCommentOption.allUser}} checked="checked" {{/anonymousWriterPostCommentOption.allUser}}>
+                                        <label for="specificUserForPostComment">{{lang.specific_user_option}}</label>
+                                    </span>
+                                    <div class="vertical_wrap_s" id="postCommentGroupWrap">
+                                        <div>
+                                            <span class="btn_wrap" id="addPostCommentGroup" {{#anonymousWriterPostCommentOption.allUser}} style="display:none;" {{/anonymousWriterPostCommentOption.allUser}}>
+                                                <span class="ic ic_addlist"></span>
+                                                <span class="txt">{{lang.add_user}}</span>
+                                            </span>
+                                        </div>
+                                        <ul class="name_tag" id="groupUl"></ul>
+                                    </div>
+                                </div>
+                                {{/anonymousWriterPostCommentOption.allowed}}
+                            </div>
+                        </div>
+                        {{/anonymFlag}}
+                    </td>
+                </tr>
+                {{#boardTypeByHeader}}
+                <tr id="headerPartTr">
+                    <th>
+						<span class="title">
+							{{lang.header}}					
+						</span>
+                    </th>
+                    <td>
+						<span class="option_wrap">
+							<input type="radio" id="headerFlag1" name="headerFlag" value="true">
+							<label for="headerFlag1">{{lang.header_use}}</label> 
+						</span>
+						<span class="option_wrap">
+							<input type="radio" id="headerFlag0" name="headerFlag" value="false" checked="checked">
+							<label for="headerFlag0">{{lang.header_not_use}}</label> 	
+						</span>
+
+
+                        <div  id="headerFlagOption" style="display:none;">
+                            <div class="option_display">
+								<span class="wrap_option last">
+									<input type="checkbox" name="headerRequiredFlag" id="headerRequiredFlag " value="true" />
+									<label for="headerRequiredFlag ">{{lang.header_required_option}}</label>
+								</span>
+                            </div>
+
+                            <div class="option_display option_article_head">
+                                <div class="wrap">
+                                    <input class="input wfix_large" id="headerName" type="text" placeholder="{{lang.header_placeholder}}">
+                                    <a class="btn_fn10" id="headerAdd" data-bypass>{{lang.header_add}}</a>
+                                    <span class="byte"><strong id="headerByte">0</strong> / 30byte</span>
+                                </div>
+                                <div class="vertical_wrap_s" style="display:">
+                                    <table class="in_table tb_article_head">
+                                        <caption>{{lang.header_add}}</caption>
+                                        <colgroup>
+                                            <col width="">
+                                            <col width="100px">
+                                        </colgroup>
+                                        <thead>
+                                        <tr>
+                                            <th class="align_l">{{lang.header_subject}}</th>
+                                            <th>{{lang.delete}}</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody id="headerListPart">
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                {{/boardTypeByHeader}}
+                <tr>
+                    <th>
+                        <span class="title">{{lang.comment_flag}}</span>
+                    </th>
+                    <td>
+						<span class="option_wrap">
+							<input type="radio" id="commentFlag1" name="commentFlag" value="true" checked="true" />
+							<label for="commentFlag1">{{lang.comment_flag_true}}</label> 
+						</span>
+						<span class="option_wrap">
+							<input type="radio" id="commentFlag2" name="commentFlag" value="false" />
+							<label for="commentFlag2">{{lang.comment_flag_false}}</label>
+						</span>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+					<span class="title">{{{lang.send_mail_flag_title}}}
+						<span class="help">
+						<span class="tool_tip">{{{lang.send_mail_flag_tooltip}}}<i class="tail_left"></i></span>
+						</span>
+					</span>
+                    </th>
+                    <td>
+                        <div class="vertical_wrap_s">
+							<span class="option_wrap">
+								<input type="radio" id="emailSendFlag1" name="sendMailFlag" value="true" checked="true"> 
+								<label for="emailSendFlag1">{{lang.yes_value}}</label>
+							</span>
+                        </div>
+                        <div class="vertical_wrap_s">
+							<span class="option_wrap">
+								<input type="radio" id="emailSendFlag2" name="sendMailFlag" value="false"> 
+								<label for="emailSendFlag2">{{lang.no_value}}</label>
+							</span>
+                        </div>
+                    </td>
+                </tr>
+                <tr {{#anonymFlag}} class="last" {{/anonymFlag}}>
+                    <th><span class="title">{{lang.board_manager}}</span></th>
+                    <td>
+                        <ul class="name_tag" id="boardManagerList">
+                            <li class="creat">
+							<span class="btn_wrap" id='selectManager'>
+								<span class="ic ic_addlist"></span>
+								<span class="txt">{{lang.board_manager_select}}</span>
+							</span>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+                {{^anonymFlag}}
+                <tr class="last" id="notiFlag">
+                    <th><span class="title">{{lang.notification}}</span></th>
+                    <td>
+                        <div class="vertical_wrap_s">
+							<span class="option_wrap">
+								<input type="checkbox" name="noti" value="new" id="byNew"> 
+								<label for="byNew">{{lang.board_new}}</label>
+							</span>
+                        </div>
+						<span class="desc">
+							{{lang.all_user}}	
+						</span>
+                    </td>
+                </tr>
+                {{/anonymFlag}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div id="ipConfigDiv">
+    </div>
+    {{/dataset}}
+    <div class="page_action">
+        <span class="btn" data-btntype="modify">{{lang.board_save}}</span>
+        <span class="btn_nega" data-btntype="modifyCancel">{{lang.board_cancel}}</span>
+    </div>
+</div>

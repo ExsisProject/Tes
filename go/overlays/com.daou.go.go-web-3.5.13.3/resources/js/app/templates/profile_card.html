@@ -1,0 +1,85 @@
+<div  style="position:absolute;top:0;left:0;width:100%;display:inline-block;height:100%; cursor: move; z-index: -1" class="handle"></div>
+
+{{#dataset.name}}
+<div class="info_main">
+	<span class="ic_profile ic_close" title="{{lang.닫기}}" data-type="close" data-bypass></span>
+
+	{{#isSessionId}}
+	<span class="ic_profile ic_modify" title="{{lang.수정}}" data-type="modify" data-bypass></span>
+	{{/isSessionId}}
+
+	<span class="wrap_photo" >
+		<img alt="{{dataset.name}}" src="{{dataset.thumbSmall}}" title="{{dataset.name}}">
+	</span>
+	{{#timelineMessage.visible}}
+	<div class="wrap_attend_info">
+		<a id="timeline_status" class="btn_attend_info {{timelineMessage.color}}">
+			<span class="txt">
+				<span class="txt">{{timelineMessage.status}}</span>
+				<span class="ic_profile ic_info"></span>
+			</span>
+		</a>
+		<div id="timeline_message" class="layer_attend_info" style="display: none">
+			<p class="tit">{{timelineMessage.message}}</p>
+			<p class="txt">{{timelineMessage.duration}}</p>
+		</div>
+	</div>
+	{{/timelineMessage.visible}}
+	<div class="wrap_list_info">
+		<ul class="list_info">
+			<li>
+				<span class="name">{{dataset.name}} {{#dataset.profileExposureInfoModel.position}}{{dataset.position}}{{/dataset.profileExposureInfoModel.position}}</span>
+			</li>
+			{{#isOrgServiceOn}}
+			<li>
+				<p class="department">
+					{{{getDeptName}}}
+				</p>
+			</li>
+			{{/isOrgServiceOn}}
+			{{#dataset.mailExposure}}
+			{{#dataset.profileExposureInfoModel.email}}
+			<li>
+				<span class="mail">{{dataset.email}}</span>
+			</li>
+			{{/dataset.profileExposureInfoModel.email}}
+			{{/dataset.mailExposure}}
+		</ul>
+	</div>
+
+	<div class="btn_func">
+		{{#isAvailableMail}}
+        {{#dataset.profileExposureInfoModel.email}}
+		<a class="btn_v2_normal btn_v2_mail" data-type="mail" data-bypass>
+			<span class="ic_v2 ic_v2_mail"></span>
+			<span class="txt">{{lang.send_mail}}</span>
+		</a>
+        {{/dataset.profileExposureInfoModel.email}}
+		{{/isAvailableMail}}
+		{{#isAvailableCal}}
+		<a class="btn_v2_normal btn_v2_calendar" data-type="calendar" data-bypass>
+			<span class="ic_v2 ic_v2_calendar"></span>
+			<span class="txt">{{lang.show_calendar}}</span>
+		</a>
+		{{/isAvailableCal}}
+	</div>
+</div>
+<div class="info_more">
+	<ul class="list_info_more">
+		{{#dataset.rightSpaceItems}}
+			{{#display}}
+			<li>
+				<span class="tit">{{title}}</span>
+				{{#isDept}}
+				<div class="wrap_list_position_team">
+				</div>
+				{{/isDept}}
+				{{^isDept}}
+				<span class="data">{{value}}</span>
+				{{/isDept}}
+			</li>
+			{{/display}}
+		{{/dataset.rightSpaceItems}}
+	</ul>
+</div>
+{{/dataset.name}}

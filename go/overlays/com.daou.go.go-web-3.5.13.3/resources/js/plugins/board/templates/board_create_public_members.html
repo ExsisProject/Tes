@@ -1,0 +1,14 @@
+<li data-id="{{id}}">
+	<span class="name">{{#displayName}}{{displayName}}{{/displayName}}{{^displayName}}{{name}}{{/displayName}}</span>														
+	<span class="btn_wrap">
+		<span class="ic_classic ic_del" title="{{lang.delete}}"></span>
+	</span>
+	<form name="owners-{{deptId}}-member-{{id}}">
+		<input type="hidden" name="ownerShip" value="MEMBER" />
+		<input type="hidden" name="ownerType" value="User" />
+		<input type="hidden" name="scope" value="PART" />
+		<input type="hidden" name="ownerId" value="{{id}}" />
+		<input type="hidden" name="deptId" value="{{deptId}}" />
+		<input type="hidden" name="permission" value="1" />
+	</form>													
+</li>

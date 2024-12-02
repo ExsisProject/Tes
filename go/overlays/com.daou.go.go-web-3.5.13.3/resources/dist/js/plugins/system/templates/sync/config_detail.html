@@ -1,0 +1,59 @@
+<div id='popupArea'>
+    <form id="dataForm">
+        <div class="tool_bar">
+            <table class="sync_add_table">
+                <tbody>
+                <tr style="display:none;">
+                <th><b style="color: rgb(255, 0, 0);">* </b><span class="txt">{{lang.label_sync_query_id}}</span></th>
+                <td id="pop_query_id">{{data.id}}</td>
+            </tr>
+            <tr style="height:40px;">
+                <th><b style="color: rgb(255, 0, 0);">* </b><span class="txt">{{lang.label_sync_company_name}}</span></th>
+                <td>
+                    <select id="pop_company" style="min-width:150px;">
+                        <option value="">{{lang.label_choice}}</option>
+                        {{#companies}}
+                        <option value="{{id}}" {{#isSelectedCompany}} selected="selected" {{/isSelectedCompany}}>{{name}}</option>
+                        {{/companies}}
+                    </select>
+                </td>
+            </tr>
+
+            <tr style="height:40px;">
+                <th><b style="color: rgb(255, 0, 0);">* </b><span class="txt">JDBC</span></th>
+                <td>
+                    <select id="pop_jdbc_name" style="min-width:150px;">
+                    </select>
+                </td>
+            </tr>
+
+            <tr style="height:40px;">
+                <th><b style="color: rgb(255, 0, 0);">* </b><span class="txt">{{lang.label_sync_query_type}}</span></th>
+                <td>
+                    <select id="pop_query_type" style="min-width:150px;">
+                        <option value="">{{lang.label_choice}}</option>
+                        {{#types}}
+                        <option value="{{type}}" {{#isSelectedType}} selected="selected" {{/isSelectedType}}>{{type}}</option>
+                        {{/types}}
+                    </select>
+                </td>
+            </tr>
+
+            <tr style="height:40px;">
+                <th><b style="color: rgb(255, 0, 0);">* </b><span class="txt">{{lang.label_sync_key_columns}}</span></th>
+                <td>
+                    <input type="text" id="pop_query_columns" style="width: 90%" value="{{data.keyColumns}}" placeholder="Ex) code, loginId"/>
+                </td>
+            </tr>
+
+            <tr style="height:40px;">
+                <th><b style="color: rgb(255, 0, 0);">* </b><span class="txt">{{lang.label_sync_query}}</span></th>
+                <td>
+                    <textarea id='pop_query' name="query" style="width: 90%; height:200px;">{{data.query}}</textarea>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </form>
+</div>

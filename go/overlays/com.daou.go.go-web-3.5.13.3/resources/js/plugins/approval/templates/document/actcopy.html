@@ -1,0 +1,124 @@
+    <header class="content_top"></header>   
+    <!--보고서 상세-->   
+    <div class="content_page report_detail" >   
+        <!-- 툴바 -->
+        <div class="tool_bar">
+            <div class="critical">
+                {{^action.isActCopy}}
+                <a class="btn_major_s btnSend" data-role="button">
+                	<span class="txt">{{lang.발송}}</span>
+               	</a>
+                <a class="btn_tool btnCancel" data-role="button"><span class="ic ic_except"></span><span class="txt">{{lang.취소}}</span></a>
+                {{/action.isActCopy}}
+            </div>
+            <ul class="optional">
+                <li><a class="btn_tool btnList"><span class="ic_gnb ic_list" title="{{lang.목록}}"></span><span class="txt">{{lang.목록}}</span></a></li>
+                <li><a class="btn_tool btnPrint"><span class="ic_gnb ic_print" title="{{lang.인쇄}}"></span><span class="txt">{{lang.인쇄}}</span></a></li>
+            </ul>
+        </div>
+    
+        <!-- 3단 레이아웃 멀티클래스 -->
+        <div class="wrap_container">
+            <section class="content_wrapper"> 
+                <!--전자결제 상세-->
+                <div class="report_type approval_type">
+                    <!--전자결재 내용-->              
+                    <div class="approval_import">
+                    {{#action.isActCopy}}
+                        {{{dataset.docBodyContent}}}
+                    {{/action.isActCopy}}
+                    {{^action.isActCopy}}
+                        {{{content}}}
+                    {{/action.isActCopy}}
+                    </div>
+                </div>
+            </section>
+            
+            <section class="aside_wrapper article_reply">
+                <div class="reply_wrap">
+                    <header class="single_title single_title2">
+                        <span class="txt_b">{{lang.문서정보}}</span>
+                    </header>
+                    <div class="aside_wrapper_body">
+                        <form>
+                            <fieldset>
+                                <table class="form_type tb_doc_info">
+                                    <tbody>
+                                        <tr>
+                                            <th><span class="title">{{lang.발신자}}</span></th>
+                                            <td>
+                                                <ul class="name_tag">
+                                                    {{#sender}}
+                                                    <li>
+                                                        <span class="name">{{userName}} {{userPosition}}</span>
+                                                    </li>
+                                                    {{/sender}}
+                                                </ul>                                                                       
+                                            </td>
+                                        </tr>   
+                                        <tr id="addressList">
+                                            <th><span class="title">{{lang.수신처}}</span></th>
+                                            <td>
+                                                <ul class="name_tag">
+                                                    {{#infoData.docReceptionReaders}}
+                                                    <li data-id="{{reader.id}}" data-userId="{{reader.id}}" data-userName="{{reader.name}}" data-userPosition="{{reader.position}}" data-sid="{{id}}" data-name="members">
+                                                        <span class="name">{{reader.name}} {{reader.position}}</span>
+                                                        {{#action.readerDeletable}}
+                                                        {{^action.isActCopy}}
+                                                        <span class="btn_wrap">
+                                                            <input type="hidden" name="memberId" value="{{reader.id}}" />
+                                                            <span class="ic_classic ic_del"></span>                                     
+                                                        </span>
+                                                        {{/action.isActCopy}}
+                                                        {{/action.readerDeletable}}
+                                                    </li>
+                                                    {{/infoData.docReceptionReaders}}   
+                                                </ul>                                                                       
+                                            </td>
+                                        </tr>       
+                                        {{#action.isActCopy}}
+                                        <tr>
+                                            <th><span class="title">{{lang.문서열람}}</span></th>
+                                            <td>
+                                                <ul class="name_tag" id="addReading">
+                                                    {{#infoData.docReadingReaders}}
+                                                    <li data-id="{{reader.id}}" data-userId="{{reader.id}}" data-userName="{{reader.name}}" data-userPosition="{{reader.position}}" data-sid="{{id}}" data-deptType={{reader.deptType}}>
+                                                        <span class="name">{{reader.name}} {{reader.position}}</span>
+                                                        {{#isActivityUser}}
+                                                        <span class="btn_wrap">
+                                                            <input type="hidden" name="memberId" value="{{reader.id}}" />
+                                                            <span class="ic_classic ic_del"></span>                                     
+                                                        </span>
+                                                        {{/isActivityUser}}
+                                                    </li>
+                                                    {{/infoData.docReadingReaders}}
+                                                    {{#isActivityUser}}
+                                                    <li class="creat" id="reading">
+                                                        <span class="btn_wrap"><span class="ic_form ic_addlist"></span><span class="txt">{{lang.열람자 추가}}</span></span>
+                                                    </li>
+                                                    {{/isActivityUser}}
+                                                </ul>                                                                       
+                                            </td>
+                                        </tr>   
+                                        {{/action.isActCopy}}
+                                    </tbody>
+                                </table>
+                            </fieldset>
+                        </form>
+                        {{#action.isActCopy}}
+                        {{#isActivityUser}}
+                        <footer class="btn_layer_wrap">
+                            <span class="btn_major_s" data-role="button">
+                                <span class="icon"></span>
+                                <span class="txt">{{lang.문서열람 저장}}</span>
+                            </span>
+                        </footer>    
+                        {{/isActivityUser}}
+                        {{/action.isActCopy}}
+                    </div>
+
+                </div>
+            </section>
+            
+        </div>
+    </div>

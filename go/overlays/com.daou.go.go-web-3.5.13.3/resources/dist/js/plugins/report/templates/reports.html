@@ -1,0 +1,59 @@
+        <header class="content_top">
+        </header>    
+    
+        <div class="content_page" >
+            <div class="content_info_wrap">
+                <span class="btn_wrap" id="folderInfo">
+                    <span class="ic_classic ic_open" title="{{lang.close}}"></span>
+                </span>
+                
+                <ul class="simple_info">
+                    <li>
+                        <strong>{{lang.report_address}} :</strong><span class="txt_url">{{data.urlLink}}</span>     
+                        <span class="btn_fn7" data-role="button" url-copy><span class="txt">{{lang.copy}}</span></span>
+                    </li>
+                </ul>
+                <ul class="detail_info" id="folderDetailInfo" style="display:none"> <!-- 자세히보기를 닫을 경우 이 ul을 display:none 처리  -->
+                    {{#data.isPeriodic}}
+                    <li><strong>{{lang.recurrence}} :</strong> {{data.recurrence}}</li>
+                    {{/data.isPeriodic}}
+                    <li><strong>{{lang.reporter}} :</strong> {{data.reporterNames}}</li>
+                    <li><strong>{{lang.refferer}} :</strong> {{data.referrerNames}}</li>
+                    <li><strong>{{lang.admin}} :</strong> {{data.adminNames}}</li>
+                    {{#data.isDescriptionExist}}
+                    <li>{{{data.description}}}</li>
+                    {{/data.isDescriptionExist}}
+                </ul>    
+            </div>
+            <div class="dataTables_wrapper">
+                <!-- 상단 메뉴바 START  -->
+           {{#data.actions.writable}}
+              {{^data.isPeriodic}}
+              {{#data.actions.writable}}
+              <div id="controlButtons" style="display: none">
+                  <a class="btn_major_s write createReport">
+                      <span class="ic_toolbar write"></span>
+                      <span class="txt">{{lang.write}}</span>
+                  </a>
+              </div>
+              {{/data.actions.writable}}
+              {{/data.isPeriodic}}
+           {{/data.actions.writable}}
+                <!-- 상단 메뉴바 END  -->
+                <!-- 테이블 -->
+                    <table class="type_normal tb_lately_report_detail" id="serise_report_list">    
+                        <colgroup>
+                            <col/>
+                            <col/>
+                            <col/>
+                        </colgroup>
+                        <thead>
+                            <tr>
+                                <th class="times sorting_disabled "><span class="title_sort">{{tableHeader.column1}}</span></th>
+                                <th class="status sorting_disabled"><span class="title_sort">{{tableHeader.column2}}</span></th>
+                                <th class="write sorting_disabled"><span class="title_sort">{{tableHeader.column3}}</span></th>
+                            </tr>
+                        </thead>
+                    </table>                
+            </div>
+        </div>

@@ -1,0 +1,23 @@
+						<li class="undone">
+							<a class="tit" href="javascript:;" data-type="PERIODIC" data-series-id={{data.id}} data-report-id="{{data.reportId}}" data-list-id="{{data.id}}" >
+								<span class="subject">
+									<span class="date">{{data.closedAtBasicDate}}</span>
+									<span class="title">{{data.folder.name}}</span>
+									<span class="turn">{{data.seriesText}}</span>
+									{{^data.isCommentCountZero}}
+									<span class="count"  style="color: #999;"> [{{data.commentCount}}]</span>
+									{{/data.isCommentCountZero}}
+								</span>
+								<span class="info">
+									<span class="form txt_ellipsis">{{data.department.name}}</span>
+									<span class="part">|</span>
+									<span class="reporter">{{data.donesText}}</span>
+									<span class="unreporter">({{data.undonesText}})</span>
+								</span>								
+							</a>
+							{{#data.actions.writable}}
+							<span class="btn_wrap optional">
+								<a href="javascript:;" class="btn btn_report_write" title=""></a>
+							</span>
+							{{/data.actions.writable}}
+						</li>

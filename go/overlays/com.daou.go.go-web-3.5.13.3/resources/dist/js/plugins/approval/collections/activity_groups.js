@@ -1,0 +1,1 @@
+(function(){define(["jquery","backbone","app","approval/models/activity_group","approval/models/activity","approval/collections/activities"],function(e,t,n,r,i,s){var o=t.Collection.extend({model:r,isExistActivity:function(e){var t=new i(e),n=new s;return this.each(function(e){var t=new s(e.get("activities"));n.add(t.models)}),n.isExistActivity(t)}});return o})}).call(this);

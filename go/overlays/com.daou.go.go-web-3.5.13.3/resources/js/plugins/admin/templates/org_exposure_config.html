@@ -1,0 +1,40 @@
+<form name="orgExposureConfig">
+    <div class="container">
+        <div class="content">
+            <table class="detail">
+                <caption>{{lang.org_exposure_config}}</caption>
+                <tbody>
+                <tr>
+                    <th>
+                        <span class="title">{{lang.siteName_use_config}}</span>
+                        <span class="help">
+						    <span class="tool_tip">{{lang.siteName_use_config_tool_tip}}<i class="tail_left"></i></span>
+						</span>
+                    </th>
+                    <td>
+                        <span class="wrap_btn_toggle">
+							<button class="btn_toggle {{#orgExposure.useSiteNameConfig}}on{{/orgExposure.useSiteNameConfig}} useSiteNameConfig" type="button" value="true" title="ON">{{lang.label_use}}</button>
+							<button class="btn_toggle {{^orgExposure.useSiteNameConfig}}on{{/orgExposure.useSiteNameConfig}} useSiteNameConfig" type="button" value="false" title="OFF">{{lang.label_notuse}}</button>
+                        </span>
+                    </td>
+                </tr>
+                <tr class="last">
+                    <th>
+                        <span class="title">{{lang.orgUnfold_use_config}}</span>
+                        <span class="help">
+                            <span class="tool_tip">{{lang.orgOpen_use_config_tool_tip}}<i class="tail_left"></i></span>
+						</span>
+                    </th>
+                    <td>
+                        <span class="wrap_btn_toggle">
+                            <button class="btn_toggle {{#orgExposure.useOrgUnfoldConfig}}on{{/orgExposure.useOrgUnfoldConfig}} useOrgUnfoldConfig" type="button" value="true" title="ON">{{lang.org_unfold}}</button>
+                            <button class="btn_toggle {{^orgExposure.useOrgUnfoldConfig}}on{{/orgExposure.useOrgUnfoldConfig}} useOrgUnfoldConfig" type="button" value="false" title="OFF">{{lang.org_fold}}</button>
+                        </span>
+                    </td>
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</form>

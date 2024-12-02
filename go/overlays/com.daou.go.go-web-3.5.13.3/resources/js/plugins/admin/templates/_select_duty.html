@@ -1,0 +1,19 @@
+<table style="margin:5px">
+    <colgroup>
+        <col width="*">
+        <col width="150px">
+    </colgroup>
+    <tbody>
+    <tr>
+        <th><span class="title">{{selectDuty}}</span></th>
+        <td>
+            <select id="duty" style="width:120px">
+                <option selected value="">{{nonCheck}}</option>
+                {{#data}}
+                <option value="{{id}}">{{name}}</option>
+                {{/data}}
+            </select>
+        </td>
+    </tr>
+    </tbody>
+</table>

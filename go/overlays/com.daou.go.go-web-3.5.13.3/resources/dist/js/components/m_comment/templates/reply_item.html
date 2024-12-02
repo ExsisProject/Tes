@@ -1,0 +1,28 @@
+<span class="photo"><a href="javascript:;" data-bypass><img src="{{thumbnail}}"></a></span>
+<div class="msg_wrap cmt">
+	<div class="ipt_wrap">
+		<textarea placeholder="{{lang.commentPlaceholder}}"></textarea>
+	</div>
+	<div class="wrap_attach" id="reply_attach_wrap" style="display:none">
+		<ul class="file_wrap" id="file_attach_wrap_ul"></ul>
+		<ul class="img_wrap" id="img_attach_wrap_ul"></ul>
+	</div>
+	<div class="btn_wrap btn_wrap_writer">
+		<div class="critical wrap_btn_attach" id="reply_fileuploader">
+		</div>
+		<div class="optional">
+			{{#anonymFlag}}
+			{{#availableAnonymousWriterOptionInPostComment}}
+			<span id="publicWriterSettingPart">
+				<span class="btn_action action_off">
+					<label>
+						<input type="checkbox" id="isOpenWriter">{{lang.public_writer}}
+					</label>
+				</span>
+			</span>
+			{{/availableAnonymousWriterOptionInPostComment}}
+			{{/anonymFlag}}
+			<a href="javascript:;" class="btn_type2 comment_reply_cancel"><span class="txt">{{lang.reply_cancel}}</span></a><a href="javascript:;" class="btn_major_s comment_reply_save"><span class="txt">{{lang.save}}</span></a>
+		</div>
+	</div>
+</div>

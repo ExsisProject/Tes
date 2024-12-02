@@ -1,0 +1,44 @@
+<div class="content go_renew">
+	<div class="list_wrap div_scroll">
+		<ul class="side_depth mail_folder">
+			<li class="folder_sys">
+			{{#dataset}}
+				<p class="title">
+					<ins class="ic"></ins><span class="txt">{{deptName}}</span>
+				</p>
+				<ul class="data_set" data-deptId="{{deptId}}">
+					{{#deptFolders}}
+					<li class="folder">
+						<p class="title folder">
+							<a><ins class="ic"></ins><span class="txt" data-folderId="{{folderId}}">{{folderName}}</span></a>
+						</p>
+					</li>
+					{{/deptFolders}}
+					{{^deptFolders}}
+					<li class="null">
+			            <p class="title">
+                            <span class="txt">{{lang.부서 문서함이 존재하지 않습니다}}</span>
+			            </p>
+			        </li>
+					{{/deptFolders}}
+				</ul>
+				{{/dataset}}
+				{{^dataset}}
+				<p class="title">
+					<ins class="ic"></ins><span class="txt">{{lang.문서함이 없습니다}}</span>
+				</p>
+				{{/dataset}}
+			</li>
+			{{#containsSubDept}}
+<!--	하위 부서 문서함 부분 
+			<li class="assigned">
+				<p class="folder">
+					<a><ins class="ic"></ins><span class="txt">{{lang.sub_dept_folder}}</span></a>
+				</p>
+			</li>
+-->
+			{{/containsSubDept}}
+			</ul>
+	</div>	
+	<div id="deptFolderError"></div>
+</div>

@@ -1,0 +1,29 @@
+<header class="content_top">	
+</header>
+
+<!--목록: 커뮤니티/게시판 홈-->		
+<div class="content_page  dashboard_comm">
+	<section class="comm_side" id="recent_board">
+		<div class="header">
+			<h2>{{lang.recent_board}}</h2>
+		</div>
+		<div class="comm_group">
+		</div>
+	</section>
+	<section class="comm_list comm_home board_home">
+		<div class="home_tab_wrap">
+			<ul class="comm_home_tab" id="home_tab">
+				<li id="communityByFeed" data-type="favorite" {{#hasFavorite}} class="active" {{/hasFavorite}}><span class="txt">{{lang.favorite}}</span></li>
+				<li id="communityByUser" data-type="all" {{^hasFavorite}}  class="active" {{/hasFavorite}}><span class="txt">{{lang.total_board}}</span></li>
+			</ul>
+		</div>
+		<div class="tab_contents">
+			<ul class="article_list home_list">
+			</ul>	
+			<div class="bottom_action" id="moreButton" style="display: none">
+				<a class="btn_list_reload" data-bypass><span class="ic"></span><span class="txt">{{lang.more_view}}</span></a>
+			</div>
+		</div>
+	</section>
+</div>
+<!-- //목록: 최근글 게시판커뮤니티 홈 -->		

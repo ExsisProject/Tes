@@ -1,0 +1,1 @@
+define(["backbone"],function(e){var t=e.Collection.extend({initialize:function(e){this.id=e.id},url:function(){return GO.contextRoot+"ad/api/customprofile/configs/"+this.id}},{getList:function(e){var n=new t({id:e});return n.fetch({async:!1}),n}});return{getList:function(e){return t.getList(e)}}});

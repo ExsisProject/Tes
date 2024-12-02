@@ -1,0 +1,44 @@
+<form name="f_regist_event">
+	<fieldset>
+		<table class="form_type go_renew">
+			<tbody>
+			<tr>
+				<th><span class="title" data-id={{id}}>{{lang.label_code}}</span></th>
+				<td><input class="input" type="text" id="attndCode" {{#isSyncActive}} disabled="disabled" {{/isSyncActive}} value={{attndCode}}></td>
+			</tr>
+			<tr>
+				<th><span class="title">{{lang.label_code_name}}</span></th>
+				<td><input class="input" type="text" id="name" {{#isSyncActive}} disabled="disabled" {{/isSyncActive}} value={{name}}></td>
+			</tr>
+			<tr>
+				<th><span class="title">{{lang.label_attnd_type}}</span></th>
+                <td width="auto" valign="top">
+                    <select class="selectBox" name="attndType" id="attndType">
+					     <option value="DATE" {{#isAttndType}} selected="selected" {{/isAttndType}}>{{lang.label_date}}</option>
+					     <option value="TIME" {{^isAttndType}} selected="selected" {{/isAttndType}}>{{lang.label_time}}</option>
+                    </select>
+                </td>
+			</tr>
+			<tr>
+				<th>
+					<span class="title">{{lang.label_use_yn}}</span>
+					<span class="help">
+						<span class="tool_tip">{{lang.label_use_yn_tooltip}}<i class="tail_left"></i></span>
+					</span>			
+				</th>
+				<td><input class="txt" type="checkbox" id="useYN" {{#checked}} checked="checked" {{/checked}}> {{lang.label_use}}</td>
+			</tr>
+			</tbody>
+		</table>
+		<table>
+			<tbody>
+				<tr>
+					<td style="text-align:center;">
+						<br/>
+						<p><span class="go_alert" id="stateNameValidate"></span></p>
+					</td>
+				</tr>		
+			</tbody>
+		</table>
+	</fieldset>
+</form>

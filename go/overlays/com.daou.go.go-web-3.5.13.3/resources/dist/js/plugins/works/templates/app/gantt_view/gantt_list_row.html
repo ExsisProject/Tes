@@ -1,0 +1,57 @@
+<li class="node list {{iconType}}" data-type="{{nodeType}}"
+    {{^isNew}} data-id="{{nodeId}}" seq="{{seq}}"{{/isNew}}
+    {{#isDocNode}} doc-id="{{docId}}" parent-id="{{parentId}}" status-name="{{statusName}}" status-color="{{statusColor}}"{{/isDocNode}}>
+    <div class="item">
+        <span class="ic ic_drag"></span>
+        {{#isGroupNode}}
+        <div class="node-title tit">
+            {{#hasChildren}}
+            <span class="btnToggleNode ic_stair_{{#isClosedNode}}open{{/isClosedNode}}{{^isClosedNode}}close{{/isClosedNode}}"
+                  title="{{#isClosedNode}}{{lang.open}}{{/isClosedNode}}{{^isClosedNode}}{{lang.close}}{{/isClosedNode}}"></span>
+            {{/hasChildren}}
+            <span class="ic" title=""></span>
+            {{#isEditingMode}}
+            <input type="text" class="input w_medium vm" value="{{^isNew}}{{nodeValue}}{{/isNew}}" placeholder="{{nodeValue}}">
+            <span class="btn_wrap ui_edit_ing">
+                <span class="ic_side ic_done btnSaveNode" title="{{lang.save}}"></span>
+                <span class="ic_side ic_cancel{{#isNew}} btnCancelAddNode{{/isNew}}{{^isNew}} btnCancelEditNode{{/isNew}}" title="{{lang.cancel}}"></span>
+            </span>
+            {{/isEditingMode}}
+            {{^isEditingMode}}
+            <span class="txt_form folder_name">
+                <span class="txt">{{nodeValue}}</span>
+                <span class="num">({{childrenCount}})</span>
+                {{#isAdmin}}
+                <span class="ui_edit btn_wrap">
+                    <span class="ic_side ic_edit btnEditNode" title="{{lang.modify}}"></span>
+                    <span class="ic_side ic_basket_bx btnRemoveNode" title="{{lang.remove}}"></span>
+                </span>
+                {{/isAdmin}}
+            </span>
+            {{/isEditingMode}}
+        </div>
+        <div class="opt">
+            <span class="progress"><span class="txt" value="{{progress}}">{{progress}}</span></span>
+        </div>
+        {{/isGroupNode}}
+
+        {{#isDocNode}}
+        <div class="node-title tit">
+            <span class="ic ic_board"></span>
+            <span class="title board_name" title="{{nodeValue}}">{{nodeValue}}</span>
+            <span class="ic_classic ic_blank btnDocPopup" title="{{lang.popup}}"></span>
+        </div>
+        <div class="opt">
+            <span class="date startdate"><span class="txt">{{startdate}}</span></span>
+            <span class="date enddate"><span class="txt">{{enddate}}</span></span>
+            <span class="member user"><span class="txt">{{user}}</span></span>
+            <span class="progress"><span class="txt">{{progress}}</span></span>
+        </div>
+        {{#isAdmin}}
+        <span class="btn_wrap btn_hover exceptNode">
+            <span class="btnRemoveNode ic_side ic_list_del" title="{{lang.except}}"></span>
+        </span>
+        {{/isAdmin}}
+        {{/isDocNode}}
+    </div>
+</li>

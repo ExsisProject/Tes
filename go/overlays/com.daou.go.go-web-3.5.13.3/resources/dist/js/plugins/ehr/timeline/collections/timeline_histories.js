@@ -1,0 +1,1 @@
+define("timeline/collections/timeline_histories",function(require){var e=require("underscore"),t=require("backbone"),n=require("timeline/models/history"),r=t.Collection.extend({model:n,initialize:function(){}});return r});

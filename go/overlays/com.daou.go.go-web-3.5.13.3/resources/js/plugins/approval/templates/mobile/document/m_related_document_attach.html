@@ -1,0 +1,69 @@
+<div class="content scroll"><!-- 높이 값은 개발팀에 요청 -->
+	<section class="classic_detail">
+		<header class="article_header">
+			<div class="wrap_docubox">
+				<span class="docu_name">{{docu_name}}</span>
+					<select class="w_max" id="clickRefSide">
+						<optgroup label="{{lang.개인 문서함}}" id="userReference">
+							<option class="appr_draft" data-type="draft" value="{{lang.기안 문서함}}">{{lang.기안 문서함}}</option>
+							<option class="apuserReferencepr_sign" data-type="sign" value="{{lang.결재 문서함}}">{{lang.결재 문서함}}</option>
+							<option class="appr_cc" data-type="cc" value="{{lang.참조/열람 문서함}}">{{lang.참조/열람 문서함}}</option>
+							<option class="appr_inbox" data-type="inbox" value="{{lang.수신 문서함}}">{{lang.수신 문서함}}</option>
+							<option class="appr_send" data-type="send" value="{{lang.send_docfolder}}">{{lang.send_docfolder}}</option>
+							{{#apprSideData.userFolders}}
+							<option class="appr" data-id="{{folderId}}" data-type="userFolder" data-navi="userdoc" value="{{folderName}}" data-bypass>{{folderName}}</option>
+							{{/apprSideData.userFolders}}
+						</optgroup>
+					{{#sharedFolder}}
+						<optgroup label="&lt;{{lang.shared_docfolder}}&gt;" id="sharedFolder">
+							{{#apprSideData.sharedFoldersToUser}}
+							<option value="{{lang.shared_docfolder}}" data-id="{{folderId}}" {{#isfolderTypeUser}}data-navi="shareuserdoc" data-belong="inuser" {{/isfolderTypeUser}}{{^isfolderTypeUser}} data-navi="sharedeptdoc" data-deptid="{{deptId}}" data-belong="indept" {{/isfolderTypeUser}}  data-bypass> {{folderName}}</option>
+							{{/apprSideData.sharedFoldersToUser}}
+						</optgroup>
+					{{/sharedFolder}}
+						<optgroup  class="side_depth" id="deptReference" data-deptid="{{deptId}}" label="{{lang.부서 문서함}}">
+					{{#dataset}}
+							<option class="appr_compl" data-type="draft" data-navi="deptdraft" data-deptid="{{deptId}}" value="[{{deptName}}] {{lang.부서 문서함}}">[{{deptName}}] {{lang.기안 완료함}}</option>
+							<option class="appr_cc" data-type="cc" data-navi="deptreference" data-deptid="{{deptId}}" value="[{{deptName}}] {{lang.부서 참조함}}">[{{deptName}}] {{lang.부서 참조함}}</option>
+							{{#dataset.subscribeMaster}}
+							<option class="appr_reception" data-type="inbox" data-navi="deptreceive" data-deptid="{{deptId}}" value="[{{deptName}}] {{lang.부서 수신함}}">[{{deptName}}] {{lang.부서 수신함}}</option>
+							{{/dataset.subscribeMaster}}
+							{{#dataset.deptFolders}}
+							<option class="appr" data-type="folder" data-folderId="{{folderId}}" data-navi="deptdoc">{{folderName}}</option>
+							{{/dataset.deptFolders}}
+							{{#dataset.sharedDeptFolder}}
+							<option class="appr" data-type="sharedFolder" data-folderId="{{folderId}}" {{#isfolderTypeUser}} data-navi="shareuserdoc"{{/isfolderTypeUser}} {{^isfolderTypeUser}} data-navi="sharedeptdoc"{{/isfolderTypeUser}} data-belong="indept" data-bypass> value="{{lang.added_docfolder}}&">{{folderName}}</option>
+							{{/dataset.sharedDeptFolder}}
+					{{/dataset}}
+						</optgroup>
+						<optgroup id="companyDocSide" data-type="companyDocTree" class="companyDocTree" label="{{lang.company_docfolder}}">
+						</optgroup>
+					</select>
+			</div>
+		</header>
+		<article class="article_body" id="form_detail_list">
+			<div class="docu_search type2">
+				<div class="wrap_search">
+					<select id="referenceSearchType">
+						<option value="title">{{lang.제목}}</option>
+						<option value="drafterName">{{lang.기안자}}</option>
+						<option value="formName">{{lang.결재양식}}</option>
+						<option value="docNum">{{lang.문서번호}}</option>
+						<option value="activityUserName">{{lang.결재선}}</option>
+					</select>
+					<input id="search_title" class="input" type="text" placeholder="{{lang.검색어를 입력해주세요}}">
+					<a>
+						<span class="btn btn_del_type1"></span>
+					</a>
+					<a>
+						<span class="ic_cmm ic_cmm_search" id="search_icon"></span>
+					</a>
+				</div>
+			</div>
+			<div class="docu_list">
+				<ul class="list_box list_apprChk">
+				</ul>
+			</div>
+		</article>
+	</section>
+</div>

@@ -1,0 +1,98 @@
+<header class="content_top"></header>
+<div>
+    <div>
+        <div class="current_date" id="dateBtns" style="margin-top: 10px; height: 38px; text-align: center">
+            <span class="btn_ic_prev2 btn_border" title="{{lnag.이전}}" id="preDate" data-date="{{preDate}}"><span
+                    class="ic ic_prev2"></span></span>
+                    <span class="date" id="searchDate" data-date="{{searchDate}}">{{searchDate}}</span>
+            <span class="btn_ic_next2 btn_border" title="{{lang.다음}}" id="nextDate" data-date="{{nextDate}}"><span
+                    class="ic ic_next2"></span></span>
+            <span class="btn_tool" alt="{{lang.날짜 이동}}" id="calArea">
+                <span class="ic_gnb ic_cal_mini"><input type="text" id="calBtn" style="border:0px;width:1px;height:1px"/></span>
+            </span>
+        </div>
+        <table class="type_normal tb_agenda">
+            <thead>
+            <tr>
+                <th class="go" style="text-align: center !important;">
+					<span class="title_sort">
+						{{lang.년간 Point}}
+					</span>
+                </th>
+                <th class="go_ip">
+					<span class="title_sort">
+						{{lang.사용 Point}}
+					</span>
+                </th>
+                <th class="leave">
+					<span class="title_sort">
+						{{lang.조정 Point}}
+					</span>
+                </th>
+                <th class="leave_ip">
+					<span class="title_sort">
+						{{lang.남은 Point}}
+					</span>
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+                {{#welfare}}
+                <tr>
+                    <td style="text-align: center !important;"><span>{{#convertNumber}}totalPoint{{/convertNumber}}</span></td>
+                    <td style="text-align: center !important;"><span>{{#convertNumber}}usedPoint{{/convertNumber}}</span></td>
+                    <td style="text-align: center !important;"><span>{{#convertNumber}}additionPoint{{/convertNumber}}</span></td>
+                    <td style="text-align: center !important;"><span>{{#convertNumber}}restPoint{{/convertNumber}}</span></td>
+                </tr>
+                {{/welfare}}
+            </tbody>
+        </table>
+        <div></div>
+        <table class="type_normal tb_agenda tb_attend" id="welfare_list" style="margin-top: 25px">
+            <thead>
+            <tr>
+                <th class="go" style="text-align: center !important;">
+					<span class="title_sort">
+						{{lang.사용일}}
+					</span>
+                </th>
+                <th class="go_ip">
+					<span class="title_sort">
+						{{lang.사용 Point}}
+					</span>
+                </th>
+                <th class="leave">
+					<span class="title_sort">
+						{{lang.거래처}}
+					</span>
+                </th>
+                <th class="leave">
+					<span class="title_sort">
+						{{lang.분류}}
+					</span>
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+                {{#isEmpty}}
+                <tr>
+                    <td colspan="4" style="text-align: center">
+                        <p class='data_null'>
+                            <span class='ic_data_type ic_no_data'></span>
+                            <span class='txt'>{{lang.복지포인트 데이터 없음}}</span>
+                        </p>
+                    </td>
+                </tr>
+                {{/isEmpty}}
+                {{#histories}}
+                <tr>
+                    <td style="text-align: center !important;"><span>{{eventDate}}</span></td>
+                    <td style="text-align: center !important;"><span>{{#convertNumber}}usedPoint{{/convertNumber}}</span></td>
+                    <td style="text-align: center !important;"><span>{{description}}</span></td>
+                    <td style="text-align: center !important;"><span>{{title}}</span></td>
+                </tr>
+                {{/histories}}
+            </tbody>
+        </table>
+    </div>
+</div>

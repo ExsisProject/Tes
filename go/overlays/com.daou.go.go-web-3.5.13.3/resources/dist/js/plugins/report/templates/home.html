@@ -1,0 +1,35 @@
+            <header class="content_top">
+            </header>    
+        
+            <!--보고서 홈-->    
+            <div class="content_page dashboard_report" >
+                <div class="dr_wrapper"><!--dr:dashboard_report-->
+                    <h1 class="s_title">{{{to_submit_title}}}
+                        <span class="btn_wrap">
+                            <span class="ic ic_info btn-toggle-desc">
+                                <span class="layer_tail tooltip-desc" style="display:none;">
+                                    <i class="ic ic_tail"></i>
+                                    <div>{{{to_submit_desc}}}</div>
+                                </span>
+                            </span>
+                        </span>
+                    </h1>
+                    <div class="dashboard_box">
+                        <div class="card_item_wrapper" id="todo_list"></div>
+                    </div>
+                </div>
+                <div class="dr_wrapper"><!--dr:dashboard_report-->    
+                    <h1 class="s_title">{{{recently_submitted_title}}}
+                        <span class="btn_wrap">
+                            <span class="ic ic_info btn-toggle-desc">
+                                <span class="layer_tail tooltip-desc" style="display:none;">
+                                    <i class="ic ic_tail"></i>
+                                    <div>{{{recently_submitted_desc}}}</div>
+                                </span>
+                            </span>
+                        </span>
+                    </h1>
+                    <div class="dataTables_wrapper" id="recent_list">
+                    </div>
+                </div>
+            </div>

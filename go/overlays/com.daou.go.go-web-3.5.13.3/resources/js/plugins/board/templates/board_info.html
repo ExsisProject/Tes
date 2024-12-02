@@ -1,0 +1,50 @@
+<div class="content_info_wrap">
+	<ul class="simple_info">
+		<li>
+			<strong>{{lang.board_address}} :</strong><span class="txt_url">{{directUrl}}</span>	 
+			<span class="btn_fn7" data-role="button" id="copyUrl"><span class="txt">{{lang.copy}}</span></span>			
+		</li>
+		{{^isHideSubscrib}}
+		{{#isMember}}
+		<li>
+				{{#dataset.actions.managable}}
+				<strong>{{lang.email_subscriber}} :</strong> <span  id="btnSubscriberCount" class="btn_txt">{{dataset.subscriberCount}}</span> {{lang.member_count}} &nbsp;
+				<span class="btn_fn7" data-role="button" id="btnSubscriberAdd"><span class="ic_con ic_create_strong"></span><span class="txt">{{lang.add}}</span></span>
+				{{/dataset.actions.managable}}
+				{{^dataset.actions.managable}}
+				<strong>{{lang.email_subscription}} :</strong>&nbsp;
+				<span class="btn_fn7" data-role="button" id="btnSubscriptionUser">
+					<span class="ic_con {{#dataset.subscriptionFlag}}ic_release{{/dataset.subscriptionFlag}}{{^dataset.subscriptionFlag}}ic_create_strong{{/dataset.subscriptionFlag}}" {{#dataset.subscriptionFlag}}ic_release{{/dataset.subscriptionFlag}} {{#dataset.subscriptionFlag}} style="display: none;" {{/dataset.subscriptionFlag}}></span>
+					<span class="txt">{{#dataset.subscriptionFlag}}{{lang.email_subscription2}}{{/dataset.subscriptionFlag}}{{^dataset.subscriptionFlag}}{{lang.email_subscription_post}}{{/dataset.subscriptionFlag}}</span>
+				</span>
+				{{/dataset.actions.managable}}
+		</li>
+		{{/isMember}}
+		{{#dataset.actions.managable}}
+		{{^isCompany}}
+		<li>
+			<span class="btn_fn7" data-role="button">
+				<span class="ic_con ic_share"></span>
+				<span id="btnOwners" class="txt"><strong>{{#isCommunity}}{{lang.community_share_state}}{{/isCommunity}}{{^isCommunity}}{{lang.board_share_state}}{{/isCommunity}}</strong></span>
+			</span>
+		</li>
+		{{/isCompany}}
+		{{/dataset.actions.managable}}
+		{{/isHideSubscrib}}
+	</ul>
+	<ul class="detail_info" {{^folderStatus}}style="display:none"{{/folderStatus}}>
+		<li><strong>{{lang.manager}} :</strong> {{#dataset.managers}}{{name}} {{/dataset.managers}}</li>
+		{{#dataset.description}}
+		<li>{{{dataset.description}}}</li>
+		{{/dataset.description}}
+	</ul>
+	
+	<span class="btn_wrap">
+        {{^folderStatus}}
+		<span id="boardInfoBtn" class="ic_classic ic_open" title="{{lang.open}}" ></span>
+        {{/folderStatus}}
+        {{#folderStatus}}
+        <span id="boardInfoBtn" class="ic_classic ic_close" title="{{lang.close}}" ></span>
+        {{/folderStatus}}
+	</span>
+</div>

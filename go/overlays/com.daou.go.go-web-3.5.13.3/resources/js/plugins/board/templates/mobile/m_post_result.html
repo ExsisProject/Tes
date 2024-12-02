@@ -1,0 +1,51 @@
+<!-- 목록 -->
+<div class="content">
+<ul class="list_normal list_search">
+	<li>
+        <a class="tit" href="javascript:;" >
+			<span class="info">
+				<span class="name">{{lang.keyword}} : <strong>{{searchData.keyword}}</strong></span>									
+			</span>
+        </a>
+	</li>
+    {{^dataset}}								
+	<li class="creat data_null">
+		<span class="txt">{{lang.non_result}}</span>
+	</li>
+    {{/dataset}}
+    {{#dataset}}
+	<li data-boardType="{{boardType}}" data-boardid="{{boardId}}" data-postid="{{id}}">
+		<a class="tit" href="javascript:;" >
+			{{^isStream}}
+			<span class="subject">
+				<span class="title">
+                        {{#postHeaderName}}[{{postHeaderName}}]&nbsp;{{/postHeaderName}}{{{title}}}
+                </span>
+            </span>    
+            {{/isStream}}
+            <span class="content"> {{{resultContentParse}}} {{attachFileNames}}</span>
+            
+          	{{#attachFileNames}}  
+            <ul class="file_wrap_normal">
+				<li>
+					<span class="ic ic_attach">
+						<span class="ic_file ic_pdf"></span>
+						<span class="file_name">{{{attachFileNames}}}</span>
+						<!-- <span class="size">(34KB)</span> -->
+					</span>
+				</li>
+			</ul>
+			{{/attachFileNames}}
+			
+			<span class="info">
+				<span class="name txt_ellipsis {{#writer}}{{#otherCompanyUser}}multi_user{{/otherCompanyUser}}{{/writer}}">{{writer.name}} {{writer.positionName}}</span>
+				{{#writer.name}}<span class="part">|</span>{{/writer.name}}
+				<span class="date">{{dateParse}}</span>
+				<span class="part">|</span>
+				<span class="category txt_ellipsis">{{boardName}}</span>
+			</span>
+		</a>
+	</li>
+    {{/dataset}}
+</ul>
+</div>

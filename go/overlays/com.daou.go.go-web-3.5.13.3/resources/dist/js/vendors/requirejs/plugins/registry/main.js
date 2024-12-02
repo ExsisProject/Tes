@@ -1,0 +1,7 @@
+/**
+ * @license RequireRegistry 0.3 Copyright (c) 2012, Dmitry Kuznetsov All Rights Reserved.
+ * Available via the MIT or new BSD license.
+ * @see https://github.com/dmkuznetsov/requirejs-registry
+ */
+
+define("registry",[],function(){var e={},t={};return{load:function(n,r,i,s){var o=n.replace(/\//g,"_");n=n.replace(/\/+$/,""),e[o]==undefined&&(e[o]={},t[o]={},s.config!=undefined&&s.config[n]!=undefined&&(e[o]=s.config[n]));var u={version:"0.3",namespace:o,get:function(n){return e[this.namespace][n]!==undefined&&t[this.namespace][n]!==undefined&&t[this.namespace][n].get!==undefined&&t[this.namespace][n].get(n,e[this.namespace][n]),e[this.namespace][n]},set:function(n,r){return t[this.namespace][n]===undefined&&(t[this.namespace][n]={}),t[this.namespace][n].set!==undefined&&t[this.namespace][n].set(n,e[this.namespace][n],r),e[this.namespace][n]=r},clb:function(n,r,i){r=r.toLowerCase();if(e[this.namespace][n]===undefined)throw new Error("Undefined variable "+n+"!");if("get"!=r&&"set"!=r)throw new Error('Unknown event type! Use "get" or "set".');if(!(i instanceof Function))throw new Error("Use only function(){} statement!");t[this.namespace][n]===undefined&&(t[this.namespace][n]={}),t[this.namespace][n][r]=i}};i(u)}}});

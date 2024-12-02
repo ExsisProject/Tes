@@ -1,0 +1,44 @@
+<p class="edit_mode">
+	<span class="textarea_edit" style="height:auto;">
+		<textarea class="edit w_max">{{message}}</textarea>
+	</span>
+</p>
+	<div class="temp commentFileModifyWrap {{#isAttaches}}option_display{{/isAttaches}}" id="commentFileModifyWrap_{{typeId}}_{{id}}">
+		<ul class="file_wrap">
+			{{#files}}
+				<li data-name="{{name}}" data-id="{{id}}">
+					<span class="item_file">
+						<span class="ic_file ic_{{extention}}"></span>
+						<span class="name">{{name}}</span>
+						<span class="size">({{size}})</span>
+						<span class="btn_wrap">
+							<span class="ic_classic ic_del"></span>
+						</span>
+					</span>
+				</li>	
+			{{/files}}
+		</ul>
+		<ul class="img_wrap">
+			{{#images}}
+			<li data-name="{{name}}" data-id="{{id}}">
+				<span class="item_file">
+					<span class="item_image">
+						<span class="thumb">
+							<img src="{{thumbSmall}}" alt="{{name}}"  />
+						</span>
+						<span class="btn_wrap">
+							<span class="ic_classic ic_del" data-postid=""></span>
+						</span>
+					</span>	
+				</span>
+			</li>
+			{{/images}}
+		</ul>
+	</div>
+<span class="btn_fn7 posi1" title="{{lang.file_attach}}">
+	<span class="ic_con ic_file_up_s" id="file-control-{{commentId}}"> </span>
+</span>
+<div class="edit_reply">
+	<span class="btn_major_s comment_modify_save" data-typeid="{{typeId}}" data-commentid="{{id}}"><span class="">{{lang.save}}</span></span>
+	<span class="btn_minor_s comment_modify_cancel" style="position:static"><span class="">{{lang.cancel}}</span></span>												
+</div>

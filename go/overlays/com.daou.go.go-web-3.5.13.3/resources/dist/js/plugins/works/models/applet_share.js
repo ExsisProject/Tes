@@ -1,0 +1,1 @@
+define(function(require){var e=Backbone.Model.extend({url:function(){return GO.config("contextRoot")+"api/works/applets/"+this.get("id")+"/share"}});return e});

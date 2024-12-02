@@ -1,0 +1,1 @@
+define(["backbone"],function(e){var t=null,n=e.Collection.extend({url:function(){return"/ad/api/system/servers"}},{get:function(){return t==null&&(t=new n),t.set({silent:!0}),t.fetch({async:!1}),t}});return{read:function(){return webRevision=n.get()}}});

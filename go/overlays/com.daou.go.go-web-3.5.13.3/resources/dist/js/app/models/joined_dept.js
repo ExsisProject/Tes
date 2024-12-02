@@ -1,0 +1,1 @@
+define(["backbone"],function(e){var t=e.Model.extend({hasDescendant:function(){return this.get("childrenCount")>0}});return t});

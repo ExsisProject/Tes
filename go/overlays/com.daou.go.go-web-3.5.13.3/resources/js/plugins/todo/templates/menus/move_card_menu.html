@@ -1,0 +1,16 @@
+<form class="form_static">
+    <div class="form_static_wrap">
+        <p class="title">{{label.column}}</p>
+        <select name="select_column" class="select-column-seq w_max">
+            {{#columns}}
+            <option value="{{id}}">{{title}}</option>
+            {{/columns}}
+        </select>
+    </div>
+    <div class="form_static_wrap">
+        <p class="title">{{label.position}}</p>
+        <select name="select_position" class="select-card-seq w_max"></select>
+    </div>
+</form>
+
+{{> _confirm_button}}

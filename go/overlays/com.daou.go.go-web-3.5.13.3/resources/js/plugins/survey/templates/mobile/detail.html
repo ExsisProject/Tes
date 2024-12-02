@@ -1,0 +1,48 @@
+<header class="article_header photo_type">
+	{{#creator.thumbnail}}
+	<span class="photo"><a href="javascript:;"><img title="{{creator.display_name}}" src="{{creator.thumbnail}}" /></a></span>
+	{{/creator.thumbnail}}
+	<div class="info">
+		<span class="name txt_ellipsis">{{creator.display_name}}</span>								
+		<span class="date">{{period}}</span>
+
+		<span class="option"><span class="txt">{{public_flag}}</span><span class="part">|</span><span class="txt">{{editable_flag}}</span></span>
+        <a href="javascript:;" class="btn_share" id="copyUrl">
+            <span class="ic ic_link"></span>
+        </a>
+	</div>	
+</header>
+
+<article class="article_view">
+	{{#accessible?}}
+	<p class="txt">
+		{{{guidance}}}
+	</p>
+	<div id="survey-attach-placeholder"></div>
+	{{/accessible?}}
+	
+	{{^accessible?}}
+	<p class="txt">
+		{{#responded?}}
+			{{{msg.responded}}}
+		{{/responded?}}
+		
+		{{^responded?}}
+			{{{msg.not_accessible}}}
+		{{/responded?}}
+		
+		<div class="page_action_wrap">
+				{{#editable?}}
+                {{^finished?}}
+				<a class="btn-modify-resp btn_major" data-role="button"><span class="txt">{{label.modify_response}}</span></a>
+				{{/finished?}}
+                {{/editable?}}
+				<a href="{{context_root}}app/survey/dashboard" class="btn-dashboard btn_{{#editable?}}minor{{/editable?}}{{^editable?}}major{{/editable?}}" data-role="button"><span class="txt">{{label.go_home}}</span></a>
+		</div>
+	</p>
+	{{/accessible?}}
+</article>
+
+{{#accessible?}}
+<div class="queryview-placeholder"></div>
+{{/accessible?}}

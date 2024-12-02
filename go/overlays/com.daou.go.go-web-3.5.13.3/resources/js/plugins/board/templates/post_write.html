@@ -1,0 +1,277 @@
+<!-- 등록: 게시글 작성   -->	
+<header class="content_top">
+</header>
+<div class="content_page go_renew">
+	<!-- 타겟 설정 -->
+	<div class="target_wrap">
+		<span class="spacer"></span>
+		<span class="txt">To.</span>
+		<span id="deptList"></span>
+		<input type="hidden" name="currentBoard" value="" />
+	</div>
+	<form id="classicWriteWrap" class="editor_form">
+		<fieldset>
+		<table class="form_type">				
+			<caption>{{lang.post_write}}</caption>
+			<colgroup>
+				<col width="130px"/><!-- 개발쪽에서 width값을 받아가서 재설정 후 삭제  -->
+				<col width="*"/>
+			</colgroup>
+			<tbody>
+			<tr>
+				<th><span class="title">{{lang.title}}</span></th>
+				<td>
+					<table class="form_article">
+						<tr>
+							<td class="head" id="headerList" style="display:none"></td>
+							<td>
+								<div class="wrap_txt w_max"><input class="txt w_max" type="text"  id="subject" /></div>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<tr id="attachPart">
+				<th>
+					<span class="title">{{lang.file_attach}}</span>
+					{{#isAttachNumberToolTip}}
+					<span class="help">
+						<span class="tool_tip top" style="width:210px">{{lang.첨부파일 1개의 최대 용량은 NNN MB 이며 최대 N개 까지 등록 가능합니다}}
+							<i class="tail_left"></i>
+						</span>
+					</span>
+					{{/isAttachNumberToolTip}}
+				</th>
+				<td>
+					<!-- 첨부파일 default -->
+					<div id="dropZone" class="dd_attach">
+						<p class="drag_txt">{{lang.이 곳에 파일을 드래그 하세요}}</p>
+						<div class="area_txt">
+							<span class="ic_attach ic_upload"></span>
+							<span class="msg">{{lang.이 곳에 파일을 드래그 하세요 또는}}
+                                    <span class="btn_file" id="swfupload-control"></span>
+                                    <span id="total_size" class="size"></span>
+							</span>
+						</div>
+						<div class="progress">
+						</div>
+						<div class="wrap_attach">
+							<!-- 파일 첨부 스타일  -->
+							<ul class="file_wrap" id="fileWrap"></ul>
+							<!-- 이미지 첨부 스타일  -->
+							<ul class="img_wrap" id="imgWrap"></ul>
+						</div>
+					</div>
+				</td>
+			</tr>
+			<tr class="line"><td colspan="2"><hr /></td></tr>					
+			</tbody>
+		</table>
+		<div class="editor" style="border:0px">
+			<a data-tmpid="" class="btn_temp_list" data-bypass>{{lang.tmp_posts}}(<strong id="tmpCnt"></strong>)</a>				
+			<div id="editor" style="width:100%"></div>
+		</div>
+<!--@classs 명 ,  컨텐츠와 상관없는 범용적인 네임 -->
+		<table class="form_type" id="writeOptionWrap" style="display:">
+			<colgroup>
+				<col width="130px"/><!-- 개발쪽에서 width값을 받아가서 재설정 후 삭제  -->
+				<col width="*"/>
+			</colgroup>					
+			<tbody>
+            {{^isReply}}
+			<tr id="publicSettingPart">
+				<th><span class="title">{{lang.public_setting}}</span></th>
+				<td>
+					<span class="wrap_option">
+						<input type="radio" id="secretOpen" name="writeSecret" value="OPEN" checked />
+                        <label for="secretOpen">{{lang.public}}</label>
+					</span>
+					<span class="horspace1"></span>
+					<span class="wrap_option">
+						<input type="radio" id="secretClose" name="writeSecret" value="CLOSE"/>
+                        <label for="secretClose">{{lang.private}}</label>
+					</span>
+					<span class="wrap_desc_top" id="publicSettingMsg">
+						<span class="desc"></span>
+					</span>
+					<div class="option_display">
+						<div class="wrap_name_tag">
+							<ul id="authorizedUserList" class="name_tag">
+								<li class="creat" data-button="true">
+									<span class="btn_wrap" id="btn-add-authUsers">
+										<span class="ic_form ic_addlist"></span>
+										<span class="txt">{{boardLang.열람자 선택}}</span>
+									</span>
+									<a id="removeAllAuthUser" class="btn_rest">
+										<span class="ic16 allDel"></span>
+										<span class="txt">{{commonLang.전체 삭제}}</span>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</td>
+			</tr>
+			<tr id=stickableOption>
+				<th><span class="title">{{lang.notice_register}}</span></th>
+				<td>
+					<span class="btn_action action_off">
+						<input id="write_noti" type="checkbox" />
+						<label for="write_noti">{{lang.notice_register}}</label>
+					</span>	
+					<!-- span id="stickyStartDate" data-sticky=""></span><span id="stickyEndDate"></span-->
+					<div class="option_display" id="notice_term_part" style="display:none"> <!-- 사용할 경우 보임 -->
+						<span class="option_wrap">
+							<input id="write_noti_order" type="checkbox" />
+							<label for="write_noti_order">{{lang.notice_top_register}}</label>
+						</span>
+						<span class="wrap_desc_top">
+							<span class="desc">{{lang.notice_top_register_msg}}</span>
+						</span>
+						<span class="noti_date_wrap option_wrap" style="display:"><!-- 사용자 지정으로 선택시 나옴 인풋창을 클릭하거나 달력을 클릭하면 달력 레이어뜸 -->
+							<input class="txt_mini wfix_medium" id="stickyStartDate" data-sticky="" type="text" />		
+							<span class="ic ic_calendar"></span>
+						</span> - 
+						<span class="noti_date_wrap option_wrap" style="display:"><!-- 사용자 지정으로 선택시 나옴 인풋창을 클릭하거나 달력을 클릭하면 달력 레이어뜸 -->
+							<input class="txt_mini wfix_medium" id="stickyEndDate" type="text" />		
+							<span class="ic ic_calendar"></span>
+						</span>
+					</div>
+				</td>
+			</tr>
+            {{/isReply}}
+			<tr id="alimOption">
+				<th><span class="title">{{lang.alim}}</span></th>
+				<td>
+					<span class="btn_action_wrap" id="classicAlimpOption">
+	                       <span class="btn_action action_off">
+                           	    <input id="post_classic_mail_noti" type="checkbox" />
+                                <label for="post_classic_mail_noti">{{lang.alim_mail}}</label>
+	                       </span>
+                           <span class="btn_action action_off">
+                                        <input id="post_classic_push_noti" type="checkbox" />
+                                        <label for="post_classic_push_noti">{{lang.alim_push}}</label>
+                           </span>
+                           <span class="wrap_ic_s">
+                           	    <span class="help">
+                                	<span class="tool_tip tooltip_push">{{lang.alim_tooltip}}<i class="tail_left"></i>
+                                    </span>
+                                </span>
+	                       </span>
+                    </span>
+                    <div class="desc caution" id="mail_push_desc" style="display: none"> ※ {{lang.mail_push_desc}} </div> 
+				</td>
+			</tr>
+			<tr id="publicWriterSettingPart">
+				<th><span class="title">{{lang.public_writer_setting}}</span></th>
+				<td>
+					<span class="btn_action action_off">
+						<input type="checkbox" id="isPublicWriter" {{#isEditMode}}disabled="disabled"{{/isEditMode}}>
+						<label for="isPublicWriter">{{lang.public_writer}}</label>
+					</span>
+				</td>
+			</tr>
+			</tbody>					
+		</table>
+		</fieldset>
+	</form>
+	<div class="page_action_wrap" id="classicWriteSubmitWrap">
+		<span class="btn_major" data-role="button" data-btntype="saveBbs"><span class="txt">{{lang.save_post}}</span></span>
+		<span class="btn_minor" data-role="button" data-btntype="tmpSave"><span class="txt">{{lang.tmp_post}}</span></span>			
+	</div>
+	<div class="feed_wrap" id="feedWriteWrap" style="display:none">
+	    <!-- 작성 큰 입력창 :classic 글쓰기 화면에서 게시판 선택 변경했을때 해당 화면이 노출된다. -->
+		<div class="feed_write_wrap" style="display:">				
+			<div class="write_wrap">
+				<div class="feed_write_b">
+					
+					<p class="data_null" style="display:none"> <!-- 글을 입력하기 시작하면 사라짐  -->
+						<span class="ic_data_type ic_no_contents"></span>						
+						<span class="txt">{{lang.share}}</span>								
+					</p>
+					
+					<textarea id="feedContent" placeholder="{{lang.input_placeholder}}"></textarea>
+                    
+					<!-- 작성자 첨부 미리보기 -->	
+					<div id="optionStreamDisplay" > <!--  class="option_display" -->
+						<div class="link_wrap" id="classicLinkWrap" style="display:none;">  <!-- 임시 가림 -->
+							<div class="form_wrap"><input class="txt_mini w_max" id="linkUrl"/></div>
+							<span class="btn_minor_s">
+								<span class="txt">{{lang.link_input}}</span>
+							</span>
+						</div>
+						<div class="meta_info_wrap" style="display:none"> <!-- 임시 가림 -->
+							<ul id="metaWrap">								
+							</ul>
+						</div>
+						<div class="img_wrap" style="display:none">
+							<ul class="img_wrap" id="feedImgWrap">								
+							</ul>
+						</div>
+						<div class="file_wrap" style="display:none">
+							<ul class="file_wrap" id="feedFileWrap">
+							</ul>	
+						</div>
+					</div>					
+					<!-- 작성자 첨부 미리보기 끝 -->
+					
+					<div class="action_wrap">
+						<span class="btn_feedwrite" id="feedWrite">
+							<span class="ic_feed ic_feedwrite"></span>
+							<span class="text">{{lang.post_stream}}</span>				
+						</span>
+                        
+                        
+                        <span class="btn_action_wrap" id="streamAlimpOption">
+	                       <span class="btn_action action_off">
+                           	    <input id="post_stream_mail_noti" type="checkbox" />
+                                <label for="post_stream_mail_noti">{{lang.alim_mail}}</label>
+	                       </span>
+                           <span class="btn_action action_off">
+                                        <input id="post_stream_push_noti" type="checkbox" />
+                                        <label for="post_stream_push_noti">{{lang.alim_push}}</label>
+                           </span>
+                           <span class="wrap_ic_s">
+                           	    <span class="help">
+                                	<span class="tool_tip tooltip_push">{{lang.alim_tooltip}}<i class="tail_left"></i>
+                                    </span>
+                                </span>
+	                       </span>
+                        </span> 
+                        <div class="desc caution" id="mail_push_desc" style="display: none"> ※ {{lang.mail_push_desc}} </div> 
+						<span class="file_progressive_warp">
+							<span class="progress_file" id="progress_file"></span>
+							<span class="progress_bar" id="progressBarWrap"></span>
+						</span>
+					</div>	
+					
+				</div>
+			</div>
+			
+			<div class="btn_tool_wrap">
+				<ul class="btn_tool">
+					<li class="first">
+						<span data-btntype="img" class="wrap_btn wrap_file_upload">
+							<span class="fileinput-button">
+								<span class="ic_con ic_file_up swfupload-control" id="steam_file_upload"  title="{{lang.file_attach}}"></span>
+							</span>
+						</span>
+					</li>
+					<li class="last">
+						<span class="wrap_btn wrap_file_upload">
+							<span class="fileinput-button">
+								<span class="ic_con ic_link_up"></span>
+							</span>
+						</span>
+					</li>
+					<li class="last" style="display:none"> <!-- next version -->
+						<span class="btn_wrap">
+							<span class="ic_feed ic_vote_m" title="{{lang.vote}}"></span>
+						</span>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<!-- //작성 큰 입력창 -->
+	</div>
+</div>

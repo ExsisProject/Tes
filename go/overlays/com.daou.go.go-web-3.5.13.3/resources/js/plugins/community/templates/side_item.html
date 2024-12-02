@@ -1,0 +1,66 @@
+{{^isDataset}}
+<section class="intro">
+	<span class="ic ic_comm_symbol"></span>
+	<p class="desc">{{{lang.community_empty}}}</p>
+</section>
+{{/isDataset}}
+
+{{#isDataset}}
+<section id="communitySide" class="lnb">
+	<h1 class="community {{^isOpen}}folded{{/isOpen}}">
+		<a data-bypass class="toggleCommunityList">
+			<ins class="ic"></ins>
+            <span id="toggleCommunityList" class="ic_side ic_hide_up" data-slide="true"
+                  title="{{#isOpen}}{{lang.fold}}{{/isOpen}}{{^isOpen}}{{lang.unfold}}{{/isOpen}}"></span>
+            <span class="txt">{{lang.join_community}}</span>
+        </a>
+		<span class="btn_wrap">
+            <span id="community_reorder" class="btn_ic_list_reorder">
+                <span class="ic_side ic_list_reorder" title="{{lang.community_modify}}"></span>
+            </span>
+			<span id="reorder_ok" class="ic_side ic_done" title="{{lang.modify}}" style="display: none;"></span>
+			<span id="reorder_cancel" class="ic_side ic_cancel" title="{{lang.cancel}}" style="display: none;"></span>
+		</span>
+	</h1>
+	<ul class="side_depth" {{^isOpen}}style="display:none"{{/isOpen}}>
+		{{#dataset}}
+		<li class="community" data-id="{{communityId}}" data-status="{{status}}" data-publicFlag="{{publicFlag}}" data-memberStatus="{{memberStatus}}">
+			<p class="title" >
+			<a data-bypass class="communityName"><ins class="ic"></ins>
+				{{#isCommunityStatusWait}}
+				<span class="btn_state_disable">
+					<span class="txt">{{lang.community_wait}}</span>
+				</span>
+				{{/isCommunityStatusWait}}
+				{{#isMemberStatusWait}}
+				<span class="btn_state_disable">
+					<span class="txt">{{lang.member_wait}}</span>
+				</span>
+				{{/isMemberStatusWait}}
+				<span class="txt" title="{{name}}">{{name}}</span>
+			</a>
+			{{#isMemberStatusWait}}
+			<span class="btn_wrap edit_only joinCancel">
+				<span class="btn_side3">{{lang.member_cancel}}</span>
+			</span>
+			{{/isMemberStatusWait}}
+			{{#isMemberStatusOnline}}
+			<span class="btn_wrap edit_only communityLeave">
+				<span class="ic_side ic_list_del"></span>
+			</span>
+			{{/isMemberStatusOnline}}
+			{{#isNewPost}}
+			<span class="ic_classic ic_new2"></span>
+			{{/isNewPost}}
+			{{#isMemberTypeMaster}}
+			<span class="btn_wrap masterHome">
+				<span class="ic_side ic_side_setting" title="{{lang.community_master}}"></span>
+			</span>
+			{{/isMemberTypeMaster}}
+			</p>
+		</li>
+		{{/dataset}}		
+	</ul>
+	
+</section>
+{{/isDataset}}

@@ -1,0 +1,47 @@
+<div class="critical">
+	{{#data}}
+	<span class="btn_tool_group" >
+		<a class="btn_tool" data-role="button" name="btnAction" id="{{id}}"><span class="txt">{{name}}</span></a>
+	</span>
+	{{/data}}
+	{{#isShowBtn}}
+	<span id="btnGroup" class="btn_tool_group">
+		{{#isEditable}}
+		{{^isOrgDocPopup}}
+		<a class="btn_tool" data-role="button" data-tag="action" id="btnEdit"><span class="txt">{{lang.수정}}</span></a>
+		{{/isOrgDocPopup}}
+		{{/isEditable}}
+		{{#isDeletable}}
+		<a class="btn_tool" data-role="button" id="btnDelete"><span class="txt">{{lang.삭제}}</span></a>
+		{{/isDeletable}}
+	</span>
+	{{/isShowBtn}}
+</div>
+<div class="optional">
+	{{#navigate}}
+	<a class="btn_tool" id="previous">
+		<span class="ic_toolbar up"></span>
+		<span class="txt">{{lang.위}}</span>
+	</a>
+	{{/navigate}}
+	{{#navigate}}
+	<a class="btn_tool" id="next">
+		<span class="ic_toolbar down"></span>
+		<span class="txt">{{lang.아래}}</span>
+	</a>
+	{{/navigate}}
+	<a class="btn_tool" url-copy>
+		<span class="ic_toolbar copy_url"></span>
+		<span class="txt">{{lang.복사}}</span>
+	</a>
+	{{^isOrgDocPopup}}
+	<a class="btn_tool" id="goToListBtn">
+		<span class="ic_toolbar list"></span>
+		<span class="txt">{{lang.목록}}</span>
+	</a>
+	{{/isOrgDocPopup}}
+	<a class="btn_tool" id="taskPrint">
+		<span class="ic_toolbar print"></span>
+		<span class="txt">{{lang.인쇄}}</span>
+	</a>
+</div>

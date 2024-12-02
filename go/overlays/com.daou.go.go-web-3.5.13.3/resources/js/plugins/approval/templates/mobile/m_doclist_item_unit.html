@@ -1,0 +1,68 @@
+{{#isCheckboxVisible}}
+<input type="checkbox" name="todoCheck" class="doclist_item_checkbox" data-id="{{doc.id}}"
+	   {{#doc.receptionOriginCompanyId}} data-origin-companyid="{{doc.receptionOriginCompanyId}}" {{/doc.receptionOriginCompanyId}}
+{{#doc.receiverUserId}} data-receiverid="{{doc.receiverUserId}}" {{/doc.receiverUserId}}
+data-use-self-approval="{{doc.useSelfApproval}}" {{#doc.receivedDocOwnerDeptId}} data-receive-deptid="{{doc.receivedDocOwnerDeptId}}"
+{{/doc.receivedDocOwnerDeptId}} data-versionId="{{doc.versionId}}" {{#doc.docNum}} data-docnum="{{doc.docNum}}"{{/doc.docNum}} data-deptid="{{deptId}}">
+{{/isCheckboxVisible}}
+<a class="tit" href="javascript:;" data-list-id= {{id}} data-bypass>
+	<span class="subject">
+		{{#doc.isDelay}}
+			<span class="state delay">{{lang.지연}}</span>
+		{{/doc.isDelay}}
+		{{#doc.isEmergency}}
+			<span class="state emergency">{{lang.긴급}}</span>
+		{{/doc.isEmergency}}
+		{{#useOngoingState}}
+			{{#useDocStatus}}
+				<span class="state {{doc.statusClass}}">{{doc.docStatus}}</span>
+			{{/useDocStatus}}
+		{{/useOngoingState}}
+		{{^useOngoingState}}
+			<span class="state {{doc.holdStatusClass}}">{{doc.holdStatusName}}</span>
+		{{/useOngoingState}}
+
+		{{#useOfficialConfirm}}
+			<span class="state {{doc.officialStateClass}}">{{doc.officialStateName}}</span>
+		{{/useOfficialConfirm}}
+
+		{{^isRelateDocumentItem}}
+			{{#useOngoingState}}<span class="state {{doc.statusClass}}">{{doc.docStatus}}</span>{{/useOngoingState}}
+			{{#doc.isReceive}}<span class="state ghost">{{lang.수신}}</span>{{/doc.isReceive}}
+		{{/isRelateDocumentItem}}
+		<span class="txt">{{doc.title}}</span>
+	</span>
+    <span class="info">
+		{{#doc.isReceive}}
+			{{^doc.isReceiveWait}}
+				<span class="writer">{{doc.receiverUserName}}</span>
+				<span class="part">.</span>
+				<span class="date">{{doc.receivedAt}}</span>
+			{{/doc.isReceiveWait}}
+		{{/doc.isReceive}}
+		{{^doc.isReceive}}
+			<span class="writer">{{doc.drafterName}} {{doc.drafterPositionName}}</span>
+			<span class="part">|</span>
+			<span class="date">{{doc.draftedAt}}</span>
+		{{/doc.isReceive}}
+	</span>
+    {{#doc.hasAdditionalInfo}}
+    <span class="opt">
+		<span class="wrap_ic">
+			<!-- 댓글수 -->
+			<span class="ic_cmm ic_cmm_reply"></span>
+			<span class="num">{{doc.commentCount}}</span>
+		</span>
+		<span class="wrap_ic">
+			<!-- 의견수 -->
+			<span class="ic_cmm ic_cmm_opinion"></span>
+			<span class="num">{{doc.replyCount}}</span>
+		</span>
+		<span class="wrap_ic">
+			<!-- 첨부수 -->
+			<span class="ic ic_attach"></span>
+			<span class="num">{{doc.attachCount}}</span>
+		</span>
+	</span>
+    {{/doc.hasAdditionalInfo}}
+</a>

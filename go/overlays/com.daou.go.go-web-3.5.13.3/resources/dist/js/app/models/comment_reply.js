@@ -1,0 +1,1 @@
+(function(){define(["backbone"],function(e){var t=e.Model.extend({url:function(){return this.typeUrl=this.get("typeUrl"),this.typeId=this.get("typeId"),this.commentId=this.get("commentId"),["/api",this.typeUrl,this.typeId,"comment",this.commentId,"reply"].join("/")}},{get:function(e){return new t(e)}});return t})}).call(this);

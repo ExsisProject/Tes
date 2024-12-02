@@ -1,0 +1,43 @@
+{{#timeline.active}}
+<div class="wrap_attend_check">
+    <div class="sub_info">
+        <div class="critical" id="date"></div>
+        <div class="optional">
+            <select class="slt_move" id="statusList" >
+                <option selected disabled hidden>{{lang.label_status_change}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="attend_check">
+        <div class="attend_start">
+            <p class="tit">{{lang.label_clockInTime}}</p>
+            <p class="time" id="workInTime">-</p>
+        </div>
+        <span class="ic_attend_arrow"></span>
+        <div class="attend_end">
+            <p class="tit">{{lang.label_clockOutTime}}</p>
+            <p class="time" id="workOutTime">-</p>
+        </div>
+    </div>
+    <div class="btn_attend">
+        <a href="javascript:;" class="btn_function" id="workIn">{{lang.label_clockIn}}</a>
+        <a href="javascript:;" class="btn_function" id="workOut">{{lang.label_clockOut}}</a>
+        <!-- 출근버튼 클릭시 off 클래시 붙음 -->
+    </div>
+</div>
+{{/timeline.active}}
+<section class="calendar_tool_bar2">
+    <div class="current_date">
+        <a title="{{TimelineLang.이전}}" id="prevMonth"><span class="btn btn_prev_type1"></span></a>
+        <span class="date" id="baseDate" >{{baseDate}}</span>
+        <a title="{{TimelineLang.이후}}" id="nextMonth"><span class="btn btn_next_type1"></span></a>
+    </div>
+    <div class="optional">
+        <a class="btn_tool" id="currentMonth"><span class="txt">{{CommonLang.오늘}}</span></a>
+    </div>
+</section>
+
+<div class="content main_content">
+    <div class="wrap_summary" id="summary"></div>
+    <ul class="list_attend list_attend_personal" id="month"></ul>
+</div>

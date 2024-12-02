@@ -1,0 +1,27 @@
+<span class="box_label_wrap">
+	{{^model.hideLabel}}
+    <label for="">{{{label}}}</label>
+    {{#model.guideAsTooltip}}
+    {{#model.guide}}
+	<span class="help">
+		<span class="tool_tip">{{model.guide}}<i class="tail_left"></i></span>
+	</span>
+    {{/model.guide}}
+	{{/model.guideAsTooltip}}
+    {{/model.hideLabel}}
+</span>
+<div class="build_box_data">
+    {{#isPrefix}}
+    <span class="txt_unit">{{model.unitText}}</span>
+    {{/isPrefix}}
+    <span class="wrap_txt">
+        <input name="{{clientId}}" class="txt w_large" type="text" value="{{displayText}}" data-source="{{sourceData}}"
+               readonly="true" disabled="true" title="{{title}}" placeholder="{{placeholder}}">
+    </span>
+    {{^isPrefix}}
+    <span class="txt_unit">{{model.unitText}}</span>
+    {{/isPrefix}}
+    {{^model.guideAsTooltip}}
+    <p class="txt_info">{{#model.guide}}* {{model.guide}}{{/model.guide}}</p>
+    {{/model.guideAsTooltip}}
+</div>

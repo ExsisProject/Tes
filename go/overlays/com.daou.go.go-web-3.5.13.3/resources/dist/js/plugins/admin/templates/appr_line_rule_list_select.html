@@ -1,0 +1,39 @@
+<table class="table_form_mini ">
+     <colgroup>
+         <col width="90px"/>
+         <col width="auto"/>
+    </colgroup>
+    <tbody>
+        <tr>
+            <td>
+                <span>{{lang.자동결재선 명}}</span>
+            </td>
+            <td >
+                <select name="" id="apprLineRuleSelect" class="wfix_large">
+                    {{#data}}
+                        <option value="{{id}}" txt-name="{{name}}" data-option-count = "{{optionCount}}">{{name}}</option>                        
+                    {{/data}}
+                </select>
+            </td>  
+        </tr>
+    </tbody>
+</table>
+<hr>
+<p class="desc">{{lang.※ 자동 결재선은 페이지 왼쪽 ‘자동 결재선 설정‘ 에서 할 수 있습니다}}</p>
+
+<div class="tb_wrap">
+	<div class="dataTables_wrapper container">	
+		<div class="content_tb">
+			<table class="chart tb_admin_approval" id="apprRuleFormTableItem">
+				<thead>
+					<tr>
+                		<th class="subject2 sorting_disable"><span class="title_sort">{{lang.자동결재선 명}}</span></th>
+						<th class="pay sorting_disable"><span class="title_sort">{{lang.결재선}}</span></th>
+					</tr>
+				</thead>	
+				<tbody id="appr_line_tbody">
+    			</tbody>
+			</table>
+		</div>	
+	</div>
+</div>

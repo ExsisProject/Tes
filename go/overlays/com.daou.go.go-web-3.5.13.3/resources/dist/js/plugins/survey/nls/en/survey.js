@@ -1,0 +1,1 @@
+define(["json!lang/en/survey.json","json!lang/en/custom.json"],function(e,t){return _.extend(e,t.survey||{})});

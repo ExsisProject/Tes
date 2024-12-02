@@ -1,0 +1,1 @@
+(function(){define(["jquery","backbone","app","community/collections/boards"],function(e,t,n,r){var i=t.View.extend({initialize:function(e){this.options=e||{},this.collection=r.getCollection(this.options.communityId,this.options.status)},render:function(){}});return{render:function(e){return(new i(e)).render()}}})}).call(this);

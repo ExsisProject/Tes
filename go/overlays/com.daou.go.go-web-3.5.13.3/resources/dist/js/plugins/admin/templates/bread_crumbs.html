@@ -1,0 +1,14 @@
+<div class="content_nav"></div>
+<h1>
+    <span class="title">{{title}}</span>
+</h1>
+{{^isSubMenu}}
+<span class="btn_wrap" id="favorite">
+    <a class="btn_ic_s btn_favor">
+        <span class="ic_adm {{#favorite}}ic_favor_on{{/favorite}}{{^favorite}}ic_favor_off{{/favorite}}"></span>
+    </a>
+</span>
+{{#hasSubLabel}}
+<span class="desc">{{lang.syncDescription}}</span>
+{{/hasSubLabel}}
+{{/isSubMenu}}

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+         version="3.0">
+  <context-param>
+    <param-name>contextConfigClass</param-name>
+    <param-value>com.daou.go.config.initializer.GoAppInitializer</param-value>
+  </context-param>
+  
+  <servlet>
+	<servlet-name>jsp</servlet-name>
+	<servlet-class>org.apache.jasper.servlet.JspServlet</servlet-class>
+	<init-param>
+		<param-name>mappedfile</param-name>
+		<param-value>false</param-value>
+	</init-param>
+  </servlet>
+
+  <error-page>
+    <error-code>400</error-code>
+    <location>/WEB-INF/views/error/400.jsp</location>
+  </error-page>
+
+  <error-page>
+    <error-code>403</error-code>
+    <location>/WEB-INF/views/error/403.jsp</location>
+  </error-page>
+  
+  <error-page>
+    <error-code>404</error-code>
+    <location>/WEB-INF/views/error/404.jsp</location>
+  </error-page>
+  
+  <error-page>
+    <error-code>405</error-code>
+    <location>/WEB-INF/views/error/405.jsp</location>
+  </error-page>
+  
+  <error-page>
+    <error-code>500</error-code>
+    <location>/WEB-INF/views/error/500.jsp</location>
+  </error-page>
+</web-app>

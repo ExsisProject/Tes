@@ -1,0 +1,59 @@
+<div class="content">
+    <table class="table_form_mini">
+        <tbody>
+        <tr>
+            <th><span class="title">{{lang.그룹웨어 데이터 내보내기}}</span></th>
+            <td>
+				<span class="wrap_btn_toggle">
+                    <input class="btn_toggle {{#data.useOutput}} on {{/data.useOutput}}" type="button" id="outputUseBtn" name="useOutput" value="{{lang.사용}}">
+                    <input class="btn_toggle {{^data.useOutput}} on {{/data.useOutput}}" type="button" id="outputNotUseBtn" name="useOutput" value="{{lang.미사용}}">
+				</span>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="cont_box_inner">
+    <div class="vertical_wrap_s">
+        <ul class="list_option">
+            <li class="first">
+                <table class="sub_form">
+                    <tr {{^data.useOutput}} style="display: none;" {{/data.useOutput}}>
+                         <th>
+                             <span class="title">{{lang.연결 정보}}</span>
+                         </th>
+                         <td>
+                            <select name="dataSource">
+                              {{#dataSource}}
+                              <option value="{{name}}" {{#isSelected}}selected="selected"{{/isSelected}}>{{name}}</option>
+                              {{/dataSource}}
+                            </select>
+                         </td>
+                     </tr>
+                     <tr {{^data.useOutput}} style="display: none;" {{/data.useOutput}}>
+                         <th><span class="title">{{lang.연결 방식}}</span></th>
+                         <td>
+                             <div id="outputDataType"></div>
+                         </td>
+                     </tr>
+                     <tr id="outputDataSection">
+                         <th><span class="title">{{lang.데이터}}</span></th>
+                         <td>
+                             <span class="option_wrap">
+                                 <input type="radio" value="true" name="returnAllVariables" {{#returnAllVariables}} checked="checked" {{/returnAllVariables}}> 
+                                 <label for="">{{lang.전체}}</label>
+                             </span>
+                             <span class="option_wrap">
+                                 <input type="radio" value="false" name="returnAllVariables" {{^returnAllVariables}} checked="checked" {{/returnAllVariables}}> 
+                                 <label for="">{{lang.지정항목}}</label>
+                             </span>
+                             <div id="outputDataAppointedItem" class="option_inner" {{#returnAllVariables}} style="display: none;" {{/returnAllVariables}}>
+                             </div>
+                         </td>
+                     </tr>
+                  </table>
+              </li>
+          </ul>     
+      </div>
+ </div>

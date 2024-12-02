@@ -1,0 +1,1 @@
+define("admin/models/company_data_backup",function(require){var e=require("backbone"),t=require("app"),n=e.Model.extend({url:function(){return t.config("contextRoot")+"ad/api/company/databackup/config"}});return n});

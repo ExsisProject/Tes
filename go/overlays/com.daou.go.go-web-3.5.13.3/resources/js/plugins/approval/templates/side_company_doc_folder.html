@@ -1,0 +1,17 @@
+<!-- 사이드 바 기본 템플릿 -->
+	<section class="gnb_title">
+		<h1><a href="/app/docfolder">{{appName}}</a></h1>
+	</section>
+ <!-- 전사 문서함 -->
+<section id="companyDocSide" class="lnb" >
+	<h1 class="company {{^isOpen}}folded{{/isOpen}}">
+		<ins class="ic"></ins>
+		<span class="ic_side ic_hide_up" title="{{#isOpen}}{{label.collapse}}{{/isOpen}}{{^isOpen}}{{label.expand}}{{/isOpen}}" data-slide="true"></span>
+		<span class="txt" title="{{lang.company_docfolder}}">{{lang.company_docfolder}}</span>
+	</h1>
+	<ul class="side_depth" id="companyDocTree" {{^isOpen}}style="display:none"{{/isOpen}}>
+	</ul>			
+</section>
+<div class="bar"></div>
+<!-- // side : 전자결재 -->
+

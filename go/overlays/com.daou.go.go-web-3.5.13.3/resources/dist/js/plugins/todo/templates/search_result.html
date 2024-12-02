@@ -1,0 +1,41 @@
+<div class="cs_todo_wrap">
+	<div class="cs_todo_group">
+        {{#collection}}
+		<div class="article_wrap">
+			<div class="info">
+                <a class="card-link" href="{{contextRoot}}app/todo/{{todoId}}/card/{{id}}">
+    				<span class="item item_default">
+    					<span class="name">{{{title}}}</span>
+    				</span>
+                </a>
+			</div>
+			<span class="item">
+				<span class="sub">in column</span>
+				<span>{{categoryTitle}}</span>
+				<span class="part">l</span>
+				<span class="sub">on board</span>
+				<span>{{todoTitle}}</span>
+				<span class="part">l</span>
+				<span class="sub">{{label.dueDate}}</span>
+				<span>{{dueDate}}</span>
+			</span>
+		</div>
+        {{/collection}}
+	</div>
+
+	{{#showPaging?}}
+	<div class="todo-search-paging-wrap">
+		<div class="dataTables_paginate paging_full_numbers paging_out" style="border-top:0px;">
+			<a class="page-link first paginate_button{{#firstPageGroup?}} disabled paginate_button_disabled{{/firstPageGroup?}}" data-page="0" title="{{label.firstPage}}" data-bypass></a>
+			<a class="page-link previous paginate_button{{#firstPage?}} disabled paginate_button_disabled{{/firstPage?}}" data-page="{{prevPage}}" title="{{label.prev}}" data-bypass></a>
+			<span>
+				{{#pagingData}}
+				<a href="#" class="page-link{{#isCurrent}} paginate_active{{/isCurrent}}{{^isCurrent}} paginate_button{{/isCurrent}}" data-page="{{page}}" data-bypass>{{label}}</a>
+				{{/pagingData}}
+			</span>
+			<a class="page-link next paginate_button{{#lastPage?}} disabled paginate_button_disabled{{/lastPage?}}" data-page="{{nextPage}}" title="{{label.next}}" data-bypass></a>
+			<a class="page-link last paginate_button{{#lastPageGroup?}} disabled paginate_button_disabled{{/lastPageGroup?}}" data-page="{{lastPage}}" title="{{label.lastPage}}" data-bypass></a>
+		</div>
+	</div>
+	{{/showPaging?}}
+</div>

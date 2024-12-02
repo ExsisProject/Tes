@@ -1,0 +1,1 @@
+(function(){var e=$("body");e.on("approval.sideRender",function(){console.info("approval:sideRender")}),e.on("approval.toolbarRender",function(){console.info("approval.toolbarRender")}),e.on("approval.manageToolbarRender",function(){console.info("approval.manageToolbarRender")})})();

@@ -1,0 +1,10 @@
+<section class="gnb_title">
+    <h1><a>{{gnbTitle}}</a></h1>
+</section>
+<nav class="side_menu">
+    <ul>
+        {{#menus}}
+        <li class="info {{#isActive}} on {{/isActive}}"><a href="{{contextRoot}}{{href}}">{{name}}</a></li>
+        {{/menus}}
+    </ul>
+</nav>

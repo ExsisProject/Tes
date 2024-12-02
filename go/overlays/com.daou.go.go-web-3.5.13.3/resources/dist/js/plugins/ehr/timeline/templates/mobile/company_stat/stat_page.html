@@ -1,0 +1,18 @@
+{{#hasData}}
+    <a class="btn_type4" data-value="-1" id="prevPage" id="prev" href="javascript:;"
+       {{^page.prev}}style="display:none;" {{/page.prev}}>
+    <span class="ic ic_arrow3_l"></span>
+    <span class="txt">{{CommonLang.이전}}</span>
+    </a>
+<span class="page"> 
+    <span class="current_page" id="listCurrent">{{page.firstIndex}}</span> 
+    <span class="txt_bar">-</span> 
+    <span class="total_page" id="listMax">{{page.lastIndex}}</span> 
+    <span class="total_page" id="listTotal"> / {{page.total}}</span> 
+</span>
+    <a class="btn_type4" data-value="1" id="nextPage" id="next" href="javascript:;"
+       {{^page.next}}style="display:none;" {{/page.next}}>
+    <span class="txt">{{CommonLang.다음}}</span>
+    <span class="ic ic_arrow3_r"></span>
+    </a>
+{{/hasData}}

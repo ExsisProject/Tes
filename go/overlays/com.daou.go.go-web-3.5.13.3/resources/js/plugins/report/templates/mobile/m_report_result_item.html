@@ -1,0 +1,25 @@
+						{{#data}}
+							<li class="search_result" data-series-id="{{id}}" data-user-id="{{reporter.id}}" data-folder-id="{{folderId}}" data-report-type="{{folderType}}" data-report-id="{{id}}">
+								<a class="tit" href="javascript:;">
+									<span class="subject"><span class="title">{{{makeTitle}}}</span></span>
+									<span class="content">{{{contents}}}</span>
+									{{#attachFileNames}}
+									<ul class="file_wrap">
+										<li>
+											<span class="item_file txt_ellipsis">
+												<span class="ic_file ic_file_pdf"></span>
+												<span class="txt">{{{attachFileNames}}}</span>
+											</span>
+										</li>
+									</ul>
+									{{/attachFileNames}}
+									<span class="info">
+										<span class="name txt_ellipsis">{{reporter.name}} {{reporter.position}}</span>
+										<span class="part">|</span>
+										<span class="date">{{submittedAt}}</span>
+										<span class="part">|</span>
+										<span class="date">{{folderName}}</span>
+									</span>
+								</a>
+							</li>
+						{{/data}}

@@ -1,0 +1,1 @@
+define(["backbone"],function(e){var t=null,n=e.Model.extend({url:function(){return"/ad/api/log/level"}},{get:function(){return t==null&&(t=new n),t.fetch({async:!1}),t},create:function(){return new n}});return{read:function(){return logConfig=n.get()},create:function(){return n.create()}}});

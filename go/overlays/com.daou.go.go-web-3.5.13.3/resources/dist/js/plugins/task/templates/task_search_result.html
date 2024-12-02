@@ -1,0 +1,76 @@
+<header class="content_top"></header>
+		
+<div class="content_page">
+	<div class="content_search_wrap">
+		<h1>
+			<ins class="bullet"></ins>
+			<span class="title">{{lang.keyword}} :</span>
+		</h1>
+		{{#param.keyword}}
+		<span class="info">
+			{{param.keyword}}
+		</span>
+		{{/param.keyword}}
+		{{^isSimple}}
+		<dl class="info">
+			<dt>[{{lang.context}}]</dt>
+			<dd>{{folderNames}}</dd>
+			<dt>[{{lang.status}}]</dt>
+			<dd>{{statusName}}</dd>
+			{{#param.name}}
+			<dt>[{{lang.title}}]</dt>
+			<dd>{{param.name}}</dd>
+			{{/param.name}}
+			{{#param.content}}
+			<dt>[{{lang.detail}}]</dt>
+			<dd>{{param.content}}</dd>
+			{{/param.content}}
+			{{#param.activityContents}}
+			<dt>[{{lang.activity}}]</dt>
+			<dd>{{param.activityContents}}</dd>
+			{{/param.activityContents}}
+			{{#param.comments}}
+			<dt>[{{lang.comment}}]</dt>
+			<dd>{{param.comments}}</dd>
+			{{/param.comments}}
+			{{#param.assignees}}
+			<dt>[{{lang.assignee}}]</dt>
+			<dd>{{param.assignees}}</dd>
+			{{/param.assignees}}
+            {{#param.attachFileNames}}
+            <dt>[{{lang.attachName}}]</dt>
+            <dd>{{param.attachFileNames}}</dd>
+            {{/param.attachFileNames}}
+            {{#param.attachFileContents}}
+            <dt>[{{lang.attachContent}}]</dt>
+            <dd>{{param.attachFileContents}}</dd>
+            {{/param.attachFileContents}}
+			{{#param.creator}}
+			<dt>[{{lang.creator}}]</dt>
+			<dd>{{param.creator}}</dd>
+			{{/param.creator}}
+			<dt>[{{lang.term}}]</dt>
+			<dd><span class="date">{{term}}</span></dd>
+			{{/isSimple}}
+		</dl>
+	</div>
+	
+	<div class="calendar_body">
+		<table class="type_normal tb_agenda ">
+			<thead>
+				<tr>
+					<th class="attend">{{lang.context}}</th>
+					<th class="attend">{{lang.title}}</th>
+					<th class="attend">{{lang.assignee}}</th>
+					<th class="attend">{{lang.creator}}</th>
+					<th class="attend">{{lang.status}}</th>
+					<th class="attend">{{lang.term}}</th>
+			</tr></thead>
+			<tbody></tbody>
+		</table>
+	</div>
+</div>
+
+<div class="bottom_action" id="searchMoreButton" style="display:none">
+    <a class="btn_list_reload" data-bypass><span class="ic"></span><span class="txt">{{lang.more}}</span></a>
+</div>

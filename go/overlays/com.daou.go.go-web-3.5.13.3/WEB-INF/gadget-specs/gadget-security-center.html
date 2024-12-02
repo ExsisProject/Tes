@@ -1,0 +1,174 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <title>보안 센터</title>
+    <meta name = "gadget:name-ko" content="보안 센터" />
+    <meta name = "gadget:name-en" content="Security center" />
+    <meta name = "gadget:name-ja" content="セキュリティセンタ-" />
+    <meta name = "gadget:name-zhcn" content="安全中心" />
+    <meta name = "gadget:name-zhtw" content="安全中心" />
+    <meta name = "gadget:name-vi" content="Trung tâm bảo mật" />
+    <meta name = "gadget:description" content="보안 센터 폴더 가젯" />
+    <meta name = "gadget:version" content="2.3.0" />
+    <meta name = "gadget:app-dependency" content="MAIL" />
+    <meta name = "gadget:thumbnail" content="gadget_security.png" />
+    
+    <!-- 테스트 할 로케일은 여기에 설정하세요.-->
+    <meta name = "locale" content="ko" />
+    
+    <!-- 컨텍스트 루트는 여기서 설정하세요 -->
+    <meta name = "contextRoot" content="/" />
+
+    <link rel="stylesheet" href="css/go-gadget-standalone.css" media="screen, print" />
+    <!--[if IE]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="js/go-gadget-standalone.js"></script>
+
+    <script type="text/javascript" id="go-gadget-script">    
+    gadget.load({
+    	
+    	highlightable : true,
+    	
+    	refreshable: true, 
+
+    	url: function() {
+            return this.contextRoot + 'api/security/mailfolder/list';
+        },
+        
+    	langs: {
+    		
+			"msg_need_config" : "보안 센터 메일함 접근에 실패하였습니다.",
+			"title" : "보안 센터",
+    		
+    		"en": {
+    			"msg_need_config" : "Fail to access security center mailbox",
+    			"title" : "Security center"
+    		}, 
+    		
+    		"ja": {
+    			"msg_need_config" : "セキュリティセンタ-メ-ルフォルダアクセスに失敗しました。",
+    			"title" : "セキュリティセンタ-"
+    		}, 
+    		
+    		"zh_CN": {
+    			"msg_need_config" : "安全中心邮箱访问失败。",
+    			"title" : "安全中心"
+    		}, 
+    		
+    		"zh_TW": {
+    			"msg_need_config" : "安全中心郵箱訪問失敗。",
+    			"title" : "安全中心"
+    		},
+    		"vi": {
+    			"msg_need_config" : "Đã thất bại khi truy cập hộp thư của trung tâm bảo mật.",
+    			"title" : "Trung tâm bảo mật"
+    		}
+    	}, 
+    	
+    	defaultOptions: {
+    	}, 
+    	
+    	events: {
+    		"click a[data-popup]": "_callPopup"
+    	}, 
+
+        renderConfig: function(el) {
+        }, 
+
+        onSuccess: function(el, resp) {
+        	var folders = resp.data;
+        	if(folders.length < 1) {
+        		this._renderNeedConfigPage(el);
+        		return;
+        	}
+        	
+            $(el).empty().append(this._contentTemplate({
+            	"folders": folders, 
+            }));
+        },         
+        
+        validate: function(el) {
+        	return false;
+        }, 
+        
+        _callPopup: function(e) {
+        	var $el = $(e.currentTarget), 
+        		popupOptions = $el.data('popup');
+        	
+        	e.preventDefault();
+        	window.open($(e.currentTarget).attr('href'), (new Date).valueOf(), popupOptions);
+        }, 
+        
+        _renderNeedConfigPage: function(el) {            
+            $(el).empty().append(this._contentBorderDecorator(this.pageTemplate.empty(this.i18n.parse("msg_need_config")), {"has_border?": true}));
+        }, 
+        
+        _contentBorderDecorator: function(content, tvars) {
+        	return this.template(
+       			'<div class="gadget_design_wrap">{{>content}}</div>', 
+       			_.defaults(tvars || {}, { "highlight?": _.has(this.options, 'highlight') }), 
+       			{"content": content}
+     		);
+        }, 
+        
+        _contentTemplate: function(tvars) {
+        	var html = [];
+			
+			html.push('    <div class="go_gadget_header">')
+                html.push('        <div class="gadget_h1">');
+					html.push("            <span class='type'>");
+						html.push("                <span class='ic_dashboard2 ic_type_security' title='" + this.i18n.parse("title") +"'/>");
+					html.push('            </span>');
+					html.push("            <span class='title'>" + this.i18n.parse("title") + "</span>");
+                html.push('        </div>');
+			html.push('    </div>');
+			
+        	html.push('{{#folders}}');
+   			html.push('<ul class="type_simple_list today_list">');
+				html.push('<li>');
+					html.push('<a href="{{linkUrl}}" data-bypass data-popup="width=1280,height=790,scrollbars=yes,resizable=yes">');
+						html.push('<span class="type"><span class="ic_dashboard2 ic_type_mail" title="{{displayName}}"></span></span>');
+						html.push('<span class="txt">{{displayName}}</span>');
+						html.push('<span class="badge {{^count}}badge_zero{{/count}}">{{count}}</span>');
+					html.push('</a>');
+				html.push('</li>');
+			html.push('</ul>');
+			html.push('{{/folders}}');
+        	
+        	return this._contentBorderDecorator(html.join("\n"), tvars);
+        }, 
+        
+        setTitle: function() {
+            return this.getTitle();
+        }, 
+        
+        getTitle: function() {
+            return this.i18n.parse("title");
+        }, 
+        
+    });
+    </script>
+</head>
+
+<body id="main" class="go_skin_home_default" data-role="main">
+    <div class="go-dashboard go-dashboard-editing go_dashboard_3_2">
+        <div class="go-gadget-column gadget-col-1" data-columnid="1">
+            <!-- empty -->
+        </div>
+        
+        <div class="gripper"></div>
+
+        <div id="gadget-containter" class="go-gadget-column gadget-col-2" data-columnid="2">
+            <!-- empty -->
+        </div>
+
+        <div class="gripper"></div>
+
+        <div class="go-gadget-column gadget-col-3" data-columnid="3">
+            <!-- empty -->
+        </div>
+    </div>
+</body>
+</html>

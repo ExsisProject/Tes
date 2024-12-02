@@ -1,0 +1,5 @@
+span.item_file {overflow:hidden; display:block}
+span.item_file span {display:inline-block; float:left}
+span.item_file span.btn_fn4 {position:absolute; left:30px; top:26px; padding:2px 6px}
+
+ul.feed li {padding:0 0 20px 0}

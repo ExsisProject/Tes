@@ -1,0 +1,15 @@
+
+<p class="txt">
+    {{#over}}
+    <span class="txt caution">{{totalWorkingTime}}</span>
+    {{/over}}
+
+    {{#normal}}
+    <span class="txt ">{{totalWorkingTime}}</span>
+    {{/normal}}
+</p>
+<ul class="time_detail">
+    <li>{{TimelineLang.기본}}: {{normalWorkingTime}}</li>
+    <li>{{TimelineLang.연장}}: {{extensionWorkingTime}}</li>
+    <li>{{TimelineLang.야간}}: {{nightWorkingTime}}</li>
+</ul>

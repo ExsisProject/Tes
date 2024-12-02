@@ -1,0 +1,20 @@
+<select id="select_appr_line_counts">
+    {{#apprLineCounts}}
+    <option value="{{value}}" {{selected}}>{{label}}</option>
+    {{/apprLineCounts}}
+</select>
+<table class="in_table tb_approval_line">
+    <caption>{{lang.appr_line_caption}}</caption>
+    <thead>
+        <tr>
+            <th class="other"><span class="txt">{{lang.order}}</span></th>
+            <th class="title"><span class="txt">{{lang.name}}</span></th>
+            <th class="approver_max"><span class="txt">{{lang.max_approver}}</span></th>
+            <th class="approver_appoint"><span class="txt">{{lang.appr_type}}</span></th>
+            <th class="approver_appoint"><span class="txt">{{lang.predefined_approver}}</span></th>
+        </tr>
+    </thead>
+    <tbody id='appr_line_tbl'>
+        <!-- 결재라인 목록 -->
+    </tbody>
+</table>

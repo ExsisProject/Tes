@@ -1,0 +1,36 @@
+{{^dataset}}
+<li class="creat data_null">
+    <span class="txt">{{lang.검색결과없음}}</span>
+</li>
+{{/dataset}}
+{{#dataset}}
+<li data-boardType="{{boardType}}" data-boardid="{{boardId}}" data-postid="{{id}}" data-hidden="{{hiddenPost}}">
+    <a class="tit" href="javascript:;" >
+        {{^isStream}}
+        <span class="subject">
+            <span class="title">
+               {{#postHeaderName}}[{{postHeaderName}}]&nbsp;{{/postHeaderName}}{{{title}}}
+            </span>
+        </span>
+        {{/isStream}}
+        <span class="content"> {{{resultContentParse}}}</span>
+        {{#attachFileNames}}
+        <div class="file_wrap_normal">
+            <ul class="file_wrap_normal">
+                <li>
+                    <span class="ic ic_attach"></span>
+                    <span class="file_name">{{{attachFileNames}}}</span>
+                </li>
+            </ul>
+        </div>
+        {{/attachFileNames}}
+        <span class="info">
+            <span class="name">{{writer.name}} {{writer.positionName}}</span>
+            {{#writer.name}}<span class="part">|</span>{{/writer.name}}
+            <span class="date">{{dateParse}}</span>
+            <span class="part">|</span>
+            <span class="category">{{boardName}}</span>
+        </span>
+    </a>
+</li>
+{{/dataset}}

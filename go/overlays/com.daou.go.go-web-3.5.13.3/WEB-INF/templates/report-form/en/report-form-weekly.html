@@ -1,0 +1,102 @@
+<meta name ="form:name" content="주간업무보고"/>
+<body id="go-report-form">
+<span><table style="width:900px;margin-top:1px; border:2px solid #000; border-collapse:collapse; font-family:malgun gothic,dotum,arial,tahoma;">
+<!-- 주간보고 -->
+<colgroup>
+<col width="490px">
+<col width="150px">
+<col width="260px">
+</colgroup>
+	<tbody><tr>
+		<td style="font-size:36px; font-weight:bold; text-align:center; color:black; background:white; vertical-align:middle; border:1px solid black; padding:5px 0;" rowspan="3">
+주간보고
+		</td>
+		<td style="font-size:12px; font-weight:normal; text-align:center; color:black; background:#ddd; vertical-align:top; border:1px solid black; padding:5px 0;">
+부서
+		</td>
+		<td style="font-size:12px; font-weight:normal; text-align:left; color:black; background:white; vertical-align:top; border:1px solid black; padding:5px 0;">
+&nbsp;<span data-type="system" data-dsl="{{user_org}}" data-id="" data-name="" data-value="" data-require="false" data-maxlength="255"></span>
+		</td>
+	</tr>
+	<tr>
+		<td style="font-size:12px; font-weight:normal; text-align:center; color:black; background:#ddd; vertical-align:top; border:1px solid black; border-width:1px; padding:5px 0;">
+이름
+		</td>
+		<td style="font-size:12px; font-weight:normal; text-align:left; color:black; background:white; vertical-align:top; border:1px solid black; border-width:1px; padding:5px 0;">
+&nbsp;<span data-type="system" data-dsl="{{user_name}}" data-id="" data-name="" data-value="" data-require="false" data-maxlength="255"></span>
+		</td>
+	</tr>
+	<tr>
+		<td style="font-size:12px; font-weight:normal; text-align:center; color:black; background:#ddd; vertical-align:top; border:1px solid black; border-width:1px; padding:5px 0;">
+날짜
+		</td>
+		<td style="font-size:12px; font-weight:normal; text-align:left; color:black; background:white; vertical-align:top; border:1px solid black; border-width:1px; padding:5px 0;">
+&nbsp;<span data-type="calendar" data-dsl="{{calendar}}" data-id="" data-name="" data-value="" data-require="false" data-maxlength="255"></span>
+		</td>
+	</tr>
+</tbody></table>
+<table style="width:900px;margin-top:10px; border:2px solid #000; border-collapse:collapse; font-family:malgun gothic,dotum,arial,tahoma;">
+<!-- 주간보고 내용 -->
+<colgroup>
+<col width="80px">
+<col width="410px">
+<col width="410px">
+</colgroup>
+	<tbody><tr>
+		<td style="font-size:12px; font-weight:normal; text-align:left; color:#000; background:#ddd; vertical-align:top; height:30px; border:1px solid black; padding:5px 0;">
+&nbsp;
+		</td>
+		<td style="font-size:12px; font-weight:bold; text-align:center; color:#000; background:#ddd; vertical-align:middle; border:1px solid black; padding:5px 0;">
+실시 사항
+		</td>
+		<td style="font-size:12px; font-weight:bold; text-align:center; color:#000; background:#ddd; vertical-align:middle; border:1px solid black; padding:5px 0;">
+예정 사항
+		</td>
+	</tr>
+	<tr>
+		<td style="font-size:12px; font-weight:bold; text-align:center; color:#000; background:#ddd; vertical-align:middle; height:200px; border:1px solid black; padding:5px 0;">
+주요<br>업무
+		</td>
+		<td style="font-size:12px; font-weight:normal; text-align:left; color:#000; background:#fff; vertical-align:top; border:1px solid black; padding:5px 0;">
+&nbsp;<span data-type="editor" data-dsl="{{editor}}" data-id="" data-name="" data-value="" style="width:100%" data-require="false" data-maxlength="255"></span>
+		</td>
+		<td style="font-size:12px; font-weight:normal; text-align:left; color:#000; background:#fff; vertical-align:top; border:1px solid black; padding:5px 0;">
+&nbsp;<span data-type="editor" data-dsl="{{editor}}" data-id="" data-name="" data-value="" style="width:100%" data-require="false" data-maxlength="255"></span>
+		</td>
+	</tr>
+	<tr>
+		<td style="font-size:12px; font-weight:bold; text-align:center; color:#000; background:#ddd; vertical-align:middle; height:80px; border:1px solid black; padding:5px 0;">
+의사<br>결정<br>사항
+		</td>
+		<td style="font-size:12px; font-weight:normal; text-align:left; color:#000; background:#fff; vertical-align:top; border:1px solid black; padding:5px 0;">
+&nbsp;<span data-type="textarea" data-dsl="{{textarea}}" data-id="" data-name="" data-value="" data-require="false" data-maxlength="255"></span>
+		</td>
+		<td style="font-size:12px; font-weight:normal; text-align:left; color:#000; background:#fff; vertical-align:top; border:1px solid black; padding:5px 0;">
+&nbsp;<span data-type="textarea" data-dsl="{{textarea}}" data-id="" data-name="" data-value="" data-require="false" data-maxlength="255"></span>
+		</td>
+	</tr>
+	<tr>
+		<td style="font-size:12px; font-weight:bold; text-align:center; color:#000; background:#ddd; vertical-align:middle; height:80px; border:1px solid black; padding:5px 0;">
+제안<br>사항
+		</td>
+		<td style="font-size:12px; font-weight:normal; text-align:left; color:#000; background:#fff; vertical-align:top; border:1px solid black; padding:5px 0;">
+&nbsp;<span data-type="textarea" data-dsl="{{textarea}}" data-id="" data-name="" data-value="" data-require="false" data-maxlength="255"></span>
+		</td>
+		<td style="font-size:12px; font-weight:normal; text-align:left; color:#000; background:#fff; vertical-align:top; border:1px solid black; padding:5px 0;">
+&nbsp;<span data-type="textarea" data-dsl="{{textarea}}" data-id="" data-name="" data-value="" data-require="false" data-maxlength="255"></span>
+		</td>
+	</tr>
+	<tr>
+		<td style="font-size:12px; font-weight:bold; text-align:center; color:#000; background:#ddd; vertical-align:middle; height:80px; border:1px solid black; padding:5px 0;">
+기타
+		</td>
+		<td style="font-size:12px; font-weight:normal; text-align:left; color:#000; background:#fff; vertical-align:top; border:1px solid black; padding:5px 0;">
+&nbsp;<span data-type="textarea" data-dsl="{{textarea}}" data-id="" data-name="" data-value="" data-require="false" data-maxlength="255"></span>
+		</td>
+		<td style="font-size:12px; font-weight:normal; text-align:left; color:#000; background:#fff; vertical-align:top; border:1px solid black; padding:5px 0;">
+&nbsp;<span data-type="textarea" data-dsl="{{textarea}}" data-id="" data-name="" data-value="" data-require="false" data-maxlength="255"></span>
+		</td>
+	</tr>
+</tbody></table>
+</span>
+</body>

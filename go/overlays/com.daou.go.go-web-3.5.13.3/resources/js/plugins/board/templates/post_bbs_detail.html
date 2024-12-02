@@ -1,0 +1,244 @@
+{{^isPopup}}
+	<section class="tool_bar">
+		<ul class="critical">
+			{{#dataset.actions.writable}}
+			<li>
+				<a class="btn_tool" href="{{writeUrl}}">
+					<span class="ic_toolbar write"></span>
+					<span class="txt">{{lang.post_write}}</span>
+				</a>
+			</li>
+			<li>
+				<a class="btn_tool" href="{{replyUrl}}">
+					<span class="ic_toolbar reply"></span>
+					<span class="txt">{{lang.post_reply}}</span>
+				</a>
+			</li>
+			{{/dataset.actions.writable}}
+            {{#boardActions.removable}}
+			{{#dataset.actions.removable}}
+            {{^anonymFlag}}
+			<li>
+				<a class="btn_tool post_move">
+					<span class="ic_toolbar move"></span>
+					<span class="txt">{{lang.move}}</span>
+				</a>
+			</li>
+			<li>
+				<a class="btn_tool post_copy">
+					<span class="ic_toolbar copy"></span>
+					<span class="txt">{{lang.copy}}</span>
+				</a>
+			</li>
+            {{/anonymFlag}}
+			{{/dataset.actions.removable}}
+            {{/boardActions.removable}}
+			{{#boardActions.updatable}}{{#dataset.actions.updatable}}
+			<li>
+				<a href="{{editUrl}}" class="btn_tool">
+					<span class="ic_toolbar modify"></span>
+					<span class="txt">{{lang.modify}}</span>
+				</a>
+			</li>
+			{{/dataset.actions.updatable}}{{/boardActions.updatable}}
+			{{#boardActions.removable}}{{#dataset.actions.removable}}
+			<li>
+				<a class="btn_tool post_delete" data-bypass>
+					<span class="ic_toolbar del"></span>
+					<span class="txt_caution">{{lang.delete}}</span>
+				</a>
+			</li>
+			{{/dataset.actions.removable}}{{/boardActions.removable}}
+			{{#sendMailFlag}}
+			<li>
+				<a class="btn_tool sendMailBtn" data-bypass>
+					<span class="ic_toolbar mail"></span>
+					<span class="txt_caution">{{lang.send_mail}}</span>
+				</a>
+			</li>
+			{{/sendMailFlag}}
+		</ul>
+
+		<ul class="optional bbs_detail_tool">
+			<li>
+				<a class="btn_tool" url-copy>
+					<span class="ic_toolbar copy_url" title="{{lang.copy_url}}"></span>
+					<span class="txt">{{lang.copy_url}}</span>
+				</a>
+			</li>
+			<li>
+				<a class="btn_tool btn_go_list" data-bypass>
+					<span class="ic_toolbar list" title="{{lang.list}}"></span>
+					<span class="txt">{{lang.list}}</span>
+				</a>
+			</li>
+            <li>
+				<a class="btn_tool btn_go_print" data-role="button">
+					<span class="ic_toolbar print" title="{{lang.print}}"></span>
+					<span class="txt">{{lang.print}}</span>
+				</a>
+			</li>
+		</ul>
+	</section>
+{{/isPopup}}
+		{{#isPopup}}
+		<!--프린트 팝업 모드일 section 태그를 사용하면 css 오류가있어 div를 사용 하도록 수정 -->
+		<div class="classic_detail">
+		{{/isPopup}}
+		{{^isPopup}}
+		<section class="classic_detail">
+		{{/isPopup}}
+		<header class="article_header">
+			<h1>
+				{{#dataset.orphanFlag}}
+				<strong>[{{lang.post_orphan_msg}}]</strong>&nbsp;
+				{{/dataset.orphanFlag}}
+				{{#dataset.header.name}}[{{dataset.header.name}}]&nbsp;{{/dataset.header.name}}{{{postTitle}}}<span class="num" id="comment_num">[{{dataset.commentsCount}}]</span></h1>
+			<div class="article_wrap">
+				<span class="photo">
+					<a data-userId="{{dataset.writer.id}}" data-bypass><img alt="{{dataset.writer.name}}" title="{{dataset.writer.name}}" src="{{dataset.writer.thumbSmall}}"></a>
+				</span>
+				<div class="info">
+					<a data-userId="{{dataset.writer.id}}" class="name" data-bypass>{{dataset.writer.name}} {{dataset.writer.positionName}}</a><br />
+					<span class="date">{{dateformat}}</span>
+				</div>
+			</div>
+			<div class="meta_wrap">
+				{{#isActiveDept}}
+				<a class="btn_heart">
+					<span id="heartbeat" class="heartbeat wrap_heart {{#dataset.recommend}}on{{/dataset.recommend}}" title="{{#dataset.recommend}}{{lang.recommend_cancel}}{{/dataset.recommend}}{{^dataset.recommend}}{{lang.recommend}}{{/dataset.recommend}}">
+						<span class="txt">{{dataset.recommendCount}}</span>
+					</span>
+				</a>
+				{{/isActiveDept}}
+				{{#hasAuthorizedUsers}}
+				<a class="btn_ic24 btn_more">
+					<span class="ic24 more_v"></span>
+					<div class="array_option" style="display: none">
+						<ul class="array_type">
+							<li id="postAuthUserShowBtn" style="display: none;">
+								<span>{{lang.read_auth}}</span>
+							</li>
+						</ul>
+					</div>
+				</a>
+				{{/hasAuthorizedUsers}}
+			</div>
+		</header>
+		<article class="article_view">
+			<span class="editor_view">
+				<div id="boardContent"></div>
+			</span>
+			<div id="attaches{{dataset.id}}"></div>
+		</article>
+{{#isPopup}}
+		<div id="replyArea" class="reply_wrap"></div>
+    </div>
+{{/isPopup}}
+{{^isPopup}}
+		<section class="article_reply">
+            <div class="reply_wrap">
+                <ul class="reply additional">
+                    <li class="view_option" data-role="button" style="display:">
+                        <span class="ic_classic ic_reply"></span>
+                        <span class="txt_b">{{lang.comment}} <span class="num txt_b" id="commentCount">{{dataset.commentsCount}} </span>{{lang.count}}</span>
+                        <span class="part">|</span>
+                        <span class="txt_ txt_b">
+                            {{lang.read_count}}
+                            {{^anonymFlag}}<a id="listPostReader" class="linkNum" >{{dataset.readCount}}</a>{{/anonymFlag}}
+                            {{#anonymFlag}}<span id="listPostReader" >{{dataset.readCount}} </span>{{/anonymFlag}}
+                        </span>
+                        <span class="part">|</span>
+                        <span class="ic ic_feedPlus_s"></span>
+                        <span class="txt_ txt_b">
+                            {{lang.plus_user}}
+                            {{^anonymFlag}}<a id="listPostRecommend" class="linkNum">{{dataset.recommendCount}} </a>{{/anonymFlag}}
+                            {{#anonymFlag}}<span class="num txt_b" id="listPostRecommend" >{{dataset.recommendCount}} </span>{{/anonymFlag}}
+                            {{lang.user_count}}
+                        </span>
+                    </li>
+                </ul>
+            </div>
+			<div data-replies-wrapper id="replyArea" class="reply_wrap"></div>
+		</section>
+	</section>
+
+	<section class="tool_bar">
+		<ul class="critical">
+			{{#dataset.actions.writable}}
+			<li>
+				<a class="btn_major_s" href="{{writeUrl}}">
+					<span class="ic_toolbar write"></span>
+					<span class="txt">{{lang.post_write}}</span>
+				</a>
+			</li>
+			<li>
+				<a class="btn_tool" href="{{replyUrl}}">
+					<span class="ic_toolbar reply"></span>
+					<span class="txt">{{lang.post_reply}}</span>
+				</a>
+			</li>
+			{{/dataset.actions.writable}}
+            {{#boardActions.removable}}
+			{{#dataset.actions.removable}}
+            {{^anonymFlag}}
+			<li>
+				<a class="btn_tool post_move">
+					<span class="ic_toolbar move"></span>
+					<span class="txt">{{lang.move}}</span>
+				</a>
+			</li>
+			<li>
+				<a class="btn_tool post_copy">
+					<span class="ic_toolbar copy"></span>
+					<span class="txt">{{lang.copy}}</span>
+				</a>
+			</li>
+            {{/anonymFlag}}
+			{{/dataset.actions.removable}}
+            {{/boardActions.removable}}
+			{{#boardActions.updatable}}{{#dataset.actions.updatable}}
+			<li>
+				<a href="{{editUrl}}" class="btn_tool">
+					<span class="ic_toolbar modify"></span>
+					<span class="txt">{{lang.modify}}</span>
+				</a>
+			</li>
+			{{/dataset.actions.updatable}}{{/boardActions.updatable}}
+			{{#boardActions.removable}}{{#dataset.actions.removable}}
+			<li>
+				<a class="btn_tool post_delete" data-bypass>
+					<span class="ic_toolbar del"></span>
+					<span class="txt_caution">{{lang.delete}}</span>
+				</a>
+			</li>
+			{{/dataset.actions.removable}}{{/boardActions.removable}}
+			{{#sendMailFlag}}
+			<li>
+				<a class="btn_tool sendMailBtn" data-bypass>
+					<span class="ic_toolbar mail"></span>
+					<span class="txt_caution">{{lang.send_mail}}</span>
+				</a>
+			</li>
+			{{/sendMailFlag}}
+		</ul>
+
+
+		<ul class="optional bbs_detail_tool">
+			<li>
+				<a class="btn_tool btn_go_list" data-bypass]>
+					<span class="ic_toolbar list" title="{{lang.list}}"></span>
+					<span class="txt">{{lang.list}}</span>
+				</a>
+			</li>
+			<li>
+				<a class="btn_tool btn_go_print" data-role="button">
+					<span class="ic_toolbar print" title="{{lang.print}}"></span>
+					<span class="txt">{{lang.print}}</span>
+				</a>
+			</li>
+		</ul>
+	</section>
+
+	<div class="content_page" id="postBbsList"></div>
+{{/isPopup}}

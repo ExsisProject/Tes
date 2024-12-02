@@ -1,0 +1,19 @@
+{{#data}}
+<dt>
+	<span class="txt">{{parseTargetDay}}</span>
+</dt>
+{{^eventList}}
+<dd class="data_null_s">
+	<span class="txt">{{lang.no_event}}</span>
+</dd>				
+{{/eventList}}
+{{#eventList}}
+<dd>
+	<a data-bypass data-btntype="eventWrap" data-calendarid="{{calendarId}}" data-eventid="{{id}}" href="javascript:;">
+		<span class="time">{{parseTime}}</span>
+		<span class="subject"><span class="txt_ellipsis">{{summary}}</span></span>
+		<span class="ic ic_arrow_type2"></span>
+	</a>
+</dd>
+{{/eventList}}
+{{/data}}

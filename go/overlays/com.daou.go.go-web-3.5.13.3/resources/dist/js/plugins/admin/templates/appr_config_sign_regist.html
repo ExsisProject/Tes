@@ -1,0 +1,63 @@
+<div class="content_page">
+					<div class="container">			
+						<div class="header">
+							<h2>{{lang.기본 설정}}</h2>
+						</div>			
+						<div class="content">
+							<table class="detail tb_admin_stemp">
+								<caption>{{lang.인장 이미지 일괄 등록}}</caption>
+								<colgroup>
+									<col width="100px"><!-- 개발쪽에서 width값을 받아가서 재설정 후 삭제  -->
+									<col width="*">
+								</colgroup>
+								<tbody>
+								<!-- 문서수신 사용 후 : 사용자 선택 -->
+								<tr class="last">
+									<th><span class="title">{{lang.서명 일괄등록}}</span></th>
+									<td>
+										<span class="vertical_wrap">
+											<span class="option_wrap">
+												<input type="radio" id="userId" name="signType" checked> 
+												<label for="userId">{{lang.아이디로 구분}}</label>										
+											</span>
+											<span class="option_wrap">
+												<input type="radio" id="sabun" name="signType" > 
+												<label for="sabun">{{lang.사번으로 구분}}</label>										
+											</span>
+										</span>
+										<span class="vertical_wrap">
+											<div class="btn_file" id="swfupload-control" style="text-align:center ;width: 100px; border:1px solid #D1D1D1;background-color:#efefef;cursor:pointer;color:#666;border-radius:2px;">
+											<span id="button"></span></div>
+										</span>
+										</span>
+										<span class="vertical_wrap"> 
+											<span class="desc" style="font-size:12px;">※ {{lang.upload_must_zipfile}}</span> 
+										</span> 
+										<span class="vertical_wrap"> 
+											<span class="desc">{{lang.appr_sign_desc}}</span> 
+										</span> 
+										<div class="option_display" id="sign_progress" style="display:none">
+											<div class="content">
+											<span class="option_wrap" id="progress_content">
+											</span>
+									    	<span id="csvProgressBar" style="display:inline-block">
+									    		<div id="progressbar">
+									    		</div>
+									    	</span>
+									    	</div>
+									    </div> 
+							    	      <ul class="file_wrap" id="fileComplete"></ul>  
+									     <div class="option_display" id="signResultDiv">
+											<ul class="list_nude">
+									    	</ul>
+									    </div>
+									</td>
+								</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<div class="page_action">
+					    <span class="btn" id="add_sign">{{lang.등록시작}}</span>
+					</div>
+				</div>

@@ -1,0 +1,38 @@
+<section class="calendar_tool_bar">
+	<div class="current_date">		
+		<a data-bypass data-btntype="moveMonth" data-date="{{prevDate}}" id="prevMonthPart"><span class="btn btn_prev_type1"></span></a>
+		<span class="date" id="currentMonthPart" data-date="{{currentDateBasic}}" >{{currentYear}}{{lang.year}} {{currentMonth}}{{lang.month}}</span>					
+		<a data-bypass data-btntype="moveMonth" data-date="{{nextDate}}" id="nextMonthPart"><span class="btn btn_next_type1"></span></a>
+	</div>
+	<div class="critical">
+		<a class="btn_tool" data-role="button" data-btntype="dailyView" data-calendarname="{{calName}}" data-calendarid="{{calendarId}}" data-bypass><span class="txt">{{lang.list}}</span></a>
+	</div>
+	<div class="optional">		
+		<a class="btn_tool" data-role="button" data-btntype="currentMonth" data-bypass><span class="txt">{{lang.today}}</span></a>		
+	</div>			
+</section>
+
+<table class="tb_calendar">
+    <thead id="weekWrap">
+        {{{dayOfWeek}}}
+    </thead>
+<!-- 
+		<thead>
+			<tr>
+				<th class="sun">{{lang.sun}}</th>
+				<th>{{lang.mon}}</th>
+				<th>{{lang.thu}}</th>
+				<th>{{lang.wed}}</th>
+				<th>{{lang.thr}}</th>
+				<th>{{lang.fri}}</th>
+				<th>{{lang.sat}}</th>
+			</tr>
+		</thead>
+ -->
+	<tbody id="monthWrap">
+		{{{monthlyUnit}}}
+	</tbody>
+</table>	
+
+<dl class="list_type3 list_today" id="listTday">		
+</dl>

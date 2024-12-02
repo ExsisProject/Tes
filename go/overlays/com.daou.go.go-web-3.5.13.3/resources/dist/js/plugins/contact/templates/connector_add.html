@@ -1,0 +1,78 @@
+<div class="move_wrap" id="moveTab">
+    <ul>
+        <li>
+			<span class="btn_bg addGroup" data-target="RECEVIE">
+				<span class="txt">{{lang.group}}</span>
+				<span class="ic ic_next2"></span>
+			</span>
+        </li>
+        <li>
+			<span class="btn_bg addUser"  data-target="RECEVIE">
+				<span class="txt">{{lang.user}}</span>
+				<span class="ic ic_next2"></span>
+			</span>
+        </li>
+    </ul>
+    <ul id="mailCCBtnWrap">
+        <li>
+			<span class="btn_bg addGroup" data-target="MAIL_CC">
+				<span class="txt">{{lang.group}}</span>
+				<span class="ic ic_next2"></span>
+			</span>
+        </li>
+        <li>
+			<span class="btn_bg addUser" data-target="MAIL_CC">
+				<span class="txt">{{lang.user}}</span>
+				<span class="ic ic ic_next2"></span>
+			</span>
+        </li>
+    </ul>
+    <ul id="hiddenCCBtnWrap" class="last">
+        <li>
+			<span class="btn_bg addGroup" data-target="HIDDEN_CC">
+				<span class="txt">{{lang.group}}</span>
+				<span class="ic ic_next2"></span>
+			</span>
+        </li>
+        <li>
+			<span class="btn_bg addUser" data-target="HIDDEN_CC">
+				<span class="txt">{{lang.user}}</span>
+				<span class="ic ic_next2"></span>
+			</span>
+        </li>
+    </ul>
+</div>
+<!-- <input type="checkbox" name="isSearchHierarchy" id="isSearchHierarchy" style="display:none"> -->
+<div class="receive_wrap">
+    <div id="mailReceive" class="receive_list" data-target="RECEVIE">
+        <span class="title">{{lang.receiver}}</span>
+        <ul>
+            <!-- 비어있는 li 네개 지우면 안됨 -->
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    <div id="mailCC" class="receive_list" data-target="MAIL_CC">
+        <span class="title">{{lang.mail_cc}}</span>
+        <ul>
+            <!-- 비어있는 li 네개 지우면 안됨 -->
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    <div id="hiddenCC" class="receive_list last" data-target="HIDDEN_CC">
+        <span class="title">{{lang.private_cc}}</span>
+        <ul>
+            <!-- 비어있는 li 네개 지우면 안됨 -->
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+
+</div><!-- END: div.receive_wrap -->

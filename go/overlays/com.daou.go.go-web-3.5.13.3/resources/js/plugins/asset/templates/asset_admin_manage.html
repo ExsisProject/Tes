@@ -1,0 +1,32 @@
+<div class="dataTables_wrapper container">
+	<!-- 상단 메뉴바 START  -->
+	<section class="tool_bar">		
+		<div class="critical">	
+			<a class="btn_minor_s" data-btntype='assetItemAdd' data-role="button" data-bypass><span class="txt">{{lang.asset_add}}</span></a>
+			<a class="btn_minor_s btnAssetSortable" data-role="button" data-bypass><span class="txt">{{lang.asset_reorder}}</span></a>
+		</div>			
+	</section>
+	<!-- 상단 메뉴바 END  -->
+			
+	<!-- 테이블 -->		
+	<table class="type_normal" id="tableBorderList" style="margin-bottom:10px">
+		<thead>
+			<tr>
+				<th><span>{{lang.code}}<ins class="ic"></ins></span></th>
+				<th><span>{{lang.name}}<ins class="ic"></ins></span></th>
+				{{#dataset}}
+					{{#useRecurrence}}
+					<th><span>{{lang.recurrence}}<ins class="ic"></ins></span></th>
+					{{/useRecurrence}}
+					{{#attributes}}
+					<th><span>{{name}}<ins class="ic"></ins></span></th>
+					{{/attributes}}
+				{{/dataset}}
+				<th width="60px"><span>{{lang.setting}}<ins class="ic"></ins></span></th>
+			</tr>
+		</thead>
+		<tbody id="assetList">	
+			
+		</tbody>
+	</table>
+</div>

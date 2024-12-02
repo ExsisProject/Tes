@@ -1,0 +1,24 @@
+<section class="tool_bar calendar_tool_bar">
+            
+    <p class="timezone">{{timezone}}</p>
+
+    <div class="critical">
+        <ul class="tab_nav">            
+            <li class="first" data-type="daily"><span>{{tab_daily}}</span></li>          
+            <li data-type="weekly"><span>{{tab_weekly}}</span></li>                           
+            <li data-type="monthly"><span>{{tab_monthly}}</span></li>
+            <li class="last" data-type="agenda"><span>{{tab_agenda}}</span></li>
+        </ul>       
+    </div>
+    <div class="current_date">  
+        <span class="prev-btn btn_ic_prev2 btn_border" title="{{text_prev}}"><span class="ic ic_prev2"></span></span>
+        <span class="date datepicker-btn" id="date-indicator">{{date_str}}</span>
+        <span class="next-btn btn_ic_next2 btn_border" title="{{text_next}}"><span class="ic ic_next2"></span></span>
+        <input id="calendarDatepicker" type="text" style="border:0px;width:0px;height:0px;">
+        <span class="today-btn btn_tool"><span class="txt">{{today}}</span></span>
+    </div>
+    <div class="optional">      
+        <ul class="">
+        </ul>               
+    </div>          
+</section>

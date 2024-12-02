@@ -1,0 +1,1 @@
+define("sms/views/content_top",function(require){var e=require("hgn!sms/templates/content_top"),t=require("i18n!sms/nls/sms"),n={"\ubc1c\uc1a1 \ubb38\uc790 \ub0b4\uc5ed":t["\ubc1c\uc1a1 \ubb38\uc790 \ub0b4\uc5ed"]},r=Backbone.View.extend({tagName:"header",className:"content_top",events:{},initialize:function(e){e=e||{}},render:function(){this.$el.html(e({lang:n}))}});return r});

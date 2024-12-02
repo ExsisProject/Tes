@@ -1,0 +1,113 @@
+<div class="wrap_works_info">
+    <table class="works_info_table">
+        <tbody>
+        <tr>
+            <th><span class="title">{{{lang.카드}}} {{{lang.이름}}}</span></th>
+            <td>
+                <div class="wrap_txt w_max">
+                    <input id="title" class="txt w_max" type="text" name="summary" maxlength="" value="{{title}}">
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <th><span class="title">{{{lang.컴포넌트}}}</span></th>
+            <td>
+                <span class="wrap_select w_max">
+                    <select id="cid" class="w_max" name="">
+                        {{#chartFields}}
+						<option value="{{cid}}" data-value-type="{{valueType}}">{{label}}</option>
+						{{/chartFields}}
+                    </select>
+                </span>
+                <!-- <p class="txt_error">필수 입력 항목입니다.</p> -->
+            </td>
+        </tr>
+        <tr>
+            <th><span class="title">{{{lang.집계 방식}}}</span></th>
+            <td>
+                <span class="wrap_select w_max">
+                    <select id="method" class="w_max" name="">
+                        <option value="SUM">{{{lang.합계}}}</option>
+                        <option value="AVG">{{{lang.평균}}}</option>
+						<option value="COUNT">{{{lang.개수}}}</option>
+						<option value="MAX">{{{lang.최대값}}}</option>
+						<option value="MIN">{{{lang.최소값}}}</option>
+                    </select>
+                </span>
+                <!-- <p class="txt_error">필수 입력 항목입니다.</p> -->
+            </td>
+        </tr>
+        <tr>
+            <th><span class="title">{{{lang.집계 기간}}}</span></th>
+            <td>
+                <span class="wrap_select w_max">
+                    <select id="aggRangeOption" class="w_max" name="">
+                        <option value="ALL" ALL>{{{lang.전체}}}</option>
+                        <option value="WEEK" WEEK>{{{lang.최근 7일간}}}</option>
+						<option value="MONTH" MONTH>{{{lang.최근 30일간}}}</option>
+						<option value="CUSTOM" CUSTOM>{{{lang.사용자 설정}}}</option>
+                    </select>
+                </span>
+                <!-- <p class="txt_error">필수 입력 항목입니다.</p> -->
+            </td>
+        </tr>
+        <tr id="aggRangeCustomWrap">
+            <th><span class="title"></span></th>
+            <td>
+                <span class="wrap_dateselect">
+                    <span class="wrap_date">
+                        <input id="aggStartDate" class="txt wfix_small" type="text" value="{{aggStartDate}}" readonly="readonly">
+                        <span class="ic ic_calendar"></span>
+                    </span>
+                    <span class="date_wave">~</span>
+                    <span class="wrap_date">
+                        <input id="aggEndDate" class="txt wfix_small" type="text" value="{{aggEndDate}}" readonly="readonly">
+                        <span class="ic ic_calendar"></span>
+                    </span>
+                    <span id="aggDiffDate" class="txt"></span>
+				</span>
+            </td>
+        </tr>
+        <tr>
+            <th><span class="title">{{{lang.비교 기간}}}</span></th>
+            <td>
+                <span class="wrap_select w_max">
+                    <select id="compareRangeOption" class="w_max" name="">
+                        <option value="DONE" DONE>{{{lang.사용안함}}}</option>
+                        <option value="SAME_DAY" SAME_DAY>{{{lang.직전일 동일 기간}}}</option>
+						<option value="ONE_DAY_AGO" ONE_DAY_AGO>{{{lang.직전일}}}</option>
+						<option value="ONE_YEAR_AGO" ONE_YEAR_AGO>{{{lang.이전 연도}}}</option>
+                        <option value="CUSTOM" CUSTOM>{{{lang.사용자 설정}}}</option>
+                    </select>
+                </span>
+                <!-- <p class="txt_error">필수 입력 항목입니다.</p> -->
+            </td>
+        </tr>
+        <tr id="compareRangeCustomWrap">
+            <th><span class="title"></span></th>
+            <td>
+                <span class="wrap_dateselect">
+                    <span class="wrap_date">
+                        <input id="compareStartDate" class="txt wfix_small" type="text" value="{{compareStartDate}}" readonly="readonly">
+                        <span class="ic ic_calendar"></span>
+                    </span>
+                    <span class="date_wave">~</span>
+                    <span class="wrap_date">
+                        <input id="compareEndDate" class="txt wfix_small" type="text" value="{{compareEndDate}}" readonly="readonly">
+                        <span class="ic ic_calendar"></span>
+                    </span>
+                    <span id="compareDiffDate" class="txt"></span>
+                </span>
+            </td>
+        </tr>
+        <tr>
+            <th><span class="title">{{{lang.데이터}}} {{{lang.색상}}}</span></th>
+            <td>
+                <span class="btn_wrap">
+                    <span id="stateColor" class="normalmode chip bgcolor17" color="" title="{{{lang.색상 변경}}}"></span>
+                </span>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>

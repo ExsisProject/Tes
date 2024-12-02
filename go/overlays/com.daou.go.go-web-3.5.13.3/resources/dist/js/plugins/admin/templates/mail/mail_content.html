@@ -1,0 +1,12 @@
+{{#isMailStatView}}
+<select id="iFrameOptions" style="margin-bottom: 20px;">
+    {{#iFrameOptions}}
+    <option value="{{value}}">{{lang}}</option>
+    {{/iFrameOptions}}
+</select>
+{{/isMailStatView}}
+
+<div class="content_page">
+    <iframe src={{iframe_src}} id="site-viewer" width="100%" marginHeight="0" marginWidth="0" frameBorder="0" scrolling="no">
+    </iframe>
+</div>

@@ -1,0 +1,189 @@
+<div class="linkplus_detail_header">
+    <img class="service_logo" src="{{baseImgUrl}}salespoint_logo.png" alt="">
+    <div class="info">
+        <p class="name">
+            세일즈포인트
+
+            {{#isApply}}
+            <span class="linkplus_request">
+                <span class="txt">{{storeLang.신청중}}</span>
+                <span class="tooltip">
+                    {{storeLang.제휴사로 연결을 요청중입니다}}<br>
+                    {{storeLang.연결이 완료되면 사용하실 수 있습니다}}
+                </span>
+            </span>
+            {{/isApply}}
+
+            {{#inUse}}
+            <span class="linkplus_using">{{storeLang.사용중}}</span>
+            {{/inUse}}
+
+        </p>
+        <p class="desc">세일즈포인트(Salespoint) 는 영업조직의 업무환경 개선을 위한 CRM 솔루션입니다. 핵심 업무 집중을 통한 영업활성화를 원하시는 모든 업체에 추천드립니다.</p>
+        <div class="meta">
+            <div class="critical">
+                <div class="list_album_meta">
+                    <span class="state ghost category">CRM</span>
+                    <span class="state ghost service">세일즈인사이트(주)</span>
+                </div>
+            </div>
+            <div class="optional">
+                <a class="btn_minor" id="goToList">
+                    <span class="txt">{{commonLang.목록}}</span>
+                </a>
+
+                {{#canUse}}
+                <a class="btn_major " id="useService">
+                    <span class="txt">{{storeLang.사용하기}}</span>
+                </a>
+                {{/canUse}}
+
+                {{#canRegister}}
+                <a class="btn_major" id="register">
+                    <span class="txt">{{commonLang.신청하기}}</span>
+                </a>
+                {{/canRegister}}
+            </div>
+        </div>
+    </div>
+</div>
+<div class="linkplus_detail_display">
+    <div class="banner_rolling">
+        <div class="wrap_img" id="banner_container" style="width:801px; overflow:hidden; position:relative;">
+            <div id="banner_wrapper" style="width:2403px;position:absolute;">
+                <img src="{{baseImgUrl}}salespoint_thum1.png" style="float:left;" alt="">
+                <img src="{{baseImgUrl}}salespoint_thum2.png" style="float:left;" alt="">
+                <img src="{{baseImgUrl}}salespoint_thum3.png" style="float:left;" alt="">
+            </div>
+        </div>
+        <a class="btn_banner_rolling prev" data-type="prev" data-rol="button">
+            <span class="ic_dashboard2 ic_prev" title="다음"></span>
+        </a>
+        <a  class="btn_banner_rolling next" data-type="next" data-rol="button">
+            <span class="ic_dashboard2 ic_next" title="다음"></span>
+        </a>
+        <div class="banner_rolling_page">
+            <span class="on"></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+</div>
+<div class="linkplus_detail_container">
+    <h2>영업관리의 자동화, 이제 ‘세일즈포인트’와 함께 하세요.</h2>
+    <p class="desc">
+        기업 내 영업관리와 고객관리, 어떻게 진행하고 계신가요?<br>
+        영업사원마다 엑셀로만 관리하여 데이타 중앙화가 힘드신가요?<br>
+        혹은 고객지원까지 연결되지 않아, 고객사의 이슈를 공유하는데 어려움을 겪고 계신가요?<br>
+        마케팅-영업-고객지원은 하나로 통일되어야 합니다. 그리고 이제 이 모든 것들을 한 번에 해결할 수 있는 귀사만의 ‘영업관리 자동화 솔루션’을 만나보세요.<br>
+        마케팅을 통해 들어온 관심고객들이 영업기회가 되고, 고객사가 되기까지, 일련의 영업활동을 모두 한 번에 자동화될 수 있도록 세일즈포인트가 도와드립니다.
+    </p>
+    <h2>가입/연동/혜택</h2>
+    <ul class="list_accordion">
+        <li>
+            <div class="subject">
+                <span class="txt">1. 서비스 상세 소개</span>
+                <div class="optional">
+                    <span class="ic24 arrow_t"></span>
+                </div>
+            </div>
+            <div class="desc on">
+                세일즈포인트는 고객정보 통합, 영업관리, 활동관리와 협업을 하나로 해결할 수 있는 CRM 솔루션입니다.<br>
+                1) 고객관리 : 전사 고객 통합관리 (거래유무, 신용도, 거래내역, 상담이력 등)<br>
+                2) 영업 관리 : 포케스팅 및 수주관리, 분석 기능(영업기회, 계약실적, 영업활동, 계약품목)<br>
+                3) 활동 관리 : 단계별 영업활동 관리 (견적서, 계약서, 미팅활동관리 등)<br>
+                4) CRM 사용자를 위한 '싱글뷰 인터페이스' 특허 인증<br>
+                싱글뷰 인터페이스는 CRM 사용자가 한 화면에서 대부분의 업무를 처리할 수 있도록 하는 특화된 구현 기술로,<br>
+                시스템 사용시간을 최소화하고 영업 핵심업무에 집중할 수 있도록 지원하고 있습니다.<br>
+                <a class="serviceLink" data-url="https://www.salesinsight.co.kr" >www.salesinsight.co.kr</a>
+            </div>
+        </li>
+        <li>
+            <div class="subject">
+                <span class="txt">2. 기업에서 사용하면 어떤 점이 좋을까요.</span>
+                <div class="optional">
+                    <span class="ic24 arrow_d"></span>
+                </div>
+            </div>
+            <div class="desc">
+                1) 고객정보와 영업활동정보의 통합 구축으로 모든 데이타가 기업의 자산으로 남겨집니다.<br>
+                2) 싱글 뷰(Single View)화면을 통한 효율적인 영업활동 및 정보관리가 가능합니다.<br>
+                3) 영업 KPI 표준화 및 프로세스 정형화로 체계적인 영업활동이 지원됩니다.<br>
+                4) 부가업무와 반복적인 문서작업의 최소화로 영업 업무환경이 개선됩니다.<br>
+                5) 다양하고 직관적인 차트 분석기능으로 인사이트(Insight) 도출이 용이해집니다.
+            </div>
+        </li>
+        <li>
+            <div class="subject">
+                <span class="txt">3. 서비스의 특징과 장점은 무엇일까요</span>
+                <div class="optional">
+                    <span class="ic24 arrow_d"></span>
+                </div>
+            </div>
+            <div class="desc">
+                1) 기업 경영진 : 대면 보고가 필요없는 직관적인 차트 분석 기능<br>
+                - 실적 / 예측 / 추이 분석의 자동화로 다양한 관점의 분석 기능이 제공됩니다.<br>
+                2) 직원 사용자 : 쉽고 편리한 싱글 뷰(Single View) 지원<br>
+                - 한 화면에서 모든 기능을 조작할 수 있어, 중복입력을 최소화 합니다.<br>
+                3) 기업 담당자 : 추가 개발을 최소화하는 고도화된 관리기능<br>
+                - 20개 이상의 시스템 설정 메뉴 제공으로 영업 데이타 관리에 필요한 시스템 환경 구성이  보다 용이합니다.
+            </div>
+        </li>
+        <li>
+            <div class="subject">
+                <span class="txt">4. 다우오피스와는 어떻게 연동되나요.</span>
+                <div class="optional">
+                    <span class="ic24 arrow_d"></span>
+                </div>
+            </div>
+            <div class="desc">
+                다우오피스와는 전자결재 연동으로 보다 간편한 서비스 이용이 가능합니다.<br>
+                * 전자결재 연동 : 세일즈인사이트에서 수주한 건에 대한 계약품의 상신을 다우오피스의 전자결재를 통해 진행하실 수 있습니다.
+            </div>
+        </li>
+        <li>
+            <div class="subject">
+                <span class="txt">5. 어떻게 가입하고 사용하나요.</span>
+                <div class="optional">
+                    <span class="ic24 arrow_d"></span>
+                </div>
+            </div>
+            <div class="desc">
+                1) 다우오피스 ‘Link+’ 에서 ‘세일즈포인트’ 클릭 후 ‘신청하기’ 버튼 클릭<br>
+                2) 이동한 상담신청페이지에 내용 입력<br>
+                3) 세일즈인사이트에서 기입한 내용 확인 후, 영업상담 및 계약 진행 (기존 세일즈포인트 고객 또한, 연동가능 여부 확인 후 연동작업 진행)<br>
+                4) 사이트 오픈 및 관리자 교육<br>
+                5) 전 직원 사용 오픈<br>
+                <a class="serviceLink" data-url="https://youtu.be/EIkxImkoLwA">가입 및 사용 가이드 영상</a>
+            </div>
+        </li>
+        <li>
+            <div class="subject">
+                <span class="txt">6. 다우오피스를 통해 사용하면 드리는 혜택</span>
+                <div class="optional">
+                    <span class="ic24 arrow_d"></span>
+                </div>
+            </div>
+            <div class="desc">
+                다우오피스와 연동이 무료!<Br>
+                : 개발인력 비용이 소요되는 ‘전자결재’와의 연동을 별도로 진행하시나요?<Br>
+                다우오피스에서는 ‘다우오피스 - 세일즈포인트’간의 전자결재 연동비용이 무료입니다. (향후 변경 가능)
+
+            </div>
+        </li>
+    </ul>
+    <h2>필수 확인사항</h2>
+    <p class="desc">
+        1.  다우오피스를 통해 가입한 고객 뿐만 아니라, 기존 ‘세일즈포인트’를 사용 중이신 고객 모두 ‘전자결재’ 연동기능을 사용하실 수 있습니다.<Br>
+        2. 해당 제휴서비스는 다우오피스에서 연동만 지원하며,  가입 및 결제, 고객지원 모두 제휴서비스인 ‘세일즈인사이트’에서 진행됩니다.<Br>
+        &nbsp;&nbsp;&nbsp;&nbsp;- ‘세일즈인사이트’ 가입 및 결제 , 고객지원 문의 : 02-540-5234 / sales@salesinsight.co.kr<Br>
+        &nbsp;&nbsp;&nbsp;&nbsp;- 지원센터 운영시간<Br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(월~목요일) 오전 9시 ~ 오후 6시<Br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(금요일) 오전 9시 ~ 오후 5시<Br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (점심시간) 오전 11시 30분 ~ 오후 1시
+    </p>
+    <div class="box linkplus_question">
+        <span class="ic_link ic_tooltip"></span>
+        {{storeLang.사이트 관리자에게 문의}}
+    </div>
+</div>

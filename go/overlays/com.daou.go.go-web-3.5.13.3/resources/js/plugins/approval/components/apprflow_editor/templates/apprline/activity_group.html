@@ -1,0 +1,101 @@
+{{^isNullGroup?}}
+<!-- <div class="approval_line">  -->
+    <div class="tit_type3"><span class="txt">{{groupName}}</span></div>
+    
+    {{#isNotAddableEmptyGroup}}
+    <div class="list_approval_line disable_line">
+		<div class="btn_langth" title="추가"><span class="ic_con ic_arrow_type4"></span></div>
+		<div class="tb_approval_line_wrap">
+			<table class="type_normal tb_approval_line">
+				<tbody>
+					<tr class="last">
+						<td colspan="5">
+							<span class="desc">{{lang.notAddable}}<span>
+						</span></span></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+    {{/isNotAddableEmptyGroup}}
+    
+    {{^isNotAddableEmptyGroup}}
+    <div class="list_approval_line{{#disabled}} disable_line{{/disabled}}">
+        <div class="btn_langth add_activity" title="{{lang.add}}" data-id="{{groupId}}"><span class="ic_con ic_arrow_type4"></span></div>
+        <div class="tb_approval_line_wrap">
+            <table class="appr-activity-table type_normal tb_approval_line">
+                <tbody>
+                {{#hasActivities}}
+                    {{#activities}}
+                        <tr data-userId="{{userId}}" data-deptId="{{deptId}}" class="appr-activity activity {{^isEnabled}}inactive{{/isEnabled}} {{#isLast}}last{{/isLast}}">
+                            <td class="kind">
+                            {{#isEnabled}}
+                                <select {{#isDisabledAssignedCheckType}}disabled="disabled" style="border: 1px solid #999; color: #333; opacity: 0.5;"{{/isDisabledAssignedCheckType}}>
+                                    {{#userName}}
+	                                	{{#isApprovalTypeVisible}}
+		                                    <option name="type" value="APPROVAL" {{#isApprovalType}}selected{{/isApprovalType}}>{{lang.approval}}</option>
+	                                    {{/isApprovalTypeVisible}}	                                    
+                                    {{/userName}}
+                                    {{#isAgreementTypeVisible}}
+                                    	<option name="type" value="AGREEMENT" {{#isAgreementType}}selected{{/isAgreementType}}>{{lang.agreement}}</option>
+                                    {{/isAgreementTypeVisible}}
+                                    {{#userName}}
+	                                    {{#isCheckTypeVisible}}
+	                                    <option name="type" value="CHECK" {{#isCheckType}}selected{{/isCheckType}}>{{lang.check}}</option>
+	                                    {{/isCheckTypeVisible}}
+                                    {{/userName}}
+                                    {{#userName}}
+	                                    {{#isInspectionTypeVisible}}
+	                                    <option name="type" value="INSPECTION" {{#isInspectionType}}selected{{/isInspectionType}}>{{lang.inspection}}</option>
+	                                    {{/isInspectionTypeVisible}}
+                                    {{/userName}}
+                                </select>
+                            {{/isEnabled}}
+                            {{^isEnabled}}
+                                {{activityType}}
+                            {{/isEnabled}}
+                            </td>
+                            <td class="name">{{userName}}</td>
+                            <td class="depart">{{deptName}}</td>
+                            <td class="state">{{statusName}}</td>
+                            {{#isPermissibleArbitraryDecision}}
+                            {{#isArbitraryCheckVisible}}
+                            <td class="sign">
+                            {{#arbitraryCheckable}}
+                            <input type="checkbox" {{#isArbitraryChecked}}checked{{/isArbitraryChecked}} {{^isEnabled}}disabled="disabled"{{/isEnabled}}>
+                            {{/arbitraryCheckable}}
+                            </td>
+                            {{/isArbitraryCheckVisible}}
+                            {{/isPermissibleArbitraryDecision}}
+                            <td class="func">{{#isEnabled}}<span class="btn_bdr delete_activity" title="{{lang.delete}}"><span class="ic_classic ic_basket"></span></span>{{/isEnabled}}</td>
+                        </tr>
+                    {{/activities}}
+                {{/hasActivities}}
+                {{^hasActivities}}
+                    <tr class="last activity appr-activity inactive">
+                        <td colspan="5">
+                            <p class="data_null null_activity_p">
+                                <span class="ic_file_drag"></span>
+                                <span class="txt">{{#disabled}}{{lang.msg_not_addable_item}}{{/disabled}}{{^disabled}}{{lang.add_activity}}{{/disabled}}</span>
+                            </p>
+                        </td>
+                    </tr>
+                {{/hasActivities}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    {{/isNotAddableEmptyGroup}}
+<!-- </div> -->
+{{/isNullGroup?}}
+{{#isNullGroup?}}
+     <div class="empty_approval_line" style="height: 100%">
+         <table style="height: 100%">
+             <tbody style="height: 100%">
+                 <tr class="appr-activity activity" data-isnullactivity="true" style="height: 100%">
+                     <td style="width: 100%; height: 100%"></td>
+                 </tr>
+             </tbody>
+         </table>
+     </div>
+{{/isNullGroup?}}

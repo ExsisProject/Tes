@@ -1,0 +1,1 @@
+define(["json!lang/vi/common.json","json!lang/vi/custom.json"],function(e,t){return _.extend(e,t.common||{})});

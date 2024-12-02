@@ -1,0 +1,50 @@
+<div class="content">
+    <table class="table_form_mini">
+        <tbody>
+        <tr>
+            <th><span class="title">{{lang.그룹웨어로 연동 데이터 가져오기}}</span></th>
+            <td>
+				<span class="wrap_btn_toggle">
+                    <input class="btn_toggle {{#data.useInput}} on {{/data.useInput}}" type="button" id="inputUseBtn" value="{{lang.사용}}" name="useInput">
+                    <input class="btn_toggle {{^data.useInput}} on {{/data.useInput}}" type="button" id="inputNotUseBtn" value="{{lang.미사용}}" name="useInput">
+				</span>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="cont_box_inner">
+    <div class="vertical_wrap_s">
+        <ul class="list_option">
+            <li class="first">
+                <table class="sub_form">                    
+                    <tr {{^data.useInput}} style="display: none;" {{/data.useInput}}>
+                        <th><span class="title">{{lang.연결 정보}}</span></th>
+                        <td>
+                           <select name="dataSource">
+                           {{#dataSource}}
+                                <option value="{{name}}" {{#isSelected}}selected="selected"{{/isSelected}}>{{name}}</option>                        
+                           {{/dataSource}}
+                           </select>
+                        </td>
+                    </tr>
+                    <tr {{^data.useInput}} style="display: none;" {{/data.useInput}}>
+                        <th><span class="title">{{lang.연결 방식}}</span></th>
+                        <td>
+                            <div id="inputDataType"></div>
+                        </td>
+                    </tr>
+                    
+                    <tr {{^data.useInput}} style="display: none;" {{/data.useInput}}>
+                        <th><span class="title">{{lang.이벤트}}</span></th>
+                        <td id="inputEvent">
+                        </td>
+                    </tr>
+                </table>
+            </li>
+        </ul>     
+    </div>
+</div>
+
+

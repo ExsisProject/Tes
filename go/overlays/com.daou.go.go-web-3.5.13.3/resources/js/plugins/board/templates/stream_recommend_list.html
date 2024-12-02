@@ -1,0 +1,17 @@
+<ul>
+	{{#dataset}}
+	<li>
+		<span class="photo recommendPrifile">
+			<a data-bypass data-userid="{{recommender.id}}" title="{{recommender.name}}"><img src="{{recommender.thumbSmall}}"></a>
+		</span>
+	</li>
+	{{/dataset}}
+</ul>
+<div class='action_wrap'>
+	{{#isPrev}}
+	<span class='btn_set_prev' data-page="{{prePage}}"></span>
+	{{/isPrev}}
+	{{#isNext}}
+	<span class='btn_set_next' data-page="{{nextPage}}"></span>
+	{{/isNext}}
+</div>

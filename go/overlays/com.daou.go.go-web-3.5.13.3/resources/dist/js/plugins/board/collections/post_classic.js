@@ -1,0 +1,1 @@
+(function(){define(["backbone","board/models/post"],function(e,t){var n=e.Collection.extend({model:t,url:function(){var e="/api/board/"+this.boardId+"/posts/classic";return this.notice&&(e+="/notice"),e},hasNewFlagPost:function(){var e=this.select(function(e){return e.get("newFlag")});return e.length>0}});return n})}).call(this);

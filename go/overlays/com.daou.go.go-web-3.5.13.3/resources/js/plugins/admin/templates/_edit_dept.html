@@ -1,0 +1,120 @@
+<form id="formCreateDept" name="formCreateDept">
+    <table class="table_form_mini">
+        <colgroup>
+            <col width="120px">
+            <col width="*">
+        </colgroup>
+        <tbody>
+            <tr>
+            	<th>
+                    <span class="title">
+                        <ins class="asterisk">*</ins>{{lang.dept_name}}
+                        {{#isKoLocale}} ({{lang.locale_ko}}) {{/isKoLocale}}
+                        {{#isEnLocale}} ({{lang.locale_en}}) {{/isEnLocale}}
+                        {{#isJpLocale}} ({{lang.locale_jp}}) {{/isJpLocale}}
+                        {{#isZhcnLocale}} ({{lang.locale_zhcn}}) {{/isZhcnLocale}}
+                        {{#isZhtwLocale}} ({{lang.locale_zhtw}}) {{/isZhtwLocale}}
+                        {{#isViLocale}} ({{lang.locale_vi}}) {{/isViLocale}}
+                    </span>
+                </th>
+            	<td>
+            		<span class="user_data editable" data-formname="name" data-value="{{data.name}}">
+            			<span id="data">{{data.name}}</span><span class="btn_box" data-btntype="changeform">
+                        <span class="ic ic_edit" title="{{lang.edit}}"></span></span></span>
+            	</td>
+            </tr>
+            {{^isKoLocale}}
+            <tr id="koNameInput" style="display: none">
+                <th><span class="title">{{lang.dept_name}} ({{lang.locale_ko}})</span></th>
+                <td>
+                    <span class="user_data editable" data-formname="koName" data-value="{{additions.koName}}">
+                        <span id="data">{{additions.koName}}</span>
+                        <span class="btn_box" data-btntype="changeform">
+                            <span class="ic ic_edit" title="{{lang.edit}}"></span>
+                        </span>
+                    </span>
+                </td>
+            </tr>
+            {{/isKoLocale}}
+            {{^isEnLocale}}
+            <tr id="enNameInput" style="display: none">
+                <th><span class="title">{{lang.dept_name}} ({{lang.locale_en}})</span></th>
+                <td>
+                    <span class="user_data editable" data-formname="enName" data-value="{{additions.enName}}">
+                        <span id="data">{{additions.enName}}</span>
+                        <span class="btn_box" data-btntype="changeform">
+                            <span class="ic ic_edit" title="{{lang.edit}}"></span>
+                        </span>
+                    </span>
+                </td>
+            </tr>
+            {{/isEnLocale}}
+            {{^isJpLocale}}
+            <tr id="jpNameInput" style="display: none">
+                <th><span class="title">{{lang.dept_name}} ({{lang.locale_jp}})</span></th>
+                <td>
+                    <span class="user_data editable" data-formname="jpName" data-value="{{additions.jpName}}">
+                        <span id="data">{{additions.jpName}}</span>
+                        <span class="btn_box" data-btntype="changeform">
+                            <span class="ic ic_edit" title="{{lang.edit}}"></span>
+                        </span>
+                    </span>
+                </td>
+            </tr>
+            {{/isJpLocale}}
+            {{^isZhcnLocale}}
+            <tr id="zhcnNameInput" style="display: none">
+                <th><span class="title">{{lang.dept_name}} ({{lang.locale_zhcn}})</span></th>
+                <td>
+                    <span class="user_data editable" data-formname="zhcnName" data-value="{{additions.zhcnName}}">
+                        <span id="data">{{additions.zhcnName}}</span>
+                        <span class="btn_box" data-btntype="changeform">
+                            <span class="ic ic_edit" title="{{lang.edit}}"></span>
+                        </span>
+                    </span>
+                </td>
+            </tr>
+            {{/isZhcnLocale}}
+            {{^isZhtwLocale}}
+            <tr id="zhtwNameInput" style="display: none">
+                <th><span class="title">{{lang.dept_name}} ({{lang.locale_zhtw}})</span></th>
+                <td>
+                    <span class="user_data editable" data-formname="zhtwName" data-value="{{additions.zhtwName}}">
+                        <span id="data">{{additions.zhtwName}}</span>
+                        <span class="btn_box" data-btntype="changeform">
+                            <span class="ic ic_edit" title="{{lang.edit}}"></span>
+                        </span>
+                    </span>
+                </td>
+            </tr>
+            {{/isZhtwLocale}}
+            {{^isViLocale}}
+            <tr id="viNameInput" style="display: none">
+                <th><span class="title">{{lang.dept_name}} ({{lang.locale_vi}})</span></th>
+                <td>
+                    <span class="user_data editable" data-formname="viName" data-value="{{additions.viName}}">
+                        <span id="data">{{additions.viName}}</span>
+                        <span class="btn_box" data-btntype="changeform">
+                            <span class="ic ic_edit" title="{{lang.edit}}"></span>
+                        </span>
+                    </span>
+                </td>
+            </tr>
+            {{/isViLocale}}
+            <tr id="addDeptName">
+                <th><span class="title">{{lang.info_add}}</span></th>
+                <td>
+                    <select id="more_name">
+                        <option value="">{{lang.info_add}}</option>
+                        {{^isKoLocale}}<option value="koName">{{lang.dept_name}} ({{lang.locale_ko}})</option>{{/isKoLocale}}
+                        {{^isEnLocale}}<option value="enName">{{lang.dept_name}} ({{lang.locale_en}})</option>{{/isEnLocale}}
+                        {{^isJpLocale}}<option value="jpName">{{lang.dept_name}} ({{lang.locale_jp}})</option>{{/isJpLocale}}
+                        {{^isZhcnLocale}}<option value="zhcnName">{{lang.dept_name}} ({{lang.locale_zhcn}})</option>{{/isZhcnLocale}}
+                        {{^isZhtwLocale}}<option value="zhtwName">{{lang.dept_name}} ({{lang.locale_zhtw}})</option>{{/isZhtwLocale}}
+                        {{^isViLocale}}<option value="viName">{{lang.dept_name}} ({{lang.locale_vi}})</option>{{/isViLocale}}
+                    </select>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</form>

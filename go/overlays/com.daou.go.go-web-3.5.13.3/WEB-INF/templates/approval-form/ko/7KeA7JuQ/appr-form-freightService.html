@@ -1,0 +1,239 @@
+<meta name ="form:name" content="운송서비스 이용신청" folder-name="지원"/>
+<body id="go-approval-form">
+<span><div style="font-family:돋움;font-size:9pt;"><span> <style type="text/css">
+.auto-style1 {
+	text-align: left;
+}
+</style> <span> 
+  <table style="border: 0px solid rgb(0, 0, 0); width: 800px; font-family: malgun gothic,dotum,arial,tahoma; margin-top: 1px; border-collapse: collapse;"> 
+   <!-- Header --> 
+   <colgroup> 
+    <col width="310"> 
+    <col width="490"> 
+   </colgroup> 
+   <tbody> 
+    <tr> 
+     <td style="background: white; padding: 0px !important; border: 0px currentColor; height: 90px; text-align: center; color: black; font-size: 36px; font-weight: bold; vertical-align: middle;" colspan="2"> 운송서비스 이용 신청 </td> 
+    </tr> 
+    <tr> 
+     <td style="background: white; padding: 0px !important; border: currentColor; text-align: left; color: black; font-size: 12px; font-weight: normal; vertical-align: top;"> 
+      <table style="border: 1px solid rgb(0, 0, 0); font-family: malgun gothic,dotum,arial,tahoma; margin-top: 1px; border-collapse: collapse;"> 
+       <!-- User --> 
+       <colgroup> 
+        <col width="90"> 
+        <col width="220"> 
+       </colgroup> 
+       <tbody> 
+        <tr> 
+         <td style="background: rgb(221, 221, 221); padding: 5px; border: 1px solid black; height: 18px; text-align: center; color: rgb(0, 0, 0); font-size: 12px; font-weight: bold; vertical-align: middle;"> 기안자 </td> 
+         <td style="background: rgb(255, 255, 255); padding: 5px; border: 1px solid black; text-align: left; color: rgb(0, 0, 0); font-size: 12px; font-weight: normal; vertical-align: middle;"><span data-type="system" data-dsl="{{label:draftUser}}" data-id="draftUser" data-name="draftUser" data-value="" data-require="false" data-maxlength="" data-width="" data-defaultstr="" data-editable="true"></span> </td> 
+        </tr> 
+        <tr> 
+         <td style="background: rgb(221, 221, 221); padding: 5px; border: 1px solid black; height: 18px; text-align: center; color: rgb(0, 0, 0); font-size: 12px; font-weight: bold; vertical-align: middle;"> 소속 </td> 
+         <td style="background: rgb(255, 255, 255); padding: 5px; border: 1px solid black; text-align: left; color: rgb(0, 0, 0); font-size: 12px; font-weight: normal; vertical-align: middle;"><span data-type="system" data-dsl="{{label:draftDept}}" data-id="draftDept" data-name="draftDept" data-value="" data-require="false" data-maxlength="" data-width="" data-defaultstr="" data-editable="true"></span> </td> 
+        </tr> 
+        <tr> 
+         <td style="background: rgb(221, 221, 221); padding: 5px; border: 1px solid black; height: 18px; text-align: center; color: rgb(0, 0, 0); font-size: 12px; font-weight: bold; vertical-align: middle;"> 기안일 </td> 
+         <td style="background: rgb(255, 255, 255); padding: 5px; border: 1px solid black; text-align: left; color: rgb(0, 0, 0); font-size: 12px; font-weight: normal; vertical-align: middle;"><span data-type="system" data-dsl="{{label:draftDate}}" data-id="draftDate" data-name="draftDate" data-value="" data-require="false" data-maxlength="" data-width="" data-defaultstr="" data-editable="true"></span> </td> 
+        </tr> 
+        <tr> 
+         <td style="background: rgb(221, 221, 221); padding: 5px; border: 1px solid black; height: 18px; text-align: center; color: rgb(0, 0, 0); font-size: 12px; font-weight: bold; vertical-align: middle;"> 문서번호 </td> 
+         <td style="background: rgb(255, 255, 255); padding: 5px; border: 1px solid black; text-align: left; color: rgb(0, 0, 0); font-size: 12px; font-weight: normal; vertical-align: middle;"><span data-type="system" data-dsl="{{label:docNo}}" data-id="docNo" data-name="docNo" data-value="" data-require="false" data-maxlength="" data-width="" data-defaultstr="" data-editable="true"></span> </td> 
+        </tr> 
+       </tbody> 
+      </table> </td> 
+     <td style="background: white; padding: 0px !important; border: currentColor; text-align: right; color: black; font-size: 12px; font-weight: normal; vertical-align: top;"> 
+      <div class="sign_type1 sign_type_new" data-group-type="type1" data-group-max-count="1" data-group-name="신청" data-group-seq="0"> 
+       <table class="tb_sign_type1"> 
+        <tbody> 
+         <tr> 
+          <th>신청</th> 
+          <td> 
+           <table class="sign_member"> 
+            <tbody> 
+             <tr> 
+              <td><span class="sign_rank"></span></td> 
+             </tr> 
+             <tr> 
+              <td><span class="sign_name" id="status_"></span></td> 
+             </tr> 
+             <tr> 
+              <td class="last"><span class="sign_date" id="date_"></span></td> 
+             </tr> 
+            </tbody> 
+           </table></td> 
+         </tr> 
+        </tbody> 
+       </table> 
+      </div> 
+      <div class="sign_type1 sign_type_new" data-group-type="type1" data-group-max-count="7" data-group-name="승인" data-group-seq="1"> 
+       <table class="tb_sign_type1"> 
+        <tbody> 
+         <tr> 
+          <th>승인</th> 
+          <td> 
+           <table class="sign_member"> 
+            <tbody> 
+             <tr> 
+              <td><span class="sign_rank"></span></td> 
+             </tr> 
+             <tr> 
+              <td><span class="sign_name" id="status_"></span></td> 
+             </tr> 
+             <tr> 
+              <td class="last"><span class="sign_date" id="date_"></span></td> 
+             </tr> 
+            </tbody> 
+           </table></td> 
+          <td> 
+           <table class="sign_member"> 
+            <tbody> 
+             <tr> 
+              <td><span class="sign_rank"></span></td> 
+             </tr> 
+             <tr> 
+              <td><span class="sign_name" id="status_"></span></td> 
+             </tr> 
+             <tr> 
+              <td class="last"><span class="sign_date" id="date_"></span></td> 
+             </tr> 
+            </tbody> 
+           </table></td> 
+          <td> 
+           <table class="sign_member"> 
+            <tbody> 
+             <tr> 
+              <td><span class="sign_rank"></span></td> 
+             </tr> 
+             <tr> 
+              <td><span class="sign_name" id="status_"></span></td> 
+             </tr> 
+             <tr> 
+              <td class="last"><span class="sign_date" id="date_"></span></td> 
+             </tr> 
+            </tbody> 
+           </table></td> 
+          <td> 
+           <table class="sign_member"> 
+            <tbody> 
+             <tr> 
+              <td><span class="sign_rank"></span></td> 
+             </tr> 
+             <tr> 
+              <td><span class="sign_name" id="status_"></span></td> 
+             </tr> 
+             <tr> 
+              <td class="last"><span class="sign_date" id="date_"></span></td> 
+             </tr> 
+            </tbody> 
+           </table></td> 
+          <td> 
+           <table class="sign_member"> 
+            <tbody> 
+             <tr> 
+              <td><span class="sign_rank"></span></td> 
+             </tr> 
+             <tr> 
+              <td><span class="sign_name" id="status_"></span></td> 
+             </tr> 
+             <tr> 
+              <td class="last"><span class="sign_date" id="date_"></span></td> 
+             </tr> 
+            </tbody> 
+           </table></td> 
+          <td> 
+           <table class="sign_member"> 
+            <tbody> 
+             <tr> 
+              <td><span class="sign_rank"></span></td> 
+             </tr> 
+             <tr> 
+              <td><span class="sign_name" id="status_"></span></td> 
+             </tr> 
+             <tr> 
+              <td class="last"><span class="sign_date" id="date_"></span></td> 
+             </tr> 
+            </tbody> 
+           </table></td> 
+          <td> 
+           <table class="sign_member"> 
+            <tbody> 
+             <tr> 
+              <td><span class="sign_rank"></span></td> 
+             </tr> 
+             <tr> 
+              <td><span class="sign_name" id="status_"></span></td> 
+             </tr> 
+             <tr> 
+              <td class="last"><span class="sign_date" id="date_"></span></td> 
+             </tr> 
+            </tbody> 
+           </table></td> 
+         </tr> 
+        </tbody> 
+       </table> 
+      </div> 
+      </td> 
+    </tr> 
+   </tbody> 
+  </table> 
+  <table style="border: 1px solid rgb(0, 0, 0); width: 800px; font-family: malgun gothic,dotum,arial,tahoma; margin-top: 10px; border-collapse: collapse;"> 
+   <!-- Draft --> 
+   <colgroup> 
+    <col width="120"> 
+    <col width="680"> 
+   </colgroup> 
+   <tbody> 
+    <tr> 
+     <td class="auto-style1" style="background: rgb(221, 221, 221); padding: 5px; border: 1px solid black; height: 25px; color: rgb(0, 0, 0); font-size: 14px; font-weight: bold; vertical-align: middle;"> &nbsp; 운송수단</td> 
+     <td style="background: rgb(255, 255, 255); padding: 5px; border: 1px solid black; text-align: left; color: rgb(0, 0, 0); font-size: 14px; font-weight: normal; vertical-align: middle;"><span data-type="radio" data-dsl="{{radio_오토바이_다마스_용달}}" data-id="" data-name="" data-label="" data-value="" data-select="" data-autotype="false" data-require="false"></span>&nbsp;<span style="font: 13px/17px Arial, FreeSans, Helvetica, sans-serif; color: rgb(0, 0, 0); text-transform: none; text-indent: 0px; letter-spacing: normal; word-spacing: 0px; float: none; display: inline !important; white-space: normal; font-size-adjust: none; font-stretch: normal; background-color: rgb(255, 255, 255); -webkit-text-stroke-width: 0px;"><span data-type="text" data-dsl="{{text$width:150$}}" data-id="" data-name="" data-value="" data-require="false" data-maxlength="" data-width="150" data-defaultstr="" data-editable="true"></span>&nbsp;<span data-type="checkbox" data-dsl="{{check_그외}}" data-id="" data-name="" data-label="" data-value="" data-autotype="false" data-require="false"></span><span style="line-height: 17px; font-family: Arial, FreeSans, Helvetica, sans-serif; font-size: 13px; background-color: rgb(255, 255, 255);"><span data-type="text" data-dsl="{{text$width:150$}}" data-id="" data-name="" data-value="" data-require="false" data-maxlength="" data-width="150" data-defaultstr="" data-editable="true"></span></span></span></td> 
+    </tr> 
+    <tr> 
+     <td class="auto-style1" style="background: rgb(221, 221, 221); padding: 5px; border: 1px solid black; color: rgb(0, 0, 0); font-size: 14px; font-weight: bold; vertical-align: middle;" rowspan="4">&nbsp; 출발지</td> 
+     <td style="background: rgb(255, 255, 255); padding: 5px; border: 1px solid black; height: 22px; text-align: left; color: rgb(0, 0, 0); font-weight: normal; vertical-align: top;"><span style="font-size: 14px;"> - 픽업일시 :</span><font face="Arial, FreeSans, Helvetica, sans-serif" size="2"><span style="line-height: 17px;">&nbsp;<span data-type="calendar" data-dsl="{{calendar}}" data-id="" data-name="" data-value="" data-require="false" data-maxlength="" data-width="" data-defaultstr="" data-editable="true"></span> &nbsp;<span data-type="select" data-dsl="{{time}}" data-id="" data-name="" data-value=""></span></span></font></td> 
+    </tr> 
+    <tr> 
+     <td style="background: rgb(255, 255, 255); padding: 5px; border: 1px solid black; height: 22px; text-align: left; color: rgb(0, 0, 0); font-size: 14px; font-weight: normal; vertical-align: top;"><span> - 주소 : ​<span style="line-height: 17px; font-family: Arial, FreeSans, Helvetica, sans-serif; font-size: 13px; background-color: rgb(255, 255, 255);"><span data-type="text" data-dsl="{{text$width:550$}}" data-id="" data-name="" data-value="" data-require="false" data-maxlength="" data-width="550" data-defaultstr="" data-editable="true"></span></span></span></td> 
+    </tr> 
+    <tr> 
+     <td style="background: rgb(255, 255, 255); padding: 5px; border: 1px solid black; height: 22px; text-align: left; color: rgb(0, 0, 0); font-size: 14px; font-weight: normal; vertical-align: top;"><span> - 담당자 : ​<span style="font: 13px/17px Arial, FreeSans, Helvetica, sans-serif; color: rgb(0, 0, 0); text-transform: none; text-indent: 0px; letter-spacing: normal; word-spacing: 0px; float: none; display: inline !important; white-space: normal; font-size-adjust: none; font-stretch: normal; background-color: rgb(255, 255, 255); -webkit-text-stroke-width: 0px;"><span data-type="text" data-dsl="{{text$width:200$}}" data-id="" data-name="" data-value="" data-require="false" data-maxlength="" data-width="200" data-defaultstr="" data-editable="true"></span></span></span></td> 
+    </tr> 
+    <tr> 
+     <td style="background: rgb(255, 255, 255); padding: 5px; border: 1px solid black; height: 22px; text-align: left; color: rgb(0, 0, 0); font-size: 14px; font-weight: normal; vertical-align: top;"><span> - 연락처 : ​<span style="font: 13px/17px Arial, FreeSans, Helvetica, sans-serif; color: rgb(0, 0, 0); text-transform: none; text-indent: 0px; letter-spacing: normal; word-spacing: 0px; float: none; display: inline !important; white-space: normal; font-size-adjust: none; font-stretch: normal; background-color: rgb(255, 255, 255); -webkit-text-stroke-width: 0px;"><span data-type="text" data-dsl="{{text$width:200$}}" data-id="" data-name="" data-value="" data-require="false" data-maxlength="" data-width="200" data-defaultstr="" data-editable="true"></span></span></span></td> 
+    </tr> 
+    <tr> 
+     <td class="auto-style1" style="background: rgb(221, 221, 221); padding: 5px; border: 1px solid black; color: rgb(0, 0, 0); font-size: 14px; font-weight: bold; vertical-align: middle;" rowspan="4"> &nbsp; 도착지</td> 
+     <td style="background: rgb(255, 255, 255); padding: 5px; border: 1px solid black; text-align: left; color: rgb(0, 0, 0); font-weight: normal; vertical-align: middle;"><span style="font-size: 14px;"> - 도착일시</span><font face="Arial, FreeSans, Helvetica, sans-serif" size="2"><span style="line-height: 17px;">&nbsp;:&nbsp;<span style="line-height: 17px; font-family: Arial, FreeSans, Helvetica, sans-serif; font-size: small; background-color: rgb(255, 255, 255);"><span data-type="calendar" data-dsl="{{calendar}}" data-id="" data-name="" data-value="" data-require="false" data-maxlength="" data-width="" data-defaultstr="" data-editable="true"></span>&nbsp;<span data-type="select" data-dsl="{{time}}" data-id="" data-name="" data-value=""></span> 까지</span></span></font></td> 
+    </tr> 
+    <tr> 
+     <td style="background: rgb(255, 255, 255); padding: 5px; border: 1px solid black; text-align: left; color: rgb(0, 0, 0); font-size: 14px; font-weight: normal; vertical-align: middle;"><span> - 주소 :&nbsp;​<span style="font: 13px/17px Arial, FreeSans, Helvetica, sans-serif; color: rgb(0, 0, 0); text-transform: none; text-indent: 0px; letter-spacing: normal; word-spacing: 0px; float: none; display: inline !important; white-space: normal; font-size-adjust: none; font-stretch: normal; background-color: rgb(255, 255, 255); -webkit-text-stroke-width: 0px;"><span data-type="text" data-dsl="{{text$width:550$}}" data-id="" data-name="" data-value="" data-require="false" data-maxlength="" data-width="550" data-defaultstr="" data-editable="true"></span></span></span> </td> 
+    </tr> 
+    <tr> 
+     <td style="background: rgb(255, 255, 255); padding: 5px; border: 1px solid black; text-align: left; color: rgb(0, 0, 0); font-size: 14px; font-weight: normal; vertical-align: middle;"><span> - 담당자 :&nbsp;​<span style="font: 13px/17px Arial, FreeSans, Helvetica, sans-serif; color: rgb(0, 0, 0); text-transform: none; text-indent: 0px; letter-spacing: normal; word-spacing: 0px; float: none; display: inline !important; white-space: normal; font-size-adjust: none; font-stretch: normal; background-color: rgb(255, 255, 255); -webkit-text-stroke-width: 0px;"><span data-type="text" data-dsl="{{text$width:200$}}" data-id="" data-name="" data-value="" data-require="false" data-maxlength="" data-width="200" data-defaultstr="" data-editable="true"></span></span></span> </td> 
+    </tr> 
+    <tr> 
+     <td style="background: rgb(255, 255, 255); padding: 5px; border: 1px solid black; text-align: left; color: rgb(0, 0, 0); font-size: 14px; font-weight: normal; vertical-align: middle;"><span> - 연락처 :&nbsp;​<span style="font: 13px/17px Arial, FreeSans, Helvetica, sans-serif; color: rgb(0, 0, 0); text-transform: none; text-indent: 0px; letter-spacing: normal; word-spacing: 0px; float: none; display: inline !important; white-space: normal; font-size-adjust: none; font-stretch: normal; background-color: rgb(255, 255, 255); -webkit-text-stroke-width: 0px;"><span data-type="text" data-dsl="{{text$width:200$}}" data-id="" data-name="" data-value="" data-require="false" data-maxlength="" data-width="200" data-defaultstr="" data-editable="true"></span></span></span> </td> 
+    </tr> 
+    <tr> 
+     <td class="auto-style1" style="background: rgb(221, 221, 221); padding: 5px; border: 1px solid black; color: rgb(0, 0, 0); font-size: 14px; font-weight: bold; vertical-align: middle;">&nbsp; 운송물건</td> 
+     <td style="background: rgb(255, 255, 255); padding: 5px; border: 1px solid black; text-align: left; color: rgb(0, 0, 0); font-size: 14px; font-weight: normal; vertical-align: middle;"><span data-type="checkbox" data-dsl="{{check_서류_제품_기타}}" data-id="" data-name="" data-label="" data-value="" data-autotype="false" data-require="false"></span></td> 
+    </tr> 
+    <tr> 
+     <td class="auto-style1" style="background: rgb(221, 221, 221); padding: 5px; border: 1px solid black; height: 25px; color: rgb(0, 0, 0); font-size: 14px; font-weight: bold; vertical-align: middle;">&nbsp; 상세내역</td> 
+     <td style="background: rgb(255, 255, 255); padding: 5px; border: 1px solid black; text-align: left; color: rgb(0, 0, 0); font-size: 14px; font-weight: normal; vertical-align: middle;"><span style="line-height: 21px; font-family: &quot;malgun gothic&quot;, dotum, arial, tahoma; font-size: 14px; background-color: rgb(255, 255, 255);"><span data-type="text" data-dsl="{{text}}" data-id="" data-name="" data-value="" data-require="false" data-maxlength="" data-width="" data-defaultstr="" data-editable="true"></span></span></td> 
+    </tr> 
+    <tr> 
+     <td class="auto-style1" style="background: rgb(221, 221, 221); padding: 5px; border: 1px solid black; height: 25px; color: rgb(0, 0, 0); font-size: 14px; font-weight: bold; vertical-align: middle;">&nbsp; 활동센터</td> 
+     <td style="background: rgb(255, 255, 255); padding: 5px; border: 1px solid black; text-align: left; color: rgb(0, 0, 0); font-size: 14px; font-weight: normal; vertical-align: middle;"><span style="line-height: 21px; font-family: &quot;malgun gothic&quot;, dotum, arial, tahoma; font-size: 14px; background-color: rgb(255, 255, 255);"><span data-type="text" data-dsl="{{text}}" data-id="" data-name="" data-value="" data-require="false" data-maxlength="" data-width="" data-defaultstr="" data-editable="true"></span></span></td> 
+    </tr> 
+    <tr> 
+     <td class="auto-style1" style="background: rgb(221, 221, 221); padding: 5px; border: 1px solid black; height: 25px; color: rgb(0, 0, 0); font-size: 14px; font-weight: bold; vertical-align: middle;"> &nbsp; 신청사유</td> 
+     <td style="background: rgb(255, 255, 255); padding: 5px; border: 1px solid black; text-align: left; color: rgb(0, 0, 0); font-size: 14px; font-weight: normal; vertical-align: middle;"><span style="line-height: 21px; font-family: &quot;malgun gothic&quot;, dotum, arial, tahoma; font-size: 14px; background-color: rgb(255, 255, 255);"><span data-type="text" data-dsl="{{text}}" data-id="" data-name="" data-value="" data-require="false" data-maxlength="" data-width="" data-defaultstr="" data-editable="true"></span></span></td> 
+    </tr> 
+    <tr> 
+     <td class="auto-style1" style="background: rgb(221, 221, 221); padding: 5px; border: 1px solid black; height: 25px; color: rgb(0, 0, 0); font-size: 14px; font-weight: bold; vertical-align: middle;"> &nbsp; 비고</td> 
+     <td style="background: rgb(255, 255, 255); padding: 5px; border: 1px solid black; text-align: left; color: rgb(0, 0, 0); font-size: 14px; font-weight: normal; vertical-align: middle;"><span style="line-height: 21px; font-family: &quot;malgun gothic&quot;, dotum, arial, tahoma; font-size: 14px; background-color: rgb(255, 255, 255);"><span data-type="text" data-dsl="{{text}}" data-id="" data-name="" data-value="" data-require="false" data-maxlength="" data-width="" data-defaultstr="" data-editable="true"></span></span></td> 
+    </tr> 
+   </tbody> 
+  </table> <br><br> </span></span></div></span>
+ </body>

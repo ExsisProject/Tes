@@ -1,0 +1,1 @@
+define("works/constants/download_state_type",function(require){return{READY:"READY",PROGRESS:"PROGRESS",DONE:"DONE",CANCELED:"CANCELED",FILE_DELETED:"FILE_DELETED"}});

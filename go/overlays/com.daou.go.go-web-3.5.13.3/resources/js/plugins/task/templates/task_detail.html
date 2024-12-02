@@ -1,0 +1,225 @@
+﻿{{^isPrint}}
+<header class="content_top">
+	<h1>
+		<span class="ic_side {{#folder.privateTask}}ic_private{{/folder.privateTask}}"></span>
+		<span class="txt">{{folder.name}}</span>
+		<span class="meta">
+			<span class="team">in {{dept.name}}</span>
+		</span>
+	</h1>
+</header>
+{{/isPrint}}
+
+<div class="
+	{{^isPrint}}content_page report_detail{{/isPrint}}
+	{{#isPrint}}content{{/isPrint}}
+">	
+	<div class="tool_bar">
+		<div class="critical">	
+			<span id="btnGroup" class="btn_tool_group">
+			{{^dept.deletedDept}}
+			{{#actions}}
+				<a class="btn_tool btn_tool_by_user" data-role="button" data-tag="action" data-actionId="{{id}}" >
+					<span class="txt">{{name}}</span>
+				</a>
+			{{/actions}}
+			{{/dept.deletedDept}}
+			</span>
+			<span class="btn_tool_group">	
+				<!-- <a id="moveTask" class="btn_tool" data-role="button"><span class="txt">{{lang.move}}</span></a> -->
+				{{#data.actions.removable}}
+				<a id="deleteTask" class="btn_tool" data-role="button">
+                    <span class="ic_toolbar del"></span>
+					<span class="txt">{{lang.delete}}</span>
+                </a>
+				{{/data.actions.removable}}
+			</span>
+			{{#isAvailableBoard}}
+			<span class="btn_tool_group">
+				<a id="postTask" class="btn_tool" data-role="button">
+                    <span class="ic_toolbar board"></span>
+                    <span class="txt">{{lang.post}}</span>
+                </a>
+			</span>
+			{{/isAvailableBoard}}
+		</div>
+		<ul class="optional">
+			<li>
+				<a class="btn_tool" id="goToListBtn">
+					<span class="ic_toolbar list"></span>
+					<span class="txt">{{lang.list}}</span>
+				</a>
+			</li>
+			<li>
+				<a class="btn_tool" id="taskPrint">
+                    <span class="ic_toolbar print"></span>
+					<span class="txt">{{lang.print}}</span>
+				</a>
+			</li>
+		</ul>	
+	</div>		
+	<div class="{{^isPrint}}wrap_container{{/isPrint}} {{#isPrint}}content{{/isPrint}}">
+		<div id="taskSection" class="{{^isPrint}}content_wrapper{{/isPrint}}{{#isPrint}}print_content_wrapper{{/isPrint}}"> 
+			<header class="content_wrap_top">
+				<span class="state {{status}}" id="stateArea">{{data.status.name}}</span>
+				<span class="ic_side {{#data.privateTask}}ic_private{{/data.privateTask}}"></span>
+				<span class="title">{{data.name}}</span>
+			</header>
+			<div class="task_type">
+				<header class="box_h">
+					<h1>
+						<span data-tag="toggle" data-type="taskView" class="btn_wrap">
+							<span class="ic_classic ic_close"></span>
+						</span>
+						<span class="title">{{lang.summary}}</span>
+					</h1>
+					<div class="meta_header">
+						<div class="register">
+							<strong>{{lang.regist}} :</strong>
+							<span class="name">{{data.creator.name}} {{#data.creator.position}}{{data.creator.position}}{{/data.creator.position}}</span>
+							<span class="date">{{createdAt}}</span>
+						</div>
+						<div class="tool_bar">
+							<ul class="optional">
+								{{#data.actions.updatable}}
+								<li id="taskEditBtn">
+									<a class="btn_tool">
+                                        <span class="ic_toolbar modify"></span>
+										<span class="txt">{{lang.edit}}</span>
+									</a>
+								</li>
+								{{/data.actions.updatable}}
+							</ul>
+						</div>
+					</div>
+				</header>
+				<div id="taskView">
+					<div class="bar"></div>
+					<table class="form_type form_task_spec">
+						<colgroup>
+							<col/>
+							<col/>
+						</colgroup>
+						<tbody>
+							{{#isMultiType}}
+							<tr>
+								<th><span class="title">{{lang.type}}</span></th>
+								<td><span class="txt">{{data.issueType.name}}</span></td>
+							</tr>
+							{{/isMultiType}}
+							<tr>
+								<th><span class="title">{{lang.assignee}}</span></th>
+								<td class="master">
+								{{#data.assignees}}
+									<span class="member">
+										<img alt="{{name}} {{#position}}{{position}}{{/position}}" src="{{thumbnail}}"/>
+										<span class="txt">{{name}} {{#position}}{{position}}{{/position}}</span>
+									</span>
+								{{/data.assignees}}
+								{{^data.assignees}}
+									<span class="txt">{{lang.emptyValue}}</span>
+								{{/data.assignees}}
+								</td>
+							</tr>
+							<tr>
+								<th><span class="title">{{lang.dueDate}}</span></th>
+								<td>
+									{{^data.status.end}}
+									{{#isDelay}}
+									<span class="state delay">{{lang.delay}}</span>
+									{{/isDelay}}
+									{{/data.status.end}}
+
+									{{#beginDate}}
+									<span class="txt">{{beginDate}}</span>
+									{{/beginDate}}
+									{{^beginDate}}
+									<span class="txt">{{lang.emptyValue}}</span>
+									{{/beginDate}}
+
+									 ~
+
+									{{#dueDate}}
+									<span class="txt">{{dueDate}}</span>
+									{{/dueDate}}
+									{{^dueDate}}
+									<span class="txt">{{lang.emptyValue}}</span>
+									{{/dueDate}}
+                                    <!-- calendarEvent가 있으면 formatting 된 데이터 제공 -->
+                                    {{#hasEvent}}
+									{{^isPrint}}
+										<p class="txt disable">{{calendarEventInfo}}</p>
+									{{/isPrint}}
+									{{/hasEvent}}
+								</td>
+							</tr>
+							{{#folder.tagAllowed}}
+							<tr>
+								<th><span class="title">{{lang.tag}}</span></th>
+								{{#tagLabel}}
+								<td><span class="txt">{{tagLabel}}</span></td>
+								{{/tagLabel}}
+								{{^tagLabel}}
+								<td><span class="txt">{{lang.emptyValue}}</span></td>
+								{{/tagLabel}}
+							</tr>
+							{{/folder.tagAllowed}}
+							
+							<tr id="fieldArea"></tr>
+							
+							{{#folder.referersAllowed}}
+							<tr>
+								<th><span class="title">{{lang.referer}}</span></th>
+								<td><span class="txt">{{referers}}</span></td>
+							</tr>
+							{{/folder.referersAllowed}}
+							
+							<tr id="approver">
+							</tr>
+							
+							<tr>
+								<th colspan="2"><span class="title">{{lang.detail}}</span></th>
+							</tr>
+							<tr>
+								<td class="full" colspan="2">
+									<article class="article_view editor_view">
+										{{^isPrint}}
+										<div id="contentArea"></div>
+										{{/isPrint}}
+										{{#isPrint}}
+										{{{content}}}
+										{{/isPrint}}
+									</article>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					<div class="add_file" style="display:">
+						<div class="add_file_header">
+							{{#fileInfo.filePresent}}
+							<span class="subject">
+								<span class="ic ic_file_s"></span>
+								<strong>{{lang.attach}}</strong>
+								<span class="num">{{fileInfo.count}}</span>{{lang.count}}
+								<span class="size">({{fileInfo.size}})</span>
+							</span>
+							{{/fileInfo.filePresent}}
+							{{^fileInfo.filePresent}}
+							<span class="subject">
+								<span class="ic ic_file_s"></span>
+								<strong>{{lang.emptyFile}}</strong>
+							</span>
+							{{/fileInfo.filePresent}}
+						</div>
+
+						<div id="attachArea"></div>
+			
+					</div>
+				</div>
+			</div>
+		</div>
+		{{^isPrint}}	
+		<div id="logSection" class="aside_wrapper article_reply"></div>
+		{{/isPrint}}	
+	</div>
+</div>

@@ -1,0 +1,1 @@
+define(["jquery","underscore","backbone","app","hgn!approval/templates/actcopy_detail","i18n!nls/commons","i18n!approval/nls/approval"],function(e,t,n,r,i,s,o){var u=n.View.extend({tag:"actcopy_detail",el:".content",initialize:function(e){this.options=e||{}},render:function(){var e=i();this.$el.html(e)},release:function(){this.$el.off(),this.$el.empty()}});return u});

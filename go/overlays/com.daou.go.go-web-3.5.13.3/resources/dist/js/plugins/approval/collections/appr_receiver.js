@@ -1,0 +1,1 @@
+(function(){define(["jquery","backbone","app","approval/models/appr_receiver"],function(e,t,n,r){var i=t.Collection.extend({model:r});return i})}).call(this);

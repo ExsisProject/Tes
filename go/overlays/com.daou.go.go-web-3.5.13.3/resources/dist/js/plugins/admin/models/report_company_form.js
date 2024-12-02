@@ -1,0 +1,1 @@
+define(["backbone"],function(e){var t=null,n=e.Model.extend({urlRoot:GO.contextRoot+"ad/api/report/form"},{get:function(e){return t==null&&(t=new n),t.set("id",e,{silent:!0}),t.fetch({async:!1}),t}});return n});

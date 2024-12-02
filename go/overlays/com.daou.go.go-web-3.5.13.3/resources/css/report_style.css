@@ -1,0 +1,163 @@
+/*--report_form--*/
+table.form_report_nonscheduled th {padding-left:0!important}
+table.form_report_nonscheduled th,
+table.form_reportfolder_add th {width:120px}
+.report_nonscheduled {padding:0 12px;}
+.report_nonscheduled .form_report_nonscheduled+.editor {padding:0}
+
+.repeat_schedule header {width:100%; height:26px; border-bottom:1px solid #c9c9c9}
+.repeat_schedule header ul li {line-height:15px}
+div.repeat_schedule span.txt_day {margin: 10px 12px 0 3px}
+div.repeat_schedule table {margin-top:5px}
+div.repeat_schedule table td {padding: 0 10px 0 0!important}
+
+.form_type .ic_addlist {margin-left:10px}
+.form_type .wrap_option+.btn_fn7 {margin-left:10px}
+
+/*--report_home--*/
+/*dashboard_report*/
+.content_page>h1.s_title {margin-top:25px; padding:10px 12px 5px 12px; font-weight:bold;  font-size:16px; font-family:³ª´®°íµñ,¸¼Àº °íµñ,µ¸¿ò,nanumgothic,malgun gothic, dotum,AppleGothic,Helvetica,sans-serif}
+.content_page>h1.s_title span.desc {font-size:12px; font-weight:normal; letter-spacing:-1px; font-family:µ¸¿ò,dotum,AppleGothic,Helvetica,sans-serif}
+.content_page>h1.s_title:first-child {margin-top:0} 
+.dashboard_box {min-height:50px; margin:5px 12px; padding:10px; border:1px solid #e8e8e8; background:#f6f6f6}
+.dashboard_box p.desc {text-align:center; margin:20px}
+.dashboard_box .card_item_wrapper {display:inline-block;}
+.card_item_wrapper:after {content:""; height:0; display:block; clear:both; visibility:hidden; line-height:0; font-size:0}
+.dashboard_box .card_item {float:left; width:228px; margin:3px;padding:0; background:#fff;}
+.dashboard_box .card_item:hover {box-shadow:0 0 5px rgba(0,0,0,0.3)}
+.dashboard_box .card_item div.h_border {border-top:2px solid #666}
+.dashboard_box .card_item div.card_wrapper {border:1px solid #CFD8DF; border-top:none; padding:10px}
+/*card item*/
+.card_item div.card_wrapper time {display:block}
+.card_item div.card_wrapper time.year {line-height:1; font-size:11px; color:#757575; font-family:tahoma}
+.card_item div.card_wrapper time.date {line-height:1; font-size:26px; color:#484848; font-family:³ª´®°íµñ,¸¼Àº °íµñ,µ¸¿ò,nanumgothic,malgun gothic, dotum,AppleGothic,Helvetica,sans-serif;letter-spacing:-1px}
+.card_item div.card_wrapper p.folder_type {margin-top:6px; color:#37adb3; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; max-width:214px; }
+.card_item div.card_wrapper p.folder_type span.times {margin-left:5px;color:#999; font-weight:normal; letter-spacing:-1px}
+.card_item div.card_wrapper table.form_s {margin-top:20px}
+.card_item div.card_wrapper table.form_s th {padding:3px 3px 3px 0; text-align:left; color:#999; font-weight:bolds; letter-spacing:-1px}
+.card_item div.card_wrapper table.form_s td {letter-spacing:-1px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; max-width:134px; }
+.card_item div.card_wrapper table.form_s td span.not {margin-left:5px;color:#c1713b}
+.card_action {margin:50px 10px 0px 10px; text-align:center}
+a.btn_lead {display:inline-block; padding:8px 0; color:#666;background:#f7f7f7 ; border:1px solid #d9d9d9; min-width:95px; font-size:12px;text-align:center; font-weight:bold; vertical-align:middle;}
+a.btn_lead:hover {box-shadow:0 0 2px rgba(0,0,0,0.1)}
+/*tb_style*/
+.tb_lately_report th.date {width:130px}
+.tb_lately_report th.folder_type {width:130px}
+.tb_lately_report th.part {width:160px}
+.tb_lately_report th.name {width:250px}
+.tb_lately_report td.folder_type {color:#2EACB3}
+.tb_lately_report td.subject {text-align:left}
+
+/*--report_detail--*/
+.report_detail .tool_bar ul.optional span.txt {display:inline-block!important}
+.report_detail .permalink {padding:5px 12px 0px 12px}
+
+.report_view .report_import {margin:15px}
+
+.aside_wrapper header{height:34px; border-bottom:1px solid #c9c9c9}
+.aside_wrapper header ul.tab_nav {height:25px}
+/*3 column layout*/
+div.wrap_container {border-top: 1px solid #999;}/*3 column wrapper*/
+
+
+div.wrap_container ul.tab_nav {height:33px; background:none; }
+div.wrap_container ul.tab_nav li {border-radius:0; padding:10px; height:14px; background:none; letter-spacing:-1px}
+div.wrap_container ul.tab_nav li.on { background:none; border-bottom:1px solid #fff}
+div.wrap_container ul.reply li {margin-top:0; }
+
+
+@media all and (max-width:1024px) {
+.content_wrapper {position:relative; margin-right:0}
+div.wrap_container {background: none; position:relative}
+div.wrap_container div.content_wrapper {}
+
+}
+
+@media all and (min-width:1340px) {
+div.wrap_container {display:block; padding-right:340px; overflow:hidden; width:auto}/*3 column wrapper*/
+div.wrap_container section.content_wrapper {float:left !important; width:100%;}/*content : left*/
+div.wrap_container section.aside_wrapper {float:right; width:340px; margin-right:-340px; border-top:none}/*aside : right*/
+
+
+.aside_wrapper header ul.tab_nav {margin-left:0px; }
+.aside_wrapper header ul.tab_nav li {border-radius:0; border-top:none}
+.aside_wrapper header ul.tab_nav li:first-child {border-left:none}
+
+div.wrap_container section.aside_wrapper div.reply_wrap {min-width:280px; width:100%}
+div.wrap_container section.aside_wrapper .form_wrap {margin-right:0; margin-bottom:5px}
+div.wrap_container section.aside_wrapper div.reply_wrap {min-width:280px; width:100%}
+div.wrap_container section.aside_wrapper .form_wrap {margin-right:0; margin-bottom:5px}
+div.wrap_container section.aside_wrapper div.reply_wrap {min-width:280px; width:100%; margin:0; padding:0}
+
+div.wrap_container section.aside_wrapper div.reply_wrap ul.reply {width:auto; border:none;}
+div.wrap_container section.aside_wrapper div.reply_wrap ul.reply>li {padding-left:20px; padding-right:10px}
+div.wrap_container section.aside_wrapper div.reply_wrap ul.reply>li:hover {background: url(../images/bg_3column_reply.gif) no-repeat 1px 0}
+div.wrap_container section.aside_wrapper div.reply_wrap ul.reply li.depth_in {padding-left:34px}
+div.wrap_container section.aside_wrapper div.reply_wrap ul.reply li.depth_in span.ic_depth {left:19px}
+div.wrap_container section.aside_wrapper div.reply_wrap ul.reply li.depth_in span.photo {left:34px}
+div.wrap_container section.aside_wrapper div.reply_wrap ul.reply>li span.photo {left:20px; top:10px}
+div.wrap_container section.aside_wrapper div.reply_wrap ul.reply li span.date {display:block; margin:0 0 3px 0}
+div.wrap_container section.aside_wrapper div.reply_wrap ul.reply li.creat {border-bottom:none}
+div.wrap_container section.aside_wrapper div.reply_wrap ul.reply li.creat span.btn_minor_s {bottom:8px; right:10px}
+div.wrap_container section.aside_wrapper div.reply_wrap ul.reply li.creat div.form_wrap div.wrap_txtarea textarea {min-height:50px}
+div.wrap_container section.aside_wrapper div.reply_wrap ul.reply li div.msg_wrap {margin-left:40px}
+div.wrap_container section.aside_wrapper div.reply_wrap ul.reply li.creat span.posi1,
+div.wrap_container section.aside_wrapper div.reply_wrap ul.reply li.creat span.posi2 {position:static}
+div.wrap_container section.aside_wrapper div.reply_wrap ul.reply li div.edit_reply {right:0px}
+}
+
+div.wrap_container section.aside_wrapper div.reply_wrap ul.reply {margin-top:px}
+
+.content_wrapper .noti_box {margin:5px 12px;  padding:8px; background:#f0fafa; border:1px solid #c1ecdc;color:#37adb3}
+.content_wrapper .dashboard_box {position:relative}
+.content_wrapper .dashboard_box p.title {position:absolute; top:10px; left:10px; font-weight:bold; color:#484848}
+.content_wrapper .dashboard_box p.not {color:#f37247}
+
+.content_wrapper .report_detail_card {width:80px; margin:1px; border:3px solid #f6f6f6}/*card size*/
+.content_wrapper .report_detail_card .h_border {border-width:1px!important; border-color:#CFD8DF!important}
+.content_wrapper .card_wrapper a {text-align:center}
+.content_wrapper .wrapper {margin-left:50px;}
+.content_wrapper .on {outline:1px solid #1da3aa; border:2px solid #1da3aa;}
+.dashboard_box .on .card_wrapper {border-color:#1da3aa!important;}
+.dashboard_box .on .h_border {border-color:#1da3aa!important}
+.content_wrapper .report_detail_card:hover {box-shadow:none; background-color:#e9f5f6}
+.content_wrapper .report_detail_card  div.card_wrapper {padding:5px 0 5px 0}
+.content_wrapper .report_detail_card  span.photo {position:relative; width:40px;  margin:0 auto}
+.content_wrapper .report_detail_card  span.ic_private {z-index:50; position:absolute; right:0px; bottom:-1px; }
+.content_wrapper .report_detail_card  span.ic_bg {z-index:49; position:absolute; right:0px; bottom:0px; width:15px; height:18px; background-color:#000; border-radius:5px 0 5px 0; opacity:0.6}
+.content_wrapper .report_detail_card  span.photo img {width:40px; height:40px; border-radius:5px}
+.content_wrapper .report_detail_card:hover span.photo img {opacity:0.9}
+.content_wrapper .report_detail_card  span.photo,
+.content_wrapper .report_detail_card  span.name,
+.content_wrapper .report_detail_card  span.position,
+.content_wrapper .report_detail_card  span.btn_wrap {display:block; text-align:center}
+.content_wrapper .report_detail_card  span.btn_wrap span.zero {color:#C0C0C0}
+.content_wrapper .report_detail_card  span.name {margin-top:5px; font-weight:bold; letter-spacing:-1px}
+.content_wrapper .report_detail_card  span.position {line-height:18px; color:#787878;  letter-spacing:-1px}
+.content_wrapper .report_detail_card  span.btn_wrap {margin-top:1px}
+.content_wrapper .report_detail_card  span.num {margin-left:0}
+
+/*report_view*/
+.report_view {margin: 5px 12px; border:3px solid #e8e8e8}
+.report_view header {position:relative;padding:15px; }
+.report_view header .tool_bar ul.optional {margin:-27px 25px 0 0}
+.report_view header a.btn_layer_x {border-bottom:1px solid #e9e9e9; padding:11px}
+.report_view header a.btn_layer_x:hover {border-radius:0}
+.report_view .reporter span.name {font-weight:bold; font-size:18px; letter-spacing:-1px}
+.report_view .report_import+.file_wrap {padding:10px 15px}
+
+.report_view .article_reply {float:none!important; width:100%!important;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

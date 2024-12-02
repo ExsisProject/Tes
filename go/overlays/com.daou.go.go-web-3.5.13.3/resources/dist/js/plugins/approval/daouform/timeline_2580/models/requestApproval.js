@@ -1,0 +1,1 @@
+define(function(require){var e=require("jquery"),t=require("backbone"),n=t.Model.extend({getTimeStr:function(){return moment(this.startTime).format("HH:mm")+" ~ "+moment(this.endTime).format("HH:mm")}});return n});

@@ -1,0 +1,51 @@
+<section class="tool_bar calendar_tool_bar">
+    <div class="critical">
+        <ul class="tab_nav">            
+            <li class="first" data-type="daily"><span>{{lang.tab_daily}}</span></li>
+            <li data-type="weekly"><span>{{lang.tab_weekly}}</span></li>
+            <li data-type="monthly"><span>{{lang.tab_monthly}}</span></li>
+        </ul>       
+    </div>
+    <div class="current_date">  
+        <span class="prev-btn btn_ic_prev2 btn_border" title="{{lang.text_prev}}"><span class="ic ic_prev2"></span></span>
+        <span class="date datepicker-btn" id="date-indicator">{{lang.date_str}}</span>
+        <span class="next-btn btn_ic_next2 btn_border" title="{{lang.text_next}}"><span class="ic ic_next2"></span></span>
+        <input id="calendarDatepicker" type="text" style="border:0px;width:0px;height:0px;">
+        <span class="today-btn btn_tool"><span class="txt">{{lang.today}}</span></span>
+    </div>
+    <div class="optional">
+        {{#isAdmin}}
+        <a id="using_period" class="btn_icon">
+            <span class="ic_toolbar check_all"></span>
+            <span class="txt">{{lang.using_period}}</span>
+        </a>
+        {{/isAdmin}}
+        <a id="view_setting_btn" class="btn_icon">
+            <span class="ic_works ic_view"></span>
+            <span class="txt">{{lang.view_setting}}</span>
+        </a>
+        <div class="layer_normal layer_viewsetting" style="display: none;">
+            {{^isPeriodEmpty}}
+            <div class="vertical_wrap_s">
+                <input id="check_all" class="normalmode" type="checkbox" name="check_all">
+                <label for="check_all">
+                    <span class="txt" title="{{lang.text_all}}">{{lang.text_all}}</span>
+                </label>
+            </div>
+            {{#periods}}
+            <div class="period_id_{{id}} vertical_wrap_s">
+                <input id="period_id_{{id}}" class="normalmode" type="checkbox" name="period_id" value="{{id}}">
+                <label for="period_id_{{id}}">
+                        <span class="txt" title="{{startLabel}}{{#endLabel}} ~ {{endLabel}}{{/endLabel}}">
+                            {{startLabel}}{{#endLabel}} ~ {{endLabel}}{{/endLabel}}
+                        </span>
+                </label>
+                <span class="btn_wrap">
+                    <span class="normalmode chip bgcolor{{color}}" title="{{lang.color_config}}"></span>
+                </span>
+            </div>
+            {{/periods}}
+            {{/isPeriodEmpty}}
+        </div>
+    </div>          
+</section>

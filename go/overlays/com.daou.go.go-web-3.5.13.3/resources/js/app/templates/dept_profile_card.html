@@ -1,0 +1,20 @@
+<div  style="position:absolute;top:0;left:0;width:89%;display:inline-block;height:30px" class="handle"></div>
+<div class="member_wrap">
+	<div class="info">
+        {{^isRootDept}}<p class="company">{{companyName}}</p>{{/isRootDept}}     
+		<span class="name">{{name}}</span>
+		<p class="department">{{ancestorsName}}</p>		
+	</div>
+	<div class="info_meta">
+		<span class="meta_txt">{{lang.dept_manager}} : {{#isExistMaster}}{{masterName}} {{masterPosition}} {{/isExistMaster}} {{^isExistMaster}} - {{/isExistMaster}}</span>
+		<span class="meta_txt">{{lang.dept_member}} : {{subDeptMemberCount}} {{lang.count}} {{#hasChildren}} ({{memberCount}} {{lang.count}}) {{/hasChildren}}</span>		
+	</div>
+</div>
+{{#isAvailableMail}}
+{{#email}}
+<ul class="menber_menu">
+    <li class="mail"><a href="#"><span class="ic"></span>{{lang.sendmail_to_dept}}</a></li>
+</ul>
+{{/email}}
+{{/isAvailableMail}}
+<div  style="position:absolute;bottom:0;left:0;width:100%;display:inline-block;height:15px" class="handle"></div>

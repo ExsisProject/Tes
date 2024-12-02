@@ -1,0 +1,21 @@
+<a class="wrap_works_info" {{#enabledGuidePopup}}guide-popup="true"{{/enabledGuidePopup}} {{#isTemplate}}data-type="templates" default-template={{asDefault}} {{/isTemplate}}{{^isTemplate}}data-type="applets"{{/isTemplate}}>
+	<div class="wrap_img_ic">
+		{{#isFirstTmlApp?}}
+		<i class="ic_works ic_app_add" title="{{lang.앱 추가하기}}"></i>
+		{{/isFirstTmlApp?}}
+		{{^isFirstTmlApp?}}
+		<img src="{{thumbSmall}}" alt="{{lang.유저 등록 아이콘}}">
+		{{/isFirstTmlApp?}}
+		{{#isTemplate}}
+		{{^asDefault}}
+		{{#isRecent}}
+		<i class="ic_works ic_new" title="{{lang.새로 등록된 앱}}"></i>
+		{{/isRecent}}
+		{{/asDefault}}
+		{{/isTemplate}}
+	</div>
+	<div class="inner_works_info">
+		<span class="tit">{{name}}</span>
+		<span class="card_info">{{desc}}<i class="dot_bg"></i></span>
+	</div>
+</a>

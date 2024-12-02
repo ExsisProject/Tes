@@ -1,0 +1,25 @@
+<li id="docsTitle" data-docsId={{id}} data-folderId={{folderId}}>
+    <a class="tit">
+        <span class="subject">
+            <span class="title">{{{title}}}</span>
+        </span>
+        <span class="content">
+        {{{content}}}
+        </span>
+        <span class="info">
+			<span class="name txt_ellipsis">{{creatorName}} {{creatorPosition}} </span>
+			<span class="part">|</span>
+			<span class="date">{{convertDate}}</span>
+			<span class="part">|</span>
+			<span class="category txt_ellipsis">{{folderPath}}</span>
+            <span class="part">|</span>
+            <span>{{lang.version}}{{version}}</span>
+            <span class="part">l</span>
+            <span>{{lang.docsYear}}: {{docsYear}}</span>
+            {{#docNum}}
+            <span class="part">l</span>
+            <span>{{lang.docNum}}: {{docNum}}</span>
+            {{/docNum}}
+		</span>
+    </a>
+</li>

@@ -1,0 +1,1 @@
+define(["backbone"],function(e){var t=null,n=e.Collection.extend({model:e.Model,url:function(){return[GO.contextRoot+"ad/api/community",this.communityId,"statistic/boards"].join("/")},setVariables:function(e){this.communityId=e}});return{getCollection:function(e){return t=new n,t.setVariables(e),t.fetch({async:!1}),t}}});

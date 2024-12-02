@@ -1,0 +1,23 @@
+<td>
+    <div>
+        <input class="txt wfix_max" type="text" value="{{model.rule}}" data-attr="rule">
+    </div>
+</td>
+<td>
+    <span data-circle-column></span>
+    {{^isDefault}}
+    <span data-edit-circle class="btn_fn4">
+        <span class="ic_feed ic_edit_white"></span>
+    </span>
+    {{/isDefault}}
+</td>
+<td>
+    <div>
+        <input class="txt wfix_max" type="text" value="{{model.description}}" data-attr="description">
+    </div>
+</td>
+<td class="func">
+    {{^isDefault}}
+    <span data-delete class="wrapBtn"><span class="ic ic_delete"></span></span>
+    {{/isDefault}}
+</td>

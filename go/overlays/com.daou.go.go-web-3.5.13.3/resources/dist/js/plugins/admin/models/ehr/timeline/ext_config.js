@@ -1,0 +1,1 @@
+define("admin/models/ehr/timeline/ext_config",function(require){var e=require("backbone"),t=require("app"),n=e.Model.extend({urlRoot:function(){return t.contextRoot+"ad/api/ehr/timeline/config/ext"},initialize:function(e){}});return n});

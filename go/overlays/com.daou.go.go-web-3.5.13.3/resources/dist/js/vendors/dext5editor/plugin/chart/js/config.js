@@ -1,0 +1,1 @@
+G_DEPlugin.chart.allowMergedTableToChart=!1;

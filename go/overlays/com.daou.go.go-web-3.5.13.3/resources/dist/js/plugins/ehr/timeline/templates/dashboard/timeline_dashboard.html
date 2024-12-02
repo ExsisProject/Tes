@@ -1,0 +1,27 @@
+<header class="content_top">
+    <h1>
+        {{#companyMode}} <span class="txt single_txt">{{TimelineLang.전사 근태통계}}</span> {{/companyMode}}
+        {{^companyMode}} <span class="txt single_txt">{{TimelineLang.부서 근태통계}}</span> {{/companyMode}}
+    </h1>
+</header>
+
+<div class="content_page">
+    <!-- tool bar -->
+    <div class="tool_bar calendar_tool_bar">
+        <div class="current_date">
+            <span class="btn_ic_prev2 btn_border" title="이전" id="prevMonth">
+                <span class="ic_ehr ic_date_prev"></span></span>
+            <span class="date">
+							<a href="">{{month}}</a>
+						</span>
+            <span class="btn_ic_next2 btn_border" title="" id="nextMonth">
+                <span class="ic_ehr ic_date_next"></span></span>
+        </div>
+    </div>
+
+
+    <div id="summary" class="wrap_statistics"> </div>
+
+    <div id="data-list"></div>
+</div>
+

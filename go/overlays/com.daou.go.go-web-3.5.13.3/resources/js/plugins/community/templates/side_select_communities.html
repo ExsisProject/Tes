@@ -1,0 +1,10 @@
+<ul class="layer_nav" el-backdrop id="layerNav" style="display:none">
+	{{#dataset}}
+	<li data-id="{{communityId}}" data-status="{{status}}" data-publicFlag="{{publicFlag}}" data-memberStatus="{{memberStatus}}"><a class="communityName" data-bypass>
+	{{#isCommunityStatusWait}}<span class="btn_state_disable"><span class="txt">{{lang.community_wait}}</span></span>{{/isCommunityStatusWait}}
+	{{#isMemberStatusWait}}<span class="btn_state_disable"><span class="txt">{{lang.member_wait}}</span></span>{{/isMemberStatusWait}}
+	<span class="txt">{{name}}</span>
+	{{#isMemberTypeMaster}}<span title="{{lang.community_master}}" class="ic ic_master"></span>{{/isMemberTypeMaster}}</a>
+	</li>
+	{{/dataset}}
+</ul>

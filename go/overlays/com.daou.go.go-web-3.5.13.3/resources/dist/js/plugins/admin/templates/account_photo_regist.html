@@ -1,0 +1,58 @@
+<div class="content_page">
+	<div class="container">			
+		<div class="header">
+			<h2>{{lang.default_setting}}</h2>
+		</div>			
+		<div class="content">
+			<table class="detail tb_admin_stemp">
+				<caption>{{lang.photo_regist}}</caption>
+				<colgroup>
+					<col width="100px"><!-- 개발쪽에서 width값을 받아가서 재설정 후 삭제  -->
+					<col width="*">
+				</colgroup>
+				<tbody>
+				<!-- 문서수신 사용 후 : 사용자 선택 -->
+				<tr class="last">
+					<th><span class="title">{{lang.photo_regist}}</span></th>
+					<td>
+						<span class="vertical_wrap">
+							<span class="option_wrap">
+								<input type="radio" id="userId" name="photoType" checked> 
+								<label for="userId">{{lang.id}}</label>										
+							</span>
+							<span class="option_wrap">
+								<input type="radio" id="empno" name="photoType" > 
+								<label for="empno">{{lang.empno}}</label>										
+							</span>
+						</span>
+						<span class="vertical_wrap">
+							<div class="btn_file" id="swfupload-control" style="text-align:center ;width: 100px; border:1px solid #D1D1D1;background-color:#efefef;cursor:pointer;color:#666;border-radius:2px;">
+							<span id="button"></span></div>
+						</span>
+						</span>
+						<span class="desc" style="font-size:12px;">{{lang.upload_must_zipfile}}</span>
+						<div class="option_display" id="photo_progress" style="display:none">
+							<div class="content">
+							<span class="option_wrap" id="progress_content">
+							</span>
+					    	<span id="csvProgressBar" style="display:inline-block">
+					    		<div id="progressbar">
+					    		</div>
+					    	</span>
+					    	</div>
+					    </div> 
+			    	      <ul class="file_wrap" id="fileComplete"></ul>  
+					     <div class="option_display" id="photoResultDiv">
+							<ul class="list_nude">
+					    	</ul>
+					    </div>
+					</td>
+				</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<div class="page_action">
+	    <span class="btn" id="add_photo">{{lang.start_regist}}</span>
+	</div>
+</div>

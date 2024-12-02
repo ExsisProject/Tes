@@ -1,0 +1,205 @@
+<form onsubmit="return false;">
+    <fieldset>
+        <table class="form_type tb_doc_info">
+            <tbody>
+            	<tr>
+                    <th><span class="title">{{lang.문서번호}}</span></th>
+                    <td><span class="txt">{{docInfo.docNum}}</span></td>
+                </tr>
+            	<tr>
+            		<th><span class="title">{{lang.공개여부}}</span></th>
+            		<td>
+            			{{#docInfo.isPublic}}
+            			<span class="option_wrap"><input id="openType_true" type="radio" name="openType" value="true" checked {{^action.isPublicEditable}}disabled{{/action.isPublicEditable}}><label for="openType_true">{{lang.공개}}</label></span>
+            			<span class="option_wrap"><input id="openType_false" type="radio" name="openType" value="false" {{^action.isPublicEditable}}disabled{{/action.isPublicEditable}}><label for="openType_false">{{lang.비공개}}</label></span>
+            			{{/docInfo.isPublic}}
+            			{{^docInfo.isPublic}}
+            			<span class="option_wrap"><input id="openType_true" type="radio" name="openType" value="true" {{^action.isPublicEditable}}disabled{{/action.isPublicEditable}}><label for="openType_true">{{lang.공개}}</label></span>
+            			<span class="option_wrap"><input id="openType_false" type="radio" name="openType" value="false" checked {{^action.isPublicEditable}}disabled{{/action.isPublicEditable}}><label for="openType_false">{{lang.비공개}}</label></span>
+            			{{/docInfo.isPublic}}
+            		</td>
+            	</tr>
+                {{#action.companyDocFolderUseFlag}}
+                <tr id="companyDocFolderUse">
+                    <th><span class="title">{{lang.전사문서함}}</span></th>
+                    <td>
+                    	 <ul class="name_tag" id="addFolder">
+        	                {{#docInfo.docFolders}}
+                    	 	<li data-id="{{id}}" data-folderId="{{id}}" data-folderName="{{parentName}}" data-Type="true">
+								<span class="name" title="{{parentName}}">{{parentName}}</span>
+                                {{#action.folderChangeable}}
+                                {{^isDefault}}
+								<span class="btn_wrap">
+									<input type="hidden" name="folderId" value="{{id}}" />
+									<span class="ic_classic ic_del"></span>										
+								</span>
+								{{/isDefault}}
+                                {{/action.folderChangeable}}
+							</li>
+        	                {{/docInfo.docFolders}}
+                            {{#action.folderChangeable}}
+                            <li class="creat" id="doctype">
+                                <span class="btn_wrap"><span class="ic_form ic_addlist"></span><span class="txt">{{lang.전사문서함 추가}}</span></span>
+                            </li>
+                            {{/action.folderChangeable}}
+                    	 </ul>
+                    </td>
+                </tr>
+                {{/action.companyDocFolderUseFlag}}
+                <tr {{^action.securityLevelActive}}style="display:none;"{{/action.securityLevelActive}}>
+                    <th><span class="title">{{lang.보안등급}}</span></th>
+                    <td>
+                    {{#action.securityLevelChangeable}}
+                        <select id="infoSecurityLevel">
+                        	{{#grade}}
+                            <option value="{{id}}" {{#isSelectedGrade}}selected{{/isSelectedGrade}}>{{name}}</option>
+                            {{/grade}}
+                        </select>
+                    {{/action.securityLevelChangeable}}
+                    {{^action.securityLevelChangeable}}
+                    	 <select id="infoSecurityLevel">
+                            <option value="{{docInfo.securityLevelId}}" selected>{{docInfo.securityLevelName}}</option>
+                        </select>
+                    {{/action.securityLevelChangeable}}
+                    </td>
+                </tr>
+                <tr>
+                    <th><span class="title">{{lang.보존연한}}</span></th>
+                    <td>
+                    {{#action.preserveDurationEditable}}
+                        <select id="docYear">
+                        {{#preserveYears}}
+                        	<option value="{{value}}" {{#isSelecteYear}}selected{{/isSelecteYear}}>{{label}}</option>
+                        {{/preserveYears}}    
+                        </select>
+                     {{/action.preserveDurationEditable}}
+                     {{^action.preserveDurationEditable}}
+                        <select id="docYear">
+                        	<option value="{{docInfo.docYear}}" selected>{{#docInfo.docYear}}{{docInfo.docYear}}{{lang.년}}{{/docInfo.docYear}}{{^docInfo.docYear}}{{lang.영구}}{{/docInfo.docYear}}</option>
+                        </select>
+                     {{/action.preserveDurationEditable}}
+                    </td>
+                </tr>
+                {{^isReceivedDoc}}
+	                {{^isInprogressDoc}}
+	                <tr>
+	                    <th><span class="title">{{lang.기안부서}}</span></th>
+	                    <td>
+	                    {{#isApprDocManager}}
+	                    	<span class="txt">{{docInfo.drafterDeptName}}</span>	                    
+	                    {{/isApprDocManager}}
+	                    {{^isApprDocManager}}
+	                    	<select id="drafter_draftDeptId">
+								{{#draferDepts}}
+									<option value="{{value}}" {{#isSelected}}selected{{/isSelected}}>{{label}}</option>
+								{{/draferDepts}}
+							</select>
+	                    {{/isApprDocManager}}
+						</td>
+	                </tr>
+	                {{/isInprogressDoc}}
+                {{/isReceivedDoc}}
+                {{^isReceiveWating}}
+	                {{#isReceivedDoc}}
+	                <tr>
+	                    <th><span class="title">{{lang.기안부서}}</span></th>
+	                    <td><span class="txt">{{docInfo.drafterDeptName}}</span></td>
+	                </tr>
+	                {{/isReceivedDoc}}
+	                {{#isInprogressDoc}}
+	                <tr>
+	                    <th><span class="title">{{lang.기안부서}}</span></th>
+	                    <td><span class="txt">{{docInfo.drafterDeptName}}</span></td>
+	                </tr>
+	                {{/isInprogressDoc}}
+	                {{^isInprogressDoc}}
+	                <tr>
+	                    <th><span class="title">{{lang.부서문서함}}</span></th>
+	                    <td>
+	                    	<select id="drafter_deptFolderId">
+	                    		<option value="">{{lang.미지정}}</option>
+								{{#deptDocFolders}}
+									<option value="{{value}}" {{#isSelected}}selected{{/isSelected}}>{{label}}</option>
+								{{/deptDocFolders}}
+	                    	</select>
+	                   	</td>
+	                </tr>
+	                {{/isInprogressDoc}}
+                {{/isReceiveWating}}
+                {{#action.referenceActive}}
+                <tr>
+                    <th><span class="title">{{lang.문서참조}}</span></th>
+                    <td>
+                        <div class="wrap_name_tag">
+	                        <ul class="name_tag" id="addReference">
+	                        	{{#docInfo.docReferenceReaders}}
+		                        <li data-id="{{reader.id}}" data-userId="{{reader.id}}" data-userName="{{reader.name}}" data-userPosition="{{reader.position}}" data-sid="{{id}}" data-deptType={{reader.deptType}}>
+									<span class="name">{{reader.name}} {{reader.position}}</span>
+								</li>
+								{{/docInfo.docReferenceReaders}}
+	                        </ul>      
+                        </div>                                                                 
+                    </td>
+                </tr>
+                {{/action.referenceActive}}
+                {{#action.receptionActive}}
+                <tr>
+                    <th><span class="title">{{lang.문서수신}}</span></th>
+                    <td>
+                        <div class="wrap_name_tag">
+	                        <ul class="name_tag" id="addReceive">
+	                            {{#docInfo.docReceptionReaders}}
+		                        <li data-id="{{reader.id}}" data-userId="{{reader.id}}" data-userName="{{reader.name}}" data-userPosition="{{reader.position}}" data-sid="{{id}}" data-deptType="{{reader.deptType}}" data-assigned="{{assigned}}">
+									<span class="name">{{reader.name}} {{reader.position}}</span>
+								</li>
+								{{/docInfo.docReceptionReaders}}
+	                        </ul>
+                        </div>                                                                       
+                    </td>
+                </tr>            
+                {{/action.receptionActive}}
+				<tr>
+                    <th><span class="title">{{lang.문서열람}}</span></th>
+                    <td>
+                        <ul class="name_tag" id="addReading">
+                            {{#docInfo.docReadingReaders}}
+	                        <li data-id="{{reader.id}}" data-userId="{{reader.id}}" data-userName="{{reader.name}}" data-userPosition="{{reader.position}}" data-sid="{{id}}" data-deptType={{reader.deptType}}>
+								<span class="name">{{reader.name}} {{reader.position}}</span>
+							</li>
+							{{/docInfo.docReadingReaders}}
+                        </ul>                                                                       
+                    </td>
+                </tr> 
+                
+                {{#action.officialDocumentSendable}}
+                <tr>
+                    <th><span class="title">{{lang.공문발송}}</span></th>
+                    <td>
+                        <div class="wrap_name_tag">
+	                        <ul class="name_tag" id="addOfficialDoc">
+	                            {{#docInfo.officialVersions}}
+	                            	{{#receivers}}
+		                        <li>
+									<span class="name">{{company}} {{name}}</span>
+								</li>
+									{{/receivers}}
+								{{/docInfo.officialVersions}}
+	                        </ul>
+                        </div>                                                                       
+                    </td>
+                </tr>            
+                {{/action.officialDocumentSendable}}
+                <tr>
+                    <th><span class="title">{{lang.긴급문서}}</span></th>
+                    <td>
+                    	<span class="option_wrap opt_emergency">
+	                    	<input id="emergency" type="checkbox" name="emergency" value="true" {{#isEmergency}}checked{{/isEmergency}} {{#isReceptionDocument}}disabled="disabled"{{/isReceptionDocument}}>
+	                    	<label for="emergency">{{lang.긴급}}</label>
+	                    	<p class="desc">{{lang.긴급문서설명}}</p>
+                    	</span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </fieldset>
+</form>

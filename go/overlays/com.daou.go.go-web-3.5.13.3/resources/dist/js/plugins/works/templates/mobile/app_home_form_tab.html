@@ -1,0 +1,17 @@
+<div class="content_tab">
+        <div class="tab_menu_wrap">
+                <ul class="tab_menu" id="tabMenu">
+                        {{#forms}}
+                        {{#mainForm}}
+                        <li el-form-tab data-id="tab_main" {{#isSelect}} class="active"{{/isSelect}}><span class="txt">{{name}}</span><span class="label_state normal">main</span></li>
+                        {{/mainForm}}
+                        {{^mainForm}}
+                        <li el-form-tab data-id={{id}} id="tab_{{id}}"{{#isSelect}} class="active"{{/isSelect}}><span class="txt">{{name}}</span></li>
+                        {{/mainForm}}
+                        {{/forms}}
+                        {{#isFormManager}}
+                        <li el-form-create-tab class="create"><span class="ic_set ic_create"></span></li>
+                        {{/isFormManager}}
+                </ul>
+        </div>
+</div>

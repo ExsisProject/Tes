@@ -1,0 +1,64 @@
+<div class="content_info" id="content_top">		
+	<div class="img_loader_small"></div>
+	<div class="align_c">{{lang.loading}}...</div>
+</div>		
+<div id="csvDownLoad" style="display:none">
+    <span class="btn_tool" id="csvDownLoadBtn">{{lang.label_down}}</span>
+</div>
+<div class="content_page">
+
+	<div class="dataTables_wrapper container" >				
+		
+		<div class="content_tb">			
+			<table class="chart size" id="bbsDataTable">
+				<colgroup>
+					<col width="*">
+					<col width="*">
+					<col width="120">
+					<col width="120">
+					<col width="120">
+					<col width="120">
+					<col width="120">
+				</colgroup>
+				<thead>
+					<tr>
+						<th class="sorting"><span class="title_sort">{{lang.title}}<ins class="ic"></ins><span class="selected"></span></span></th >
+						<th class="sorting"><span class="title_sort">{{lang.dept}}<ins class="ic"></ins></span></th >
+						<th class="sorting_disable">
+							<select id="boardType">
+								<option value="all">{{lang.board_type}}</option>
+								<option value="CLASSIC">{{lang.board_bbs}}</option>
+								<option value="STREAM">{{lang.board_feed}}</option>
+							</select>
+						</th>
+						<th class="sorting_disable">
+							<select id="boardStatus">
+								<option value="">{{lang.status}}</option>
+								<option value="ACTIVE">{{lang.active}}</option>
+								<option value="CLOSED">{{lang.closed}}</option>
+							</select>
+						</th>
+						<th class="sorting"><span class="title_sort">{{lang.post_count}}<ins class="ic"></ins></span></th>
+						<th class="sorting_desc"><span class="title_sort">{{lang.usage}}<ins class="ic"></ins></span></th>
+						<th class="sorting date last"><span class="title_sort">{{lang.board_create}}<ins class="ic"></ins><span class="selected"></span></span></th>
+					</tr>
+				</thead>	
+			</table>	
+
+			<div class="table_search">				
+				<select>
+					<option value="name">{{lang.board_title}}</option>
+					<option value="sortOwnerInfos">{{lang.dept}}</option>
+				</select>		
+				
+				<span class="search_wrap">
+					<input class="input" type="text" />
+					<span class="btn_search" title="{{lang.search}}"></span>
+					<input class="submit" type="submit" value="" />
+				</span>
+			</div>				
+
+		</div>
+	</div>
+			
+</div>	

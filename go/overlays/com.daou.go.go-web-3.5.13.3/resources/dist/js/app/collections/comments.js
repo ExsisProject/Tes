@@ -1,0 +1,1 @@
+define(["backbone","models/comments"],function(e,t){var n=e.Collection.extend({model:t,initialize:function(e){this.url=e.url},url:function(){return this.url}});return n});

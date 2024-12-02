@@ -1,0 +1,1 @@
+define(["backbone"],function(e){var t=null,n=e.Model.extend({urlRoot:"/ad/api/fmenu"},{get:function(e){return t==null?t=new n:t.clear(),t.set("id",e,{silent:!0}),t.fetch({async:!1}),t},create:function(){return t==null&&(t=new n),t}});return{read:function(e){return fmenu=n.get(e)},create:function(){return fmenu=n.create()}}});

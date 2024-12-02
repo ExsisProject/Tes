@@ -1,0 +1,78 @@
+<!-- 템플릿을 통한 앱을 만들 경우 노출 -->
+<header class="content_top works_tit">
+    <h1>
+        <div class="works_app_tit">
+            {{lang.다른 앱으로 데이터 복사}}
+        </div>
+        <span class="btn_wrap ">
+            <span class="ic ic_info">
+                <!-- display: none block -->
+                <span class="layer_tail" style="display:none">
+                    <i class="ic ic_tail"></i>
+                    <div>
+                        {{lang.데이터 복사 설명}}
+                    </div>
+                </span>
+                <!-- //display none block -->
+            </span>
+        </span>
+    </h1>
+    <div class="wrap_btn" id="changeLayout">
+        <span class="btn_minor_s">
+            <span class="ic_classic ic_setup" title="{{lang.매핑 설정}}"></span>
+            <span class="txt">{{lang.매핑 설정}}</span>
+        </span>
+    </div>
+</header>
+<div class="content_page">
+    <div class="wrap_dataCopy mode_full" id="layoutArea"><!-- 화면 모드 변경 -->
+        <div class="dataCopy">
+            <div class="dataCopy_from">
+                <div class="app_tit">
+                    <span class="app_icon"><img src="{{sourceConfig.thumbSmall}}"></span>
+                    <span class="app_name">{{sourceConfig.name}}</span>
+                    <span class="ic ic_mapping_l"></span>
+                </div>
+                <div class="card_type5" style="height:500px" el-scroll-area><!-- 높이값 계산 -->
+                    <div class="build_prev_wrap works_detail" data-detail-area></div>
+                </div>
+            </div>
+            <div class="dataCopy_to">
+                <div class="app_tit">
+                    <span class="app_icon"><img src="{{targetConfig.thumbSmall}}"></span>
+                    <span class="app_name">{{targetConfig.name}}</span>
+                </div>
+                <div class="card_type5" style="height:500px" el-scroll-area data-edit-area><!-- 높이값 계산 -->
+                </div>
+            </div>
+            <div class="page_action_wrap">
+                <a class="btn_major" id="saveDoc"><span class="txt">{{lang.등록}}</span></a>
+                <a class="btn_minor" id="cancel"><span class="txt">{{lang.취소}}</span></a>
+            </div>
+        </div>
+        <div class="dataCopy_opt">
+
+            <div class="wrap_dataMap_header">
+                <h3>{{lang.매핑 설정}}</h3>
+                <span class="ic_profile ic_close" id="close"></span>
+            </div>
+            <div class="dataMap" style="height:600px" el-scroll-area><!-- 높이값 계산 -->
+                <div class="dataMap_header">
+                    <span class="txt" title="{{sourceConfig.name}}">{{sourceConfig.name}}</span>
+                    <span class="txt" title="{{targetConfig.name}}">{{targetConfig.name}}</span>
+                </div>
+                <ul class="list_dataMap" data-mapping-list>
+                </ul>
+                <div class="opt_save">
+					<span class="wrap_option">
+						<input id="withCopy" type="checkbox" name="withCopy">
+						<label for="withCopy">{{lang.함께 복사}}</label>
+					</span>
+				</div>
+                <div class="page_action_wrap">
+                    <a class="btn_major" id="saveMapping"><span class="txt">{{lang.매핑 저장}}</span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

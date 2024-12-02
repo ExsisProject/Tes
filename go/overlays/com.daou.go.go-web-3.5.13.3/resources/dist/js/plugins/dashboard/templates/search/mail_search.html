@@ -1,0 +1,19 @@
+<h1 class="cs_s_title">{{lang.mail}}</h1>
+	<ul class="s_result">
+{{#dataset}}
+		<li>
+			<span class="name">{{fromToSimple}}</span>
+			<a id="mailTitle" data-id="{{id}}" data-folder="{{folderName}}">
+				<span class="subject">{{subject}}</span>
+			</a>
+			<span class="date">{{createAt}}</span>
+		</li>
+{{/dataset}}
+	</ul>
+
+<div class="btn_more_wrap">
+	<a class="btn_more" id="btn_more" style="display:none;">
+		<span class="txt">{{lang.more}}</span>
+		<span class="ic ic_csm_arrow"></span>
+	</a>
+</div>

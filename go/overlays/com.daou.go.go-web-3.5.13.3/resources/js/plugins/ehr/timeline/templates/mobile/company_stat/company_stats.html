@@ -1,0 +1,24 @@
+<section class="calendar_tool_bar2">
+	<div class="current_date">		
+		<a><span class="btn btn_prev_type1" id="prevDate"></span></a>
+		<span class="date" >{{dateInfo}}</span>					
+		<a><span class="btn btn_next_type1" id="nextDate"></span></a>
+	</div>
+	<div class="critical">
+    	<select id="viewType">
+    		<option value="WEEK" {{#weekType}} selected="selected" {{/weekType}}>{{TimelineLang.주간}}</option>
+    		<option value="MONTH" {{#monthType}} selected="selected" {{/monthType}}>{{TimelineLang.월간}}</option>
+    	</select>
+	</div>
+	<div class="optional">		
+		<a class="btn_tool" id="todayBtn"><span class="txt">{{CommonLang.오늘}}</span></a>
+	</div>			
+</section>
+<div class="tool_bar_search" id="filter_parent">
+</div>
+<div class="content">
+    <ul class="list_photo2 list_attend list_department" id="timeline_stat_content">
+    </ul>
+</div>
+<div class="paging">
+</div>

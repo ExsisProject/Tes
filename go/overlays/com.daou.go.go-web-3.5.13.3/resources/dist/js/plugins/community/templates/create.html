@@ -1,0 +1,47 @@
+<header class="content_top">
+	<h1>
+		<span class="txt">{{label_communityCreate}}</span> <span class="action"></span>
+	</h1>
+</header>
+<div class="content_page go_renew">
+	<form name="formCommunityCreate">
+	<table class="form_type">
+		<colgroup>
+			<col width="130px" />
+			<col width="*" />
+		</colgroup>
+		
+		<tbody>
+			<tr>
+				<th><span class="title">{{label_name}}</span></th>
+				<td>
+					<div class="wrap_txt w_max"><input class="txt w_max"  type="text" name="name"></div>
+				</td>
+			</tr>
+			<tr>
+				<th><span class="title">{{label_desc}}</span></th>
+				<td><div class="wrap_txtarea w_max"><textarea class="w_max txtarea" name="description"></textarea></div></td>
+			</tr>
+			<tr>
+				<th><span class="title">{{label_publicFlag}}</span></th>
+				<td>
+				 	<span class="option_wrap"> <input id="publicFlag1" type="radio" name="publicFlag" value="true" checked="checked"> <label for="publicFlag1">{{label_public}}</label></span>
+				 	<span class="option_wrap"> <input id="publicFlag0" type="radio" name="publicFlag" value="false"> <label for="publicFlag0">{{label_private}}</label></span>
+					<div class="wrap_desc desc">
+						{{{label_communityDesc}}}
+					</div>
+				</td>
+			</tr>
+			<tr class="line">
+				<td colspan="2"><hr /></td>
+			</tr>
+		</tbody>
+		
+	</table>
+	</form>
+</div>
+<div class="page_action_wrap">
+	<span class="btn_major" data-role="button" id="btn_ok""><span class="txt">{{label_ok}}</span></span>
+	<span class="btn_minor" data-role="button" id="btn_cancel"><span class="txt">{{label_cancel}}</span></span>
+</div>
+

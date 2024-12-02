@@ -1,0 +1,42 @@
+<div class="content_page">
+	<div class="dataTables_wrapper">
+		
+		<span class="wrap_desc">
+			<span class="horspace1"></span>
+			<span class="desc">{{^isStop}}{{lang.board_admin_desc}}{{/isStop}}{{#isStop}}{{/isStop}}</span>
+		</span>
+			
+		<!-- 상단 메뉴바 START  -->
+		{{^isStop}}
+		{{> toolbar}}
+		{{/isStop}}
+		
+		<!-- 상단 메뉴바 END  -->
+		
+		<!-- 게시판 트리구조 설정(작업중) -->		
+		<ul class="tb-header tb_stair">
+			<li class="subject">
+				<div class="item">
+					<input id="checkAll" class="chk" type="checkbox" name="board_all_check"/>
+					<div class="tit">
+						<span class="txt">{{lang.board_title}}</span>
+					</div>
+					<div class="opt">
+						<span class="name">
+							<span class="txt">{{lang.board_manager}}</span>
+						</span>
+						<span class="set">
+							<span class="txt">{{lang.board_setting}}</span>
+						</span>
+					</div>
+				</div>
+			</li>
+		</ul>
+			
+		<ul id="board-tree-config" class="tb_stair"></ul>
+				
+		{{^isStop}}		
+		{{> toolbar}}
+		{{/isStop}}
+	</div>
+</div>

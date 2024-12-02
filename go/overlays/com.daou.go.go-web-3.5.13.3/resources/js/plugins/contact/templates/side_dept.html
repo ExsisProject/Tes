@@ -1,0 +1,28 @@
+<p class="title">
+    <ins class="ic"></ins>
+    <span class="txt" title="{{deptName}}">{{deptName}}</span>
+    <span class="btn_wrap">
+        <span class="groupManage ic_side ic_side_setting" title="{{lang.contact_manage}}"></span>
+    </span>
+</p>
+<ul id="dept_groups">
+    <li class="group">
+        <p class="title">
+            <a>
+                <ins class="ic"></ins>
+                <span class="txt contactTag" title="{{lang.contact_all}}">{{lang.contact_all}}</span>
+            </a>
+        </p>
+    </li>
+    {{#data}}
+    <li class="group" data-id="{{id}}">
+        <p class="title">
+            <a>
+                <ins class="ic"></ins>
+                <span class="txt contactTag" title="{{name}}">{{name}}</span>
+                {{#hasContactCount}}<span class="num">{{contactCount}}</span>{{/hasContactCount}}
+            </a>
+        </p>
+    </li>
+    {{/data}}
+</ul>

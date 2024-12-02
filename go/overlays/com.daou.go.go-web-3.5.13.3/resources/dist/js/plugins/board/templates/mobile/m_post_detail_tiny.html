@@ -1,0 +1,11 @@
+<li>
+    <a data-id="{{id}}" class="tit txt_ellipsis">
+        <span class="ic {{#isPrev}}ic_arrow3_t{{/isPrev}}{{^isPrev}}ic_arrow3_d{{/isPrev}}">
+        </span>
+        <span class="desc">
+            {{#isPrev}}{{tplVar.prev}}{{/isPrev}}
+            {{^isPrev}}{{tplVar.next}}{{/isPrev}}
+        </span>
+        <span class="title">{{{title}}}</span>
+    </a>
+</li>

@@ -1,0 +1,126 @@
+<div id="selected_change" class="dataTables_length" style="display: none;margin-top: 2px;">
+    <a class="btn_major_s" data-role="button"><span class="txt">{{lang.선택 추가}}</span></a>
+</div>
+<div id="all_change" class="dataTables_length" style="display: none;margin-top: 2px;">
+    <a class="btn_major_s" data-role="button"><span class="txt">{{lang.전체 추가}}</span></a>
+</div>
+<div class="current_date" id="dateBtns" style="display:none;height: 38px; width: 150px; margin-top: 5px;text-align: center">
+    <span class="btn_ic_prev2 btn_border" title="{{lnag.이전}}" id="preDate" data-date="{{preDate}}"><span
+            class="ic ic_prev2"></span></span>
+    <span class="date" id="searchDate" data-date="{{searchDate}}">{{searchDate}}</span>
+    <span class="btn_ic_next2 btn_border" title="{{lang.다음}}" id="nextDate" data-date="{{nextDate}}"><span
+            class="ic ic_next2"></span></span>
+    <span class="btn_tool" alt="{{lang.날짜 이동}}" id="calArea">
+        <span class="ic_gnb ic_cal_mini"><input type="text" id="calBtn" style="border:0px;width:1px;height:1px"/></span>
+    </span>
+</div>
+<div class="critical" id="attnd_tab" style="margin-bottom:0;display: none">
+    <ul class="tab_nav">
+        <li class="on first daily" data-type="daily"><span>{{lang.label_daily}}</span></li>
+        <li class="last monthly" data-type="monthly"><span>{{lang.label_monthly}}</span></li>
+    </ul>
+    {{#hasDescendantSelect}}
+    <select class="slt_team" id="attnd_descendant_dept">
+        <option value="{{dept.id}}">{{dept.name}}</option>
+        {{#descendantDept}}
+        <option value="{{id}}">{{name}}</option>
+        {{/descendantDept}}
+    </select>
+    {{/hasDescendantSelect}}
+</div>
+<div id="excel_download_area" style="display:none;margin-left: 5px">
+    <div class="btn_down">
+        <a class="btn_tool" id="xlsxDownBtn">
+            <span class="txt">{{lang.목록 다운로드}}</span>
+        </a>
+    </div>
+</div>
+<div>
+    <table class="type_normal tb_agenda tb_attend" id="welfare_list">
+        <thead>
+        <tr>
+            <th class="">
+					<span class="title_sort">
+						{{lang.ID(계정)}}
+					</span>
+            </th>
+            <th class="sorting_desc">
+					<span class="title_sort">
+						{{lang.이름}}<ins class="ic"></ins>
+					</span>
+            </th>
+            <th class="">
+					<span class="title_sort">
+						{{lang.부서명}}
+					</span>
+            </th>
+            <th class="" style="">
+					<span class="title_sort">
+						{{lang.입사일}}
+					</span>
+            </th>
+            <th class="">
+					<span class="title_sort">
+						{{lang.년간 Point}}
+					</span>
+            </th>
+            <th class="">
+					<span class="title_sort">
+						{{lang.조정 Point}}
+					</span>
+            </th>
+            <th class="">
+					<span class="title_sort">
+						{{lang.사용 Point}}
+					</span>
+            </th>
+            <th class="">
+					<span class="title_sort">
+						{{lang.남은 Point}}
+					</span>
+            </th>
+            <th class="">
+					<span class="title_sort">
+						{{lang.상태}}
+					</span>
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+    <div class="table_search table_new_search"  style="text-align: center; margin-top: 0px">
+        <select id="searchTypes" style="margin-top: 2px">
+            <option value="user">{{lang.이름}}</option>
+            <option value="dept">{{lang.부서명}}</option>
+            <option value="hiredate">{{lang.입사일}}</option>
+            <option value="userstatus">{{lang.상태}}</option>
+        </select>
+        <span class="wrap_dateselect" id="hiredate_search" style="display: none">
+            <span class="noti_date_wrap wrap_date">
+                <input class="input wfix_medium" type="text" id="searchStartDate" readonly="">
+                <span class="ic ic_calendar"></span>
+            </span>
+            <span class="date_wave">~</span>
+            <span class="noti_date_wrap wrap_date">
+                <input class="input wfix_medium" type="text" id="searchEndDate" readonly="">
+                <span class="ic ic_calendar"></span>
+            </span>
+            <a class="btn_major_s" id="hiredate_search_btn" data-bypass="" style="margin-right:5px;" title="{{lang.검색}}">
+                <span class="ic"></span><span class="txt">{{lang.검색}}</span>
+            </a>
+        </span>
+        <select id="status_types" style="margin-top: 2px; display: none">
+            <option value="">{{lang.전체}}</option>
+            <option value="online">{{lang.정상}}</option>
+            <option value="dormant">{{lang.메일휴면}}</option>
+            <option value="stop">{{lang.중지}}</option>
+        </select>
+        <section class="search2" id="keyword_section">
+            <div class="search_wrap" style="margin-top: 2px">
+                <input id="searchKeyword" class="search2" type="text" placeholder="">
+                <span id="searchBtn" class="btn_search2"></span>
+            </div>
+        </section>
+    </div>
+</div>

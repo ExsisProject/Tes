@@ -1,0 +1,25 @@
+/*go_style overriding*/
+.go_addr_list header h1 a.btn_fn6 span {font-weight:normal}
+ul.name_tag li.desc {border:none; background:none!important }
+ul.name_tag li.desc strong {color:#F37247!important; line-height:20px  }
+
+.go_addr_list .form_speed {margin:0}
+
+.go_addr_list ul.name_tag {padding:10px 25px; margin-right:0!important}
+
+.go_addr_list ul.tab_nav {padding:10px 25px 0 25px}
+.go_addr_list ul.tab_nav li {padding:0 6px}
+.go_addr_list ul.tab_nav li.on {background:#3f3f3f; color:#fff}
+.go_addr_list ul.tab_nav li.on span {background:#484848; color:#fff}
+
+
+.tb_addr_list td {padding:2px 5px!important; height:34px!important}
+.tb_addr_list td span.photo img {width:30px; height:30px; vertical-align:middle}
+.tb_addr_list td span.name {vertical-align:middle; color:#666}
+.tb_addr_list td span.name:hover {color:#000}
+
+
+/*organogram overriding*/
+.layer_side p.desc {margin:0 10px; line-height:1.5}
+
+.layer_side a.btn_layer_x {border:none; border-radius:0}

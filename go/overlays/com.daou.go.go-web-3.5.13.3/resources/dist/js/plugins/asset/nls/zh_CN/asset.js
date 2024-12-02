@@ -1,0 +1,1 @@
+define(["json!lang/zh-cn/asset.json","json!lang/zh-cn/custom.json"],function(e,t){return _.extend(e,t.asset||{})});

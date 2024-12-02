@@ -1,0 +1,30 @@
+<div id="time_zone" class="tb_div tb_head">
+
+</div>
+
+<div class="wrap_timeline tb_body">
+    <!--
+        클래스명 설명
+        .part_default : 일반 근무 시간
+        .part_approval : 승인 근무 시간
+        .part_overtime : 초과 근무 시간
+        .part_approval.wait : 연장근무 승인대기
+        .part_overtime.wait : 초과근무 승인대기
+        .start : 시작
+        .close : 종료
+        .initial : 최초 출근 시(출근 30분 후 클래스 제거), 출/퇴근이 60분 이내에 이루어졌을 경우 적용
+    -->
+    <div id="data_zone" class="tb_div time_data">
+        <div id="clockinout_progress" class="tb_row total_time"></div>
+        <div id="approval_progress" class="tb_row total_time"></div>
+    </div>
+
+
+        <!-- 상태 추가 시 row가 한줄씩 추가됨 (상태가 여러개일 경우 레이블이 서로 겹치는 현상을 방지하기 위함)-->
+    <div id="time_wrapper" class="tb_div tb_bg" style="height:72px"> </div>
+</div>
+
+<!--
+<div class="time_tb" id="timeline_list">
+</div>
+-->

@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <title>전자결재 문서함</title>
+    <meta content="전자결재 문서함" name="gadget:name-ko"/>
+    <meta content="Folder" name="gadget:name-en"/>
+    <meta content="ワークフロー文書箱" name="gadget:name-ja"/>
+    <meta content="电子签核的文件箱" name="gadget:name-zhcn"/>
+    <meta content="電子簽核的文件箱" name="gadget:name-zhtw"/>
+    <meta content="Hòm văn bản phê duyệt điện tử" name="gadget:name-vi"/>
+    <meta content="APPROVAL" name="gadget:app-dependency"/>
+    <meta content="전자결재 문서함입니다." name="gadget:description"/>
+    <meta content="1.5.0" name="gadget:version"/>
+    <meta content="gadget_approval.png" name="gadget:thumbnail"/>
+
+    <!-- 테스트 할 로케일은 여기에 설정하세요.-->
+    <meta content="ko" name="locale"/>
+
+    <!-- 컨텍스트 루트는 여기서 설정하세요 -->
+    <meta content="/" name="contextRoot"/>
+
+    <link href="css/go-gadget-standalone.css" media="screen, print" rel="stylesheet"/>
+    <!--[if IE]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <script src="js/go-gadget-standalone.js" type="text/javascript"></script>
+
+    <script id="go-gadget-script" type="text/javascript">
+        gadget.load({
+
+            refreshable: true,
+
+            highlightable: true,
+
+            langs: {
+                "approval_doc_folder": "전자결재 문서함",
+                "approval_progress": "진행중",
+                "approval_complete": "완료",
+                "approval_reject": "반려",
+                "approval_draft": "임시저장",
+                "approval_receive": "수신",
+                "approval_cc": "참조",
+                "approval_view": "열람",
+                "approval_waiting": "대기",
+                "approval_submit": "접수",
+                "approval_approval": "결재",
+                "approval_hold": "보류",
+                "approval_no_document": "목록이 없습니다.",
+                "approval_attachment": "첨부파일",
+                "approval_offset": "표시 개수",
+                "approval_approval_type": "문서함 선택",
+                "approval_display_field": "표시할 필드",
+                "msg_validate": "한개 이상의 표시 옵션을 선택해주시기 바랍니다.",
+                "label_emergency": "긴급",
+                "label_todo": "결재 대기 문서",
+                "label_upcoming": "결재 예정 문서",
+                "label_draft": "기안 문서함",
+                "label_approve": "결재 문서함",
+                "label_viewer": "참조/열람 문서함",
+                "label_reception": "수신 문서함",
+                "label_draftedAt": "기안일",
+                "label_receivedAt": "접수일",
+                "label_formName": "결재양식",
+                "label_title": "제목",
+                "label_attach": "첨부",
+                "label_drafterName": "기안자",
+                "label_docStatus": "결재상태",
+                "label_completedAt": "완료일",
+                "label_docTypeName": "구분",
+                "label_currentActivityUsers": "현재 결재자",
+                "label_emergency_first": "긴급 문서 우선 노출",
+                "label_comment": "댓글",
+                "label_opinion": "의견",
+                "label_receive": "수신",
+                "prev": "이전",
+                "next": "다음",
+                "delay": "지연",
+                "en": {
+                    "approval_doc_folder": "Folder",
+                    "approval_progress": "Ongoing",
+                    "approval_complete": "Complete",
+                    "approval_reject": "Rejected",
+                    "approval_draft": "Saved",
+                    "approval_receive": "Receive",
+                    "approval_cc": "CC",
+                    "approval_view": "View",
+                    "approval_waiting": "Waiting",
+                    "approval_submit": "Accept",
+                    "approval_approval": "Approve",
+                    "approval_hold": "Hold",
+                    "approval_no_document": "No documents found.",
+                    "approval_attachment": "Attachment",
+                    "approval_offset": "Number of Documents",
+                    "approval_approval_type": "Folder",
+                    "approval_display_field": "Displaying Field",
+                    "msg_validate": "Please select at least an option.",
+                    "label_emergency": "Urgent",
+                    "label_todo": "To Approve",
+                    "label_upcoming": "Scheduled to Approve",
+                    "label_draft": "Drafts",
+                    "label_approve": "Approved",
+                    "label_viewer": "CC / Read folder",
+                    "label_reception": "Receive",
+                    "label_draftedAt": "Date",
+                    "label_receivedAt": "Accepted on",
+                    "label_formName": "Template",
+                    "label_title": "Subject",
+                    "label_attach": "Attach",
+                    "label_drafterName": "By",
+                    "label_docStatus": "Status",
+                    "label_completedAt": "Completed on",
+                    "label_docTypeName": "Type",
+                    "label_currentActivityUsers": "Current approver",
+                    "label_emergency_first": "Priority exposure of urgent documents",
+                    "label_comment": "Comment",
+                    "label_opinion": "Opinion",
+                    "label_receive": "Received",
+                    "prev": "Previous",
+                    "next": "Next",
+                    "delay": "Delay"
+                },
+                "ja": {
+                    "approval_doc_folder": "ワークフロー文書箱",
+                    "approval_progress": "進行中",
+                    "approval_complete": "完了",
+                    "approval_reject": "返却",
+                    "approval_draft": "一時保存",
+                    "approval_receive": "受信",
+                    "approval_cc": "参照",
+                    "approval_view": "閲覧",
+                    "approval_waiting": "待機",
+                    "approval_submit": "受付",
+                    "approval_approval": "決裁",
+                    "approval_hold": "保留",
+                    "approval_no_document": "決裁する文書がありません。",
+                    "approval_attachment": "添付ファイル",
+                    "approval_offset": "表示件数",
+                    "approval_approval_type": "文書箱選択",
+                    "approval_display_field": "表示するフィールド",
+                    "msg_validate": "一つ以上の表示オプションを選択してください。",
+                    "label_emergency": "緊急",
+                    "label_todo": "決裁待ち文書",
+                    "label_upcoming": "決裁予定文書",
+                    "label_draft": "起案文書箱",
+                    "label_approve": "決裁文書箱",
+                    "label_viewer": "参照/閲覧文書箱",
+                    "label_reception": "受信文書箱",
+                    "label_draftedAt": "起案日",
+                    "label_receivedAt": "受付日",
+                    "label_formName": "決裁フォーム",
+                    "label_title": "タイトル",
+                    "label_attach": "添付",
+                    "label_drafterName": "起案者",
+                    "label_docStatus": "決裁状態",
+                    "label_completedAt": "完了日",
+                    "label_docTypeName": "区分",
+                    "label_currentActivityUsers": "現在決裁者",
+                    "label_emergency_first": "緊急文書の優先的な公開",
+                    "label_comment": "コメント",
+                    "label_opinion": "意見",
+                    "label_receive": "受信",
+                    "prev": "前へ",
+                    "next": "次へ",
+                    "delay": "遅延"
+                },
+                "zh_CN": {
+                    "approval_doc_folder": "电子签核的文件箱",
+                    "approval_progress": "进行中",
+                    "approval_complete": "完成",
+                    "approval_reject": "拒绝",
+                    "approval_draft": "临时保存",
+                    "approval_receive": "收信",
+                    "approval_cc": "参照",
+                    "approval_view": "阅览",
+                    "approval_waiting": "等待",
+                    "approval_submit": "接受",
+                    "approval_approval": "批准",
+                    "approval_hold": "保留",
+                    "approval_no_document": "没有批准的文件。",
+                    "approval_attachment": "附件文件",
+                    "approval_offset": "显示个数",
+                    "approval_approval_type": "选择文件箱",
+                    "approval_display_field": "显示的字段",
+                    "msg_validate": "请选择一个以上的显示项目。",
+                    "label_emergency": "紧急",
+                    "label_todo": "等待批准的文件",
+                    "label_upcoming": "预约批准的文件",
+                    "label_draft": "起草文件箱",
+                    "label_approve": "批准文件箱",
+                    "label_viewer": "参照/浏览文件箱",
+                    "label_reception": "收件文件箱",
+                    "label_draftedAt": "起草日",
+                    "label_receivedAt": "接收日",
+                    "label_formName": "批准样式",
+                    "label_title": "标题",
+                    "label_attach": "附件",
+                    "label_drafterName": "起草人",
+                    "label_docStatus": "批准状态",
+                    "label_completedAt": "完成日",
+                    "label_docTypeName": "区分",
+                    "label_currentActivityUsers": "当前决裁人",
+                    "label_emergency_first": "优先处理紧急文件",
+                    "label_comment": "注释",
+                    "label_opinion": "意见",
+                    "label_receive": "收件",
+                    "prev": "前一頁",
+                    "next": "下一頁",
+                    "delay": "延迟"
+                },
+                "zh_TW": {
+                    "approval_doc_folder": "電子簽核的文件箱",
+                    "approval_progress": "進行中",
+                    "approval_complete": "完成",
+                    "approval_reject": "拒絕",
+                    "approval_draft": "臨時保存",
+                    "approval_receive": "收信",
+                    "approval_cc": "參照",
+                    "approval_view": "閱覽",
+                    "approval_waiting": "等待",
+                    "approval_submit": "接受",
+                    "approval_approval": "批准",
+                    "approval_hold": "保留",
+                    "approval_no_document": "沒有批准的文件。",
+                    "approval_attachment": "附件文件",
+                    "approval_offset": "顯示個數",
+                    "approval_approval_type": "選擇文件箱",
+                    "approval_display_field": "顯示的字段",
+                    "msg_validate": "請選擇一個以上的顯示項目。",
+                    "label_emergency": "緊急",
+                    "label_todo": "等待批准的文件",
+                    "label_upcoming": "預約批准的文件",
+                    "label_draft": "起草文件箱",
+                    "label_approve": "批准文件箱",
+                    "label_viewer": "參照/瀏覽文件箱",
+                    "label_reception": "收件文件箱",
+                    "label_draftedAt": "起草日",
+                    "label_receivedAt": "接收日",
+                    "label_formName": "批准樣式",
+                    "label_title": "標題",
+                    "label_attach": "附件",
+                    "label_drafterName": "起草人",
+                    "label_docStatus": "批准狀態",
+                    "label_completedAt": "完成日",
+                    "label_docTypeName": "區分",
+                    "label_currentActivityUsers": "當前决裁人",
+                    "label_emergency_first": "優先處理緊急文件",
+                    "label_comment": "註釋",
+                    "label_opinion": "意見",
+                    "label_receive": "收件",
+                    "prev": "前一页",
+                    "next": "下一页",
+                    "delay": "延遲"
+                },
+                "vi": {
+                    "approval_doc_folder": "Hòm văn bản phê duyệt điện tử",
+                    "approval_progress": "Đang thi hành",
+                    "approval_complete": "Hoàn tất",
+                    "approval_reject": "Từ chối",
+                    "approval_draft": "Lưu tạm thời",
+                    "approval_receive": "Nhận",
+                    "approval_cc": "Tham khảo",
+                    "approval_view": "Xem",
+                    "approval_waiting": "Chờ",
+                    "approval_submit": "Tiếp nhận",
+                    "approval_approval": "Phê duyệt",
+                    "approval_hold": "Bảo lưu",
+                    "approval_no_document": "Không có danh sách.",
+                    "approval_attachment": "Tập tin đính kèm",
+                    "approval_offset": "Số hiển thị",
+                    "approval_approval_type": "Chọn hòm văn bản",
+                    "approval_display_field": "Field sẽ hiển thị",
+                    "msg_validate": "Vui lòng chọn biểu thị trên một hiển thị.",
+                    "label_emergency": "Khẩn cấp",
+                    "label_todo": "Văn bản chờ phê duyệt",
+                    "label_upcoming": "Văn bản dự định phê duyệt",
+                    "label_draft": "Hòm văn bản dự thảo",
+                    "label_approve": "Hòm văn bản phê duyệt",
+                    "label_viewer": "Tham khảo/Xem hòm văn bản",
+                    "label_reception": "Hòm văn bản nhận",
+                    "label_draftedAt": "Ngày dự thảo",
+                    "label_receivedAt": "Ngày tiếp nhận",
+                    "label_formName": "Định dạng phê duyệt",
+                    "label_title": "Tiêu đề",
+                    "label_attach": "Đính kèm",
+                    "label_drafterName": "Người thảo kế hoạch",
+                    "label_docStatus": "Trạng thái phê duyệt",
+                    "label_completedAt": "Ngày hoàn tất",
+                    "label_docTypeName": "Phân loại",
+                    "label_currentActivityUsers": "Người phê duyệt hiện tại",
+                    "label_emergency_first": "Ưu tiên tiếp xúc với các tài liệu khẩn cấp",
+                    "label_comment": "Bình luận",
+                    "label_opinion": "Ý kiến",
+                    "label_receive": "Nhận",
+                    "prev": "Trang trước",
+                    "next": "Tiếp theo",
+                    "delay" : "Trì hoãn"
+                }
+            },
+            defaultOptions: {
+                "approvalType": "todo",
+                "draftedAt": "Y",
+                "formName": "Y",
+                "title": "Y",
+                "attach": "Y",
+                "docStatus": "Y",
+                "emergency": "Y",
+                "currentActivityUsers": "Y",
+                "offset": "5"
+            },
+            page: 0,
+            url: function () {
+
+                var params = {
+                    "page": this.page || "0",
+                    "offset": this.options.offset || "5",
+                    "property": this._returnProperty(this.options['approvalType'], this.options['emergencyFirst']),
+                    "direction": "desc"
+                };
+
+                var listType = this.options.approvalType;
+                return this.contextRoot + "api/approval/" + this._getUrl(listType) + "?" + $.param(params);
+            },
+            setTitle: function () {
+                return this.i18n.parse("approval_doc_folder");
+            },
+            renderConfig: function (el) {
+                this._renderConfigTemplate(el);
+                this.el = el;
+            },
+
+            onSuccess: function (el, resp) {
+                this._renderContent(el, resp);
+                this.el = el;
+            },
+
+            validate: function (el) {
+                var $target = $(el).find('.displayField');
+                if ($target.find('input[type=checkbox]:checked').length < 1) {
+                    return this.i18n.parse("msg_validate");
+                }
+                return false;
+            },
+            changeType: function (e) {
+                var approvalType = $(e.currentTarget).val();
+                var target = $(e.currentTarget).parents('ul').first();
+                this._applyApprovalType(target, approvalType);
+            },
+            changeOffset: function (e) {
+                var offset = $(e.currentTarget).val();
+                this.options.offset = offset;
+            },
+            _returnProperty: function (approvalType, emergencyFirst) {
+                var property = "";
+                var isEmergencyFirst = emergencyFirst == 'Y';
+                switch (approvalType) {
+                    case 'todo':
+                        property = isEmergencyFirst ? "document.isEmergency" : "document.draftedAt";
+                        break;
+                    case 'upcoming':
+                        property = isEmergencyFirst ? "activityGroup.apprFlow.document.isEmergency" : "activityGroup.apprFlow.document.draftedAt";
+                        break;
+                    case 'draft':
+                        property = isEmergencyFirst ? "isEmergency" : "draftedAt";
+                        break;
+                    case 'approve':
+                        property = isEmergencyFirst ? "isEmergency" : "draftedAt";
+                        break;
+                    case 'viewer':
+                        property = isEmergencyFirst ? "document.isEmergency" : "document.draftedAt";
+                        break;
+                    case 'reception':
+                        property = isEmergencyFirst ? "isEmergency" : "receivedAt";
+                        break;
+                }
+                return property;
+            },
+            _applyApprovalType: function (target, approvalType) {
+                var disableColumn = [];
+                var _this = this;
+                switch (approvalType) {
+                    case 'todo':
+                        disableColumn = ['completedAt', 'docTypeName', 'currentActivityUsers', 'receivedAt'];
+                        this.property = "document.draftedAt";
+                        break;
+                    case 'upcoming':
+                        disableColumn = ['docStatus', 'completedAt', 'docTypeName', 'receivedAt'];
+                        this.property = "activityGroup.apprFlow.document.draftedAt";
+                        break;
+                    case 'draft':
+                        disableColumn = ['drafterName', 'completedAt', 'docTypeName', 'receivedAt'];
+                        this.property = "draftedAt";
+                        break;
+                    case 'approve':
+                        disableColumn = ['docTypeName', 'receivedAt'];
+                        this.property = "draftedAt";
+                        break;
+                    case 'viewer':
+                        disableColumn = ['receivedAt'];
+                        this.property = "document.draftedAt";
+                        break;
+                    case 'reception':
+                        disableColumn = ['docTypeName', 'currentActivityUsers', 'draftedAt'];
+                        this.property = "receivedAt";
+                        break;
+                }
+
+                target.find('li.displayField input').attr('disabled', false);
+                $.each(target.find('li.displayField input'), function (index, el) {
+                    var fieldName = $(el).attr("name");
+                    if (_this.options[fieldName]) {
+                        $(el).attr('checked', true);
+                    }
+                });
+
+                $.each(disableColumn, function (index, column) {
+                    target.find('li.displayField input[name="' + column + '"]').attr({
+                        'disabled': true,
+                        'checked': false
+                    });
+                });
+            },
+            _getUrl: function (approvalType) {
+                var url = "";
+                switch (approvalType) {
+                    case 'todo':
+                        url = "todo";
+                        break;
+                    case 'upcoming':
+                        url = "upcoming";
+                        break;
+                    case 'draft':
+                        url = "doclist/draft/all";
+                        break;
+                    case 'approve':
+                        url = "doclist/approve/all";
+                        break;
+                    case 'viewer':
+                        url = "doclist/viewer/all";
+                        break;
+                    case 'reception':
+                        url = "doclist/reception/all";
+                        break;
+                }
+                return url;
+            },
+            _previous: function (e) {
+                if ($(e.currentTarget).hasClass('btnDisable')) {
+                    return;
+                }
+                this.page = this.page - 1;
+                $(this.el).trigger('gadget:request-content');
+            },
+            _next: function (e) {
+                if ($(e.currentTarget).hasClass('btnDisable')) {
+                    return;
+                }
+                this.page = this.page + 1;
+                $(this.el).trigger('gadget:request-content');
+            },
+            _renderContent: function (el, data) {
+                if(this.options.approvalType == "reception" && this.options.draftedAt){
+                    delete this.options["draftedAt"];
+                    this.options.receivedAt = "Y";
+                }
+                var _this = this;
+                $(el).off("click", "a.previous");
+                $(el).off("click", "a.next");
+                $(el).on("click", "a.previous", $.proxy(this._previous, this));
+                $(el).on("click", "a.next", $.proxy(this._next, this));
+                $(el).empty().append(this.template(this._contentTemplate(), {
+                    "contextRoot": _this.contextRoot,
+                    "dataset": data.data,
+                    "page": data.page,
+                    "isPage": function () {
+                        if (parseInt(this.total / this.offset) > 0) {
+                            return true;
+                        }
+                        return false;
+                    },
+                    "isPrevBtn": function () {
+                        if (this.page != 0) {
+                            return false;
+                        }
+                        return true;
+                    },
+                    "parseDraftedAt": function () {
+                        return GO.util.shortDate(this.draftedAt);
+                    },
+                    "parseReceivedAt": function() {
+                        if(this.receivedAt){
+                            return GO.util.shortDate(this.receivedAt);
+                        } else {
+                            return "-";
+                        }
+                    },
+                    "isEmergency": function () {
+                        return this.isEmergency;
+                    },
+                    "parseDocStatusClass": function () {
+                        var docStatusClass = "";
+                        var docStatus = this.docStatus;
+
+                        if (docStatus == 'INPROGRESS' || docStatus == 'RECEIVED') {
+                            if (this.isHolding) {
+                                return "defer";
+                            }
+                            return 'read';
+                        } else if (docStatus == 'TEMPSAVE' || docStatus == 'DRAFT_WAITING' || docStatus == 'RECV_WAITING') {
+                            return 'temp';
+                        } else if (docStatus == 'RETURN' || docStatus == 'RECV_RETURNED') {
+                            return 'notyet';
+                        } else if (docStatus == 'COMPLETE') {
+                            return 'finish';
+                        }
+                    },
+                    "parseDocStatus": function () {
+                        if (this.docStatusName) {
+                            if (this.isHolding) {
+                                return _this.i18n.parse("approval_hold");
+                            }
+                            return this.docStatusName;
+                        } else {
+                            switch (this.docStatus) {
+                                case 'INPROGRESS':
+                                    if (this.isHolding) {
+                                        return _this.i18n.parse("approval_hold");
+                                    } else {
+                                        return _this.i18n.parse("approval_progress");
+                                    }
+                                    break;
+                                case 'COMPLETE':
+                                    return _this.i18n.parse("approval_complete");
+                                    break;
+                                case 'RETURN':
+                                    return _this.i18n.parse("approval_reject");
+                                    break;
+                                case 'TEMPSAVE':
+                                    return _this.i18n.parse("approval_draft");
+                                    break;
+                            }
+                        }
+                    },
+                    "parseCompletedAt": function () {
+                        if(_.isUndefined(this.completedAt)){
+                            return "-";
+                        }
+                        return GO.util.shortDate(this.completedAt);
+                    },
+                    "parseDocReadType": function () {
+                        switch (this.docReadType) {
+                            case 'RECEPTION':
+                                return _this.i18n.parse("approval_receive");
+                                break;
+                            case 'REFERENCE':
+                                return _this.i18n.parse("approval_cc");
+                                break;
+                            case 'READING':
+                                return _this.i18n.parse("approval_view");
+                                break;
+                        }
+                    },
+                    "parseIsNew": function () {
+                        if (this.isNew) {
+                            return _this.i18n.parse("approval_waiting");
+                        } else {
+                            return _this.i18n.parse("approval_submit");
+                        }
+                    },
+                    "isReceive": function () {
+                        return this.docType == 'RECEIVE';
+                    },
+                    "hasAdditionalInfo": function () {
+                        return this.commentCount || this.replyCount;
+                    },
+                    "isDelay": function() {
+                        return this.isDelay;
+                    }
+                }));
+            },
+            _contentTemplate: function () {
+                var html = [];
+                html.push('<div class="gadget_design_wrap">');
+                html.push('<div class="go_gadget_header">');
+                html.push('<div class="gadget_h1">');
+                html.push('<span class="type"><span class="ic_dashboard2 ic_type_approval" title="' + this.i18n.parse("approval_approval") + '"></span></span>');
+                html.push('<span class="title">' + this.i18n.parse('label_' + this.options["approvalType"]) + '</span>');
+                html.push('</div>');
+                html.push('</div>');
+                html.push('	 <div class="scroll_wrap_x ie9-scroll-fix">');
+                html.push('<table class="type_normal list_approval ">');
+                html.push('<thead>');
+                html.push('<tr>');
+                if (this.options['draftedAt']) {
+                    html.push('<th class="sorting_disabled date"><span class="title_sort">' + this.i18n.parse("label_draftedAt") + '<ins class="ic"></ins></span></th>');
+                }
+                if (this.options['receivedAt']) {
+                    html.push('<th class="sorting_disabled date"><span class="title_sort">' + this.i18n.parse("label_receivedAt") + '<ins class="ic"></ins></span></th>');
+                }
+                if (this.options['formName']) {
+                    html.push('<th class="sorting_disabled doc"><span class="title_sort">' + this.i18n.parse("label_formName") + '<ins class="ic"></ins></span></th>');
+                }
+                if (this.options['emergency']) {
+                    html.push('<th class="sorting doc_emergency"><span class="title_sort">' + this.i18n.parse("label_emergency") + '</span></th>');
+                }
+                if (this.options['title']) {
+                    html.push('<th class="sorting_disabled subject"><span class="title_sort">' + this.i18n.parse("label_title") + '<ins class="ic"></ins></span></th>');
+                }
+                if (this.options['attach']) {
+                    html.push('<th class="sorting_disabled attach"><span class="title_sort">' + this.i18n.parse("label_attach") + '</span></th>');
+                }
+                if (this.options['drafterName']) {
+                    html.push('<th class="sorting_disabled writer"><span class="title_sort">' + this.i18n.parse("label_drafterName") + '</span></th>');
+                }
+                if (this.options['currentActivityUsers']) {
+                    html.push('<th class="sorting_disabled writer"><span class="title_sort">' + this.i18n.parse("label_currentActivityUsers") + '</span></th>');
+                }
+                if (this.options['docStatus']) {
+                    html.push('<th class="sorting_disabled state"><span class="title_sort">' + this.i18n.parse("label_docStatus") + '</span></th>');
+                }
+                if (this.options['completedAt']) {
+                    html.push('<th class="sorting_disabled deadline"><span class="title_sort">' + this.i18n.parse("label_completedAt") + '</span></th>');
+                }
+                if (this.options['docTypeName']) {
+                    html.push('<th class="sorting_disabled etc"><span class="title_sort">' + this.i18n.parse("label_docTypeName") + '</span></th>');
+                }
+                html.push('</tr>');
+                html.push('</thead>');
+                html.push('<tbody>');
+                html.push('		{{^dataset}}');
+                html.push('			<tr style="display:">');
+                html.push('				<td colspan="7">');
+                html.push('					<p class="data_null">');
+                html.push('						<span class="ic_data_type ic_no_contents"></span>');
+                html.push('						<span class="txt">' + this.i18n.parse("approval_no_document") + '</span>');
+                html.push('					</p>');
+                html.push('				</td>');
+                html.push('			</tr>');
+                html.push('		{{/dataset}}');
+                html.push('		{{#dataset}}');
+                html.push('			<tr data-approvalid="{{id}}">');
+                if (this.options['draftedAt']) {
+                    html.push('				<td class="date"><span class="txt">{{parseDraftedAt}}</span></td>');
+                }
+                if (this.options['receivedAt']) {
+                    html.push('				<td class="date"><span class="txt">{{parseReceivedAt}}</span></td>');
+                }
+                if (this.options['formName']) {
+                    html.push(' 			<td class="doc"><span class="txt">{{formName}}</span></td>');
+                }
+                if (this.options['emergency']) {
+                    html.push(' 			<td class="doc_emergency">{{#isEmergency}}<span class="state emergency">' + this.i18n.parse("label_emergency") + '</span>{{/isEmergency}}</td>');
+                }
+                if (this.options['title']) {
+                    html.push(' 			<td class="subject"><a href="{{contextRoot}}app/approval/document/{{id}}" >');
+                    html.push(' 			    {{#isDelay}}<span class="state delay">' + this.i18n.parse("delay") + '</span>{{/isDelay}}');
+                    html.push(' 			    {{#isReceive}}<span class="state ghost">' + this.i18n.parse("label_receive") + '</span>{{/isReceive}}');
+                    html.push(' 			    <span class="txt">{{title}}</span>');
+                    html.push(' 			    {{#hasAdditionalInfo}}<span class="btn_wrap">');
+                    html.push(' 			        <span class="wrap_ic" title="' + this.i18n.parse("label_comment") + '">');
+                    html.push(' 			            <span class="ic_classic ic_reply"></span>' + '<span class="num">{{commentCount}}</span>');
+                    html.push(' 			        </span>');
+                    html.push(' 			        <span class="space"></span>');
+                    html.push(' 			        <span class="wrap_ic" title="' + this.i18n.parse("label_opinion") + '">');
+                    html.push(' 			            <span class="ic_classic ic_opinion"></span>' + '<span class="num">{{replyCount}}</span>');
+                    html.push(' 			        </span>{{/hasAdditionalInfo}}');
+                    html.push(' 			</a></td>');
+                }
+                if (this.options['attach']) {
+                    html.push(' 			<td class="attach"><span class="ic ic_file_s" title="' + this.i18n.parse("approval_attachment") + '"></span><span class="num">{{attachCount}}</span></td>	');
+                }
+                if (this.options['drafterName']) {
+                    html.push(' 			<td class="attach"><span class="txt">{{drafterName}}</span></td>');
+                }
+                if (this.options['currentActivityUsers']) {
+                    html.push(' 			<td class="attach"><span class="txt">{{currentActivityUsers}}</span></td>');
+                }
+                if (this.options['docStatus']) {
+                    html.push(' 			<td class="attach"><a href="{{contextRoot}}app/approval/document/{{id}}" ><span class="state {{parseDocStatusClass}}">{{parseDocStatus}}</span></a></td>');
+                }
+                if (this.options['completedAt']) {
+                    html.push(' 			<td class="attach"><span class="txt">{{parseCompletedAt}}</span></td>');
+                }
+                if (this.options['docTypeName']) {
+                    html.push(' 			<td class="attach"><span class="txt">{{parseDocReadType}}</span></td>');
+                }
+                html.push('			</tr>');
+                html.push('		{{/dataset}}');
+                html.push('		</tbody>');
+                html.push('</table>');
+                html.push('	 </div>');
+                html.push('	{{#page}}');
+                html.push('		{{#isPage}}');
+                html.push('		<div class="tool_bar tool_absolute">');
+                html.push('			<div class="dataTables_paginate paging_full_numbers">');
+                html.push('				<a data-bypass="" class="previous paginate_button {{#isPrevBtn}}paginate_button_disabled btnDisable{{/isPrevBtn}}" title="' + this.i18n.parse("prev") + '"></a>');
+                html.push('				<a data-bypass="" class="next paginate_button {{#lastPage}}paginate_button_disabled btnDisable{{/lastPage}}" title="' + this.i18n.parse("next") + '"></a>');
+                html.push('			</div>');
+                html.push('		</div>');
+                html.push('		{{/isPage}}');
+                html.push('	{{/page}}');
+                html.push('</div>');
+                return html.join('');
+            },
+
+            _renderConfigTemplate: function (el) {
+                $(el).off("change", ".approvalType");
+                $(el).off("change", ".offsetType");
+                $(el).on("change", ".approvalType", $.proxy(this.changeType, this));
+                $(el).on("change", ".offsetType", $.proxy(this.changeOffset, this));
+
+                var _this = this;
+                var html = [];
+                html.push('<ul class="static_style">');
+                html.push('	<li>');
+                html.push('		<p class="title">' + this.i18n.parse("approval_offset") + '</p>');
+                html.push('		<select name="offset" class="offsetType">');
+                html.push(this._makeOffset());
+                html.push('		</select>');
+                html.push('	</li>');
+                html.push('	<li>');
+                html.push('     <span class="edit wrap_option wrap_label">');
+                html.push(this._makeEmergencyOption());
+                html.push('     </span>');
+                html.push('	</li>');
+                html.push('<li>');
+                html.push('<p class="title">' + this.i18n.parse("approval_approval_type") + '</p>');
+                html.push('<select name="approvalType" class="approvalType">');
+                html.push(this._makeOptions());
+                html.push('</select>');
+                html.push('</li>');
+                html.push('<li class="displayField">');
+                html.push('<p class="title">' + this.i18n.parse("approval_display_field") + '</p>');
+                html.push(this._makeCheckbox());
+                html.push('</li>');
+                html.push('</ul>');
+                $(el).append(html.join(''));
+                this._applyApprovalType($(el), this.options['approvalType']);
+            },
+            _makeOptionTemplate: function (data) {
+                var html = ['{{#dataset}}',
+                    '<option value="{{value}}" {{#selected}}selected{{/selected}}>{{label}}</option>',
+                    '{{/dataset}}'];
+                var template = this.template(html.join(''), {"dataset": data});
+                return template;
+            },
+            _makeOffset: function () {
+                var _this = this;
+                var offset = [5, 10, 15, 20, 25, 30];
+                var data = [];
+                var param = {};
+                $.each(offset, function (k, v) {
+                    param = {
+                        value: v,
+                        selected: (_this.options['offset'] == v) ? true : false,
+                        label: v
+                    };
+                    data.push(param);
+                });
+
+                return this._makeOptionTemplate(data);
+            },
+            _makeOptions: function () {
+                var _this = this;
+                var listType = ["todo", "upcoming", "draft", "approve", "viewer", "reception"];
+                var data = [];
+                var param = {};
+                $.each(listType, function (k, v) {
+                    param = {
+                        value: v,
+                        selected: (_this.options['approvalType'] == v) ? true : false,
+                        label: _this.i18n.parse('label_' + v)
+                    };
+                    data.push(param);
+                });
+                return this._makeOptionTemplate(data);
+            },
+            _makeEmergencyOption: function () {
+                var _this = this;
+                var data = [];
+                var param = [];
+                param = {
+                    checked: (_this.options['emergencyFirst']) ? true : false,
+                    labelText: this.i18n.parse('label_emergency_first')
+                };
+                data.push(param);
+                var html = [
+                    '{{#dataset}}',
+                    '   <span class="wrap_option wrap_label">',
+                    '         <input type="checkbox" name="emergencyFirst" value="Y" {{#checked}}checked="checked"{{/checked}}>',
+                    '         <label>{{labelText}}</label>',
+                    '   </span>',
+                    '{{/dataset}}'];
+                var template = this.template(html.join(''), {"dataset": data});
+                return template;
+            },
+            _makeCheckbox: function () {
+                var _this = this;
+                var data = [];
+                var param = {};
+                var checkType = ["draftedAt", "receivedAt", "formName", "emergency", "title", "attach", "drafterName", "currentActivityUsers", "docStatus", "completedAt", "docTypeName"];
+                $.each(checkType, function (k, v) {
+                    param = {
+                        name: v,
+                        checked: (_this.options[v]) ? true : false,
+                        label: _this.i18n.parse('label_' + v)
+                    };
+                    data.push(param);
+                });
+                var html = ['{{#dataset}}',
+                    '<span class="edit wrap_option wrap_label">',
+                    '<input type="checkbox" name="{{name}}" value="Y" {{#checked}}checked="checked"{{/checked}}>',
+                    '<label>{{label}}</label>',
+                    '</span>',
+                    '{{/dataset}}'];
+                var template = this.template(html.join(''), {"dataset": data});
+                return template;
+            }
+        });
+    </script>
+</head>
+
+<body class="go_skin_home_default" data-role="main" id="main">
+<div class="go-dashboard go-dashboard-editing go_dashboard_3_2">
+    <div class="go-gadget-column gadget-col-1" data-columnid="1">
+        <!-- empty -->
+    </div>
+
+    <div class="gripper"></div>
+
+    <div class="go-gadget-column gadget-col-2" data-columnid="2" id="gadget-containter">
+        <!-- empty -->
+    </div>
+
+    <div class="gripper"></div>
+
+    <div class="go-gadget-column gadget-col-3" data-columnid="3">
+        <!-- empty -->
+    </div>
+</div>
+</body>
+</html>

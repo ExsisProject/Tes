@@ -1,0 +1,1 @@
+define("admin/models/ehr/timeline/access_gps",function(require){var e=require("backbone"),t=require("app"),n=e.Model.extend({urlRoot:t.contextRoot+"ad/api/timeline/gps/"});return n});

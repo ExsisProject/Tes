@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+	<div class="tWrap go_skin_default">
+		<header class="go_header go_header_2row">
+			<h1><a id="ci" href="{{contextRoot}}admin/company">
+				<span class="txt">SiteAdmin {{siteName}}</span>
+			</a></h1>
+			<nav id="navigator">
+				<ul id="adminTopMenu">
+					<li class="1depth" data-type="normal">
+						<a><span class="menu">{{label_top_base_setting}}</span></a>
+						<div class="gnb_top_menu" id="baseSetting" style="display:none">
+							<ul>
+								<li id="baseTopMenu" class="on"><a href="{{contextRoot}}admin/company"><span class="menu">{{label_setting}}</span></a></li>
+								<li class="last" id="statistics"><a href="{{contextRoot}}admin/mail/stat"><span class="menu">{{label_statistics}}</span></a></li>
+							</ul>
+						</div>		
+					</li>
+					<li class="1depth" data-type="account">
+						<a><span class="menu">{{label_top_account}}</span></a>
+						<div class="gnb_top_menu" style="display:none">
+							<ul>
+								<li id="accountsTopMenu"><a href="{{contextRoot}}admin/accounts"><span class="menu">{{label_account}}</span></a></li>
+								{{#hasOrg}}<li class="last" id="deptTopMenu"><a href="{{contextRoot}}admin/dept/org"><span class="menu">{{label_dept}}</span></a></li>{{/hasOrg}}
+							</ul>
+						</div>		
+					</li>
+					<li class="1depth" data-type="communication">
+						<a><span class="menu">{{label_top_communication}}</span></a>
+						<div class="gnb_top_menu" style="display:none">
+							<ul>
+								<li id="mailTopMenu"><a href="{{contextRoot}}admin/mail"><span class="menu">{{label_mail}}</span></a></li>
+								{{#hasContact}}<li id="contactTopMenu"><a href="{{contextRoot}}admin/contact"><span class="menu">{{label_address}}</span></a></li>{{/hasContact}}
+								{{#hasFile}}<li id="fileTopMenu"><a href="{{contextRoot}}admin/webfolder"><span class="menu">{{label_file}}</span></a></li>{{/hasFile}}
+								{{#hasCalendar}}<li class="last" id="calendarTopMenu"><a href="{{contextRoot}}admin/calendar"><span class="menu">{{label_calendar}}</span></a></li>{{/hasCalendar}}
+                                {{#hasDocs}}<li class="last" id="docsTopMenu"><a href="{{contextRoot}}admin/docs"><span class="menu">{{label_docs}}</span></a></li>{{/hasDocs}}
+							</ul>
+						</div>		
+					</li>
+					{{#hasSocial}}
+					<li class="1depth" data-type="social">
+						<a><span class="menu">{{label_top_social}}</span></a>
+						<div class="gnb_top_menu" style="display:none">
+							<ul>
+								{{#hasBoard}}<li id="boardTopMenu"><a href="{{contextRoot}}admin/board"><span class="menu">{{label_board}}</span></a></li>{{/hasBoard}}
+								{{#hasCommunity}}<li id="communityTopMenu"><a href="{{contextRoot}}admin/community"><span class="menu">{{label_community}}</span></a></li>{{/hasCommunity}}
+								{{#hasAsset}}<li id="assetTopMenu"><a href="{{contextRoot}}admin/asset"><span class="menu">{{label_asset}}</span></a></li>{{/hasAsset}}
+								{{#hasSurvey}}<li class="last" id="surveyTopMenu"><a href="{{contextRoot}}admin/survey"><span class="menu">{{label_survey}}</span></a></li>{{/hasSurvey}}
+							</ul>
+						</div>		
+					</li>
+					{{/hasSocial}}
+					{{#hasCollaboration}}{{#hasOrg}}
+					<li class="1depth" data-type="collaboration">
+						<a><span class="menu">{{label_top_collaboration}}</span></a>
+						<div class="gnb_top_menu" style="display:none">
+							<ul>
+								{{#hasReport}}<li id="reportTopMenu"><a href="{{contextRoot}}admin/report"><span class="menu">{{label_report}}</span></a></li>{{/hasReport}}
+								{{#hasTask}}<li id="taskTopMenu"><a href="{{contextRoot}}admin/task"><span class="menu">{{label_task}}</span></a></li>{{/hasTask}}
+                                {{#hasWorks}}<li class="last" id="worksTopMenu"><a href="{{contextRoot}}admin/works"><span class="menu">Works</span></a></li>{{/hasWorks}}
+							</ul>
+						</div>		
+					</li>
+					{{/hasOrg}}{{/hasCollaboration}}
+					{{#hasApprovalLicense}}
+					<li class="1depth" data-type="approval">
+						<a><span class="menu">{{label_top_approval}}</span></a>
+						<div class="gnb_top_menu" style="display:none">
+							<ul>
+								{{#hasApproval}}<li id="approvalTopMenu"><a href="{{contextRoot}}admin/approval"><span class="menu">{{label_approval}}</span></a></li>{{/hasApproval}}
+							</ul>
+						</div>		
+					</li>
+					{{/hasApprovalLicense}}
+                    {{#hasSms}}
+                    <li class="1depth" data-type="sms" id="smsTopMenu"><a href="{{contextRoot}}admin/sms"><span class="menu">{{label_sms}}</span></a></li>
+                    {{/hasSms}}
+					{{#hasEhr}}
+					<li class="1depth" data-type="ehr" id="attndTopMenu"><a href="{{contextRoot}}admin/ehr"><span class="menu">{{label_attendance}}</span></a></li>
+					{{/hasEhr}}
+					{{#hasMobile}}
+					{{#hasMobileApp}}
+					<li class="1depth" data-type="mobile" id="mobileTopMenu"><a href="{{contextRoot}}admin/mobile/attach/config"><span class="menu">{{label_mobile}}</span></a></li>
+					{{/hasMobileApp}}
+					{{^hasMobileApp}}
+					<li class="1depth" data-type="mobile" id="mobileTopMenu"><a href="{{contextRoot}}admin/mobile/attach/config"><span class="menu">{{label_mobile}}</span></a></li>
+					{{/hasMobileApp}}
+					{{/hasMobile}}
+					<li class="more" style="display:none"> &lt;!&ndash; on_layer &ndash;&gt;
+						<a href=""><span class="more" title="more"></span></a>
+						<div class="gnb_top_menu" style="display:none">
+							<ul id="subMenu">
+							</ul>
+						</div> 
+					</li>
+				</ul>
+			</nav>
+			<section class="my_info">
+				<div class="profile">                      
+					<span class="info">
+						<a class="name" href="{{contextRoot}}admin/profile"title="{{model.email}}" alt="{{model.email}}">{{model.name}} {{model.positionName}}</a>
+					</span>
+				</div>
+				<ul class="ctrl">
+					<li><a data-help class="btn_help" title="{{label_guide}}"><span>{{label_guide}}</span></a></li>
+					<li><a href="{{contextRoot}}logout" class="btn_logout" title="{{label_logout}}"><span>{{label_logout}}</span></a></li>
+				</ul>
+			</section>
+		</header>
+	
+	
+	<div class="admin_body">
+	
+	<!--@side : common-->
+		<div class="admin_side">
+	
+	    </div>	
+		<div class="admin_content">
+			<header class="content_top">
+				<h1><span class="title" id="layoutTitle">{{title}}</span><span class="title" id="layoutTitleOption"></span></h1>
+			</header>
+			<div id="layoutContent" class="content_page">
+			
+			</div>
+		</div>
+	
+	<!--  // Layer -->
+	</div>
+	<div class="tFooter">
+		<section class="setting">
+			Last login : {{lastLoginedAt}} 
+		</section>
+		<section class="meta">
+			<small class="copyright">Copyright <strong>DAOU TECHNOLOGY INC.</strong> All rights reserved.</small>
+		</section>
+	</div>
+</div>
+
+
+
+
+
+
+

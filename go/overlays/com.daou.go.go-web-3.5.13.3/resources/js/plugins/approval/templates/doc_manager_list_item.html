@@ -1,0 +1,167 @@
+{{#columns.선택}}
+<td class="check"><input class="doc_manager_item_checkbox" data-id="{{doc.id}}" name="checkbox_docmanage"
+                         type="checkbox"/></td>
+{{/columns.선택}}
+{{#columns.문서ID}}
+<td><span class="txt">{{doc.id}}</span></td>
+{{/columns.문서ID}}
+{{#columns.기안일}}
+<td class="date"><span class="txt">{{doc.draftedAt}}</span></td>
+{{/columns.기안일}}
+{{#columns.완료일}}
+<td class="date"><span class="txt">{{doc.completedAt}}</span></td>
+{{/columns.완료일}}
+{{#columns.수신일}}
+<td class="date first"><span class="txt">{{doc.arrivedAt}}</span></td>
+{{/columns.수신일}}
+
+{{#columns.접수일}}
+<td class="date first"><span class="txt">{{doc.receivedAt}}</span></td>
+{{/columns.접수일}}
+{{#columns.생성일}}
+{{#doc.isTempsave}}
+<td class="date first"><span class="txt">{{doc.updatedAt}}</span></td>
+{{/doc.isTempsave}}
+{{^doc.isTempsave}}
+<td class="date first"><span class="txt">{{doc.createdAt}}</span></td>
+{{/doc.isTempsave}}
+{{/columns.생성일}}
+{{#columns.구분}}
+<td class="doc"><span class="txt">{{doc.docTypeName}}</span></td>
+{{/columns.구분}}
+{{#columns.부서공문결재일}}
+<td class="date"><span class="txt">{{doc.completedAt}}</span></td>
+{{/columns.부서공문결재일}}
+{{#columns.결재양식}}
+<td class="division"><span class="txt">{{doc.formName}}</span></td>
+{{/columns.결재양식}}
+{{#columns.긴급}}
+<td class="doc_emergency">
+    {{#doc.isEmergency}}
+    <span class="state emergency">{{lang.긴급}}</span>
+    {{/doc.isEmergency}}
+</td>
+{{/columns.긴급}}
+{{#columns.검색결재양식}}
+<td class="division"><span class="txt">{{{doc.formName}}}</span></td>
+{{/columns.검색결재양식}}
+{{#columns.제목}}
+<td class="subject">
+    {{#doc.isReceive}}
+    <span class="state ghost">{{lang.수신}}</span>
+    {{/doc.isReceive}}
+    <a><span class="txt" style="cursor:pointer;">{{doc.title}}</span></a>
+    {{#doc.hasAdditionalInfo}}
+    <span class="btn_wrap">
+        <a><span class="wrap_ic" title="{{lang.댓글}}">
+            <span class="ic_classic ic_reply"></span>
+            <span class="num">{{doc.commentCount}}</span>
+        </span></a>
+        <span class="space"></span>
+        <a><span class="wrap_ic" title="{{lang.의견}}">
+            <span class="ic_classic ic_opinion"></span>
+            <span class="num">{{doc.replyCount}}</span>
+        </span></a>
+    </span>
+    {{/doc.hasAdditionalInfo}}
+</td>
+{{/columns.제목}}
+{{#columns.접수상태}}
+<td class="doc"><span class="txt">{{doc.receiveStatusName}}</span></td>
+{{/columns.접수상태}}
+{{#columns.검색제목}}
+<td class="subject">
+    {{#doc.isReceive}}
+    <span class="state ghost">{{lang.수신}}</span>
+    {{/doc.isReceive}}
+    <a><span class="txt">{{{doc.title}}}</span></a>
+</td>
+{{/columns.검색제목}}
+{{#columns.첨부}}
+<td class="attach">
+    {{#doc.hasAttach}}
+    <a id="attach"><span class="ic ic_file_s" title="{{lang.첨부}}"></span><span
+            class="num">{{doc.attachCount}}</span></a>
+    {{/doc.hasAttach}}
+</td>
+{{/columns.첨부}}
+{{#columns.기안자}}
+<td class="writer"><a><span class="txt">{{doc.drafterName}}</span></a></td>
+{{/columns.기안자}}
+
+
+{{#columns.상태}}
+<td class=""><a><span class="state {{doc.holdStatusClass}}">{{doc.holdStatusName}}</span></a></td>
+{{/columns.상태}}
+{{#columns.승인자}}
+<td><span class="txt">{{doc.officialApprovalName}}</span></td>
+{{/columns.승인자}}
+{{#columns.승인상태}}
+<td class="state_wrap">
+    {{#doc.useDocInfo}}
+    <a><span class="state {{doc.officialStateClass}}">{{doc.officialStateName}}</span></a>
+    {{/doc.useDocInfo}}
+    {{^doc.useDocInfo}}
+    <span class="state {{doc.officialStateClass}}">{{doc.officialStateName}}</span>
+    {{/doc.useDocInfo}}
+</td>
+{{/columns.승인상태}}
+
+
+{{#columns.검색기안자}}
+<td class="writer"><a><span class="txt">{{{doc.drafterName}}}</span></a></td>
+{{/columns.검색기안자}}
+{{#columns.기안부서}}
+<td><span class="txt">{{doc.drafterDeptName}}</span></td>
+{{/columns.기안부서}}
+{{#columns.현재결재자}}
+<td><span class="txt">{{doc.currentActivityUsers}}</span></td>
+{{/columns.현재결재자}}
+{{#columns.최종결재자}}
+<td><span class="txt">{{doc.finalActivityUsers}}</span></td>
+{{/columns.최종결재자}}
+
+{{#columns.시행문}}
+<td class="txt"><span class="txt">{{doc.officialFormName}}</span></td>
+{{/columns.시행문}}
+{{#columns.발신명의}}
+<td class="txt"><span class="txt">{{doc.officialSenderName}}</span></td>
+{{/columns.발신명의}}
+{{#columns.직인}}
+<td class="txt"><span class="txt">{{doc.officialSignName}}</span></td>
+{{/columns.직인}}
+
+{{#columns.담당자}}
+<td class="writer"><a><span class="txt">{{doc.receiverUserName}}</span></a></td>
+{{/columns.담당자}}
+{{#columns.문서번호}}
+<td class="doc_num"><span class="txt">{{doc.docNum}}</span></td>
+{{/columns.문서번호}}
+{{#columns.검색문서번호}}
+<td class="doc_num"><span class="txt">{{{doc.docNum}}}</span></td>
+{{/columns.검색문서번호}}
+{{#columns.원문번호}}
+<td class="doc_num"><span class="txt">{{doc.receptionOriginDocNum}}</span></td>
+<td class="doc_num"><span class="txt">{{doc.receptionOriginDocNum}}</span></td>
+{{/columns.원문번호}}
+{{#columns.발송일}}
+<td class="date"><span class="txt">{{doc.sentAt}}</span></td>
+{{/columns.발송일}}
+{{#columns.연동여부}}
+<td class="doc_emergency"><span class="txt">{{doc.useIntegration}}</span></td>
+{{/columns.연동여부}}
+{{#columns.결재상태}}
+    {{#isActivePopup}}
+    <td class="state_wrap"><a><span class="state {{doc.statusClass}}">{{doc.docStatus}}</span></a></td>
+    {{/isActivePopup}}
+    {{^isActivePopup}}
+    <td class="state_wrap"><span class="state {{doc.statusClass}}">{{doc.docStatus}}</span></td>
+    {{/isActivePopup}}
+{{/columns.결재상태}}
+{{#columns.결재일}}
+<td class="date"><span class="txt">{{doc.completedAt}}</span></td>
+{{/columns.결재일}}
+{{#columns.수신부서}}
+<td><span class="txt">{{doc.receivedDocOwnerDeptName}}</span></td>
+{{/columns.수신부서}}
+

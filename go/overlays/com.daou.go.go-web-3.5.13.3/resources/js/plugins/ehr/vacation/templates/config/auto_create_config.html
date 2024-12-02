@@ -1,0 +1,43 @@
+<div class="wrap_tb_box annual_set_criteria">
+    <h1 class="s_title">{{{lang.연차생성기준타이틀}}}</h1>
+    <div class="wrap_tb_shadow">
+        <table class="form_type form_hr">
+            <tbody>
+            <tr>
+                <th>
+                    <span class="title">{{lang.연차생성 기준}}</span>
+                </th>
+                <td {{#model.useAutoCreate}} class="disabled" {{/model.useAutoCreate}}>
+                    <span class="wrap_select">
+                        <select id="base_policy_select" {{#model.useAutoCreate}} disabled {{/model.useAutoCreate}}>
+                            <option value="YEAR_BASE" {{^isHireDateBase}} selected {{/isHireDateBase}}>{{lang.회계연도 기준}}</option>
+                            <option value="HIRE_DATE_BASE" {{#isHireDateBase}} selected {{/isHireDateBase}}>{{lang.입사일자 기준}}</option>
+                        </select>
+                    </span>
+                    <span class="horspace1"></span>
+                    <span id="baseYearDateArea" {{#isHireDateBase}} style="display: none" {{/isHireDateBase}}>
+                        <span class="txt">{{lang.기준일}}</span>
+                        <span class="wrap_date">
+                            <input class="txt wfix_small txt_mini" type="text" name="" id="baseYearDate" value="{{model.baseYearDate}}" readonly="readonly">
+                            <span class="ic ic_calendar"></span>
+                        </span>
+                    </span>
+                    {{#model.useAutoCreate}}
+                    <span class="btn_wrap">
+                        <span class="btn_major_s">{{lang.연차시작하기}}</span>
+                    </span>
+                    <p><span class="txt">{{lang.연차시작후설명}}</span></p>
+                    {{/model.useAutoCreate}}
+
+                    {{^model.useAutoCreate}}
+                    <span class="btn_wrap">
+                        <span class="btn_major_s" id="btn_auto_create_config">{{lang.연차시작하기}}</span>
+                    </span>
+                    <p><span class="txt">{{lang.연차시작설명}}</span></p>
+                    {{/model.useAutoCreate}}
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

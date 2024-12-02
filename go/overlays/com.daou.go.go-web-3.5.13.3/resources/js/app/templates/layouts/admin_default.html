@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<div class="tWrap go_skin_default ">
+	<div class="wrap_gnb admin_side_new"></div>
+	<div class="admin_content">
+	<div class="wrap_snb" id="top_menu"></div>
+		<header class="content_top" id="layoutTitle"></header>
+		<div class="content_page" id="layoutContent" ></div>
+	</div>
+</div>
+{{#isLocaleKo}}
+<div id="do_start_layer" class="layer_dostart" style="display:none; bottom:130px;">
+	<iframe src="{{iframeSrc}}" frameborder="0"></iframe>
+	<a class="btn_area" title="닫기"></a>
+</div>
+{{^removeDoStartDone}}
+<a id="do_start_btn" class="btn_dostart" style="bottom: 70px">
+	<span class="ic_adm ic_question_w"></span>
+	<span class="txt">다우오피스 시작하기</span>
+	<span class="ic_adm ic_cancel_s_w"></span>
+</a>
+{{/removeDoStartDone}}
+{{^removeLookAroundOrgDone}}
+<a id="look_around_org_btn" class="btn_dostart" style="bottom: 24px">
+	<span class="ic_adm ic_question_w"></span>
+	<span class="txt">조직관리 둘러보기&nbsp;&nbsp;&nbsp;</span>
+	<span class="ic_adm ic_cancel_s_w"></span>
+</a>
+{{/removeLookAroundOrgDone}}
+{{/isLocaleKo}}
+
+
+
+
+

@@ -1,0 +1,69 @@
+<fieldset>
+	<table class="form_type">
+		<colgroup>
+			<col width="70px">
+			<col width="*">
+		</colgroup>
+		<tbody>
+		<tr>
+			<th>
+				<span class="title">{{lang.keyword}}</span>
+			</th>
+			<td>
+				<input id="keyword" name="keyword" class="txt_mini w_max" type="text">
+				
+				<span class="vertical_option" style="display:none;">
+					<span class="wrap_option"><input id="searchAttachContents" name="searchAttachContents" type="checkbox"><label for="searchAttachContents">{{lang.content_search}}</label></span>
+				</span>
+			</td>
+		</tr>
+		<tr>
+			<th><span class="title">{{lang.period}}</span></th>
+			<td class="last">
+				<ul class="select_option">
+					<li>
+						<span class="option_wrap">
+							<input id="radioAll" name="term" type="radio" checked="" value="all">
+							<label for="radioAll">{{lang.all}}</label>
+						</span>
+					</li>
+					<li>
+						<span class="option_wrap">
+							<input id="radio1Week" name="term" type="radio" value="-1">
+							<label for="radio1Week">{{lang.aweek}}</label>
+						</span>
+					</li>
+					<li>
+						<span class="option_wrap">
+							<input type="radio" id="radio2Week" name="term" value="-2">
+							<label for="radio2Week">{{lang.twoweeks}}</label>
+						</span>
+					</li>
+					<li>
+						<span class="option_wrap">
+							<input type="radio" id="radio1Month" name="term" value="month">
+							<label for="radio1Month">{{lang.amonth}}</label>
+						</span>
+					</li>
+					
+					<li>
+						<span class="option_wrap">
+							<input type="radio" id="radioDirectly" name="term" value="directly">
+							<label for="radioDirectly">{{lang.directly}}</label>
+						</span>
+						<span class="noti_date_wrap option_wrap">
+							<input name="fromDate" data-type="datepicker" id="fromDate" class="input wfix_medium" type="text" disabled="disabled">
+							<span class="ic ic_calendar"></span>
+						</span>
+						~
+						<span class="noti_date_wrap option_wrap">
+							<input name="toDate" data-type="datepicker" id="toDate" class="input wfix_medium" type="text" disabled="disabled">
+							<span class="ic ic_calendar"></span>
+						</span>
+					</li>
+				</ul>
+			</td>	
+		</tr>							
+		</tbody>
+	</table>						
+</fieldset>

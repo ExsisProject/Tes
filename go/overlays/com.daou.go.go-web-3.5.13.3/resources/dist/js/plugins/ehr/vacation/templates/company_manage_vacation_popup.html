@@ -1,0 +1,119 @@
+<table class="form_type go_form_basic">
+    <tbody>
+    {{#isSingleSelected}}
+    <tr>
+        <th><span class="title">{{lang.이름}}</span></th>
+        <td><span class="txt">{{data.userName}} {{data.deptName}}</span></td>
+    </tr>
+    <tr>
+        <th><span class="title">{{lang.입사일}}</span></th>
+        {{#accountUseEhr}}
+        <td>
+            <span class="txt" id="hire_date">{{data.hireDate}}</span>
+            <span class="space"></span>
+            <span class="help">
+                <span class="tool_tip top ">
+                    경리회계 사원정보관리에서 입력된 입사일자가 보여집니다.
+                </span>
+            </span>
+            <span class="vertical_wrap">
+                <a class="txt_a" href="https://eacc.daouoffice.com?email={{email}}" >경리회계 바로가기</a>
+            </span>
+        </td>
+        {{/accountUseEhr}}
+        {{^accountUseEhr}}
+        <td>
+            <span class="wrap_date">
+                <input class="txt wfix_small txt_mini" id="hire_date" type="text" readonly="readonly">
+                <span class="ic ic_calendar"></span>
+            </span>
+        </td>
+        {{/accountUseEhr}}
+    </tr>
+    {{/isSingleSelected}}
+    <tr>
+        <th>
+            <span class="title">{{lang.연차 자동 생성}}</span>
+            <span class="help">
+                    <span class="tool_tip">
+                        {{#isSingleSelected}}
+                        {{{lang.단일 자동 생성 설명}}}
+                        {{/isSingleSelected}}
+                        {{^isSingleSelected}}
+                        {{{lang.다중 자동 생성 설명}}}
+                        {{/isSingleSelected}}
+                        <i class="tail_left"></i>
+            </span>
+                    </span>
+        </th>
+        <td>
+            {{#isSingleSelected}}
+            <span class="ic_control ic_ctrl_{{data.autoCreateActivate}}" id="autoCreateConfig" data-value = {{data.autoCreateActivate}}></span>
+            <p class="desc">
+                {{#data.autoCreateChangedAt}}
+                <span class="txt">{{lang.연차 자동 생성}} {{data.autoCreateActivateInfo}} {{lang.설정일}} : {{data.autoCreateChangedAt}}</span>
+                {{/data.autoCreateChangedAt}}
+            </p>
+            {{/isSingleSelected}}
+            {{^isSingleSelected}}
+            <span class="ic_control ic_ctrl_on" id="autoCreateConfig" data-value = on></span>
+            {{/isSingleSelected}}
+          </td>
+    </tr>
+    <tr>
+        <th>
+            <span class="title">{{lang.선택}}</span>
+        </th>
+        <td>
+            <span class="wrap_option"><input type="radio" id="type_year" name="vacation_type" checked value="YEAR"><label for="type_year"> {{lang.발생 연차}}</label></span>
+            <span class="horspace1"></span>
+            {{#isSingleSelected}}
+            <span class="wrap_option"><input type="radio" id="type_month" name="vacation_type" value="MONTH"><label for="type_month">{{lang.1년 미만자 월차}}</label></span>
+            <span class="horspace1"></span>
+            {{/isSingleSelected}}
+            <span class="wrap_option"><input type="radio" id="type_etc" name="vacation_type" value="ETC"><label for="type_etc">{{lang.조정 연차}}</label></span>
+
+        </td>
+    </tr>
+    <tr>
+        <th><span class="title">{{lang.연차 수}}</span></th>
+        <td><span class="wrap_txt"><input class="txt wfix_small txt_mini" type="text" id="point" value="0" style="padding: 5px 4px;"></span>
+            <span class="wrap_select">
+                <select class="" id="operation">
+                    <option value="ADD">{{lang.추가}}</option>
+                    <option value="MINUS">{{lang.제외}}</option>
+                </select>
+                {{#isSingleSelected}}
+                <span id='restYearPoint' style="margin-left:4px; color: red;">({{lang.발생 연차}} : {{data.yearPoint}}, {{lang.잔여 연차}} : {{data.restPoint}})</span>
+                <span id='restMonthPoint' style="margin-left:4px; color: red; display: none;">({{lang.1년 미만자 월차}} : {{data.monthPoint}}, {{lang.잔여 연차}} : {{data.restPoint}})</span>
+                <span id='restAdditionPoint' style="margin-left:4px; color: red; display: none;">({{lang.조정 연차}} : {{data.additionPoint}}, {{lang.잔여 연차}} : {{data.restPoint}})</span>
+                {{/isSingleSelected}}
+            </span>
+        </td>
+    </tr>
+    <tr id="vacation_period" {{^isUsePeriod}} style="display: none" {{/isUsePeriod}}>
+        <th><span class="title">{{lang.사용기한}}</span></th>
+        <td>
+            <!--//조정연차 선택 시 노출 -->
+            <div>
+                <span class="wrap_date">
+                    <input class="txt wfix_small txt_mini" type="text" id="expired_date" readonly="readonly">
+                    <span class="ic ic_calendar"></span>
+                </span>
+            </div>
+            <!-- 기한설정 선택 시 노출 //-->
+        </td>
+    </tr>
+    <tr id="vacation_year_desc" class="txt" {{#isUsePeriod}} style="display: none" {{/isUsePeriod}}>
+        <th><span class="title">{{lang.사용기한}}</span></th>
+        <td>
+            <div>{{lang.회계연도 또는 입사일 기준에 따라 적용됩니다}}</div>
+        </td>
+    </tr>
+
+    <tr>
+        <th><span class="title">{{lang.내용}}</span></th>
+        <td><textarea id="reason" class="" placeholder=""></textarea></td>
+    </tr>
+    </tbody>
+</table>

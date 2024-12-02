@@ -1,0 +1,13 @@
+
+<div class="tab_menu_wrap">
+    <ul class="tab_menu round file_tab">
+        {{#hasApproval}}<li class="active" data-content="Approval"><span class="txt">{{lang.approval}}</span></li>{{/hasApproval}}
+        {{#hasBoard}}<li class="" data-content="Board"><span class="txt">{{lang.board}}</span></li>{{/hasBoard}}
+        {{#hasTask}}<li class="" data-content="Task"><span class="txt">{{lang.task}}</span></li>{{/hasTask}}
+        {{#hasReport}}<li class="" data-content="Report"><span class="txt">{{lang.report}}</span></li>{{/hasReport}}
+        {{#hasContact}}<li class="" data-content="Contact"><span class="txt">{{lang.contact}}</span></li>{{/hasContact}}
+    </ul>
+</div>
+
+<div class="dataTables_wrapper" id="deptDataList" style="display:none">
+</div>

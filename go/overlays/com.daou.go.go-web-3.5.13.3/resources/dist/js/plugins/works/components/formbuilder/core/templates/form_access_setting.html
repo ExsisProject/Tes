@@ -1,0 +1,37 @@
+<li>
+	<div>
+		<label>{{lang.폼 이름}}</label>
+		<i class="asterisk">*</i>
+	</div>
+	<div>
+		<input type="text" name="name" value="{{formName}}" class="txt_mini tool_txt" placeholder="{{lang.이름을 입력해주세요}}" title="{{lang.폼 이름}}" maxlength="100">
+	</div>
+</li>
+<li>
+	<div>{{lang.공개 설정}}</div>
+	<div class="wrap_attr_mini" id="selectAccessPolicy">
+		<div class="wrap_input_sub">
+			<input type="radio" name="accessSetting" id="black" value="black" class="tool_chk" checked="checked"><label for="black">{{lang.공개}}</label>
+		</div>
+		<div class="wrap_input_sub">
+			<input type="radio" name="accessSetting" id="white" value="white" class="tool_chk"><label for="white">{{lang.비공개}}</label>
+		</div>
+	</div>
+
+</li>
+<li>
+	<div class="vertical_tit_wrap">
+		<label id="selectedClass" class="tit">{{lang.차단할 클래스 선택}}</label>
+		<span id="accessUser"></span>
+		<label id="exceptedClass" class="tit">{{lang.예외 허용 클래스 선택}}</label>
+		<span class="help">
+			<span id="exceptedClassToolTip" class="tool_tip"></span>
+		</span>
+		<span id="exceptionUser"></span>
+	</div>
+</li>
+{{#mainForm}}
+<li>
+	<p>{{{lang.메인폼 설명}}}</p>
+</li>
+{{/mainForm}}

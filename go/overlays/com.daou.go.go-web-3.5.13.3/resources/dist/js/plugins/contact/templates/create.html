@@ -1,0 +1,303 @@
+<header class="content_top">
+	<h1>   
+		<span class="txt">{{lang.contact_add}}</span>	
+	</h1>	
+</header>	
+<div class="content_page">
+	<form id="contactCreateId" name="formContactCreate">
+		<fieldset>
+			<table class="form_type">
+				<colgroup>
+					<col width="130px"/>
+					<col width="*"/>
+				</colgroup>
+				<tbody>
+				<tr>
+					<th><span class="title">{{lang.image}}</span></th>
+					<td>
+					<span class="img_profile" style="overflow:hidden">
+						<span class="btn_edit_photo" style="color:red" id="swfupload-control">
+						</span>
+						<img src="{{contextRoot}}resources/images/photo_profile_large.jpg" alt="" id="thumbnail_image" data-filename="" data-filepath=""/>
+					</span>
+					<span class="btn_fn7" id="del_photo" data-role="button">{{lang.delete}}</span>
+                       <div class="wrap_desc"><span class="desc">{{lang.imageUploadInfo}}</span></div>
+					</td>
+				</tr>
+				<tr>
+					<th><span class="title">{{lang.lastName}}</span></th>
+					{{#data}}
+					<td>
+						<span  class="txt_edit">
+							<input name="lastName" class="input wfix_large" type="text">
+							{{#isJapanese}}
+							<span class="title" style="margin-left: 10px">{{lang.hurigana}}</span>
+							<input name="lastNameHurigana" class="input wfix_large" type="text" value="{{lastNameHurigana}}"/>
+							{{/isJapanese}}
+						</span>
+					</td>
+					{{/data}}
+				</tr>
+				<tr>
+					<th><span class="title">{{lang.firstName}}</span></th>
+					{{#data}}
+					<td>
+						<span  class="txt_edit">
+							<input name="firstName" class="input wfix_large" type="text">
+							{{#isJapanese}}
+							<span class="title" style="margin-left: 10px">{{lang.hurigana}}</span>
+							<input name="firstNameHurigana" class="input wfix_large" type="text">
+							{{/isJapanese}}
+						</span>
+					</td>
+					{{/data}}
+				</tr>
+				<tr>
+					<th><span class="title">{{lang.middleName}}</span></th>
+					{{#data}}
+					<td>
+						<span  class="txt_edit">
+							<input name="middleName" class="input wfix_large" type="text">
+							{{#isJapanese}}
+							<span class="title" style="margin-left: 10px">{{lang.hurigana}}</span>
+							<input name="middleNameHurigana" class="input wfix_large" type="text">
+							{{/isJapanese}}
+						</span>
+					</td>
+					{{/data}}
+				</tr>
+				<tr>
+					<th><span class="title">{{lang.name}}</span>
+						<ins class="asterisk">*</ins>
+					</th>
+					{{#data}}
+					<td>
+						<span  class="txt_edit">
+							<input name="name" value="{{name}}" class="input wfix_large" type="text" />
+							{{#isJapanese}}
+							<span class="title" style="margin-left: 10px">{{lang.hurigana}}</span>
+							<input name="nameHurigana" class="input wfix_large" type="text">
+							{{/isJapanese}}
+						</span>
+					</td>
+					{{/data}}
+				</tr>
+				<tr>
+					<th><span class="title">{{lang.company}}</span>
+					</th>
+					<td><span class="txt_edit"><input name="companyName" class="input wfix_large" type="text"/></span></td>
+				</tr>
+				<tr>
+					<th><span class="title">{{lang.dept}}</span>
+					</th>
+					<td><span class="txt_edit"><input name="departmentName" class="input wfix_large" type="text"/></span></td>
+				</tr>
+								<tr>
+					<th><span class="title">{{lang.position}}</span>
+					</th>
+					<td><span class="txt_edit"><input name="positionName" class="input wfix_large" type="text"/></span></td>
+				</tr>
+				<tr class="line">
+					<th><span class="title">{{^isCompany}}{{lang.group}}{{/isCompany}}{{#isCompany}}{{lang.contact}}{{/isCompany}}</span></th>
+					<td>
+						<ul id="groupNameTag" class="name_tag">
+							{{#group}}
+							<li data-id="{{id}}">
+								<input type="hidden" name="groupId" value="{{id}}">
+									<span class="name">{{name}}</span>{{^isCompany}}<span class="btn_wrap"><span class="ic_classic ic_del" title="{{lang.delete}}"></span>{{/isCompany}}</span>
+							</li>
+							{{/group}}
+							{{^isCompany}}
+							<li class="creat" id="groupCreate" >
+									<span class="btn_wrap"><span class="ic_form ic_addlist"></span><span class="txt">{{lang.group_create}}</span></span>
+							</li>
+							{{/isCompany}}
+						</ul>																		
+					</td>
+				</tr>
+				<tr>
+					<th><span class="title">{{lang.email}}</span>
+					</th>
+					{{#data}}
+						{{^email}}
+						<td><span class="txt_edit"><input name="email" class="input wfix_large" type="text"/></span></td>
+						{{/email}}
+						{{#email}}
+						<td>
+							<span class="txt_edit" style="display:none">
+								<input name="email" class="input wfix_large" type="text">
+							</span>
+							<span class="txt_form  contact_item_modify">{{email}}
+								<span class="tool_tip btn_wrap">
+								<span class="ic_side ic_edit" title="{{lang.item_modify}}"></span></span>
+								<input name="email" type="hidden" value="{{email}}"/>
+							</span>
+						</td>
+						{{/email}}
+					{{/data}}
+                    {{^data}}
+						<td><span class="txt_edit"><input name="email" class="input wfix_large" type="text"/></span></td>
+                    {{/data}}
+				</tr>
+				<tr>
+					<th>
+                        <span class="title">{{lang.phone}}</span>
+                        <span class="help"><span class="tool_tip">{{{lang.phone_desc}}}<i class="tail_left"></i></span></span>
+					</th>
+					{{#data}}
+						{{^phone}}
+						<td><span class="txt_edit"><input name="mobileNo" class="input wfix_large" type="text"/></span></td>
+						{{/phone}}
+						{{#phone}}
+						<td>
+							<span class="txt_edit" style="display:none">
+								<input name="mobileNo" class="input wfix_large" type="text">
+							</span>
+							<span class="txt_form contact_item_modify">{{phone}}
+								<span class="tool_tip btn_wrap">
+								<span class="ic_side ic_edit" title="{{lang.item_modify}}"></span></span>
+								<input name="mobileNo" type="hidden" value="{{phone}}"/>
+							</span>
+						</td>
+						{{/phone}}
+					{{/data}}
+                    {{^data}}
+						<td><span class="txt_edit"><input name="mobileNo" class="input wfix_large" type="text"/></span></td>
+                    {{/data}}
+				</tr>
+				<tr>
+					<th>
+                        <span class="title">{{lang.company_tel}}</span>
+                        <span class="help"><span class="tool_tip">{{{lang.phone_desc}}}<i class="tail_left"></i></span></span>
+					</th>
+					<td><span class="txt_edit"><input name="company_tel" class="input wfix_large" type="text"/></span></td>
+				</tr>
+				<tr>
+					<th><span class="title">{{lang.company_addr}}</span></th>
+					<td >
+						<span id="officeDetail" class="txt_edit">
+							<input name="company_basicAddress" class="input wfix_max" type="text" readonly="readonly">
+							<input name="company_country" class="input wfix_max" type="hidden">
+							<input name="company_postalCode" class="input wfix_max" type="hidden" >
+							<input name="company_state" class="input wfix_max" type="hidden">
+							<input name="company_city" class="input wfix_max" type="hidden">
+							<input name="company_extAddress" class="input wfix_max" type="hidden">
+							<span  title="{{lang.add_detail}}" class="ic_con ic_detail" evt-rol="viewLayerAddress" type="office"></span>
+						</span>
+					</td>
+				</tr>
+				<tr>
+					<th><span class="title">{{lang.description}}</span></th>
+					<td>
+						<span class="textarea">
+							<textarea name="description" class="edit w_max"></textarea>									
+						</span>
+					</td>
+				</tr>
+				<!--  hidden  -->
+				<tr style="display:none">
+					<th>
+						<span class="title">{{lang.nickName}}</span>
+					</th>
+					<td>
+						<span class="txt_edit"><input name="nickName" class="input wfix_large" type="text"/></span>
+					</td>
+				</tr>
+				<tr style="display:none">
+					<th>
+						<span class="title">{{lang.birthday}}</span>
+					</th>
+					<td>
+						<span class="noti_date_wrap option_wrap">
+							<input name="birthday" class="input wfix_large" type="text" id="birthdayDate"/>
+							<span id="birthdayDateIcon" class="ic ic_calendar"></span>
+						</span>
+					</td>
+				</tr >
+				<tr style="display:none">
+					<th>
+						<span class="title">{{lang.anniversary}}</span>
+					</th>
+					<td>
+						<span class="noti_date_wrap option_wrap">
+							<input name="anniversary" class="input wfix_large" type="text" id="anniversaryDate"/>
+							<span id="anniversaryDateIcon" class="ic ic_calendar"></span>
+						</span>
+					</td>
+				</tr>
+				<tr style="display:none">
+					<th>
+						<span class="title">{{lang.home_tel}}</span>
+                        <span class="help"><span class="tool_tip">{{{lang.phone_desc}}}<i class="tail_left"></i></span></span>
+					</th>
+					<td>
+						<span class="txt_edit"><input name="home_tel" class="input wfix_large" type="text"/></span>
+					</td>
+				</tr>
+				<tr style="display:none">
+					<th>
+						<span class="title">{{lang.home_addr}}</span>
+					</th>
+					<td >
+						<span id="homeDetail" class="txt_edit">
+							<input name="home_basicAddress" class="input wfix_max" type="text" readonly="readonly">
+							<input name="home_country" class="input wfix_max" type="hidden" >
+							<input name="home_postalCode" class="input wfix_max" type="hidden" >
+							<input name="home_state" class="input wfix_max" type="hidden" >
+							<input name="home_city" class="input wfix_max" type="hidden" >
+							<input name="home_extAddress" class="input wfix_max" type="hidden" >
+							<span  title="{{lang.add_detail}}" class="ic_con ic_detail" evt-rol="viewLayerAddress" type="office"></span>
+						</span>
+					</td>
+				</tr>
+				<tr style="display:none">
+					<th>
+						<span class="title">{{lang.home_fax}}</span>
+                        <span class="help"><span class="tool_tip">{{{lang.phone_desc}}}<i class="tail_left"></i></span></span>
+					</th>
+					<td>
+						<span class="txt_edit"><input name="home_fax" class="input wfix_large" type="text"/></span>
+					</td>
+				</tr>
+				<tr style="display:none">
+					<th><span class="title">{{lang.home_homepage}}</span>
+					</th>
+					<td><span class="txt_edit"><input name="home_homepage" class="input wfix_large" type="text"/></span></td>
+				</tr>
+				<tr style="display:none">
+					<th>
+                        <span class="title">{{lang.company_fax}}</span>
+                        <span class="help"><span class="tool_tip">{{{lang.phone_desc}}}<i class="tail_left"></i></span></span>
+					</th>
+					<td><span class="txt_edit"><input name="company_fax" class="input wfix_large" type="text"/></span></td>
+				</tr>
+				<tr style="display:none">
+					<th><span class="title">{{lang.company_homepage}}</span>
+					</th>
+					<td><span class="txt_edit"><input name="company_homepage" class="input wfix_large" type="text"/></span></td>
+				</tr>
+				<!--  hidden  -->
+				
+				<tr>
+					<th><span class="title">{{lang.item_add}}</span></th>
+					<td>
+						<select name="contactItem">
+							<option value="contactItemDesc">{{lang.select_desc}}</option>
+							{{#optionList}}
+							<option value="{{value}}">{{name}}</option>
+							{{/optionList}}
+						</select>
+					</td>
+				</tr>
+				<tr class="line"><td colspan="2"><hr /></td></tr>						
+				</tbody>
+			</table>
+		</fieldset>
+	</form>
+	<div class="page_action_wrap">
+		<a id="saveDone" data-bypass class="btn_major" data-role="button"><span class="txt">{{lang.save}}</span></a>
+		<a id="saveContinueDone" data-bypass class="btn_major" data-role="button"><span class="txt">{{lang.save_continue}}</span></a>
+		<a id="returnList" data-bypass class="btn_minor" data-role="button"><span class="txt">{{lang.return_list}}</span></a>
+		<a id="saveCancel" data-bypass class="btn_minor" data-role="button"><span class="txt">{{lang.cancel}}</span></a>				
+	</div>
+</div>

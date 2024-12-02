@@ -1,0 +1,1 @@
+define("sms/models/message",function(require){var e=require("backbone"),t=require("app"),n=e.Model.extend({url:function(){return t.config("contextRoot")+"api/sms"}});return n});

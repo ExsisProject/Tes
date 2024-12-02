@@ -1,0 +1,193 @@
+<div class="linkplus_detail_header">
+    <img class="service_logo" src="{{baseImgUrl}}kttelecop_logo.png" alt="">
+    <div class="info">
+        <p class="name">
+            케이티텔레캅
+
+            {{#isApply}}
+            <span class="linkplus_request">
+                <span class="txt">{{storeLang.신청중}}</span>
+                <span class="tooltip">
+                    {{storeLang.제휴사로 연결을 요청중입니다}}<br>
+                    {{storeLang.연결이 완료되면 사용하실 수 있습니다}}
+                </span>
+            </span>
+            {{/isApply}}
+
+            {{#inUse}}
+            <span class="linkplus_using">{{storeLang.사용중}}</span>
+            {{/inUse}}
+        </p>
+
+        <p class="desc">고객의 안전에 대한 니즈와 환경을 잘 파악하여 최적 설계된 방법센서와
+            Full HD급 고화질 영상을 동시에 제공하는 고객 맞춤형 출동보안 서비스를 제공하고 있습니다.</p>
+        <div class="meta">
+            <div class="critical">
+                <div class="list_album_meta">
+                    <span class="state ghost category">출입통제</span>
+                    <span class="state ghost service">케이티텔레캅(주)</span>
+                </div>
+            </div>
+            <div class="optional">
+                <a class="btn_minor" id="goToList">
+                    <span class="txt">{{commonLang.목록}}</span>
+                </a>
+
+                {{#canUse}}
+                <a class="btn_major " id="useService">
+                    <span class="txt">{{storeLang.사용하기}}</span>
+                </a>
+                {{/canUse}}
+
+                {{#canRegister}}
+                <a class="btn_major" id="register">
+                    <span class="txt">{{commonLang.신청하기}}</span>
+                </a>
+                {{/canRegister}}
+            </div>
+        </div>
+    </div>
+</div>
+<div class="linkplus_detail_display">
+    <div class="banner_rolling">
+        <div class="wrap_img" id="banner_container" style="width:801px; overflow:hidden; position:relative;">
+            <div id="banner_wrapper" style="width:2403px;position:absolute;">
+                <img src="{{baseImgUrl}}kttelecop_thum1.png" style="float:left;" alt="">
+                <img src="{{baseImgUrl}}kttelecop_thum2.png" style="float:left;" alt="">
+                <img src="{{baseImgUrl}}kttelecop_thum3.png" style="float:left;" alt="">
+            </div>
+        </div>
+        <a class="btn_banner_rolling prev" data-type="prev" data-rol="button">
+            <span class="ic_dashboard2 ic_prev" title="다음"></span>
+        </a>
+        <a  class="btn_banner_rolling next" data-type="next" data-rol="button">
+            <span class="ic_dashboard2 ic_next" title="다음"></span>
+        </a>
+        <div class="banner_rolling_page">
+            <span class="on"></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+</div>
+<div class="linkplus_detail_container">
+    <h2>국민보안! 우리기술이 만든 대한민국 No1</h2>
+    <p class="desc">
+        케이티텔레캅은 글로벌 고객만족도 5년 연속 1위 자리를 빛낸 대한민국 1등 안심 파트너입니다.<br>
+        고객과의 약속, 세상의 중요한 가치를 지키기 위해 첨단 정보통신 인프라는 바탕으로,
+        한걸음 더 앞선 융합 서비스 개발을 위해 늘 끊임없이 노력하고 있습니다.<br>
+        출동보안부터 영상보안, 각 종 보안솔루션까지 케이티텔레캅은 전문보안 컨설팅을 통해,
+        고객의 필요와 상황에 맞는 서비스들을 하나의 솔루션으로 제공합니다.<br>
+        ICT를 기반으로 세계에서 가장 안전하고 혁신적인 보안과 융합서비스를 제공함으로써,
+        앞으로도 국민의 편익을 도모할 수 있도록
+        언제 어디서나 안심할 수 있는 안심세상을 만드는 힘, 케이티텔레캅이 여러분을 든든하게 지켜드리겠습니다
+    </p>
+    <h2>가입/연동/혜택</h2>
+    <ul class="list_accordion">
+        <li>
+            <div class="subject">
+                <span class="txt">1. 서비스 상세 소개</span>
+                <div class="optional">
+                    <span class="ic24 arrow_t"></span>
+                </div>
+            </div>
+            <div class="desc on">
+                1) 방법관제 서비스 : 사업장 무인경비, <br>
+                2) 출입관리 서비스 : 사업장 출입자 관리, 통제 시스템<br>
+                3) 기업 특화서비스 : 외부 솔루션 연동 (그룹웨어 및 ERP 등)<br>
+                4) 모바일 알림 서비스 : 긴급 신호에 고객 모바일 알림<br>
+                5) 복무관리 : 유연근로제, PC제어, 모바일 관리<br>
+                <a class="serviceLink" data-url="https://www.kttelecop.co.kr">www.kttelecop.co.kr</a>
+            </div>
+        </li>
+        <li>
+            <div class="subject">
+                <span class="txt">2. 기업에서 사용하면 어떤 점이 좋을까요.</span>
+                <div class="optional">
+                    <span class="ic24 arrow_d"></span>
+                </div>
+            </div>
+            <div class="desc">
+                1) 확실한 보안관제 : 영상 + 신호 융합관제로 정확한 판단, 모바일 긴급신호 알림으로 확실한 대처가 가능합니다.<br>
+                2) 정확한 복무처리 : 출입, 근태 데이타 기반 실시간 근무시간 자동 집계 및 유연근로 스케쥴 수용<br>
+                3) 고객 맞춤 패키지 : 원하는 서비스만 선택 제공할 수 있어 보다 합리적인 운용 가능
+            </div>
+        </li>
+        <li>
+            <div class="subject">
+                <span class="txt">3. 서비스의 특징과 장점은 무엇일까요</span>
+                <div class="optional">
+                    <span class="ic24 arrow_d"></span>
+                </div>
+            </div>
+            <div class="desc">
+                1) 믿을 수 있는 국민기업 KT : 차별화된 정보통신기술로 업계최초 플랫폼 기반 보안서비스를 제공합니다. (클라운드 영상저장장치 / 보안주장치)<br>
+                2) 요금도 역시 KT가 최고! : 해외 기술로열티가 없고, KT통신 결합할인으로 가장 합리적인 요금혜택을 드립니다.<br>
+                3) AI 기반 지능형 출동 : 침입발생 시 출동대원의 위치와 이동경로를 분석하여 보다 빠르게 출동합니다.<br>
+                4) 지능형 영상관제 : 침입 발생 시 지능형 영상관제로 현장상황을 눈으로 보고 더욱 정확히 출동합니다.<br>
+                5) 차별화된 A/S : 365일 24시간 전국 A/S, 계약기간 중 무상 장비교체를 제공합니다.<br>
+                6) 업계 최고 보상서비스 : 도난/파손 최대 3억원 보상, 화재 최대 1억원 보상, 업계 유일 영상형 보험 최대 1천만원 보상
+            </div>
+        </li>
+        <li>
+            <div class="subject">
+                <span class="txt">4. 다우오피스와는 어떻게 연동되나요.</span>
+                <div class="optional">
+                    <span class="ic24 arrow_d"></span>
+                </div>
+            </div>
+            <div class="desc">
+                다우오피스와는 근태이력 연동으로 보다 간편한 서비스 이용이 가능합니다<br>
+                * 근태 연동 : KT텔레캅의 출입통제시스템에서 출/퇴근 시 체크한 출입 이력이 다우오피스의 ‘근태관리’ 기능에 연동되어,
+                모든 직원이 다우오피스를 통해 본인의 출/퇴근 이력을 확인하고 근태관리를 할 수 있습니다.
+            </div>
+        </li>
+        <li>
+            <div class="subject">
+                <span class="txt">5. 어떻게 가입하고 사용하나요.</span>
+                <div class="optional">
+                    <span class="ic24 arrow_d"></span>
+                </div>
+            </div>
+            <div class="desc">
+                1) 다우오피스 ‘Link+’ 에서 ‘케이티텔레캅’ 클릭 후 ‘신청하기’ 버튼 클릭<br>
+                2) 이동한 상담신청페이지에 내용 입력<br>
+                3) 케이티텔레캅에서 기입한 내용 확인 후, 영업상담 및 계약 진행 (기존 케이티텔레캅 고객일 경우, 연동가능 여부 확인 후 연동작업 진행)<br>
+                4) 가입 및 연동 오픈<br>
+                5) 전 직원 사용<br>
+                <a class="serviceLink" data-url="https://youtu.be/UaaGgVldne4">가입 및 사용 가이드 영상</a>
+            </div>
+        </li>
+        <li>
+            <div class="subject">
+                <span class="txt">6. 다우오피스를 통해 사용하면 드리는 혜택</span>
+                <div class="optional">
+                    <span class="ic24 arrow_d"></span>
+                </div>
+            </div>
+            <div class="desc">
+                1) 다우오피스와 연동이 무료!<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;개발인력 비용이 소요되는 ‘근태 연동’을 별도로 진행하시나요?<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;다우오피스에서는 ‘다우오피스 - 케이티텔레캅’간의 근태연동 비용이 무료입니다.<br>
+
+                2) 다우오피스 고객대상 할인 혜택<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;- 최대 30% 가격 할인 : 고화질 CCTV + 출동보안서비스 + 보상서비스를 견적가 대비 최대 30% 할인된 가격으로 제공<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;- 도난/파손 보상서비스 총 3천만원 한도 기본 제공! (업계 기본 1.5천만원)<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;- KT인터넷 사용 시 결합 할인받고, 롯데 클래식 제휴카드로 청구할인까지 추가 제공
+            </div>
+        </li>
+    </ul>
+    <h2>필수 확인사항</h2>
+    <p class="desc">
+        1.  다우오피스를 통해 가입한 고객 뿐만 아니라, 기존 ‘케이티텔레캅’를 사용 중이신 고객 모두 ‘근태이력’ 연동기능을 사용하실 수 있습니다.<br>
+        2. 해당 제휴서비스는 다우오피스에서 연동만 지원하며,  가입 및 결제, 고객지원 모두 제휴서비스인 ‘케이티텔레캅’에서 진행됩니다.<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;- ‘케이티텔레캅’ 가입 및 결제 , 고객지원 문의 : 1588-0112 <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;- 지원센터 운영시간 <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: (월~금요일) 오전 9시 00분 ~ 오후 6시 00분<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: (점심시간) 오전 11시 30분 ~ 오후 1시 30분
+    </p>
+    <div class="box linkplus_question">
+        <span class="ic_link ic_tooltip"></span>
+        {{storeLang.사이트 관리자에게 문의}}
+    </div>
+</div>

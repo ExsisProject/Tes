@@ -1,0 +1,52 @@
+<table id="previousTimelineApprovals" class="__se_tbl" style="width: 800px; margin-bottom:20px; margin-top : 0; border-collapse: collapse !important; color: black; background: white; font-size: 12px; font-family: malgun gothic,dotum,arial,tahoma;">
+    <tbody>
+        <tr>
+            <td width="100px"></td>
+            <td width="100px"></td>
+            <td width="100px"></td>
+            <td width="100px"></td>
+            <td width="100px"></td>
+            <td width="100px"></td>
+            <td width="100px"></td>
+            <td width="100px"></td>
+        </tr>
+        <tr>
+            <td colspan="8" style="background: rgb(255, 255, 255); padding: 5px; border: 1px solid black; height: 25px; text-align: left; color: rgb(0, 0, 0); font-size: 14px; font-weight: bold; vertical-align: middle;">이전 승인요청 내역</td>
+        </tr>
+        <tr>
+            <td colspan="1" style="background: rgb(221, 221, 221); padding: 5px; border: 1px solid black; height: 25px; text-align: center; color: rgb(0, 0, 0); font-size: 14px; font-weight: bold; vertical-align: middle;">
+
+                상태
+            </td>
+            <td colspan="1" style="background: rgb(221, 221, 221); padding: 5px; border: 1px solid black; height: 25px; text-align: center; color: rgb(0, 0, 0); font-size: 14px; font-weight: bold; vertical-align: middle;">
+
+                근무구분
+            </td>
+            <td colspan="1" style="background: rgb(221, 221, 221); padding: 5px; border: 1px solid black; height: 25px; text-align: center; color: rgb(0, 0, 0); font-size: 14px; font-weight: bold; vertical-align: middle;">
+                근무일시
+            </td>
+            <td colspan="5" style="background: rgb(221, 221, 221); padding: 5px; border: 1px solid black; height: 25px; text-align: center; color: rgb(0, 0, 0); font-size: 14px; font-weight: bold; vertical-align: middle;">
+
+                신청사유
+            </td>
+        </tr>
+    </tbody>
+    <tbody>
+    {{#data}}
+        <tr>
+            <td colspan="1" data-value="{{approvalStatus}}" style="padding: 3px; border: 1px solid black; height: 22px; text-align: center; color: rgb(0, 0, 0); font-size: 12px;  vertical-align: middle; background: rgb(255, 255, 255);">
+                {{approvalStatus}}
+            </td>
+            <td colspan="1" style="padding: 3px; border: 1px solid black; height: 22px; text-align: center; color: rgb(0, 0, 0); font-size: 12px;  vertical-align: middle; background: rgb(255, 255, 255);">
+                {{name}}
+            </td>
+            <td colspan="1" style="padding: 3px; border: 1px solid black; height: 22px; text-align: center; color: rgb(0, 0, 0); font-size: 12px;  vertical-align: middle; background: rgb(255, 255, 255);">
+                {{baseDate}}<br>({{workingTimeRange}})
+            </td>
+            <td colspan="5" style="padding: 3px; border: 1px solid black; height: 22px; text-align: center; color: rgb(0, 0, 0); font-size: 12px;  vertical-align: middle; background: rgb(255, 255, 255);">
+                {{reasons}}
+            </td>
+        </tr>
+    {{/data}}
+    </tbody>
+</table>

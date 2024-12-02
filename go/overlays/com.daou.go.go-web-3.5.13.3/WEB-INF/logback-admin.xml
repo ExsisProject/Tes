@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="30 Seconds">
+
+    <if condition='isDefined("log.base")'>
+        <then>
+            <property name="LOG_DIR" value="${log.base}/go_admin"/>
+        </then>
+        <else>
+            <property name="LOG_DIR" value="/opt/TerraceTims/log/go_admin"/>
+        </else>
+    </if>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <!-- encoders are assigned the type
+            ch.qos.logback.classic.encoder.PatternLayoutEncoder by default -->
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="ERRORS" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- rollover daily -->
+            <fileNamePattern>${LOG_DIR}/errors_%d{yyyyMMdd}.log</fileNamePattern>
+            <maxHistory>90</maxHistory>
+        </rollingPolicy>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>ERROR</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{30} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="QUARTZ" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- rollover daily -->
+            <fileNamePattern>${LOG_DIR}/quartz_%d{yyyyMMdd}.log</fileNamePattern>
+            <maxHistory>90</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{30} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="VACATION" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- rollover daily -->
+            <fileNamePattern>${LOG_DIR}/vacation_%d{yyyyMMdd}.log</fileNamePattern>
+            <maxHistory>90</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{30} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="CONNPOOL" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_DIR}/connpool_%d{yyyyMMdd}.log</fileNamePattern>
+            <maxHistory>90</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{30} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="ORG_SYNC" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_DIR}/orgsync_%d{yyyyMMdd}.log</fileNamePattern>
+            <maxHistory>90</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{30} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <logger name="com.daou.go.core.event.listner.oauth" level="info" additivity="false">
+        <appender-ref ref="ORG_SYNC"/>
+    </logger>
+
+    <logger name="com.daou.go.core.component.OrgSyncEventPublisher" level="info" additivity="false">
+        <appender-ref ref="ORG_SYNC"/>
+    </logger>
+
+    <logger name="com.zaxxer.hikari" level="trace" additivity="false">
+        <appender-ref ref="CONNPOOL"/>
+    </logger>
+
+    <logger name="com.mchange" level="debug" additivity="false">
+        <appender-ref ref="CONNPOOL"/>
+    </logger>
+
+    <logger name="org.quartz" level="info" additivity="false">
+        <appender-ref ref="QUARTZ"/>
+    </logger>
+
+    <logger name="org.springframework.scheduling" level="info" additivity="false">
+        <appender-ref ref="QUARTZ"/>
+    </logger>
+
+    <logger name="com.daou.go.scheduler" level="info" additivity="false">
+        <appender-ref ref="QUARTZ"/>
+    </logger>
+
+    <logger name="com.daou.go.core.job" level="info" additivity="false">
+        <appender-ref ref="QUARTZ"/>
+    </logger>
+
+    <logger name="com.daou.go.survey.job" level="info" additivity="false">
+        <appender-ref ref="QUARTZ"/>
+    </logger>
+
+    <logger name="com.daou.go.calendar.job" level="info" additivity="false">
+        <appender-ref ref="QUARTZ"/>
+    </logger>
+
+    <logger name="com.daou.go.report.job" level="info" additivity="false">
+        <appender-ref ref="QUARTZ"/>
+    </logger>
+
+    <logger name="com.daou.go.todo.job" level="info" additivity="false">
+        <appender-ref ref="QUARTZ"/>
+    </logger>
+
+    <logger name="com.daou.go.appr.job" level="info" additivity="false">
+        <appender-ref ref="QUARTZ"/>
+    </logger>
+
+    <logger name="com.daou.go.help.job" level="info" additivity="false">
+        <appender-ref ref="QUARTZ"/>
+    </logger>
+
+    <logger name="com.daou.go.ehr.attnd.job" level="info" additivity="false">
+        <appender-ref ref="QUARTZ"/>
+    </logger>
+
+    <logger name="com.daou.go.ehr.vacation.job" level="info" additivity="false">
+        <appender-ref ref="QUARTZ"/>
+    </logger>
+
+    <logger name="com.daou.go.ehr.vacation" level="info" additivity="false">
+        <appender-ref ref="VACATION"/>
+    </logger>
+
+    <logger name="com.daou.go.ehr.welfare.job" level="info" additivity="false">
+        <appender-ref ref="QUARTZ"/>
+    </logger>
+
+    <logger name="com.daou.go.ehr.timeline.job" level="info" additivity="false">
+        <appender-ref ref="QUARTZ"/>
+    </logger>
+
+    <logger name="com.daou.go.config.application.QuartzLocalAllSchedulerConfig" level="info" additivity="false">
+        <appender-ref ref="QUARTZ"/>
+    </logger>
+
+    <logger name="com.daou.go.core.service.login.job.LoginHistoryBatchJob" level="info" additivity="false">
+        <appender-ref ref="QUARTZ"/>
+    </logger>
+
+    <logger name="com.daou.go.oauth.job" level="info" additivity="false">
+        <appender-ref ref="QUARTZ"/>
+    </logger>
+
+    <logger name="org.hibernate.jpa.internal.metamodel.MetadataContext" level="off" additivity="false"/>
+
+    <root level="info">
+        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="ERRORS"/>
+    </root>
+
+</configuration>

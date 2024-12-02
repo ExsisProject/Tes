@@ -1,0 +1,1 @@
+define(["backbone"],function(e){var t=e.Collection.extend({model:e.Model,url:function(){return"/ad/api/"+this.groupValue+"/list"},setGroupName:function(e){this.groupValue=e.groupValue}});return{getGroupList:function(e){var n=new t;return n.setGroupName(e),n.fetch({async:!1,contentType:"application/json"}),n}}});

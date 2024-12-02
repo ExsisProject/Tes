@@ -1,0 +1,189 @@
+@charset "UTF-8";
+/*max 속성선언 : 3700개*/
+/*max 용량 : 250 KB*/
+* [unresolved] {display: none; font-size:13px; font-family: 맑은 고딕, 'Malgun Gothic', 돋움,dotum,AppleGothic,arial,Helvetica,sans-serif; color:#333}
+article, aside, figure, footer, header, hgroup, nav, section {display:block}
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,form,fieldset,p,button,input,figure {margin:0;padding:0}
+body,input, textarea, select {font-size:13px; font-family: 맑은 고딕, 'Malgun Gothic', 돋움,dotum,AppleGothic,arial,Helvetica,sans-serif; color:#333; letter-spacing: -1px}
+body,input, select {*word-break:break-all; -ms-word-wrap:break-all; white-space:normal; word-break:break-all}
+select:disabled {background-color: #eee; color:#999}
+h1 {font-size:20px}
+h2 {font-size:18px}
+h3 {font-size:16px}
+input,select,button{vertical-align:middle}
+img{vertical-align:top}
+a{color:#3b3b3b; text-decoration:none; cursor:pointer; vertical-align:middle}
+a:hover{text-decoration:none}
+span {vertical-align:middle}
+a img, img {border:0}
+ul, ol {list-style:none}
+table {border-collapse:collapse; width:100%}
+/* scroll */
+::-webkit-scrollbar {width: 10px; height: 10px;  }
+::-webkit-scrollbar-button:start:decrement, 
+::-webkit-scrollbar-button:end:increment {display: block; width: 10px;height: 0; background: url() rgba(0,0,0,.05)}
+::-webkit-scrollbar-track {     background: rgba(0,0,0,.05)}
+::-webkit-scrollbar-thumb {  background: rgba(0,0,0,.1)}
+/* common */
+.count {display: inline-block; color: #25cad3}
+.photo {display: inline-block}
+.photo img {display: inline-block; border-radius: 100%}
+textarea {box-sizing: border-box}
+/* z-index */
+.dropdown_menu {z-index: 1}
+/* component */
+.list > li {position: relative; padding: 10px; border-bottom: 1px solid #f5f5f5;}
+.list.nude > li {border-bottom: 0}
+.list_msg_opt .tit {position: relative; height: 45px; line-height: 45px; padding: 0 10px; cursor: pointer}
+.list_msg_opt .tit .ic_arrow {position: absolute; top: 20px; right: 10px}
+.list_msg_opt .btn_add {display: block; padding: 10px}
+.list_msg_opt > li {padding: 0 0 10px}
+.list_msg_opt > li:last-child {border-bottom: 0}
+.list_msg_opt > li .list_members > li {padding: 5px 10px; cursor: pointer}
+.list_msg_opt > li .list_members > li:hover {background: #f5f5f5}
+.list_msg_opt > li .list_members > li .ic_state {position: absolute; top: 12px; right: 10px}
+.list_msg_opt > li .list_members > li .photo img {width: 30px; height: 30px}
+.list_msg_opt > li .list_photo {margin: 0 10px}
+.list_msg_opt > li .list_photo:after {display: block; clear: left; content:''; overflow: hidden}
+.list_msg_opt > li .list_photo > li {display: inline-block; float: left; margin: 1%; width: 31%}
+.list_msg_opt > li .list_photo > li:nth-child(3n) {}
+.list_msg_opt > li .list_photo > li .photo img {border-radius: 0; width: 100%; height: 100%}
+.list_msg_attach li {cursor: pointer}
+.list_msg_attach li:hover {background: #f5f5f5}
+.list_msg_attach li .ic_file_v3 {position: absolute; top: 10px; left: 10px}
+.list_msg_attach li .info {margin: 0 0 0 40px}
+.list_msg_attach li .info .file_name {display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width:160px; font-size: 15px}
+.list_msg_attach li .info .user, .list_msg_attach li .info .part, .list_msg_attach li .info .date {display: inline-block; color: #888; margin: 0 2px 0 0; vertical-align: middle}
+.list_msg_attach li .file_size {display: inline-block; position: absolute; top: 0; right: 10px; color: #888}
+.list_msg_attach > li > a .size {display: inline-block; position: absolute; top: 6px; right: 10px}
+.bubble {display: inline-block; background-color: rgba(0, 0, 0, 0.1); padding: 10px; border-radius: 10px; min-width: 10px}
+.members_count {display: inline-block; border: 1px solid #ddd; border-radius: 2px; height: 14px; line-height: 14px; padding: 0 4px; color: #888}
+.push {display: inline-block; height: 19px; line-height: 1.4; padding: 0 6px; background: #25cad3; border-radius: 10px; color: #fff}
+.lnb {}
+.lnb li {position: relative; display: inline-block}
+.lnb li .ic_new {position: absolute; top: 5px; right: 5px}
+.gnb li {position: relative}
+.gnb li .ic_new {position: absolute; top: 7px; right: 5px}
+.gnb li a {display: block;  padding: 10px}
+.dropdown_menu {background: #fff; box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.3); padding: 10px 0}
+.dropdown_menu li a {display: block; padding: 5px 10px}
+.dropdown_menu li a:hover {background: #f5f5f5}
+.dropdown_menu li a .txt {white-space: nowrap}
+.lnb li > a {display: inline-block; padding: 10px;  -webkit-transition: background-color 0.3s; border-radius: 50px; min-width:16px}
+.search {position: relative; padding: 10px 10px 10px 30px; border-bottom: 1px solid #f5f5f5}
+.search input {border: 0; height: 40px; width: 100%; box-sizing: border-box; font-size: 15px}
+.search .ic_search {position: absolute; top: 22px; left: 10px}
+.msgs_list > li .tit {position: relative; background: #f5f5f5; cursor: pointer; padding: 6px 10px}
+.msgs_list > li .tit .ic_arrow_up, .msgs_list li .tit .ic_arrow_down {position: absolute; top: 11px; right: 10px; opacity: 0.5}
+.msgs_list li ul li {height: 55px}
+.msgs_list li ul li .photo {position: absolute; top: 14px; left: 10px}
+.msgs_list li ul li .photo img {width: 45px; height: 45px}
+.msgs_list li ul li .info {margin: 0 50px 0 55px}
+.msgs_list li ul li .info .main .name {display: inline-block; overflow: hidden; text-overflow: ellipsis; max-width: 140px; white-space: nowrap}
+.msgs_list li ul li .info .sub {overflow: hidden; height: 32px; color: #999; margin: 3px 0 0 0}
+.msgs_list li ul li .date {display: inline-block; position: absolute; top: 10px; right: 10px; color: #999}
+.msgs_list li ul li .push {display: inline-block; position: absolute; top: 40px; right: 10px}
+.msg {position: relative}
+.msg .photo {position: absolute; top: 0; left: 0}
+.msg .photo img {width: 40px; height: 40px}
+.msg .msg_row {position: relative; margin: 0 0 0 50px}
+.msg .msg_row .msg_body {margin: 5px 0 0 0; }
+.msg .msg_row .msg_body:after {display: block; clear: left; height: 0; overflow: hidden; content:''}
+.msg .msg_row .msg_body .bubble{max-width: calc(100% - 100px)}
+.msg .msg_row .msg_body .bubble_state {float: left; display: inline-block; width: 60px; height: 37px; margin: 0 0 0 5px}
+.msg .msg_row .msg_body .bubble_state .read_num {display: inline-block}
+.msg .msg_row .msg_body .bubble_state .date {display: inline-block}
+.msg .msg_row .msg_body .bubble {float: left; border-bottom-left-radius: 0}
+.msg .msg_row .msg_body:last-child .bubble {border-top-left-radius: 0; border-bottom-left-radius: 10px}
+.msg.me {text-align: right}
+.msg.me .msg_row:after {display: block; content:''; clear: left; height: 0; overlfow: hidden}
+.msg.me .msg_row { margin: 0 0 0 40px}
+.msg.me .msg_row .msg_body:after {display: block; clear: right; height: 0; overflow: hidden; content:''}
+.msg.me .msg_row .msg_body .bubble {float: right; margin: 0 0 0 15px}
+.msg.me .msg_row .msg_body .bubble_state {float: right}
+.msg.me .photo {display: none}
+.msg.me .bubble {background-color: rgba(38, 202, 211, 0.3);}
+/* icon */
+.ic {display: inline-block; background:url(../images/messenger/ic.png) no-repeat; color: transparent; font-size: 1px; overflow: hidden}
+.ic_file_v3 {display: inline-block; background:url(../images/messenger/ic_file_v3.png) no-repeat; color: transparent; font-size: 1px; overflow: hidden; width: 30px; height: 40px}
+.ic_file_v3.psd {background-position: 0px 0px}
+.ic.ic_gnb_organization {background-position: 0px -250px; width: 33px; height: 33px}
+.ic.ic_gnb_notice {background-position: -50px -250px; width: 33px; height: 33px}
+.ic.ic_gnb_setting {background-position: -100px -250px; width: 33px; height: 33px}
+.ic.ic_func_emoticon {background-position: 0px -150px; width: 16px; height: 15px}
+.ic.ic_func_emoticon {background-position: 0px -150px; width: 16px; height: 15px}
+.ic.ic_func_attach {background-position: -50px -150px; width: 16px; height: 15px}
+.ic.ic_func_attach {background-position: -100px -150px; width: 16px; height: 15px}
+.ic.ic_func_send {background-position: -150px -150px; width: 20px; height: 15px}
+.ic.ic_search {background-position: -150px -50px; width: 14px; height: 16px}
+.ic.ic_lnb_menu {background-position: 0px -50px; width: 15px; height: 15px}
+.ic.ic_lnb_service {background-position: -50px -50px; width: 15px; height: 15px}
+.ic.ic_lnb_alarm {background-position: -100px -50px; width: 15px; height: 15px}
+.ic.ic_new {background-position: 0px 0px; width: 5px; height: 5px}
+.ic.ic_nav_messege {background-position: -100px -100px; width: 26px; height: 26px}
+.ic.ic_nav_messege.on {background-position: 0px -100px; width: 26px; height: 26px}
+.ic.ic_nav_channel {background-position: -150px -100px; width: 26px; height: 26px}
+.ic.ic_nav_channel.on {background-position: -50px -100px; width: 26px; height: 26px}
+.ic.ic_arrow {background-position: 0px -200px; width: 10px; height: 6px}
+.ic.ic_arrow.up {background-position: 0px -200px; width: 10px; height: 6px}
+.ic.ic_arrow.down {background-position: -50px -200px; width: 10px; height: 6px}
+.ic.ic_arrow.up.flat {background-position: -100px -200px; width: 17px; height: 7px}
+.ic.ic_arrow.down.flat {background-position: -150px -200px; width: 17px; height: 7px}
+.ic.ic_add {background-position: -150px 0px; width: 14px; height: 14px}
+.ic.ic_state {width: 10px; height: 10px}
+.ic.ic_state.on {background-position: -50px 0px}
+.ic.ic_state.off {background-position: -100px 0px}
+.ic.ic_msg_opt {background-position: -200px 0px; width: 17px; height: 17px}
+/* button */
+.btn {display: inline-block; height: 32px; line-height: 32px; background: #25cad3; padding: 0 20px}
+.btn_add .txt {font-size: 15px}
+/* layout */
+html, body, .msn, .msn .header .wrap_gnb, .container {height: 100%}
+.msn {position: relative; min-width: 1000px}
+.msn .container {position: relative; margin: 0 0 0 60px}
+.msn .container .container_header {position: relative; height: 42px; border-bottom: 1px solid #e3e3e3}
+.msn .container .container_header .btn_company {position: absolute; top: 10px; left: 10px}
+.msn .container .container_header .btn_company .ic_arrow {display: none}
+.msn .container .container_header .btn_company.multi {cursor: pointer}
+.msn .container .container_header .btn_company.multi .dropdown_menu {position: absolute; top: 25px; left: 0}
+.msn .container .container_header .btn_company.multi .ic_arrow {display: inline-block}
+.msn .container .container_header .lnb {position: absolute; top: 2px; right: 5px}
+.msn .container .container_body {position: absolute; top: 43px; bottom: 0; left: 0; right: 0}
+.msn .container .container_body .msgs {position: absolute; top:0; bottom: 0; left: 0; right: 300px}
+.msn .container .container_body .msgs .msgs_list .wrap_list {position: absolute; top: 50px; left: 0; bottom: 0; overflow-y: auto}
+.msn .container .container_body .msgs .msgs_list .wrap_list>ul > li {padding: 0}
+.msn .container .container_body .msgs .msgs_list .wrap_list>ul li .tit {position: relative; height: 28px; line-height: 23px; background: #f5f5f5; padding: 0 10px; cursor: pointer}
+.msn .container .container_body .msgs .msgs_list .wrap_list>ul li:last-child .tit {cursor: default}
+.msn .container .container_body .msgs .msgs_list .wrap_list>ul li .tit .ic_arrow {position: absolute; top: 10px; right: 10px; opacity: 0.5}
+.msn .container .container_body .msg_opt {position: absolute; top: 0; bottom: 0; right: 0; width: 300px; overflow-y: auto; border-left: 1px solid #f5f5f5}
+.msn .container .container_body .msg_opt .wrap_list_msg_opt {position: absolute; top: 50px; left: 0; bottom: 0; overflow-y: auto}
+.msn .header {position: absolute; top: 0px; bottom: 0; left: 0px; width: 60px; background: #26cad3}
+.msn .header .wrap_gnb {position: relative}
+.msn .header .wrap_gnb .photo {position: absolute; top: 10px; left: 50%; margin: 0 0 0 -20px}
+.msn .header .wrap_gnb .photo img {width: 40px; height: 40px}
+.msn .header .wrap_gnb .gnb {position: absolute; top: 50%; left: 6px; margin: -50px 0 0 0; height: 100px}
+.msn .header .wrap_gnb .gnb li:first-child {margin-top: 0}
+.msn .header .wrap_gnb .gnb_more {position: absolute; left: 50%; margin: 0 0 0 -17px; bottom: 0; height: auto}
+.msn .header .wrap_gnb .gnb_more li a .ic {opacity: 0.3}
+.msn .header .wrap_gnb .gnb_more li a:hover .ic {opacity: 0.4; background-color: #fff; border-radius: 100%}
+.msn .header .wrap_gnb .gnb_more li {margin: 0 0 10px; display: block}
+.msn .container .container_body .msgs .msgs_list {position: absolute; top: 0; left: 0; bottom: 0; width: 300px}
+.msn .container .container_body .msgs .msgs_view {position: absolute; top: 0; left: 300px; right: 0; bottom: 0; border-left: 1px solid #f5f5f5; min-width: 300px}
+.msn .container .container_body .msgs .msgs_view .msgs_view_header {height: 50px}
+.msn .container .container_body .msgs .msgs_view .msgs_view_header .subject {height: 30px; margin: 10px 80px 0 20px}
+.msn .container .container_body .msgs .msgs_view .msgs_view_header .subject .txt {display: inline-block; height: 30px; line-height: 30px; font-size: 15px; max-width: calc(100% - 100px); display: inline-block; text-overflow: ellipsis; overflow: hidden; white-space: nowrap;}
+.msn .container .container_body .msgs .msgs_view .msgs_view_header .subject .count {font-size: 15px}
+.msn .container .container_body .msgs .msgs_view .msgs_view_header .btn_msg_opt {display: block; position: absolute; top: 5px; right: 10px; padding: 10px}
+.msn .container .container_body .msgs .msgs_view .msgs_view_header .subject .members:after {display: inline-block; clear: left; overflow: hidden; height: 0; content: ''; }
+.msn .container .container_body .msgs .msgs_view .msgs_view_header .subject .members .photo {float: left; margin: 0 0 0 -15px}
+.msn .container .container_body .msgs .msgs_view .msgs_view_header .subject .members .photo:first-child {margin: 0}
+.msn .container .container_body .msgs .msgs_view .msgs_view_header .subject .members .photo img {width: 30px; height: 30px}
+.msn .container .container_body .msgs .msgs_view .msgs_view_body {position: absolute; top: 50px; bottom: 83px; left: 0; overflow-y: auto; padding: 20px}
+.msn .container .container_body .msgs .msgs_view .msgs_view_body .msg {margin: 15px 0 0 0}
+.msn .container .container_body .msgs .msgs_view .msgs_view_body .msg:first-child {margin: 0}
+.msn .container .container_body .msgs .msgs_view .msgs_write {position: absolute; bottom: 0; left: 0; height: 83px; width: 100%; border-top: 1px solid #f5f5f5}
+.msn .container .container_body .msgs .msgs_view .msgs_write .func {position: relative}
+.msn .container .container_body .msgs .msgs_view .msgs_write .func a {display: inlnie-block; padding: 10px}
+.msn .container .container_body .msgs .msgs_view .msgs_write .func .func_optional {position: absolute; top: 5px; left: 0}
+.msn .container .container_body .msgs .msgs_view .msgs_write .func .func_critical {position: absolute; top: 5px; right: 0}
+.msn .container .container_body .msgs .msgs_view .msgs_write textarea {border: 0; width: 100%; padding: 10px; resize: none; height: 40px; line-height: 1.5; outline: 0;}

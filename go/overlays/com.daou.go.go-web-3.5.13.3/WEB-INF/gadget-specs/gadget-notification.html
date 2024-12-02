@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <title>최근 알림</title>
+    <meta name = "gadget:name-ko" content="최근 알림" />
+    <meta name = "gadget:name-en" content="Notification" />
+    <meta name = "gadget:name-ja" content="最近の通知" />
+    <meta name = "gadget:name-zhcn" content="最近的通知" />
+    <meta name = "gadget:name-zhtw" content="最近的通知" />
+    <meta name = "gadget:name-vi" content="Thông báo gần nhất" />
+    <meta name = "gadget:description" content="최근 알림 목록을 보여줍니다." />
+    <meta name = "gadget:version" content="1.5.0" />
+    <meta name = "gadget:thumbnail" content="gadget_alarm.png" />
+    
+    <meta name = "locale" content="ko" />
+    <meta name = "contextRoot" content="/" />
+    
+    <link rel="stylesheet" href="css/go-gadget-standalone.css" media="screen, print" />
+    <!--[if IE]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="js/go-gadget-standalone.js"></script>
+    <script type="text/javascript" src="../../resources/js/libs/go-util.js"></script>
+
+    <script type="text/javascript">
+
+    /** 데이터가 없는 경우 **/
+    $.ajaxMock.register('/api/home/noti?offset=5', {
+         responseText:$.parseJSON('{"data":[],"page":{"page":0,"offset":10,"total":62,"sort":[{"direction":"DESC","property":"id","ascending":false}],"lastPage":false},"code":"200","message":"OK","__go_checksum__":true}'),
+         statusCode: 200,
+         status:'OK',
+         type: 'GET'
+    });
+
+    </script>
+
+    <script type="text/javascript" id="go-gadget-script">
+            var ConfigView,
+        	NotificationListView,
+        	NotificationItemView,
+        	url = "api/home/noti",
+        	lang = {
+        		"gadget_title": "최근 알림",
+        		"offset": "출력 개수",
+        		"message_select_category": "알림 종류를 선택해 주십시요.",
+        		"message_empty_content": "최근 알림이 없습니다.",
+        		"0m": "안함",
+        		"15m": "15분",
+        		"30m": "30분",
+        		"60m": "1시간",
+        		"120m": "2시간",
+        		"category": "알림 종류",
+        		"mail": "메일",
+        		"bbs": "게시판",
+        		"community": "커뮤니티",
+        		"calendar": "캘린더",
+        		"survey": "설문",
+        		"report": "보고서",
+        		"task": "업무",
+        		"approval": "전재결재",
+        		"channel": "외부 시스템",
+        		"en": {
+        			"gadget_title": "Recent Notification",
+        			"offset": "Number of Notifications",
+        			"message_select_category": "Please check menus you want to receive notifications from.",
+        			"message_empty_content": "No Notifications Found.",
+        			"0m": "None",
+        			"15m": "15 mins",
+        			"30m": "30 mins",
+        			"60m": "1 hour",
+        			"120m": "2 hours",
+        			"category": "Menu",
+        			"mail": "Mail",
+        			"bbs": "Board",
+        			"community": "Communities",
+        			"calendar": "Calendar",
+        			"survey": "survey",
+        			"report": "report",
+        			"task": "task",
+        			"approval": "E-Approval",
+        			"channel": "External system"
+        		},
+        
+        		"ja": {
+        			"gadget_title": "最近の通知",
+        			"offset": "表示件数",
+        			"message_select_category": "通知の種類を選択してください。",
+        			"message_empty_content": "最近の通知がありません。",
+        			"0m": "更新しない",
+        			"15m": "15分",
+        			"30m": "30分",
+        			"60m": "1時間",
+        			"120m": "2時間",
+        			"category": "通知の種類",
+        			"mail": "メール",
+        			"bbs": "掲示板",
+        			"community": "コミュニティ",
+        			"calendar": "カレンダー",
+        			"survey": "アンケート",
+        			"report": "レポート",
+        			"task": "業務",
+        			"approval": "ワークフロー",
+        			"channel": "外部システム"
+        		},
+        
+        		"zh_CN": {
+        			"gadget_title": "最近的通知",
+        			"offset": "显示数目",
+        			"message_select_category": "请选择通知种类。",
+        			"message_empty_content": "最近没有通知。",
+        			"0m": "不",
+        			"15m": "15分",
+        			"30m": "30分",
+        			"60m": "1小时",
+        			"120m": "2小时",
+        			"category": "通知种类",
+        			"mail": "邮件",
+        			"bbs": "公告板",
+        			"community": "社区",
+        			"calendar": "日历",
+        			"survey": "问卷",
+        			"report": "报告书",
+        			"task": "业务",
+        			"approval": "电子签核",
+        			"channel": "外部系统"
+        		},
+        
+        		"zh_TW": {
+        			"gadget_title": "最近的通知",
+        			"offset": "顯示數目",
+        			"message_select_category": "請選擇通知種類。",
+        			"message_empty_content": "最近沒有通知。",
+        			"0m": "不",
+        			"15m": "15分",
+        			"30m": "30分",
+        			"60m": "1小時",
+        			"120m": "2小時",
+        			"category": "通知種類",
+        			"mail": "郵件",
+        			"bbs": "公告板",
+        			"community": "社區",
+        			"calendar": "日曆",
+        			"survey": "問卷",
+        			"report": "報告書",
+        			"task": "業務",
+        			"approval": "電子簽核",
+        			"channel": "外部系統"
+        		},
+        		"vi": {
+        			"gadget_title": "Thông báo gần nhất",
+        			"offset": "Số lượng xuất",
+        			"message_select_category": "Vui lòng chọn loại thông báo.",
+        			"message_empty_content": "Không có thông báo gần nhất.",
+        			"0m": "Không",
+        			"15m": "15 phút",
+        			"30m": "30 phút",
+        			"60m": "1 giờ",
+        			"120m": "2 giờ",
+        			"category": "Loại thông báo",
+        			"mail": "Thư",
+        			"bbs": "Bảng tin",
+        			"community": "Community",
+        			"calendar": "Lịch",
+        			"survey": "Thăm dò ý kiến",
+        			"report": "Văn bản báo cáo",
+        			"task": "Tác vụ",
+        			"approval": "Phê duyệt điện tử",
+        			"channel": "External system"
+        		}
+        	};
+        
+        ConfigView = Backbone.View.extend({
+        
+        	savedOffset: 5,
+        	initialize: function (options) {
+        		this.options = options || {};
+        		if (this.options.values && this.options.values.offset) {
+        			this.savedOffset = this.options.values.offset;
+        		}
+        	},
+        
+        	render: function () {
+        		var compiled = Hogan.compile(this._prepareTemplate());
+        		return compiled.render(this._makeTemplateData());
+        	},
+        
+        	_prepareTemplate: function () {
+        		var html = [];
+        
+        		html.push("<ul class=\"static_style\">");
+        		html.push("    <li>");
+        		html.push("       <p class=\"title\">{{offsetTitle}}</p>");
+        		html.push("       <select name=\"offset\">");
+        		html.push("           {{#offsetList}}");
+        		html.push("          <option value=\"{{value}}\"{{#selected?}} selected=\"selected\"{{/selected?}}>{{label}}</option>");
+        		html.push("           {{/offsetList}}");
+        		html.push("       </select>");
+        		html.push("    </li>");
+        		html.push("</ul>");
+        
+        		return html.join("\n");
+        	},
+        
+        	_makeTemplateData: function () {
+        		var data = {
+        			"offsetTitle": this.options.i18n.parse("offset"),
+        			"offsetList": []
+        		};
+        
+        		_.each([5, 10, 15, 20, 25, 30], function (num) {
+        			data.offsetList.push({
+        				"value": num,
+        				"selected?": num == this.savedOffset,
+        				"label": num
+        			});
+        		}, this);
+        
+        		return data;
+        	}
+        });
+        
+        NotificationItemView = Backbone.View.extend({
+        
+        	tagName: "li",
+        	tmplData: null,
+        	iconCss: {
+        		"mail": "ic_type2_mail",
+        		"calendar": "ic_type2_cal",
+        		"bbs": "ic_type2_bbs",
+        		"community": "ic_type2_comm",
+        		"survey": "ic_type2_survey",
+        		"report": "ic_type2_report",
+        		"task": "ic_type2_task",
+        		"approval": "ic_type2_approval",
+        		"todo": "ic_type2_todo",
+        		"works": "ic_type2_works",
+        		"channel": "ic_type2_alarm",
+                "ehr": "ic_type2_ehr",
+                "manager": "ic_type2_task"
+        	},
+        
+        	events: {
+        		"click .btn_wrap": "goToShowUrl"
+        	},
+        
+        	initialize: function (options) {
+        		this.options = options || {};
+        		this.tmplData = {
+        			"profile": this._getProfile(),
+        			"createdAt": GO.util.snsDate(this.model.get("createdAt")),
+        			"readFlag": this.model.get("readAt") ? true : false,
+        			"message": GO.util.convertRichText(this.model.get("message")),
+        			"icon_title": this.options.i18n.parse("category_" + this.model.get("category")),
+        			"icon_type": this.iconCss[this.model.get("category")]
+        		};
+        	},
+        
+        	render: function () {
+        		var data = _.extend({}, this.model.toJSON(), this.tmplData);
+        		data['linkUrl'] = this._makeShowURL();
+        		var tmpl = this.makeHtml(data);
+        		this.$el.empty().html(tmpl);
+        		return this.$el;
+        	},
+        
+        	goToShowUrl: function () {
+        
+        		console.log("~~~~");
+        
+        		var link = this.model.get('linkUrl'),
+        			targetCompanyId = this.model.get("companyId"),
+        			companies = GO.session().companies,
+        			targetUrl = null;
+        
+        		console.log(link);
+        		console.log(targetCompanyId);
+        		console.log(companies);
+        
+        		for (var i = 0; i < companies.length; i++) {
+        			if (targetCompanyId === companies[i].id) {
+        
+        				console.log("!!" + targetCompanyId);
+        
+        				targetUrl = location.protocol + '//' + companies[i].siteUrl;
+        				if (location.port) {
+        					targetUrl += ':' + location.port;
+        				}
+        
+        				targetUrl += GO.contextRoot + 'tokenlogin?';
+        				targetUrl += $.param({
+        					'token': this._getCookie('GOSSOcookie'),
+        					'companyId': (parseInt(GO.session('companyId')) == parseInt(targetCompanyId)) ? null : targetCompanyId, // 불필요한 세션 생성 방지
+        					'returnUrl': link
+        				});
+        
+        				console.log(targetUrl);
+        			}
+        		}
+        
+        		document.location = targetUrl || link;
+        	},
+        
+        	makeHtml: function (data) {
+        		var compiled = Hogan.compile(this._prepareTemplate());
+        		return compiled.render(data);
+        	},
+        
+        	_prepareTemplate: function () {
+        		var tmpl = [];
+        		tmpl.push("<p class=\"type\"><span class=\"ic_gnb {{icon_type}}\" title=\"{{icon_title}}\"></span></p>");
+        		tmpl.push("<p class=\"photo\"><img src=\"{{profile}}\" title=\"{{sender}}\"></p>");
+        		tmpl.push("<div class=\"info\">");
+        		tmpl.push("    <p class={{^readFlag}}\"subject\"{{/readFlag}}>");
+        		tmpl.push("        <a href=\"{{linkUrl}}\" data-bypass>{{{message}}}</a>");
+        		tmpl.push("    </p>");
+        		tmpl.push("    <span class=\"date\">{{createdAt}}</span>");
+        		tmpl.push("    <p class=\"name\">{{sender}}</p>");
+        		tmpl.push("</div>");
+        		tmpl.push("<span class=\"btn_wrap\">");
+        		tmpl.push("    <span class=\"ic_con ic_list_more_n\" title=\"{{label.more}}\"></span>");
+        		tmpl.push("</span>");
+        		return tmpl.join("\n");
+        	},
+        
+        	_makeShowURL: function () {
+        		var link = this.model.get('linkUrl'),
+        			targetCompanyId = this.model.get("companyId"),
+        			companies = GO.session().companies,
+        			targetUrl = null;
+        
+        		for (var i = 0; i < companies.length; i++) {
+        			if (targetCompanyId === companies[i].id) {
+        				targetUrl = location.protocol + '//' + companies[i].siteUrl;
+        				if (location.port) {
+        					targetUrl += ':' + location.port;
+        				}
+        
+        				targetUrl += GO.contextRoot + 'tokenlogin?';
+        				targetUrl += $.param({
+        					'token': this._getCookie('GOSSOcookie'),
+        					'companyId': (parseInt(GO.session('companyId')) == parseInt(targetCompanyId)) ? null : targetCompanyId, // 불필요한 세션 생성 방지
+        					'returnUrl': link
+        				});
+        			}
+        		}
+        
+        		return targetUrl || link;
+        	},
+        
+        	_getCookie: function (name) {
+        		var value = "; " + document.cookie;
+        		var parts = value.split("; " + name + "=");
+        		return (parts.length == 2) ? parts.pop().split(";").shift() : "";
+        	},
+        
+        	_getProfile: function () {
+        		var defaultProfile = "resources/images/photo_my.jpg";
+        		return this.model.get("profile") || defaultProfile;
+        	}
+        
+        });
+        
+        NotificationListView = Backbone.View.extend({
+        
+        	initialize: function (options) {
+        		this.options = options || {};
+        	},
+        
+        	tagName: "div",
+        	className: "gadget_design_wrap",
+        
+        	render: function () {
+        
+        		this.$el.empty();
+        		this.$el.append(this._makeTemplate());
+        
+        		this.collection.each(function (model) {
+        			var itemView = new NotificationItemView({
+        				model: model,
+        				i18n: this.options.i18n
+        			});
+        			this.$el.find('.type_simple_list').append(itemView.render());
+        		}, this);
+        		return this.$el;
+        	},
+        
+        	getTitle: function () {
+        		return this.options.i18n.parse('gadget_title');
+        	},
+        
+        	_makeTemplate: function () {
+        		return NotificationListView.renderGadgetContainer(this.getTitle(), '', (this.options['highlight'] == 'Y'))
+        	}
+        }, {
+        	renderEmptyView: function (title, message, options) {
+        		var html = [];
+        		html.push("    <li class=\"null_data\">");
+        		html.push("        <p class=\"desc\">" + message + "</p>");
+        		html.push("    </li>");
+        		return this.renderGadgetContainer(title, html.join("\n"), (options['highlight'] == 'Y'));
+        	},
+        
+        	renderGadgetContainer: function (title, bodyHtml, useWrapper) {
+        		useWrapper = useWrapper || false;
+        		var html = [];
+        		if (useWrapper) {
+        			html.push('<div class="gadget_design_wrap gadget_design_border">');
+        		} else {
+        			html.push('<div class="gadget_design_wrap">');
+        		}
+        
+        		html.push('<div class="go_gadget_header">');
+        		html.push('<div class="gadget_h1">');
+        		html.push('<span class="type"><span class="ic_dashboard2 ic_type_alarm"></span></span>');
+        		html.push('<span class="title">' + title + '</span>');
+        		html.push('</div>');
+        		html.push('</div>');
+        
+        		html.push('<ul class="type_simple_list simple_list_alarm">');
+        		html.push(bodyHtml);
+        		html.push('</ul>');
+        
+        		if (useWrapper) {
+        			html.push('</div>');
+        		}
+        
+        		return html.join("\n");
+        	}
+        });
+        
+        gadget.load({
+        
+        	highlightable: true,
+        
+        	langs: lang,
+        
+        	refreshable: true,
+        
+        	url: function () {
+        		var params = {
+        			"offset": this.options.offset || "5"
+        		};
+        		return this.contextRoot + url + "?" + $.param(params);
+        	},
+        
+        	setTitle: function () {
+        		return this.i18n.parse("gadget_title");
+        	},
+        
+        	renderConfig: function (el) {
+        		var configView = new ConfigView({
+        			values: this.options,
+        			i18n: this.i18n
+        		});
+        		$(el).append(configView.render());
+        	},
+        
+        	onSuccess: function (el, resp) {
+        		var collection = new Backbone.Collection(resp.data),
+        			context = this;
+        
+        		if (collection.isEmpty()) {
+        			$(el).append(NotificationListView.renderEmptyView(this.i18n.parse("gadget_title"), this.i18n.parse("message_empty_content"), this.options));
+        			return;
+        		}
+        
+        		var listView = new NotificationListView({
+        			i18n: this.i18n,
+        			collection: collection,
+        			highlight: this.options['highlight']
+        		});
+        
+        		$(el).append(listView.render());
+        	}
+        });
+	</script>
+</head>
+
+<body id="main" class="go_skin_home_default" data-role="main">
+    <div class="go-dashboard go-dashboard-editing go_dashboard_3_2">
+        <div class="go-gadget-column gadget-col-1" data-columnid="1">
+            <!-- empty -->
+        </div>
+        
+        <div class="gripper"></div>
+
+        <div id="gadget-containter" class="go-gadget-column gadget-col-2" data-columnid="2">
+            <!-- empty -->
+        </div>
+
+        <div class="gripper"></div>
+
+        <div class="go-gadget-column gadget-col-3" data-columnid="3">
+            <!-- empty -->
+        </div>
+    </div>
+</body>
+</html>

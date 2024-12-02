@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="content">
+        <div class="tab_menu_wrap">
+            <ul class="tab_menu">
+                <li class="active "><span class="txt type" id="member_class">{{lang.member_class}}</span></li>
+                {{#isUseOrgService}}
+                <li class=""><span class="txt type" id="dept">{{lang.dept}}</span></li>
+                {{/isUseOrgService}}
+                <li class=""><span class="txt type" id="member">{{lang.member}}</span></li>
+                <li class=""><span class="txt type" id="member_picture">{{lang.member_picture}}</span></li>
+            </ul>
+        </div>
+        <div class="tab_content"></div>
+    </div>
+</div>
+
+<div class="page_action">
+    <span class="btn" id="goToDeptOrgLink">
+        <span class="ic_adm ic_shortcut_white"></span>
+        <span class="txt">{{lang.dept_org_shortcut}}</span>
+    </span>
+</div>

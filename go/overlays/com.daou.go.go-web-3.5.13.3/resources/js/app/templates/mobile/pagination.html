@@ -1,0 +1,14 @@
+<a class="btn_type4" data-direction="prev" {{#isFirst}}style="display: none;"{{/isFirst}}>
+    <span class="ic ic_arrow3_l"></span>
+    <span class="txt">{{lang.이전}}</span>
+</a>
+<span class="page">
+    <span class="current_page">{{from}}</span>
+    <span class="txt_bar">-</span>
+    <span class="total_page">{{to}}</span>
+    <span class="total_page"> / {{total}}</span>
+</span>
+<a class="btn_type4" data-direction="next" {{#isLast}}style="display: none;"{{/isLast}}>
+    <span class="txt">{{lang.다음}}</span>
+    <span class="ic ic_arrow3_r"></span>
+</a>

@@ -1,0 +1,1 @@
+define(["backbone"],function(e){var t=e.Collection.extend({getById:function(e){return this.filter(function(t){return parseInt(t.get("id"))===parseInt(e)})}});return t});

@@ -1,0 +1,68 @@
+<div class="content_page">
+
+    <div class="dataTables_wrapper container">
+        <div class="toolbar_top header_tb">
+            <div class="critical">
+                <span class="btn_tool" id="btn_online">{{lang.label_ok}}</span> 
+                <span class="btn_tool txt_caution" id="btn_delete">{{lang.label_no}}</span>
+            </div>
+        </div>
+        <form name="formCommunityList">
+            <div class="content_tb">
+                <table class="chart size">
+                    <colgroup>
+                        <col width="30" />
+                        <col width="150" />
+                        <col width="120" />
+                        <col width="120" />
+                        <col width="*" />
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th class="sorting_disable">
+                                <input type="checkbox" id="community_all"/>
+                            </th>
+                            <th class="sorting_disable">
+                                <span class="title_sort">{{lang.label_name}}</span>
+                            </th>
+                            <th class="sorting_disable">
+                                <span class="title_sort">{{lang.label_owner}}</span>
+                            </th>
+                            <th class="sorting_disable">
+                                <span class="title_sort">{{lang.label_date}}</span>
+                            </th>
+                            <th class="sorting_disable last">
+                                <span class="title_sort">{{lang.label_desc}}</span>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{^isDataset}}
+                        <tr class="last">
+                            <td colspan="5">
+                                <p class="data_null">
+                                    <span class="ic_data_type ic_no_data"></span>
+                                    <span class="txt">{{lang.label_non_list}}</span>
+                                </p>
+                            </td>
+                        </tr>
+                        {{/isDataset}}
+                        {{#isDataset}}
+                            {{#dataset}}
+                            <tr id="community" data-id="{{id}}">
+                                <td><input type="checkbox" /></td>
+                                <td class="title">{{name}}</td>
+                                <td class="title">{{masterInfo}}</td>
+                                <td class="date align_c">{{dateformat}}</td>
+                                <td class="desc last">{{description}}</td>
+                            </tr>   
+                            {{/dataset}}
+                        {{/isDataset}}
+                    </tbody>
+                </table>
+            </div>
+        </form>
+    </div>
+
+</div>
+

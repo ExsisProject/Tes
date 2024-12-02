@@ -1,0 +1,1 @@
+(function(){define(["app"],function(e){var t=function(){var t=function(){};return t.prototype={page403:function(){window.location.href=e.contextRoot+"error/403"},page500:function(){window.location.href=e.contextRoot+"error/500"}},t}();return new t})}).call(this);

@@ -1,0 +1,1 @@
+define(["backbone"],function(e){var t=e.Collection.extend({url:function(){var e=GO.contextRoot+"/ad/api/system/companies/simple";return e.replace("//","/")},initialize:function(e){var e=_.extend({},e)}});return t});

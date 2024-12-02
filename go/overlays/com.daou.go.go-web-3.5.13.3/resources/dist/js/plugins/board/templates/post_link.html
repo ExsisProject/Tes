@@ -1,0 +1,31 @@
+{{#dataset}}
+<li class="url">
+	<a class="url_type" data-video="{{videoSrc}}">{{url}}</a>		
+	<span class="btn_wrap" title="{{lang.link_meta_delete}}"><span class="ic_classic ic_del"></span></span>								
+</li>
+<li class="thumb">
+	{{#imageSrc}}
+	<a class="meta_thumb" data-bypass>
+		<img height="100%" class="" src="{{imageSrc}}" alt="{{lang.link_meta_img}}" title="{{lang.link_meta_title}}" />
+	</a>
+	{{/imageSrc}}
+</li>
+<li>
+	<a class="title">{{title}}</a>
+	<p class="meta_contents">{{description}}</p>
+</li>
+<li>
+	{{#description}}
+	<span class="option_wrap">													
+		<input id="link_description_delete" type="checkbox" />
+		<label for="link_description_delete">{{lang.link_content_delete}}</label>
+	</span>
+	{{/description}}	
+	{{#imageSrc}}											
+	<span class="option_wrap">
+		<input id="link_img_delete" type="checkbox" />
+		<label for="link_img_delete">{{lang.link_img_delete}}</label>
+	</span>
+	{{/imageSrc}}
+</li>
+{{/dataset}}

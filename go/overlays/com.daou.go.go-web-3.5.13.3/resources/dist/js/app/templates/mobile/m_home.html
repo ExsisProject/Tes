@@ -1,0 +1,96 @@
+<div class="home_wrap">
+	<div class="logo_wrap">
+        <h1 class="logo">{{company}}</h1>
+        {{#isMultiCompany}}
+            <a class="ic ic_multiCompany" data-bypass></a>
+        {{/isMultiCompany}}
+    </div>
+	<ul class="home"><!-- 기기 별 전체 height - 상단 바 height - 하단 바 높이 = 메뉴 높이 -->
+		<li>
+			<a href="{{contextRoot}}app/mail" data-bypass>
+				<span class="ic_home ic_home_mail"></span>
+				<span class="txt">{{lang.mail}}</span>
+			</a>
+		</li>
+		<li>
+			<a href="{{contextRoot}}app/contact" data-href="contact" data-role="button">
+				<!-- span class="push">5</span-->
+				<span class="ic_home ic_home_address"></span>
+				<span class="txt">{{lang.contact}}</span>
+			</a>
+		</li>
+		<li>
+			<a href="{{contextRoot}}app/calendar/daily" data-href="calendar/daily" data-role="button" >
+				<!-- span class="push">59</span-->
+				<span class="ic_home ic_home_calander"></span>
+				<span class="txt">{{lang.calendar}}</span>
+			</a>
+		</li>
+		<li>
+			<a href="{{contextRoot}}app/board"  data-href="board" data-role="button">
+				<!-- span class="push">12</span-->
+				<span class="ic_home ic_home_board"></span>
+				<span class="txt">{{lang.board}}</span>
+			</a>
+		</li>
+		<li>
+			<a href="{{contextRoot}}app/community" data-href="community" data-role="button">
+				<span class="ic_home ic_home_community"></span>
+				<span class="txt">{{lang.community}}</span>
+			</a>
+		</li>
+		 <li>
+			<a href="{{contextRoot}}app/asset" data-href="asset" data-role="button">
+				<span class="ic_home ic_home_reserv"></span>
+				<span class="txt">{{lang.asset}}</span>
+			</a>
+		</li>
+        <li>
+            <a href="{{contextRoot}}app/survey" data-href="survey" data-role="button">
+                <span class="ic_home ic_home_reserv"></span>
+                <span class="txt">{{lang.survey}}</span>
+            </a>
+        </li>
+        <li>
+            <a href="{{contextRoot}}app/report" data-href="report" data-role="button">
+                <span class="ic_home ic_home_reserv"></span>
+                <span class="txt">{{lang.report}}</span>
+            </a>
+        </li>
+        <li>
+            <a href="{{contextRoot}}app/task" data-href="task" data-role="button">
+                <span class="ic_home ic_home_reserv"></span>
+                <span class="txt">{{lang.task}}</span>
+            </a>
+        </li>
+        <li>
+            <a href="{{contextRoot}}app/approval" data-href="approval" data-role="button">
+                <span class="ic_home ic_home_reserv"></span>
+                <span class="txt">{{lang.approval}}</span>
+            </a>
+        </li>
+        <li>
+            <a href="{{contextRoot}}app/docfolder" data-href="docfolder" data-role="button">
+                <span class="ic_home ic_home_reserv"></span>
+                <span class="txt">{{lang.docfolder}}</span>
+            </a>
+        </li>
+		<li style="display:none">
+			<span class="ic_home ic_home_data"></span>
+			<span class="txt">자료실</span>
+		</li>
+		<li class="first last" style="display:none">
+			<span class="ic_home ic_home_blog"></span>
+			<span class="txt">블로그</span>
+		</li>
+		<li class="last" style="display:none">
+			<span class="ic_home ic_home_work"></span>
+			<span class="txt">업무관리</span>
+		</li>
+		<li class="last" style="display:none">
+			<span class="ic_home ic_home_account"></span>
+			<span class="txt">전자결재</span>
+		</li>
+	</ul>
+</div>
+

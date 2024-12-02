@@ -1,0 +1,45 @@
+{{! deprecated }}
+<tr>
+    <td colspan="2">
+        <div class="basic_info">
+            <div class="title_wrap">
+                <span class="wrap_txt"><input class="tit{{^editable?}} readonly{{/editable?}}" type="text" name="summary" value="{{&summary}}"{{^editable?}} readonly="readonly"{{/editable?}} /></span>
+                {{#show_visibility?}}
+                <span class="wrap_option{{^editable?}} disabled{{/editable?}}">
+                    <input type="checkbox" id="check-visibility" name="visibility" value="private"{{#private?}} checked="checked"{{/private?}}{{^editable?}} disabled="disabled"{{/editable?}} />
+                    <label for="check-visibility">{{label.privacy}}</label>
+                </span>
+                <span class="wrap_ic_s"><span class="help">&nbsp;<span class="tool_tip top">{{msg.private_event_info}}<i class="tail_top"></i></span></span></span>
+                {{/show_visibility?}}
+            </div>                                      
+            <div class="date_wrap" id="selectDate">
+                {{>select_date}}
+            </div>                                  
+        </div>
+    </td>
+</tr>
+<tr>
+{{#editable?}}
+{{#is_company_event?}}
+<tr>
+    <th>
+        <span class="title">{{label.public_event}}</span>
+    </th>
+    <td>
+        <div id="company-calendar-list">
+            <span class="wrap_multiselect">
+                <span class="wrap_select">
+                    <select name="company_calendar_id">
+                        {{#company_calendar}}
+                        <option value="{{id}}" {{#is_select_company_calendar?}} selected="selected" {{/is_select_company_calendar?}}>{{name}}</option>
+                        {{/company_calendar}}
+                    </select>
+                </span>
+            </span>
+        </div>
+        <input type="hidden" name="is_company_event" value="true">
+    </td>
+</tr>
+{{/is_company_event?}}
+{{/editable?}}
+<td colspan="2"><hr /></td></tr>

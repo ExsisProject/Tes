@@ -1,0 +1,37 @@
+<div class="dataTables_wrapper">
+    <div class="toolbar_top">
+        <div class="critical">
+                    <span id="adminUserAddBtn" class="btn_tool">
+                        <span class="ic_adm ic_plus"></span>
+                        <span class="txt">{{commonLang.추가}}</span>
+                    </span>
+            <span id="adminUserDelBtn" class="btn_tool">
+                        <span class="ic_adm ic_delete"></span>
+                        <span class="txt">{{commonLang.삭제}}</span>
+                    </span>
+        </div>
+    </div>
+    <table id="authUserTable" class="chart tb_authority">
+        <thead>
+            <tr>
+                <th class="check"><input id="allUserSelector" type="checkbox"></th>
+                <th class="sorting name"><span class="title_sort" data-sortkey="userName">{{commonLang.이름}}({{commonLang.이메일}})<ins class="ic"></ins></span></th>
+                <th class="sorting part"><span class="title_sort" data-sortkey="deptNames">{{adminLang.부서}}<ins class="ic"></ins></span></th>
+                <th class="sorting date"><span class="title_sort" data-sortkey="domainAdminCreatedAt">{{adminLang.관리자 등록일}}<ins class="ic"></ins></span></th>
+                <th class="sorting date"><span class="title_sort" data-sortkey="lastAdminActionDate">{{adminLang.최근 활동일}}<ins class="ic"></ins></span></th>
+
+            </tr>
+        </thead>
+        <tbody>
+            {{#authGroup.attributes.domainAdminAuthUsers}}
+            <tr class="authUser" data-id="{{id}}" data-userid="{{userId}}">
+                <td class="check"><input  data-id="{{id}}" data-userid="{{userId}}" type="checkbox"></td>
+                <td class="name"><span class="txt">{{userName}}</span><span class="txt2">({{email}})</span></td>
+                <td class="part"><span class="txt">{{deptNames}}</span></td>
+                <td class="date"><span class="txt">{{domainAdminCreatedAt}}</span></td>
+                <td class="date"><span class="txt">{{lastAdminActionDate}}</span></td>
+            </tr>
+            {{/authGroup.attributes.domainAdminAuthUsers}}
+        </tbody>
+    </table>
+</div>

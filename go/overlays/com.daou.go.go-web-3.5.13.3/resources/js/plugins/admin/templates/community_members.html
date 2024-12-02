@@ -1,0 +1,55 @@
+<div class="content_page" id="member_content_page">
+	<div class="dataTables_wrapper container" >				
+		<div class="toolbar_top header_tb">
+			<div class="critical">						
+				<span class="btn_tool" id="btn_down_members">{{lang.label_csv}}</span>
+			</div>						
+		</div>
+		
+		<div id="postBbsDataTable_processing" class="dataTables_processing" style="visibility:hidden">Processing...</div>					
+
+		<div class="content_tb">			
+			<table class="chart size">
+				<colgroup>
+					<col width="200" />
+					<col width="*" />
+					<col width="200" />
+					<col width="200" />
+				</colgroup>
+				<thead>
+					<tr>
+						<th class="sorting_disable"><span class="title_sort">{{lang.label_name2}}</span></th>
+						<th class="sorting_disable"><span class="title_sort">{{lang.label_email}}</span></th>
+						<th class="sorting_disable align_c"><span class="title_sort">{{lang.label_last}}</span></th>
+						<th class="sorting_disable last"><span class="title_sort">{{lang.label_membertype}}</span></th>
+					</tr>
+				</thead>	
+				<tbody>	
+					{{#dataset}}
+					<tr>
+						<td class="title">{{name}} {{memberPosition}}</td>
+						<td>{{email}}</td>
+						<td class="date">{{createdAtTime}}</td>
+						<td class="member">										
+							<span class="btn_wrap memberType" data-id="{{userId}}" data-memberType="{{memberType}}"><span class="txt" >{{memberTypeName}}</span><span class="ic ic_select"></span></span>
+							<span class="last modifyMemberType" style="display:none">
+								<select class="select_member_type">
+									<option value="USER">{{lang.USER}}</option>
+									<option value="MASTER">{{lang.MASTER}}</option>
+									<option value="MODERATOR">{{lang.MODERATOR}}</option>
+								</select>
+								<span class="btn_wrap">
+									<span class="ic ic_edit_done" title="{{lang.label_ok}}"></span>
+									<span class="ic ic_edit_cancel" title="{{lang.label_cancel}}"></span>
+								</span>
+							</span>
+						</td>
+						
+						
+					</tr>
+					{{/dataset}}
+				</tbody>
+			</table>	
+		</div>
+	</div>
+</div>	

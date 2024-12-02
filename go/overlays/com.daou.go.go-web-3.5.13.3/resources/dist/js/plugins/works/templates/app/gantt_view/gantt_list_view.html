@@ -1,0 +1,59 @@
+<ul class="tb-header tb_stair">
+    <li class="subject">
+        <div class="item">
+            <div class="tit">
+                <span class="txt">{{lang.제목}}</span>
+            </div>
+            <div class="opt">
+                <span class="date">
+                    <span class="txt">{{lang.시작날짜}}</span>
+                </span>
+                <span class="date">
+                    <span class="txt">{{lang.종료날짜}}</span>
+                </span>
+                <span class="member">
+                    <span class="txt">{{lang.담당자}}</span>
+                </span>
+                <span class="progress">
+                    <span class="txt">{{lang.진행률}}</span>
+                    <span class="help">
+                        <span class="tool_tip">{{lang.진행률설명}}<i class="tail_left"></i>
+                    </span>
+                </span>
+                </span>
+            </div>
+        </div>
+    </li>
+</ul>
+{{#hasRequiredFields}}
+<ul class="tb_stair summary">
+    <li class="list">
+        <div class="item">
+            <div class="tit">
+                <span class="gantt_name">{{name}}</span>
+                <span class="num">
+                    (<span id="exposingDocNodeCount"></span>/<span id="totalDocNodeCount"></span>)
+                </span>
+                {{#isAdmin}}
+                <span class="help">
+                    <span class="tool_tip">
+                        {{lang.최대노출개수툴팁}}<br>{{lang.데이터불러오기툴팁}}
+                        <i class="tail_left"></i>
+                    </span>
+                </span>
+                {{/isAdmin}}
+            </div>
+            <div class="opt">
+                <span id="ganttTotalProgress" class="txt em"></span>
+                <span class="help">
+                    <span class="tool_tip">
+                        {{lang.전체진행률툴팁}}
+                        <i class="tail_left"></i>
+                    </span>
+                </span>
+            </div>
+        </div>
+    </li>
+</ul>
+{{/hasRequiredFields}}
+<ul id="gantt_list_config" class="tb_stair board-tree-nodes" style="overflow-y: auto;"></ul>

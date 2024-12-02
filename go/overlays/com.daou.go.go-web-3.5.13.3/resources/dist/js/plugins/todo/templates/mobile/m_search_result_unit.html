@@ -1,0 +1,21 @@
+{{^data}}
+<li class="creat data_null">
+    <span class="txt">{{lang.검색결과없음}}</span>
+</li>
+{{/data}}
+{{#data}}
+<li>
+    <a class="tit" href="{{contextRoot}}app/todo/{{todoId}}/card/{{id}}" data-todoid="{{todoId}}" data-id="{{id}}" data-bypass>
+        <span class="subject"><span class="title">{{{title}}}</span></span>
+        <span class="info">
+                <span class="column">{{categoryTitle}}</span>
+                <span class="part">|</span>
+                <span class="board">{{todoTitle}}</span>
+                {{#parseDueDate}}
+                <span class="part">|</span>
+                <span class="date">{{parseDueDate}}</span>
+                {{/parseDueDate}}
+            </span>
+    </a>
+</li>
+{{/data}}

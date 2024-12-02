@@ -1,0 +1,51 @@
+<section class="gnb_title">
+	<h1><a href="{{context_root}}app/survey">{{appName}}</a></h1>
+</section>
+
+<section class="function">
+	<a class="btn_function" href="{{context_root}}app/survey/new"><span class="ic_side ic_app_bbs"></span><span class="txt">{{label.create_survey}}</span></a>
+</section>
+
+<section id="surveySide" class="lnb">
+	<h1 class="company {{^isSurveyOpen}}folded{{/isSurveyOpen}}">
+		<ins class="ic"></ins>
+		<span class="ic_side ic_hide_up" title="{{#isSurveyOpen}}{{label.collapse}}{{/isSurveyOpen}}{{^isSurveyOpen}}{{label.expand}}{{/isSurveyOpen}}" data-slide="true" ></span>
+		<span class="txt">{{label.survey}}</span>
+	</h1>
+	
+	<ul id="list-cate-menu" class="side_depth" {{^isSurveyOpen}} style="display:none;" {{/isSurveyOpen}}>
+		<li class="survey">
+			<p class="title">
+				<a href="{{context_root}}app/survey/list/progress" class="side-category go_boards" data-category="progress">
+					<ins class="ic"></ins><span class="txt" title="{{label.progressing}}">{{label.progressing}}</span>
+				</a>
+			</p>
+		</li>
+		<li class="survey">
+			<p class="title">
+				<a href="{{context_root}}app/survey/list/finished" class="side-category go_boards" data-category="finished">
+					<ins class="ic"></ins><span class="txt" title="{{label.finished}}">{{label.finished}}</span>
+				</a>
+			</p>
+		</li>
+		<li class="survey">
+			<p class="title">
+				<a href="{{context_root}}app/survey/list/my" class="side-category go_boards" data-category="my">
+					<ins class="ic"></ins><span class="txt" title="{{label.created_by_me}}">{{label.created_by_me}}</span>
+				</a>
+			</p>
+		</li>
+	</ul>
+
+</section>
+{{#isMultiCompanyUser}}
+<section id="surveySideShare" class="lnb" data-side-share="">
+<h1 class="user" data-btn-type="share">
+	<a href="{{context_root}}app/survey/list/copyable">
+		<ins class="ic_side ic_side_share_root" title="{{label.bring_survey}}"></ins>
+		<span class="txt">{{label.bring_survey}}</span>
+	</a>
+</h1>
+</section>
+{{/isMultiCompanyUser}}
+<div class="bar"></div>

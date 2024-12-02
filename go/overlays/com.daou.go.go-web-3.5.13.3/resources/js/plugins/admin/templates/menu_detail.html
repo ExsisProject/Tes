@@ -1,0 +1,371 @@
+<header class="content_top">
+	<h1><span class="title">{{model.name}}</span></h1>
+</header>
+<div class="container">
+	<div class="header">
+		<h2>{{lang.label_base}}</h2>
+	</div>
+	<div class="content">
+		<form>
+			<table class="detail">
+				<tbody>
+				{{#isKoLocale}}
+				<tr>
+					<th><span class="title"><ins class="asterisk">*</ins>{{lang.label_name}}({{lang.label_ko}})</span></th>
+					<td>
+		                    <span class="user_data editable" data-formname="koName" data-locale="ko" data-value="{{model.koName}}">
+		                        <span id="data" data-type="changePopupName">{{model.koName}}</span>
+		                        <span class="btn_box" data-btntype="changePopupName">
+		                            <span class="ic ic_edit" title="{{lang.label_edit}}"></span>
+		                        </span>
+		                    </span>
+						<p><span class="go_alert" id="koNameValidate"></span></p>
+					</td>
+				</tr>
+				{{/isKoLocale}}
+				{{#isJpLocale}}
+				<tr>
+					<th><span class="title"><ins class="asterisk">*</ins>{{lang.label_name}}({{lang.label_jp}})</span></th>
+					<td>
+		                    <span class="user_data editable" data-formname="jpName" data-locale="jp" data-value="{{model.jpName}}">
+		                        <span id="data" data-type="changePopupName">{{model.jpName}}</span>
+		                        <span class="btn_box" data-btntype="changePopupName">
+		                            <span class="ic ic_edit" title="{{lang.label_edit}}"></span>
+		                        </span>
+		                    </span>
+						<p><span class="go_alert" id="jpNameValidate"></span></p>
+					</td>
+				</tr>
+				{{/isJpLocale}}
+				{{#isEnLocale}}
+				<tr>
+					<th><span class="title"><ins class="asterisk">*</ins>{{lang.label_name}}({{lang.label_en}})</span></th>
+					<td>
+		                    <span class="user_data editable" data-formname="enName" data-locale="en" data-value="{{model.enName}}">
+		                        <span id="data" data-type="changePopupName">{{model.enName}}</span>
+		                        <span class="btn_box" data-btntype="changePopupName">
+		                            <span class="ic ic_edit" title="{{lang.label_edit}}"></span>
+		                        </span>
+		                    </span>
+						<p><span class="go_alert" id="enNameValidate"></span></p>
+					</td>
+				</tr>
+				{{/isEnLocale}}
+				{{#isZhcnLocale}}
+				<tr>
+					<th><span class="title"><ins class="asterisk">*</ins>{{lang.label_name}}({{lang.label_zhcn}})</span></th>
+					<td>
+		                    <span class="user_data editable" data-formname="zhcnName" data-locale="zhcn" data-value="{{model.zhcnName}}">
+		                        <span id="data" data-type="changePopupName">{{model.zhcnName}}</span>
+		                        <span class="btn_box" data-btntype="changePopupName">
+		                            <span class="ic ic_edit" title="{{lang.label_edit}}"></span>
+		                        </span>
+		                    </span>
+						<p><span class="go_alert" id="zhcnNameValidate"></span></p>
+					</td>
+				</tr>
+				{{/isZhcnLocale}}
+				{{#isZhtwLocale}}
+				<tr>
+					<th><span class="title"><ins class="asterisk">*</ins>{{lang.label_name}}({{lang.label_zhtw}})</span></th>
+					<td>
+		                    <span class="user_data editable" data-formname="zhtwName" data-locale="zhtw" data-value="{{model.zhtwName}}">
+		                        <span id="data" data-type="changePopupName">{{model.zhtwName}}</span>
+		                        <span class="btn_box" data-btntype="changePopupName">
+		                            <span class="ic ic_edit" title="{{lang.label_edit}}"></span>
+		                        </span>
+		                    </span>
+						<p><span class="go_alert" id="zhtwNameValidate"></span></p>
+					</td>
+				</tr>
+				{{/isZhtwLocale}}
+				{{#isViLocale}}
+				<tr>
+					<th><span class="title"><ins class="asterisk">*</ins>{{lang.label_name}}({{lang.label_vi}})</span></th>
+					<td>
+		                    <span class="user_data editable" data-formname="viName" data-locale="vi" data-value="{{model.viName}}">
+		                        <span id="data" data-type="changePopupName">{{model.viName}}</span>
+		                        <span class="btn_box" data-btntype="changePopupName">
+		                            <span class="ic ic_edit" title="{{lang.label_edit}}"></span>
+		                        </span>
+		                    </span>
+						<p><span class="go_alert" id="viNameValidate"></span></p>
+					</td>
+				</tr>
+				{{/isViLocale}}
+				{{^isKoLocale}}
+				<tr data-id="koNameInput" style="display: none">
+					<th><span class="title">{{lang.label_name}}({{lang.label_ko}})</span></th>
+					<td>
+		                    <span class="user_data editable" data-formname="koName" data-value="{{model.koName}}">
+		                        <span id="data" data-type="changePopupName">{{model.koName}}</span>
+		                        <span class="btn_box" data-btntype="changePopupName">
+		                            <span class="ic ic_edit" title="{{lang.label_edit}}"></span>
+		                        </span>
+		                    </span>
+						<p><span class="go_alert" id="koNameValidate"></span></p>
+					</td>
+				</tr>
+				{{/isKoLocale}}
+				{{^isEnLocale}}
+				<tr data-id="enNameInput" style="display: none">
+					<th><span class="title">{{lang.label_name}}({{lang.label_en}})</span></th>
+					<td>
+		                    <span class="user_data editable" data-formname="enName" data-value="{{model.enName}}">
+		                        <span id="data" data-type="changePopupName">{{model.enName}}</span>
+		                        <span class="btn_box" data-btntype="changePopupName">
+		                            <span class="ic ic_edit" title="{{lang.label_edit}}"></span>
+		                        </span>
+		                    </span>
+						<p><span class="go_alert" id="enNameValidate"></span></p>
+					</td>
+				</tr>
+				{{/isEnLocale}}
+				{{^isJpLocale}}
+				<tr data-id="jpNameInput" style="display: none">
+					<th><span class="title">{{lang.label_name}}({{lang.label_jp}})</span></th>
+					<td>
+		                    <span class="user_data editable" data-formname="jpName" data-value="{{model.jpName}}">
+		                        <span id="data" data-type="changePopupName">{{model.jpName}}</span>
+		                        <span class="btn_box" data-btntype="changePopupName">
+		                            <span class="ic ic_edit" title="{{lang.label_edit}}"></span>
+		                        </span>
+		                    </span>
+						<p><span class="go_alert" id="jpNameValidate"></span></p>
+					</td>
+				</tr>
+				{{/isJpLocale}}
+				{{^isZhcnLocale}}
+				<tr data-id="zhcnNameInput" style="display: none">
+					<th><span class="title">{{lang.label_name}}({{lang.label_zhcn}})</span></th>
+					<td>
+		                    <span class="user_data editable" data-formname="zhcnName" data-value="{{model.zhcnName}}">
+		                        <span id="data" data-type="changePopupName">{{model.zhcnName}}</span>
+		                        <span class="btn_box" data-btntype="changePopupName">
+		                            <span class="ic ic_edit" title="{{lang.label_edit}}"></span>
+		                        </span>
+		                    </span>
+						<p><span class="go_alert" id="zhcnNameValidate"></span></p>
+					</td>
+				</tr>
+				{{/isZhcnLocale}}
+				{{^isZhtwLocale}}
+				<tr data-id="zhtwNameInput" style="display: none">
+					<th><span class="title">{{lang.label_name}}({{lang.label_zhtw}})</span></th>
+					<td>
+		                    <span class="user_data editable" data-formname="zhtwName" data-value="{{model.zhtwName}}">
+		                        <span id="data" data-type="changePopupName">{{model.zhtwName}}</span>
+		                        <span class="btn_box" data-btntype="changePopupName">
+		                            <span class="ic ic_edit" title="{{lang.label_edit}}"></span>
+		                        </span>
+		                    </span>
+						<p><span class="go_alert" id="zhtwNameValidate"></span></p>
+					</td>
+				</tr>
+				{{/isZhtwLocale}}
+				{{^isViLocale}}
+				<tr data-id="viNameInput" style="display: none">
+					<th><span class="title">{{lang.label_name}}({{lang.label_vi}})</span></th>
+					<td>
+		                    <span class="user_data editable" data-formname="viName" data-value="{{model.viName}}">
+		                        <span id="data" data-type="changePopupName">{{model.viName}}</span>
+		                        <span class="btn_box" data-btntype="changePopupName">
+		                            <span class="ic ic_edit" title="{{lang.label_edit}}"></span>
+		                        </span>
+		                    </span>
+						<p><span class="go_alert" id="viNameValidate"></span></p>
+					</td>
+				</tr>
+				{{/isViLocale}}
+				<tr data-id="addMenuName">
+					<th><span class="title">{{lang.label_info_add}}</span></th>
+					<td>
+						<select id="moreName">
+							<option value="">{{lang.label_info_add_select}}</option>
+							{{^isKoLocale}}<option value="koName">{{lang.label_ko}} {{lang.label_name}}</option>{{/isKoLocale}}
+							{{^isEnLocale}}<option value="enName">{{lang.label_en}} {{lang.label_name}}</option>{{/isEnLocale}}
+							{{^isJpLocale}}<option value="jpName">{{lang.label_jp}} {{lang.label_name}}</option>{{/isJpLocale}}
+							{{^isZhcnLocale}}<option value="zhcnName">{{lang.label_zhcn}} {{lang.label_name}}</option>{{/isZhcnLocale}}
+							{{^isZhtwLocale}}<option value="zhtwName">{{lang.label_zhtw}} {{lang.label_name}}</option>{{/isZhtwLocale}}
+							{{^isViLocale}}<option value="viName">{{lang.label_vi}} {{lang.label_name}}</option>{{/isViLocale}}
+						</select>
+					</td>
+				</tr>
+				{{^model.systemMenu}}
+				{{^model.subMenuType}}
+				<tr data-id="inputUrl">
+					<th><span class="title"><ins class="asterisk">*</ins>{{lang.label_url}}</span></th>
+					<td>
+						{{^model.systemMenu}}
+		                        <span class="user_data editable" data-formname="url" data-value="{{model.url}}">
+		                            <span id="data" data-type="changePopupUrl">{{model.url}}</span>
+		                            <span class="btn_box" data-btntype="changePopupUrl">
+		                                <span class="ic ic_edit" title="{{lang.label_edit}}"></span>
+		                            </span>
+		                        </span>
+						<p><span class="go_alert" id="urlValidate"></span></p>
+					</td>
+					{{/model.systemMenu}}
+					{{#model.systemMenu}}
+					<span class="user_data" id="data">{{model.url}}</span>
+					{{/model.systemMenu}}
+				</tr>
+				<tr data-id="locations">
+					<th><span class="title">{{lang.label_location}}</span></th>
+					<td>
+						<span class="option_wrap">
+							<input type="radio" id="self" name="location" value="self" {{#model.systemMenu}} disabled="disabled" {{/model.systemMenu}} />
+							<label for="self">{{lang.label_self}}</label>
+						</span><br>
+						<span class="option_wrap">
+							<input type="radio" id="iframe" name="location" value="iframe" {{#model.initial}} disabled="disabled" {{/model.initial}} {{#model.systemMenu}} disabled="disabled" {{/model.systemMenu}}/>
+							<label for="iframe">{{lang.label_iframe}}</label>
+						</span><br>
+						<span class="option_wrap">
+							<input type="radio" id="new" name="location" value="new" {{#model.initial}} disabled="disabled" {{/model.initial}} {{#model.systemMenu}} disabled="disabled" {{/model.systemMenu}}  />
+							<label for="new">{{lang.label_new}}</label>
+						</span><br>
+						<span class="desc">
+							<strong>{{lang.label_linkMenu_mobile_desc}}</strong>
+							<br>{{lang.label_location_desc}}
+						</span>
+					</td>
+				</tr>
+				{{/model.subMenuType}}
+				{{/model.systemMenu}}
+				</tbody>
+			</table>
+		</form>
+	</div>
+</div>
+{{^model.subMenuType}}
+<div class="container" id="accessControll">
+	<div class="header">
+		<h2>{{lang.label_access}}</h2>
+	</div>
+	<div class="content">
+		<table class="detail">
+			<colgroup>
+				<col width="140px">
+				<col width="*">
+			</colgroup>
+			<tbody>
+			<tr class="last">
+				<th><p class="title">{{lang.디바이스 별 권한 설정}}</p></th>
+				<td>
+					<span class="action" style="left: 200px;" id="accessDeviceOption">
+							<input type="radio" name="accessDeviceOption" value="ALL" checked="checked">
+							<label for="black">{{lang.모든기기}}</label>
+							&nbsp;&nbsp;
+							<input type="radio" name="accessDeviceOption" value="DIVIDE">
+							<label for="white">{{lang.WEB / 모바일 앱 구분}}</label>
+                    </span>
+				</td>
+			</tr>
+			</tbody>
+		</table>
+
+		<table class="detail" data-type="PC" id="pc_device">
+			<colgroup>
+				<col width="140px">
+				<col width="*">
+			</colgroup>
+			<tbody>
+			<tr class="last" id="access_web_label" {{#isAccessDeviceOptionAll}} style="display: none" {{/isAccessDeviceOptionAll}}>
+				<th><p class="title">{{lang.Web(PC,모바일)}}</p></th>
+				<td>{{lang.WEB 정책 툴팁}}</td>
+			</tr>
+			<tr class="last">
+				<th><span class="title">{{lang.label_policy}}</span></th>
+				<td>
+						<span class="action" style="left: 200px;" id="selectAccessPolicy">
+							<div class="vertical_wrap_s">
+								<span class="wrap_opt">
+									<input type="radio" id="black" name="webAccessSetting" value="black">
+	                                <label for="black">{{lang.label_white}}</label>
+	                            </span>
+								&nbsp;&nbsp;
+	                            <span class="wrap_opt">
+	                                <input type="radio" id="white" name="webAccessSetting" value="white">
+	                                <label for="white">{{lang.label_black}}</label>
+	                            </span>
+							</div>
+                       </span>
+				</td>
+			</tr>
+			<tr class="last">
+				<th><span class="title access_class_label">{{lang.label_addAccessDenyClass}}</span></th>
+				<td>
+					<div class="vertical_tit_wrap">
+						<span id="selectedClass" class="tit">{{lang.label_selectClass}}</span>
+						<span id="webAccessTarget"></span>
+						<span id="exceptedClass" class="tit">{{lang.label_addExceptionClass}}</span>
+						<span class="help">
+							<span class="tool_tip"></span>
+						</span>
+						<span id="webExceptionTarget"></span>
+					</div>
+				</td>
+			</tr>
+			</tbody>
+		</table>
+		<table class="detail" data-type="MOBILE" id="mobile_device" {{#isAccessDeviceOptionAll}}style="display: none"{{/isAccessDeviceOptionAll}}>
+			<colgroup>
+				<col width="140px">
+				<col width="*">
+			</colgroup>
+			<tbody>
+			<tr class="last">
+				<th><p class="title">{{lang.모바일 앱}}</p></th>
+                {{^isWebFolderMenu}}<td>{{lang.모바일앱 정책 툴팁}}</td>{{/isWebFolderMenu}}
+                {{#isWebFolderMenu}}<td>{{lang.자료실 정책 툴팁}}</td>{{/isWebFolderMenu}}
+			</tr>
+
+			{{^isRequireMobileAccess}}{{^isWebFolderMenu}}
+			<tr class="last">
+				<th colspan="2"><span class="title">{{lang.모바일 메뉴 권한 안내}}</span></th>
+			</tr>
+            {{/isWebFolderMenu}}{{/isRequireMobileAccess}}
+
+			<tr class="last" {{^isRequireMobileAccess}} style="display: none" {{/isRequireMobileAccess}}>
+				<th><span class="title">{{lang.label_policy}}</span></th>
+				<td>
+						<span class="action" style="left: 200px;" id="selectAccessPolicy">
+							<div class="vertical_wrap_s">
+								<span class="wrap_opt">
+									<input type="radio" id="black" name="mobileAccessSetting" value="black">
+	                                <label for="black">{{lang.label_white}}</label>
+	                            </span>
+								&nbsp;&nbsp;
+	                            <span class="wrap_opt">
+	                                <input type="radio" id="white" name="mobileAccessSetting" value="white">
+	                                <label for="white">{{lang.label_black}}</label>
+	                            </span>
+							</div>
+                       </span>
+				</td>
+			</tr>
+			<tr class="last" {{^isRequireMobileAccess}} style="display: none" {{/isRequireMobileAccess}}>
+				<th><span class="title access_class_label">{{lang.label_addAccessDenyClass}}</span></th>
+				<td>
+					<div class="vertical_tit_wrap">
+						<span id="selectedClass" class="tit">{{lang.label_selectClass}}</span>
+						<span id="mobileAccessTarget"></span>
+						<span id="exceptedClass" class="tit">{{lang.label_addExceptionClass}}</span>
+						<span class="help">
+							<span class="tool_tip"></span>
+						</span>
+						<span id="mobileExceptionTarget"></span>
+					</div>
+				</td>
+			</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+{{/model.subMenuType}}
+
+<div class="page_action mini">
+	<span class="btn" id="submit">{{lang.label_ok}}</span>
+	<span class="btn_nega" id="cancel">{{lang.label_cancel}}</span>
+</div>

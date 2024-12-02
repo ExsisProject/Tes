@@ -1,0 +1,10 @@
+<li class="{{iconType}}" data-type="{{nodeType}}" data-id="{{nodeId}}">
+    <p class="title">
+        {{#hasChild}}
+        <a class="btn_close"><span class="ic {{#close}}open{{/close}}{{^close}}close{{/close}}"></span></a>
+        {{/hasChild}}
+        <a href="#" class="subject" data-id="{{nodeId}}" data-readable="{{isAccessible}}" title="{{nodeValue}}">
+            <span class="txt" data-folderid="{{nodeId}}">{{nodeValue}}</span>
+        </a>
+    </p>
+</li>

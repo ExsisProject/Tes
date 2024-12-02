@@ -1,0 +1,1 @@
+define("admin/models/attnd_ext_config",function(require){var e=require("backbone"),t=require("app"),n=e.Model.extend({urlRoot:function(){return t.contextRoot+"ad/api/ehr/attnd/config/ext"},initialize:function(e){}});return n});

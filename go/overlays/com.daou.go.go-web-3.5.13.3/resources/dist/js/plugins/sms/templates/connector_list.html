@@ -1,0 +1,35 @@
+{{#data}}
+<tr>
+	<td class="checkbox">
+		{{#hasMobileNo}}
+		<input name="mobileNo" data-mobileNo="{{mobileNo}}" data-name="{{name}}" data-deptname="{{departmentName}}" data-position="{{positionName}}" type="checkbox" data-id="{{id}}" data-nodeyype="{{nodeType}}"/>
+		{{/hasMobileNo}}
+		{{^hasMobileNo}}
+		<input name="mobileNo" data-mobileNo="{{mobileNo}}" data-name="{{name}}" data-deptname="{{departmentName}}" data-position="{{positionName}}" type="checkbox" disabled="disabled"/>
+		{{/hasMobileNo}}
+	</td>
+	<td class="name">
+		{{name}}
+	</td>
+	<td class="part">
+		{{departmentName}}
+	</td>
+	<td class="position">
+		{{positionName}}
+	</td>
+	<td class="mobileNo">
+		{{mobileNo}}
+	</td>
+	<td class="company">
+		{{companyName}}
+	</td>
+</tr>
+{{/data}}
+{{^data}}
+<tr>
+	<td class="null_data" colspan="6">
+		<span>{{lang.search_null}}</span>
+	</td>
+</tr>
+{{/data}}
+	

@@ -1,0 +1,1 @@
+define("sms/models/access_config",function(require){var e=require("backbone"),t=require("app"),n=null,r=e.Model.extend({url:function(){return t.config("contextRoot")+"api/sms/access"},isSms:function(){return this.get("accessSms")},isLms:function(){return this.get("accessLms")},isMms:function(){return this.get("accessMms")}});return r});

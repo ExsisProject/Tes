@@ -1,0 +1,17 @@
+<li data-tmpname="{{tmpName}}" data-name="{{name}}" data-hostid="{{hostId}}" >
+    <span class=item_file {{attachClass}} data-tmpname="{{tmpName}}" data-name="{{name}}" data-hostid="{{hostId}}">
+    <span class="ic_file ic_{{fileType}}"></span>
+        <span class="name">{{name}}</span>
+        <span class="size">({{size}})</span>
+        <a class="wrap_ic_file">
+            <span class="txt ic ic_file_del" title="{{lang.del}}"></span>
+        </a>
+        {{#isError}}
+        <span class="optional">
+            <a class="wrap_ic_file">
+                <span class="txt ic ic_file_error"></span>
+            </a>
+        </span>
+        {{/isError}}
+    </span>
+</li>

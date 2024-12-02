@@ -1,0 +1,96 @@
+<div class="go_side">
+	<section class="gnb_title">
+		<h1><span id="goTaskHome" style="cursor:pointer">{{appName}}</span></h1>
+	</section>
+	{{#folderPresent}}
+	<section class="function">
+		<a id="newTask" class="btn_function">
+			<span class="ic_side ic_app_task"></span>
+			<span class="txt">{{lang.newTask}}</span>
+		</a>
+	</section>
+	{{/folderPresent}}
+
+	{{#isTaskDeptVisle}}
+	<section class="lnb oganization">
+		<h1 class="tree {{^isTreeOpen}}folded{{/isTreeOpen}}" data-tag="fold" data-type="sideTaskDeptTree">
+			<ins class="ic"></ins>
+            <span class="ic_side ic_hide_up"
+                  title="{{#isTreeOpen}}{{lang.fold}}{{/isTreeOpen}}{{^isTreeOpen}}{{lang.outspread}}{{/isTreeOpen}}"></span>
+            <span class="txt">{{lang.orgTaskCondition}}</span>
+        </h1>
+			<div class="div_scroll">
+				<ul id="sideTaskDeptTree" class="side_depth" {{^isTreeOpen}}style="display:none"{{/isTreeOpen}}></ul>
+			</div>
+	</section>
+	{{/isTaskDeptVisle}}
+
+	<section class="lnb" id="side_favorite">
+    </section>
+	{{#isDeptTaskPriority}}
+	<section class="lnb">
+		<h1 class="org {{^isDeptOpen}}folded{{/isDeptOpen}}" data-tag="fold" data-type="sideDeptList">
+			<ins class="ic"></ins>
+            <span class="ic_side ic_hide_up"
+                  title="{{#isDeptOpen}}{{lang.fold}}{{/isDeptOpen}}{{^isDeptOpen}}{{lang.outspread}}{{/isDeptOpen}}"></span>
+			</span>
+            <span class="txt">{{lang.deptFolder}}</span>
+        </h1>
+		{{^deptPresent}}
+		<section class="intro">
+			<span class="ic_side ic_task_symbol"></span> 
+			<p class="desc">{{lang.emptyDept}}<br> {{lang.contactAdmin}}</p>
+		</section>
+		{{/deptPresent}}
+		{{#deptPresent}}
+		<ul id="sideDeptList" class="side_depth" {{^isDeptOpen}}style="display:none"{{/isDeptOpen}}>
+		</ul>
+		<div class="list_action">
+			<span class="btn_wrap">
+				<span class="btn_side2" id="createFolderBtn">{{lang.addFolder}}</span>
+			</span>
+		</div>
+		{{/deptPresent}}
+	</section>
+	{{/isDeptTaskPriority}}
+	
+	{{#companyFolderPresent}}
+	<section class="lnb">
+		<h1 class="company {{^isCompanyOpen}}folded{{/isCompanyOpen}}" data-tag="fold" data-type="companyList">
+			<ins class="ic"></ins>
+            <span class="ic_side ic_hide_up"
+                  title="{{#isCompanyOpen}}{{lang.fold}}{{/isCompanyOpen}}{{^isCompanyOpen}}{{lang.outspread}}{{/isCompanyOpen}}"></span>
+			<span class="txt">{{lang.companyFolder}} {{#isDeletedDept}} ({{deletedDept}}) {{/isDeletedDept}}</span>
+		</h1>
+		<ul id="companyList" class="side_depth" {{^isCompanyOpen}}style="display:none"{{/isCompanyOpen}}>
+		</ul>
+	</section>
+	{{/companyFolderPresent}}
+	
+	{{^isDeptTaskPriority}}
+	<section class="lnb">
+		<h1 class="org {{^isDeptOpen}}folded{{/isDeptOpen}}" data-tag="fold" data-type="sideDeptList">
+			<ins class="ic"></ins>
+            <span class="ic_side ic_hide_up"
+                  title="{{#isDeptOpen}}{{lang.fold}}{{/isDeptOpen}}{{^isDeptOpen}}{{lang.outspread}}{{/isDeptOpen}}"></span>
+			<span class="txt">{{lang.deptFolder}}</span>
+		</h1>
+		{{^deptPresent}}
+		<section class="intro">
+			<span class="ic_side ic_task_symbol"></span> 
+			<p class="desc">{{lang.emptyDept}}<br> {{lang.contactAdmin}}</p>
+		</section>
+		{{/deptPresent}}
+		{{#deptPresent}}
+		<ul id="sideDeptList" class="side_depth" {{^isDeptOpen}}style="display:none"{{/isDeptOpen}}>
+		</ul>
+		<div class="list_action">
+			<span class="btn_wrap">
+				<span class="btn_side2" id="createFolderBtn">{{lang.addFolder}}</span>
+			</span>
+		</div>
+		{{/deptPresent}}
+	</section>
+	{{/isDeptTaskPriority}}
+	<div class="bar"></div>
+</div>

@@ -1,0 +1,1 @@
+define(["backbone"],function(e){var t=e.Model.extend({url:function(){return[GO.contextRoot+"ad/api/mail/banner",this.id].join("/")}});return t});

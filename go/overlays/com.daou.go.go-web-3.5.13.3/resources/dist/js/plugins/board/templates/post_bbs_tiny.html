@@ -1,0 +1,82 @@
+<li class="tiny_tool" style="display:none">
+	<a class="btn_tool prev" data-bypass>
+		<span class="ic_toolbar up" title="{{lang.prev}}"></span>
+		<span class="txt">{{lang.prev}}</span>
+	</a>
+</li>
+<li class="tiny_tool" style="display:none">
+	<a class="btn_tool next" data-bypass>
+		<span class="ic_toolbar down" title="{{lang.next}}"></span>
+		<span class="txt">{{lang.next}}</span>
+	</a>
+</li>
+
+<div class="dataTables_wrapper">					
+	<!-- 테이블 -->		
+	<table class="type_normal tb_classic_list">	
+		<colgroup>
+			<col width="20px">
+			<col width="*">
+			<col width="150px">
+			<col width="150px">
+			<col width="70px">
+			<col width="80px">
+		</colgroup>
+		<thead>
+			<tr>
+				<th class="sorting_disabled no_indent"><!-- <span class="title_sort">{{lang.num}}</span> --></th>
+				<th class="sorting_disabled"><span class="title_sort">{{lang.title}}</span></th>
+				<th class="sorting_disabled"><span class="title_sort">{{lang.writer}}</span></th>
+				<th class="sorting_disabled"><span class="title_sort">{{lang.created_at}}</span></th>
+				<th class="sorting_disabled"><span class="title_sort">{{lang.read_count}}</span></th>
+				<th class="sorting_disabled"><span class="title_sort">{{lang.recommend_count}}</span></th>
+			</tr>
+		</thead>
+		<tbody>	
+			{{#dataset}}
+			<tr class="{{#isActive}}active{{/isActive}} {{^readPost}}read_no{{/readPost}}">
+				<td><!-- <span class="num">{{id}}</span> --></td>
+				<td class="align_l">	
+					<p class="depth{{depth}}">
+					{{#isActive}}<span class="ic_classic ic_now"></span>&nbsp;{{/isActive}}
+					{{#isReply}}<span class="ic_classic ic_answer"></span>&nbsp;{{/isReply}}
+					{{#isClose}}<span class="ic_classic ic_lock" title="{{lang.post_status_close}}"></span>&nbsp;{{/isClose}}
+					
+					{{#isHiddenTitle}}
+						{{lang.post_hidden_msg}}
+					{{/isHiddenTitle}}
+					
+					{{^isHiddenTitle}}
+						<a class="boardTitle" data-id="{{id}}" data-tinypage="{{tinyPage}}" data-current="{{isActive}}" data-hidden="{{isHiddenPost}}" data-bypass><!--  href="app/board/{{boardId}}/post/{{id}}" -->
+							{{#orphanFlag}}
+								<strong>[{{lang.post_orphan_msg}}]</strong>&nbsp;
+							{{/orphanFlag}}
+							<span class="list_subject">{{#header}}[{{header.name}}]&nbsp;{{/header}}{{{postTitle}}}</span>		
+						</a>
+						{{#commentsCount}}
+						<span class="ic_classic ic_reply"></span>
+						<span class="num">
+							[<strong>{{commentsCount}}</strong>]
+						</span>
+						{{/commentsCount}}
+						{{#repliesCount}}
+						<span class="ic_classic ic_answer"></span>
+						<span class="num">{{lang.post_reply}}[<strong>{{repliesCount}}</strong>]</span>
+						{{/repliesCount}}	
+						{{#newFlag}}
+						&nbsp;<span class="ic_classic ic_new2" title="{{lang.new_post}}"></span>
+						{{/newFlag}}
+					{{/isHiddenTitle}}
+					</p>				
+				</td>
+				<td><span class="name">{{#isHiddenPost}}-{{/isHiddenPost}} {{^isHiddenPost}}{{writer.name}} {{writer.positionName}}{{/isHiddenPost}}</span></td>
+				<td><span class="date">{{renderCreatedAt}}</span></td>
+				<td><span class="num">{{#isHiddenPost}}-{{/isHiddenPost}} {{^isHiddenPost}}{{readCount}}{{/isHiddenPost}}</span></td>
+				<td><span class="plus_num">{{#isHiddenPost}}-{{/isHiddenPost}} {{^isHiddenPost}}{{#recommendCount}}+{{recommendCount}}{{/recommendCount}}{{^recommendCount}}0{{/recommendCount}}{{/isHiddenPost}}</span></td>
+			</tr>
+			{{/dataset}}
+		</tbody>
+	</table>
+	<!-- //테이블 -->					
+</div>	
+<!-- //이전다음글목록 -->

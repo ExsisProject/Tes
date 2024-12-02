@@ -1,0 +1,42 @@
+<p class="desc">※ {{lang.info}}</p>
+
+<div class="option_display option_asset_add">
+	<div class="wrap">
+		<input class="input wfix_large" type="text" id="purposeText" maxlength="20" placeholder="">
+		<a class="btn_fn10" data-btntype="purposeAdd">{{lang.asset_add}}</a>
+		<!-- span class="byte"><strong>0</strong> / 14byte</span-->
+	</div>	
+	<div class="vertical_wrap_s" style="display:"><!-- 체크하면 보임 -->						
+											
+		<table class="in_table tb_article_head">
+			<caption></caption>
+			<colgroup>
+				<col width="">
+				<col width="100px">									
+			</colgroup>
+			<thead>
+				<tr>
+					<th class="align_l">{{lang.input_info}}</th>
+					<th>{{lang.del}}</th>
+				</tr>
+			</thead>
+			<tbody id="purposePart">
+				{{#dataset}}
+				<tr class="attribute" data-attrid="{{id}}">
+					<td>
+						<span class="txt_edit">
+								<span class="wrap_txt"><label></label><input class="txt comp" type="text" value="{{name}}" maxlength="20"/><!-- input class="txt enter" type="text" value="입력혹은수정중 데이터" /--></span>
+						</span>
+					</td>						
+					<td class="align_c"><span class="btn"><span class="ic_side ic_basket_bx" title="{{lang.del}}" data-btntype="purposeDel"></span></span></td>
+				</tr>
+				{{/dataset}}
+			</tbody>								
+		</table>	
+	</div>		
+</div>
+
+<div class="page_action_wrap">
+	<span class="btn_major" data-role="button" id="btn_ok" data-btnype="purposeSubmit"><span class="txt">{{lang.ok}}</span></span>
+	<span class="btn_minor" data-role="button" id="btn_cancel" data-btnype="purposeCancel"><span class="txt">{{lang.cancel}}</span></span>
+</div>

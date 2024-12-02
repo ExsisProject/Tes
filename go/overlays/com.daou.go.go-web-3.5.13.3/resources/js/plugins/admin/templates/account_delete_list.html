@@ -1,0 +1,44 @@
+    <!-- tab2  : 삭제 멤버 -->
+<div style="display: block;">
+        <div class="toolbar_top">
+            <div class="optional">
+										<span class="btn_tool" id="btn_down">
+											<span class="ic_adm ic_down"></span>
+											<span class="txt">{{lang.label_download}}</span>
+										</span>
+            </div>
+        </div>
+        <table class="chart" id="deleteList">
+            <thead>
+            <tr>
+                <th class="sorting_disable">
+                    <span class="title_sort txt">{{lang.label_name}}</span>
+                </th>
+                <th class="sorting_disable">
+                    <span class="title_sort txt">{{lang.label_position}}</span>
+                </th>
+                <th class="sorting_disable">
+                    <span class="title_sort txt">{{lang.label_email}}</span>
+                </th>
+                <th class="sorting_desc ">
+                    <span class="title_sort txt">{{lang.label_deleteDate}}<ins class="ic"></ins><span class="selected"></span></span>
+                </th>
+                <th class="sorting_disable last">
+                    <span class="title_sort txt">{{lang.label_delete_admin}}</span>
+                </th>
+            </tr>
+            </thead>
+        </table>
+    <div class="table_search">
+        <select id="type">
+            {{#selectType}}
+            <option value="{{value}}">{{name}}</option>
+            {{/selectType}}
+        </select>
+        <span class="search_wrap">
+                    <input class="input" type="text" id="keyword" name="keyword" value=""/>
+                        <span class="btn_search" title="{{lang.label_search}}"></span>
+                    <input class="submit" type="submit" value="" />
+                </span>
+    </div>
+ </div>

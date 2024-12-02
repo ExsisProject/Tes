@@ -1,0 +1,1 @@
+(function(){var e={icon:{p_popuppreview:"\u9884\u89c8 (\u65b0\u7a97\u53e3)"}};try{if(G_DEPlugin){G_DEPlugin.popuppreview.lang=e,dext5_lang.plugins.popuppreview=e;var t=document.getElementById("ue_"+KEDITORTOP.G_CURRKEDITOR.ID+"p_popuppreview");t&&t.setAttribute("title",e.icon.p_popuppreview)}}catch(n){}})();

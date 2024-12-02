@@ -1,0 +1,1 @@
+define(["backbone"],function(e){var t=e.Model.extend({defaults:{state:"HIDDEN"},url:function(){var e=GO.contextRoot+"ad/api/approval/manage/official/sender/";return _.isUndefined(this.get("id"))?e:e+this.get("id")},validate:function(e,t){if(_.isEmpty(e.name))return"name_required";if(e.name.length>100)return"name_invalid_length"}});return t});

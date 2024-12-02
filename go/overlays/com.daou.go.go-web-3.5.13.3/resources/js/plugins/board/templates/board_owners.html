@@ -1,0 +1,22 @@
+<p class="desc">{{#isDepartment}}{{lang.board_share_desc}}{{/isDepartment}}{{^isDepartment}}{{lang.community_share_desc}}{{/isDepartment}}</p>
+<table class="type_normal" id="boardOwners">	
+	<thead>
+		{{#isDepartment}}
+		<tr>
+			<th>{{lang.dept_name}}</th>
+			<th>{{lang.dept_share_flag}}</th>
+			<th>{{lang.write_permission}}</th>
+			<th>{{lang.board_member}}</th>
+		</tr>		
+		{{/isDepartment}}
+		{{^isDepartment}}
+		<tr>
+			<th>{{lang.community_onwer_target}}</th>
+			<th>{{lang.write_permission}}</th>
+		</tr>
+		{{/isDepartment}}
+	</thead>
+</table>
+{{#manageable}}
+<a id="btnOwnerEdit" class="btn_tool" data-role="button" data-bypass><span class="txt">{{lang.edit}}</span></a>
+{{/manageable}}

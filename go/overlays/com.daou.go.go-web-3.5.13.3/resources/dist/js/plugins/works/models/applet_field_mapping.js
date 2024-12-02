@@ -1,0 +1,1 @@
+define("works/models/applet_field_mapping",function(require){return Backbone.Model.extend({initialize:function(e){this.sourceAppletId=e.sourceAppletId,this.targetAppletId=e.targetAppletId},url:function(){return GO.contextRoot+"api/works/applets/"+this.sourceAppletId+"/mapping/"+this.targetAppletId}})});

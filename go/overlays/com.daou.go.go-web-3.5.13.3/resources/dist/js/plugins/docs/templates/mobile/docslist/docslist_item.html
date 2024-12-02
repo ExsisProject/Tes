@@ -1,0 +1,34 @@
+<li data-type="docs" data-id="{{doc.id}}" data-docsInfoId="{{doc.docsInfoId}}">
+    <a class="tit" data-id="{{doc.id}}" data-docsInfoId="{{doc.docsInfoId}}" data-list-id="{{doc.id}}">
+        <span class="subject">
+            {{#useDocsStatus}}<span class="state {{doc.statusClass}}">{{doc.stateName}}</span>{{/useDocsStatus}}
+            <span class="txt">{{doc.title}}</span>
+            {{#doc.hasComment}}<span class="count">[{{doc.commentCount}}]</span>{{/doc.hasComment}}
+            {{#isNew}}<span class="ic ic_new"></span>{{/isNew}}
+        </span>
+        <span class="info">
+            <span class="writer">{{doc.writer}} {{doc.writerPositionName}}</span>
+            <span class="part">|</span>
+            {{#useCompletDate}}
+            {{#useReadDate}}
+                <span class="date">{{doc.readDate}}</span>
+            {{/useReadDate}}
+            {{^useReadDate}}
+                <span class="date">{{doc.completDate}}</span>
+            {{/useReadDate}}
+            {{/useCompletDate}}
+            {{^useCompletDate}}
+                {{#useReadDate}}
+                    <span class="date">{{doc.readDate}}</span>
+                {{/useReadDate}}
+                {{^useReadDate}}
+                    <span class="date">{{doc.writeDate}}</span>
+                {{/useReadDate}}
+            {{/useCompletDate}}
+            {{#doc.docNum}}
+            	<span class="part">|</span>
+            	<span class="date">{{doc.docNum}}</span>
+            {{/doc.docNum}}
+        </span>                             
+    </a>
+</li>

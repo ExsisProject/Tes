@@ -1,0 +1,9 @@
+<div id="fieldSettingTbody" >
+	        {{#data}}
+	        <div class="vertical_wrap_s">
+	            	<input name="fieldtype" id="{{fieldCode}}" type="checkbox"
+						   contactType="{{fieldCode}}" fieldCode="{{fieldCode}}" {{#disabled}}disabled="disabled"{{/disabled}} {{#checked}}checked="checked"{{/checked}}>
+	            	<label for="{{fieldCode}}">{{displayName}}</label>
+	        </div>
+	        {{/data}}
+</div>

@@ -1,0 +1,25 @@
+<h1>
+	<span id="title" class="txt" title="{{dataset.name}}">{{dataset.name}}</span>
+	<span class="meta">{{#dataset.masterOwner.ownerInfo}}
+        <span class="from">{{/dataset.masterOwner.ownerInfo}} </span>
+		{{#postCount?}}<span class="num">({{{postCountParser}}})</span>{{/postCount?}}
+	</span>
+	{{^isCommunity?}}
+		{{#dataset.id}}
+		<span class="action"><ins id="boardFavorite" class="ic_star {{^dataset.favorite}}ic_star_off{{/dataset.favorite}}" title="{{lang.favorite}} {{^dataset.favorite}}{{lang.add}}{{/dataset.favorite}}{{#dataset.favorite}}{{lang.clean}}{{/dataset.favorite}}"></ins></span>
+		{{/dataset.id}}
+	{{/isCommunity?}}
+</h1>
+
+<section class="combine_search">
+	<div class="c_search_wrap{{#has_keyword?}} search_focus{{/has_keyword?}}"><!--focus되면 "search_focus" multi class로 추가해주세요.-->
+		<select class="search_op" id="searchType">
+			<option value="appSearch">{{appSearchName}}</option>
+			<option value="totalSearch">{{lang.unified_search}}</option>
+		</select>
+		<input class="c_search" type="text" id="simpleInput" placeholder="{{lang.search}}">
+		<a class="c_btn_detail" id="detailSearch" title="{{lang.search_detail}}"><span class="txt">{{lang.detail}}</span><span class="ic ic_cs_detail_arrow  "></span></a>
+		<input class="btn_c_search" type="button" id="simpleSearch" value="" title="{{lang.searchtitle}}">
+		<input type="hidden" name="hiddenInput"/>
+	</div>
+</section>

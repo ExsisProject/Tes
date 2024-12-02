@@ -1,0 +1,78 @@
+	<div class="content write">	
+		<section class="classic_detail">
+			{{^isDraft}}
+				{{#headerModel}}
+				<header class="article_header">
+					<h2>
+						<span class="txt_ellipsis">{{headerModel.title}}</span>
+					</h2>
+					<div class="article_wrap">
+						<span class="name">{{headerModel.drafterName}} {{headerModel.drafterPositionName}}</span>
+						<span class="part"> | </span>
+						<span class="date" style="display: initial;">{{headerModel.draftedAt}}</span>
+					</div>
+				</header>
+				{{/headerModel}}
+				<!-- 작성 폼 -->
+				<form>
+					<fieldset>
+						<table class="form_type" id="tblFormType">
+							<caption>{{lang.결재 의견 등록 양식}}</caption>
+							<tbody>
+				{{^isCancel}}
+								<tr>
+									<td><div class="ipt_wrap"><textarea placeholder="{{lang.의견을 작성해 주세요}}" id="textarea-desc" name="description"></textarea></div></td>
+								</tr>
+				{{/isCancel}}
+				{{#isPassword}}
+								<tr>
+									<td><div class="ipt_wrap"><input class="input w_max edit" type="password" maxlength=20 id="apprPassword" placeholder="{{lang.결재 비밀번호}}"></div></td>
+								</tr>
+				{{/isPassword}}
+				{{#showPreviousReturn}}
+								<tr>
+									<td><div class="ipt_wrap"><span class="option_wrap"><input type="checkbox" id="isPreviousReturn" ><label for="isPreviousReturn" class="txt">{{lang.반려옵션}}({{lang.반려옵션설명}})</label></span></div></td>
+								</tr>
+				{{/showPreviousReturn}}
+				{{#nextApproval}}
+								<tr>
+									<td><div class="ipt_wrap"><span class="option_wrap"><input type="checkbox" id="nextApproval" {{#useNextApproval}}checked{{/useNextApproval}}><label for="nextApproval" class="txt">{{lang.다음문서로이동}}({{lang.다음문서로이동설명}})</label></span></div></td>
+								</tr>
+				{{/nextApproval}}
+							</tbody>
+						</table>
+					</fieldset>
+				</form>
+			{{/isDraft}}
+			{{#isDraft}}
+				<section class="article_reply">
+					<div class="reply_wrap">
+						<form>
+							<dl class="list_type4">
+								<dt>
+									<span class="txt">{{lang.기안의견}}</span>
+								</dt>
+								<dd>
+									<textarea id="textarea-desc" placeholder="{{lang.의견을 작성해 주세요}}"></textarea>
+								</dd>
+								{{#isPassword}}
+								<dt>
+									<span class="txt">{{lang.결재 비밀번호}}</span>
+								</dt>
+								<dd>
+									<input id="apprPassword" class="input w_max edit" type="password" placeholder="">
+								</dd>
+								{{/isPassword}}
+								<dt>
+									<span class="txt">{{lang.긴급}}</span>
+								</dt>
+								<dd>
+									<span class="option_wrap opt_emergency"><input id="isEmergency" type="checkbox" name="emergency" value="true" {{#isEmergency}}checked{{/isEmergency}} ><label for="isEmergency">{{lang.긴급}}</label><p class="desc">{{lang.긴급문서설명}}</p></span>
+								</dd>
+							</dl>
+						</form>
+					</div>
+				</section>
+			{{/isDraft}}
+		</section>
+	</div>

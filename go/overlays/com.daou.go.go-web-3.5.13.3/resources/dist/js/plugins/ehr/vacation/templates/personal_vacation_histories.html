@@ -1,0 +1,125 @@
+<header class="content_top"></header>
+<div class="content_page">
+    <div class="tool_bar calendar_tool_bar">
+        <div class="current_date">
+            <span class="date" id="baseDate" data-basedate="{{baseDate}}">{{displayBaseDate}}</span>
+        </div>
+    </div>
+    <!-- tool bar -->
+    <!-- ehr statistics -->
+    <div class="wrap_statistics">
+        <div class="wrap_ehr_data ehr_holiday_data">
+            <div class="ehr_stat_data member_data">
+                <span class="member">
+                    <a href="">
+                        <img alt="{{vacation.userName}} {{vacation.positionName}}" src="{{thumbnailUrl}}">
+                    </a>
+                    <a href="">
+                        <span class="txt">{{vacation.userName}} {{vacation.positionName}}</span>
+                    </a>
+                </span>
+            </div>
+            <span class="divide_bar divide_space"></span>
+            <div class="ehr_stat_data month_data">
+                <p class="stat_tit">{{lang.발생 연차}}</p>
+                <p class="stat_txt">{{vacation.workingYearPoint}}</p>
+            </div>
+            <span class="divide_bar"></span>
+            <div class="ehr_stat_data month_data">
+                <p class="stat_tit">{{lang.발생 월차}}
+                    <span class="help">
+                        <span class="tool_tip tooltip_push">
+                                {{lang.1년 미만 발생 월차}}
+                            <i class="tail_left"></i>
+                        </span>
+                    </span>
+                </p>
+                <p class="stat_txt">{{vacation.publishedMonthPoint}}</p>
+            </div>
+            <span class="divide_bar"></span>
+            <div class="ehr_stat_data month_data">
+                <p class="stat_tit">{{lang.이월 월차}}
+                    <span class="help">
+                        <span class="tool_tip">
+                            {{lang.1년 미만 이월 월차}}
+                            <i class="tail_left"></i>
+                        </span>
+                    </span>
+                </p>
+                <p class="stat_txt">{{vacation.carriedMonthPoint}}</p>
+            </div>
+            <span class="divide_bar"></span>
+            <div class="ehr_stat_data month_data">
+                <p class="stat_tit">{{lang.조정 연차}}</p>
+                <p class="stat_txt">{{vacation.modifiedPoint}}</p>
+            </div>
+            <span class="divide_bar divide_space"></span>
+            <div class="ehr_stat_data">
+                <p class="stat_tit">{{lang.총연차}}</p>
+                <p class="stat_txt">{{vacation.sumPoint}}</p>
+            </div>
+            <span class="divide_bar"></span>
+            <div class="ehr_stat_data">
+                <p class="stat_tit">{{lang.사용 연차}}</p>
+                <p class="stat_txt">{{vacation.usedPoint}}</p>
+            </div>
+            <span class="divide_bar"></span>
+            <div class="ehr_stat_data">
+                <p class="stat_tit">{{lang.잔여 연차}}</p>
+                <p class="stat_txt">{{vacation.restPoint}}</p>
+            </div>
+        </div>
+    </div>
+    <!-- //ehr statistics -->
+    <!-- ehr datatable -->
+    <div class="wrap_tb_list">
+    	<div class="tool_bar">
+            <div class="critical">
+                <ul class="wrap_ehr_stat">
+                    <li>
+                        <span class="stat_tit">{{lang.연차 사용기간}} :</span>
+                        <select id="vacation_term_list"></select>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="wrap_tb_box">
+            <h1 class="s_title">{{lang.사용내역}}</h1>
+            <div class="wrap_tb_shadow">
+                <table class="type_normal type_white list list_annual_use" id="vacation_histories_list">
+                    <thead>
+                    <tr>
+                        <th class="name"><span class="title_sort">{{lang.이름}}<ins class="ic"></ins><span class="selected"></span></span></th>
+                        <th class="depart"><span class="title_sort">{{lang.부서명}}<ins class="ic"></ins></span></th>
+                        <th class="kind"><span class="title_sort">{{lang.휴가종류}}<ins class="ic"></ins></span></th>
+                        <th class="period"><span class="title_sort">{{lang.연차 사용기간}}<ins class="ic"></ins></span></th>
+                        <th class="dayoff"><span class="title_sort">{{lang.사용 연차}}<ins class="ic"></ins></span></th>
+                        <th class="note"><span class="title_sort">{{lang.내용}}<ins class="ic"></ins></span></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="wrap_tb_box">
+            <h1 class="s_title">{{lang.생성내역}}</h1>
+            <div class="wrap_tb_shadow">
+                <table class="type_normal type_white list_annual_adjust" id="vacation_issued_list">
+                    <thead>
+                    <tr>
+                        <th class="date"><span class="title_sort">{{lang.등록일}}<ins class="ic"></ins><span class="selected"></span></span></th>
+                        <th class="period"><span class="title_sort">{{lang.사용 기간}}<ins class="ic"></ins></span></th>
+                        <th class="dayoff"><span class="title_sort">{{lang.발생일수}}<ins class="ic"></ins></span></th>
+                        <th class="note"><span class="title_sort">{{lang.내용}}<ins class="ic"></ins></span></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+                <!-- 연차관리 End //-->
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,11 @@
+{{#columns.선택}}
+<td class="check"><input type="checkbox" value="{{model.id}}"></td>
+{{/columns.선택}}
+<td class="subject" data-id="{{model.id}}">
+	<a>
+		{{convertRules}}
+	</a>
+</td>
+	
+<td class="sort">{{convertCondition}}</td>
+<td class="doc_storage">{{postActionModel.destinationDocFolderName}}</td>

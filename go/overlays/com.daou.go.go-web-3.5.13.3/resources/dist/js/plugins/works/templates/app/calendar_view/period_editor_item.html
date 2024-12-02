@@ -1,0 +1,21 @@
+<span class="startField wrap_select">
+    <select name='date_field'>
+        {{#dateFields}}
+        <option value='{{cid}}' data-value-type='{{valueType}}'>{{label}}</option>
+        {{/dateFields}}
+    </select>
+</span>
+<span class="date_wave" style="display: none;">~</span>
+<span class="endField wrap_select" style="display: none;">
+    <select name="date_field">
+        <option value='' data-value-type="none">{{lang.종료날짜선택}}</option>
+        {{#dateFields}}
+        <option value='{{cid}}' data-value-type='{{valueType}}'>{{label}}</option>
+        {{/dateFields}}
+    </select>
+</span>
+<span class="wrap_toggle_btn">
+    <input type="checkbox">
+    <label><span class="txt">{{lang.종료일}}</span></label>
+ </span>
+<span data-delete="" class="btn_wrap btn_del"><span class="ic_classic ic_del"></span></span>

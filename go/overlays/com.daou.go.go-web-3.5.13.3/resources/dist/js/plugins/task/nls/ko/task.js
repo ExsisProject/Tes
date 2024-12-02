@@ -1,0 +1,1 @@
+define(["json!lang/ko/task.json","json!lang/ko/custom.json"],function(e,t){return _.extend(e,t.task||{})});

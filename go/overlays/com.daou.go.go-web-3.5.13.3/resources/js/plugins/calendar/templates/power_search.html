@@ -1,0 +1,50 @@
+<form id="power-search">
+    <input type="hidden" name="stype" value="detail" />
+    <fieldset>
+        <table class="form_type">
+            <colgroup>
+                <col width="110px" />
+                <col width="*" />
+            </colgroup>
+            <tbody>
+            <tr>
+                <th>
+                    <span class="title">{{label.summary}}</span>
+                </th>
+                <td>
+                    <input id="keyword-summary" class="txt_mini w_max enable_enter" type="text" name="summary" value="" maxlength="{{maxlength}}" />
+                </td>
+            </tr>
+
+            <tr>
+                <th><span class="title">{{label.attendee}}</span></th>
+                <td>
+                    <input class="txt_mini w_max enable_enter" type="text" name="attendees" value="" maxlength="{{maxlength}}" />
+                    <p class="desc">※ {{msg.attendee_input_rule}}</p>
+                </td>
+            </tr>
+            
+            <tr>
+                <th><span class="title">{{label.period}}</span></th>
+                <td class="last">
+                    <ul class="select_option">
+                        <li>
+                            <div id="datepicker" class="select_direct">
+                            	<span class="noti_date_wrap option_wrap">
+                                	<input id="custom-start-date" class="txt_mini wfix_small" type="text" name="fromDate" value="" readonly />
+                                	<span class="ic ic_calendar"></span>
+                                </span>
+                                 ~ 
+                                <span class="noti_date_wrap option_wrap">
+                                	<input id="custom-end-date" class="txt_mini wfix_small" type="text" name="toDate" value="" readonly />
+                                	<span class="ic ic_calendar"></span>
+                                </span>
+                            </div>
+                        </li>
+                    </ul>
+                </td>   
+            </tr>                           
+            </tbody>
+        </table>                        
+    </fieldset>
+</form> 

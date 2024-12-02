@@ -1,0 +1,1 @@
+define("works/views/app/report/report_text_editor",function(require){var e=require("hgn!works/components/report/works_report_editor");return Backbone.View.extend({initialize:function(e){this.content=e.content},render:function(){return this.$el.html(e({})),this}})});

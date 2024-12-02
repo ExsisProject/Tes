@@ -1,0 +1,21 @@
+{{#activities}}
+<div class="card-activity-container activity_item" data-id="{{id}}">
+    {{#actor}}
+    <span class="photo">{{> _user_thumbnail}}</span>
+    {{/actor}}
+    <div class="card-activity-content activity_wrap">
+        <p class="txt">{{{content}}}</p>
+        <span class="date">{{updatedAt}}</span>
+    </div>
+    {{#editable}}
+    <div class="comment-action-buttons action_wrap">
+        <a class="btn-reply-modify wrap_btn_fn4" href="#" title="{{label.modify}}" data-bypass>
+            <span class="btn_fn4"><span class="ic_feed ic_edit_white"></span></span>
+        </a>
+        <a class="btn-reply-remove wrap_btn_fn4" href="#" title="{{label.remove}}" data-bypass>
+            <span class="btn_fn4"><span class="ic_feed ic_del_white"></span></span>
+        </a>
+    </div>
+    {{/editable}}
+</div>
+{{/activities}}

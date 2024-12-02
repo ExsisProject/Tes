@@ -1,0 +1,43 @@
+{{#data}}
+	{{#references.length}}
+	<div class="add_file">
+		<div class="add_file_header">
+			<span class="subject">
+				<span class="ic_cmm ic_connect_doc"></span>
+				<strong>{{lang.ref_doc}}</strong>
+				<span class="num">{{references.length}}</span>{{lang.amt}}
+			</span>
+		</div>
+		<ul class="file_wrap">
+			{{#references}}
+			<li data-id="{{id}}">
+				<span class="item_file">
+	                <a id="btnRefDocPreview" data-id="{{id}}" href="javascript:;" data-bypass>
+					<span class="name">[{{docNum}}] {{title}}</span>
+					</a>
+				</span>
+			</li>
+			{{/references}}
+		</ul>
+	</div>
+	{{/references.length}}
+	{{#receptionOriginInReferences}}
+	<div class="add_file">
+		<div class="add_file_header">
+			<span class="subject">
+				<span class="ic_cmm ic_connect_doc"></span>
+				<strong>{{lang.원본문서}}</strong>
+			</span>
+		</div>
+		<ul class="file_wrap">
+			<li data-id="{{id}}" class="receptionOriginDoc">
+				<span class="item_file">
+	                <a id="btnRefDocPreview" data-id="{{id}}" href="javascript:;" data-bypass>
+					<span class="name">[{{docNum}}] {{title}}</span>
+					</a>
+				</span>
+			</li>
+		</ul>
+	</div>
+	{{/receptionOriginInReferences}}
+{{/data}}

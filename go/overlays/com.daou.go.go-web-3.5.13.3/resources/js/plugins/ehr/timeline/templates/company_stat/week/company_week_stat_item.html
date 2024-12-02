@@ -1,0 +1,22 @@
+<td class="name">
+    <div class="member2"  data-id={{stat.user.id}}>
+        <a class="photo">
+            <img alt={{positionName}} src={{stat.user.thumbnail}}>
+        </a>
+        <a class="info">
+            <span class="txt">{{userName}} </span>
+            <span class="txt">{{position}} </span>
+            <span class="txt">{{deptName}} </span>
+            <span class="txt">{{groupInfo}} </span>
+        </a>
+    </div>
+</td>
+<td class="total_time">
+    <p class="txt {{#isOverTotalWorkingTime}} caution {{/isOverTotalWorkingTime}}">{{totalWorkingTime}}</p>
+    <ul class="time_detail">
+        <li>{{TimelineLang.기본}}:{{normalWorkingTime}}</li>
+        <li>{{TimelineLang.연장}}:{{extensionWorkingTime}}</li>
+        <li>{{TimelineLang.야간}}:{{nightWorkingTime}}</li>
+    </ul>
+</td>
+

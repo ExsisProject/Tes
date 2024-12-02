@@ -1,0 +1,18 @@
+{{^isEmpty}}
+	{{#dataSet}}
+	<li class="node list">
+		<div class="item">
+			<span class="ic ic_drag"></span>
+			<div class="node-title tit">
+				<span class="board_name" data-asset-id="{{id}}">{{name}}</span>
+			</div>
+		</div>
+	</li>
+	{{/dataSet}}
+{{/isEmpty}}
+{{#isEmpty}}
+	<li class="empty-message">
+		<p class="data_null"><span class="ic_data_type ic_no_contents"></span><span class="txt">{{lang.no_data}}</span><br></p>
+	</li>
+{{/isEmpty}}
+	

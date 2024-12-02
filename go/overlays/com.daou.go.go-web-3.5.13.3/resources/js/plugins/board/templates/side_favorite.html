@@ -1,0 +1,28 @@
+<h1 class="star {{^isOpen}}folded{{/isOpen}}">
+	<ins class="ic"></ins>
+	<span class="ic_side ic_hide_up" title="{{#isOpen}}{{lang.collapse}}{{/isOpen}}{{^isOpen}}{{lang.expand}}{{/isOpen}}" data-slide="true"></span>
+	<a class="txt" data-role="button" data-bypass>{{lang.favorite_title}}</a>
+	<span class="btn_wrap">
+        <span class="btn_ic_list_reorder">
+		    <span class="ic_side ic_list_reorder" title="{{lang.favorite_edit}}"></span>
+        </span>
+	</span>
+</h1>
+<ul class="side_depth" {{^isOpen}} style="display:none" {{/isOpen}}>
+	{{#data}}
+	<li class="{{getBoardTypeClass}}">
+		<p class="title">
+			<a class="go_boards" data-boardId="{{boardId}}" data-id="{{id}}" title="{{name}}" data-bypass>
+				<ins class="ic"></ins>
+				{{#publicFlag}}
+					<span class="ic_side ic_private"></span>
+				{{/publicFlag}}
+				<span class="txt">{{name}}</span>
+			</a>
+			{{#hasRecentPost}}
+			<span class="ic_classic ic_new2"></span>
+			{{/hasRecentPost}}
+		</p>
+	</li>
+	{{/data}}		
+</ul>

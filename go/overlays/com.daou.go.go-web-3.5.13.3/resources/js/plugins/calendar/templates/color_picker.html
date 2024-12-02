@@ -1,0 +1,16 @@
+{{#color_set}}
+{{#.}}
+<a class="pallete_color bgcolor{{color_code}}{{#last_cols?}} last{{/last_cols?}}" href="#"
+   title="{{label_color}}{{color_code}}" data-code="{{color_code}}" data-bypass>{{label_color}}{{color_code}}</a>
+{{/.}}
+{{/color_set}}
+{{#useAddition}}
+<hr/>
+{{#useAdditionInput}}
+<input type="checkbox"/>
+{{/useAdditionInput}}
+{{^useAdditionInput}}
+<span class="bgcolor_group"></span>
+{{/useAdditionInput}}
+{{additionText}}
+{{/useAddition}}

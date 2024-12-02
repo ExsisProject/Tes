@@ -1,0 +1,34 @@
+<div class="container">
+    <div class="wrap_container wrap_authority_option">
+        <div class="header">
+            <h2>
+                <span class="title">{{adminLang.근태수단 정보 설정}}</span>
+            </h2>
+        </div>
+        <div class="content">
+            <table class="detail">
+                <colgroup>
+                    <col width="130px">
+                    <col width="*">
+                </colgroup>
+                <tbody>
+                <tr>
+                    <th>
+                        <span class="title">{{adminLang.근무지 이름}}</span>
+                    </th>
+                    <td>
+                        <input class="input" type="text" id="workPlaceName" value="{{#model.id}}{{model.attributes.name}}{{/model.id}}">
+                    </td>
+                </tr>
+                <tr id="accessIpsInfoView"></tr>
+                <tr id="accessGpsEditView"></tr>
+                <tr id="accessBeaconsInfoView" style="display:none"></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="page_action">
+        <span class="btn" id="btn_save">{{commonLang.저장}}</span>
+        <span class="btn_nega" id="btn_cancel">{{commonLang.취소}}</span>
+    </div>
+</div>

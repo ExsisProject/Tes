@@ -1,0 +1,1 @@
+define("works/components/list_manager/models/list_column",function(require){var e=require("works/constants/field_type"),t=Backbone.Model.extend({initialize:function(){this.modelName="column"},defaults:{fieldCid:"",columnName:"",isTitle:!1},isDesc:function(){return this.get("isSortBy")&&this.get("sortDirection")=="DESC"}});return t});

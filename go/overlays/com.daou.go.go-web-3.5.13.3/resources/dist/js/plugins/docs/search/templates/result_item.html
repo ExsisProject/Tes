@@ -1,0 +1,24 @@
+<div class="cs_board_group">
+    <div class="article_wrap">
+        <div class="info">
+            <span class="item item_default">
+                <span class="name" id="docsTitle" data-docsId={{id}} data-folderId={{folderId}}>{{{title}}}</span>
+                <span class="date">{{convertDate}}</span>
+            </span>
+        </div>
+        <div class="cs_article dot" style="word-wrap: break-word;"><span>{{{content}}}</span></div>
+        <span class="item">
+                <span class="sub">{{{folderPath}}}</span>
+                <span class="part">l</span>
+                <span>{{creatorName}} {{{creatorPosition}}}</span>
+                <span class="part">l</span>
+                <span>{{lang.version}}{{{version}}}</span>
+                <span class="part">l</span>
+                <span>{{lang.docsYear}}: {{{docsYear}}}</span>
+                {{#docNum}}
+                <span class="part">l</span>
+                <span>{{lang.docNum}}: {{{docNum}}}</span>
+                {{/docNum}}
+        </span>
+    </div>
+</div>

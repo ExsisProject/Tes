@@ -1,0 +1,14 @@
+<span class="desc publicAdd">{{lang.manager_add}} </span>
+<select class="baseJobList">
+	<option value="position">{{lang.position}}</option>
+	<option value="grade">{{lang.rank}}</option>
+	{{#isOrgServiceOn}}
+	<option value="duty">{{lang.duty}}</option>
+	{{/isOrgServiceOn}}
+	<option value="usergroup">{{lang.user_group}}</option>
+</select>
+<select class="groupListSelect">	
+</select>
+<span class="btn_s addBtn" data-btntype="addBtn">{{lang.submit}}</span>
+<span class="btn_s saveBtn" data-btntype="saveBtn" style="display:none">{{lang.save}}</span>
+<span class="btn_s cancelBtn" data-btntype="cancelBtn" style="display:none">{{lang.cancel}}</span>

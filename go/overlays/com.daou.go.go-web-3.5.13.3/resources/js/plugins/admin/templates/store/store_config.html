@@ -1,0 +1,44 @@
+<div class="content_page">
+    <div class="page_action">
+        <span class="btn" id="btn_ok">{{lang.label_ok}}</span> <span
+            class="btn_nega" id="btn_cancel">{{lang.label_cancel}}</span>
+    </div>
+</div>
+<div class="container" style="display:none;">
+    <div class="header">
+        <h2>광고성 정보 수신에 동의</h2>
+    </div>
+    <div class="content">
+        <table class="detail">
+            <colgroup>
+                <col width="130px"/>
+                <col width="*"/>
+            </colgroup>
+            <tbody>
+            <tr class="last">
+                <th>
+                    <span class="title">광고성 정보 수신에 동의</span>
+                </th>
+                <td>
+                    <div class="vertical_wrap_s">
+                        <span class="option_wrap">
+                            <input type="radio" value="true" id="agree_radio" name="agreement"
+                                   {{#termsAdvertisement}} checked="checked" {{/termsAdvertisement}} />
+                            <label for="agree_radio">동의함</label>
+                        </span>
+                        <span class="option_wrap">
+                            <input type="radio" value="false" id="disagree_radio" name="agreement"
+                                   {{^termsAdvertisement}} checked="checked" {{/termsAdvertisement}} />
+                            <label for="disagree_radio">동의하지 않음</label>
+                        </span>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="page_action">
+        <span class="btn" id="saveAgree">{{lang.label_ok}}</span> <span
+            class="btn_nega" id="cancelAgree">{{lang.label_cancel}}</span>
+    </div>
+</div>

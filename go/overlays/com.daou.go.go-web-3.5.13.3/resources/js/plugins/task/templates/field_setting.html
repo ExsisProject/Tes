@@ -1,0 +1,128 @@
+<form>
+	<fieldset>
+		<table class="form_type">
+			<colgroup>
+				<col/>
+				<col/>
+			</colgroup>
+			<tbody>									
+			<tr>
+				<th><span class="title">{{lang.optionName}}</span></th>
+				<td>
+					<span class="wrap_txt">
+						<label></label>
+						<input id="fieldName" class="txt wfix_max" type="text" value="{{data.name}}">
+					</span>
+				</td>
+			</tr>					
+			<tr>
+				<th>
+					<span class="title">{{lang.type}}</span>
+					<span class="help">&nbsp;
+						<span class="tool_tip">{{lang.typeDesc}}<i class="tail_left"></i></span>
+					</span>
+				</th>
+				<td><span class="txt">{{data.typeText}}</span></td>
+			</tr>
+			{{^data.isBooleanType}}
+			<tr>
+				<th><span class="title">{{lang.inputOption}}</span></th>
+				<td id="required">
+					<span class="wrap_option">
+						<input id="required-option-true" type="radio" name="require" value="true" {{#data.required}}checked{{/data.required}}>
+						<label for="required-option-true">{{lang.require}}</label>
+					</span>
+					<br>
+					<span class="wrap_option">
+						<input id="required-option-false" type="radio" name="require" value="false" {{^data.required}}checked{{/data.required}}>
+						<label for="required-option-false">{{lang.optional}}</label>
+					</span>
+				</td>
+			</tr>
+			{{/data.isBooleanType}}
+			{{#data.isSelectType}}
+			<tr>
+				<th><span class="title">{{lang.detail}}</span></th>
+				<td>
+					<div class="option_display option_task_detail">
+						<div id="detailError" class="wrap">
+							<input id="optionInput" data-type="lengthCheck" class="input wfix_large" type="text" placeholder="{{lang.inputOptionName}}">
+							<a id="addOption" class="btn_fn10">{{lang.add}}</a>
+							<span class="byte"><strong id="optionInputLength">0</strong> / 200{{lang.letters}}</span>
+						</div>	
+						<div class="vertical_wrap_s" style="display:">						
+																
+							<table class="in_table">
+								<caption>{{lang.addOptionName}}</caption>
+								<colgroup>
+									<col/>
+									<col/>									
+								</colgroup>
+								<thead>
+									<tr>
+										<th class="subject">{{lang.detail}}</th>
+										<th class="subject">{{lang.defaultValue}}</th>
+										<th class="delete">{{lang.delete}}</th>
+									</tr>
+								</thead>
+								<tbody id="optionList">
+									{{#data.detail}}
+									<tr>
+										<td class="subject">
+											<span class="wrap_txt">
+												<label></label>
+												<input data-tag="optionInput" id="option" class="txt wfix_large" type="text" value="{{value}}">
+											</span>
+										</td>						
+										<td class="default">
+											<span class="wrap_single_form">
+												<input type="checkbox" name="option" {{#defaultValue}}checked{{/defaultValue}}>
+											</span>
+										</td>						
+										<td class="delete">
+											<span class="wrap_btn_m">
+												<span class="ic_side ic_basket_bx">
+												</span>
+											</span>
+										</td>
+									</tr>
+									{{/data.detail}}
+								</tbody>								
+							</table>
+							<span class="wrap_desc_top"><span class="desc">※ {{lang.detailDesc}}</span></span>
+						</div>		
+					</div>								
+				</td>
+			</tr>
+			{{/data.isSelectType}}
+			{{^data.isSelectType}}
+			<tr>
+				<th><span class="title">{{lang.defaultMessage}}</span></th>
+				<td>
+					<span class="wrap_txt">
+						<label></label>
+						<input id="message" class="txt wfix_max" type="text" value="{{data.message}}">
+					</span>
+				</td>
+			</tr>
+			{{/data.isSelectType}}
+			{{#data.isBooleanType}}
+			<tr id="defaultValue">
+				<th><span class="title">{{lang.defaultValue}}</span></th>
+				<td>
+					<span class="wrap_option">
+						<input id="defaultValue-true" name="defaultValue" type="radio" value="true" {{#data.defaultValue}}checked{{/data.defaultValue}}>
+						<label for="defaultValue-true">{{lang.checkState}}</label>
+					</span>
+					<br>
+					<span class="wrap_option">
+						<input id="defaultValue-false" name="defaultValue" type="radio" value="false" {{^data.defaultValue}}checked{{/data.defaultValue}}>
+						<label for="defaultValue-false">{{lang.nonChecked}}</label>
+					</span>
+				</td>
+			</tr>
+			{{/data.isBooleanType}}
+			</tbody>
+		</table>					
+	</fieldset>
+</form>

@@ -1,0 +1,57 @@
+<span class="vertical_wrap">
+    <span class="wrap_input">
+        <input type="text" id="name" value="{{data.name}}" name="">
+    </span>
+    <span class="wrap_select">
+        <select class="v2_slt" name="" id="startHour">
+        {{#HOUR}}
+        <option value="{{.}}" {{#isStartHour}} selected {{/isStartHour}}>{{{.}}}</option>
+        {{/HOUR}}
+        </select>
+    </span>
+    <span class="wrap_txt">:</span>
+    <span class="wrap_select">
+        <select class="v2_slt" name="" id="startMinute">
+        {{#MINUTE}}
+        <option value="{{.}}" {{#isStartMinute}} selected {{/isStartMinute}} >{{.}}</option>
+        {{/MINUTE}}
+        </select>
+    </span>
+    <span class="wrap_txt">:</span>
+    <span class="wrap_select">
+        <select class="v2_slt" name="" id="startSecond">
+        {{#SECOND}}
+        <option value="{{.}}" {{#isStartSecond}} selected {{/isStartSecond}} >{{.}}</option>
+        {{/SECOND}}
+        </select>
+    </span>
+    <span class="wrap_txt">~</span>
+    <span class="wrap_select">
+        <select class="v2_slt" name="" id="endHour">
+        {{#HOUR}}
+        <option value="{{.}}" {{#isEndHour}} selected {{/isEndHour}}>{{{.}}}</option>
+        {{/HOUR}}
+        </select>
+    </span>
+    <span class="wrap_txt">:</span>
+    <span class="wrap_select">
+        <select class="v2_slt" name="" id="endMinute">
+        {{#MINUTE}}
+        <option value="{{.}}" {{#isEndMinute}} selected {{/isEndMinute}}>{{.}}</option>
+            {{/MINUTE}}
+        </select>
+    </span>
+    <span class="wrap_txt">:</span>
+    <span class="wrap_select">
+        <select class="v2_slt" name="" id="endSecond">
+        {{#SECOND}}
+        <option value="{{.}}" {{#isEndSecond}} selected {{/isEndSecond}}>{{.}}</option>
+        {{/SECOND}}
+        </select>
+    </span>
+    <span class="space"></span>
+    <span class="btn_wrap">
+        <span class="ic ic_row_add" id="add" title="추가"></span>
+        {{#deletable}}<span class="ic ic_row_del" id="remove" title="삭제"></span>{{/deletable}}
+    </span>
+</span>

@@ -1,0 +1,17 @@
+<h1 class="cs_s_title">{{lang.calendar}}</h1>
+	<ul class="s_result">
+	{{#dataset}}
+		<li>
+			<span class="name">{{convertStartTime}} / {{timeTerm}}</span>
+			<a id="calendarSummary" data-calendarId="{{calendarId}}" data-id={{id}}><span class="subject">{{{summary}}}</span></a>
+			<div class="mans"><span class="sub">{{{lang.attendee}}}</span><span class="part">l</span><span class="people">{{{attendees}}}</span></div>
+		</li>
+		{{/dataset}}
+	</ul>
+	
+	<div class="btn_more_wrap">
+	<a class="btn_more" id="btn_more" style="display:none;">
+		<span class="txt">{{lang.more}}</span>
+		<span class="ic ic_csm_arrow"></span>
+	</a>
+</div>

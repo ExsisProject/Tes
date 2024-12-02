@@ -1,0 +1,1 @@
+(function(){define(["jquery","backbone","app","i18n!nls/commons","i18n!admin/nls/admin","GO.util"],function(e,t,n,r,i){var s=null,o={alias:i["\ubcc4\uce6d \uacc4\uc815 \uad00\ub9ac"]},u=t.View.extend({el:"#layoutContent",initialize:function(){},render:function(){}});return{render:function(e){return s||(s=new u(e)),s.render(e)}}})}).call(this);

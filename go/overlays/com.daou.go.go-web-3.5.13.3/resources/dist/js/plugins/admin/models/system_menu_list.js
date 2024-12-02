@@ -1,0 +1,1 @@
+define(["backbone"],function(e){var t=null,n=e.Collection.extend({url:function(){return"/ad/api/systemmenulist"},hasApp:function(e){return _.isObject(_.find(this.models,function(t){return t.get("appName")==e}))}},{get:function(){return t==null&&(t=new n),t.set({silent:!0}),t.fetch({async:!1}),t}});return{read:function(){return menuConfig=n.get()}}});

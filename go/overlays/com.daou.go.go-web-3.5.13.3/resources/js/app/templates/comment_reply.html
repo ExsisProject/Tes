@@ -1,0 +1,18 @@
+<span class="ic_classic ic_depth"></span>
+<span class="photo"><img src="{{writer.thumbnail}}" alt="{{writer.name}} {{writer.position}}" title="{{writer.name}} {{writer.position}}"></span>
+
+<div class="msg_wrap">				
+	<div class="commentAttachReplyPart" id="commentAttachPart_{{typeId}}_{{commentId}}"> <!-- class : option_display -->
+		<ul class="file_wrap" style="margin-top : 0px;"></ul>
+	</div>							
+	<p class="form_wrap">
+		<span class="textarea_edit">
+			<!-- input type="text" class="txt_mini w_max"-->
+			<textarea class="edit w_max" placeholder="{{lang.comment_placeholder}}"></textarea>
+		</span>
+	</p>
+	<span class="btn_fn7 posi1" id="uploadBtn" title="{{lang.file_attach}}">
+		<span class="ic_con ic_file_up_s commentReplyAttach_{{typeId}}_{{commentId}}" id="file-control-{{typeId}}-{{commentId}}"> </span>
+	</span>
+	<span class="btn_minor_s comment_reply_save"><span class="txt">{{comment_save}}</span></span>
+</div>

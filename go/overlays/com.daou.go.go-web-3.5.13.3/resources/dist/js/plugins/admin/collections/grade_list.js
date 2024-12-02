@@ -1,0 +1,1 @@
+define(["backbone"],function(e){var t=null,n=e.Collection.extend({model:e.Model,url:function(){return GO.contextRoot+"ad/api/grade/list"}});return{getCollection:function(){return t==null&&(t=new n),t.fetch({async:!1,contentType:"application/json"}),t}}});

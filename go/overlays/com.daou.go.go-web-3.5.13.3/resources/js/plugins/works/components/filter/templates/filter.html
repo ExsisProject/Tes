@@ -1,0 +1,51 @@
+<div class="wrap_filter_title">
+	<!-- tab -->
+	<div class="critical custom_header">
+		<span el-filter-name class="title">{{model.name}}</span>
+	</div>
+
+	<div id="filterManagerLayerToggleButton" class="wrap_btn_title" style="display: none;">
+		<span class="ic ic_pin"></span>
+	</div>
+
+	<a el-save-as-filter class="line_under">{{lang.새 필터 저장}}</a>
+	<a el-save-filter class="line_under" style="display: none;">{{lang.필터 저장}}</a>
+	{{^hideListSetting}}
+	<div class="optional">
+		<a class="btn_icon chart" data-action="chartArrow">
+			<span class="ic_works ic_chart"></span>
+			<span class="txt">{{lang.차트접기}}</span>
+		</a>
+		<a class="btn_icon setting" id="navigateToListSetting">
+			<span class="ic_classic ic_setup" ></span>
+			<span class="txt">{{lang.목록관리}}</span>
+		</a>
+		<select class="slt_type" id="settingList">
+			<option value="0">{{lang.기본형}}</option>
+			{{#collection}}
+			<option value="{{id}}">{{name}}</option>
+			{{/collection}}
+		</select>
+	</div>
+	{{/hideListSetting}}
+</div>
+<!-- filter options-->
+<div class="tool_bar filter_option">
+	<!-- 정의한 필터 리스트 -->
+	<div id="fieldManagerAndConditionsArea" class="opt_list">
+		<div class="filter_search">
+			<input id="searchText" type="text" class="txt" placeholder="{{lang.텍스트 검색}}">
+			<i id="search"></i>
+		</div>
+	</div>
+	<!-- //정의한 필터 리스트 -->
+	{{^hideListSetting}}
+	<p class="filter_result_desc"><strong id="docsLength">0</strong> {{lang.개의 데이터가 있습니다}}
+	{{/hideListSetting}}
+		{{^mainForm}}
+		<span class="help">
+			<span class="tool_tip">{{{lang.필터조건설명}}}<i class="tail_left"></i></span>
+		</span>
+		{{/mainForm}}
+	</p>
+</div>

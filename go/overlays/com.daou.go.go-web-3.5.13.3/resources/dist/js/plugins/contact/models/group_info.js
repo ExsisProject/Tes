@@ -1,0 +1,1 @@
+define(function(require){var e=require("backbone"),t=e.Model.extend({url:function(){return["/api/contact/group",this.groupId].join("/")},setGroupId:function(e){this.groupId=e.groupId}});return{read:function(e){var n=new t;return n.setGroupId(e),n.fetch({async:!1}),n}}});

@@ -1,0 +1,1 @@
+define("admin/models/profile_edit_right",function(require){var e=require("backbone"),t=require("app"),n=e.Model.extend({url:function(){return t.config("contextRoot")+"ad/api/company/profile/editright"}});return n});

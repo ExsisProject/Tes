@@ -1,0 +1,1 @@
+define(["backbone"],function(e){var t=null,n=e.Model.extend({defaults:{},initialize:function(e){this.options=e||{}},url:function(){return GO.contextRoot+"api/ehr/attnd/user/"+this.options.userid+"/auth"},hasTimeEditAuth:function(){return this.get("hasTimeEditAuth")},hasStatusEditAuth:function(){return this.get("hasStatusEditAuth")}});return n});

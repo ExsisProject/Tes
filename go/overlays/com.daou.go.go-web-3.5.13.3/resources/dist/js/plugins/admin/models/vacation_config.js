@@ -1,0 +1,1 @@
+define(["backbone","admin/collections/app_admin_list"],function(e,t){var n=null,r=e.Model.extend({url:function(){return"/ad/api/ehr/vacation/config"}},{get:function(e){return n==null&&(n=new r(e)),n.fetch({async:!1,success:function(e,n){var r=new t(e.get("administrators")),i=e.get("menuActive");e.set("administrators",r),e.set("menuActive",i)}}),n}});return r});

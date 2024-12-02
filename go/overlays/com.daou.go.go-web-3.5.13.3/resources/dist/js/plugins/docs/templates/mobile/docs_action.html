@@ -1,0 +1,24 @@
+<div class="critical">
+{{#isApproveWaiting}}
+    {{#isManageable}}
+    <a class="btn_tool btn_slt">
+        <span class="txt" id="statusTitle">{{lang.승인선택}}</span>
+        <span class="space_ic"></span>
+        <span class="ic ic_arrow_down"></span>
+        <select class="slt_move" id="selectAction">
+            <option value ="none" selected style="display: none;">-</option>
+            <option value ="permit">{{lang.승인}}</option>
+            <option value = "reject">{{lang.반려}}</option>
+        </select>
+    </a>
+    {{/isManageable}}
+{{/isApproveWaiting}}
+</div>
+<div class="optional">
+	{{^isApproveWaiting}}
+    {{^needState}}
+	<a class="btn_tool" data-role="button" data-tag="action" id="btnReply"><span class="txt">{{lang.댓글}} <span class="num">{{commentCnt}}</span></span></a>
+    {{/needState}}
+	{{/isApproveWaiting}}
+	<a class="btn_tool" data-role="button" id="btnList"><span class="txt">{{lang.목록}}</span></a>
+</div>

@@ -1,0 +1,54 @@
+<form class="query-form">
+	<table class="form_type form_survey">
+		<tbody>		
+			<tr>
+				<th><span class="title">{{label.question}}</span></th>
+				<td>
+					<div class="wrap_txt"><input class="txt w_large" type="text" name="question" value="{{question}}" maxlength=""></div>
+				</td>
+			</tr>
+			<tr>							
+				<th><span class="title">{{label.query_type}}</span></th>
+				<td>									
+					<div class="flexable_info">										
+						<span class="wrap_select">
+							<select name="query_type">
+								<option value="select">{{label.query_type_select}}</option>
+								<option value="text">{{label.query_type_text}}</option>
+								<option value="score">{{label.query_type_score}}</option>
+							</select>
+						</span>		
+						<span class="wrap_select">
+							<select name="query_subtype"></select>
+						</span>									
+						<span class="horspace1"></span>
+						<span class="wrap_option">
+							<input id="checkbox-required-Y" type="checkbox" name="required" value="Y"{{#required?}} checked="checked"{{/required?}}>
+							<label for="checkbox-required-Y">{{label.required}}</label>
+						</span>
+					</div>
+				</td>
+			</tr>
+			<tr class="mselect-only" style="display:none">
+				<th><span class="title">{{label.max_of_selectable}}</span></th>
+				<!-- <td><input class="txt wfix_mini" type="text" name="maxOfSelectable" value="{{max_of_selectable}}"></td> -->
+				<td>
+					<select id="maxOfSelectable" name="maxOfSelectable">
+                   		<option value="0"> {{label.unlimited}} </option>
+                    </select>
+				</td>
+				
+			</tr>
+			<tr class="query-answer-row">							
+				<th><span class="title">{{label.query_case}}</span></th>
+				<td class="query-answer-container"></td>
+			</tr>							
+		</tbody>	
+	</table>
+	
+	<div class="survey_action">
+		<a class="btn-submit btn_major" data-role="button"><span class="txt">{{label.finish}}</span></a>
+		<a class="btn-cancel btn_minor" data-role="button"><span class="txt">{{label.cancel}}</span></a>
+	</div>
+
+</form>

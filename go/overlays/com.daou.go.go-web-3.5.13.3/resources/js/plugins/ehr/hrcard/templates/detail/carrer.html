@@ -1,0 +1,121 @@
+<h3 class="tab_title" style="display:none;">{{lang.label_carrer}}</h3>
+<div class="ehr_career viewForm">
+	<table class="type_list_box">
+		<tbody>
+		<tr>
+			<th class="num"><span class="title_txt">No</span></th>
+			<th class="date"><span class="title_txt">{{lang.label_fromDate}}</span></th>
+			<th class="date"><span class="title_txt">{{lang.label_toDate}}</span></th>
+			<th class="workplace"><span class="title_txt">{{lang.label_workspace}}</span></th>
+			<th class="position"><span class="title_txt">{{lang.label_positionName}}</span></th>
+			<th class="jop"><span class="title_txt">{{lang.label_task}}</span></th>
+			<th class="period"><span class="title_txt">{{lang.label_continousPeriod}}</span></th>
+			<th class="cause"><span class="title_txt">{{lang.label_leaveReason}}</span></th>
+			{{#editable}}
+			<th class="modify"><span class="title_txt">{{lang.label_modify}}</span></th>
+			{{/editable}}
+		</tr>
+		{{#data}}
+		<tr class="dataRow" {{#dataId.useColumn}}data-id="{{dataId.value}}"{{/dataId.useColumn}}>
+			<td class="num">
+				<span>{{number}}</span>
+			</td>
+			<td class="date">
+				{{#fromDate.useColumn}}
+		        {{#editable}}
+                <span class="wrap_date">
+                <input class="txt wfix_small" type="text" name="fromDate" value="{{fromDate.value}}" />
+                <span class="ic ic_calendar"></span>
+                </span>
+                {{/editable}}
+                {{^editable}}
+                {{fromDate.value}}
+                {{/editable}}
+		        {{/fromDate.useColumn}}
+		        {{^fromDate.useColumn}}
+		        	<span class="txt hide">{{lang.label_private}}</span>
+		        {{/fromDate.useColumn}}
+			</td>
+			<td class="date">
+				{{#toDate.useColumn}}
+		        {{#editable}}
+                <span class="wrap_date">
+                <input class="txt wfix_small" type="text" name="toDate" value="{{toDate.value}}" />
+                <span class="ic ic_calendar"></span>
+                </span>
+                {{/editable}}
+                {{^editable}}
+                {{toDate.value}}
+                {{/editable}}
+		        {{/toDate.useColumn}}
+		        {{^toDate.useColumn}}
+		        	<span class="txt hide">{{lang.label_private}}</span>
+		        {{/toDate.useColumn}}
+			</td>
+			<td class="workplace">
+				{{#workspace.useColumn}}
+		        <span class="txt">{{workspace.value}}</span>
+		        {{#editable}}
+		        <input class="txt w_max" type="text" name="workspace" value="{{workspace.value}}" style="display:none;"/>
+		        {{/editable}}
+		        {{/workspace.useColumn}}
+		        {{^workspace.useColumn}}
+		        	<span class="txt hide">{{lang.label_private}}</span>
+		        {{/workspace.useColumn}}
+			</td>
+			<td class="position">
+				{{#positionName.useColumn}}
+		        <span class="txt">{{positionName.value}}</span>
+		        {{#editable}}
+		        <input class="txt w_max" type="text" name="positionName" value="{{positionName.value}}" style="display:none;"/>
+		        {{/editable}}
+		        {{/positionName.useColumn}}
+		        {{^positionName.useColumn}}
+		        <span class="txt hide">{{lang.label_private}}</span>
+		        {{/positionName.useColumn}}
+			</td>
+			<td class="jop">
+				{{#task.useColumn}}
+		        <span class="txt">{{task.value}}</span>
+		        {{#editable}}
+		        <input class="txt w_max" type="text" name="task" value="{{task.value}}" style="display:none;"/>
+		        {{/editable}}
+		        {{/task.useColumn}}
+		        {{^task.useColumn}}
+		        <span class="txt hide">{{lang.label_private}}</span>
+		        {{/task.useColumn}}
+			</td>
+			<td class="period">
+				{{#continousPeriod.useColumn}}
+		        <span class="txt">{{continousPeriod.value}}</span>
+		        {{#editable}}
+		        <input class="txt w_max" type="text" name="continousPeriod" value="{{continousPeriod.value}}" style="display:none;"/>
+		        {{/editable}}
+		        {{/continousPeriod.useColumn}}
+		        {{^continousPeriod.useColumn}}
+		        <span class="txt hide">{{lang.label_private}}</span>
+		        {{/continousPeriod.useColumn}}
+			</td>
+			<td class="cause">
+				{{#leaveReason.useColumn}}
+		        <span class="txt">{{leaveReason.value}}</span>
+		        {{#editable}}
+		        <input class="txt w_max" type="text" name="leaveReason" value="{{leaveReason.value}}" style="display:none;"/>
+		        {{/editable}}
+		        {{/leaveReason.useColumn}}
+		        {{^leaveReason.useColumn}}
+		        <span class="txt hide">{{lang.label_private}}</span>
+		        {{/leaveReason.useColumn}}
+		        
+			</td>
+			{{#editable}}
+		    <td class="modify">
+		        <span class="ic_con ic_remove" title="삭제"></span>
+		        <span class="ic_con ic_add" title="추가"></span>
+		    </td>
+		    {{/editable}}
+		</tr>
+		{{/data}}
+		</tbody>
+	</table>
+</div>

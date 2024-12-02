@@ -1,0 +1,40 @@
+<div class="content_page">
+    <form name="formLogConfig" id="formLogConfig" >
+        <div class="container">
+            <div class="header">
+                <h2>{{lang.label_logConfig_title}}</h2>
+            </div>
+            <div class="content_tb">
+                <table class="chart" >
+                        <tr>
+                        <th><span class="title">{{lang.label_logConfig_host}}</span></th>
+                        <th><span class="title">{{lang.label_logConfig_service}}</span></th>
+                        <th><span class="title">{{lang.label_logConfig_log}}</span></th>
+                        </tr>
+                        <tr>
+                         <td>
+                                <select name="hostName" id="hostName" style="min-width:100px;">
+                                    <option value="" disabled selected>선택</option>
+                                </select>
+                            </td>
+                             <td><select name="serviceType" disabled id="serviceType" style="min-width:100px;">
+                                    <option value="" disabled selected>선택</option>
+                                    <option value="front">FRONT</option>
+                                    <option value="admin">ADMIN</option>
+                            </select></td>
+                            
+                            <td><select name="logLevel" disabled id="logLevel"  data-placeholder="Please select a product" style="min-width:100px;">
+                                    <option value="" disabled selected>선택</option>
+                                    <option value="debug">DEBUG</option>
+                                    <option value="info">INFO</option>
+                                    <option value="error">ERROR</option>
+                                    <option value="warning">WARN</option>
+                            </select></td>                            
+                        </tr>
+                </table>
+            </div>
+    </div>
+    </form>
+    <div class="page_action">
+        <span class="btn" id="btn_ok">{{lang.label_ok}}</span>
+    </div>

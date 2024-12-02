@@ -1,0 +1,1 @@
+define(["backbone","community/models/communities"],function(e,t){var n=e.Collection.extend({model:t,url:function(){return"/api/community/list/menu"}});return{getCollection:function(){var e=new n;return e.fetch({async:!1}),e},create:function(e){return new n(e)}}});

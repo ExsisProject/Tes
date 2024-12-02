@@ -1,0 +1,5 @@
+
+header.go_header h1 img {border:2px solid red\0/ie8+9} /*ie8+9*/
+header.go_header h1 img {background:pink\9} /*ie8 below*/
+:root header.go_header h1 img {background:red} /*ie9 only*/
+:root header.go_header {background:yellow} /*ie9 only*/

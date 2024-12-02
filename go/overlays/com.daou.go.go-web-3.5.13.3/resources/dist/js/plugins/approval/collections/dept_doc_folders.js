@@ -1,0 +1,1 @@
+define(["backbone"],function(e){var t=e.Collection.extend({url:function(){var e=GO.contextRoot+"api/approval/deptfolder/"+this.deptId;return this.includingPredefined&&(e+="?"+$.param({includingPredefined:this.includingPredefined})),e},initialize:function(e,t){this.deptId=e,this.includingPredefined=_.isBoolean(t)?t:!1}});return t});

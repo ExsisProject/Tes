@@ -1,0 +1,107 @@
+<div>
+    <header id="reportControll" class="report_header">
+		<div class="reporter">
+			<span class="name">
+				{{#data.reporter}}
+					{{name}} {{position}}
+			 	{{/data.reporter}}
+			</span>
+			<span class="date">{{data.submittedAtBasicDate}}</span>
+		</div>
+		{{^data.isPrintMode}}
+		<div class="tool_bar">
+			<ul class="optional" data-id="{{data.id}}">
+			<!-- 
+				<li class="prev"><a class="btn_tool"><span class="ic_gnb ic_prev" title="{{lang.prev}}"></span><span class="txt">{{lang.prev}}</span></a></li>
+				<li class="next"><a class="btn_tool"><span class="txt">{{lang.next}}</span><span class="ic_gnb ic_next" title="{{lang.next}}"></span></a></li>
+			-->
+				<li class="popup">
+					<div class="btn_submenu">
+						<a id="popup" class="btn_tool btn_tool_multi">
+							<span class="ic_toolbar popup" title="{{lang.popupView}}"></span>
+							<span class="txt">{{lang.popupView}}</span>
+						</a>
+						<span data-tag="option" class="btn_func_more">
+							<span class="ic ic_arrow_type3"></span>
+						</span>
+						<div id="popupOption" data-range="current" class="array_option" style="width:90px; display:none">
+							<ul class="array_type">
+								<li data-range="current"><span>{{lang.current_report}}</span></li>
+								<li data-range="all"><span>{{lang.all_report}}</span></li>
+							</ul>
+						</div>
+					</div>
+					
+					<!-- <a class="btn_tool">
+						<span class="ic_gnb ic_popup" title="{{lang.popupView}}"></span>
+						<span class="txt">{{lang.popupView}}</span>
+					</a> -->
+				</li>
+			{{#data.isActiveFolder}}
+				{{#data.actions.updatable}}
+				<li class="edit"><a class="btn_tool"><span class="ic_toolbar modify" title="{{lang.edit}}"></span><span class="txt">{{lang.edit}}</span></a></li>
+				{{/data.actions.updatable}}
+			{{/data.isActiveFolder}}
+				{{#data.actions.removable}}
+				<li class="delete"><a class="btn_tool"><span class="ic_toolbar del" title="{{lang.remove}}"></span><span class="txt">{{lang.remove}}</span></a></li>
+				{{/data.actions.removable}}
+				<li class="print">
+					<div class="btn_submenu">
+						<a id="print" class="btn_tool btn_tool_multi">
+                            <span class="ic_toolbar print" title="{{lang.print}}"></span>
+							<span class="txt">{{lang.print}}</span>
+						</a>
+						<span data-tag="option" class="btn_func_more">
+							<span class="ic ic_arrow_type3"></span>
+						</span>
+						<div id="printOption" data-range="current" class="array_option" style="width:90px; display:none">
+							<ul class="array_type">
+								<li data-range="current"><span>{{lang.current_report}}</span></li>
+								<li data-range="all"><span>{{lang.all_report}}</span></li>
+							</ul>
+						</div>
+					</div>
+				
+					<!-- <a class="btn_tool">
+						<span class="ic_gnb ic_print" title="{{lang.print}}"></span>
+						<span class="txt">{{lang.print}}</span>
+					</a> -->
+				</li>
+			</ul>
+		</div>
+		<a class="btn_layer_x" title="{{lang.close}}"><span class="ic"></span><span class="txt">{{lang.close}}</span></a>
+		{{/data.isPrintMode}}
+	</header>
+    <!--보고내용-->		
+	<!-- <div id="reportDetail">  -->
+	<div>
+		<div class="report_import editor_view" id="reportContentView"><!--height는 임시값-->
+			{{{data.content}}}
+		</div>
+        <!--//보고내용-->	
+		<div class="bar"></div>
+        <!--첨부파일-->
+		<div class="add_file" style="display:">
+			<div class="add_file_header">
+				<span class="subject">
+					<span class="ic ic_file_s"></span>
+					<strong>{{lang.attachFile}}</strong>
+					<span class="num">[ {{data.attachesCount}} ]</span>
+					<span class="size">({{data.attachesSize}})</span>
+				</span>
+			</div>
+			<div id="report-attach-placeholder"></div>
+		</div>
+	</div>
+    <section id="reportComment" class="article_reply">                 
+        <div class="reply_wrap">
+            <ul class="reply">
+                <li class="view_option" data-role="button" style="display:"> <!-- 댓글수가 5개 이상 일 때 보임. -->
+                    <span class="ic_classic ic_reply"></span>
+                    <span class="txt_b">{{lang.report_comment}}<span class="num">{{data.commentCount}}</span></span>
+                </li>
+                <span data-replies-wrapper id="reportReply"></span>
+            </ul>
+        </div>                  
+    </section>
+</div>

@@ -1,0 +1,1 @@
+define("admin/collections/ehr/timeline/group",function(require){var e=require("backbone"),t=require("admin/models/ehr/timeline/group"),n=e.Collection.extend({model:t,url:function(){return GO.contextRoot+"ad/api/timeline/groups"}});return n});

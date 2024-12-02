@@ -1,0 +1,28 @@
+<div class="ehr_data">
+    <p class="tit {{#isOverTotalWorkingTime}} caution {{/isOverTotalWorkingTime}}">{{weekTotalWorkingTime}}</p>
+    <p class="txt">{{TimelineLang.이번주 누적}}</p>
+</div>
+<div class="line"></div>
+<div class="ehr_data">
+    <p class="tit">{{weekExtensionWorkingTime}}</p>
+    <p class="txt">{{TimelineLang.이번주 초과}}</p>
+</div>
+<div class="line"></div>
+<div class="ehr_data">
+    <p class="tit">{{weekRestWorkingTime}}</p>
+    <p class="txt">{{TimelineLang.이번주 잔여}}</p>
+</div>
+<div class="ehr_data monthly">
+    <p class="tit">{{monthTotalWorkingTime}}</p>
+    <p class="txt">{{TimelineLang.이번달 누적}}</p>
+</div>
+<div class="line"></div>
+<div class="ehr_data monthly">
+    <p class="tit">{{monthTotalApprovalTime}}</p>
+    <p class="txt">{{TimelineLang.이번달 연장}}</p>
+</div>
+<div class="line"></div>
+<div class="ehr_data group">
+    <p class="tit">{{groupName}}</p>
+    <p class="txt">{{workingTimeRange}}</p>
+</div>

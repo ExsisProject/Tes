@@ -1,0 +1,25 @@
+<div class="layer_static layer_array_option go_renew" id="select-column-list">
+	<header>
+		<h1>{{label.addColumn}}</h1>
+		<a class="close-btn btn_layer_x" href="#" data-bypass><span class="ic"></span><span class="txt">{{label.close}}</span></a>
+	</header>
+	<div class="container">
+		<form name="form_select_column">
+		    <ul class="array_type">
+		    	<li>
+		            <input type="checkbox" name="id" class="column_checkbox" value="0" id="col-id-0">
+		            <label for="col-id-0">{{label.all}}</label>
+		        </li>
+		        {{#columns}}
+		        <li>
+		            <input type="checkbox" name="id" class="column_checkbox" value="{{id}}" id="col-id-{{id}}">
+		            <label for="col-id-{{id}}">{{{title}}}</label>
+		        </li>
+		        {{/columns}}
+		    </ul>
+		</form>
+	</div>
+	<footer class="btn_layer_wrap">
+		<a class="close-btn btn_major_s" href="#" data-bypass><span class="txt">{{label.close}}</span></a>
+	</footer>
+</div>

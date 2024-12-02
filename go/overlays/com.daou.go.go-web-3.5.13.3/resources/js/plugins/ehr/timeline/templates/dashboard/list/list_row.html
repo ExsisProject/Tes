@@ -1,0 +1,52 @@
+
+<!--
+1. 이른퇴근 일경우 퇴근시간 연출
+2. 자동 퇴근일 경우 퇴근시간 연출
+요 부분은 관련 클래스명 추가해서 머지했습니다.
+위 경우 뿐 아니라 출근 미체크, 퇴근 미체크, 지각, 이른퇴근, 결근 등에 해당하는 각 정보에 멀티클래스
+ highlighter_r 추가 부탁드립니다.
+-->
+
+{{#models}}
+<tr>
+    <td class="name">
+		<span class="member" data-id={{user.id}}>
+			<a> <img alt={{user.fullName}} src={{user.thumbnail}}> </a>
+			<a> <span class="txt">{{user.fullName}}</span> </a>
+		</span>
+    </td>
+    <td class="depart"><span class="txt">{{user.deptName}}({{groupName}})</span></td>
+    <td class="date"><span class="txt">{{detailDay.detailDayStr}}</span> {{#new}}<span class="label_set ic_new3">NEW</span>{{/new}}</td>
+    <td class="attend">  <span class="txt  {{#tardy}}late{{/tardy}}  {{#editClockIn}}modify{{/editClockIn}} {{#clockInWarning}}highlighter_r{{/clockInWarning}}">
+        {{#clockIn}} {{clockInTimeStr}} {{/clockIn}}
+        {{^clockIn}} {{TimelineLang.미등록}}{{/clockIn}}
+        </span></td>
+    <td class="leave">  <span class="txt {{#editClockOut}}modify{{/editClockOut}} {{#clockOutWarning}}highlighter_r{{/clockOutWarning}}" >
+        {{#clockOut}}
+                {{clockOutTimeStr}} {{#overDay}}(+1){{/overDay}} {{#autoClockOut}} (Auto) {{/autoClockOut}}
+        {{/clockOut}}
+        {{^clockOut}} {{TimelineLang.미등록}}{{/clockOut}}
+        </span>
+    </td>
+
+    {{#viewAbsence}}<td class="absence"><span class="txt">{{#absence}}{{TimelineLang.결근}}{{/absence}}</span></td>{{/viewAbsence}}
+    {{#viewVacation}}<td class="vacation"><span class="txt">{{vacationStr}}</span></td>{{/viewVacation}}
+    {{#viewUnAuthDevice}}<td class="unAuthDevice"><span class="txt">{{unAuthDeviceStr}}</span></td>{{/viewUnAuthDevice}}
+    {{#viewExtensionWorkingTime}}<td class="extensionWorkingTime"><span class="txt">{{extensionTime}}</span></td>{{/viewExtensionWorkingTime}}
+    {{#viewNightWorkingTime}}<td class="nightWorkingTime"><span class="txt">{{nightTime}}</span></td>{{/viewNightWorkingTime}}
+    {{#viewHolyDayWorkingTime}}<td class="holyDayWorkingTime"><span class="txt">{{holyDayTime}}</span></td>{{/viewHolyDayWorkingTime}}
+    {{#viewEtcStatus}}<td class="etcStatus"><span class="txt">{{etcStatusStr}}</span></td>{{/viewEtcStatus}}
+</tr>
+{{/models}}
+
+
+
+{{#isEmpty}}
+<tr>
+ <td class="data_null" colspan={{colCnt}}>
+  <p class="data_null">
+      <span class="txt">{{CommonLang.데이터가 없습니다}}</span>
+  </p>
+ </td>
+</tr>
+{{/isEmpty}}

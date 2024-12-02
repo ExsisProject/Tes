@@ -1,0 +1,139 @@
+<!-- 목록: 커뮤니티/게시판 피드  -->		
+<div class="content_page">			
+	<div class="feed_wrap">
+		{{#bbsWritable}}
+		<!-- 작성 큰 입력창 -->
+		<div class="feed_write_wrap" style="display:">				
+			<div class="write_wrap">
+				<div class="feed_write_b" id="feedWriteSmall">
+					<p class="drag_txt">{{lang.이 곳에 파일을 드래그 하세요}}</p>
+					<input class="to_talk" type="text" placeholder="{{lang.input_placeholder}}">
+					<span class="btn_feedwrite">
+						<span class="ic_feed ic_feedwrite"></span>
+						<span class="text">{{lang.이야기 하기}}</span>
+					</span>
+				</div>
+
+				<div class="feed_write_b" id="feedWriteLarge" style="display:none">
+					<div id="dropZone">
+						<p class="drag_txt">{{lang.이 곳에 파일을 드래그 하세요}}</p>
+						<textarea id="feedContent" placeholder="{{lang.input_placeholder}}"></textarea>
+						<!-- 작성자 첨부 미리보기 -->
+						<div id="optionDisplay" > <!--  class="option_display" -->
+							<div class="link_wrap" id="linkWrap" style="display:none;">
+								<div class="form_wrap"><input class="txt_mini w_max" id="linkUrl"/></div>
+								<span class="btn_minor_s">
+									<span class="txt">{{lang.link_input}}</span>
+								</span>
+							</div>
+							<div class="meta_info_wrap" style="display:none;">
+								<ul id="metaWrap">
+								</ul>
+							</div>
+							<div class="file_wrap" style="display:none;">
+								<ul class="file_wrap" id="fileWrap"></ul>
+							</div>
+							<div class="img_wrap" style="display:none;">
+								<ul class="img_wrap" id="imgWrap"></ul>
+							</div>
+						</div>
+						<!-- 작성자 첨부 미리보기 끝 -->
+						<div class="action_wrap">
+							{{#anonymFlag}}
+							{{#availableAnonymousWriterOptionInPost}}
+							<span id="publicWriterSettingPart">
+								<span class="btn_action action_off">
+									<input type="checkbox" id="isPublicWriter">
+									<label for="isPublicWriter">{{lang.public_writer}}</label>
+								</span>
+							</span>
+							{{/availableAnonymousWriterOptionInPost}}
+							{{/anonymFlag}}
+							<span class="optional">
+								<span id="total_size" class="size"></span>
+								<span class="btn_ic24">
+									<span class="ic ic_file_s" id="steam_image_upload" title="{{lang.file_attach}}"></span>
+								</span>
+								<span class="btn_feedwrite" id="sFeedWrite">
+									<span class="ic_feed ic_feedwrite"></span>
+									<span class="text">{{lang.이야기 하기}}</span>
+								</span>
+							</span>
+							{{^anonymFlag}}
+							<span class="btn_action_wrap" id="streamAlimpOption">
+								<span class="btn_action action_off">
+									<input id="post_stream_mail_noti" type="checkbox" />
+									<label for="post_stream_mail_noti">{{lang.alim_mail}}</label>
+								</span>
+								<span class="btn_action action_off">
+											<input id="post_stream_push_noti" type="checkbox" />
+											<label for="post_stream_push_noti">{{lang.alim_push}}</label>
+								</span>
+								<span class="wrap_ic_s">
+									<span class="help">
+										<span class="tool_tip tooltip_push">{{lang.alim_tooltip}}<i class="tail_left"></i>
+										</span>
+									</span>
+								</span>
+							</span>
+							{{/anonymFlag}}
+
+							<span class="file_progressive_warp">
+								<span class="progress_file" id="progress_file"></span>
+								<span class="progress_bar" id="progress_bar"></span>
+							</span>
+						</div>
+						<div class="desc caution" id="mail_push_desc" style="display: none"> ※ {{lang.mail_push_desc}} </div>
+					</div>
+				</div>
+			</div>
+		</div>
+		{{/bbsWritable}}	
+		<div class="array_wrap" id="streamOption" style="display:{{isListNull}}">
+		
+			<div class="array">
+				<select id="postSort">
+					<option selected="selected" value="createdAt">{{lang.range}}</option>
+					<option value="createdAt">{{lang.sort_create}}</option>
+					<option value="updatedAt">{{lang.sort_update}}</option>
+				</select>
+			</div>
+			<div class="array">
+				<select id="termSort">
+					<option value="today" data-term="0">{{lang.past_feed}}</option>
+					<option value="today" selected="selected">{{lang.today}}</option>
+					<option value="before" data-key="weeks" data-amount="-1">1{{lang.week_before}}</option>
+					<option value="before" data-key="weeks" data-amount="-2">2{{lang.week_before}}</option>
+					<option value="before" data-key="months" data-amount="-1">1{{lang.month_before}}</option>
+					<option value="before" data-key="months" data-amount="-2">2{{lang.month_before}}</option>
+					<option value="custom">{{lang.term_custom}}</option>
+				</select>				
+			</div>
+			<span class="option_wrap" id="stream_customInput" style="display:none"><!-- 사용자 지정으로 선택시 나옴 인풋창을 클릭하거나 달력을 클릭하면 달력 레이어뜸 -->
+				<input class="txt_date wfix_medium" type="text" placeholder="" id="beforePicker"/>		
+				<span class="ic ic_calendar" id="beforeCalendarIcon"></span>
+				<span class="desc">{{lang.before_post}}</span>
+			</span>										
+		</div>	
+		<!-- //정렬 -->	
+			
+		<!-- 타임라인 -->	
+		<div class="feed_contents_wrap">
+			<ul class="feed_type">								
+				<li el-no-content style="display: none;">
+					<p class="data_null">
+						<span class="ic_data_type ic_no_contents"></span>
+						<span class="txt">{{lang.no_content}}</span>
+					</p>
+				</li>
+			</ul>				
+		</div>
+		<div class="bottom_action" id="moreButton">
+			<img src="{{contextRoot}}/resources/images/img_loader_l.gif" style='display:{{isListNull}};'/>
+			<a class="btn_list_reload" style="display: none;">
+				<span class="ic"></span>
+				<span class="txt">{{lang.more_view}}</span>
+			</a>
+		</div>
+	</div>
+</div>	

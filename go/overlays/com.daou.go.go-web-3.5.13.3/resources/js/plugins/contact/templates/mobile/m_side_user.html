@@ -1,0 +1,26 @@
+<h3 class="user">
+    <span class="btn_wrap">
+        <span class="txt_ellipsis">{{lang.USER}}</span>
+    </span>
+</h3>
+
+<ul class="side_depth">
+<li class="group">
+    <a>
+        <span class="btn_wrap contactTag">
+            <span class="ic_side ic_add_tag"></span>
+            <span class="txt_ellipsis">{{lang.contact_all}}</span>
+        </span>
+    </a>
+</li>
+{{#data}}
+<li class="group" data-group-id={{id}}>
+    <a>
+        <span class="btn_wrap contactTag">
+            <span class="ic_side ic_add_tag"></span>
+            <span class="txt_ellipsis">{{name}}</span>
+            {{#hasContactCount}}<span class="num">{{contactCount}}</span>{{/hasContactCount}}
+        </span>
+    </a>
+</li>
+{{/data}}

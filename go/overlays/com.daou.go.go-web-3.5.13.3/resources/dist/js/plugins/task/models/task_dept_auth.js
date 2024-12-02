@@ -1,0 +1,1 @@
+define("task/models/task_dept_auth",function(require){var e=require("backbone"),t=require("app"),n=require("when"),r=e.Model.extend({url:function(){return t.config("contextRoot")+"api/task/checkviewer"}});return r});

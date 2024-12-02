@@ -1,0 +1,12 @@
+<li> 
+    <p class="photo"> 
+       <img src="{{log.actor.thumbnail}}"> 
+    </p> 
+    <div class="info"> 
+       <p class="name">{{log.actor.name}} {{log.actor.position}} </p> 
+       <span class="date">{{date}}</span> 
+       {{#messages}}
+		<p class="subject">{{{.}}}</p>
+	   {{/messages}}
+    </div> 
+ </li>

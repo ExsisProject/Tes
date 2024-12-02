@@ -1,0 +1,1085 @@
+<header class="content_top">
+				<h1>
+					<span class="txt">{{lang.personnel_manag_info}}</span>
+				</h1>
+			</header>
+<!-- content -->
+			<div class="content_page">
+				<table class="form_type form_hr">
+					<tbody>
+						<tr>
+							<th>
+								<span class="title">{{lang.myself_modify}}
+									<span class="help">&nbsp;
+										<span class="tool_tip">{{lang.myself_modify_tool_tip}}<i class="tail_left"></i></span>
+									</span>
+								</span>
+							</th>
+							<td>
+								<span class="option_wrap">
+									<input id="publicFlag1" type="radio" name="publicFlag_myself" value="true" {{#publicFlag_myself}}checked{{/publicFlag_myself}}>
+									<label for="publicFlag1">{{lang.permit}}</label>
+								</span>
+								<span class="option_wrap">
+									<input id="publicFlag1" type="radio" name="publicFlag_myself" value="false" {{^publicFlag_myself}}checked{{/publicFlag_myself}}>
+									<label for="publicFlag1">{{lang.no_permit}}</label>
+								</span>
+							</td>
+						</tr>
+						<tr class="line">
+							<td colspan="2"><hr></td>
+						</tr>
+						<tr>
+							<th>
+								<span class="title">{{lang.headofthedepartment_public}}
+									<span class="help">&nbsp;
+										<span class="tool_tip">{{lang.headofthedepartment_public_tool_tip}}<i class="tail_left"></i></span>
+									</span>
+								</span>
+							</th>
+							<td>
+								<span class="option_wrap">
+									<input id="publicFlag2" type="radio" name="publicFlag_headofthedepartment" value="true" {{#publicFlag_headofthedepartment}}checked{{/publicFlag_headofthedepartment}}>
+									<label for="publicFlag2">{{lang.permit}}</label>
+								</span>
+								<span class="option_wrap">
+									<input id="publicFlag2" type="radio" name="publicFlag_headofthedepartment" value="false" {{^publicFlag_headofthedepartment}}checked{{/publicFlag_headofthedepartment}}>
+									<label for="publicFlag2">{{lang.no_permit}}</label>
+								</span>
+							</td>
+						</tr>
+						<tr class="line">
+							<td colspan="2"><hr></td>
+						</tr>
+						<tr>
+							<th>
+								<span class="title">{{lang.personnel_info_all_enroll}}</span>
+							</th>
+							<td>
+								<div class="sample_download">
+									<div>
+										<a id="downExcelSample" href="" class="btn_minor_s btn_sample_down">
+											<span class="ic_adm ic_down"></span>
+											<span class="separator">|</span>
+											<span class="ic_adm ic_excel"></span>
+											<span class="txt">{{lang.sample_download}}</span>
+										</a>
+										<p class="desc" style="width: 260px;">
+											{{lang.sample_download_guide}}
+										</p>
+									</div>
+									<div>
+										<a id="downExcel" class="btn_minor_s btn_sample_down">
+											<span class="ic_adm ic_down"></span>
+											<span class="separator">|</span>
+											<span class="ic_adm ic_excel"></span>
+											<span class="txt">{{lang.download}}</span>
+										</a>
+                                        <a id="hiddenDownloadFile" data-role="button" href="" style="display:none"></a>
+                                        <form id="download_file_form" method="GET" style="display: none">
+                                            <div id="download_file_form_div"> </div>
+                                            <input type="hidden" value="" name="downloadTokenId" id="downloadTokenId"/>
+                                        </form>
+                                        <iframe name="ifm_download_file_form" id="ifm_download_file_form" style="border:0px;width:0px;height:0px;"></iframe>
+										<p class="desc" style="width: 260px;">
+											{{lang.download_guide}}
+										</p>
+									</div>
+								</div>
+								<!-- 파일 등록 -->
+								<div class="wrap_file_upload_type2">
+									<span class="btn_minor_s" id="swfupload-control" style="padding:0; !important"></span>
+								</div>
+								<ul class="file_wrap" id="fileComplete"></ul>
+								<p class="desc">{{lang.all_enroll_desc}}</p>
+							</td>
+						</tr>
+						<tr class="line">
+							<td colspan="2"><hr></td>
+						</tr>
+						<tr>
+							<th>
+								<span class="title">{{lang.personnel_info_manage}}
+									<span class="help">&nbsp;
+										<span class="tool_tip">{{lang.personnel_info_manage_tool_tip}}<i class="tail_left"></i></span>
+									</span>
+								</span>
+							</th>
+							<td>
+								<span class="txt"></span>
+								
+								
+								<!--기본정보-->
+								<table class="type_list_box tb_ehr_item" id="basic">
+									<tbody>
+										<tr>
+											<th class="item_title" colspan="5">
+												<span class="title_s">{{lang.basic_info}}<input type="checkbox" checked="checked"></span>
+												<span class="btn_wrap">
+													<span class="ic_classic ic_open"></span>
+												</span>
+											</th>
+										</tr>
+										<tr>
+											<td>
+												<span>
+													<input type="checkbox" checked="checked" data-name="hireDate">
+												</span>
+												<span>{{lang.entrance_date}}</span>
+											</td>
+											<td>
+												<span>
+													<input type="checkbox" checked="checked" data-name="jobDuty">
+												</span>
+												<span>{{lang.duty}}</span>
+											</td>
+											<td>
+												<span>
+													<input type="checkbox" checked="checked" data-name="jobClassification">
+												</span>
+												<span>{{lang.occupation}}</span>
+											</td>
+											<td>
+												<span>
+													<input type="checkbox" checked="checked" data-name="jobGroup">
+												</span>
+												<span>{{lang.occupational_group}}</span>
+											</td>
+											<td class="last">
+												<span>
+													<input type="checkbox" checked="checked" data-name="careerType">
+												</span>
+												<span>{{lang.recruitment_division}}</span>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<span>
+													<input type="checkbox" checked="checked" data-name="employeeDiv">
+												</span>
+												<span>{{lang.employee_division}}</span>
+											</td>
+											<td>
+												<span>
+													<input type="checkbox" checked="checked" data-name="salaryDiv">
+												</span>
+												<span>{{lang.salary_division}}</span>
+											</td>
+											<td>
+												<span>
+													<input type="checkbox" checked="checked" data-name="recommender">
+												</span>
+												<span>{{lang.recommender}}</span>
+											</td>
+											<td>
+												<span>
+													<input type="checkbox" checked="checked" data-name="status">
+												</span>
+												<span>{{lang.state}}</span>
+											</td>
+											<td class="last">
+												<span>
+													<input type="checkbox" checked="checked" data-name="birthDay">
+												</span>
+												<span>{{lang.birth}}</span>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<span>
+													<input type="checkbox" checked="checked" data-name="gender">
+												</span>
+												<span>{{lang.gender}}</span>
+											</td>
+											<td>
+												<span>
+													<input type="checkbox" checked="checked" data-name="maritalStatus">
+												</span>
+												<span>{{lang.marital_status}}</span>
+											</td>
+											<td>
+												<span>
+													<input type="checkbox" checked="checked" data-name="disability">
+												</span>
+												<span>{{lang.disability_status}}</span>
+											</td>
+											<td>
+												<span>
+													<input type="checkbox" checked="checked" data-name="veteransStatus">
+												</span>
+												<span>{{lang.the_veterans}}</span>
+											</td>
+											<td class="last">
+												<span>
+													<input type="checkbox" checked="checked" data-name="leaveDate">
+												</span>
+												<span>{{lang.resignation_date}}</span>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<span>
+													<input type="checkbox" checked="checked" data-name="leaveReason">
+												</span>
+												<span>{{lang.resignation_reason}}</span>
+											</td>
+											<td class="last" colspan="4"></td>
+										</tr>
+										
+									</tbody>
+								</table>
+								
+								
+								
+								
+								<!--신상정보-->
+								<table class="type_list_box tb_ehr_item" id="detail">
+									<tbody>
+										<tr>
+											<th class="item_title" colspan="5">
+												<span class="title_s">{{lang.personal_info}}<input type="checkbox" checked="checked"></span>
+												<span class="btn_wrap">
+													<span class="ic_classic ic_open"></span>
+												</span>
+											</th>
+										</tr>
+										<tr>
+											<td>
+												<span>
+													<input type="checkbox" checked="checked" data-name="hobby">
+												</span>
+												<span>{{lang.hobby}}</span>
+											</td>
+											<td>
+												<span>
+													<input type="checkbox" checked="checked" data-name="speciality">
+												</span>
+												<span>{{lang.speciality}}</span>
+											</td>
+											<td>
+												<span>
+													<input type="checkbox" checked="checked" data-name="faxNo">
+												</span>
+												<span>{{lang.fax}}</span>
+											</td>
+											<td>
+												<span>
+													<input type="checkbox" checked="checked" data-name="way">
+												</span>
+												<span>{{lang.job_route}}</span>
+											</td>
+											<td class="last">
+												<span>
+													<input type="checkbox" checked="checked" data-name="address">
+												</span>
+												<span>{{lang.address}}</span>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<span>
+													<input type="checkbox" checked="checked" data-name="homeNo">
+												</span>
+												<span>{{lang.home_number}}</span>
+											</td>
+											<td>
+												<span>
+													<input type="checkbox" checked="checked" data-name="veteransNo">
+												</span>
+												<span>{{lang.the_veterans_number}}</span>
+											</td>
+											<td>
+												<span>
+													<input type="checkbox" checked="checked" data-name="veteransFamily">
+												</span>
+												<span>{{lang.the_veterans_family}}</span>
+											</td>
+											<td>
+												<span>
+													<input type="checkbox" checked="checked" data-name="veteransDiv">
+												</span>
+												<span>{{lang.the_veterans_division}}</span>
+											</td>
+											<td class="last">
+												<span>
+													<input type="checkbox" checked="checked" data-name="disabilityNo">
+												</span>
+												<span>{{lang.disability_number}}</span>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<span>
+													<input type="checkbox" checked="checked" data-name="disabilityDiv">
+												</span>
+												<span>{{lang.disability_division}}</span>
+											</td>
+											<td>
+												<span>
+													<input type="checkbox" checked="checked" data-name="disabilityClass">
+												</span>
+												<span>{{lang.disability_rating}}</span>
+											</td>
+											<td>
+												<span>
+													<input type="checkbox" checked="checked" data-name="disabilityRecDiv">
+												</span>
+												<span>{{lang.disability_permit_division}}</span>
+											</td>
+											<td>
+												<span>
+													<input type="checkbox" checked="checked" data-name="accountType">
+												</span>
+												<span>{{lang.account_type}}</span>
+											</td>
+											<td class="last">
+												<span>
+													<input type="checkbox" checked="checked" data-name="bank">
+												</span>
+												<span>{{lang.bank}}</span>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<span>
+													<input type="checkbox" checked="checked" data-name="depositor">
+												</span>
+												<span>{{lang.depositor}}</span>
+											</td>
+											<td>
+												<span>
+													<input type="checkbox" checked="checked" data-name="note">
+												</span>
+												<span>{{lang.note}}</span>
+											</td>
+											<td>
+												<span>
+													<input type="checkbox" checked="checked" data-name="accountNum">
+												</span>
+												<span>{{lang.account_number}}</span>
+											</td>
+											<td>
+												<span>
+													<input type="checkbox" checked="checked" data-name="startDt">
+												</span>
+												<span>{{lang.start_date}}</span>
+											</td>
+											<td class="last">
+												<span>
+													<input type="checkbox" checked="checked" data-name="endDt">
+												</span>
+												<span>{{lang.end_date}}</span>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+								
+								
+								<!--직무정보-->
+								<table class="type_list_box tb_ehr_item" id="duty">
+									<tbody>
+										<tr>
+											<th class="item_title" colspan="5">
+												<span class="title_s">{{lang.duty_info}}<input type="checkbox" checked="checked"></span>
+												<span class="btn_wrap">
+													<span class="ic_classic ic_open"></span>
+												</span>
+											</th>
+										</tr>
+										<tr>
+											<td>
+												<span>
+													<input type="checkbox" checked="checked" data-name="jobGroup">
+												</span>
+												<span>{{lang.occupational_group}}</span>
+											</td>
+											<td>
+												<span>
+													<input type="checkbox" checked="checked" data-name="jobClass">
+												</span>
+												<span>{{lang.occupation}}</span>
+											</td>
+											<td>
+												<span>
+													<input type="checkbox" checked="checked" data-name="jobDuty">
+												</span>
+												<span>{{lang.duty}}</span>
+											</td>
+											<td>
+												<span>
+													<input type="checkbox" checked="checked" data-name="beginDate">
+												</span>
+												<span>{{lang.start_date2}}</span>
+											</td>
+											<td class="last">
+												<span>
+													<input type="checkbox" checked="checked" data-name="endDate">
+												</span>
+												<span>{{lang.end_date2}}</span>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<span>
+													<input type="checkbox" checked="checked" data-name="jobWeight">
+												</span>
+												<span>{{lang.importance}}</span>
+											</td>
+											<td>
+												<span>
+													<input type="checkbox" checked="checked" data-name="chargeDuty">
+												</span>
+												<span>{{lang.assignment_task}}</span>
+											</td>
+											<td class="last" colspan="3"></td>
+										</tr>
+									</tbody>
+								</table>
+								
+								
+								<!--발령정보-->
+								<table class="type_list_box tb_ehr_item" id="appoint">
+									<tbody>
+										<tr>
+											<th class="item_title" colspan="5">
+												<span class="title_s">{{lang.appointment_info}}<input type="checkbox" checked="checked"></span>
+												<span class="btn_wrap">
+													<span class="ic_classic ic_open"></span>
+												</span>
+											</th>
+										</tr>
+										<tr>
+											<td>
+												<span>
+													<input type="checkbox" checked="checked" data-name="appointDate">
+												</span>
+												<span>{{lang.appointment_date}}</span>
+											</td>
+											<td>
+												<span>
+													<input type="checkbox" checked="checked" data-name="appointDiv">
+												</span>
+												<span>{{lang.division}}</span>
+											</td>
+											<td>
+												<span>
+													<input type="checkbox" checked="checked" data-name="content">
+												</span>
+												<span>{{lang.appointment_name}}</span>
+											</td>
+											<td>
+												<span>
+													<input type="checkbox" checked="checked" data-name="employeeType">
+												</span>
+												<span>{{lang.employee_division}}</span>
+											</td>
+											<td class="last">
+												<span>
+													<input type="checkbox" checked="checked" data-name="position">
+												</span>
+												<span>{{lang.belong}}</span>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<span>
+													<input type="checkbox" checked="checked" data-name="salaryStep">
+												</span>
+												<span>{{lang.salary_level}}</span>
+											</td>
+											<td>
+												<span>
+													<input type="checkbox" checked="checked" data-name="responsibility">
+												</span>
+												<span>{{lang.job_title}}</span>
+											</td>
+											<td>
+												<span>
+													<input type="checkbox" checked="checked" data-name="chargeDuty">
+												</span>
+												<span>{{lang.assignment_task}}</span>
+											</td>
+											<td class="last" colspan="2"></td>
+										</tr>
+									</tbody>
+								</table>
+								
+								
+								<!--경력정보-->
+								<table class="type_list_box tb_ehr_item" id="career">
+									<tbody>
+										<tr>
+											<th class="item_title" colspan="5">
+												<span class="title_s">{{lang.career_info}}<input type="checkbox" checked="checked"></span>
+												<span class="btn_wrap">
+													<span class="ic_classic ic_open"></span>
+												</span>
+											</th>
+										</tr>
+										<tr>
+											<td>
+												<span>
+													<input type="checkbox" checked="checked" data-name="fromDate">
+												</span>
+												<span>{{lang.start_date2}}</span>
+											</td>
+											<td>
+												<span>
+													<input type="checkbox" checked="checked" data-name="toDate">
+												</span>
+												<span>{{lang.end_date2}}</span>
+											</td>
+											<td>
+												<span>
+													<input type="checkbox" checked="checked" data-name="workspace">
+												</span>
+												<span>{{lang.working_place}}</span>
+											</td>
+											<td>
+												<span>
+													<input type="checkbox" checked="checked" data-name="positionName">
+												</span>
+												<span>{{lang.position}}</span>
+											</td>
+											<td class="last">
+												<span>
+													<input type="checkbox" checked="checked" data-name="task">
+												</span>
+												<span>{{lang.assignment_task}}</span>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<span>
+													<input type="checkbox" checked="checked" data-name="continousPeriod">
+												</span>
+												<span>{{lang.long_service_period}}</span>
+											</td>
+											<td>
+												<span>
+													<input type="checkbox" checked="checked" data-name="leaveReason">
+												</span>
+												<span>{{lang.retirement_reason}}</span>
+											</td>
+											<td class="last" colspan="3"></td>
+										</tr>
+									</tbody>
+								</table>
+								
+								<!--포상/징계 정보-->
+								<table class="type_list_box tb_ehr_item" id="reward">
+									<tbody>
+										<tr>
+											<th class="item_title" colspan="5">
+												<span class="title_s">{{lang.prize_disciplinary_info}}<input type="checkbox" checked="checked"></span>
+												<span class="btn_wrap">
+													<span class="ic_classic ic_open"></span>
+												</span>
+											</th>
+										</tr>
+										<tr>
+											<td>
+												<span>
+													<input type="checkbox" checked="checked" data-name="type">
+												</span>
+												<span>{{lang.division}}</span>
+											</td>
+											<td>
+												<span>
+													<input type="checkbox" checked="checked" data-name="date">
+												</span>
+												<span>{{lang.date}}</span>
+											</td>
+											<td>
+												<span>
+													<input type="checkbox" checked="checked" data-name="content">
+												</span>
+												<span>{{lang.contents}}</span>
+											</td>
+											<td>
+												<span>
+													<input type="checkbox" checked="checked" data-name="reason">
+												</span>
+												<span>{{lang.reason}}</span>
+											</td>
+											<td class="last">
+												<span>
+													<input type="checkbox" checked="checked" data-name="note">
+												</span>
+												<span>{{lang.etc}}</span>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+								
+								
+								<!--인사평가 정보-->
+								<table class="type_list_box tb_ehr_item" id="evaluation">
+									<tbody>
+										<tr>
+											<th class="item_title" colspan="5">
+												<span class="title_s">{{lang.personnel_evaluation_info}}<input type="checkbox" checked="checked"></span>
+												<span class="btn_wrap">
+													<span class="ic_classic ic_open"></span>
+												</span>
+											</th>
+										</tr>
+										<tr>
+											<td>
+												<span>
+													<input type="checkbox" checked="checked" data-name="evalYear">
+												</span>
+												<span>{{lang.evaluation_year}}</span>
+											</td>
+											<td>
+												<span>
+													<input type="checkbox" checked="checked" data-name="capability">
+												</span>
+												<span>{{lang.capability}}</span>
+											</td>
+											<td>
+												<span>
+													<input type="checkbox" checked="checked" data-name="outcome">
+												</span>
+												<span>{{lang.result}}</span>
+											</td>
+											<td>
+												<span>
+													<input type="checkbox" checked="checked" data-name="evaluator">
+												</span>
+												<span>{{lang.evaluator}}</span>
+											</td>
+											<td class="last">
+												<span>
+													<input type="checkbox" checked="checked" data-name="organization">
+												</span>
+												<span>{{lang.organization}}</span>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<span>
+													<input type="checkbox" checked="checked" data-name="etc">
+												</span>
+												<span>{{lang.etc}}</span>
+											</td>
+											<td class="last" colspan="4"></td>
+										</tr>
+									</tbody>
+								</table>
+								
+								
+								<!--교육정보-->
+								<table class="type_list_box tb_ehr_item" id="edu">
+									<tbody>
+										<tr>
+											<th class="item_title" colspan="5">
+												<span class="title_s">{{lang.educational_info}}<input type="checkbox" checked="checked"></span>
+												<span class="btn_wrap">
+													<span class="ic_classic ic_open"></span>
+												</span>
+											</th>
+										</tr>
+										<tr>
+											<td>
+												<span>
+													<input type="checkbox" checked="checked" data-name="content">
+												</span>
+												<span>{{lang.curriculum}}</span>
+											</td>
+											<td>
+												<span>
+													<input type="checkbox" checked="checked" data-name="category">
+												</span>
+												<span>{{lang.educational_type}}</span>
+											</td>
+											<td>
+												<span>
+													<input type="checkbox" checked="checked" data-name="fromDate">
+												</span>
+												<span>{{lang.start_date2}}</span>
+											</td>
+											<td>
+												<span>
+													<input type="checkbox" checked="checked" data-name="toDate">
+												</span>
+												<span>{{lang.end_date2}}</span>
+											</td>
+											<td class="last">
+												<span>
+													<input type="checkbox" checked="checked" data-name="institution">
+												</span>
+												<span>{{lang.educational_institution}}</span>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+								
+								
+								<!--자격정보-->
+								<table class="type_list_box tb_ehr_item" id="license">
+									<tbody>
+										<tr>
+											<th class="item_title" colspan="5">
+												<span class="title_s">{{lang.qualification_info}}<input type="checkbox" checked="checked"></span>
+												<span class="btn_wrap">
+													<span class="ic_classic ic_open"></span>
+												</span>
+											</th>
+										</tr>
+										<tr>
+											<td>
+												<span>
+													<input type="checkbox" checked="checked" data-name="licenseType">
+												</span>
+												<span>{{lang.division}}</span>
+											</td>
+											<td>
+												<span>
+													<input type="checkbox" checked="checked" data-name="licenseNm">
+												</span>
+												<span>{{lang.qualification_name}}</span>
+											</td>
+											<td>
+												<span>
+													<input type="checkbox" checked="checked" data-name="licenseNo">
+												</span>
+												<span>{{lang.qualification_number}}</span>
+											</td>
+											<td>
+												<span>
+													<input type="checkbox" checked="checked" data-name="licenseClass">
+												</span>
+												<span>{{lang.qualification_rating}}</span>
+											</td>
+											<td class="last">
+												<span>
+													<input type="checkbox" checked="checked" data-name="institution">
+												</span>
+												<span>{{lang.institution_name}}</span>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<span>
+													<input type="checkbox" checked="checked" data-name="receiveDate">
+												</span>
+												<span>{{lang.date_of_acquisition}}</span>
+											</td>
+											<td>
+												<span>
+													<input type="checkbox" checked="checked" data-name="expirationDate">
+												</span>
+												<span>{{lang.date_of_halt}}</span>
+											</td>
+											<td class="last" colspan="3"></td>
+										</tr>
+									</tbody>
+								</table>
+								
+								
+								<!--어학정보-->
+								<table class="type_list_box tb_ehr_item" id="language">
+									<tbody>
+										<tr>
+											<th class="item_title" colspan="5">
+												<span class="title_s">{{lang.language_info}}<input type="checkbox" checked="checked"></span>
+												<span class="btn_wrap">
+													<span class="ic_classic ic_open"></span>
+												</span>
+											</th>
+										</tr>
+										<tr>
+											<td>
+												<span>
+													<input type="checkbox" checked="checked" data-name="langType">
+												</span>
+												<span>{{lang.division}}</span>
+											</td>
+											<td>
+												<span>
+													<input type="checkbox" checked="checked" data-name="langNm">
+												</span>
+												<span>{{lang.language_name}}</span>
+											</td>
+											<td>
+												<span>
+													<input type="checkbox" checked="checked" data-name="evaluationDate">
+												</span>
+												<span>{{lang.evaluation_date}}</span>
+											</td>
+											<td>
+												<span>
+													<input type="checkbox" checked="checked" data-name="evaluationOrg">
+												</span>
+												<span>{{lang.evaluation_institution}}</span>
+											</td>
+											<td class="last">
+												<span>
+													<input type="checkbox" checked="checked" data-name="langScore">
+												</span>
+												<span>{{lang.score}}</span>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<span>
+													<input type="checkbox" checked="checked" data-name="langClass">
+												</span>
+												<span>{{lang.grade}}</span>
+											</td>
+											<td>
+												<span>
+													<input type="checkbox" checked="checked" data-name="note">
+												</span>
+												<span>{{lang.etc}}</span>
+											</td>
+											<td class="last" colspan="3"></td>
+										</tr>
+									</tbody>
+								</table>
+								
+								
+								<!--병역정보-->
+								<table class="type_list_box tb_ehr_item" id="military">
+									<tbody>
+										<tr>
+											<th class="item_title" colspan="5">
+												<span class="title_s">{{lang.military_info}}<input type="checkbox" checked="checked"></span>
+												<span class="btn_wrap">
+													<span class="ic_classic ic_open"></span>
+												</span>
+											</th>
+										</tr>
+										<tr>
+											<td>
+												<span>
+													<input type="checkbox" checked="checked" data-name="militaryType">
+												</span>
+												<span>{{lang.military_clique}}</span>
+											</td>
+											<td>
+												<span>
+													<input type="checkbox" checked="checked" data-name="rank">
+												</span>
+												<span>{{lang.rank}}</span>
+											</td>
+											<td>
+												<span>
+													<input type="checkbox" checked="checked" data-name="serialNumber">
+												</span>
+												<span>{{lang.military_serial_number}}</span>
+											</td>
+											<td>
+												<span>
+													<input type="checkbox" checked="checked" data-name="discharge">
+												</span>
+												<span>{{lang.discharge_division}}</span>
+											</td>
+											<td class="last">
+												<span>
+													<input type="checkbox" checked="checked" data-name="joinDate">
+												</span>
+												<span>{{lang.enlist_date}}</span>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<span>
+													<input type="checkbox" checked="checked" data-name="dischargeDate">
+												</span>
+												<span>{{lang.discharge_date}}</span>
+											</td>
+											<td>
+												<span>
+													<input type="checkbox" checked="checked" data-name="reason">
+												</span>
+												<span>{{lang.etc_reason}}</span>
+											</td>
+											<td class="last" colspan="3"></td>
+										</tr>
+									</tbody>
+								</table>
+								
+								
+								<!--해외출장 정보-->
+								<table class="type_list_box tb_ehr_item" id="abroad">
+									<tbody>
+										<tr>
+											<th class="item_title" colspan="5">
+												<span class="title_s">{{lang.overseas_business_trip_info}}<input type="checkbox" checked="checked"></span>
+												<span class="btn_wrap">
+													<span class="ic_classic ic_open"></span>
+												</span>
+											</th>
+										</tr>
+										<tr>
+											<td>
+												<span>
+													<input type="checkbox" checked="checked" data-name="startPeriod">
+												</span>
+												<span>{{lang.period_start}}</span>
+											</td>
+											<td>
+												<span>
+													<input type="checkbox" checked="checked" data-name="endPeriod">
+												</span>
+												<span>{{lang.period_end}}</span>
+											</td>
+											<td>
+												<span>
+													<input type="checkbox" checked="checked" data-name="country">
+												</span>
+												<span>{{lang.business_trip_country}}</span>
+											</td>
+											<td>
+												<span>
+													<input type="checkbox" checked="checked" data-name="place">
+												</span>
+												<span>{{lang.business_trip_place}}</span>
+											</td>
+											<td class="last">
+												<span>
+													<input type="checkbox" checked="checked" data-name="purpose">
+												</span>
+												<span>{{lang.business_trip_purpose}}</span>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							
+								
+								<!--학력정보-->
+								<table class="type_list_box tb_ehr_item" id="academic">
+									<tbody>
+										<tr>
+											<th class="item_title" colspan="5">
+												<span class="title_s">{{lang.level_of_education_info}}<input type="checkbox" checked="checked"></span>
+												<span class="btn_wrap">
+													<span class="ic_classic ic_open"></span>
+												</span>
+											</th>
+										</tr>
+										<tr>
+											<td>
+												<span>
+													<input type="checkbox" checked="checked" data-name="classify">
+												</span>
+												<span>{{lang.division}}</span>
+											</td>
+											<td>
+												<span>
+													<input type="checkbox" checked="checked" data-name="schoolName">
+												</span>
+												<span>{{lang.school_name}}</span>
+											</td>
+											<td>
+												<span>
+													<input type="checkbox" checked="checked" data-name="admissionDate">
+												</span>
+												<span>{{lang.admission_year}}</span>
+											</td>
+											<td>
+												<span>
+													<input type="checkbox" checked="checked" data-name="graduationDate">
+												</span>
+												<span>{{lang.graduation_year}}</span>
+											</td>
+											<td class="last">
+												<span>
+													<input type="checkbox" checked="checked" data-name="major">
+												</span>
+												<span>{{lang.major}}</span>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<span>
+													<input type="checkbox" checked="checked" data-name="minor">
+												</span>
+												<span>{{lang.minor}}</span>
+											</td>
+											<td>
+												<span>
+													<input type="checkbox" checked="checked" data-name="note">
+												</span>
+												<span>{{lang.etc}}</span>
+											</td>
+											<td class="last" colspan="3"></td>
+										</tr>
+									</tbody>
+								</table>
+								
+								
+								<!--가족정보-->
+								<table class="type_list_box tb_ehr_item last" id="family">
+									<tbody>
+										<tr>
+											<th class="item_title" colspan="5">
+												<span class="title_s">{{lang.family_info}}<input type="checkbox" checked="checked"></span>
+												<span class="btn_wrap">
+													<span class="ic_classic ic_open"></span>
+												</span>
+											</th>
+										</tr>
+										<tr>
+											<td>
+												<span>
+													<input type="checkbox" checked="checked" data-name="name">
+												</span>
+												<span>{{lang.family_name}}</span>
+											</td>
+											<td>
+												<span>
+													<input type="checkbox" checked="checked" data-name="relation">
+												</span>
+												<span>{{lang.family_relations}}</span>
+											</td>
+											<td>
+												<span>
+													<input type="checkbox" checked="checked" data-name="gender">
+												</span>
+												<span>{{lang.gender}}</span>
+											</td>
+											<td>
+												<span>
+													<input type="checkbox" checked="checked" data-name="birthDay">
+												</span>
+												<span>{{lang.birth}}</span>
+											</td>
+											<td class="last">
+												<span>
+													<input type="checkbox" checked="checked" data-name="educationLevel">
+												</span>
+												<span>{{lang.academic_ability}}</span>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<span>
+													<input type="checkbox" checked="checked" data-name="job">
+												</span>
+												<span>{{lang.job}}</span>
+											</td>
+											<td>
+												<span>
+													<input type="checkbox" checked="checked" data-name="note">
+												</span>
+												<span>{{lang.etc}}</span>
+											</td>
+											<td class="last" colspan="3"></td>
+										</tr>
+									</tbody>
+								</table>
+							</td>
+						</tr>
+						<tr class="line">
+							<td colspan="2"><hr></td>
+						</tr>
+					</tbody>
+				</table>
+				<div class="page_action_wrap">
+					<span class="btn_major" data-role="button" id="btn_ok"><span class="txt">{{lang.ok}}</span></span>
+					<span class="btn_minor" data-role="button" id="btn_cancel"><span class="txt">{{lang.cancel}}</span></span>
+				</div>
+			</div>

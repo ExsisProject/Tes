@@ -1,0 +1,127 @@
+<h3 class="tab_title" style="display:none;">{{lang.label_appoint}}</h3>
+<div class="ehr_appoint viewForm">
+	<table class="type_list_box">
+		<tbody>
+		<tr>
+			<th class="num"><span class="title_txt">No</span></th>
+			<th class="date"><span class="title_txt">{{lang.label_appointDate}}</span></th>
+			<th class="division"><span class="title_txt">{{lang.label_appointDiv}}</span></th>
+			<th class="reason"><span class="title_txt">{{lang.label_content}}</span></th>
+			<th class="state"><span class="title_txt">{{lang.label_employeeType}}</span></th>
+			<th class="team"><span class="title_txt">{{lang.label_position}}</span></th>
+			<th class="level"><span class="title_txt">{{lang.label_salaryStep}}</span></th>
+			<th class="jop"><span class="title_txt">{{lang.label_responsibility}}</span></th>
+			<th class="work"><span class="title_txt">{{lang.label_chargeDuty}}</span></th>
+			{{#editable}}
+			<th class="modify"><span class="title_txt">{{lang.label_modify}}</span></th>
+			{{/editable}}
+		</tr>
+		{{#data}}
+		<tr class="dataRow" {{#dataId.useColumn}}data-id="{{dataId.value}}"{{/dataId.useColumn}}>
+			<td class="num">
+				<span>{{number}}</span>
+			</td>
+			<td class="date">
+				{{#appointDate.useColumn}}
+				{{#editable}}
+				<span class="wrap_date">
+					<input id="start-date" class="txt wfix_small" type="text" name="appointDate" value="{{appointDate.value}}" />
+					<span class="ic ic_calendar"></span>
+				</span>
+				{{/editable}}
+				{{^editable}}
+				<span class="txt">{{appointDate.value}}</span>
+				{{/editable}}
+				{{/appointDate.useColumn}}
+				{{^appointDate.useColumn}}
+				<span class="txt hide">{{lang.label_private}}</span>
+				{{/appointDate.useColumn}}
+			</td>
+			<td class="division">
+				{{#appointDiv.useColumn}}
+				<span class="txt">{{appointDiv.value}}</span>
+				{{#editable}}
+				<input class="txt w_max" type="text" name="appointDiv" value="{{appointDiv.value}}" style="display:none;"/>	
+				{{/editable}}
+				{{/appointDiv.useColumn}}
+				{{^appointDiv.useColumn}}
+				<span class="txt hide">{{lang.label_private}}</span>
+				{{/appointDiv.useColumn}}
+			</td>
+			<td class="reason">
+				{{#content.useColumn}}
+				<span class="txt">{{content.value}}</span>
+				{{#editable}}
+				<input class="txt w_max" type="text" name="content" value="{{content.value}}" style="display:none;"/>	
+				{{/editable}}
+				{{/content.useColumn}}
+				{{^content.useColumn}}
+				<span class="txt hide">{{lang.label_private}}</span>
+				{{/content.useColumn}}
+			</td>
+			<td class="state">
+				{{#employeeType.useColumn}}
+				<span class="txt">{{employeeType.value}}</span>
+				{{#editable}}
+				<input class="txt w_max" type="text" name="employeeType" value="{{employeeType.value}}" style="display:none;"/>	
+				{{/editable}}
+				{{/employeeType.useColumn}}
+				{{^employeeType.useColumn}}
+				<span class="txt hide">{{lang.label_private}}</span>
+				{{/employeeType.useColumn}}
+			</td>
+			<td class="team">
+				{{#position.useColumn}}
+				<span class="txt">{{position.value}}</span>
+				{{#editable}}
+				<input class="txt w_max" type="text" name="position" value="{{position.value}}" style="display:none;"/>	
+				{{/editable}}
+				{{/position.useColumn}}
+				{{^position.useColumn}}
+				<span class="txt hide">{{lang.label_private}}</span>
+				{{/position.useColumn}}
+			</td>
+			<td class="level">
+				{{#salaryStep.useColumn}}
+				<span class="txt">{{salaryStep.value}}</span>
+				{{#editable}}
+				<input class="txt w_max" type="text" name="salaryStep" value="{{salaryStep.value}}" style="display:none;"/>	
+				{{/editable}}
+				{{/salaryStep.useColumn}}
+				{{^salaryStep.useColumn}}
+				<span class="txt hide">{{lang.label_private}}</span>
+				{{/salaryStep.useColumn}}
+			</td>
+			<td class="jop">
+				{{#responsibility.useColumn}}
+				<span class="txt">{{responsibility.value}}</span>
+				{{#editable}}
+				<input class="txt w_max" type="text" name="responsibility" value="{{responsibility.value}}" style="display:none;"/>	
+				{{/editable}}
+				{{/responsibility.useColumn}}
+				{{^responsibility.useColumn}}
+				<span class="txt hide">{{lang.label_private}}</span>
+				{{/responsibility.useColumn}}
+			</td>
+			<td class="work">
+				{{#chargeDuty.useColumn}}
+				<span class="txt">{{chargeDuty.value}}</span>
+				{{#editable}}
+				<input class="txt w_max" type="text" name="chargeDuty" value="{{chargeDuty.value}}" style="display:none;"/>	
+				{{/editable}}
+				{{/chargeDuty.useColumn}}
+				{{^chargeDuty.useColumn}}
+				<span class="txt hide">{{lang.label_private}}</span>
+				{{/chargeDuty.useColumn}}
+			</td>
+			{{#editable}}
+			<td class="modify">
+				<span class="ic_con ic_remove" title="삭제"></span>
+		        <span class="ic_con ic_add" title="추가"></span>
+			</td>
+			{{/editable}}
+		</tr>
+		{{/data}}
+	</tbody>
+	</table>
+</div>

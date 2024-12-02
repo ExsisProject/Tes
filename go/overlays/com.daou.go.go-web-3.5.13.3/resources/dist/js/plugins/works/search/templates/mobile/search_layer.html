@@ -1,0 +1,68 @@
+<div class="nav" id="searchNav">
+</div>
+<div id="searchDetail" class="search_detail">
+    <span id="simpleSearchWrap">
+        <p class="tit">{{lang.검색 조건}}</p>
+        <ul class="search_result">
+            <li>
+                <a href="" data-search="text">
+                    <label class="tit">{{lang.텍스트}}</label>
+                    <div class="txt">
+                        <span class="searchText"></span>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </span>
+    <span id="detailSearchWrap">
+        <ul class="search_result">
+            <li>
+                <label class="tit">{{lang.앱명}}</label>
+                <div class="txt">
+                    <select id="appType" class="wfix_small">
+                        <option value="">{{lang.앱명}}</option>
+                        <option value="directInput">{{lang.직접입력}}</option>
+                    </select>
+                    <select id="appList" class="wfix_medium">
+                        <option value="">{{lang.전체}}</option>
+                    </select>
+                    <input id="appName" class="input input wfix_medium" type="search" placeholder="{{lang.검색할앱명입력}}", style="display: none">
+                </div>
+            </li>
+            <li>
+                <label class="tit">{{lang.등록자}}</label>
+                <div class="txt">
+                    <input id="authorName" class="input" type="search" placeholder="{{lang.검색 키워드를 입력하세요}}">
+                </div>
+            </li>
+            <li>
+                <label class="tit">{{lang.검색어}}</label>
+                <div class="txt">
+                    <span class="option_wrap">
+                        <input id="checkboxText" type="checkbox" name="text">
+                        <label for="checkboxText" class="txt">{{lang.텍스트}}</label>
+                    </span>
+                    <span class="option_wrap">
+                        <input id="checkboxActivity" type="checkbox" name="activity">
+                        <label for="checkboxActivity" class="txt">{{lang.활동기록}}</label>
+                    </span>
+                    <span class="option_wrap">
+                        <input id="checkboxComment" type="checkbox" name="comment">
+                        <label for="checkboxComment" class="txt">{{lang.댓글}}</label>
+                    </span>
+                    <span class="option_wrap">
+                        <input id="checkboxAttach" type="checkbox" name="attach">
+                        <label for="checkboxAttach" class="txt">{{lang.첨부파일}}</label>
+                    </span>
+                    <input class="input" type="search" id="keyword" placeholder="{{lang.검색 키워드를 입력하세요}}"/>
+                </div>
+            </li>
+        </ul>
+        <a class="btn_wrap" id="searchInit">
+            <span class="btn btn_refresh"></span>
+            <span class="txt">{{lang.초기화}}</span>
+        </a>
+    </span>
+    <span id="searchResultWrap">
+    </span>
+</div>

@@ -1,0 +1,1411 @@
+{
+	"company" : 
+	[
+		{
+			"key" : "기본 정보",
+			"title" : "사이트 정보",
+			"contentsPath" : "admin/views/company_info",
+			"lang" : "adminLang",
+			"routingName" : "renderCompanyInfo",
+			"leftName" : "companyInfo",
+			"href" : "company",			
+			"order" : 10,
+			"level" : "site,service"
+		},
+		{
+			"key" : "메뉴 관리",
+			"title" : "메뉴목록",
+			"contentsPath" : "admin/views/menu_admin",
+			"lang" : "adminLang",
+			"routingName" : "renderCompanyMenu",
+			"leftName" : "companyMenu",
+			"href" : "company/menu",
+			"order" : 20,
+			"level" : "site,service"
+		},
+		{
+			"key" : "용량 관리",
+			"title" :" 용량 관리",
+			"contentsPath" : "admin/views/cloud/company_quota_manage",
+			"lang" : "adminLang",
+			"routingName" : "renderCompanyQuota",
+			"leftName" : "companyQuota",
+			"href" : "company/quota",
+			"order" : 30,
+			"level" : "site,service"
+		},
+		{
+			"key" : "기능 관리",
+			"title" : "기능 목록",
+			"contentsPath" : "admin/views/function_list",
+			"lang" : "adminLang",
+			"routingName" : "renderCompanyFunction",
+			"leftName" : "companyFunction",
+			"href" : "company/function",
+			"order" : 40,
+			"level" : "site,service",
+			"subMenu" : [
+				{
+					"title" : "메뉴 정보",
+					"contentsPath" : "admin/views/fmenu_modify",
+					"routingName" : "renderFMenuModify",
+					"idParamName" : "fmenuId"
+				}
+			]
+		},
+		{
+			"key" : "로그인 설정",
+			"title" : "로그인 설정",
+			"contentsPath" : "admin/views/loginout_config",
+			"lang" : "adminLang",
+			"routingName" : "renderLoginoutConfig",
+			"leftName" : "loginoutConfig",
+			"href" : "company/loginout",
+			"order" : 50,
+			"level" : "site,service"
+		}, 
+		{
+			"key" :"공인인증서 로그인 설정",
+			"title" :"공인인증서 로그인 설정",
+			"contentsPath" : "admin/views/cert_config",
+			"lang" : "adminLang",
+			"routingName" : "renderCertConfig",
+			"leftName" : "certConfig",
+			"href" : "company/cert",
+			"order" : 60,
+			"level" : "site,service"
+		},
+		{
+			"key" :"OTP 로그인 설정",
+			"title" :"OTP 로그인 설정",
+			"contentsPath" : "admin/views/otp_config",
+			"lang" : "adminLang",
+			"routingName" : "renderOTPConfig",
+			"leftName" : "OTPConfig",
+			"href" : "company/otp",
+			"order" : 70,
+			"level" : "site,service"
+		}, 
+		{
+			"key" :"대시보드 설정",
+			"title" :"대시보드 설정",
+			"contentsPath" : "admin/views/dashboard_config",
+			"lang" : "adminLang",
+			"routingName" : "renderDashboardConfig",
+			"leftName" : "dashboardConfig",
+			"href" : "company/dashboard",
+			"order" : 80,
+			"level" : "site,service"
+		}, 
+		{
+			"key" :"보안 설정",
+			"title" :"보안 설정",
+			"contentsPath" : "admin/views/password_config",
+			"lang" : "adminLang",
+			"routingName" : "renderPasswordConfig",
+			"leftName" : "passwordConfig",
+			"href" : "company/password",
+			"order" : 90,
+			"level" : "site,service"
+		},
+		{
+			"key" :"팝업 공지 관리",
+			"title" :"팝업 공지 관리",
+			"contentsPath" : "admin/views/notice/list",
+			"lang" : "adminLang",
+			"routingName" : "renderNoticeConfig",
+			"leftName" : "noticeConfig",
+			"href" : "company/notice",
+			"order" : 100,
+			"level" : "site,service",
+			"subMenu" : [
+				{
+					"contentsPath" : "admin/views/notice/form",
+					"routingName" : "renderNoticeCreate"
+				},
+				{
+					"contentsPath" : "admin/views/notice/form",
+					"routingName" : "renderNoticeModify",
+					"idParamName" : "noticeId"
+				}
+			]
+		}, 
+		{
+			"key" :"개인 프로필 카드 관리",
+			"title" :"개인 프로필 카드 관리",
+			"contentsPath" : "admin/views/profile/profile_card_config",
+			"lang" : "adminLang",
+			"routingName" : "renderProfileCardConfig",
+			"leftName" : "profileCardConfig",
+			"href" : "company/profile",
+			"order" : 110,
+			"level" : "site,service"
+		},
+		{
+			"key" :"관리자 목록",
+			"title" :"관리자 목록",
+			"contentsPath" : "admin/views/admin_list",
+			"lang" : "adminLang",
+			"routingName" : "renderAdminList",
+			"leftName" : "adminList",
+			"href" : "company/adminlist",
+			"order" : 120,
+			"level" : "site,service"
+		},
+		{
+			"key" :"관리자 업무 기록",
+			"title" :"관리자 업무 기록",
+			"contentsPath" : "admin/views/admin_history_list",
+			"lang" : "adminLang",
+			"routingName" : "renderAdminHistory",
+			"leftName" : "adminHistory",
+			"href" : "company/adminhistory",
+			"order" : 130,
+			"level" : "site"
+		},
+		{
+			"key" :"기타",
+			"title" :"기타",
+			"contentsPath" : "admin/views/etc_config",
+			"lang" : "commonLang",
+			"routingName" : "renderCompanyConfig",
+			"leftName" : "companyConfig",
+			"href" : "company/config",
+			"order" : 140,
+			"level" : "site,service"
+		},
+		{
+			"key" :"사용자 접근 로그",
+			"title" :"사용자 접근 로그",
+			"contentsPath" : "admin/views/user_access_log",
+			"lang" : "adminLang",
+			"routingName" : "renderUserAccessLog",
+			"leftName" : "userAccessLog",
+			"href" : "company/userAccessLog",
+			"order" : 150,
+			"level" : "site,service"
+		}
+	],
+	
+	"mail/stat" : 
+	[
+		{
+			"key" :"전체메일",
+			"title" :"전체메일",
+			"contentsPath" : "admin/views/mail/mail_content",
+			"lang" : "adminLang",
+			"routingName" : "renderMailStat",
+			"leftName" : "mailStat",
+			"href" : "mail/stat",			
+			"order" : 10,
+			"level" : "site,service",
+			"option" : {
+				"iframe_src" : "/site/reportTrendView.do?statCategory=summary&mailType=all&iframe=true"
+			}
+		},
+			{
+			"key" :"수신메일",
+			"title" :"수신메일",
+			"contentsPath" : "admin/views/mail/mail_content",
+			"lang" : "adminLang",
+			"routingName" : "renderMailStatInbound",
+			"leftName" : "mailStatInbound",
+			"href" : "mail/stat/inbound",			
+			"order" : 20,
+			"level" : "site,service",
+			"option" : {
+				"iframe_src" : "/site/reportTrendView.do?statCategory=summary&mailType=inbound&isSelectedDomain=none&iframe=true"
+			}
+		},
+			{
+			"key" :"송신메일",
+			"title" :"송신메일",
+			"contentsPath" : "admin/views/mail/mail_content",
+			"lang" : "adminLang",
+			"routingName" : "renderMailStatOutbound",
+			"leftName" : "mailStatOutbound",
+			"href" : "mail/stat/outbound",			
+			"order" : 30,
+			"level" : "site,service",
+			"option" : {
+				"iframe_src" : "/site/reportTrendView.do?statCategory=summary&mailType=outbound&isSelectedDomain=none&iframe=true"
+			}
+		},
+			{
+			"key" :"정상메일",
+			"title" :"정상메일",
+			"contentsPath" : "admin/views/mail/mail_content",
+			"lang" : "adminLang",
+			"routingName" : "renderMailStatNormal",
+			"leftName" : "mailStatNormal",
+			"href" : "mail/stat/normal",			
+			"order" : 40,
+			"level" : "site,service",
+			"option" : {
+				"iframe_src": "/site/reportTrendView.do?statCategory=normal&iframe=true"
+			}
+		},
+			{
+			"key" :"스팸메일",
+			"title" :"스팸메일",
+			"contentsPath" : "admin/views/mail/mail_content",
+			"lang" : "adminLang",
+			"routingName" : "renderMailStatSpam",
+			"leftName" : "mailStatSpam",
+			"href" : "mail/stat/spam",			
+			"order" : 50,
+			"level" : "site,service",
+			"option" : {
+				"iframe_src": "/site/reportTrendView.do?statCategory=spamCont&iframe=true"
+			}
+		},
+			{
+			"key" :"피싱메일",
+			"title" :"피싱메일",
+			"contentsPath" : "admin/views/mail/mail_content",
+			"lang" : "adminLang",
+			"routingName" : "renderMailStatPhishing",
+			"leftName" : "mailStatPhishing",
+			"href" : "mail/stat/phishing",			
+			"order" : 60,
+			"level" : "site,service",
+			"option" : {
+				"iframe_src": "/site/reportTrendView.do?statCategory=phishing&iframe=true"
+			}
+		},
+			{
+			"key" :"바이러스메일",
+			"title" :"바이러스메일",
+			"contentsPath" : "admin/views/mail/mail_content",
+			"lang" : "adminLang",
+			"routingName" : "renderMailStatVirus",
+			"leftName" : "mailStatVirus",
+			"href" : "mail/stat/virus",			
+			"order" : 70,
+			"level" : "site,service",
+			"option" : {
+				"iframe_src" : "/site/reportTrendView.do?statCategory=virus&iframe=true"
+			}
+
+		},
+			{
+			"key" :"POP",
+			"title" :"POP",
+			"contentsPath" : "admin/views/mail/mail_content",
+			"lang" : "adminLang",
+			"routingName" : "renderMailStatPop",
+			"leftName" : "mailStatPop",
+			"href" : "mail/stat/pop",			
+			"order" : 80,
+			"level" : "site,service",
+			"option" : {
+				"iframe_src": "/site/reportTrendView.do?statCategory=pop&iframe=true"
+			}
+		},
+			{
+			"key" :"IMAP",
+			"title" :"IMAP",
+			"contentsPath" : "admin/views/mail/mail_content",
+			"lang" : "adminLang",
+			"routingName" : "renderMailStatImap",
+			"leftName" : "mailStatImap",
+			"href" : "mail/stat/imap",			
+			"order" : 90,
+			"level" : "site,service",
+			"option" : {
+				"iframe_src": "/site/reportTrendView.do?statCategory=imap&iframe=true"
+			}
+		}
+	],
+	
+	"account" : 
+	[
+		{
+			"key" :"동기화 이력관리",
+			"title" :"동기화 이력관리",
+			"contentsPath" : "admin/views/account/account_sync",
+			"lang" : "adminLang",
+			"routingName" : "renderSyncAdminJob",
+			"leftName" : "synchronization",
+			"href" : "account/synchronization",
+			"order" : 2040,
+			"level" : "site,service"
+		},
+		{
+			"key" :"계정 목록",
+			"title" :"계정 목록",
+			"contentsPath" : "admin/views/account/account_list",
+			"lang" : "adminLang",
+			"routingName" : "renderAccounts",
+			"leftName" : "accountList",
+			"href" : "accounts",			
+			"order" : 10,
+			"level" : "site,service",
+			"subMenu" : [
+				{
+					"title" : "계정 추가",
+					"contentsPath" : "admin/views/account/account_create",
+					"routingName" : "renderAccountCreate"
+				},
+				{
+					"title" : "계정 상세",
+					"contentsPath" : "admin/views/account/account_detail",
+					"routingName" : "renderAccountDetail",
+					"idParamName" : "userId"
+				}
+			]
+		},
+		{
+			"key" :"계정 일괄등록",
+			"title" :"계정 일괄등록",
+			"contentsPath" : "admin/views/account/account_csv",
+			"lang" : "adminLang",
+			"routingName" : "renderAccountCSV",
+			"leftName" : "accountCSV",
+			"href" : "account/csv",			
+			"order" : 20,
+			"level" : "site,service"
+		},
+		{
+			"key" :"사진 일괄등록",
+			"title" :"사진 일괄등록",
+			"contentsPath" : "admin/views/account/account_photo_regist",
+			"lang" : "adminLang",
+			"routingName" : "renderPhotoRegist",
+			"leftName" : "photoRegist",
+			"href" : "account/photo/regist",			
+			"order" : 30,
+			"level" : "site,service"
+		},
+		{
+			"key" :"삭제 목록",
+			"title" :"삭제 목록",
+			"contentsPath" : "admin/views/account/delete_list",
+			"lang" : "adminLang",
+			"routingName" : "renderDeleteList",
+			"leftName" : "deleteList",
+			"href" : "account/delete",			
+			"order" : 40,
+			"level" : "site,service"
+		},
+		{
+			"key" :"클래스 관리",
+			"title" :"클래스 관리",
+			"contentsPath" : "admin/views/account/domain_code",
+			"lang" : "adminLang",
+			"routingName" : "renderDomainCode",
+			"leftName" : "accountDomainCode",
+			"href" : "account/domaincode",			
+			"order" : 50,
+			"level" : "site,service"
+		},
+		{
+			"key" :"일괄 등록",
+			"title" :"일괄 등록",
+			"contentsPath" : "admin/views/account/batch_regist",
+			"lang" : "adminLang",
+			"routingName" : "renderBatchRegist",
+			"leftName" : "bathRegist",
+			"href" : "account/batch/regist",
+			"order" : 60,
+			"level" : "site,service"
+		}
+	],
+	
+	"dept" : 
+	[
+		{
+			"key" :"조직도 관리",
+			"title" :"조직도 관리",
+			"contentsPath" : "admin/views/department/dept_org",
+			"lang" : "adminLang",
+			"routingName" : "renderDeptOrg",
+			"leftName" : "deptOrg",
+			"href" : "dept/org",
+			"order" : 10,
+			"level" : "site,service"
+		},
+		{
+			"key" :"부서 목록",
+			"title" :"부서 목록",
+			"contentsPath" : "admin/views/department/dept_config",
+			"lang" : "adminLang",
+			"routingName" : "renderDept",
+			"leftName" : "deptConfig",
+			"href" : "dept",			
+			"order" : 20,
+			"level" : "site,service",
+			"subMenu" : [
+				{
+					"title" : "하위 부서 목록",
+					"contentsPath" : "admin/views/department/dept_config",
+					"routingName" : "renderChildrenDept",
+					"idParamName" : "deptId"
+				},
+				{
+					"title" : "부서 상세",
+					"contentsPath" : "admin/views/department/dept_detail",
+					"routingName" : "renderDeptDetail",
+					"idParamName" : "deptId"
+				}
+			]
+		},
+		{
+			"key" :"삭제 부서 목록",
+			"title" :"삭제 부서 목록",
+			"contentsPath" : "admin/views/department/org_delete_list",
+			"lang" : "adminLang",
+			"routingName" : "renderDeptDelete",
+			"leftName" : "deptDelete",
+			"href" : "dept/delete",			
+			"order" : 30,
+			"level" : "site,service",
+			"subMenu" : [
+				{
+					"title" : "삭제 부서 상세",
+					"contentsPath" : "admin/views/department/dept_delete_detail",
+					"routingName" : "renderDeptDeleteDetail",
+					"idParamName" : "deptId"
+				}
+			]
+		}
+	],
+	
+	"mail": 
+	[
+		{
+			"key" :"메일 기본 설정",
+			"title" :"메일 기본 설정",
+			"contentsPath" : "admin/views/mail/mail_content",
+			"lang" : "adminLang",
+			"routingName" : "renderMailBasic",
+			"leftName" : "mailBasic",
+			"href" : "mail",
+			"order" : 10,
+			"level" : "site,service",
+			"option" : {
+				"iframe_src" : "/site/domainCommon.do"
+			}
+		},
+		{
+			"key" :"메일 배너 설정",
+			"title" :"메일 배너 설정",
+			"contentsPath" : "admin/views/mail/banner",
+			"lang" : "adminLang",
+			"routingName" : "renderMailBanner",
+			"leftName" : "mailBanner",
+			"href" : "mail/banner",			
+			"order" : 20,
+			"level" : "site,service"
+		},
+		{
+			"key" :"메일 그룹 관리",
+			"title" :"메일 그룹 관리",
+			"contentsPath" : "admin/views/mail/mail_content",
+			"lang" : "adminLang",
+			"routingName" : "renderMailGroup",
+			"leftName" : "mailGroup",
+			"href" : "mail/group",
+			"order" : 30,
+			"level" : "site,service",
+			"option" : {
+				"iframe_src" : "/site/domainCommon.do?initMethod=group"
+			}
+		},
+		{
+			"key" :"휴면 계정 관리",
+			"title" :"휴면 계정 관리",
+			"contentsPath" : "admin/views/mail/mail_content",
+			"lang" : "adminLang",
+			"routingName" : "renderMailDormant",
+			"leftName" : "mailDormant",
+			"href" : "mail/dormant",
+			"order" : 40,
+			"level" : "site",
+			"option" : {
+				"iframe_src" : "/site/domainCommon.do?initMethod=acount"
+			}
+		},
+		{
+			"key" :"별칭 계정 관리",
+			"title" :"별칭 계정 관리",
+			"contentsPath" : "admin/views/mail/alias",
+			"lang" : "adminLang",
+			"routingName" : "renderMailAlias",
+			"leftName" : "mailAlias",
+			"href" : "mail/alias",			
+			"order" : 50,
+			"level" : "site,service",
+			"subMenu" : [
+				{
+					"contentsPath" : "admin/views/mail/alias_create",
+					"routingName" : "renderCreateMailAlias"
+				},
+				{
+					"contentsPath" : "admin/views/mail/alias_create",
+					"routingName" : "renderModifyMailAlias",
+					"idParamName" : "aliasId"
+				},
+				{
+					"contentsPath" : "admin/views/mail/alias",
+					"routingName" : "renderMailAliasTree",
+					"option" : {
+						"aliasDisplayOption" : "tree"
+					}
+				}
+			]
+		},
+		{
+			"key" :"대량메일 발송자 관리",
+			"title" :"대량메일 발송자 관리",
+			"contentsPath" : "admin/views/mail/mail_content",
+			"lang" : "adminLang",
+			"routingName" : "renderMailMass",
+			"leftName" : "mailMass",
+			"href" : "mail/mass",			
+			"order" : 60,
+			"level" : "site",
+			"option" : {
+				"iframe_src" : "/site/domainCommon.do?initMethod=massSender"
+			}
+		},
+		{
+			"key" :"도메인 메일함 관리",
+			"title" :"도메인 메일함 관리",
+			"contentsPath" : "admin/views/mail/mail_content",
+			"lang" : "adminLang",
+			"routingName" : "renderMailDomain",
+			"leftName" : "mailDomain",
+			"href" : "mail/domain",
+			"order" : 70,
+			"level" : "site",
+			"option" : {
+				"iframe_src" : "/site/domainCommon.do?initMethod=domain"
+			}
+		},
+		{
+			"key" :"편지지 관리",
+			"title" :"편지지 관리",
+			"contentsPath" : "admin/views/mail/mail_content",
+			"lang" : "adminLang",
+			"routingName" : "renderMailLetter",
+			"leftName" : "mailLetter",
+			"href" : "mail/letter",			
+			"order" : 80,
+			"level" : "site",
+			"option" : {
+				"iframe_src" : "/site/domainCommon.do?initMethod=letterList"
+			}
+		},
+		{
+			"key" :"문서템플릿 관리",
+			"title" :"문서템플릿 관리",
+			"contentsPath" : "admin/views/mail/mail_content",
+			"lang" : "adminLang",
+			"routingName" : "renderMailTemplate",
+			"leftName" : "mailTemplate",
+			"href" : "mail/template",			
+			"order" : 90,
+			"level" : "site",
+			"option" : {
+				"iframe_src" : "/site/domainCommon.do?initMethod=docTmpList"
+			}
+		}
+	],
+	
+	"contact": 
+	[
+		{
+			"key" :"주소록 기본 설정",
+			"title" :"주소록 기본 설정",
+			"contentsPath" : "admin/views/contact_config",
+			"lang" : "adminLang",
+			"routingName" : "renderContact",
+			"leftName" : "contactConfig",
+			"href" : "contact",			
+			"order" : 10,
+			"level" : "site,service"
+		},
+		{
+			"key" :"전사 주소록 관리",
+			"title" :"전사 주소록 관리",
+			"contentsPath" : "admin/views/contact/site_manage",
+			"lang" : "adminLang",
+			"routingName" : "renderContactCompany",
+			"leftName" : "contactCompany",
+			"href" : "contact/company",			
+			"order" : 20,
+			"level" : "site,service"
+		},
+		{
+			"key" :"전체 주소록 통계",
+			"title" :"전체 주소록 통계",
+			"contentsPath" : "admin/views/contact_stat",
+			"lang" : "adminLang",
+			"routingName" : "renderContactAllStat",
+			"leftName" : "contactAllStat",
+			"href" : "contact/stat",			
+			"order" : 30,
+			"level" : "site,service"
+		}
+	],
+	"calendar": 
+	[
+		{
+			"key" :"전사 캘린더 관리",
+			"title" :"전사 캘린더 관리",
+			"contentsPath" : "admin/views/calendar_base_config",
+			"lang" : "adminLang",
+			"routingName" : "renderCalendar",
+			"leftName" : "calendarBaseConfig",
+			"href" : "calendar",			
+			"order" : 10,
+			"level" : "site,service",
+			"subMenu" : [
+				{
+					"contentsPath" : "admin/views/calendar_form",
+					"routingName" : "renderCalendarCreate"
+				},
+				{
+					"contentsPath" : "admin/views/calendar_form",
+					"routingName" : "renderCalendarModify",
+					"idParamName" : "calendarId"
+				}
+			]
+		},
+		{
+			"key" :"공휴일 지정",
+			"title" :"공휴일 지정",
+			"contentsPath" : "admin/views/calendar_holiday_list",
+			"lang" : "adminLang",
+			"routingName" : "renderCalendarHoliday",
+			"leftName" : "calendarHoliday",
+			"href" : "calendar/holiday",			
+			"order" : 20,
+			"level" : "site,service"
+		}
+	],
+	
+	"board" : 
+	[
+		{
+			"key" :"게시판 기본설정",
+			"title" :"게시판 기본설정",
+			"contentsPath" : "admin/views/board_base_config",
+			"lang" : "adminLang",
+			"routingName" : "renderBoard",
+			"leftName" : "boardBaseConfig",
+			"href" : "board",			
+			"order" : 10,
+			"level" : "site,service"
+		},
+		{
+			"key" :"전사 게시판 관리",
+			"title" :"전사 게시판 관리",
+			"contentsPath" : "admin/views/board_manage_wrap",
+			"lang" : "adminLang",
+			"routingName" : "renderBoardManageList",
+			"leftName" : "boardManage",
+			"href" : "board/manage",			
+			"order" : 20,
+			"level" : "site,service",
+			"subMenu" : [
+				{
+					"title" : "전사게시판 추가",
+					"contentsPath" : "admin/views/board_create",
+					"routingName" : "renderBoardCreate"
+				},
+				{
+					"title" : "전사 게시판 설정",
+					"contentsPath" : "admin/views/board_create",
+					"routingName" : "renderBoardModify",
+					"idParamName" : "boardId"
+				}
+			]
+		},
+		{
+			"key" :"전체 게시판 통계",
+			"title" :"전체 게시판 통계",
+			"contentsPath" : "admin/views/board_statistics",
+			"lang" : "adminLang",
+			"routingName" : "renderBoardStatistics",
+			"leftName" : "boardStatistics",
+			"href" : "board/statistics/all",			
+			"order" : 30,
+			"level" : "site,service"
+		},
+		{
+			"key" :"부서별 게시판 통계",
+			"title" :"부서별 게시판 통계",
+			"contentsPath" : "admin/views/board_statistics_dept",
+			"lang" : "adminLang",
+			"routingName" : "renderBoardStatisticsDept",
+			"leftName" : "boardStatisticsDept",
+			"href" : "board/statistics/dept",			
+			"order" : 40,
+			"level" : "site,service"
+		}
+	],
+	
+	"community" : 
+	[
+		{
+			"key" :"커뮤니티 기본설정",
+			"title" :"커뮤니티 기본설정",
+			"contentsPath" : "admin/views/community_base_config",
+			"lang" : "adminLang",
+			"routingName" : "renderCommunity",
+			"leftName" : "communityBaseConfig",
+			"href" : "community",			
+			"order" : 10,
+			"level" : "site,service"
+		},
+		{
+			"key" :"개설신청 커뮤니티",
+			"title" :"개설신청 커뮤니티",
+			"contentsPath" : "admin/views/community_wait",
+			"lang" : "adminLang",
+			"routingName" : "renderWaitCommunity",
+			"leftName" : "communityWait",
+			"href" : "community/wait",			
+			"order" : 20,
+			"level" : "site,service"
+		},
+		{
+			"key" :"전체 커뮤니티 조회",
+			"title" :"전체 커뮤니티 조회",
+			"contentsPath" : "admin/views/community_all",
+			"lang" : "adminLang",
+			"routingName" : "renderAllCommunity",
+			"leftName" : "communityAll",
+			"href" : "community/all",			
+			"order" : 30,
+			"level" : "site,service",
+			"subMenu" : [
+				{
+					"title" : "커뮤니티 상세",
+					"contentsPath" : "admin/views/community_detail",
+					"routingName" : "renderDetailCommunity",
+					"idParamName" : "communityId"
+				}
+			]
+		},
+		{
+			"key" :"커뮤니티 전체게시판 통계",
+			"title" :"커뮤니티 전체게시판 통계",
+			"contentsPath" : "admin/views/community_stat_all",
+			"lang" : "adminLang",
+			"routingName" : "renderStatAllCommunity",
+			"leftName" : "communityStatisticsAll",
+			"href" : "community/statistics/all",			
+			"order" : 40,
+			"level" : "site,service"
+		},
+		{
+			"key" :"커뮤니티별 게시판 통계",
+			"title" :"커뮤니티별 게시판 통계",
+			"contentsPath" : "admin/views/community_stat",
+			"lang" : "adminLang",
+			"routingName" : "renderStatCommunity",
+			"leftName" : "communityStatisticsCommunity",
+			"href" : "community/statistics/community",			
+			"order" : 50,
+			"level" : "site,service"
+		}
+	],
+	
+	"asset" : 
+	[
+		{
+			"key" :"자산 목록",
+			"title" :"자산 목록",
+			"contentsPath" : "admin/views/asset_manage_list",
+			"lang" : "adminLang",
+			"routingName" : "renderAsset",
+			"leftName" : "assetConfig",
+			"href" : "asset",			
+			"order" : 10,
+			"level" : "site,service",
+			"subMenu" : [
+				{
+					"title" : "자산 추가",
+					"contentsPath" : "admin/views/asset_create",
+					"routingName" : "renderAssetCreate"
+				},
+				{
+					"title" : "자산 설정",
+					"contentsPath" : "admin/views/asset_create",
+					"routingName" : "renderAssetInfo",
+					"idParamName" : "assetId"
+				}
+			]
+		}
+	],
+	
+	"survey" : 
+	[
+		{
+			"key" :"기본 설정",
+			"title" :"기본 설정",
+			"contentsPath" : "admin/views/survey_config",
+			"lang" : "adminLang",
+			"routingName" : "renderSurveyConfig",
+			"leftName" : "surveyConfig",
+			"href" : "survey",			
+			"order" : 10,
+			"level" : "site,service"
+		},
+		{
+			"key" :"전체 설문",
+			"title" :"전체 설문",
+			"contentsPath" : "admin/views/survey_all",
+			"lang" : "adminLang",
+			"routingName" : "renderSurveyAll",
+			"leftName" : "surveyAll",
+			"href" : "survey/all",			
+			"order" : 20,
+			"level" : "site,service"
+		}
+	],
+	
+	"report" : 
+	[
+		{
+			"key" :"공용 양식 관리",
+			"title" :"공용 양식 목록",
+			"contentsPath" : "admin/views/report_forms",
+			"lang" : "adminLang",
+			"routingName" : "renderReportForm",
+			"leftName" : "reportFormList",
+			"href" : "report",			
+			"order" : 10,
+			"level" : "site,service"
+		}
+	],
+	
+	"task" : 
+	[
+		{
+			"key" :"업무 기본설정",
+			"title" :"업무 기본설정",
+			"contentsPath" : "admin/views/task/task_config",
+			"lang" : "adminLang",
+			"routingName" : "renderTaskConfig",
+			"leftName" : "taskConfig",
+			"href" : "task",			
+			"order" : 10,
+			"level" : "site,service"
+		},
+		{
+			"key" :"전체 업무 폴더 현황",
+			"title" :"전체 업무 폴더 현황",
+			"contentsPath" : "admin/views/task/task_stats",
+			"lang" : "adminLang",
+			"routingName" : "renderTaskStats",
+			"leftName" : "taskStats",
+			"href" : "task/stats",			
+			"order" : 20,
+			"level" : "site,service"
+		},
+		{
+			"key" :"업무 유형 관리",
+			"title" :"업무 유형 관리",
+			"contentsPath" : "admin/views/task/task_type_list",
+			"lang" : "adminLang",
+			"routingName" : "renderTaskTypeList",
+			"leftName" : "taskType",
+			"href" : "task/types",			
+			"order" : 30,
+			"level" : "site,service"
+		}
+	],
+	
+	"works" : 
+	[
+		{
+			"key" :"Works 기본 설정",
+			"title" :"Works 기본 설정",
+			"contentsPath" : "admin/views/works/works_config",
+			"lang" : "adminLang",
+			"routingName" : "renderWorksConfig",
+			"leftName" : "worksConfig",
+			"href" : "works",			
+			"order" : 10,
+			"level" : "site,service"
+		},
+		{
+			"key" :"전체 앱 현황",
+			"title" :"전체 앱 현황",
+			"contentsPath" : "admin/views/works/applets_stats",
+			"lang" : "adminLang",
+			"routingName" : "renderWorksAppletsStats",
+			"leftName" : "worksAppletsStats",
+			"href" : "works/applets",			
+			"order" : 20,
+			"level" : "site,service",
+			"subMenu" : [
+				{
+					"title" : "앱 상세",
+					"contentsPath" : "admin/views/works/applet_stats_detail",
+					"routingName" : "renderWorksAppletStatsDetail",
+					"idParamName" : "id"
+				}
+			]
+		}
+	],
+	
+	"approval" : 
+	[
+		{
+			"key" :"결재 양식 관리",
+			"title" :"결재 양식 관리",
+			"contentsPath" : "admin/views/approval/appr_form_index",
+			"lang" : "adminLang",
+			"routingName" : "renderApprovalFormApp",
+			"leftName" : "apprForm",
+			"href" : "approval",			
+			"order" : 10,
+			"level" : "site,service",
+			"subMenu" : [
+				{
+					"title" : "결재 양식 추가",
+					"contentsPath" : "admin/views/approval/appr_form_new",
+					"routingName" : "renderApprovalFormNew"
+				},
+				{
+					"title" : "결재 양식 수정",
+					"contentsPath" : "admin/views/admin/views/appr_form_show",
+					"routingName" : "renderApprovalFormShow"
+				}
+			]
+		},
+		{
+			"key" :"전자결재 설정",
+			"title" :"전자결재 설정",
+			"contentsPath" : "admin/views/appr_config",
+			"lang" : "adminLang",
+			"routingName" : "renderApprConfig",
+			"leftName" : "apprConfig",
+			"href" : "approval/config",			
+			"order" : 20,
+			"level" : "site,service"
+		},
+		{
+			"key" :"문서함 필드 설정",
+			"title" :"문서함 필드 설정",
+			"contentsPath" : "admin/views/appr_folder_field",
+			"lang" : "approvalLang",
+			"routingName" : "renderApprFolderField",
+			"leftName" : "apprFolderField",
+			"href" : "approval/folderfield",			
+			"order" : 30,
+			"level" : "site,service"
+		},
+		{
+			"key" :"자동결재선 설정",
+			"title" :"자동결재선 설정",
+			"contentsPath" : "admin/views/appr_line_rule",
+			"lang" : "adminLang",
+			"routingName" : "renderApprLineRule",
+			"leftName" : "apprLineRule",
+			"href" : "approval/apprlinerule",			
+			"order" : 40,
+			"level" : "site,service",
+			"subMenu" : [
+				{
+					"contentsPath" : "admin/views/appr_line_rule_detail",
+					"routingName" : "renderApprLineRuleDetail",
+					"idParamName" : "ruleId"
+				}
+			]
+		},
+		{
+			"key" :"전사 문서함 관리",
+			"title" :"전사 문서함 관리",
+			"contentsPath" : "admin/views/appr_company_folder_manage",
+			"lang" : "adminLang",
+			"routingName" : "renderApprCompanyFolder",
+			"leftName" : "apprCompanyFolder",
+			"href" : "approval/companyfolder",			
+			"order" : 50,
+			"level" : "site,service"
+		},
+		{
+			"key" :"부서 문서함 관리",
+			"title" :"부서 문서함 관리",
+			"contentsPath" : "admin/views/approval/appr_dept_folder_main",
+			"lang" : "adminLang",
+			"routingName" : "deptFolder",
+			"leftName" : "deptFolder",
+			"href" : "approval/deptfolder",			
+			"order" : 60,
+			"level" : "site,service"
+		},
+		{
+			"key" :"공문 발송 설정",
+			"title" :"공문 발송 설정",
+			"contentsPath" : "admin/views/appr_manage_official",
+			"lang" : "adminLang",
+			"routingName" : "renderApprManageOfficial",
+			"leftName" : "apprManageOfficial",
+			"href" : "approval/manage/official",			
+			"order" : 70,
+			"level" : "site,service",
+			"subMenu" : [
+				{
+					"title" : "시행문 양식 추가",
+					"contentsPath" : "admin/views/appr_official_doc_form_new",
+					"routingName" : "renderApprManageOfficialDocFormNew"
+				},
+				{
+					"title" : "시행문 양식 수정",
+					"contentsPath" : "admin/views/appr_official_doc_form_show",
+					"routingName" : "renderApprManageOfficialDocFormShow"
+				},
+				{
+					"title" : "직인 추가",
+					"contentsPath" : "admin/views/appr_official_doc_sign_new",
+					"routingName" : "renderApprManageOfficialDocSignNew"
+				},
+				{
+					"title" : "직인 수정",
+					"contentsPath" : "admin/views/appr_official_doc_sign_show",
+					"routingName" : "renderApprManageOfficialDocSignShow"
+				},
+				{
+					"title" : "발신 명의 추가",
+					"contentsPath" : "admin/views/appr_official_doc_sender_new",
+					"routingName" : "renderApprManageOfficialDocSenderNew"
+				},
+				{
+					"title" : "발신 명의 수정",
+					"contentsPath" : "admin/views/appr_official_doc_sender_show",
+					"routingName" : "renderApprManageOfficialDocSenderShow"
+				}
+			]
+		},
+		{
+			"key" :"결재 관리자 설정",
+			"title" :"결재 관리자 설정",
+			"contentsPath" : "admin/views/appr_master",
+			"lang" : "adminLang",
+			"routingName" : "renderApprManager",
+			"leftName" : "apprManager",
+			"href" : "approval/manager",			
+			"order" : 80,
+			"level" : "site,service"
+		},
+		{
+			"key" :"서명 일괄등록",
+			"title" :"서명 일괄등록",
+			"contentsPath" : "admin/views/appr_config_sign_regist",
+			"lang" : "adminLang",
+			"routingName" : "renderApprConfigSignRegist",
+			"leftName" : "apprConfigSignRegist",
+			"href" : "approval/config/sign/regist",			
+			"order" : 90,
+			"level" : "site,service"
+		},
+		{
+			"key" :"전자결재 문서번호 설정",
+			"title" :"전자결재 문서번호 설정",
+			"contentsPath" : "admin/views/appr_config_docnum",
+			"lang" : "adminLang",
+			"routingName" : "renderApprConfigDocnum",
+			"leftName" : "apprConfigDocNum",
+			"href" : "approval/config/docnum",			
+			"order" : 100,
+			"level" : "site,service"
+		},
+		{
+			"key" :"결재문서 관리",
+			"title" :"결재문서 관리",
+			"contentsPath" : "admin/views/appr_document_manage",
+			"lang" : "adminLang",
+			"routingName" : "renderApprDocumentManage",
+			"leftName" : "apprDocManage",
+			"href" : "approval/manage/document",			
+			"order" : 110,
+			"level" : "site,service"
+		},
+		{
+			"key" :"보안등급 관리",
+			"title" :"보안등급 관리",
+			"contentsPath" : "admin/views/manage_security_level",
+			"lang" : "adminLang",
+			"routingName" : "renderApprSecurityLevel",
+			"leftName" : "apprSecurityLevel",
+			"href" : "approval/securitylevel",			
+			"order" : 120,
+			"level" : "site,service"
+		},
+		{
+			"key" :"전자결재 일자별 통계",
+			"title" :"전자결재 일자별 통계",
+			"contentsPath" : "admin/views/appr_statistics",
+			"lang" : "adminLang",
+			"routingName" : "renderApprStatistics",
+			"leftName" : "apprStatistics",
+			"href" : "approval/statistics",			
+			"order" : 130,
+			"level" : "site,service"
+		},
+		{
+			"key" :"전자결재 부서별 통계",
+			"title" :"전자결재 부서별 통계",
+			"contentsPath" : "admin/views/appr_dept_statistics",
+			"lang" : "adminLang",
+			"routingName" : "renderApprDeptStatistics",
+			"leftName" : "apprDeptStatistics",
+			"href" : "approval/deptstatistics",			
+			"order" : 140,
+			"level" : "site,service"
+		}
+	],
+	
+	"sms" : 
+	[
+		{
+			"key" :"문자발송 기본설정",
+			"title" :"문자발송 기본설정",
+			"contentsPath" : "admin/views/sms_config",
+			"lang" : "adminLang",
+			"routingName" : "renderSmsDefault",
+			"leftName" : "smsConfig",
+			"href" : "sms",			
+			"order" : 10,
+			"level" : "site,service"
+		},
+		{
+			"key" :"대표번호 설정",
+			"title" :"대표번호 설정",
+			"contentsPath" : "admin/views/sms_repnumber",
+			"lang" : "adminLang",
+			"routingName" : "renderSmsRepNumber",
+			"leftName" : "smsRepnumber",
+			"href" : "sms/repnumber",			
+			"order" : 20,
+			"level" : "site,service",
+			"subMenu" : [
+				{
+					"contentsPath" : "admin/views/repnumber_form",
+					"routingName" : "renderSmsRepNumberCreate"
+				},
+				{
+					"contentsPath" : "admin/views/repnumber_form",
+					"routingName" : "renderSmsRepNumberModify",
+					"idParamName" : "repNumberId"
+				}
+			]
+		},
+		{
+			"key" :"문자발송 통계",
+			"title" :"문자발송 통계",
+			"contentsPath" : "admin/views/sms_stat",
+			"lang" : "adminLang",
+			"routingName" : "renderSmsStat",
+			"leftName" : "smsStat",
+			"href" : "sms/stat",			
+			"order" : 30,
+			"level" : "site,service"
+		}
+	],
+	
+	"ehr": 
+	[
+		{
+			"key" :"기본 설정",
+			"title" :"기본 설정",
+			"contentsPath" : "admin/views/ehr/timeline/basic_config",
+			"lang" : "adminLang",
+			"routingName" : "renderTimelineDefault",
+			"leftName" : "defaultSetting",
+			"href" : "ehr",			
+			"order" : 10,
+			"level" : "site,service",
+			"subMenu" : [
+				{
+					"contentsPath" : "admin/views/ehr/common/ehr_basic_config",
+					"routingName" : "renderDefault"
+				}
+			]
+		},
+		{
+			"key" :"근무시간 관리",
+			"title" :"근무시간 관리",
+			"contentsPath" : "admin/views/ehr/timeline/group/main",
+			"lang" : "adminLang",
+			"routingName" : "renderTimelineGroupManage",
+			"leftName" : "workingTimeManage",
+			"href" : "ehr/groups",
+			"order" : 20,
+			"level" : "site,service"
+		},
+		{
+			"key" :"근태 유형관리",
+			"title" :"근태 유형관리",
+			"contentsPath" : "admin/views/ehr/timeline/status/code_manage",
+			"lang" : "adminLang",
+			"routingName" : "renderTimelineCodeConfig",
+			"leftName" : "codeManage",
+			"href" : "ehr/code/list",
+			"order" : 30,
+			"level" : "site,service"
+		},
+		{
+			"key" :"근태 IP 관리",
+			"title" :"근태 IP 관리",
+			"contentsPath" : "admin/views/ehr/timeline/workplace/manage",
+			"lang" : "adminLang",
+			"routingName" : "renderTimelineWorkPlaceManage",
+			"leftName" : "ipManage",
+			"href" : "ehr/workplace/manage",
+			"order" : 40,
+			"level" : "site,service",
+			"subMenu" : [
+				{
+					"title" : "접속 허용 IP 추가",
+					"contentsPath" : "admin/views/ehr/timeline/ip/edit",
+					"routingName" : "renderTimelineAccessIpCreate"
+				},
+				{
+					"title" : "접속 허용 IP 수정",
+					"contentsPath" : "admin/views/ehr/timeline/ip/edit",
+					"routingName" : "renderTimelineAccessIpModify",
+					"idParamName" : "ipId"
+				}
+			]
+		},
+		{
+			"key" :"연차 현황관리",
+			"title" :"연차 현황관리",
+			"contentsPath" : "admin/views/vacation_config",
+			"lang" : "adminLang",
+			"routingName" : "renderVacationConfig",
+			"leftName" : "vacationConfig",
+			"href" : "vacation/config",
+			"order" : 50,
+			"level" : "site,service"
+		},
+		{
+			"key" :"연차 유형관리",
+			"title" :"연차 유형관리",
+			"contentsPath" : "admin/views/ehr/vacation/status/manage",
+			"lang" : "adminLang",
+			"routingName" : "renderVacationStatusManage",
+			"leftName" : "vacationStatusManage",
+			"href" : "vacation/status/manage",
+			"order" : 60,
+			"level" : "site,service"
+		}
+	],
+	"mobile": 
+	[
+		{
+			"key" :"PC메신저/모바일 첨부파일 설정",
+			"title" :"PC메신저/모바일 첨부파일 설정",
+			"contentsPath" : "admin/views/mobile_attach_config",
+			"lang" : "adminLang",
+			"routingName" : "mobileAttachConfig",
+			"leftName" : "mobileAttachConfig",
+			"href" : "mobile/attach/config",		
+			"order" : 10,
+			"level" : "site,service"
+		},
+		{
+			"key" :"PC메신저/모바일 데이터 관리",
+			"title" :"PC메신저/모바일 데이터 관리",
+			"contentsPath" : "admin/views/mobile_data_management",
+			"lang" : "adminLang",
+			"routingName" : "mobileDataManagement",
+			"leftName" : "mobileDataManagement",
+			"href" : "mobile/data/management",
+			"order" : 20,
+			"level" : "site,service"
+		},
+		{
+			"key" :"인증기기 접근 설정",
+			"title" :"인증기기 접근 설정",
+			"contentsPath" : "admin/views/mobile_auth_access_config",
+			"lang" : "adminLang",
+			"routingName" : "mobileAuthAccessConfig",
+			"leftName" : "mobileAuthAccessConfig",
+			"href" : "mobile/auth/access/config",
+			"order" : 30,
+			"level" : "site,service"
+		},
+		{
+			"key":"모바일 앱 접속차단 설정",
+			"title":"모바일 앱 접속차단 설정",
+			"contentsPath" : "admin/views/mobile_access_block_config",
+			"lang" : "adminLang",
+			"routingName" : "mobileAccessBlockConfig",
+			"leftName" : "mobileAccessBolckConfig",
+			"href" : "mobile/access/block/config",
+			"order" : 40,
+			"level" : "site,service"
+		},
+		{
+			"key":"주소록 목록 보안 설정",
+			"title":"주소록 목록 보안 설정",
+			"contentsPath" : "admin/views/mobile_contact_list_exposure",
+			"lang" : "adminLang",
+			"routingName" : "mobileContactListExposure",
+			"leftName" : "mobileContactListExposure",
+			"href" : "mobile/contact/list/exposure",
+			"order" : 50,
+			"level" : "site,service"
+		}
+	],
+	
+	"webfolder" : 
+	[
+		{
+			"key" :"자료실 기본설정",
+			"title" :"자료실 기본설정",
+			"contentsPath" : "admin/views/mail/mail_content",
+			"lang" : "adminLang",
+			"routingName" : "renderMailWebFolder",
+			"leftName" : "webfolder",
+			"href" : "webfolder",			
+			"order" : 10,
+			"level" : "site,service",
+			"option" : {
+				"iframe_src" : "/site/fileCommon.do"
+			}
+		}
+	],	
+	
+	"docs" : 
+	[
+		{
+			"key" :"문서함 관리",
+			"title" :"문서함 관리",
+			"contentsPath" : "admin/views/docs_config",
+			"lang" : "adminLang",
+			"routingName" : "renderDocsConfig",
+			"leftName" : "docs",
+			"href" : "docs",			
+			"order" : 10,
+			"level" : "site,service"
+		}
+	],
+
+	"profile" :
+	[
+		{
+			"key" :"관리자",
+			"title" :"관리자",
+			"contentsPath" : "admin/views/mail/mail_content",
+			"lang" : "adminLang",
+			"routingName" : "renderMailProfile",
+			"leftName" : "profile",
+			"href" : "/profile",
+			"order" : 10,
+			"level" : "site,service",
+			"option" : {
+				"iframe_src" : "/site/readAdminSelfInfo.do?iframe=true"
+			}
+		}
+	]
+}

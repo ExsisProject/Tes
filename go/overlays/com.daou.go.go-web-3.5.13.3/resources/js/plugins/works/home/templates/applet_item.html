@@ -1,0 +1,22 @@
+{{#isVisibleSettingButton}}
+<a data-bypass class="btn_set" title="{{lang.설정}}">
+	<ins class="ic_works ic_set_1" data-btn-setting></ins>
+</a>
+{{/isVisibleSettingButton}}
+
+<a data-bypass class="btn_star" title="{{lang.즐겨찾기}}">
+	<ins class="ic_works ic_star_1 {{#favorite?}}on{{/favorite?}}" data-btn-favorite></ins>
+</a>
+<a data-bypass class="wrap_works_info">
+	<div class="wrap_img_ic">
+		<img src="{{thumbSmall}}" alt="{{lang.유저 등록 아이콘}}">
+		{{#isRecent?}}
+		<i class="ic_works ic_new" title="{{lang.새로 등록된 앱}}"></i>
+		{{/isRecent?}}
+	</div>
+	<div class="wrap_works_tit">
+		<div class="inner_works_info">
+			<span class="tit">{{{name}}}</span>
+		</div>
+	</div>
+</a>

@@ -1,0 +1,12 @@
+<p class="photo">
+	<a data-userid = {{log.actor.id}}>
+		<img src="{{log.actor.thumbnail}}" title="{{log.actor.name}} {{#log.actor.position}}{{log.actor.position}}{{/log.actor.position}}"  alt="{{log.actor.name}} {{log.actor.position}}">
+	</a> 
+</p> 
+<div class="info"> 
+	<p class="name">{{actorNameWithPosition}} </p> 
+	<span class="date">{{createdAt}}</span> 
+	{{#messages}} 
+	<p class="subject">{{{.}}}</p> 
+	{{/messages}} 
+</div>

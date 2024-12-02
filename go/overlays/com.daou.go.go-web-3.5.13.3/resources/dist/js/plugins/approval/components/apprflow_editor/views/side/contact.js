@@ -1,0 +1,1 @@
+define("approval/components/apprflow_editor/views/side/contact",["approval/components/apprflow_editor/views/side/org_tree","i18n!approval/nls/approval"],function(e,t){var n=e.extend({id:"aside-contact",tabId:"contact",tabName:t["\uacf5\uc6a9\uc8fc\uc18c\ub85d"],type:"contact"});return n});

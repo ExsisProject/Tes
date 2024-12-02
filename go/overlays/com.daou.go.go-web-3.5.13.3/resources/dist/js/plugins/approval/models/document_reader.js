@@ -1,0 +1,1 @@
+define(["backbone"],function(e){var t=e.Model.extend({initialize:function(e){this.docId=e},url:function(){return["/api/approval/document",this.docId,"reader"].join("/")}});return t});

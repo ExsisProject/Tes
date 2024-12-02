@@ -1,0 +1,29 @@
+<td class="code">{{data.code}}</td>
+<td>{{data.name}}</td>
+<td class="paid">
+    {{#data.paid}}{{lang.유급}}{{/data.paid}}
+    {{^data.paid}}{{lang.무급}}{{/data.paid}}
+</td>
+<td>
+    {{#data.useVacationPoint}}{{lang.차감}}{{/data.useVacationPoint}}
+    {{^data.useVacationPoint}}{{lang.차감안함}}{{/data.useVacationPoint}}
+</td>
+<td class="availableMax">
+    {{#data.limited}}{{data.availableMax}}{{/data.limited}}
+    {{^data.limited}}{{lang.적용 안 함}}{{/data.limited}}
+</td>
+<td class="holiday">
+    {{#data.canBeUsedHoliday}}{{lang.포함}}{{/data.canBeUsedHoliday}}
+    {{^data.canBeUsedHoliday}}{{lang.미포함}}{{/data.canBeUsedHoliday}}
+</td>
+<td class="useTimeDetails">
+    {{#data.useTimeDetails}}{{lang.사용}}{{/data.useTimeDetails}}
+    {{^data.useTimeDetails}}{{lang.미사용}}{{/data.useTimeDetails}}
+</td>
+<td class="use">
+    {{#data.enable}}{{lang.사용}}{{/data.enable}}
+    {{^data.enable}}{{lang.미사용}}{{/data.enable}}
+</td>
+<td class="set">
+    <span class="statusSettingBtn btn_s">{{lang.설정}}</span>
+</td>

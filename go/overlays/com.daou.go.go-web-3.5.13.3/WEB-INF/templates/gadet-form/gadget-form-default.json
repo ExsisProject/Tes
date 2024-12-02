@@ -1,0 +1,58 @@
+[
+	{
+		"spec":{"name":"Quick Menu"},
+		"type":"COMPANY",
+		"boxNumber":2,
+		"boxOrder":0,
+		"options":"{\"use_contact\":\"Y\",\"use_calendar\":\"Y\",\"use_board\":\"Y\",\"use_survey\":\"Y\",\"use_messenger\":\"Y\"}"
+	},
+	{
+		"spec":{"name":"Birthday"},
+		"type":"COMPANY",
+		"boxNumber":2,
+		"boxOrder":1,
+		"options":"{\"refresh\":\"-1\",\"offset\":\"5\"}"
+	},
+	{
+		"spec":{"name":"Reports to be submitted"},
+		"type":"COMPANY",
+		"boxNumber":2,
+		"boxOrder":2,
+		"options":"{\"refresh\":\"-1\"}"
+	},
+	{
+		"spec":{"name":"Company Board"},
+		"type":"COMPANY",
+		"boxNumber":1,
+		"boxOrder":0,
+		"options":"{\"refresh\":\"-1\",\"offset\":\"5\",\"boardIds\":\"0|전체"
+	},
+	{
+		"spec":{"name":"Email List"},
+		"type":"COMPANY",
+		"boxNumber":1,
+		"boxOrder":1,
+		"options":"{\"refresh\":\"-1\",\"count\":\"5\",\"folder\":\"folder/Inbox\"}"
+	},
+	{
+		"spec":{"name":"Today Profile"},
+		"type":"COMPANY",
+		"boxNumber":0,
+		"boxOrder":0,
+		"options":"{\"refresh\":\"-1\",\"show_profile\":\"Y\",\"show_calendar\":\"Y\",\"show_report\":\"Y\",\"show_approval\":\"Y\"}"
+	},
+	{
+		"spec":{"name":"Recently Signed In"},
+		"type":"COMPANY",
+		"boxNumber":0,
+		"boxOrder":1,
+		"options":"{\"offset\":\"3\"}"
+	},
+	{
+		"spec":{"name":"Calendar"},
+		"type":"COMPANY",
+		"boxNumber":0,
+		"boxOrder":2,
+		"options":"{\"refresh\":\"-1\",\"dayOffset\":\"3\"}"
+	}
+]

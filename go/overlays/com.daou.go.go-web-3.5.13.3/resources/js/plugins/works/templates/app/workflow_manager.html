@@ -1,0 +1,49 @@
+<header class="content_top works_tit" id="worksContentTop"></header>
+<div class="content_page process_page">
+	<div class="works_app_write">		
+		<div class="app_write_tit">
+			<span class="wrap_toggle_btn" id="tagRequired">
+				<input id="notUseProcess" type="checkbox" {{^useProcess}}checked{{/useProcess}}>
+				<label for="notUseProcess"></label>
+			</span>
+			<span class="txt">{{{lang.tagRequired}}}</span>
+		</div>
+
+		<div class="wrap_process">
+			<div class="process_add" style="z-index: 999">
+				<input id="addStatName" type="text" class="input w_max" placeholder="{{{lang.상태명을 입력하세요.}}}">
+				<span id="btnAddStat"  class="btn_wrap">
+					<span class="icx2 ic_plus_w"></span>
+				</span>
+			</div>
+			<div id="workflow_properties" class="layer_option" style="z-index: 999;display:none;"></div>
+			<div class="contents" style="overflow: hidden;">
+				<div id="zoomActions" class="zoomActions" style="right: 0px;"></div>
+				<div class="optional" style="z-index: 999;">
+					<button btn-open-sort-wrap class="btn_opt_change" title="{{{lang.상태 순서 변경}}}">
+						<span class="ic_toolbar change"></span>
+					</button>
+					<div class="btn_opt_change">
+						<div id="workflow_sort_wrap" class="layer_option" style="display:none;">
+							<div class="option_tit">
+								<p class="tit">{{{lang.상태 순서 변경}}}</p>
+								<a btn-close-sort-wrap class="btn_close">
+									<span class="icx2 ic_close"></span>
+								</a>
+							</div>
+							<ul id="workflow_sort_layer" class="list_change list_drag"></ul>
+						</div>
+					</div>
+				</div>
+				<div id="graphContainer" style="position:relative;overflow:hidden;width:100%;cursor:default;"></div>
+			</div>
+		</div>
+
+		<div class="page_action_wrap">
+			<a id="btn-confirm" class="btn_major" data-role="button"><span class="txt">{{{lang.regist}}}</span></a>
+			<a id="btn-cancel" class="btn_minor" data-role="button"><span class="txt">{{{lang.cancel}}}</span></a>
+			<a id="btn-gosettinghome" class="btn_minor" data-role="button"><span class="txt">{{{lang.gosettinghome}}}</span></a>
+			<a id="btn-goapphome" class="btn_minor" data-role="button"><span class="txt">{{{lang.goapphome}}}</span></a>
+		</div>
+	</div>
+</div>

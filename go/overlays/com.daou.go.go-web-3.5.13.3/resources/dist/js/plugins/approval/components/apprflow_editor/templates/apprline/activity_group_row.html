@@ -1,0 +1,33 @@
+<tr data-userId="{{userId}}" data-deptId="{{deptId}}" class="activity dev_appr_activity{{^isEnabled}} inactive{{/isEnabled}}">
+    <td class="kind">
+    {{#isEnabled}}
+        <select {{#isDisabledAssignedCheckType}}disabled="disabled" style="border: 1px solid #999; color: #333; opacity: 0.5;"{{/isDisabledAssignedCheckType}}>
+            {{#userName}}
+            <option name="type" value="APPROVAL" {{#isApprovalType}}selected{{/isApprovalType}}>{{lang.approval}}</option>
+            {{/userName}}
+            <option name="type" value="AGREEMENT" {{#isAgreementType}}selected{{/isAgreementType}}>{{lang.agreement}}</option>
+            {{#userName}}
+            {{#isCheckTypeVisible}}
+            <option name="type" value="CHECK" {{#isCheckType}}selected{{/isCheckType}}>{{lang.check}}</option>
+            {{/isCheckTypeVisible}}
+            {{/userName}}
+        </select>
+    {{/isEnabled}}
+    {{^isEnabled}}
+        {{activityType}}
+    {{/isEnabled}}
+    </td>
+    <td class="name">{{userName}}</td>
+    <td class="depart">{{deptName}}</td>
+    <td class="state">{{activityType}}</td>
+    {{#isPermissibleArbitraryDecision}}
+    {{#isArbitraryCheckVisible}}
+    <td class="sign">
+    {{#arbitraryCheckable}}
+    <input type="checkbox" {{#isArbitraryChecked}}checked{{/isArbitraryChecked}} {{^isEnabled}}disabled="disabled"{{/isEnabled}}>
+    {{/arbitraryCheckable}}
+    </td>
+    {{/isArbitraryCheckVisible}}
+    {{/isPermissibleArbitraryDecision}}
+    <td class="func">{{#isEnabled}}<span class="btn_bdr delete_activity" title="{{lang.delete}}"><span class="ic_classic ic_basket"></span></span>{{/isEnabled}}</td>
+</tr>

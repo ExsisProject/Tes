@@ -1,0 +1,1 @@
+define(["backbone"],function(e){var t=null,n=e.Model.extend({url:function(){var e="/api/approval/officialtodo/count";return e}},{get:function(){return t==null&&(t=new n),t.fetch({data:{},async:!1}),t}});return n});

@@ -1,0 +1,1 @@
+define("works/models/report_item",function(require){var e=require("works/components/filter/models/base_type");return e.extend({initialize:function(){this.modelName="report_item"},defaults:{rid:""}})});

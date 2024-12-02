@@ -1,0 +1,104 @@
+<header class="content_top">	
+</header>
+<div class="content_page">
+<!-- 검색결과 요약 정보  -->		
+	<div class="content_search_wrap">
+		<h1><ins class="bullet"></ins><span class="title">{{lang.검색어}} :</span></h1>
+		{{#isDetailSearch}}
+		<dl class="info">
+		{{#searchData}}
+			<dt>[{{lang.양식제목}}]</dt>
+			<dd>{{formName}}</dd>
+			<dt>[{{lang.기안자}}]</dt>
+			<dd>{{drafterName}}</dd>
+			<dt>[{{lang.결재선}}]</dt>
+            <dd>{{activityUserNames}}</dd>
+			<dt>[{{lang.검색문서번호}}]</dt>
+            <dd>{{docNum}}</dd>
+			{{#title}}
+				<dt>[{{lang.제목}}]</dt>
+				<dd>{{title}}</dd>
+			{{/title}}
+			{{#docBody}}
+				<dt>[{{lang.내용}}]</dt>
+				<dd>{{docBody}}</dd>
+			{{/docBody}}
+			{{#attachFileNames}}
+				<dt>[{{lang.첨부파일명}}]</dt>
+				<dd>{{attachFileNames}}</dd>
+			{{/attachFileNames}}
+            {{#attachFileContents}}
+                <dt>[{{lang.첨부파일내용}}]</dt>
+                <dd>{{attachFileContents}}</dd>
+            {{/attachFileContents}}
+			{{#keyword}}
+				<dt>[{{lang.검색어}}]</dt>
+				<dd>{{keyword}}</dd>
+			{{/keyword}}
+			<dt>[{{lang.검색 기간}}]</dt>
+			{{#isAllSearch}}
+			<dd>({{typeName}}) {{lang.전체기간}}</dd>
+			{{/isAllSearch}}
+			{{^isAllSearch}}			
+			<dd>({{typeName}}) <span class="date">{{fromDate}} ~ {{toDate}}</span></dd>
+			{{/isAllSearch}}
+		{{/searchData}}
+		</dl>
+		{{/isDetailSearch}}
+		{{^isDetailSearch}}
+		<span class="info">
+			{{searchData.keyword}}
+		</span>
+		{{/isDetailSearch}}
+	</div>
+<!-- //검색결과 요약 정보  -->		
+	<section class="comm_list">
+		<div class="content_page" >			
+			<div class="dataTables_wrapper">
+			 <!-- 툴바  -->
+		     <div class="tool_bar">             
+		         <!-- 리스트 갯수 선택 select box (마크업 유지) -->
+		         <div class="dataTables_length">
+		         </div>
+		     </div>
+				<!-- 테이블 -->		
+				<table class="type_normal list_approval">	
+					<thead>
+						<tr>
+							{{#columns.기안일}}
+		                    <th id="header_drafted_at" sort-id="draftedAt" class="sorting_disabled first"><span class="title_sort">{{columns.기안일}}<ins class="ic"></ins><span class="selected"></span></span></th>
+		                    {{/columns.기안일}}
+		                    {{#columns.검색결재양식}}
+		                    <th id="header_form_name" sort-id="formName" class="sorting_disabled"><span class="title_sort">{{columns.검색결재양식}}<ins class="ic"></ins><span class="selected"></span></span></th>
+		                    {{/columns.검색결재양식}}
+		                    {{#columns.검색제목}}
+		                    <th id="header_title" sort-id="title" class="sorting_disabled"><span class="title_sort">{{columns.검색제목}}<ins class="ic"></ins><span class="selected"></span></span></th>
+		                    {{/columns.검색제목}}
+		                    {{#columns.첨부}}
+		                    <th id="header_attach" class="sorting_disabled"><span class="title_sort">{{columns.첨부}}</span></th>
+		                    {{/columns.첨부}}
+		                    {{#columns.검색기안자}}
+		                    <th id="header_drafter_name" sort-id="drafterName" class="sorting_disabled"><span class="title_sort">{{columns.검색기안자}}<ins class="ic"></ins><span class="selected"></span></span></th>
+		                    {{/columns.검색기안자}}
+		                    {{#columns.검색문서번호}}
+		                    <th id="header_doc_no" sort-id="docNum" class="sorting_disabled"><span class="title_sort">{{columns.검색문서번호}}<ins class="ic"></ins><span class="selected"></span></span></th>
+		                    {{/columns.검색문서번호}}
+		                    {{#columns.결재상태}}
+		                    <th id="header_doc_status" sort-id="docStatus" class="sorting_disabled"><span class="title_sort">{{columns.결재상태}}<ins class="ic"></ins><span class="selected"></span></span></th>
+		                    {{/columns.결재상태}}
+		                    {{#columns.결재일}}
+		                    <th id="header_end_at" sort-id="completedAt" class="sorting_disabled"><span class="title_sort">{{columns.결재일}}<ins class="ic"></ins><span class="selected"></span></span></th>
+		                    {{/columns.결재일}}
+						</tr>
+					</thead>
+					<tbody>
+					</tbody>
+				</table>
+				<div class="tool_bar tool_absolute">
+					<!--  상단 메뉴와 동일 -->
+					<div class="dataTables_length"></div>
+				</div>
+			</div>
+		</div>
+	</section>
+</div>

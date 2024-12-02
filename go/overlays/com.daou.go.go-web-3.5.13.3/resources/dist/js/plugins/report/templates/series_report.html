@@ -1,0 +1,131 @@
+<header class="content_top">
+</header>	
+<div class="content_page report_detail" >	
+	<div class="tool_bar series_controll">
+		<div class="critical">
+			{{#data.actions.managable}}
+			<a class="btn_tool"  id="excludeReporter" data-role="button">
+				<span class="ic_toolbar member_cancel"></span>
+				<span class="txt">{{lang.reporterExclude}}</span></a>
+			{{/data.actions.managable}}
+		</div>
+		<ul class="optional">
+			<li class="next"  data-id="{{data.nextSeriesId}}">
+				<a class="btn_tool">
+					<span class="ic_toolbar up" title="{{lang.next}}"></span>
+					<span class="txt">{{lang.next}}</span>
+				</a>
+			</li>
+			<li class="prev" data-id="{{data.prevSeriesId}}">
+				<a class="btn_tool">
+					<span class="ic_toolbar down" title="{{lang.prev}}"></span>
+					<span class="txt">{{lang.prev}}</span>
+				</a>
+			</li>
+			<li>
+				<a class="btn_tool list">
+					<span class="ic_toolbar list" title="{{lang.list}}"></span>
+					<span class="txt">{{lang.list}}</span>
+				</a>
+			</li>
+		</ul>	
+	</div>
+	<div class="wrap_container">
+		<section class="content_wrapper" id="reportInfos"> 
+			<div class="noti_box" {{^data.hasExcludeReport}} style="display: none;" {{/data.hasExcludeReport}}>
+				<strong>{{lang.excludedReporters}} :</strong> 
+				<span id="excludeReporters"> {{data.excludeReportsStr}}</span>
+			</div>
+			<div class="dashboard_box not_yet" id="undone" title="{{lang.undoneDesc}}" {{#data.isEmptyUndones}}style="display: none;"{{/data.isEmptyUndones}}>
+				<div class="card_item_wrapper">
+					<p class="title not">{{lang.undoneReporters}}</p>
+					<div class="wrapper" id="undoneList">
+						{{{undonesCardTmpl}}}
+					</div>
+				</div>					
+			</div>
+			<div class="report_type" id="reportWrite" style="display: none">
+			</div>
+			<div class="dashboard_box" id="done" {{#data.isEmptyDones}}style="display: none;"{{/data.isEmptyDones}}>
+				<div class="card_item_wrapper ">
+					<p class="title">{{lang.doneReporters}}</p>
+					<div class="wrapper" id="doneList">
+						{{{donesCardTmpl}}}
+					</div>
+				</div>					
+			</div>
+			<div id="reportDetail" class="report_type" style="display: none">
+			</div>
+			<div class="report_type" id="reportUpdate" style="display: none"></div>
+		</section>
+		<section class="aside_wrapper article_reply">
+			<div class="reply_wrap">
+				<header>
+					<ul class="tab_nav" id="series_tap">
+						<li class="first on" data-type="series_comments">
+							<span class="ic_classic ic_reply"></span>
+							<span class="txt">
+								{{lang.series_comment}}
+							</span>
+							<span class="num">
+								{{data.commentCount}}
+							</span>
+						</li>			
+						<li class="last"  data-type="activity_logs">
+							<span class="txt">
+								{{lang.activityLog}}
+							</span>
+							<span class="num">
+								{{data.logCount}}
+							</span>
+						</li>	
+					</ul>	
+				</header>
+				<div data-replies-wrapper class="aside_wrapper_body" id="series_comments">
+				</div>
+				<div class="aside_wrapper_body" id="activity_logs" style="display: none">
+					<div id="activity_logs_content">
+					</div>
+					<div class="bottom_action" id="activity_logs_more">
+						<a class="btn_list_reload" id="activity_more"><span class="ic"></span><span class="txt">{{lang.more}}</span></a>
+					</div>
+				</div>
+			</div>			
+		</section>
+	</div>
+	<div class="tool_bar series_controll">
+		<div class="critical">
+			<!-- {{#data.isReportWritable}}
+			<a class="btn_major_s write"  id="writeReport" data-reportid="{{data.myReport.user.reportId}}" data-role="button">
+				<span class="txt">{{lang.reportWrite}}</span>
+			</a>
+			{{/data.isReportWritable}} -->
+			{{#data.actions.managable}}
+			<a class="btn_tool" data-role="button">
+				<span class="ic_toolbar member_cancel"></span>
+				<span class="txt" id="excludeReporter">{{lang.reporterExclude}}</span>
+			</a>
+			{{/data.actions.managable}}
+		</div>
+		<ul class="optional">
+			<li class="next"  data-id="{{data.nextSeriesId}}">
+				<a class="btn_tool"><span class="ic_toolbar up" title="{{lang.next}}"></span><span class="txt">{{lang.next}}</span></a></li>
+			<li class="prev" data-id="{{data.prevSeriesId}}"><a class="btn_tool"><span class="ic_toolbar down" title="{{lang.prev}}"></span><span class="txt">{{lang.prev}}</span></a></li>
+			<li><a class="btn_tool list"><span class="ic_toolbar list" title="{{lang.list}}"></span><span class="txt">{{lang.list}}</span></a></li>
+		</ul>	
+	</div>	
+</div>
+<div class="dataTables_wrapper">					
+	<table class="type_normal tb_lately_report_detail" id="report_list">	
+		<colgroup>
+			<col>
+			<col>
+		</colgroup>
+		<thead>
+			<tr>
+				<th class="times sorting_disabled "><span class="title_sort">{{lang.series}}</span></th>
+				<th class="status sorting_disabled"><span class="title_sort">{{lang.report_status}}</span></th>
+			</tr>
+		</thead>
+	</table>
+</div>

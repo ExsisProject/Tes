@@ -1,0 +1,44 @@
+<span class="box_label_wrap">
+    {{^model.hideLabel}}
+	<label for="">{{{label}}}</label>
+	{{#model.required}}
+	<i class="asterisk">*</i>
+	{{/model.required}}
+	{{#model.guideAsTooltip}}
+    {{#model.guide}}
+	<span class="help">
+		<span class="tool_tip">{{model.guide}}<i class="tail_left"></i></span>
+	</span>
+    {{/model.guide}}
+	{{/model.guideAsTooltip}}
+    {{/model.hideLabel}}
+</span>
+<div class="build_box_data">
+
+    {{^isHorizontal}}
+    <ul>
+    {{/isHorizontal}}
+
+        {{#model.items}}
+
+        {{^isHorizontal}}
+        <li>
+        {{/isHorizontal}}
+            <span class="wrap_option">
+                <input type="radio" name="{{clientId}}" id="{{clientId}}_{{value}}" value="{{value}}" {{#isDisabled}} {{#selected}}checked{{/selected}} disabled{{/isDisabled}} />
+                <label for="{{clientId}}_{{value}}">{{displayText}}</label>
+            </span>
+        {{^isHorizontal}}
+        </li>
+        {{/isHorizontal}}
+
+        {{/model.items}}
+
+    {{^isHorizontal}}
+    </ul>
+    {{/isHorizontal}}
+
+	{{^model.guideAsTooltip}}
+	<p class="txt_info">{{#model.guide}}* {{model.guide}} {{/model.guide}}</p>
+	{{/model.guideAsTooltip}}
+</div>

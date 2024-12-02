@@ -1,0 +1,194 @@
+
+<div class="content_page">
+    <form name="formCustomProfileConfig" id="formCustomProfileConfig" >
+    <div class="container ">  
+     <div class="content">
+            <fieldset>              
+                <table class="form_type">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <span class="title">{{lang.label_company_name}}</span>
+                                <select id="companyList" style="min-width:100px;">
+                                </select>
+                            </td>
+                        </tr>
+                    </tbody>    
+                </table>
+            </fieldset>
+    </div>
+    </div>
+        {{#data}}
+        <div class="container">
+            <div class="header">
+                <h2>{{lang.label_custom_profile_config}}</h2>
+            </div>
+            <div class="content">
+            
+                <table class="detail">
+                    <colgroup>
+                        <col width="110px" />
+                        <col width="*" />
+                    </colgroup>
+                <tbody>
+                	<tr class="">
+                        <th>
+                            <span class="title">{{lang.label_field}}</span>
+                        </th>
+                        <td>
+                            <span class="user_data" data-formname=profileName data-value="{{profileName}}">
+                                <span id="data">{{profileName}}</span>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr class="">
+                        <th>
+                            <span class="title">{{lang.label_field_name}}({{lang.label_ko}})</span>
+                        </th>
+                        <td>
+                            <span class="user_data editable">
+                                <span id="data">{{koLabel}}</span>
+                                <span class="btn_box">
+                                    <span class="ic ic_edit" title="{{lang.label_edit}}"></span>
+                                </span>
+                            </span>
+                            <input class="w_half input" type="text" id="{{profileName}}_koLabel" name="{{profileName}}_koLabel" value="{{koLabel}}" style="display:none;">
+                            <span class="go_alert" id="{{profileName}}_koLabelValidate"></span>
+                        </td>
+                    </tr>
+                    <tr class="">
+                        <th>
+                            <span class="title">{{lang.label_field_name}}({{lang.label_en}})</span>
+                        </th>
+                        <td>
+                            <span class="user_data editable">
+                                <span id="data">{{enLabel}}</span>
+                                <span class="btn_box">
+                                    <span class="ic ic_edit" title="{{lang.label_edit}}"></span>
+                                </span>
+                            </span>
+                            <input class="w_half input" type="text" id="{{profileName}}_enLabel" name="{{profileName}}_enLabel" value="{{enLabel}}" style="display:none;">
+                            <span class="go_alert" id="{{profileName}}_enLabelValidate"></span>
+                        </td>
+                    </tr>
+                    <tr class="">
+                        <th>
+                            <span class="title">{{lang.label_field_name}}({{lang.label_jp}})</span>
+                        </th>
+                        <td>
+                            <span class="user_data editable">
+                                <span id="data">{{jaLabel}}</span>
+                                <span class="btn_box">
+                                    <span class="ic ic_edit" title="{{lang.label_edit}}"></span>
+                                </span>
+                            </span>
+                            <input class="w_half input" type="text" id="{{profileName}}_jaLabel" name="{{profileName}}_jaLabel" value="{{jaLabel}}" style="display:none;">
+                            <span class="go_alert" id="{{profileName}}_jaLabelValidate"></span>
+                        </td>
+                    </tr>
+                    <tr class="">
+                        <th>
+                            <span class="title">{{lang.label_field_name}}({{lang.label_zhcn}})</span>
+                        </th>
+                        <td>
+                            <span class="user_data editable">
+                                <span id="data">{{zhcnLabel}}</span>
+                                <span class="btn_box">
+                                    <span class="ic ic_edit" title="{{lang.label_edit}}"></span>
+                                </span>
+                            </span>
+                            <input class="w_half input" type="text" id="{{profileName}}_zhcnLabel" name="{{profileName}}_zhcnLabel" value="{{zhcnLabel}}" style="display:none;">
+                            <span class="go_alert" id="{{profileName}}_zhcnLabelValidate"></span>
+                        </td>
+                    </tr>
+                    <tr class="">
+                        <th>
+                            <span class="title">{{lang.label_field_name}}({{lang.label_zhtw}})</span>
+                        </th>
+                        <td>
+ 							<span class="user_data editable">
+                                <span id="data">{{zhtwLabel}}</span>
+                                <span class="btn_box">
+                                    <span class="ic ic_edit" title="{{lang.label_edit}}"></span>
+                                </span>
+                            </span>
+                            <input class="w_half input" type="text" id="{{profileName}}_zhtwLabel" name="{{profileName}}_zhtwLabel" value="{{zhtwLabel}}" style="display:none;">
+                            <span class="go_alert" id="{{profileName}}_zhtwLabelValidate"></span>
+                        </td>
+                    </tr>
+                    <tr class="">
+                        <th>
+                            <span class="title">{{lang.label_usage}}</span>
+                        </th>
+                        <td>
+                        	<span class="option_wrap">
+                                <input type="radio" id="{{profileName}}_usage_true" name="{{profileName}}_usage" value="true" {{#usage}} checked="checked" {{/usage}}> 
+                                <label for="{{profileName}}_usage_true">{{lang.label_use}}</label>
+                            </span>
+                            <span class="option_wrap">
+                                <input type="radio" id="{{profileName}}_usage_false" name="{{profileName}}_usage" value="false" {{^usage}} checked="checked" {{/usage}}> 
+                                <label for="{{profileName}}_usage_false">{{lang.label_no_use}}</label>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr class="">
+                        <th>
+                            <span class="title">{{lang.label_order}}</span>
+                        </th>
+                        <td>
+                        	<span class="option_wrap">
+                                <input type="radio" id="{{profileName}}_useOrder_true" name="{{profileName}}_useOrder" value="true" {{#useOrder}} checked="checked" {{/useOrder}}> 
+                                <label for="{{profileName}}_useOrder_true">{{lang.label_use}}</label>
+                            </span>
+                            <span class="option_wrap">
+                                <input type="radio" id="{{profileName}}_useOrder_false" name="{{profileName}}_useOrder" value="false" data-used-dept-order="{{usedDeptOrder}}" {{^useOrder}} checked="checked" {{/useOrder}}> 
+                                <label for="{{profileName}}_useOrder_false">{{lang.label_no_use}}</label>
+                            </span>
+                            <span class="go_alert" id="{{profileName}}_useOrderValidate"></span>
+                        </td>
+                    </tr>
+                    <tr class="">
+                        <th>
+                            <span class="title">{{lang.label_display}}</span>
+                        </th>
+                        <td>
+                        	<span class="option_wrap">
+                                <input type="radio" id="{{profileName}}_displayCustomField_true" name="{{profileName}}_displayCustomField" value="true" {{#displayCustomField}} checked="checked" {{/displayCustomField}}> 
+                                <label for="{{profileName}}_displayCustomField_true">{{lang.label_use}}</label>
+                            </span>
+                            <span class="option_wrap">
+                                <input type="radio" id="{{profileName}}_displayCustomField_false" name="{{profileName}}_displayCustomField" value="false" {{^displayCustomField}} checked="checked" {{/displayCustomField}}> 
+                                <label for="{{profileName}}_displayCustomField_false">{{lang.label_no_use}}</label>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr class="last">
+                        <th>
+                            <span class="title">{{lang.label_data_type}}</span>
+                        </th>
+                        <td>
+                            <span class="user_data editable">
+                                <span id="data">{{dataType}}</span>
+                                <span class="btn_box">
+                                    <span class="ic ic_edit" title="{{lang.label_edit}}"></span>
+                                </span>
+                            </span>
+                            <input class="w_half input" type="text" id="{{profileName}}_dataType" name="{{profileName}}_dataType" value="{{dataType}}" style="display:none;">
+                            <span class="go_alert" id="{{profileName}}_dataTypeValidate"></span>
+                            <br/>
+                            <span class="desc">{{lang.label_data_type}} option : String / date </span>
+                        </td>
+                    </tr>
+                
+                </tbody>
+            </table>
+            
+        </div>
+    </div>
+    <div class="page_action">
+        <span class="btn" id="btn_ok" data-name="{{profileName}}" data-id={{id}}>{{lang.label_ok}}</span>
+        <span class="btn_nega" id="btn_cancel">{{lang.label_cancel}}</span>
+    </div>
+    {{/data}}
+    </form>
+    

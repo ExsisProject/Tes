@@ -1,0 +1,23 @@
+<td class="depart" ><span>{{deptName}}</span></td>
+{{#root}}
+	<td class="chk">
+		<input type="checkbox" id="useDocFolder_{{cid}}" name="useDocFolder" checked="checked" disabled=disabled /> 
+	</td>
+	<td class="chk">
+		<input type="checkbox" id="useReception_{{cid}}" name="useReception" checked="checked" disabled=disabled /> 
+	</td>
+	<td class="chk2">
+		<input type="checkbox" id="useOfficialDocSend_{{cid}}" name="useOfficialDocSend" checked="checked" disabled=disabled /> 
+	</td>
+{{/root}}
+{{^root}}
+	<td class="chk">
+		<input type="checkbox" id="useDocFolder_{{cid}}" name="useDocFolder" {{#useDocFolder}}checked="checked"{{/useDocFolder}} /> 
+	</td>
+	<td class="chk">
+		<input type="checkbox" id="useReception_{{cid}}" name="useReception" {{#useReception}}checked="checked"{{/useReception}} /> 
+	</td>
+	<td class="chk2">
+		<input type="checkbox" id="useOfficialDocSend_{{cid}}" name="useOfficialDocSend" {{#useOfficialDocSend}}checked="checked"{{/useOfficialDocSend}} /> 
+	</td>
+{{/root}}

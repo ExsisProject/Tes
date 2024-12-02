@@ -1,0 +1,17 @@
+<span class="action">
+    <a class="btn_fn7" data-role="button" title="{{lang.copy_url}}" url-copy={{directUrl}}>
+        <i class="ic_copy_url"></i>
+    </a>
+    <a href="#" class="btn-star btn_star{{#favorite?}} btn_star_favor{{/favorite?}}" title="{{attr_title_favorite}}" data-bypass>
+        <ins class="ic_star{{^favorite?}} ic_star_off{{/favorite?}}"></ins>
+    </a>
+</span>
+
+<a href="#" class="btn-board todo_board{{#favorite?}} todo_favor_board{{/favorite?}}" data-bypass>
+    <span class="tit">{{{title}}}</span>
+    <ul class="list_share">
+        {{#members}}
+        <li>{{> _user_thumbnail}}</li>
+        {{/members}}
+    </ul>
+</a>

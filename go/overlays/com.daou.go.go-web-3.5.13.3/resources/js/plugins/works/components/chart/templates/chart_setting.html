@@ -1,0 +1,170 @@
+<a class="btn_close" title="">
+	<ins class="ic_works ic_close" el-delete></ins>
+</a>
+<div class="wrap_works_info">
+	<table class="works_info_table">
+		<tbody>
+		<tr>
+			<th><span class="title">{{lang.차트 이름}}</span></th>
+			<td>
+				<div class="wrap_txt w_max">
+					<input id="chartTitle" class="txt w_max" type="text" value="{{model.title}}">
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<th><span class="title">{{lang.차트 타입}}</span></th>
+			<td>
+				<span class="wrap_select">
+					<select id="chartType">
+						<option value="COLUMN">{{lang.세로 막대형}}</option>
+						<option value="LINE">{{lang.꺾은 선형}}</option>
+						<option value="PIE">{{lang.원형}}</option>
+						<option value="GAUGE">{{lang.속도 그래프}}</option>
+					</select>
+					<select id="stack">
+						<option value="false">{{lang.기본형}}</option>
+						<option value="true">{{lang.누적형}}</option>
+					</select>
+				</span>
+			</td>
+		</tr>
+		<tr el-fields>
+			<th><span class="title">{{lang.그룹별 통계}}</span></th>
+			<td>
+				<span class="wrap_select">
+					<select id="fields" class="wfix_medium">
+						<option value="" data-value-type="all">{{lang.그룹없음}}</option>
+						{{#chartFields}}
+						<option value="{{cid}}" data-value-type="{{valueType}}">{{label}}</option>
+						{{/chartFields}}
+					</select>
+					<select id="rangeOption" data-postfix style="display: none;">
+					</select>
+				</span>
+				<span class="wrap_select">
+					<select id="subFields" class="wfix_medium">
+						<option value="" data-value-type="all">{{lang.그룹없음}}</option>
+						{{#chartFields}}
+						<option value="{{cid}}" data-value-type="{{valueType}}">{{label}}</option>
+						{{/chartFields}}
+					</select>
+					<select id="subRangeOption" data-postfix style="display: none;">
+					</select>
+				</span>
+			</td>
+		</tr>
+		<tr el-gauge-value-area style="display: none;">
+			<th><span class="title">{{lang.목표값}}</span></th>
+			<td>
+				<div class="wrap_txt w_min" el-number-form-wrapper></div>
+			</td>
+		</tr>
+		<tr>
+			<th><span class="title">{{lang.집계 방식}}</span></th>
+			<td>
+				<span class="wrap_select">
+					<select id="aggMethod">
+						<option value="COUNT">{{lang.개수}}</option>
+						{{#hasNumberFields}}
+						<option value="SUM">{{lang.합계}}</option>
+						<option value="AVG">{{lang.평균}}</option>
+						<option value="MAX">{{lang.최대값}}</option>
+						<option value="MIN">{{lang.최소값}}</option>
+						{{/hasNumberFields}}
+					</select>
+
+					{{#hasNumberFields}}
+					<select id="aggCid" style="display: none;">
+						{{#numberFields}}
+						<option value="{{cid}}">{{label}}</option>
+						{{/numberFields}}
+					</select>
+					{{/hasNumberFields}}
+				</span>
+			</td>
+		</tr>
+		<tr>
+			<th><span class="title">{{lang.테마 지정}}</span></th>
+			<td>
+				<a class="chart_skin" data-chart-theme="0">
+					<span class="ic_chart_skin ic_chart_type1"></span>
+				</a>
+				<a class="chart_skin" data-chart-theme="1">
+					<span class="ic_chart_skin ic_chart_type2"></span>
+				</a>
+				<a class="chart_skin" data-chart-theme="2">
+					<span class="ic_chart_skin ic_chart_type3"></span>
+				</a>
+				<a class="chart_skin" data-chart-theme="3">
+					<span class="ic_chart_skin ic_chart_type4"></span>
+				</a>
+			</td>
+		</tr>
+		<!--<tr>
+            <td colspan="2">
+                <span class="wrap_option">
+                    <input type="checkbox" name="showValue" show-value {{#model.showValue}}checked{{/model.showValue}}/>
+                    <label>{{lang.데이터 값 표시}}</label>
+                </span>
+            </td>
+        </tr>-->
+		</tbody>
+	</table>
+	<!-- 콤보 -->
+	<p class="tit" data-combination-area>{{lang.콤보 차트}}</p>
+	<table class="works_info_table" data-combination-area>
+		<tbody>
+		<tr>
+			<th><span class="title">{{lang.차트 타입}}</span></th>
+			<td>
+				<span class="wrap_select">
+					<select id="subChartType" disabled>
+						<option value="COLUMN">{{lang.세로 막대형}}</option>
+						<option value="LINE">{{lang.꺾은 선형}}</option>
+					</select>
+					<select id="subStack">
+						<option value="false">{{lang.기본형}}</option>
+						<option value="true">{{lang.누적형}}</option>
+					</select>
+				</span>
+			</td>
+		</tr>
+		<tr>
+			<th><span class="title">{{lang.집계 방식}}</span></th>
+			<td>
+				<span class="wrap_select">
+					<select id="subAggMethod">
+						<option value="COUNT">{{lang.개수}}</option>
+						{{#hasNumberFields}}
+						<option value="SUM">{{lang.합계}}</option>
+						<option value="AVG">{{lang.평균}}</option>
+						<option value="MAX">{{lang.최대값}}</option>
+						<option value="MIN">{{lang.최소값}}</option>
+						{{/hasNumberFields}}
+					</select>
+
+					{{#hasNumberFields}}
+					<select id="subAggCid" style="display: none;">
+						{{#numberFields}}
+						<option value="{{cid}}">{{label}}</option>
+						{{/numberFields}}
+					</select>
+					{{/hasNumberFields}}
+				</span>
+			</td>
+		</tr>
+		</tbody>
+	</table>
+	<span class="wrap_option" data-combination-input-area>
+		<input type="checkbox" value="combination" data-combination-input/>
+		<label data-combination-label>{{lang.콤보 차트}}</label>
+	</span>
+	<p class="txt_error chart_err">
+		{{#model.hasDeletedField}}{{lang.항목이 삭제되었습니다 설명}}{{/model.hasDeletedField}}
+	</p>
+	<a class="chart_popup" data-chart-preview>
+		<span class="txt">{{lang.차트 미리보기}}</span>
+		<span class="ic_works ic_chart_popup"></span>
+	</a>
+</div>

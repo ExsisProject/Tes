@@ -1,0 +1,49 @@
+<div class="content_page">
+    <form name="">
+        <div class="container">
+            <div class="header">
+                <h2>{{lang.title}}</h2>
+            </div>
+            <div class="content">
+                <table class="detail">
+                    <colgroup>
+                        <col width="110px" />
+                        <col width="*" />
+                    </colgroup>
+                <tbody>
+                    <tr class="">
+                        <th>
+                            <span class="title">{{lang.server}}</span>
+                        </th>
+                        <td>
+							<select id="server_list">
+								{{#data}}
+								<option value="{{hostId}}">{{hostName}}</option>
+								{{/data}}
+							</select>
+                        </td>
+                    </tr>
+                    <tr class="last">
+                        <th>
+                            <span class="title">{{lang.upload_file}}</span>
+                        </th>
+                        <td>
+							<span class="wrap_btn">
+								<span class="btn_minor_s fileUpload" id="file-control" style="padding:0 !important;">
+								</span>
+							</span>		
+							<div class="file_wrap feed">
+								<ul class="file_wrap" id="fileComplete">
+								</ul>
+							</div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    </form>
+    <div class="page_action">
+        <span class="btn" id="btn_ok">{{lang.start}}</span>
+    </div>
+</div>

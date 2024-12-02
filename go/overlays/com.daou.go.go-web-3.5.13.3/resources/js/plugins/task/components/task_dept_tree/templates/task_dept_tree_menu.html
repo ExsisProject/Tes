@@ -1,0 +1,8 @@
+<li class="folder" data-id="{{deptId}}">
+    <p class="title {{#isLastNode}} on {{/isLastNode}}">
+        {{#hasChildren}}
+        <span class="{{#isClosedNode}}open{{/isClosedNode}}{{^isClosedNode}}close{{/isClosedNode}}" title="{{#isClosedNode}}{{lang.open}}{{/isClosedNode}}{{^isClosedNode}}{{lang.close}}{{/isClosedNode}}"></span>
+        {{/hasChildren}}
+        <a class="node-value" data-id="{{deptId}}" title="{{name}}" data-bypass><span class="txt">{{name}}</span></a>
+    </p>
+</li>

@@ -1,0 +1,302 @@
+<div class="content_page" id="menuTmpl">
+    <div class="container">         
+        <div class="header">
+            <h2>{{lang.label_base}}</h2>
+        </div>          
+        <div class="content">
+            <form name="formUpdateMenu" onsubmit="return false;">
+    <table class="detail">
+        <tbody>
+            {{#isKoLocale}}
+            <tr>
+                <th><span class="title"><ins class="asterisk">*</ins>{{lang.label_name}}({{lang.label_ko}})</span></th>
+                <td>
+                    <span class="user_data editable" data-formname="koName" data-locale="ko" data-value="{{popupmodel.koName}}">
+                        <span id="data" data-type="changepopupname">{{popupmodel.koName}}</span>
+                        <span class="btn_box" data-btntype="changepopupname">
+                            <span class="ic ic_edit" title="{{lang.label_edit}}"></span>
+                        </span>
+                    </span>
+                    <p><span class="go_alert" id="koNameValidate"></span></p>
+                </td>
+            </tr>
+            {{/isKoLocale}}
+            {{#isJpLocale}}
+            <tr>
+                <th><span class="title"><ins class="asterisk">*</ins>{{lang.label_name}}({{lang.label_jp}})</span></th>
+                <td>
+                    <span class="user_data editable" data-formname="jpName" data-locale="jp" data-value="{{popupmodel.jpName}}">
+                        <span id="data" data-type="changepopupname">{{popupmodel.jpName}}</span>
+                        <span class="btn_box" data-btntype="changepopupname">
+                            <span class="ic ic_edit" title="{{lang.label_edit}}"></span>
+                        </span>
+                    </span>
+                    <p><span class="go_alert" id="jpNameValidate"></span></p>
+                </td>
+            </tr>
+            {{/isJpLocale}}
+            {{#isEnLocale}}
+            <tr>
+                <th><span class="title"><ins class="asterisk">*</ins>{{lang.label_name}}({{lang.label_en}})</span></th>
+                <td>
+                    <span class="user_data editable" data-formname="enName" data-locale="en" data-value="{{popupmodel.enName}}">
+                        <span id="data" data-type="changepopupname">{{popupmodel.enName}}</span>
+                        <span class="btn_box" data-btntype="changepopupname">
+                            <span class="ic ic_edit" title="{{lang.label_edit}}"></span>
+                        </span>
+                    </span>
+                    <p><span class="go_alert" id="enNameValidate"></span></p>
+                </td>
+            </tr>
+            {{/isEnLocale}}
+            {{#isZhcnLocale}}
+            <tr>
+                <th><span class="title"><ins class="asterisk">*</ins>{{lang.label_name}}({{lang.label_zhcn}})</span></th>
+                <td>
+                    <span class="user_data editable" data-formname="zhcnName" data-locale="zhcn" data-value="{{popupmodel.zhcnName}}">
+                        <span id="data" data-type="changepopupname">{{popupmodel.zhcnName}}</span>
+                        <span class="btn_box" data-btntype="changepopupname">
+                            <span class="ic ic_edit" title="{{lang.label_edit}}"></span>
+                        </span>
+                    </span>
+                    <p><span class="go_alert" id="zhcnNameValidate"></span></p>
+                </td>
+            </tr>
+            {{/isZhcnLocale}}
+            {{#isZhtwLocale}}
+            <tr>
+                <th><span class="title"><ins class="asterisk">*</ins>{{lang.label_name}}({{lang.label_zhtw}})</span></th>
+                <td>
+                    <span class="user_data editable" data-formname="zhtwName" data-locale="zhtw" data-value="{{popupmodel.zhtwName}}">
+                        <span id="data" data-type="changepopupname">{{popupmodel.zhtwName}}</span>
+                        <span class="btn_box" data-btntype="changepopupname">
+                            <span class="ic ic_edit" title="{{lang.label_edit}}"></span>
+                        </span>
+                    </span>
+                    <p><span class="go_alert" id="zhtwNameValidate"></span></p>
+                </td>
+            </tr>
+            {{/isZhtwLocale}}
+            {{^isKoLocale}}
+            <tr data-id="koNameInput" style="display: none">
+                <th><span class="title">{{lang.label_name}}({{lang.label_ko}})</span></th>
+                <td>
+                    <span class="user_data editable" data-formname="koName" data-value="{{popupmodel.koName}}">
+                        <span id="data" data-type="changepopupname">{{popupmodel.koName}}</span>
+                        <span class="btn_box" data-btntype="changepopupname">
+                            <span class="ic ic_edit" title="{{lang.label_edit}}"></span>
+                        </span>
+                    </span>
+                    <p><span class="go_alert" id="koNameValidate"></span></p>
+                </td>
+            </tr>
+            {{/isKoLocale}}  
+            {{^isEnLocale}}
+            <tr data-id="enNameInput" style="display: none">
+                <th><span class="title">{{lang.label_name}}({{lang.label_en}})</span></th>
+                <td>
+                    <span class="user_data editable" data-formname="enName" data-value="{{popupmodel.enName}}">
+                        <span id="data" data-type="changepopupname">{{popupmodel.enName}}</span>
+                        <span class="btn_box" data-btntype="changepopupname">
+                            <span class="ic ic_edit" title="{{lang.label_edit}}"></span>
+                        </span>
+                    </span>
+                    <p><span class="go_alert" id="enNameValidate"></span></p>
+                </td>
+            </tr>
+            {{/isEnLocale}}   
+            {{^isJpLocale}}
+            <tr data-id="jpNameInput" style="display: none">
+                <th><span class="title">{{lang.label_name}}({{lang.label_jp}})</span></th>
+                <td>
+                    <span class="user_data editable" data-formname="jpName" data-value="{{popupmodel.jpName}}">
+                        <span id="data" data-type="changepopupname">{{popupmodel.jpName}}</span>
+                        <span class="btn_box" data-btntype="changepopupname">
+                            <span class="ic ic_edit" title="{{lang.label_edit}}"></span>
+                        </span>
+                    </span>
+                    <p><span class="go_alert" id="jpNameValidate"></span></p>
+                </td>
+            </tr>
+            {{/isJpLocale}}       
+            {{^isZhcnLocale}}
+            <tr data-id="zhcnNameInput" style="display: none">
+                <th><span class="title">{{lang.label_name}}({{lang.label_zhcn}})</span></th>
+                <td>
+                    <span class="user_data editable" data-formname="zhcnName" data-value="{{popupmodel.zhcnName}}">
+                        <span id="data" data-type="changepopupname">{{popupmodel.zhcnName}}</span>
+                        <span class="btn_box" data-btntype="changepopupname">
+                            <span class="ic ic_edit" title="{{lang.label_edit}}"></span>
+                        </span>
+                    </span>
+                    <p><span class="go_alert" id="zhcnNameValidate"></span></p>
+                </td>
+            </tr>
+            {{/isZhcnLocale}}    
+            {{^isZhtwLocale}}
+            <tr data-id="zhtwNameInput" style="display: none">
+                <th><span class="title">{{lang.label_name}}({{lang.label_zhtw}})</span></th>
+                <td>
+                    <span class="user_data editable" data-formname="zhtwName" data-value="{{popupmodel.zhtwName}}">
+                        <span id="data" data-type="changepopupname">{{popupmodel.zhtwName}}</span>
+                        <span class="btn_box" data-btntype="changepopupname">
+                            <span class="ic ic_edit" title="{{lang.label_edit}}"></span>
+                        </span>
+                    </span>
+                    <p><span class="go_alert" id="zhtwNameValidate"></span></p>
+                </td>
+            </tr>
+            {{/isZhtwLocale}}   
+            <tr data-id="addMenuName">
+                <th><span class="title">{{lang.label_info_add}}</span></th>
+                <td>
+                    <select id="more_name">
+                        <option value="">{{lang.label_info_add_select}}</option>
+                        {{^isKoLocale}}<option value="koName">{{lang.label_ko}} {{lang.label_name}}</option>{{/isKoLocale}}
+                        {{^isEnLocale}}<option value="enName">{{lang.label_en}} {{lang.label_name}}</option>{{/isEnLocale}}
+                        {{^isJpLocale}}<option value="jpName">{{lang.label_jp}} {{lang.label_name}}</option>{{/isJpLocale}}
+                        {{^isZhcnLocale}}<option value="zhcnName">{{lang.label_zhcn}} {{lang.label_name}}</option>{{/isZhcnLocale}}
+                        {{^isZhtwLocale}}<option value="zhtwName">{{lang.label_zhtw}} {{lang.label_name}}</option>{{/isZhtwLocale}}
+                    </select>
+                </td>
+            </tr>
+            <tr>
+	        	<th><span class="title">{{lang.label_subMenuType}}</span></th>
+	        	<td>
+	        		<span class="option_wrap">
+	                    <input type="radio" id="makeSubMenu" name="subMenuType" value="true" {{#popupmodel.systemMenu}}disabled="disabled"{{/popupmodel.systemMenu}}/> 
+	                    <label for="makeSubMenu">{{lang.label_use_submenu}}</label>
+	                </span>
+	                <span class="option_wrap">
+	                    <input type="radio" id="notMakeSubMenu" name="subMenuType" value="false" {{#popupmodel.systemMenu}}disabled="disabled"{{/popupmodel.systemMenu}}/> 
+	                    <label for="notMakeSubMenu">{{lang.label_notuse_submenu}}</label>
+	                </span>
+	                <p><span class="desc vb" id="parentMenuValidation" style="display:none;">{{lang.label_has_submenu}} {{lang.label_modify_has_submenu}}</span></p>
+	            	<div class="option_display">
+	                	<div id="beSubMenu">
+	                		<span class="option_wrap"> 
+	                            <input type="checkbox" id="chkBeSubMenu" checked/>
+	                            <label for="chkBeSubMenu">{{lang.label_be_submenu}}</label>
+	                        </span>
+	                	</div>
+		            	<div id="selectParentMenu">
+				        	<span style="color:#999;"><strong>{{lang.label_parentMenu}}</strong></span>
+				            <select id="parentId" name="parentId" diabled>
+				                <option value="">{{lang.label_parentMenu_select}}</option>
+				                {{#subMenuTypeList}}
+						         	{{#isKoLocale}}<option value="{{id}}"> {{koName}} </option> {{/isKoLocale}}
+				                    {{#isEnLocale}}<option value="{{id}}"> {{enName}} </option> {{/isEnLocale}}
+				                    {{#isJpLocale}}<option value="{{id}}"> {{jpName}} </option> {{/isJpLocale}}
+				                    {{#isZhcnLocale}}<option value="{{id}}"> {{zhcnName}} </option> {{/isZhcnLocale}}
+				                    {{#isZhtwLocale}}<option value="{{id}}"> {{zhtwName}} </option> {{/isZhtwLocale}}
+						        {{/subMenuTypeList}}
+				            </select>
+				        </div>
+		            </div>
+	            </td>
+	        </tr>
+	        <tr data-id="inputUrl">
+                <th><span class="title"><ins class="asterisk">*</ins>{{lang.label_url}}</span></th>
+                    <td>
+                    {{^popupmodel.systemMenu}}
+                        <span class="user_data editable" data-formname="url" data-value="{{popupmodel.url}}">
+                            <span id="data" data-type="changepopupurl">{{popupmodel.url}}</span>
+                            <span class="btn_box" data-btntype="changepopupurl">
+                                <span class="ic ic_edit" title="{{lang.label_edit}}"></span>
+                            </span>
+                        </span>
+                        <p><span class="go_alert" id="urlValidate"></span></p>
+                    </td>
+                    {{/popupmodel.systemMenu}}
+                    {{#popupmodel.systemMenu}}
+                        <span class="user_data" id="data">{{popupmodel.url}}</span>
+                    {{/popupmodel.systemMenu}}
+            </tr>
+            <tr data-id="locations">
+                <th><span class="title">{{lang.label_location}}</span></th>
+                <td>
+                    <span class="option_wrap">
+                        <input type="radio" id="self" name="location" value="self" {{#popupmodel.systemMenu}} disabled="disabled" {{/popupmodel.systemMenu}} />
+                        <label for="self">{{lang.label_self}}</label>
+                    </span><br>
+                    <span class="option_wrap">
+                        <input type="radio" id="iframe" name="location" value="iframe" {{#popupmodel.initial}} disabled="disabled" {{/popupmodel.initial}} {{#popupmodel.systemMenu}} disabled="disabled" {{/popupmodel.systemMenu}}/> 
+                        <label for="iframe">{{lang.label_iframe}}</label>
+                    </span><br>
+                    <span class="option_wrap">
+                        <input type="radio" id="new" name="location" value="new" {{#popupmodel.initial}} disabled="disabled" {{/popupmodel.initial}} {{#popupmodel.systemMenu}} disabled="disabled" {{/popupmodel.systemMenu}}  />
+                        <label for="new">{{lang.label_new}}</label>
+                    </span><br>
+                    <span class="desc">
+                        <strong>{{lang.label_linkMenu_mobile_desc}}</strong>
+                        <br>{{lang.label_location_desc}}
+                    </span>
+                </td>
+            </tr>
+            <tr class="last">
+                <th><span class="title">{{lang.label_status}}</span></th>
+                <td>
+                    <span class="option_wrap">
+                        <input type="radio" id="online" name="status" value="online" {{#popupmodel.initial}} disabled="disabled" {{/popupmodel.initial}}/> 
+                        <label for="online">{{lang.label_use_menu}}</label>
+                    </span>
+                    <span class="option_wrap">
+                        <input type="radio" id="stop" name="status" value="stop" {{#popupmodel.initial}} disabled="disabled" {{/popupmodel.initial}} /> 
+                        <label for="stop">{{lang.label_notuse_menu}}</label>
+                    </span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</form></div>
+        </div>
+        <div class="container" id="accessControll">            
+            <div class="header">
+                <h2>{{lang.label_access}}</h2>
+            </div>
+            <div class="content">
+                <table class="detail">
+                    <colgroup>
+                        <col width="140px">
+                        <col width="*">
+                    </colgroup>
+                    <tbody>
+	                    <tr class="last">
+							<th><span class="title">{{lang.label_policy}}</span></th>
+							<td>
+								<span class="action" style="left: 200px;" id="selectAccessPolicy">
+									<div class="vertical_wrap_s">
+										<span class="wrap_opt">
+											<input type="radio" id="black" name="accessSetting" value="black">
+		                                    <label for="black">{{lang.label_white}}</label>
+		                                </span>
+		                            </div>
+		                            <div class="vertical_wrap_s">
+		                                <span class="wrap_opt">
+		                                    <input type="radio" id="white" name="accessSetting" value="white">
+		                                    <label for="white">{{lang.label_black}}</label>
+		                                </span>
+		                            </div>
+	                            </span>                    
+							</td>
+						</tr>
+						<tr class="last">
+							<th><span class="title access_class_label">{{lang.label_addAccessDenyClass}}</span></th>
+							<td>
+								<div class="vertical_tit_wrap">				
+									<span class="tit">{{lang.label_selectClass}}</span>
+									<span id="accessUser"></span>
+		                        	<span class="tit">{{lang.label_addExceptionClass}}</span>
+		                        	<span id="exceptionUser"></span>
+		                        </div>
+	                    	</td>
+						</tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="page_action">
+            <span class="btn" data-btntype="submit_modify">{{lang.label_ok}}</span>
+            <span class="btn_nega" data-btntype="cancel">{{lang.label_cancel}}</span>
+        </div>
+    </div>

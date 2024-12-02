@@ -1,0 +1,49 @@
+<form name="formAddrDetail">
+	<table class="table_form_mini">
+		{{#data}}
+		<tr>
+			<th><span class="txt">{{lang.addr_country}}</span></th>
+			<td><input name="country" class="txt_mini" type="text" value="{{country}}"/></td>			
+		</tr>
+		<tr>
+			<th><span class="txt">{{lang.addr_zipcode}}</span></th>
+			<td><input name="postalCode" class="txt_mini" type="text" value="{{postalCode}}"/></td>			
+		</tr>
+		<tr>
+			<th><span class="txt">{{lang.addr_state}}</span></th>
+			<td><input name="state" class="txt_mini" type="text" value="{{state}}"/></td>			
+		</tr>
+		<tr>
+			<th><span class="txt">{{lang.addr_city}}</span></th>
+			<td><input name="city" class="txt_mini" type="text" value="{{city}}"/></td>			
+		</tr>
+		<tr>
+			<th><span class="txt">{{lang.addr_ext}}</span></th>
+			<td><input name="extAddress" class="txt_mini" type="text" value="{{extAddress}}"/></td>			
+		</tr>
+		{{/data}}
+		
+		{{^data}}
+		<tr>
+			<th><span class="txt">{{lang.addr_country}}</span></th>
+			<td><input name="country" class="txt_mini" type="text" /></td>			
+		</tr>
+		<tr>
+			<th><span class="txt">{{lang.addr_zipcode}}</span></th>
+			<td><input name="postalCode" class="txt_mini" type="text" /></td>			
+		</tr>
+		<tr>
+			<th><span class="txt">{{lang.addr_state}}</span></th>
+			<td><input name="state" class="txt_mini" type="text" /></td>			
+		</tr>
+		<tr>
+			<th><span class="txt">{{lang.addr_city}}</span></th>
+			<td><input name="city" class="txt_mini" type="text" /></td>			
+		</tr>
+		<tr>
+			<th><span class="txt">{{lang.addr_ext}}</span></th>
+			<td><input name="extAddress" class="txt_mini" type="text" /></td>			
+		</tr>
+		{{/data}}
+	</table>
+</form>	

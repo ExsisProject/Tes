@@ -1,0 +1,51 @@
+<form>
+	<fieldset>
+		<table class="form_type">
+			<colgroup>
+				<col width="110px" />
+				<col width="*" />
+			</colgroup>
+			<tbody>
+			<tr>
+				<th>
+					<span class="title">{{lang.name}}</span>
+				</th>
+				<td>
+					<input id="name" class="txt_mini w_max" type="text" />
+				</td>
+			</tr>
+			<tr>
+				<th><span class="title">{{lang.email}}</span></th>
+				<td><input id="email" class="txt_mini w_max" type="text" /></td>
+			</tr>
+			<tr>
+				<th><span class="title">{{lang.mobileno}}</span></th>
+				<td><input id="mobileNo" class="txt_mini w_max" type="text" /></td>
+			</tr>
+			<tr>
+				<th><span class="title">{{lang.companyname}}</span></th>
+				<td><input id="companyName" class="txt_mini w_max" type="text" /></td>
+			</tr>
+			<tr>
+				<th><span class="title">{{lang.tel}}</span></th>
+				<td><input id="officeTel" class="txt_mini w_max" type="text" /></td>
+			</tr>							
+			<tr>
+				<th><span class="title">{{lang.contacttype}}</span></th>
+				<td class="last">
+                    <select id="searchType">
+                        <option value="USER">{{lang.personal}}</option>
+                        <option value="COMPANY">{{lang.company}}</option>
+                        <option value="DEPARTMENT">{{lang.dept}}</option>
+                    </select>
+                    <select id="deptList" style="display: none">
+                        {{#depts}}
+                        <option value="{{id}}">{{name}}</option>
+                        {{/depts}}
+                    </select>
+				</td>
+			</tr>							
+			</tbody>
+		</table>						
+	</fieldset>
+</form>					

@@ -1,0 +1,257 @@
+{{#isEhrActive}}
+<section class="gnb_title">
+	<h1><a href="{{contextRoot}}app/ehr" style="letter-spacing:1px">{{appName}}</a></h1>
+</section>
+
+{{#timeline.active}}
+<section class="function function_attend"><!--출근 버튼 누르기 전 표현-->
+	<p class="date" id="date"></p>
+	<p class="time" id="timer"></p>
+	<div class="log_view_wrap">
+		<ul class="log_view">
+			<li>
+				<dl>
+					<dt>{{lang.label_clockIn}}</dt>
+					<dd id="workInTime">{{lang.label_unregistered}}</dd>
+				</dl>
+			</li>
+			<li>
+				<dl>
+					<dt>{{lang.label_clockOut}}</dt>
+					<dd id="workOutTime">{{lang.label_unregistered}}</dd>
+				</dl>
+			</li>
+			<li>
+				<dl>
+					<dt>{{lang.label_weekSum}}</dt>
+					<dd id="weeklyTotalTime">0h 0m 0s</dd>
+				</dl>
+			</li>
+		</ul>
+    </div>
+    <div class="vertical_bar"></div>
+	<div class="function_btn_wrap">
+		<a class="btn_function btn_function_s" id="workIn" ><span class="txt">{{lang.label_clockInTime}}</span></a><!--btn이 두개일 경우 멀티 클래스 적용 btn_function_s-->
+		<a class="btn_function btn_function_s" id="workOut"><span class="txt">{{lang.label_clockOutTime}}</span></a>
+	</div>
+	<div class="works_state">
+		<a class="btn_function" id="changeStatus"><!--클릭 시, 클래스명 on 추가-->
+			<span class="txt">{{lang.label_status_change}} &nbsp; &nbsp;<span class="ic_side ic_show_down"></span></span>
+		</a>
+		<div el-backdrop class="layer_transition" style="z-index: 100; display: none;">
+			<div class="ui-menu-container container">
+				<div class="content">
+					<div class="row_wrap menuitem my-todo-list foldable">
+						<ul class="submenu-list" id="statusList" style="max-height: 200px; overflow-y: auto;">
+						</ul>
+					</div>
+					<hr>
+				</div>
+			</div>
+		</div>
+
+
+	</div>
+</section>
+{{/timeline.active}}
+
+<section class="lnb">
+    <h1 class="mine {{^isMineOpen}}folded{{/isMineOpen}}">
+        <ins class="ic"></ins>
+        <span class="ic_side ic_hide_up" data-slide="true" title="{{#isMineOpen}}{{lang.label_collapse}}{{/isMineOpen}}{{^isMineOpen}}{{lang.label_expand}}{{/isMineOpen}}"></span>
+        <span class="txt" title="{{lang.label_manageAttendance}}">{{lang.label_manageAttendance}}</span>  <!-- 부서 e-hr -->
+    </h1>
+    <ul class="side_depth" {{^isMineOpen}}style="display:none;"{{/isMineOpen}}>
+    {{#timeline.active}}
+    <!-- 내근태현황 -->
+        <li class="mine">
+            <p class="approval title" data-folder-type="timeline">
+                <a>
+                    <ins class="ic"></ins>
+                    <span class="txt" id='myTimelineStatus' title="{{lang.label_myAttendanceStatus}}">{{lang.label_myAttendanceStatus}}</span>
+                </a>
+            </p>
+        </li>
+    <!-- 내근태현황 -->
+    {{/timeline.active}}
+    {{#vacation.active}}
+    <!-- 내 연차 현황 -->
+        <li class="mine">
+            <p class="user title" data-folder-type="vacation">
+                <a>
+                    <ins class="ic"></ins>
+                    <span class="txt" id='myVacationInfo' title="{{lang.label_myVacationInfo}}">{{lang.label_myVacationInfo}}</span>
+                </a>
+            </p>
+        </li>
+    <!-- 내 연차 현황 -->
+    {{/vacation.active}}
+    {{#welfare.active}}
+    <!-- 내 복지포인트 현황 -->
+            <li class="mine">
+                <p class="user title" data-folder-type="welfare">
+                    <a>
+                        <ins class="ic"></ins>
+                        <span class="txt" id='myWelfareInfo' title="{{lang.label_myWelfareInfo}}">{{lang.label_myWelfareInfo}}</span>
+                    </a>
+                </p>
+            </li>
+    <!-- 내 복지포인트 현황 -->
+    {{/welfare.active}}
+    {{^hrcard.accountUseEhr}}{{#hrcard.active}}
+    <!-- 내 인사정보 -->
+            <li class="mine">
+                <p class="user title" data-folder-type="hrcard">
+                    <a>
+                        <ins class="ic"></ins>
+                        <span class="txt" id='myHrcardInfo' title="{{lang.label_myHrInfo}}">{{lang.label_myHrInfo}}</span>
+                    </a>
+                </p>
+            </li>
+    <!-- 내 인사정보 -->
+    {{/hrcard.active}}{{/hrcard.accountUseEhr}}
+    </ul>
+</section>
+<!-- 부서 근태관리 -->
+{{#useDeptSituationAndStats}}
+{{#hasDepts}}
+{{#hasActiveDeptEhr}}
+<section class="lnb">
+	<h1 class="org {{^isDeptOpen}}folded{{/isDeptOpen}}">
+		<ins class="ic"></ins>
+		<span class="ic_side ic_hide_up" data-slide="true" title="{{#isDeptOpen}}{{lang.label_collapse}}{{/isDeptOpen}}{{^isDeptOpen}}{{lang.label_expand}}{{/isDeptOpen}}"></span>
+		<span class="txt">{{lang.label_deptManage}}</span>  <!-- 부서 근태관리 -->
+	</h1>
+	<ul class="side_depth" {{^isDeptOpen}}style="display:none;"{{/isDeptOpen}}>
+		{{#data.depts}}
+		<li class="org" data-deptid="{{id}}">
+			<p class="title">
+				<a><ins class="ic"></ins><span class="txt">{{name}}</span></a>
+			</p>
+			<ul>
+				{{#timeline.useDeptSituationAndStats}}
+				{{#timeline.active}}
+				<li class="status dept_record" data-folder-type="timeline">
+					<p class="title" data-navi="deptstats">
+						<a><ins class="ic"></ins><span class="txt" title="{{lang.label_deptAttndStatus}}">{{lang.label_deptAttndStatus}}</span></a>  <!-- 부서 근태현황 -->
+					</p>
+				</li>
+				<li class="status dept_dashboard" data-folder-type="timeline">
+					<p class="title" data-navi="deptdashboard">
+						<a><ins class="ic"></ins><span class="txt">{{TimelineLang.부서 근태통계}}</span></a>  <!-- 부서 근태통계 -->
+					</p>
+				</li>
+
+				{{/timeline.active}}
+				{{/timeline.useDeptSituationAndStats}}
+
+				{{#vacation.active}}
+				{{#vacation.deptManageOpen}}
+				<li class="folder" data-folder-type="vacation">
+					<p class="title" data-navi="histories">
+						<a href="/app/ehr/vacation/{{id}}/histories"><ins class="ic"></ins><span class="txt" title="{{lang.label_deptVacationHistory}}">{{lang.label_deptVacationHistory}}</span></a>  <!-- 부서 연차현황 -->
+						<span class="ic_classic"></span><!-- new 아이콘 마크업 개행처리 해주세요 -->
+					</p>
+					<p class="title" data-navi="usagehistories">
+						<a href="/app/ehr/vacation/{{id}}/usagehistories" ><ins class="ic"></ins><span class="txt" title="{{lang.label_deptVacationUsageHistory}}">{{lang.label_deptVacationUsageHistory}}</span></a>  <!-- 부서 연차현황 -->
+						<span class="ic_classic"></span><!-- new 아이콘 마크업 개행처리 해주세요 -->
+					</p>
+				</li>
+				{{/vacation.deptManageOpen}}
+				{{/vacation.active}}
+
+                {{^hrcard.accountUseEhr}}{{#hrcard.active}}
+				{{#hrcard.useDeptSituationAndStats}}
+				<li class="folder" data-folder-type="hrcard">
+					<p class="title" data-navi="hrcardlist">
+						<a href="/app/ehr/hrcard/hrcardlist/{{id}}"><ins class="ic"></ins><span class="txt" title="{{lang.label_deptHrInfo}}">{{lang.label_deptHrInfo}}</span></a>  <!-- 부서 인사정보 -->
+						<span class="ic_classic"></span><!-- new 아이콘 마크업 개행처리 해주세요 -->
+					</p>
+				</li>
+				{{/hrcard.useDeptSituationAndStats}}
+                {{/hrcard.active}}{{/hrcard.accountUseEhr}}
+			</ul>
+		</li>
+		{{/data.depts}}
+	</ul>
+</section>
+{{/hasActiveDeptEhr}}
+{{/hasDepts}}
+{{/useDeptSituationAndStats}}
+<!-- 부서 근태관리 -->
+
+{{#isEhrManager}}
+<!-- 전사 근태관리 -->
+<section class="lnb">
+	<h1 class="company {{^isCompanyOpen}}folded{{/isCompanyOpen}}">
+		<ins class="ic"></ins>
+		<span class="ic_side ic_hide_up" data-slide="true" title="{{^isCompanyOpen}}{{lang.label_collapse}}{{/isCompanyOpen}}{{^isCompanyOpen}}{{lang.label_expand}}{{/isCompanyOpen}}"></span>
+		<span class="txt" title="{{lang.label_compManage}}">{{lang.label_compManage}}</span>  <!-- 전사 근태관리 -->
+	</h1>
+	<ul class="side_depth" {{^isCompanyOpen}}style="display:none;"{{/isCompanyOpen}}>
+		{{#timeline.manager}}
+		{{#timeline.active}}
+		<li class="status company_record company" data-folder-type="timeline">
+			<p class="title" data-navi="companystats">
+				<a><ins class="ic"></ins><span class="txt" title="{{lang.label_compAttndStatus}}">{{lang.label_compAttndStatus}}</span></a>  <!-- 전사 근태현황 -->
+			</p>
+		</li>
+		<li class="prev_company_attnd dashboard company" data-folder-type="timeline">
+			<p class="title" data-navi="dashboard">
+				<a><ins class="ic"></ins><span class="txt">{{lang.label_compAttndStatistics}}</span></a>   <!-- 전사 근태통계 -->
+			</p>
+		</li>
+		{{/timeline.active}}
+		{{/timeline.manager}}
+
+		{{#hrcard.manager}}
+        {{^hrcard.accountUseEhr}}{{#hrcard.active}}
+		<li class="folder company" data-folder-type="hrcard">
+			<p class="title"  data-navi="hrcardlistall">
+				<a href="/app/ehr/hrcard/hrcardlistall"><ins class="ic"></ins><span class="txt" title="{{lang.label_compHrInfo}}">{{lang.label_compHrInfo}}</span></a>
+				<span class="btn_wrap" id="hrCardMngBtn"><span class="ic_side ic_side_setting"></span></span>
+			</p>
+		</li>
+        {{/hrcard.active}}{{/hrcard.accountUseEhr}}
+		{{/hrcard.manager}}
+
+		{{#vacation.manager}}
+		{{#vacation.active}}
+		<li class="folder company" data-folder-type="vacation">
+			<p class="title" data-navi="histories">
+				<a href="/app/ehr/vacation/company/histories"><ins class="ic"></ins><span class="txt" title="{{lang.label_compVacationHistory}}">{{lang.label_compVacationHistory}}</span></a>
+				<span class="btn_wrap" id="vacationMngBtn"><span class="ic_side ic_side_setting"></span></span>
+			</p>
+		</li>
+		<li class="folder company"  data-folder-type="vacation">
+			<p class="title" data-navi="usagehistories">
+				<a href="/app/ehr/vacation/company/usagehistories"><ins class="ic"></ins><span class="txt" title="{{lang.label_compVacationUsageHistory}}">{{lang.label_compVacationUsageHistory}}</span></a>
+			</p>
+		</li>
+		{{/vacation.active}}
+		{{/vacation.manager}}
+
+		{{#welfare.manager}}
+		{{#welfare.active}}
+		<li class="folder company" data-folder-type="welfare">
+			<p class="title" data-navi="history">
+				<a href="/app/ehr/welfare/config"><ins class="ic"></ins><span class="txt" title="{{lang.label_companyWelfare}}">{{lang.label_companyWelfare}}</span></a>
+			</p>
+		</li>
+		{{/welfare.active}}
+		{{/welfare.manager}}
+	</ul>
+</section>
+<!-- 전사 근태관리 -->
+{{/isEhrManager}}
+{{#timeline.active}}
+<div id="guide"></div>
+{{/timeline.active}}
+{{/isEhrActive}}
+{{#hrcard.accountUseEhr}}
+<div class="banner_lnb banner_lnb_personal">
+    <img src="/resources/images/banner_lnb_personal.png" alt = "">
+    <a href="https://eacc.daouoffice.com?email={{email}}" target="_blank" class="map1" title="경리회계 바로가기" ></a>
+    <a href="https://ess.daouoffice.com?email={{email}}" target="_blank" class="map2" title="경영지원 바로가기"></a>
+</div>
+{{/hrcard.accountUseEhr}}

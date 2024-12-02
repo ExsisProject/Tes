@@ -1,0 +1,32 @@
+<table class="detail">
+    <colgroup>
+        <col width="130px"/><!-- 개발쪽에서 width값을 받아가서 재설정 후 삭제  -->
+        <col width="*" />
+    </colgroup>
+    <tbody>
+    <tr class="last">
+        <th><span class="title">{{lang.editMode}}</span></th>
+        <td>
+            <select class="mr_b10" id="selContentType">
+                <option value="HTML">HTML</option>
+                <option value="TEXT">TEXT</option>
+            </select>
+            <table class="in_table_ad">
+                <tbody>
+                    <tr id="trTextContent" style="display:none;">
+                        <td>
+                            <textarea id="bannerContent" rows="20" style="width:100%">{{{banner.content}}}</textarea>
+                        </td>
+                    </tr>
+                    <tr id="trEditorContent">
+                        <td>
+                            <div class="editor" style="border:0px"> 
+                                <div id="editor" style="width:100%"></div>
+                            </div>
+                        </td>
+                    </tr>
+            </table>
+        </td>
+    </tr>
+    </tbody>
+</table>

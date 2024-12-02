@@ -1,0 +1,180 @@
+<div class="content write">
+<form>
+	<fieldset>
+		<table class="form_type tb_calendar_write">
+			<tbody>
+				<tr>
+					<th><span class="title">{{lang.subject}}</span></th>
+					<td>
+						<div class="ipt_wrap"><input id="summary" class="input w_max" type="text" placeholder="{{lang.placeholder_subject}}" /></div>
+						<span class="option_wrap"><input id="visibility" type="checkbox"><label for="visibility" class="txt">{{lang.private}}</label></span>
+					</td>
+				</tr>
+				<tr>
+					<th><span class="title">{{lang.start}}</span></th>
+					<td>	
+						<div class="vertical_wrap">
+							<table class="tb_option">
+								<tr>
+									<td>
+										<div class="ipt_wrap">
+											<input type="start" id="startDate" value="{{prevDate}}" data-prev="{{prevDate}}" class="input w_max" type="text" readonly="readonly"/>
+										</div>
+									</td>
+									<td>
+										<!-- <select id="startTime" class="w_max" name=start_time data-prev="{{prevTime}}">
+										</select> -->
+                                        <select class="w_max" id="startTime" name=start_time data-prev="{{prevTime}}">
+                                        </select>
+									</td>
+								</tr>
+							</table>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<th><span class="title">{{lang.end}}</span></th>
+					<td>	
+						<div class="vertical_wrap">
+							<table class="tb_option">
+								<tr>
+									<td>
+										<div class="ipt_wrap">
+											<input type="end" id="endDate" value="{{prevDate}}" data-prev="{{prevDate}}" class="input w_max" type="text" readonly="readonly"/>
+										</div>
+									</td>
+									<td>
+										<!-- <select id="endTime" class="w_max" name=end_time data-prev="{{prevTime}}">
+										</select> -->
+                                        <select class="w_max" id="endTime" name=end_time data-prev="{{prevTime}}">
+                                        </select>
+									</td>
+								</tr>
+							</table>
+						</div>
+						<span class="option_wrap"><input id="allDay" type="checkbox" name="allDay"><label for="allDay" class="txt">{{lang.allday}}</label></span>
+					</td>
+				</tr>
+				{{^comCalListEmpty}}
+				<tr id="company_cal_list">
+					<th><span class="title">{{lang.companyType}}</span></th>
+					<td>
+						<div>
+						<span class="option_wrap" id="checkbox-company-wrap">
+							<input id="companyType" type="checkbox" name="companyType" value="company">
+							<label for="companyType" class="txt">{{lang.companyType}}</label>
+						</span>
+						</div>
+						<div>
+						<span class="wrap_multiselect" id="companyCalIdWrap" style="display:none">
+							<span class="wrap_select">
+								<select name="companyCalId">
+									{{#comCalList}}
+									<option value="{{id}}">{{name}}</option>
+									{{/comCalList}}
+								</select>
+							</span>
+						</span>
+						</div>
+					</td>
+				</tr>
+				{{/comCalListEmpty}}
+				<tr id="my_cal_list">
+					<th><span class="title">{{lang.my_cal}}</span></th>
+					<td>	
+						<select class="w_max" id="calId">
+							{{#myCalList}}
+							<option value="{{id}}">{{#defaultCalendar}}{{lang.cal_default}}{{/defaultCalendar}} {{name}}</option>
+							{{/myCalList}}
+						</select>
+					</td>
+				</tr>
+				<tr id="inner_attendees">
+					<th><span class="title">{{lang.attendees}}</span></th>
+					<td>	
+						<div class="div_ipt_wrap add_ipt_wrap">	
+							<div class="div_ipt">
+								<ul class="name_tag" id="attendeesUL">
+									<li data-userid="{{userid}}" data-username="{{username}}" data-userposition="{{position}}">
+										<span class="name">{{me}}</span>
+										<span class="btn_wrap" data-btntype="attendeeDelete"><span class="ic ic_del"></span></span>
+									</li>
+									<span id="delete_all_attendees" class="btn btn_del_type2" style="display: none;"></span>
+								</ul>
+							</div>
+							<a href="javascript:;" data-bypass data-btntype="userAddBtn">
+								<span class="btn_item_add">
+									<span class="ic ic_plus"></span>
+									<span class="txt">{{lang.add}}</span>
+								</span>
+							</a>
+						</div>	
+					</td>
+				</tr>
+				<tr>
+					<th>
+						<span class="title">
+							{{lang.external_participants}}
+						</span>
+					</th>
+					<td>	
+						<div class="div_ipt_wrap add_ipt_wrap">	
+							<div class="form_url">
+								<div class="ipt_wrap">
+									<input class="input w_max edit" type="text" id="externalForm">
+								</div>
+								<input class="btn_half" type="button" value="{{lang.add}}" id="addExternal">
+							</div>
+							<div class="div_ipt ipt_space_t" id="externalArea" style="display:none">
+								<ul class="name_tag" id="externals">
+								</ul>
+							</div>
+						</div>								
+					</td>
+				</tr>
+				<tr>
+					<th><span class="title">{{lang.location}}</span></th>
+					<td><div class="ipt_wrap"><input id="location" class="input w_max" type="text" placeholder="{{lang.placeholder_location}}" /></div></td>
+				</tr>
+				<tr id="remindersPart">
+					<th><span class="title">{{lang.reminder}}</span></th>
+					<td>						
+						<a href="javascript:;" data-bypass data-btntype="remindersAdd">
+							<span class="btn_item_add">
+								<span class="ic ic_plus"></span>
+								<span class="txt">{{lang.add}}</span>
+							</span>
+						</a>
+					</td>
+				</tr>
+				{{#useAsset}}
+				{{#dataset}}
+				<tr class="assetList">
+					<th class="assetTH"></th>
+					<td>	
+						<div class="add_tag">
+							<ul class="name_tag" data-assetid="{{id}}">
+							</ul>
+							<a data-bypass data-assetid="{{id}}" data-btntype="asset">
+								<span class="btn_wrap">
+									<span class="ic ic_plus"></span>
+									<span class="txt">{{name}}</span>
+								</span>
+							</a>
+						</div>
+					</td>
+				</tr>
+				{{/dataset}}
+				{{/useAsset}}
+				<tr>
+					<td colspan="2">
+						<div class="ipt_wrap">
+							<textarea id="description" placeholder="{{lang.placeholder_content}}"></textarea>
+						</div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</fieldset>
+</form>
+</div>

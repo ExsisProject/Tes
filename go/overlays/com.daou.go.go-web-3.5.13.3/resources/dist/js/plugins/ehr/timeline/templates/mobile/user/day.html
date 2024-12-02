@@ -1,0 +1,14 @@
+<div class="tb_content date_l">
+	<span class="txt">{{data.detailDay.simpleDay}}</span>
+</div>
+<div class="tb_content date_r">
+	<span class="txt">{{dayOfWeek}}</span>
+</div>
+<div class="tb_content attend">
+	<span class="{{#isEditedWorkInTime}} modify {{/isEditedWorkInTime}} {{#data.tardy}} late {{/data.tardy}}">{{data.clockInTime}}</span>
+	 {{^isEmptyCheckTime}}~{{/isEmptyCheckTime}}
+	<span class="{{#isEditedWorkOutTime}} modify {{/isEditedWorkOutTime}}">{{clockOut}}</span>
+</div>
+<div class="tb_content total_time">
+	{{totalWorkingTime}}
+</div>

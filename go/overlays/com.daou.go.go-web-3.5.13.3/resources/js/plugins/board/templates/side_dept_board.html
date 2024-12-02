@@ -1,0 +1,62 @@
+<!--data_display_control-->
+{{#dataset}}
+<li class="org" data-deptId="{{id}}">
+	
+	<p class="title">
+		<ins class="ic"></ins><span class="txt">{{deptName}} {{#deleted}} ({{lang.deleted_department}}) {{/deleted}}</span><!-- <a class="toggleDeptBoard" data-bypass></a> -->
+		{{#managable}}<span class="btn_wrap" title="{{lang.board_admin}}"><a data-bypass data-deptid="{{deptId}}"><span btn-type="deptAdmin" data-deptid="{{deptId}}" class="ic_side ic_side_setting"></span></a></span>{{/managable}}
+	</p>
+	<ul class="data_set" data-deptId="{{deptId}}">
+		{{#boards}}
+		{{#isSeparator}}		
+		<li class="delimiter">
+			<p class="title">
+			<ins class="ic"></ins><span class="txt">{{name}}</span>
+			</p>
+		</li>
+		{{/isSeparator}}
+		{{^isSeparator}}
+		<li class="{{getBoardTypeClass}}" data-writable="{{actions.writable}}">
+			<!-- {{#deptSharedFlag}}folder_share{{/deptSharedFlag}}{{^deptSharedFlag}}{{#publicFlag}}private{{/publicFlag}}{{^publicFlag}}folder{{/publicFlag}}{{/deptSharedFlag}} -->
+			<p class="title">
+				<a class="go_boards" data-id="{{boardId}}" data-deptId="{{deptId}}" data-type = "Department" data-bypass>
+					<ins class="ic"></ins>
+						{{#publicFlag}}
+						<span class="ic_side ic_private"></span>
+						{{/publicFlag}}
+						<span class="txt">{{name}}</span>
+				</a>
+				{{#hasRecentPost}}
+				<span class="ic_classic ic_new2"></span>
+				{{/hasRecentPost}}
+				{{#actions.managable}}<span class="btn_wrap" title="{{lang.board_setting}}"><span btn-type="boardAdmin" data-boardid="{{boardId}}" class="ic_side ic_side_setting"></span></span>{{/actions.managable}}
+			</p>
+		</li>
+		{{/isSeparator}}
+		{{/boards}}
+	</ul>
+</li>
+{{/dataset}}
+<!-- 하위 부서 조회  -->
+{{#manageRowLank}}
+<li class="assigned">
+	<p class="title">
+		<a href="{{contextRoot}}app/board/lowrank/manage"><ins class="ic"></ins><span class="txt">{{lang.manage_row_rank}}</span></a>
+	</p>
+</li>
+{{/manageRowLank}}
+<!-- 중지된 게시판 조회  -->
+{{#hasClosedBoard}}
+<li class="closed">
+	<p class="title">
+		<a href="{{closedUrl}}"><ins class="ic"></ins><span class="txt">{{lang.closed_board}}</span></a>
+	</p>
+</li>
+{{/hasClosedBoard}}
+
+{{^dataset}}
+<section class="intro">
+<span class="ic ic_comm_symbol"><span class="txt"></span></span>
+<p class="desc">{{{lang.no_dept}}}</p>
+</section>
+{{/dataset}}

@@ -1,0 +1,78 @@
+    <div class="tb_content date_l">
+        <span class="txt">{{data.detailDay.simpleDay}}</span>
+    </div>
+    <div class="tb_content date_r">
+        <span class="txt">{{dayOfWeek}}</span>
+    </div>
+    <div class="tb_content attend">
+        <span class="txt {{#isEditedWorkInTime}} modify {{/isEditedWorkInTime}} {{#data.tardy}} late {{/data.tardy}}">{{data.clockInTime}}
+            {{#data.clockInTime}}
+            <span class="icx2 {{clockInBy}} wrap_tool_tip">
+                <span class="tool_tip top">
+                    {{#data.clockInHistory.beaconUuid}}
+                    <strong>BEACON :</strong> {{data.clockInHistory.beaconLocation}} <br> {{data.clockInHistory.beaconUuid}}
+                    {{/data.clockInHistory.beaconUuid}}
+
+                    {{^data.clockInHistory.beaconUuid}}
+                    {{#data.clockInHistory.checkLatitude}}
+                    <strong>GPS :</strong> {{data.clockInHistory.checkLatitude}}, {{data.clockInHistory.checkLongitude}}
+                    <span id="clock_in_link" class="ic ic_info gps_link"></span><i class="tail_top"></i>
+                    {{/data.clockInHistory.checkLatitude}}
+                    {{^data.clockInHistory.checkLatitude}}
+                    <strong>IP :</strong> {{data.clockInHistory.checkIp}}
+                    {{/data.clockInHistory.checkLatitude}}
+                    {{/data.clockInHistory.beaconUuid}}
+
+                    {{#data.clockInHistory.diffTimezone}}
+                    <strong>TIMEZONE :</strong> {{data.clockInHistory.timezoneInfo}}<i class="tail_top"></i>
+                    {{/data.clockInHistory.diffTimezone}}
+                </span>
+            </span>
+            {{/data.clockInTime}}
+        </span>
+    </div>
+    <div class="tb_content leave">
+        <span class="txt {{#isEditedWorkOutTime}} modify {{/isEditedWorkOutTime}}">{{clockOut}}
+            {{#clockOut}}
+            <span class="icx2 {{clockOutBy}} wrap_tool_tip">
+                <span class="tool_tip top">
+                    {{#data.clockOutHistory.beaconUuid}}
+                    <strong>BEACON :</strong> {{data.clockOutHistory.beaconLocation}}<br>{{data.clockOutHistory.beaconUuid}}
+                    {{/data.clockOutHistory.beaconUuid}}
+
+                    {{^data.clockOutHistory.beaconUuid}}
+                    {{#data.clockOutHistory.checkLatitude}}
+                    <strong>GPS :</strong> {{data.clockOutHistory.checkLatitude}}, {{data.clockOutHistory.checkLongitude}}
+                    <span id="clock_out_link" class="ic ic_info gps_link"></span><i class="tail_top"></i>
+                    {{/data.clockOutHistory.checkLatitude}}
+                    {{^data.clockOutHistory.checkLatitude}}
+                    {{#data.clockOutAuto}}
+                    {{autoLang}}
+                    {{/data.clockOutAuto}}
+                    {{^data.clockOutAuto}}
+                     <strong>IP :</strong> {{data.clockOutHistory.checkIp}}
+                    {{/data.clockOutAuto}}
+                    {{/data.clockOutHistory.checkLatitude}}
+                    {{/data.clockOutHistory.beaconUuid}}
+
+                    {{#data.clockOutHistory.diffTimezone}}
+                    <strong>TIMEZONE :</strong> {{data.clockOutHistory.timezoneInfo}}<i class="tail_top"></i>
+                    {{/data.clockOutHistory.diffTimezone}}
+                </span>
+            </span>
+            {{/clockOut}}
+        </span>
+    </div>
+    <div class="tb_content total_time">
+        <span class="txt">{{totalWorkingTime}}</span>
+    </div>
+    <div class="tb_content status">
+        {{{workingTimeDetail}}}
+    </div>
+    <div class="tb_content approval_list">
+        {{#approvals}}
+        <p>
+            <span class="txt"> {{message}} </span>
+        </p>
+        {{/approvals}}
+    </div>

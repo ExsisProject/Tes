@@ -1,0 +1,1 @@
+define(["backbone"],function(e){var t=e.Model.extend({initialize:function(e){this.id=e.id,this.name=e.name},defaults:{name:this.name,start:!1,end:!1,doing:!1},isEnd:function(){return this.get("end")},isStart:function(){return this.get("start")},isDoing:function(){return this.get("doing")}});return t});

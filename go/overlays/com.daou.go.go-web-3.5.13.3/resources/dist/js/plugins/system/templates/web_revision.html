@@ -1,0 +1,38 @@
+{{#dataset}}
+<div class="content_page">
+    <form name="formBaseConfig" id="formWebRevision" >
+        <div class="container">
+            <div class="header">
+                <h2>{{lang.label_webrevision_title}}</h2>
+            </div>
+            <div class="content">
+                <table class="detail">
+                    <colgroup>
+                        <col width="110px" />
+                        <col width="*" />
+                    </colgroup>
+                <tbody>
+                    <tr class="last">
+                        <th>
+                            <span class="title">{{lang.label_webrevision}}</span>
+                        </th>
+                        <td>
+                            <span class="user_data editable" data-formname="webRevision" data-value="{{str}}">
+                                <span id="data">{{str}}</span>
+                                <span class="btn_box" data-btntype="changeform">
+                                    <span class="ic ic_edit" title="{{lang.label_edit}}"></span>
+                                </span>
+                            </span>
+                            <span class="go_alert" id="webRevisionValidate"></span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    </form>
+    <div class="page_action">
+        <span class="btn" id="btn_ok">{{lang.label_ok}}</span>
+        <span class="btn_nega" id="btn_cancel">{{lang.label_cancel}}</span>
+    </div>
+{{/dataset}}

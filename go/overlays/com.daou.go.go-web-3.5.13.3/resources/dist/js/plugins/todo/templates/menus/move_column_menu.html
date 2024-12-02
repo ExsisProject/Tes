@@ -1,0 +1,12 @@
+<form class="form_static">
+    <div class="form_static_wrap">
+        <p class="title">{{label.position}}</p>
+        <select name="select_position" class="select-column-seq w_max">
+            {{#columns}}
+            <option value="{{seq}}">{{disp_text}}</option>
+            {{/columns}}
+        </select>
+    </div>
+</form>
+
+{{> _confirm_button}}

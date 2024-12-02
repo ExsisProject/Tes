@@ -1,0 +1,31 @@
+<div class="content_page" id="aliasList">
+	<div class="dataTables_wrapper container">				
+		<div class="content_tb">			
+			<table class="chart size" id="aliasDataTable">
+				<thead>							
+					<tr>
+						<th class="sorting"><span class="title_sort">{{lang.alias_name}}<ins class="ic"></ins><span class="selected"></span></span></th>
+						<th class="sorting"><span class="title_sort">{{lang.alias_id}}<ins class="ic"></ins><span class="selected"></span></span></th>
+						<th class="sorting"><span class="title_sort">{{lang.forward_count}}</span></th>
+						<th class="sorting"><span class="title_sort">{{lang.account_status}}<ins class="ic"></ins><span class="selected"></span></span></th>
+					</tr>
+				</thead>	
+			</table>	
+
+			<div class="table_search">				
+				<select id="searchType">
+					<option value="mail_uid">{{lang.alias_id}}</option>
+					<option value="user_name">{{lang.alias_name}}</option>
+                    <option value="forward_address">{{lang.alias_forward_address}}</option>
+				</select>		
+				
+				<span class="search_wrap">
+					<input class="input" type="text" id="searchKeyword">
+					<span class="btn_search" title="{{lang.search}}" id="searchAlias"></span>
+					<input class="submit" type="submit" value="">
+				</span>
+			</div>				
+
+		</div>
+	</div>
+</div>

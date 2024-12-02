@@ -1,0 +1,1 @@
+(function(){define(["backbone"],function(e){var t=null,n=e.Model.extend({url:function(){return["/api/community",this.get("communityId"),"board"].join("/")}});return n})}).call(this);

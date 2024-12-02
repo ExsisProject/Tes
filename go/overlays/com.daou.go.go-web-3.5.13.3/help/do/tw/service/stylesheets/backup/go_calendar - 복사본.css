@@ -1,0 +1,335 @@
+table.tb_fix{border-collapse: collapse; padding: 0; margin:0; table-layout:fixed}
+
+/********** layout css **********/
+section.container header div.colleague span {font-family:malgun gothic; font-weight:bold}
+section.container header {height: 53px; border-bottom: 1px solid gray}
+section.container header div.colleague span {font-size: 17px; }
+div.calendar_month div.month_body div.week_schedule {border-bottom: 1px solid #dadada; height: 110px; overflow: hidden}
+div.calendar_month div.month_body div.week_schedule {position: relative}
+div.calendar_month div.month_body div.week_schedule table.schedule_row tr th a.btn_schedule_more {float: right; margin:0 5px 0 0}
+
+div.time_wrap div.real_time {position: absolute}
+ table.bg_row {position:absolute; top:0; left:0}
+ table.bg_row .on {background: #E0F8FA}
+ table.bg_row tbody tr td {border-left: 1px solid #dadada; height: 110px}
+
+ table.schedule_row {position:relative}
+ table.schedule_row tbody tr th {text-align: left; height:20px; padding:0 0 0 5px; font: 11px verdana}
+ table.schedule_row tbody tr td {text-align: left; height:19px; padding: 0 2px; overflow: hidden}
+
+/********** common **********/
+div.schedule_day {position: relative}
+div.schedule_time {position: relative}
+div.schedule_day_start {margin: 0 10px 0 0}
+div.schedule_day_start div {position: absolute; border-style: solid; border-width: 10px 6px 10px 0}
+div.schedule_day_start div.tail_r1 {top: -1px; right: -19px; width: 0; height: 0; border-top: 9px solid transparent; border-bottom: 9px solid transparent; border-left: 9px solid #000;  border-right:9px solid transparent}
+div.schedule_day_start div.tail_r2 {top: -1px; right: -18px; width: 0; height: 0; border-top: 9px solid transparent; border-bottom: 9px solid transparent; border-left: 9px solid gray; border-right:9px solid transparent}
+div.schedule_day_end {margin: 0 0 0 10px}
+div.schedule_day_end div {position: absolute; border-style: solid; border-width: 10px 6px 10px 0}
+div.schedule_day_end div.tail_l1 {top: -1px; left: -10px; width: 0; height: 0; border-top: 9px solid transparent; border-bottom: 9px solid transparent; border-right: 9px solid #000}
+div.schedule_day_end div.tail_l2 {top: -1px; left: -9px; width: 0; height: 0; border-top: 9px solid transparent; border-bottom: 9px solid transparent; border-right: 9px solid gray}
+
+div.current_date  {}
+
+div.resize {position: absolute; height:4px; bottom: 0; width: 100%; cursor: ns-resize; padding-top:2px}
+div.resize div.resize_icon {border-top:3px double #fff; width: 10px; margin: 0 auto}
+div.schedule_day a {color:#fff}
+a.schedule {display: block; height: 16px; line-height:18px; padding:0 1px 0 2px}
+a.schedule > span {vertical-align: top;}
+span.chip {display: inline-block; width: 10px; height: 10px; margin:2px 0 0 0} 
+span.me {display: inline-block; width: 10px; height: 10px; margin:2px 3px 0 0}
+span.chip_schedule > span {vertical-align: top; margin-right: 1px}
+span.time {display:inline-block; font: bold 11px tahoma; margin:1px 0 0 0; vertical-align: top}
+.today {background: #f1f1f1; font-weight: bold; color: #000}
+.sun				{color: #FF000A}
+.holiday			{color: #FF000A}
+div.schedule_overlap {outline: 2px solid #fff}
+div.real_time {height: 3px; background: red}
+
+section.tool_bar {position: relative}
+.critical {position: absolute; top:0; left: 0}
+.optional {position: absolute; top: 0; right: 0}
+
+div.current_date {text-align: center}
+div.current_date span.date {margin: 0 4px; font-size: 22px; font-weight: bold; font-weight: bold; font-family: malgun gothic; color: #000; letter-spacing: -1px}
+div.current_date span.btn_tool {vertical-align: top; margin: 3px 0 0 0}
+section.calendar_tool_bar {margin: 10px 0 0 0}
+section.calendar_tool_bar div.critical {top: 28px; left: 20px}
+section.calendar_tool_bar div.optional {top: 15px; right: 20px}
+
+
+/********** week **********/
+div.calendar_week div.week_body_wrap {overflow: hidden; position:relative}
+thead.type_normal tr th {border-top: 1px solid #c2c9cf; border-bottom: 1px solid #c2c9cf; background: #ededed; height: 30px}
+div.calendar_week table.tb_week_header {border-bottom: 1px solid #aaa}
+div.calendar_week table.tb_week_header thead tr th:first-child {width: 70px}
+div.calendar_week table.tb_week_header tr.row td {border-left: 1px solid #dfdfdf}
+div.calendar_week table.tb_week_header tr.row td.cell {overflow: hidden}
+div.calendar_week table.tb_week_header tr.row td.cell div.schedule_day {margin: 1px 1px 0 1px}
+div.calendar_week table.tb_week_header tr.row td.cell div.schedule_day_start {margin: 1px 10px 0 1px}
+div.calendar_week table.tb_week_header tr.row td.cell div.schedule_day_end {margin: 1px 1px 0 10px}
+div.calendar_week table.tb_week_body tr.cols td {border-left: 1px solid #dfdfdf}
+div.calendar_week table.tb_week_body tr td div.hour_wrap {position: relative; height: 100%}
+div.calendar_week table.tb_week_body tr td div.timeline_wrap {width: 100%; position: absolute; margin-top: 0.4px; *margin-top: 0.8px}
+div.calendar_week table.tb_week_body tr td div.timeline_wrap div.timeline {border-top: 1px solid #dfdfdf; border-bottom: 1px solid #dfdfdf; height: 22px; width: 100%; margin-top: 22px}
+div.calendar_week table.tb_week_body tr.cols th div.time_wrap div.time {position: relative; text-align: right; padding:0 10px 0; height: 45px; line-height: 45px; font-size: 11px; border-bottom: 1px solid #dfdfdf; font-family: tahoma}
+div.calendar_week table.tb_week_body tr.cols th div.time_wrap div.time span {font: normal 12px gulim; color: #888}
+div.calendar_week table.tb_week_body tr.cols th div.time_wrap div.time a.btn_timeline_hide {position: absolute; top: 14px; left: 23px}
+div.calendar_week table.tb_week_body tr.cols th div.time_wrap div.time a.btn_timeline_show {position: absolute; top: 19px; left: 23px}
+div.calendar_week table.tb_week_body tr.cols td.today {font-weight: normal}
+div.calendar_week table.tb_week_body tr.cols td div.schedule_wrap {position: relative; margin: 0 20px 0 0; height: 1104px}
+div.calendar_week table.tb_week_body tr.cols td div.schedule_wrap div.schedule_time {position: relative; overflow: hidden; cursor: move}
+div.calendar_week table.tb_week_body tr.cols td div.schedule_wrap div.schedule_time p {color: #fff}
+div.calendar_week table.tb_week_body tr.cols td div.schedule_wrap div.schedule_time p.head {overflow: hidden;  white-space: nowrap; margin: 2px 4px 0}
+div.calendar_week table.tb_week_body tr.cols td div.schedule_wrap div.schedule_time p.content {line-height: 15px; margin: 0 4px}
+div.calendar_week table.tb_week_body tr.cols td div.schedule_wrap div.schedule_time {position: absolute}
+div.calendar_week table.tb_week_body tr.cols td div.schedule_wrap div.schedule_time a {color: #fff}
+div.calendar_week table.tb_week_body tr.cols td div.schedule_wrap div.single {position: relative}
+div.calendar_week table.tb_week_body tr.cols td div.schedule_wrap div.single p.content {position: absolute; top: 3px; left: 64px}
+
+/********** calendar_day ***********/
+div.calendar_week table.tb_day_body tr td div.timeline_wrap {margin-top: 0.5px; *margin-top: 1px}
+
+/********** agenda **********/
+table.tb_agenda thead tr th.day {width: 90px}
+table.tb_agenda thead tr th.time {width: 160px}
+table.tb_agenda thead tr th.subject {width: 300px}
+table.tb_agenda tbody tr th {border-bottom: 1px solid #DFDFDF; font-weight: normal; vertical-align: top; padding: 10px; line-height: 18px} 
+table.tb_agenda tbody tr td {border-left: 1px solid #DFDFDF; border-bottom: 1px solid #DFDFDF; padding: 10px; vertical-align: top; line-height: 18px} 
+table.tb_agenda tbody tr:hover td {background: #fff} 
+table.tb_agenda tbody tr td a.schedule span.color span.me {position: absolute; top: 2px; left: 4px; width: 6px; height: 6px}
+table.tb_agenda tbody tr td div.time {position: relative}
+table.tb_agenda tbody tr td div.time a.btn_scehdule_end {position: absolute; top: 0; left: -8px}
+table.tb_agenda tbody tr td div.time a.btn_scehdule_start {position: absolute; top: 0; right: -8px}
+table.tb_agenda tbody tr th {background: #fff}
+
+/********** agenda **********/
+table.tb_search_result {margin:30px 0 0 0}
+
+/********** button **********/
+a.btn_schedule_more {font: bold 11px verdana; background:url(images/ic_calendar.gif) no-repeat 0 0}
+ins.btn_myColleague {display:inline-block; background:url(../images/ic_calendar.gif) no-repeat -50px 0; width:16px; height:15px; cursor: pointer}
+a.btn_schedule_more {background:url(../images/ic_calendar.gif) no-repeat right -46px}
+a.btn_timeline_hide {display:inline-block; border-top:6px solid transparent; border-bottom: 6px solid #888; border-left: 6px solid transparent; border-right: 6px solid transparent}
+a.btn_timeline_show {display:inline-block; border-top:6px solid #888; border-bottom: 6px solid transparent; border-left: 6px solid transparent; border-right: 6px solid transparent}
+a.btn_timeline_hide:hover {border-bottom: 6px solid #000}
+a.btn_timeline_show:hover {border-top:6px solid #000}
+
+/********** schedule color **********/
+.color1	{background: #ac725e}
+.color2	{background: #d06b64}
+.color3	{background: #e55e76}
+.color4	{background: #fa573c}
+.color5	{background: #ff7537}
+.color6	{background: #ffad46}
+.color7	{background: #42d692}
+.color8	{background: #16a765}
+.color9	{background: #7bd148}
+.color10	{background: #b3dc6c}
+.color11	{background: #fbe983}
+.color12	{background: #fad165}
+.color13	{background: #f691b2}
+.color14	{background: #cd74e6}
+.color15	{background: #9a9cff}
+.color16	{background: #b99aff}
+.color17	{background: #6691e5}
+.color18	{background: #9fc6e7}
+
+.border_color1	{border: 1px solid #996352}
+.border_color2	{border: 1px solid #bc5e58}
+.border_color3	{border: 1px solid #d75269}
+.border_color4	{border: 1px solid #df482f}
+.border_color5	{border: 1px solid #e8692f}
+.border_color6	{border: 1px solid #e79b3c}
+.border_color7	{border: 1px solid #38c283}
+.border_color8	{border: 1px solid #13955a}
+.border_color9	{border: 1px solid #6fbe3f}
+.border_color10	{border: 1px solid #a3c961}
+.border_color11	{border: 1px solid #decd6c}
+.border_color12	{border: 1px solid #deb852}
+.border_color13	{border: 1px solid #de809f}
+.border_color14	{border: 1px solid #b966d0}
+.border_color15	{border: 1px solid #8889eb}
+.border_color16	{border: 1px solid #a181e9}
+.border_color17	{border: 1px solid #537dce}
+.border_color18	{border: 1px solid #8cb3d3}
+
+div.schedule_color1, div.layer_pallete a.schedule_color1		{background: #ac725e; border: 1px solid #996352}
+div.schedule_color2, div.layer_pallete a.schedule_color2		{background: #d06b64; border: 1px solid #bc5e58}
+div.schedule_color3, div.layer_pallete a.schedule_color3		{background: #e55e76; border: 1px solid #d75269}
+div.schedule_color4, div.layer_pallete a.schedule_color4		{background: #fa573c; border: 1px solid #df482f}
+div.schedule_color5, div.layer_pallete a.schedule_color5		{background: #ff7537; border: 1px solid #e8692f}
+div.schedule_color6, div.layer_pallete a.schedule_color6		{background: #ffad46; border: 1px solid #e79b3c}
+div.schedule_color7, div.layer_pallete a.schedule_color7		{background: #42d692; border: 1px solid #38c283}
+div.schedule_color8, div.layer_pallete a.schedule_color8		{background: #16a765; border: 1px solid #13955a}
+div.schedule_color9, div.layer_pallete a.schedule_color9		{background: #7bd148; border: 1px solid #6fbe3f}
+div.schedule_color10, div.layer_pallete a.schedule_color10	{background: #b3dc6c; border: 1px solid #a3c961}
+div.schedule_color11, div.layer_pallete a.schedule_color11	{background: #fbe983; border: 1px solid #decd6c}
+div.schedule_color12, div.layer_pallete a.schedule_color12	{background: #fad165; border: 1px solid #deb852}
+div.schedule_color13, div.layer_pallete a.schedule_color13	{background: #f691b2; border: 1px solid #de809f}
+div.schedule_color14, div.layer_pallete a.schedule_color14	{background: #cd74e6; border: 1px solid #b966d0}
+div.schedule_color15, div.layer_pallete a.schedule_color15	{background: #9a9cff; border: 1px solid #8889eb}
+div.schedule_color16, div.layer_pallete a.schedule_color16	{background: #b99aff; border: 1px solid #a181e9}
+div.schedule_color17, div.layer_pallete a.schedule_color17	{background: #6691e5; border: 1px solid #537dce}
+div.schedule_color18, div.layer_pallete a.schedule_color18	{background: #9fc6e7; border: 1px solid #8cb3d3}
+
+div.schedule_color1 div.resize		{background: #996352}
+div.schedule_color2 div.resize		{background: #bc5e58}
+div.schedule_color3 div.resize		{background: #d75269}
+div.schedule_color4 div.resize		{background: #df482f}
+div.schedule_color5 div.resize		{background: #e8692f}
+div.schedule_color6 div.resize		{background: #e79b3c}
+div.schedule_color7 div.resize		{background: #38c283}
+div.schedule_color8 div.resize		{background: #13955a}
+div.schedule_color9 div.resize		{background: #6fbe3f}
+div.schedule_color10 div.resize	{background: #a3c961}
+div.schedule_color11 div.resize	{background: #decd6c}
+div.schedule_color12 div.resize	{background: #deb852}
+div.schedule_color13 div.resize	{background: #de809f}
+div.schedule_color14 div.resize	{background: #b966d0}
+div.schedule_color15 div.resize	{background: #8889eb}
+div.schedule_color16 div.resize	{background: #a181e9}
+div.schedule_color17 div.resize	{background: #537dce}
+div.schedule_color18 div.resize	{background: #8cb3d3}
+div.schedule_color_group div.resize	{background: #a9a9a9}
+
+
+div.schedule_color1 div.tai_ll1		{border-right: 9px solid #996352}
+div.schedule_color1 div.tail_l2		{border-right: 9px solid #ac725e}
+div.schedule_color2 div.tail_l1		{border-right: 9px solid #bc5e58}
+div.schedule_color2 div.tail_l2		{border-right: 9px solid #d06b64}
+div.schedule_color3 div.tail_l1		{border-right: 9px solid #e55e76}
+div.schedule_color3 div.tail_l2		{border-right: 9px solid #d75269}
+div.schedule_color4 div.tail_l1		{border-right: 9px solid #df482f}
+div.schedule_color4 div.tail_l2		{border-right: 9px solid #fa573c}
+div.schedule_color5 div.tail_l1		{border-right: 9px solid #e8692f}
+div.schedule_color5 div.tail_l2		{border-right: 9px solid #ff7537}
+div.schedule_color6 div.tail_l1		{border-right: 9px solid #e8692f}
+div.schedule_color6 div.tail_l2		{border-right: 9px solid #ffad46}
+div.schedule_color7 div.tail_l1		{border-right: 9px solid #38c283}
+div.schedule_color7 div.tail_l2		{border-right: 9px solid #42d692}
+div.schedule_color8 div.tail_l1		{border-right: 9px solid #13955a}
+div.schedule_color8 div.tail_l2		{border-right: 9px solid #16a765}
+div.schedule_color9 div.tail_l1		{border-right: 9px solid #6fbe3f}
+div.schedule_color9 div.tail_l2		{border-right: 9px solid #7bd148}
+div.schedule_color10 div.tail_l1	{border-right: 9px solid #a3c961}
+div.schedule_color10 div.tail_l2	{border-right: 9px solid #b3dc6c}
+div.schedule_color11 div.tail_l1	{border-right: 9px solid #decd6c}
+div.schedule_color11 div.tail_l2	{border-right: 9px solid #fbe983}
+div.schedule_color12 div.tail_l1	{border-right: 9px solid #deb852}
+div.schedule_color12 div.tail_l2	{border-right: 9px solid #fad165}
+div.schedule_color13 div.tail_l1	{border-right: 9px solid #de809f}
+div.schedule_color13 div.tail_l2	{border-right: 9px solid #f691b2}
+div.schedule_color14 div.tail_l1	{border-right: 9px solid #b966d0}
+div.schedule_color14 div.tail_l2	{border-right: 9px solid #cd74e6}
+div.schedule_color15 div.tail_l1	{border-right: 9px solid #8889eb}
+div.schedule_color15 div.tail_l2	{border-right: 9px solid #9a9cff}
+div.schedule_color16 div.tail_l1	{border-right: 9px solid #a181e9}
+div.schedule_color16 div.tail_l2	{border-right: 9px solid #b99aff}
+div.schedule_color17 div.tail_l1	{border-right: 9px solid #537dce}
+div.schedule_color17 div.tail_l2	{border-right: 9px solid #6691e5}
+div.schedule_color18 div.tail_l1	{border-right: 9px solid #8cb3d3}
+div.schedule_color18 div.tail_l2	{border-right: 9px solid #9fc6e7}
+div.schedule_color_group div.tail_l1	{border-right: 9px solid #a9a9a9}
+div.schedule_color_group div.tail_l2	{border-right: 9px solid #c2c2c2}
+
+div.schedule_color1 div.tail_r1		{border-left: 9px solid #996352}
+div.schedule_color1 div.tail_r2		{border-left: 9px solid #ac725e}
+div.schedule_color2 div.tail_r1		{border-left: 9px solid #bc5e58}
+div.schedule_color2 div.tail_r2		{border-left: 9px solid #d06b64}
+div.schedule_color3 div.tail_r1		{border-left: 9px solid #e55e76}
+div.schedule_color3 div.tail_r2		{border-left: 9px solid #d75269}
+div.schedule_color4 div.tail_r1		{border-left: 9px solid #df482f}
+div.schedule_color4 div.tail_r2		{border-left: 9px solid #fa573c}
+div.schedule_color5 div.tail_r1		{border-left: 9px solid #e8692f}
+div.schedule_color5 div.tail_r2		{border-left: 9px solid #ff7537}
+div.schedule_color6 div.tail_r1		{border-left: 9px solid #e8692f}
+div.schedule_color6 div.tail_r2		{border-left: 9px solid #ffad46}
+div.schedule_color7 div.tail_r1		{border-left: 9px solid #38c283}
+div.schedule_color7 div.tail_r2		{border-left: 9px solid #42d692}
+div.schedule_color8 div.tail_r1		{border-left: 9px solid #13955a}
+div.schedule_color8 div.tail_r2		{border-left: 9px solid #16a765}
+div.schedule_color9 div.tail_r1		{border-left: 9px solid #6fbe3f}
+div.schedule_color9 div.tail_r2		{border-left: 9px solid #7bd148}
+div.schedule_color10 div.tail_r1	{border-left: 9px solid #a3c961}
+div.schedule_color10 div.tail_r2	{border-left: 9px solid #b3dc6c}
+div.schedule_color11 div.tail_r1	{border-left: 9px solid #decd6c}
+div.schedule_color11 div.tail_r2	{border-left: 9px solid #fbe983}
+div.schedule_color12 div.tail_r1	{border-left: 9px solid #deb852}
+div.schedule_color12 div.tail_r2	{border-left: 9px solid #fad165}
+div.schedule_color13 div.tail_r1	{border-left: 9px solid #de809f}
+div.schedule_color13 div.tail_r2	{border-left: 9px solid #f691b2}
+div.schedule_color14 div.tail_r1	{border-left: 9px solid #b966d0}
+div.schedule_color14 div.tail_r2	{border-left: 9px solid #cd74e6}
+div.schedule_color15 div.tail_r1	{border-left: 9px solid #8889eb}
+div.schedule_color15 div.tail_r2	{border-left: 9px solid #9a9cff}
+div.schedule_color16 div.tail_r1	{border-left: 9px solid #a181e9}
+div.schedule_color16 div.tail_r2	{border-left: 9px solid #b99aff}
+div.schedule_color17 div.tail_r1	{border-left: 9px solid #537dce}
+div.schedule_color17 div.tail_r2	{border-left: 9px solid #6691e5}
+div.schedule_color18 div.tail_r1	{border-left: 9px solid #8cb3d3}
+div.schedule_color18 div.tail_r2	{border-left: 9px solid #9fc6e7}
+div.schedule_color_group div.tail_r1	{border-left: 9px solid #a9a9a9}
+div.schedule_color_group div.tail_r2	{border-left: 9px solid #c2c2c2}
+
+span.schedule_color1		{background: #ac725e; border: 1px solid #996352}
+span.schedule_color2		{background: #d06b64; border: 1px solid #bc5e58}
+span.schedule_color3		{background: #e55e76; border: 1px solid #d75269}
+span.schedule_color4		{background: #fa573c; border: 1px solid #df482f}
+span.schedule_color5		{background: #ff7537; border: 1px solid #e8692f}
+span.schedule_color6		{background: #ffad46; border: 1px solid #e79b3c}
+span.schedule_color7		{background: #42d692; border: 1px solid #38c283}
+span.schedule_color8		{background: #16a765; border: 1px solid #13955a}
+span.schedule_color9		{background: #7bd148; border: 1px solid #6fbe3f}
+span.schedule_color10		{background: #b3dc6c; border: 1px solid #a3c961}
+span.schedule_color11		{background: #fbe983; border: 1px solid #decd6c}
+span.schedule_color12		{background: #fad165; border: 1px solid #deb852}
+span.schedule_color13		{background: #f691b2; border: 1px solid #de809f}
+span.schedule_color14		{background: #cd74e6; border: 1px solid #b966d0}
+span.schedule_color15		{background: #9a9cff; border: 1px solid #8889eb}
+span.schedule_color16		{background: #b99aff; border: 1px solid #a181e9}
+span.schedule_color17		{background: #6691e5; border: 1px solid #537dce}
+span.schedule_color18		{background: #9fc6e7; border: 1px solid #8cb3d3}
+
+a.schedule_color1	{color:#996352}
+a.schedule_color2	{color:#bc5e58}
+a.schedule_color3	{color:#d75269}
+a.schedule_color4	{color:#df482f}
+a.schedule_color5	{color:#e8692f}
+a.schedule_color6	{color:#e79b3c}
+a.schedule_color7	{color:#38c283}
+a.schedule_color8	{color:#13955a}
+a.schedule_color9	{color:#6fbe3f}
+a.schedule_color10	{color:#a3c961}
+a.schedule_color11	{color:#decd6c}
+a.schedule_color12	{color:#deb852}
+a.schedule_color13	{color:#de809f}
+a.schedule_color14	{color:#b966d0}
+a.schedule_color15	{color:#8889eb}
+a.schedule_color16	{color:#a181e9}
+a.schedule_color17	{color:#537dce}
+a.schedule_color18	{color:#8cb3d3}
+
+a.schedule_color_group {color: #a9a9a9}
+span.schedule_color_group {background: #c2c2c2; border: 1px solid #a9a9a9}
+
+/********** layer **********/
+div.layer {border:2px solid #666}
+
+div.layer_schedule_more {padding: 0 10px}
+div.layer_schedule_more div.title {position: relative; padding: 5px 0; cursor: move} 
+div.layer_schedule_more div.title span.date {font: bold 12px verdana}
+div.layer_schedule_more div.title a.btn_layer_close {position: absolute; top: 5px; right: 2px}
+div.layer_schedule_more ul {margin: 0 0 10px}
+div.layer_schedule_more ul li {margin: 1px 0 0 0}
+div.layer_schedule_more div.schedule_day_end {margin:0 0 0 10px}
+
+div.schedule_color_group, div.layer_pallete span.group_color {background: #c2c2c2; border: 1px solid #a9a9a9}
+div.layer_pallete {padding: 10px}
+div.layer_pallete a {display: inline-block; width: 13px; height: 13px; margin:0 4px 4px 0}
+div.layer_pallete a.last {margin-right: 0}
+div.layer_pallete span {display: inline-block; width: 13px; height: 13px;  margin: 0 2px 0 3px; vertical-align: middle}
+div.layer_pallete a:hover {border:2px solid #333; width:11px; height: 11px}
+
+div.schedule_drag {display: inline-block; box-shadow: 2px 3px 3px #bbb}
+.dragged {filter: Alpha(Opacity=40); Opacity: 0.4}

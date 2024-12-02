@@ -1,0 +1,1 @@
+define(["backbone","admin/models/attnd_status"],function(e,t){var n=null,r=e.Model.extend({model:t,urlRoot:GO.contextRoot+"ad/api/ehr/attnd/config/basic"},{get:function(){return n==null&&(n=new r),n.fetch({async:!1}),n},getWorkDays:function(){return n},addStatus:function(e){n.get("status")},findWhere:function(e){return this.findWhere(new t({name:e}))}});return r});

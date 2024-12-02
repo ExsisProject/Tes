@@ -1,0 +1,34 @@
+{{#hasFiles}}
+<div class="feed origin">
+	<ul class="file_wrap">
+		{{#files}}
+		<li data-name="{{name}}" data-id="{{id}}">
+			<span class="item_file">
+				<span class="ic_file ic_{{extention}}"></span>
+				<span class="name"><a href="{{contextRoot}}api/board/{{boardId}}/post/{{postId}}/attaches/{{id}}" data-bypass>{{name}}</a></span>
+				<span class="size">({{size}})</span>
+				<a title="" href="{{contextRoot}}api/board/{{boardId}}/post/{{postId}}/attaches/{{id}}" data-bypass>
+				<span class="btn_fn4">
+					<span class="txt">{{lang.save}}</span>
+				</span>
+				</a>														
+			</span>
+		</li>
+		{{/files}}
+	</ul>
+</div>
+{{/hasFiles}}
+{{#hasImages}}
+	<!-- 이미지 첨부 -->
+<div class="img_wrap origin {{#hasFiles}}mar10t{{/hasFiles}}">
+	<ul class="feed_img {{getImageClass}}">
+		{{#images}}
+		<li data-name="{{name}}" data-boardid="{{boardId}}" data-postid="{{postId}}" data-id="{{id}}">
+			<a href="{{contextRoot}}api/board/{{boardId}}/post/{{postId}}/attaches/{{id}}" data-bypass class="fancybox-thumbs fancybox-button" data-fancybox-group="thumb_{{postId}}" title="{{name}}">
+				<img src="{{#isGif}}{{contextRoot}}api/board/{{boardId}}/post/{{postId}}/attaches/{{id}}{{/isGif}}{{^isGif}}{{#largeImageSize}}{{thumbLarge}}{{/largeImageSize}}{{#midImageSize}}{{thumbMid}}{{/midImageSize}}{{#smallImageSize}}{{thumbSmall}}{{/smallImageSize}}{{/isGif}}" alt="{{lang.sample_img}}" onload="{{{reoffsetImg}}}"  />
+			</a>
+		</li>
+		{{/images}}											
+	</ul>	
+</div>
+{{/hasImages}}

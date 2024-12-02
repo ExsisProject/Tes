@@ -1,0 +1,57 @@
+<li>
+	<div>
+		{{lang.연동앱}}
+		<span class="edit_title_sub" el-select-app>
+			<i class="ic_works ic_add" title="{{lang.설정}}"></i>
+			{{lang.설정}}
+		</span>
+	</div>
+	<div class="wrap_name_tag app_link_list" id="appArea"></div>
+</li>
+<li>
+	<div>{{lang.연동 컴포넌트}}</div>
+	<div>
+		<select id="fields" class="attr_select">
+			<option value="">{{lang.앱을 먼저 선택하세요.}}</option>
+		</select>
+	</div>
+</li>
+<li>
+	<div>{{lang.데이터 연결 시, 검색 노출 항목}}</div>
+	<div class="wrap_attr_mini">
+		<select id="displayFields" class="attr_select">
+			<option value="">{{lang.앱을 먼저 선택하세요.}}</option>
+		</select>
+		<div class="wrap_input_sub">
+			<a el-add-field class="btn_minor_s">
+				<span class="txt">{{lang.추가}}</span>
+			</a>
+		</div>
+	</div>
+	<div class="wrap_name_tag app_link_list" id="fieldArea"></div>
+</li>
+<li>
+	<div><label for="">{{lang.선택 최대 개수}}</label></div>
+	<div class="wrap_attr_mini">
+		<input type="text" name="maxCount" value="{{model.maxCount}}" class="txt_mini tool_txt" placeholder="{{lang.이름을 입력해주세요}}" title="{{lang.이름}}">
+	</div>
+</li>
+<li>
+	<div><label for="">{{lang.이름}}</label></div>
+	<div><input type="text" name="label" value="{{model.label}}" class="txt_mini tool_txt" placeholder="{{lang.이름을 입력해주세요}}" title="{{lang.이름}}"></div>
+    <div class="wrap_input_sub">
+       <input type="checkbox" id="hideLabel" name="hideLabel" class="tool_chk" title="{{lang.이름숨기기}}" {{#model.hideLabel}}checked{{/model.hideLabel}}><label for="hideLabel">{{lang.이름숨기기}}</label>
+    </div>
+</li>
+<li>
+	<div><label for="">{{lang.설명}}</label></div>
+	<div><input type="text" name="guide" value="{{model.guide}}" class="txt_mini tool_txt" placeholder="{{lang.설명을 입력해주세요}}" title="{{lang.설명}}"></div>
+	<div class="wrap_input_sub">
+		<input type="checkbox" name="guideAsTooltip" id="guideAsTooltip" class="tool_chk" title=""{{#model.guideAsTooltip}} checked="checked"{{/model.guideAsTooltip}}><label for="guideAsTooltip">{{lang.툴팁으로 표현}}</label>
+	</div>
+</li>
+<li>
+	<div class="wrap_input_sub">
+		<input type="checkbox" name="required" id="required" class="tool_chk" title=""{{#model.required}} checked="checked"{{/model.required}}><label for="required">{{lang.필수 입력 컴포넌트}}</label>
+	</div>
+</li>

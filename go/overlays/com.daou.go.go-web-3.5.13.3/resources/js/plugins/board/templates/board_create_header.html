@@ -1,0 +1,22 @@
+{{#dataset}}
+<tr data-type="headerPart" data-headerid="{{id}}" data-headername="{{name}}" data-headerdeleteflag="{{deletedFlag}}">
+	<td>		
+		<span class="txt_edit headerInputPart" style="display:none">
+			<input class="input edit wfix_large" type="text" value="{{name}}" data-value="{{name}}">
+			<!--NEW : 수정중 UI-->
+			<span class="btn_wrap ui_edit_ing">
+				<span class="ic_side ic_done" data-btntype="headerSave" title="{{lang.modify_done}}"></span>
+				<span class="ic_side ic_cancel" data-btntype="headerCancel" title="{{lang.board_add_cancel}}"></span>
+			</span>
+            <span class="byte"><strong id="headerByte">{{headerLength}}</strong> / 30byte</span>
+		</span>
+		<span class="txt_form headerTextPart" style="display:">
+			<span class="headerText">{{name}}</span>
+			<!--NEW : 수정 UI-->
+			<span class="btn_wrap ui_edit"><span data-btntype="headerModify" class="ic_side ic_edit" title="{{lang.modify}}"></span></span>
+			<!--//NEW : 수정 UI-->
+		</span>
+	</td>
+	<td class="align_c"><span class="btn_bdr"><span data-btntype="headerDelete" class="ic_classic ic_basket" title="{{lang.delete}}"></span></span></td>
+</tr>
+{{/dataset}}

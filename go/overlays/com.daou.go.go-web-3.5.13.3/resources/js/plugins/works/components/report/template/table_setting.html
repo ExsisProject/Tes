@@ -1,0 +1,83 @@
+<div class="wrap_works_info">
+	<table class="works_info_table">
+		<tbody>
+		<tr>
+			<th><span class="title">{{{lang.테이블 이름}}}</span></th>
+			<td>
+				<div class="wrap_txt w_max">
+					<input id="tableTitle" class="txt w_max" type="text" value="{{title}}">
+				</div>
+			</td>
+		</tr>
+		</tbody>
+	</table>
+	<p class="tit">{{{lang.기준 컬럼}}}</p>
+	<table class="works_info_table">
+		<tbody>
+		<tr>
+			<th><span class="title">{{{lang.컬럼}}}/{{{lang.집계 방식}}}</span></th>
+			<td>
+				<span class="wrap_select wfix_medium">
+					<select id="standardCid" class="w_max">
+						{{#chartFields}}
+						<option value="{{cid}}" data-value-type="{{valueType}}">{{label}}</option>
+						{{/chartFields}}
+					</select>
+				</span>
+				<span class="wrap_select">
+					<select id="rangeOption" data-postfix style="display: none;">
+					</select>
+				</span>
+			</td>
+		</tr>
+		</tbody>
+	</table>
+	<p class="tit">{{{lang.보조 컬럼}}}</p>
+	<table class="works_info_table">
+		<tbody id="subQueryWrap">
+		<tr>
+			<th rowspan="2"><span class="title">{{{lang.컬럼}}}/{{{lang.집계 방식}}}</span></th>
+			<td>
+				<span class="wrap_select wfix_medium">
+					{{#hasChartFields}}
+					<select class="w_max" id="calculateCid">
+						{{#chartFields}}
+						<option value="{{cid}}" data-value-type="{{valueType}}">{{label}}</option>
+						{{/chartFields}}
+					</select>
+					{{/hasChartFields}}
+				</span>
+				<span class="wrap_select">
+					<select class="w_max" id="aggMethod">
+						<option value="COUNT">{{{lang.개수}}}</option>
+						<option value="SUM">{{{lang.합계}}}</option>
+						<option value="AVG">{{{lang.평균}}}</option>
+						<option value="MAX">{{{lang.최대값}}}</option>
+						<option value="MIN">{{{lang.최소값}}}</option>
+					</select>
+				</span>
+				<span class="wrapBtn"><span row-add class="ic ic_row_add" title="{{{lang.추가}}}"></span></span>
+			</td>
+		</tr>
+		</tbody>
+	</table>
+	<p class="tit">{{{lang.정렬 순서}}}</p>
+	<table class="works_info_table">
+		<tbody>
+		<tr>
+			<th><span class="title">{{{lang.개수}}}/{{{lang.정렬}}}</span></th>
+			<td>
+				<span class="wrap_select" el-number-form-wrapper>
+
+				</span>
+				<span class="wrap_select">
+					<select id="direction" class="w_max">
+						<option value="DESC" data-value-type="STEXT">{{{lang.내림차순으로 정렬}}}</option>
+						<option value="ASC" data-value-type="STEXT">{{{lang.오름차순으로 정렬}}}</option>
+					</select>
+				</span>
+			</td>
+		</tr>
+		</tbody>
+	</table>
+</div>

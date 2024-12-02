@@ -1,0 +1,1 @@
+(function(){define(["backbone"],function(e){var t=e.Model.extend({url:function(){return this.docId=this.get("docId"),this.commentId=this.get("commentId"),["/api/approval/document",this.docId,"replycomment"].join("/")}},{get:function(e){return new t(e)}});return t})}).call(this);

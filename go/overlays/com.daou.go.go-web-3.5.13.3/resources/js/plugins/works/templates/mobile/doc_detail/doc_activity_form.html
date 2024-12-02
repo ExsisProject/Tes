@@ -1,0 +1,39 @@
+<div class="go_content" style="left:0">
+	<div class="content_page">
+		<div class="content write">
+			<form>
+				<fieldset>
+					<table class="form_type">
+						<caption>{{lang.activityForm}}</caption>
+						<tbody>
+						<tr>
+							<td>
+								<div class="ipt_wrap">
+									<textarea placeholder="{{lang.pleaseRegister}}">{{{content}}}</textarea>
+								</div>
+							</td>
+						</tr>
+						
+						<tr>
+							<td class="display_position">
+								<div class="optional wrap_btn_attach" id="go-fileuploader">
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<div class="option_display" id="attachWrap" {{^hasAttach}}style="display:none;"{{/hasAttach}}>
+									<ul class="file_wrap" id="fileWrap">
+										</ul>
+									<ul class="img_wrap" id="imageWrap">
+									</ul>													
+								</div>
+							</td>
+						</tr>
+						</tbody>
+					</table>
+				</fieldset>
+			</form>
+		</div>
+	</div>
+</div>

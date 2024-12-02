@@ -1,0 +1,22 @@
+<div>
+    <label for="isShare">
+        <p class="q">{{{lang.공유설정}}}</p>
+    </label>
+    <input id="isShare" class="normalmode" type="checkbox" {{#isShared}}checked{{/isShared}}>
+</div>
+<p class="desc">{{{lang.리포트 공유 설정 안내문구}}}</p>
+<div id="shareArea" {{^isShare}}style="display:none" {{/isShare}}>
+    <span class="wrap_option">
+        <input id="public" type="radio" name="shareType" value="public" {{#isPublic}}checked="checked" {{/isPublic}}>
+        <label for="public">{{{lang.앱 사용자 전체}}}</label>
+    </span>
+    <span class="horspace1"></span>
+    <span class="horspace1"></span>
+    <span class="wrap_option">
+        <input id="custom" type="radio" name="shareType" value="custom" {{^isPublic}}checked="checked" {{/isPublic}}>
+        <label for="custom">{{{lang.직접선택}}}</label>
+    </span>
+    <div id="circleArea">
+        <span id="accessUser"></span>
+    </div>
+</div>

@@ -1,0 +1,55 @@
+<link href="{{contextRoot}}resources/css/upload_manager.css" rel="stylesheet">
+<div class="wrap_wizard start" id="startPage">
+    <div class="wrap_intro">
+        <h1 class="intro"><em>{{lang.한번에 끝내는}}</em>{{lang.accountUploadManager}}</h1>
+        <p class="desc" id="introDescription">
+        </p>
+        <button id="start" class="btn_cta01">START</button>
+    </div>
+</div>
+<div id="mainPage" style="display: none">
+<div class="wrap_btn_guide" style="margin: 10px">
+    <button class="btn_cta02" id="showGuide">{{lang.계정업로드 가이드보기}}</button>
+</div>
+<img class="naviButton" id="naviButton" src="{{contextRoot}}resources/images/uploadManager/list.jpg" style="width:57px;height:57px;position:fixed;top:0px;right:0px;padding:0;overflow:hidden;cursor:pointer;z-index:1000" />
+<img class="naviButton" id="naviCloseButton" src="{{contextRoot}}resources/images/uploadManager/close.jpg" style="display:none; width:57px;height:57px;position:fixed;top:0px;right:0px;padding:0;overflow:hidden;cursor:pointer;z-index:1000" />
+<div id="naviBar" style="float:left; display:none; width:300px; height: 100vh; opacity:0.9; position: fixed;top:0px; right:0; background: #3a3a3a; z-index: 999; overflow: hidden;">
+    <ul style="width:300px;margin-left:auto; margin-right:auto; z-index: 1000;position:absolute;padding-top: 100px;" >
+        <li style="padding:10px;"><h3 id="deptUpload" style="color: #20BEC6;font-weight: bold;cursor: pointer">{{lang.dept}} {{lang.upload}}</h3></li>
+        <li style="padding:10px;"><h3 id="classUpload" style="color: white;font-weight: bold;cursor: pointer">{{lang.class}}{{lang.upload}}</h3></li>
+        <li style="padding:10px;"><h3 id="userUpload" style="color: white;font-weight: bold;cursor: pointer">{{lang.user}} {{lang.upload}}</h3></li>
+    </ul>
+</div>
+<img id="leftButton" src="{{contextRoot}}resources/images/uploadManager/bt_nav_prev.png" style="z-index:700;width:47px;height:47px;position:fixed;top:286px;left:10px;padding:0;cursor:pointer;" />
+<img id="rightButton" src="{{contextRoot}}resources/images/uploadManager/bt_nav_next.png" style="z-index:700;width:47px;height:47px;position:fixed;top:286px;right:12px;padding:0;cursor:pointer;" />
+<div class="apply_service">
+
+<h2 style="margin-top: 10px">{{lang.accountUploadManager}}</h2>
+
+    <div>
+        <div class="step_nav">
+            <ul class="util_steps">
+                <li class="on">
+                    <h3>{{lang.dept}} {{lang.upload}}</h3>
+                </li>
+                <li>
+                    <h3>{{lang.class}} {{lang.upload}}</h3>
+                </li>
+                <li>
+                    <h3>{{lang.user}} {{lang.upload}}</h3>
+                </li>
+                <li>
+                    <h3>{{lang.uploadComplete}}</h3>
+                </li>
+            </ul>
+            <div></div>
+        </div>
+    </div>
+</div>
+<br><br>
+<div class="apply_service">
+    <div class="inner">
+
+    </div>
+</div>
+</div>

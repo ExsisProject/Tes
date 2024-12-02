@@ -1,0 +1,25 @@
+{{#dataset}}
+<ul class="info_summary">
+	<li class="first">
+		<span class="tit">{{lang.total_board}}</span>
+		<span class="txt"><strong>{{totalBoard}}</strong> {{lang.count}}</span>
+		<span class="desc">{{boardActionParse}} / {{boardClosedParse}}</span>
+	</li>
+	<li style="display: none;">
+		<span class="tit">{{lang.total_post}}</span>
+		<span class="txt"><strong>{{totalPost}}</strong> {{lang.count}}</span>
+		<span class="desc">{{bbsCountParse}} / {{feedCountParse}}</span>
+	</li>
+	<li style="display: none;">
+		<span class="tit">{{lang.total_size}}</span>
+		<span class="txt"><strong>{{totalSize}}</strong> {{lang.mb}}</span>
+		<span class="desc">{{lang.active}} : {{activeSize}}{{lang.mb}} / {{lang.closed}} : {{closedSize}}{{lang.mb}}</span>
+	</li>
+</ul>
+<span class="wrap_action">
+	<span class="ic_adm ic_accordion_open" title="펼치기"></span>
+</span>
+<span class="wrap_action" style="display: none;">
+	<span class="ic_adm ic_accordion_close" title="접기"></span>
+</span>
+{{/dataset}}

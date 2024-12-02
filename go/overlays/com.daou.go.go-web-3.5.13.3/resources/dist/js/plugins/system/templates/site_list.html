@@ -1,0 +1,66 @@
+<div style="padding-bottom:5px; text-align:right;">
+	<span class="txt" style="font-weight:bold;">{{lang.label_search_domain}} : </span>
+	<input class="input" type="text" id="search" name="search">
+	<span class="btn_tool" id="btn_search">{{lang.label_search}}</span>
+</div>
+<div class="content_page">
+    <div class="dataTables_wrapper container">
+        <div class="" style="display: none" id="controllButtons">
+            <span class="btn_tool" id="btn_add">{{lang.label_add}}</span>
+            <span class="btn_tool txt_caution" id="btn_delete">{{lang.label_delete}}</span>
+        </div>
+        <div style="display:none" id="goToMembershipStore">
+            <span id="goToMembershipStoreBtn" class="btn_tool">{{lang.label_move_to_membership_store}}</span>
+            <span class="txt" style="padding-top:7px;">{{lang.label_move_to_membership_store_desc}}</span>
+        </div>
+        <div class="content_tb">
+            <table class="chart size" id="siteList">
+                <thead>
+                    <tr>
+                        <th class="sorting_desc">
+                            <span class="title_sort">
+                                <label>{{lang.label_company_name}}</label>
+                                <ins class="ic"></ins><span class="selected"></span>
+                            </span>
+                        </th>
+                        <th class="sorting_desc">
+                            <span class="title_sort">
+                                <label>{{lang.label_siteUrl}}</label>
+                                <ins class="ic"></ins><span class="selected"></span>
+                            </span>
+                        </th>
+                        <th class="sorting_desc">
+                            <span class="title_sort">
+                                <label>{{lang.label_domain_name}}</label>
+                                <ins class="ic"></ins><span class="selected"></span>
+                            </span>
+                        </th>
+                        <th class="sorting_desc">
+                            <span class="title_sort">
+                                <label>{{lang.label_total_account_quota}}</label>
+                            </span>
+                        </th>
+                        <th class="sorting_desc">
+                            <span class="title_sort">
+                                <label>{{lang.label_total_company_quota}}</label>
+                            </span>
+                        </th>
+                        <th class="sorting_desc">
+                            <span class="title_sort">
+                                <label>{{lang.label_user_count}}</label>
+                                <ins class="ic"></ins><span class="selected"></span>
+                            </span>
+                        </th>
+                        <th class="sorting_disable last">
+                            <span class="title_sort">
+                                {{^isSaaS}}<label>{{lang.label_service}}</label>{{/isSaaS}}
+                            </span>
+                        </th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+
+</div>
+

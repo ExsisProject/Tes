@@ -1,0 +1,40 @@
+<form name="boardConfig">
+        <div class="container">
+            <div class="header">
+                <h2>{{lang.label_title}}</h2>
+            </div>
+            <div class="content">
+                <table class="detail">
+                    <colgroup>
+                        <col width="130px" />
+                        <col width="*" />
+                    </colgroup>
+                    <tbody>
+                        <tr class="last">
+                            <th>
+                            	<span class="title">{{lang.display_closed_board}}</span>
+                            </th>
+                            <td>
+	                             <div class="vertical_wrap_s">
+	                    			<span class="option_wrap"> 
+	                       				<input type="radio" value="true" id="show_radio" name="closedDisplay" {{#model.closedDisplay}} checked="checked" {{/model.closedDisplay}} />
+	                        			<label for="show_radio">{{lang.show_closed_board}}</label>
+	                   				</span>
+				                    <span class="option_wrap"> 
+				                        <input type="radio" value="false" id ="hide_radio" name="closedDisplay" {{^model.closedDisplay}} checked="checked" {{/model.closedDisplay}} />
+				                        <label for="hide_radio">{{lang.hide_closed_board}}</label>
+				                    </span>
+				                 </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+</form>
+<div class="page_action">
+    <span class="btn" id="ok">{{lang.label_ok}}</span> <span
+        class="btn_nega" id="cancel">{{lang.label_cancel}}</span>
+</div>
+<div class="content_page" id="companyboardListPage">	
+</div>

@@ -1,0 +1,119 @@
+<div class="dataTables_wrapper container">
+    <div class="content_tb">
+        <table class="detail">
+            <colgroup>
+                <col width="130px">
+                <col width="*">
+            </colgroup>
+            <tbody>
+            <tr>
+                <th><span class="title"><ins class="asterisk">*</ins>{{lang.클라이언트이름}}({{lang.ko}})</span></th>
+                <td>
+                    <span class="option_wrap">
+                        <input type="text" class="input w_large" id="koName" value="{{data.koName}}">
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <th><span class="title">{{lang.클라이언트이름}}({{lang.en}})</span></th>
+                <td>
+                    <span class="option_wrap">
+                        <input type="text" class="input w_large" id="enName" value="{{data.enName}}">
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <th><span class="title">{{lang.클라이언트이름}}({{lang.jp}})</span></th>
+                <td>
+                    <span class="option_wrap">
+                        <input type="text" class="input w_large" id="jpName" value="{{data.jpName}}">
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <th><span class="title">{{lang.클라이언트이름}}({{lang.zh-cn}})</span></th>
+                <td>
+                    <span class="option_wrap">
+                        <input type="text" class="input w_large" id="zhcnName" value="{{data.zhcnName}}">
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <th><span class="title">{{lang.클라이언트이름}}({{lang.zh-tw}})</span></th>
+                <td>
+                    <span class="option_wrap">
+                        <input type="text" class="input w_large" id="zhtwName" value="{{data.zhtwName}}">
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <th><span class="title">{{lang.클라이언트이름}}({{lang.vi}})</span></th>
+                <td>
+                    <span class="option_wrap">
+                        <input type="text" class="input w_large" id="viName" value="{{data.viName}}">
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <th><ins class="asterisk">*</ins><span class="title">{{lang.서비스URL}}</span></th>
+                <td>
+                    <span class="option_wrap" style="width: 500px">
+                        <input type="text" class="input w_large" id="baseUrl" value="{{data.baseUrl}}">
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <th><ins class="asterisk">*</ins><span class="title">Redirect URL</span></th>
+                <td>
+                    <span class="option_wrap" style="width: 500px">
+                        <input type="text" class="input w_large" id="redirectUrl" value="{{data.redirectUrl}}">
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <th><span class="title">{{lang.설명}}</span></th>
+                <td>
+                    <span class="textarea">
+                        <textarea class="w_full input" id="description">{{data.description}}</textarea>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <th><span class="title">{{lang.제공서비스}}</span></th>
+                <td id="scope">
+                    {{#scope}}
+                    <span class="option_wrap">
+                        <input type="checkbox" id="use_{{key}}" value="{{key}}">
+                        <label for="use_{{key}}">{{value}}</label>
+                    </span>
+                    {{/scope}}
+                </td>
+            </tr>
+            {{^isCreate}}
+            <tr>
+                <th><span class="title">Client Id</span></th>
+                <td><span>{{data.clientId}}</span></td>
+            </tr>
+            <tr>
+                <th><span class="title">Client Secret</span></th>
+                <td><span>{{data.clientSecret}}</span></td>
+            </tr>
+            <tr>
+                <th><span class="title">Private Key</span></th>
+                <td><span>{{data.privateKey}}</span></td>
+            </tr>
+            <tr>
+                <th><span class="title">Public Key</span></th>
+                <td><span>{{data.publicKey}}</span></td>
+            </tr>
+            {{/isCreate}}
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="page_action">
+    <span id="btnActionGroup">
+        <span class="btn" id="save">{{lang.저장}}</span>
+        <span class="btn_nega" id="cancel">{{lang.취소}}</span>
+    </span>
+</div>

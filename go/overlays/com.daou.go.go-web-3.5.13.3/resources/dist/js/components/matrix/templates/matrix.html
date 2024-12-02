@@ -1,0 +1,52 @@
+<section class="tool_bar calendar_tool_bar">
+    <div class="critical">
+        {{{leftToolbar}}}
+    </div>
+    <div class="current_date">
+        <span id="prev" class="btn_ic_prev2 btn_border" title="{{lang.이전}}">
+            <span class="ic ic_prev2"></span>
+        </span>
+        <span id="datePickerBtn" class="date">{{range}}</span>
+        <span id="next" class="btn_ic_next2 btn_border" title="{{lang.다음}}">
+            <span class="ic ic_next2"></span>
+        </span>
+        <input id="matrixDate" type="text" style="border:0px;width:0px;height:0px;"/>
+        <span id="today" class="btn_tool"><span class="txt">{{lang.오늘}}</span></span>
+    </div>
+    <div class="optional">
+        {{{rightToolbar}}}
+    </div>
+</section>
+<div class="calendar_type2">
+    <div data-matrix-body class="time_table" style="top: 35px; left: 102px;">
+    </div>
+    {{#displayTimeLine}}
+    <div id="timeLine" class="real_time_vertical" style="top:34px;"></div>
+    {{/displayTimeLine}}
+    <table class="time_table_bg">
+        <thead>
+        <tr>
+            <th>{{{matrixHeader}}}</th>
+            {{#headerColumn}}
+            <th class="{{#isSunday}}sun{{/isSunday}}" colspan="{{headerColSpan}}">{{label}}</th>
+            {{/headerColumn}}
+        </tr>
+        </thead>
+        <tbody>
+            {{#rows}}
+            <tr data-row>
+                <td data-row-head="{{rowKey}}" class="info" title="{{rowTitle}} {{rowSubTitle}}">
+                    <span class="name">{{rowTitle}}</span>
+                    <span class="position">{{rowSubTitle}}</span>
+                </td>
+                {{#columns}}
+                <td data-column-key="{{key}}" data-matrix-column class="{{#isToday}}today{{/isToday}}"></td>
+                {{/columns}}
+            </tr>
+            {{/rows}}
+        </tbody>
+    </table>
+    {{#isEmpty}}
+    <p class="data_null"><span class="txt">{{emptyMessage}}</span></p>
+    {{/isEmpty}}
+</div>

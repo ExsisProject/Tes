@@ -1,0 +1,96 @@
+<header class="content_top">
+</header>   
+<div class="content_page">
+	<!-- 탭 메뉴  -->
+	<div class="tab_menu_wrap">
+		<ul class="tab_menu">
+			<li id = "tab_folder" class="active"><span class="txt" >{{lang.문서함}}</span></li>
+			<li id = "tab_folder_classify"><span class="txt" >{{lang.자동분류}}</span></li>
+		</ul>
+	</div>
+	<div class="content_info_wrap2">
+		<table class="list_operator">
+		<tbody>
+			<tr>
+				<th class="default_info"><span class="title">{{{lang.부서 문서함 담당자}}}</span></th>
+				<td>
+					<ul class="name_tag" id="addMembers">
+					{{#managerData}}
+						<li data-id="{{id}}" data-userId="{{userId}}" data-name="members">
+							<span class="name">{{userName}} {{userPositionName}}</span>
+							{{#delFlag}}
+							<span class="btn_wrap">
+								<span class="ic_classic ic_del" title="{{lang.삭제}}"></span>										
+							</span>
+							{{/delFlag}}
+						</li>
+					{{/managerData}}
+						<li class="creat">
+							<span class="btn_wrap"><span class="ic_form ic_addlist"></span>
+							<span class="txt">{{lang.담당자 추가}}</span></span>
+						</li>
+					</ul>
+				</td>
+			</tr>
+			</tbody>
+		</table>
+	</div>
+	<section class="form_admin">
+		<div class="dataTables_wrapper">
+			<div class="tool_bar">
+				<div class="critical">
+					<a class="btn_tool btnSortable">
+						<span class="ic_toolbar change"></span>
+						<span class="txt">{{lang.순서 바꾸기}}</span>
+					</a>
+					<a class="btn_tool btnAdd">
+						<span class="ic_toolbar plus"></span>
+						<span class="txt">{{lang.추가}}</span>
+					</a>
+					<a class="btn_tool btnDelete">
+						<span class="ic_toolbar del"></span>
+						<span class="txt">{{lang.삭제}}</span>
+					</a>
+					<a id="migration" class="btn_tool">
+						<span class="ic_toolbar move"></span>
+						<span class="txt">{{lang.migration}}</span>
+					</a>
+				</div>
+			</div>
+			<div class="tb_sub_wrap">
+			
+				<table class="type_normal tb_part_doc" id="tableList">
+					<thead>
+						<tr>
+							<th class="sorting_desc hp check first"><input type="checkbox" id="changeSelect"></th>
+							<th class="subject"><span class="title_sort">{{lang.문서함 이름}}<ins class="ic"></ins></span></th>
+							<th class="date"><span class="title_sort">{{lang.생성일}}<ins class="ic"></ins></span></th>
+							<th class="count"><span class="title_sort">{{lang.문서 개수}}<ins class="ic"></ins></span></th>
+							<th class="public"><span class="title_sort">{{lang.설정}}<ins class="ic"></ins></span></th>
+						</tr>
+					</thead>
+					<tbody>
+						
+					</tbody>
+				</table>
+			
+			</div>
+			<div class="tool_bar">
+				<div class="critical">						
+					<a class="btn_tool btnSortable">
+						<span class="ic_toolbar change"></span>
+						<span class="txt">{{lang.순서 바꾸기}}</span>
+					</a>
+					<a class="btn_tool btnAdd">
+						<span class="ic_toolbar plus"></span>
+						<span class="txt">{{lang.추가}}</span>
+					</a>
+					<a class="btn_tool btnDelete">
+						<span class="ic_toolbar del"></span>
+						<span class="txt">{{lang.삭제}}</span>
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
+</div>

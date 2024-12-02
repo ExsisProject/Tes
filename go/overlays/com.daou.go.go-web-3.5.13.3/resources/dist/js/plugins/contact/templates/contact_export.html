@@ -1,0 +1,37 @@
+<div class="content">
+	<table class="table_form_mini">
+		<tbody><tr>
+			<th><span class="txt">{{lang.group_select}}</span></th>
+			<td>
+				<select id="selectContactExport" name="groupId" class="w_max">
+					{{#isPersonal}}
+					<option value="all">{{lang.all}}</option>
+					{{/isPersonal}}
+					{{#data}}
+					<option value="{{id}}">{{name}}</option>
+					{{/data}}
+				 </select>
+			</td>			
+		</tr>
+		<tr>
+			<th><span class="txt">{{lang.file_type}}</span></th>
+			<td>
+				<select name="fileType" class="w_max">
+					{{#fileType}}
+					<option value="{{value}}">{{value}}</option>
+					{{/fileType}}
+				 </select>
+			</td>			
+		</tr>
+		<tr>
+			<th><span class="txt">{{lang.encording}}</span></th>
+			<td>
+				<select name="encording" class="w_max">
+					{{#encording}}
+					<option value="{{value}}">{{value}}</option>
+					{{/encording}}
+				 </select>
+			</td>			
+		</tr>
+	</tbody></table>
+</div>

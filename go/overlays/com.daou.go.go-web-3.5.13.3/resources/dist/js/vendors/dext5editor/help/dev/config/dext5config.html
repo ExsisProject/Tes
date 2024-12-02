@@ -1,0 +1,2733 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+<title>DEXT5 Developer Manual</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<link href="../../css/help.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div class="dext5help_content_right">
+<div class="right_con">
+      <div class="sdk_content">
+        <h3 class="title">DEXT5 Editor 환경 설정 파일 (xml)</h3><br />
+        <p class="txt">덱스트5 에디터의 환경 설정 파일로 프로그램의 각 기능에 대한 정의 및 환경을 설정합니다.<br />프로그램 구동을 위한 필수 파일입니다.</p><br />
+
+        <!-- 환경 설정 파일 개요 -->
+        <table class="h_table"> 
+          <caption>환경 설정 파일 개요</caption>
+          <colgroup>
+           <col style="text-align:center; width:20% !important;" />
+           <col style="text-align:left; width:80% !important;" />
+          </colgroup>          
+          <thead>          
+          <tr>
+              <th colspan="2" >
+                 환경 설정 파일 개요
+              </th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+              <td class="t_bg01">
+                  파일명
+              </td>
+              <td>
+                  dext_editor.xml
+              </td>
+          </tr>
+          <tr>
+              <td class="t_bg01">
+                  위치
+              </td>
+              <td>
+                  DEXT5 Editor 가 설치된 루트의 config/ 폴더 아래에 위치
+              </td>
+          </tr>
+          <tr>
+              <td class="t_bg01">
+                  문서유형
+              </td>
+              <td>
+                 XML 1.0 의 utf-8
+              </td>
+          </tr>
+          <tr>
+              <td class="t_bg01">
+                  유의사항
+              </td>
+              <td>
+                 값 입력 시 "<" → "&amp;lt;", ">" → "&amp;gt;", "&" → "&amp;amp;" 와 같이 html entity 형태로 입력해야 합니다.
+              </td>
+          </tr>          
+          </tbody>
+         </table>        
+        <!--//환경 설정 파일 개요 -->  
+        <!-- license -->
+        <table class="h_table h_table2"> 
+          <caption>license</caption>
+          <colgroup>
+           <col style="text-align:center; width:20% !important;" />
+           <col style="text-align:left; width:80% !important;" />
+          </colgroup>
+          <thead>          
+          <tr>
+              <th>
+                 &lt;license /&gt;
+              </th>
+              <th>
+                제품 및 라이센스 관련 정보
+              </th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+              <td class="t_bg">  
+               product_key               
+              </td>
+              <td>
+                제품 구입 당시 발행된 제품 고유 번호입니다.<br /> 제품 고유 번호가 유효하지 않은 경우 기능상 제한을 받을 수 있습니다.
+                <br />
+                제품 고유 번호는 <span class="txt_red2">XXXX-XXXX-XXXX-XXXX</span> 형태로 기술되어야 합니다.
+                <br />
+                제품 테스트를 위한 평가판 <b>제품 고유 번호는 http://www.dext5.com 에서  신청가능</b>합니다.  
+              </td>
+          </tr>
+          <tr>
+              <td class="t_bg">
+              license_key
+              </td>
+              <td>
+              제품 라이센스 관리를 위한 암호화된 스트링 값입니다.
+              <br />
+              제품 구입 시 주어집니다.<br /> 이 값이 유효하지 않은 경우 기능상 제한을 받을 수 있습니다.              
+              </td>
+          </tr>
+          <tr>
+              <td class="t_bg t_nline">
+              mime_use 
+              </td>
+              <td>
+              <span class="txt_red">[플러그인 전용]</span><br /> 
+              MIME 사용 여부를 설정합니다.<br />
+              "0"으로 설정 시 미사용, "1" 로 설정 시 사용입니다.<br />
+              기본값은 "0"입니다.
+              </td>
+          </tr>
+          <tr>
+              <td class="t_bg">
+              mimeCharset
+              </td>
+              <td>
+              mime_use가 "사용"일 경우 설정됩니다.<br />
+              MIME에 사용할 문자 인코딩(character encoding) 형태를 설정합니다.<br />
+              기본값은 "utf-8" 입니다.                               
+              </td>
+          </tr>            
+          <tr>
+              <td class="t_bg">
+               print_preview
+              </td>
+              <td >
+              <span class="txt_red">[플러그인 전용]</span><br /> 
+              Print Preview 버전을 설정합니다. 
+              <br />
+              "1"로 설정시 에디터에서 Print가 Print Preview 모드로 동작 합니다.             
+              </td>
+          </tr>  
+          <tr>
+              <td class="t_bg">
+               print_header
+              </td>
+              <td>
+              <span class="txt_red">[플러그인 전용]</span><br /> 
+               Print Preview 에서 header 부분을 설정합니다.
+               <br />
+               "0" 이면 header가 공백("")으로 설정됩니다.<br />
+               값이 공백 이면 브라우저 기본값이 header에 표시됩니다.<br />
+               값을 지정하면 header가 지정한 값으로 표시됩니다.<br />                
+              </td>
+          </tr> 
+          <tr>
+              <td class="t_bg">
+               print_footer
+              </td>
+              <td>
+              <span class="txt_red">[플러그인 전용]</span><br /> 
+              Print Preview 에서 footer 부분을 설정합니다.
+              <br />
+              "0" 이면 footer가 공백("")으로 설정됩니다.<br />
+              값이 공백 이면 브라우저 기본값이 footer에 표시됩니다.<br />
+              값을 지정하면 footer가 지정한 값으로 표시됩니다.<br />               
+              </td>
+          </tr>
+          <tr>
+              <td class="t_bg">
+               trust_sites
+              </td>
+              <td>
+              <span class="txt_red">[플러그인 전용]</span><br /> 
+              신뢰할 수 있는 사이트를 추가 설정합니다.
+              <br />
+              예) naver.com,daum.net (최상위 도메인만을 콤마(,)로 입력) 합니다.
+              </td>
+          </tr>                                                      
+          </tbody>
+         </table>        
+        <!--//license -->          
+        <!-- 에디터 환경설정 -->
+        <table class="h_table h_table2"> 
+          <caption>에디터 환경설정</caption>
+          <colgroup>
+           <col style="text-align:center; width:20% !important;" />
+           <col style="text-align:left; width:80% !important;" />
+          </colgroup>
+          <thead>          
+          <tr>
+              <th>
+                 &lt;setting /&gt;
+              </th>
+              <th>
+                에디터 환경 설정
+              </th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+              <td class="t_bg">
+              runtimes
+              </td>
+              <td>
+                html5 설정 시 html5 모드가 우선 적용됩니다.<br />
+                ieplugin 설정 시 ieplugin 모드가 우선 적용되며, 지원되지 않는 브라우저는 html5 모드가 적용됩니다.(ie 전용 모드)<br />
+                versionieplugin 설정 시 적용한 버전 이하에서만 플러그인 모드로 적용됩니다.<br/>
+                예) 9ieplugin 으로 적용하면 ie9 이하 버전에서 플러그인 모드로 적용됩니다.<br />
+                예) "html5" or "ieplugin" or versionieplugin 
+              </td>
+          </tr>
+          <tr>
+              <td class="t_bg">
+               encoding
+              </td>
+              <td> 
+              에디터 디자인 모드에 사용할 문자 인코딩(character encoding) 형태를 설정합니다.<br /><br />
+              다국어 지원을 위해서는 "utf-8" 사용을 권장하며, DEXT5 Editor의 기본값도 "utf-8" 입니다.<br /> 
+              사이트의 구성에 맞게 "euc-kr" 등을 값으로 사용할 수 있습니다.                       
+              </td>
+          </tr>    
+          <tr>
+              <td class="t_bg">
+               doctype
+              </td>
+              <td> 
+                DocType 설정 시 우선 적용 됩니다.<br /><br />
+                DocType 의 종류는<br/>
+                None, XHTML 1.1, XHTML 1.0 Transitional, XHTML 1.0 Strict, XHTML 1.0 Frameset,<br />HTML 5, HTML 4.01 Transitional, HTML 4.01 Strict, HTML 4.01 Frameset, HTML 3.2, HTML 2.0 입니다.                     
+              </td>
+          </tr> 
+          <tr>
+              <td class="t_bg">
+                 ie_compatible
+              </td>
+              <td> 
+                IE 랜더링 모드를 설정합니다.<br /><br /> 
+                예) EmulateIE8 또는 8 등 버전만 입력 합니다.                 
+              </td>
+          </tr> 
+          <tr>
+              <td class="t_bg">
+                 xmlnsname
+              </td>
+              <td> 
+                에디터 디자인 모드에서 사용할 XHTML 문서정의 포함 유무를 설정합니다.<br /><br /> 
+                XHTML 문서정의는 HTML 명령어를 그대로 유지하면서 XML의 포맷에 맞도록  필요한 요소들을 가미하고, W3C의 웹표준 규격을 지키는 언어체계 입니다.<br />
+                기본값은 "false" 입니다.                  
+              </td>
+          </tr>      
+          <tr>
+              <td class="t_bg">
+               doc_lang
+              </td>
+              <td> 
+              &lt;html&gt; 요소에 주언어를 설정합니다.<br /><br />
+              속성값은 ISO-639-1에서 지정한 언어 코드를 사용하며 한국어는 ko, 영어는 en, 일본어는 ja 등 입니다.<br />
+              기본값은 "ko" 입니다.              
+              </td>
+          </tr>  
+          <tr>
+              <td class="t_bg">
+               lang
+              </td>
+              <td> 
+                  기본 언어를 설정합니다.<br /><br /> 각 문화권(국가)의 고유한 이름을 지정해야합니다.<br />
+                  ·&nbsp;ko-kr : 한국어 (대한민국)<br/>
+                  ·&nbsp;en-us : 영어 (미국)<br/>
+                  ·&nbsp;zh-cn : 중국어 (중국)<br/>
+                  ·&nbsp;zh-tw : 중국어 (대만) <br/>
+                  ·&nbsp;ja-jp : 일본어 (일본) <br />
+                  기본값은 "ko-kr" 입니다.             
+              </td>
+          </tr> 
+          <tr>
+              <td class="t_bg">
+                width
+              </td>
+              <td> 
+              에디터의 넓이를 설정합니다.<br /><br />넓이는 "px", "%" 모두 가능합니다.<br />
+              기본값은 "900px" 입니다.               
+              </td>
+          </tr>  
+          <tr>
+              <td class="t_bg">
+               height 
+              </td>
+              <td> 
+              에디터의 높이를 설정합니다.<br /><br />높이는 "px", "%" 모두 가능합니다.<br />
+              기본값은 "550px" 입니다.              
+              </td>
+          </tr>  
+          <tr>
+              <td class="t_bg">
+               skinname 
+              </td>
+              <td > 
+              에디터의 스킨 색상을 설정합니다.<br /><br />사용 사이트의 색상 패턴과 조합을 위해서 이 설정을 사용하면 유용할 수 있습니다.<br />
+              색상으로는 blue, brown, darkgray, gold, gray, green, orange, pink, purple, red, silver, yellow, random 이 있습니다.<br />
+              기본값은 "blue" 입니다.        
+              </td>
+          </tr>   
+          <tr>
+              <td class="t_bg">
+               font_family
+              </td>
+              <td> 
+              에디터 로드 시 사용할 기본 폰트를 설정합니다.<br /><br />
+              DEXT5 Editor는 다국어를 지원하므로 다국어 사용시 각 언어에 맞는 기본 폰트를 지정하는 기능으로 유용할 수 있습니다. <br />기본 폰트는 "굴림" 입니다.       
+              </td>
+          </tr>
+          <tr>
+              <td class="t_bg">
+               font_size
+              </td>
+              <td> 
+               에디터 로드 시 사용할 기본 폰트 크기를 설정합니다.<br /><br />
+               DEXT5 Editor는 다국어를 지원하므로 다국어 사용시 각 언어에 맞는 기본 폰트 크기를 지정하는 기능으로 유용할 수 있습니다.<br />기본 폰트는 "12pt" 입니다.
+              </td>
+          </tr>   
+          <tr>
+              <td class="t_bg">
+               line_height
+              </td>
+              <td> 
+              에디터 로드 시 사용할 기본 줄간격을 설정합니다.<br /><br />
+              DEXT5 Editor는 다국어를 지원하므로 다국어 사용시 각 언어에 맞는 기본 줄간격을 지정하는 기능으로 유용할 수 있습니다.<br />기본 값은 "120%" 입니다.
+              </td>
+          </tr>
+          <tr>
+              <td class="t_bg">
+               show_font_real
+              </td>
+              <td>
+              에디터가 사용되는 곳에서의 실제 폰트명 및 크기를 설정합니다.<br /><br />
+              "0"으로 설정 시 실제 폰트명, 크기 사용 안함, "1" 로 설정 시 사용입니다.<br />
+              기본값은 "0" 입니다.
+              </td>
+          </tr>   
+          <tr>
+              <td class="t_bg">
+               accessability
+              </td>
+              <td> 
+                에디터 디자인 모드에 사용할 웹 접근성(web accessibility)단계를 설정합니다.<br /><br />장애를 가진 사람과 장애를 가지지 않은 사람 모두가 웹사이트를 이용할 수 있게 하는 방식입니다.<br />
+                웹 접근성 "0"단계는 웹 접근성 미설정합니다.<br />
+                "1"단계는 사용자로 하여금 표, 그림, Iframe 삽입 시 웹접근성을 위반하면 경고창으로 알려준 후 다음 단계로 진행합니다.<br />
+                "2"단계는 사용자로 하여금 표, 그림, Iframe 삽입 시 웹접근성을 위반하면 경고창으로 알려준 후 수정될 때까지 다음단계로 진행하지 않습니다.<br />
+                기본값은 "0" 입니다.<br />  
+              </td>
+          </tr> 
+          <tr>
+              <td class="t_bg">
+                show_topmenu
+              </td>
+              <td> 
+              에디터 메뉴바를 보이거나 숨기는 기능을 설정합니다.<br /><br />사용 용도에 따라서 메뉴바를 숨김으로 원할 때 사용하면 유용 할 수 있습니다. <br />
+              "0" 으로 설정 시 숨김으로 설정하고, "1" 로 설정 시 보임으로 설정합니다.<br />
+              기본값은 "1" 입니다.
+              </td>
+          </tr>   
+          <tr>
+              <td class="t_bg t_nline">
+                show_toolbar
+              </td>
+              <td> 
+              에디터의 툴바는 상단과 하단으로 구성되어 있습니다.<br />
+              이 설정은 상단, 하단 툴바를 보이거나 숨기는 기능을 설정합니다.<br /><br />사용 용도에 따라서 상단, 하단 툴바를 숨김으로 원할 때 사용하면 유용 할 수 있습니다.<br />
+              "0" 으로 설정 시 "상단, 하단" 툴바 모두를 숨김으로 설정합니다.
+              "1" 로 설정 시 "상단" 툴바만 보임으로 설정합니다.<br />
+              "2" 로 설정 시 "하단" 툴바만 보임으로 설정합니다.<br />
+              "3" 으로 설정 시 "상단, 하단" 툴바 모두를 보임으로 설정합니다. <br />
+              기본값은 "3" 입니다.
+              </td>
+          </tr>
+          <tr>
+              <td class="t_bg">
+                grouping
+              </td>
+              <td>
+              툴바 보기 설정 시,<br /><br />
+              에디터 아이콘 툴바 그룹핑을 설정합니다.<br />
+              노출하고자 하는 아이콘이 많을 경우 아이콘 그룹핑을 사용하시면 유용할 수 있습니다. <br />
+              "0" 으로 설정 시 아이콘 툴바 그룹핑 사용 안함,
+              "1" 로 설정 시 아이콘 툴바 그룹핑 사용으로 설정합니다.<br />
+              기본값은 "1" 입니다.
+              </td>
+          </tr>
+          <tr>
+              <td class="t_bg t_nline">
+                show_statusbar
+              </td>
+              <td> 
+              에디터의 상태바는 "디자인", "HTML" 및 "미리보기", "TEXT" 탭으로 구성되어 있습니다.<br />이 설정은 상태바를 보이거나 숨기는 기능을 설정합니다.<br /><br />사용 용도에 따라서 상태바를 숨김으로 원할 때 사용하면 유용 할 수 있습니다.<br />
+              "0" 으로 설정 시 상태바를 숨김, "1" 로 설정 시 상태바를 보임으로 설정합니다.<br />
+              기본값은 "1" 입니다.
+              </td>
+          </tr>
+            <tr>
+                <td class="t_bg">
+                    loading
+                </td>
+                <td>
+                    에디터 상태바 설정 시,<br/><br/>
+                    "디자인", "HTML" 및 "미리보기", "TEXT" 탭 변경 시 로딩 텍스트 노출 여부를 설정합니다.<br/>
+                    "0"으로 설정 시 로딩 텍스트를 미노출 하고, "1"로 설정 시 로딩 텍스트를 노출 합니다.<br />
+                    기본값은 "1" 입니다.
+                </td>
+            </tr>                   
+          <tr>
+              <td class="t_bg">
+               showdialog_pos
+              </td>
+              <td> 
+              에디터 다이얼로그창이 표시될 위치를 설정합니다.<br /><br />
+              기본값은 "1" 이고, 에디터 영역 중앙에 표시됩니다. <br />
+              이외의 값이면 브라우저 중앙에 표시 됩니다. 
+              </td>
+          </tr> 
+          <tr>
+              <td class="t_bg">
+               source_viewtype
+              </td>
+              <td> 
+              에디터 소스보기에서 html소스 정렬 여부를 설정합니다.<br /><br />
+              "0" 으로 설정 시 들여쓰기 사용안함 / 줄바꿈 사용,<br />
+              "1" 로 설정 시 들여쓰기 사용 / 줄바꿈 사용안함,<br />
+              "2" 로 설정 시 들여쓰기 / 줄바꿈 사용으로 설정합니다.<br />
+              기본값은 "1" 입니다.
+              </td>
+          </tr>
+          <tr>
+              <td class="t_bg">
+               wrap_ptag_to_source
+              </td>
+              <td>
+              set API가 실행될 때 block 태그를 제외한 태그는 ptag로 감싸는 설정입니다.<br /><br />
+              기본값은 "0" 이고, "1" 로 설정 시 ptag로 감싸며,<br />
+              "2"로 설정 시 내용이 없는 textNode는 제외하고 감싸도록 설정합니다.
+              </td>
+          </tr>
+          <tr>
+              <td class="t_bg">
+              user_css_url
+              </td>
+              <td> 
+              사용자가 만든 css를 에디터 영역에 설정합니다.<br /><br />
+              http://를 포함하는 전체 url을 입력해야 합니다.
+              </td>
+          </tr> 
+          <tr>
+              <td class="t_bg">
+              xhtml_value
+              </td>
+              <td> 
+              소스보기나 에디터 영역의 html 소스를 가져올 때 xhtml 형식으로 가져옵니다.<br /><br />
+              "0" 으로 설정 시 사용 안함, "1" 로 설정 시 사용으로 설정합니다.<br />
+              기본값은 "0" 입니다.
+              </td>
+          </tr>
+          <!-- <tr>
+              <td class="t_bg">
+              view_mode_auto_width
+              </td>
+              <td> 
+              View 모드시 에디터 안의 내용 만큼 자동으로 width가 늘어납니다. <br /><br />
+              기본값은 "0" 이고, "1"로 설정시 자동 width 사용으로 설정합니다. 
+              </td>
+          </tr>-->
+          <tr>
+              <td class="t_bg">
+              view_mode_auto_height
+              </td>
+              <td> 
+              View 모드시 에디터 안의 내용 만큼 자동으로 height가 늘어납니다.<br /><br />
+              기본값은 "0" 이고, "1"로 설정 시 자동 height를 사용으로 설정합니다. 
+              </td>
+          </tr>
+          <tr>
+              <td class="t_bg">
+              system_title
+              </td>
+              <td> 
+              다이얼로그창 상단 문구 변경 시 설정합니다.<br /><br />
+              기본값은 "DEXT5" 이고, "0" 으로 설정 시 사용하지 않음, "사용자 입력값" 으로 설정합니다.
+              </td>
+          </tr>
+          <tr>
+              <td class="t_bg">
+              table_auto_adjust
+              </td>
+              <td> 
+              에디터에서 표 작성 및 수정 시 width, height를 자동 보정으로 설정합니다.<br /><br />
+              "1"로 설정 시 사용으로 설정하고, "0" 으로 설정 시 사용 안함으로 설정합니다.<br />
+              기본값은 "1" 입니다.
+              </td>
+          </tr>   
+          <tr>
+              <td class="t_bg t_nline">
+              use_ruler
+              </td>
+              <td> 
+              가로 눈금자 표시 사용여부를 설정합니다.<br />
+              &lt;use_ruler ruler_init_position="680" view_pointer="1" view_guide_line="1" view_ruler="1"&gt;0&lt;/use_ruler&gt;<br /><br />
+              기본값은 "0" 이고 눈금자 사용 안함, "1"로 설정 시 눈금자 사용으로 설정합니다.
+              </td>
+          </tr>
+          <tr>
+              <td class="t_bg t_nline">
+              ruler_init_position
+              </td>
+              <td> 
+              가로 눈금자 사용 설정 시,<br /><br />
+              눈금자 포인터의 위치 값(픽셀)을 설정합니다.<br />
+              기본값은 "680px" 입니다.
+              </td>
+          </tr>
+          <tr>
+              <td class="t_bg t_nline">
+              view_pointer
+              </td>
+              <td> 
+              가로 눈금자 사용 설정 시,<br /><br />
+              눈금자 포인터 아이콘 표시 사용여부를 설정합니다.<br />
+              기본값은 "1" 이고 표시, "0" 으로 설정 시 포인트 아이콘을 표시 안함으로 설정합니다.
+              </td>
+          </tr>
+          <tr>
+              <td class="t_bg t_nline">
+              view_guide_line
+              </td>
+              <td> 
+              가로 눈금자 사용 설정 시,<br /><br />
+              에디터 작성 영역에 눈금자 포인터 기준선(세로) 표시 사용여부를 설정합니다.<br />
+              기본값은 "1" 이고 표시, "0" 으로 설정 시 눈금자 포인트 기준선 표시 안함으로 설정합니다.
+              </td>
+          </tr>
+          <tr>
+              <td class="t_bg">
+              view_ruler
+              </td>
+              <td> 
+              가로 눈금자 사용 설정 시,<br /><br />
+              에디터 작성 영역 상단에 눈금자 이미지 표시 사용여부를 설정합니다.<br />
+              기본값은 "1" 이고 표시, "0" 으로 설정 시 눈금자 이미지 표시 안함으로 설정합니다.
+              </td>
+          </tr>          
+          <tr>
+              <td class="t_bg">
+              auto_body_fit
+              </td>
+              <td> 
+              가로 눈금자 사용 설정 시, 눈금자 포인터 위치 값(픽셀) 기준으로 줄내림 사용여부를 설정합니다.<br />
+              "0" 으로 설정 시 사용 안함이고, "1" 로 설정 시 줄내림 사용으로 설정합니다.
+              </td>
+          </tr> 
+          <tr>
+              <td class="t_bg t_nline">
+              use_horizontal_line
+              </td>
+              <td> 
+              세로 기준선 표시 사용여부를 설정합니다.<br /><br />
+              "0" 으로 설정 시 사용 안함, "1"로 설정 시 세로 기준선 표시 사용으로 설정합니다.
+              </td>
+          </tr> 
+          <tr>
+              <td class="t_bg">
+              url
+              </td>
+              <td> 
+              세로 기준선 사용 설정 시,<br /><br />
+              기준선 이미지 경로를 설정합니다.<br />
+              http://를 포함한 전체 이미지 경로를 입력합니다.
+              </td>
+          </tr>
+          <tr>
+              <td class="t_bg">
+              context_menu_disable
+              </td>
+              <td> 
+              에디터 안에서 마우스 우클릭 시 메뉴 표시 사용여부를 설정합니다.<br /><br/>
+              "0" 으로 설정 시 표시, "1"로 설정 시 우클릭 메뉴 표시 안함으로 설정합니다.<br />
+              기본값은 "0" 입니다.
+              </td>
+          </tr>
+          <tr>
+              <td class="t_bg">
+              enter_tag
+              </td>
+              <td> 
+              Enter 키 눌렀을 때 사용하게 될 태그를 설정합니다. <br/><br/>
+              기본값은 "p" 태그이며, "br" 태그 등을 지정합니다. 
+              </td>
+          </tr>
+          <tr>
+              <td class="t_bg">
+              Img_default_size
+              </td>
+              <td> 
+              이미지 다이얼로그창의 너비, 높이 기본값을 설정합니다.<br /><br />
+              예) width="100" / height="100" 설정 시<br />
+              너비는 "100" / 높이는 "100" 으로 표시 합니다.
+              </td>
+          </tr>
+          <tr>
+              <td class="t_bg t_nline">
+              table_property
+              </td>
+              <td> 
+              테이블 생성 시 기본값을 설정합니다.<br/>
+              &lt;table_property allow_inoutdent_text="1" width="" height="" class="" inoutdent="" init_inoutdent="" td_height="" row_max_count="13" col_max_count="13"&gt;
+              </td>
+          </tr>
+          <tr>
+              <td class="t_bg t_nline">
+              allow_inoutdent_text
+              </td>
+              <td> 
+              표 전체 들여쓰기, 내어쓰기 또는 표 안에 텍스트만 들여쓰기, 내어쓰기 사용 여부를 설정합니다.<br />
+              기본값은 "0" 이고 표 전체 들여쓰기, 내어쓰기 사용, "1"로 설정 시 표 안에 텍스트만 들여쓰기, 내어쓰기 사용으로 설정합니다. 
+              </td>
+          </tr>
+          <tr>
+              <td class="t_bg t_nline">
+              width / height
+              </td>
+              <td> 
+              생성될 테이블의 너비 / 높이를 설정합니다.
+              </td>
+          </tr>
+          <tr>
+              <td class="t_bg t_nline">
+              inoutdent
+              </td>
+              <td> 
+              표 들여쓰기, 내어쓰기 시 사용될 px 값을 설정합니다.<br />
+              기본값은 "20"px 이고, "사용자 설정값"으로 설정합니다.
+              </td>
+          </tr>
+          <tr>
+              <td class="t_bg t_nline">
+              init_inoutdent
+              </td>
+              <td> 
+              표 생성 시 들여쓰기 할 기본 px값을 설정합니다.<br />
+              기본값은 "20"px 이고, "사용자 설정값"으로 설정합니다.
+              </td>
+          </tr>
+          <tr>
+              <td class="t_bg t_nline">
+              td_height
+              </td>
+              <td> 
+              표 생성 시 td 기본 높이의 px값을 설정합니다.
+              </td>
+          </tr>
+          <tr>
+              <td class="t_bg t_nline">
+              row_max_count
+              </td>
+              <td> 
+              표 삽입 시 행의 최대값을 설정합니다.<br/>
+              기본 최대값은 "13" 입니다.
+              </td>
+          </tr>
+          <tr>
+              <td class="t_bg t_nline">
+                  col_max_count
+              </td>
+              <td> 
+              표 삽입 시 열의 최대값을 설정합니다.<br/>
+              기본 최대값은 "13" 입니다.
+              </td>
+           </tr> 
+           <tr>
+               <td class="t_bg t_nline">
+                   &gt; class_list
+               </td>
+              <td> 
+              테이블에 지정 가능한 class명을 설정합니다.
+              </td>
+          </tr>
+          <tr>
+              <td class="t_bg t_nline">
+                  &gt; line_style
+              </td>
+              <td> 
+              테이블에 선모양 기본 스타일을 설정합니다.<br /><br />
+              기본값은 solid이고, solid, dotted, dashed, double, groove, ridge, inset, outset, none 중 하나의 값을 설정합니다.
+              </td>
+          </tr>
+          <tr>
+              <td class="t_bg t_nline">
+                  &gt; no_resize_class
+              </td>
+              <td> 
+              테이블에 resize 사용여부를 설정합니다.<br /><br />
+              사용자가 지정한 class명을 테이블에 주면 resize를 미사용으로 설정합니다.
+              </td>
+          </tr>
+          <tr>
+              <td class="t_bg">
+              &gt; show_line_for_border_none
+              </td>
+              <td> 
+              테이블에 선이 없을 경우(선두께:0) 점선 사용여부를 설정합니다.<br/><br />
+              기본값은 "0" 이고 선이 보이지 않음으로 설정됩니다.<br/>
+              "1"로 설정 시 점선으로 설정됩니다.<br />
+              "2"로 설정 시 점선으로 설정되고, 붙여 넣기 할 때도 점선으로 설정됩니다.
+              </td>
+          </tr>
+          <tr>
+              <td class="t_bg t_nline">
+                  set_default_style
+              </td>
+              <td> 
+              에디터 로드 시 기본 스타일이 없을 경우 body 영역에 에디터 스타일을 설정합니다.<br />
+              &lt;set_default_style dext_set_style="1" body_id="dext_body"&gt;0&lt;/set_default_style&gt;    
+              <br /><br />
+              기본값은 "0" 이고 에디터 기본 스타일 사용, "1"로 설정 시 에디터 body영역만 스타일 설정, "2"로 설정 시 getAPI 사용으로 태그에 inline 스타일 설정됩니다.
+              </td>
+          </tr>
+          <tr>
+              <td class="t_bg t_nline">
+              dext_set_style
+              </td>
+              <td> 
+              기본 스타일 사용으로 설정 시<br /><br />
+              DEXT5Editor 기본 CSS 로드 사용 여부를 설정합니다.<br />
+              기본값은 "1" 이며 스타일 적용, "0" 이면 스타일을 미적용 합니다.<br/><br />
+              set_default_style 설정값이 "0" 이고, dext_set_style 설정값을 "0" 으로 설정하면 외부 URL 로드 시 DEXT5Editor 기본 CSS를 로드하지 않습니다.
+              </td>
+          </tr>
+          <tr>
+              <td class="t_bg">
+                  body_id
+              </td>
+              <td> 
+              에디터 body 영역에 id 값 설정합니다.<br /><br />
+              기본값은 "dext_body"이고, "사용자 설정값"으로 설정합니다.
+              </td>
+          </tr>
+          <tr>
+              <td class="t_bg">
+              paste_to_image
+              </td>
+              <td>
+              <span class="txt_red">[플러그인 전용]</span><br /> 
+              에디터 마우스 우클릭 시 이미지로 붙여넣기 항목을 설정합니다.<br />
+              기본값은 "1" 이고 기본 붙여넣기에 이미지로 붙여넣기를 설정, "0" 으로 설정 시 우클릭 이미지로 붙여넣기 항목을 설정합니다.
+              </td>
+          </tr> 
+          <tr>
+              <td class="t_bg">
+              remove_space_in_tagname
+              </td>
+              <td> 
+              에디터 태그 이름에 공백을 제거 합니다.<br /><br />
+              기본값은 "0"이고, "1"로 설정 시 공백을 제거 하지 않습니다.
+              </td>
+          </tr> 
+          <tr>
+              <td class="t_bg">
+              view_mode_browser_menu
+              </td>
+              <td> 
+              에디터 View 모드에서 우클릭 시 브라우저 메뉴를 열리게 합니다.<br /><br />
+              기본값은 "0"이고, "1"로 설정 시 브라우저 메뉴를 열리지 않게합니다.
+              </td>
+          </tr>                                                                                                                                                  
+          <tr>
+              <td class="t_bg">
+              view_mode_allow_copy
+              </td>
+              <td> 
+              에디터 View 모드에서 키보드 단축키 ctrl+c 사용을 허용 설정합니다.<br /><br />
+              기본값은 "1"이고, "0"로 설정 시 ctrl+c 미허용으로 설정합니다.
+              </td>
+          </tr> 
+          <tr>
+              <td class="t_bg">
+              drag_and_drop_allow
+              </td>
+              <td> 
+              <span class="txt_red">[IE10이상만 지원]</span><br />
+              에디터 마우스 Drag&Drop으로 이미지를 추가할 수 있습니다.<br />
+              기본값은 "0"이고, "1"로 설정 시 마우스 Drag&Drop 사용으로 설정합니다.
+              </td>
+           </tr>    
+          <tr>
+              <td class="t_bg">
+              formlist_url 
+              </td>
+              <td> 
+              에디터 템플릿 양식 파일경로를 설정합니다. <br /><br />
+              http://를 포함한 전체 경로를 설정합니다.
+              </td>
+          </tr>   
+          <tr>
+              <td class="t_bg">
+              default_mode 
+              </td>
+              <td> 
+               에디터를 edit, view 모드로 설정합니다.<br /><br />
+               기본값은 "edit" 모드로 설정됩니다.
+              </td>
+          </tr>
+          <tr>
+              <td class="t_bg">
+              resizebar 
+              </td>
+              <td > 
+               에디터 높이를 조절 할 수 있습니다.<br /><br />
+               기본값은 "0" 이고 높이 조절 미사용, "1"로 설정 시 에디터 높이 조절 사용으로 설정합니다. 
+              </td>
+          </tr>
+        <tr>
+            <td class="t_bg t_nline">
+                drag_resize
+            </td>
+            <td>
+                editor에서 제공하는 리사이즈를 사용으로 설정합니다.<br />
+                &lt;drag_resize apply_browser="ie,edge,chrome,firefox,opera,safari" apply_div_class="DEXT_fiVe_Layer"&gt;1&lt;/drag_resize&gt;<br /><br />
+                기본값은 "0" 이고 브라우저 기본 리사이즈 사용, "1" 로 설정 시 editor에서 제공하는 리사이즈를 사용으로 설정합니다. 
+            </td>
+        </tr>
+        <tr>
+            <td class="t_bg t_nline">
+                apply_browser
+            </td>
+            <td>
+                에디터에서 제공하는 리사이즈 기능 사용으로 설정 시,<br /><br />
+                리사이즈 기능을 사용할 브라우저를 설정합니다.
+            </td>
+        </tr>
+        <tr>
+            <td class="t_bg">
+                apply_div_class
+            </td>
+            <td>
+                에디터에서 제공하는 리사이즈 기능 사용으로 설정 시,<br /><br />
+                사용자가 지정한 class명의 div태그를 에디터에서 제공하는 리사이즈기능으로 컨트롤할 수 있습니다. 
+            </td>
+        </tr>
+        <tr>
+            <td class="t_bg">
+                remove_comment
+            </td>
+            <td>
+                에디터에 내용이 들어올 때 주석 삭제 여부를 설정합니다.<br /><br />
+                기본값은 "1" 주석 삭제, "0" 으로 설정 시 주석을 미삭제 합니다.
+            </td>
+        </tr>
+        <tr>
+            <td class="t_bg">
+                user_help_url
+            </td>
+            <td>
+                에디터 사용자 매뉴얼(help 폴더) 경로를 설정합니다.<br /><br />
+                http:// 포함하는 전체 url 를 입력합니다.
+            </td>
+        </tr>
+        <tr>
+            <td class="t_bg">
+                use_correct_in_outdent
+            </td>
+            <td>
+                붙여넣기 시 p태그의 text-indent 또는 margin-left 값이 음수인 경우에 보정합니다. <br /><br />
+                기본값은 "0" 이고 보정 안함, "1"로 설정 시 보정합니다. 
+            </td>
+        </tr>
+        <tr>
+            <td class="t_bg t_nline">
+                browser_bugfixed
+            </td>
+            <td>
+                ie11브라우저에서 에디터 사용 시 자소분리 현상 보정 여부를 설정합니다.
+            </td>
+        </tr>
+        <tr>
+            <td class="t_bg">
+                > ie11_jaso
+            </td>
+            <td>
+                기본값은 "0" 이고 보정 안함, "1"로 설정 시 보정합니다. 
+            </td>
+        </tr>
+        <tr>
+            <td class="t_bg t_nline">
+                auto_destroy
+            </td>
+            <td>
+                에디터 언로드 시 destroy 하는 설정입니다.<br />
+                &lt;auto_destroy move_cursor="0"&gt;0&lt;/auto_destroy&gt;<br /><br />
+                기본값은 "0" 이고, "1" 인 경우 에디터 언로드 시 destroy 합니다.
+            </td>
+        </tr>
+        <tr>
+            <td class="t_bg">
+                move_cursor
+            </td>
+            <td>
+                기본값은 "0" 이고, 1인 경우 에디터 destroy시 커서를 다른 객체로 옮겨주는 설정을 합니다.
+            </td>
+        </tr>
+        <tr>
+            <td class="t_bg t_nline">
+                security
+            </td>
+            <td>
+                에디터에서 파일을 업로드 할 경우 파라미터 암호화에 대한 설정입니다.
+            </td>
+        </tr>
+        <tr>
+            <td class="t_bg">
+                > encrypt_param
+            </td>
+            <td>
+                기본값은 "0" 이고 암호화 하지 않음, "1" 로 설정 시 암호화합니다. 
+            </td>
+        </tr>
+          </tbody>
+         </table>        
+        <!--//에디터 환경설정 -->  
+          <!-- 에디터 업로드 설정 -->
+          <table class="h_table h_table2">
+              <caption>에디터 업로드 환경 설정</caption>
+              <colgroup>
+                  <col style="text-align:center; width:20% !important;" />
+                  <col style="text-align:left; width:80% !important;" />
+              </colgroup>
+              <thead>
+                  <tr>
+                      <th>
+                          &lt;uploader_setting/&gt;
+                      </th>
+                      <th>
+                          제품의 업로드 환경 설정
+                      </th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr>
+                      <td class="t_bg">
+                          develop_langage
+                      </td>
+                      <td>
+                          사용중인 사이트의 개발 언어를 설정합니다. <br /><br />
+                          기본값은 "NET" 이고, NET, JAVA, PHP 중 하나의 값을 사용합니다.
+                      </td>
+                  </tr>
+                  <tr>
+                      <td class="t_bg">
+                          handler_url
+                      </td>
+                      <td>
+                          웹에서 RFC 1867 표준에 따르는 POST 방식의 파일 전송을 받아주는 페이지 URL입니다.<br />
+                          이미지 파일 또는 Flash, media 파일 등 서버에 파일이 업로드 되지 않을 경우 이 값의 설정을 확인하세요.<br /><br />
+                          기본값은 "" 입니다.<br />dext5editor/handler/ 아래의 각 언어에 맞는 페이지를 호출합니다. <br />상대 및 절대 경로 모두를 지원합니다.<br />
+                          지정된 URL의 동작을 확인 하려면 handler_url URL에 "?dext=test"를 붙여서 테스트 후 페이지에 "Hi, DEXT5 Editor !!!! test" 가 표시되면 정상적으로 설정된 경우입니다.<br />
+                          각 개발 언어에 맞는 값으로 변경 설정하세요.
+                      </td>
+                  </tr>
+                  <tr>
+                      <td class="t_bg">
+                          handler_url_save_for_notes
+                      </td>
+                      <td>
+                          IBM NOTES 서버를 사용할 때 Dext5editor의 서버 로직을 사용할 수 없기 때문에 IBM NOTES서버에서 파일을 받을 경로를 설정합니다.<br />
+                          http://를 포함한 전체 경로로 설정합니다.
+                      </td>
+                  </tr>
+                  <tr>
+                      <td class="t_bg">
+                          server_domain
+                      </td>
+                      <td>
+                          이미지, 미디어 파일을 올릴 때 웹 경로에 들어가는 업로드 된 파일의 도메인 부분을 설정합니다. <br /><br />
+                          "빈 값"인 경우 handler_url이 동작하는 서버의 도메인이 설정됩니다.<br />"/" 값을 사용하면 도메인 부분을 빼고 처리됩니다.<br />"/" 이외의 값을 지정하면 해당 값으로 도메인이 표시됩니다.<br /><br />
+                          ex) handler_url 동작 URL이 http://www.dext5.com/upload_handler.ashx 인 경우<br />
+                          (빈값) == > http://www.dext5.com/dext5editordata/image.jpg  <br />
+                          "/" == >dext5editordata/image.jpg<br />
+                          "http://dext5.com" == > http://dext5.com/dext5editordata/image.jpg
+                      </td>
+                  </tr>
+                  <tr>
+                      <td class="t_bg">
+                          to_save_path_url
+                      </td>
+                      <td>
+                          이미지 또는 Flash, Media 파일 등 저장 할 때 서버에 연결 된 저장소의 URL 경로를 지정합니다. <br /><br />
+                          기본값은 dext5editor 폴더의 아래에 "dext5editordata" 폴더가 됩니다.<br />
+                          에디터에서 등록된 파일들은 설정된 폴더 아래에 저장이 됩니다. <br />
+                          이 경로는 서버의 상대 경로 또는 루트(/) 절대 경로만 허용합니다.<br />
+                          save_foldername_rule과 같이 사용할 수 있습니다.
+                      </td>
+                  </tr>
+                  <tr>
+                      <td class="t_bg">
+                          save_foldername_rule
+                      </td>
+                      <td>
+                          to_save_path_url에 설정된 폴더 하위들의 저장 체계를 설정합니다.  <br /><br />
+                          기본값은 "YYYY/MM/" 입니다.<br />설정 방법은<br />사용하지 않음 => "/",<br />년도 => "YYYY/",<br />년도/월 => "YYYY/MM/",<br />년도/월/일 => "YYYY/MM/DD/" 중 하나의 값을 사용합니다.<br />
+                          폴더가 존재하지 않으면 자동으로 생성되며, 서버의 날짜가 기준이 됩니다.
+                      </td>
+                  </tr>
+                  <tr>
+                      <td class="t_bg">
+                          save_filename_rule
+                      </td>
+                      <td>
+                          웹에서 등록된 파일의 이름을 지정하는 규칙입니다.<br /><br />
+                          기본값은 "GUID" 입니다.<br />
+                          값 지정은 "GUID" 또는 "DATETIME" 를 입력합니다.<br /> "DATETIME" 의 경우 파일이름이 년도(4자리)월(2자리)일(2자리)시간(2자리)시(2자리)초(2자리)밀리초(2자리) 형태로 설정됩니다.
+                      </td>
+                  </tr>
+                  <tr>
+                      <td class="t_bg">
+                          image_convert_format
+                      </td>
+                      <td>
+                          이미지 파일 업로드시 bmp 파일이나 디지털 카메라로 찍은 고용량 이미지의 크기를 줄이고자 할 때 사용하는 옵션입니다.<br /><br />
+                          기본값은 "빈 값" 입니다.<br />
+                          값을 jpg로 지정하면 원본 이미지 파일을 jpg 파일로 변환합니다.<br />
+                          image_convert_width 와 image_convert_height 둘의 값이 빈 값 또는 "0" 이고, image_convert_format 의 값이 빈 값이면
+                          bmp 파일만 원본 크기의 jpg로 변환합니다.
+                      </td>
+                  </tr>
+                  <tr>
+                      <td class="t_bg">
+                          image_convert_width
+                      </td>
+                      <td>
+                          이미지파일 업로드 시 저장될 이미지의 너비를 변환 할 때 사용하는 옵션입니다.<br /><br />
+                          기본값은 "0" 입니다.<br />
+                          image_convert_width가 빈 값 또는 "0" 이고, image_convert_height 의 값이 0 보다 큰 정수일 때
+                          입력 값을 기준으로 원본 비율의 width 값을 계산하여 jpg로 변환합니다.
+                      </td>
+                  </tr>
+                  <tr>
+                      <td class="t_bg">
+                          image_convert_height
+                      </td>
+                      <td>
+                          이미지파일 업로드 시 저장될 이미지의 높이를 변환 할 때 사용하는 옵션입니다.<br /><br />
+                          기본값은 "0" 입니다.<br />
+                          image_convert_height 가 빈 값 또는 "0" 이고, image_convert_width 의 값이 0 보다 큰 정수 일때
+                          입력 값을 기준으로 원본 비율의 height 값을 계산하여 jpg로 변환 합니다.
+                      </td>
+                  </tr>
+                  <tr>
+                      <td class="t_bg">
+                          image_auto_fit
+                      </td>
+                      <td>
+                          이미지파일 업로드시 에디터 화면 너비에 맞게 표시할지 여부를 설정합니다.<br /><br />
+                          기본값은 "0" 이며 원본 크기대로 화면에 표시하고, "1"로 설정하면 에디터 화면 너비에 맞게 표시합니다.<br />
+                          "1" 로 설정하는 경우, 실제 이미지 사이즈가 변경되지는 않습니다.
+                      </td>
+                  </tr>
+                  <tr>
+                      <td class="t_bg">
+                          allow_media_file_type
+                      </td>
+                      <td>
+                          동영상 삽입 시 허용할 확장자를 설정합니다.<br />
+                          ","(콤마)로 구분합니다.
+                      </td>
+                  </tr>
+                  <tr>
+                      <td class="t_bg">
+                          allow_image_file_type
+                      </td>
+                      <td>
+                          이미지 삽입 시 허용할 확장자를 설정합니다.<br /><br />
+                          ","(콤마)로 구분합니다
+                      </td>
+                  </tr>
+                  <tr>
+                      <td class="t_bg">
+                          allow_flash_file_type
+                      </td>
+                      <td>
+                          플래시 삽입 시 허용할 확장자를 설정합니다.<br /><br />
+                          ","(콤마)로 구분합니다
+                      </td>
+                  </tr>
+                  <tr>
+                      <td class="t_bg">
+                          allow_insert_file_type
+                      </td>
+                      <td>
+                          파일 삽입 시 허용할 확장자를 설정합니다.<br /><br />
+                          ","(콤마)로 구분합니다
+                      </td>
+                  </tr>
+                  <tr>
+                      <td class="t_bg">
+                          attach_file_image
+                      </td>
+                      <td>
+                          파일 삽입 시 파일 관련 이미지 삽입을 설정합니다.<br /><br />
+                          기본값은 "1" 이며 이미지 삽입 허용, "0" 으로 설정 시 이미지 삽입 허용 안함으로 설정합니다.
+                      </td>
+                  </tr>
+              </tbody>
+          </table>
+          <!-- //에디터 업로드 설정 -->
+          <!-- XSS 보안 설정 -->
+          <table class="h_table h_table2">
+              <caption>XSS 보안 설정</caption>
+              <colgroup>
+                  <col style="text-align:center; width:20% !important;" />
+                  <col style="text-align:left; width:80% !important;" />
+              </colgroup>
+              <thead>
+                  <tr>
+                      <th>
+                          &lt;xss_protection/&gt;
+                      </th>
+                      <th>
+                          XSS 방지 관련 정보
+                      </th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr>
+                      <td class="t_bg">
+                          xss_use
+                      </td>
+                      <td>
+                          에디터 XSS 방지를 설정합니다.<br /><br />
+                          1단계는 script, vbscript 태그 입력시 문자열로 처리하고, src, href 등에 입력된 보안위협요소를 제거합니다. <br />
+                          기본값은 "1" 이고, "0" 로 설정시 XSS 방지 미설정 합니다.
+                      </td>
+                  </tr>
+                  <tr>
+                      <td class="t_bg">
+                          xss_remove_tags
+                      </td>
+                      <td>
+                          에디터에 입력되면 삭제할 태그를 설정합니다. <br /><br />
+                          script,iframe,object 등 형태로 태그를 설정합니다.<br />사용자가 해당되는 태그를 입력한 경우 에디터에서 삭제합니다.
+                      </td>
+                  </tr>
+                  <tr>
+                      <td class="t_bg">
+                          xss_remove_events
+                      </td>
+                      <td>
+                          에디터에 입력되면 삭제할 이벤트를 설정합니다. <br /><br />
+                          onclick,onload,onchange 등 형태로 이벤트를 설정합니다.<br />
+                          all 로 입력하면 모든 이벤트 값을 설정합니다.<br />
+                          사용자가 태그에 해당되는 이벤트를 입력한 경우 에디터에서 삭제합니다.
+                      </td>
+                  </tr>
+              </tbody>
+          </table>
+          <!-- //XSS 보안 설정 -->
+          <!-- Extra 설정 -->
+          <table class="h_table h_table2">
+              <caption>에디터 추가 환경 설정</caption>
+              <colgroup>
+                  <col style="text-align:center; width:20% !important;" />
+                  <col style="text-align:left; width:80% !important;" />
+              </colgroup>
+              <thead>
+                  <tr>
+                      <th>
+                          &lt;extra_setting/&gt;
+                      </th>
+                      <th>
+                          사용환경에 따라 추가적인 설정이 필요한 경우 사용합니다.
+                      </th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr>
+                      <td class="t_bg">
+                          paste_image_base64
+                      </td>
+                      <td>
+                          이미지를 붙여넣기 할 때 DEXT5 Handler를 사용하지 않고, IMG의 src 값을 base64로 처리합니다.
+                          <br />
+                          이 기능은 html5 spec을 지원하는 브라우저에서만 사용이 가능합니다.
+                          <!--<br />
+                    (IE 11, Chrome, FireFox, Opera)-->
+                          <br /><br />
+                          기본값은 "0" 이며 사용하지 않음 (DEXT5 Handler를 사용하여 서버에 업로드한 이미지 경로를 사용),                          <br />
+                          "1" 로 설정 시 base64 사용으로 설정합니다.
+                      </td>
+                  </tr>
+                  <tr>
+                      <td class="t_bg">
+                          empty_tag_remove
+                      </td>
+                      <td>
+                          붙여넣기 할 때 P태그 안에 내용이 없으면 삭제처리 합니다.
+                          <br />
+                          <br />
+                          기본값은 "0" 이고 사용하지 않음, "1" 로 설정 시 P태그 삭제로 설정합니다.
+                      </td>
+                  </tr>
+              </tbody>
+          </table>
+          <!-- //Extra 업로드 설정 -->
+          <!-- 메뉴바 -->
+          <table class="h_table h_table2">
+              <caption>메뉴바 환경 설명</caption>
+              <colgroup>
+                  <col style="text-align:center; width:20% !important;" />
+                  <col style="text-align:left; width:80% !important;" />
+              </colgroup>
+              <thead>
+                  <tr>
+                      <th>
+                          &lt;top_menu /&gt;
+                      </th>
+                      <th>
+                          메뉴바 환경 설명
+                      </th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr>
+                      <td class="t_bg">
+                          m_file
+                      </td>
+                      <td>
+                          메뉴바에서 <b>[파일]</b> 메뉴를 표시하거나 숨기는 기능을 설정합니다.<br />
+                          &lt;remove_item /&gt;에 하위 앨리먼트로 추가 시 [파일] 메뉴를 표시하지 않습니다.<br />
+                          예 : &lt;remove_item&gt; &lt;item&gt; m_file &lt;/item&gt; &lt;/remove_item&gt;
+                      </td>
+                  </tr>
+                  <tr>
+                      <td class="t_bg"></td>
+                      <td>
+                          메뉴바에서 [파일] 메뉴의 하위 메뉴를 표시하거나 숨기는 기능을 설정합니다.<br />
+                          &lt;remove_item /&gt;에 하위 앨리먼트로 하위 메뉴 command 명을 지정해 주면 해당 하위 메뉴를 표시하지 않습니다.
+                          <table class="h1_table">
+                              <caption>메뉴바에서 [파일] 메뉴의 하위 메뉴를 표시하거나 숨기는 기능을 설정하는 예</caption>
+                              <colgroup>
+                                  <col style="text-align:left; width:50%;" />
+                                  <col style="text-align:left; width:50%;" />
+                              </colgroup>
+                              <thead>
+                                  <tr>
+                                      <th>메뉴명</th>
+                                      <th>command 명</th>
+                                  </tr>
+                              </thead>
+                              <tbody>
+                                  <tr>
+                                      <td>새 문서</td>
+                                      <td>new</td>
+                                  </tr>
+                                  <tr>
+                                      <td>파일열기</td>
+                                      <td>file_open</td>
+                                  </tr>
+                                  <tr>
+                                      <td>템플릿</td>
+                                      <td>template</td>
+                                  </tr>
+                                  <tr>
+                                      <td>레이아웃</td>
+                                      <td>layout</td>
+                                  </tr>
+                                  <tr>
+                                      <td>파일로 저장</td>
+                                      <td>save</td>
+                                  </tr>
+                                  <tr>
+                                      <td>자동저장내용 불러오기</td>
+                                      <td>load_auto_save</td>
+                                  </tr>
+                                  <tr>
+                                      <td>인쇄</td>
+                                      <td>print</td>
+                                  </tr>
+                                  <tr>
+                                      <td>페이지 분할</td>
+                                      <td>pagebreak</td>
+                                  </tr>
+                              </tbody>
+                          </table>
+                          예를 들면 [파일] 하위의 "새 문서"와 "인쇄" 메뉴를 표시하지 않으려면<br />
+                          &lt;remove_item&gt; &lt;item&gt; new &lt;/item&gt; &lt;item&gt; print &lt;/item&gt; &lt;/remove_item&gt;
+                          로 설정합니다.
+                      </td>
+                  </tr>
+                  <tr>
+                      <td class="t_bg">
+                          m_edit
+                      </td>
+                      <td>
+                          메뉴바에서 <b>[편집]</b> 메뉴를 표시하거나 숨기는 기능을 설정합니다.<br />
+                          &lt;remove_item /&gt;에 하위 앨리먼트로 추가 시 [편집] 메뉴를 표시하지 않습니다.<br />
+                          예 : &lt;remove_item&gt; &lt;item&gt; m_edit &lt;/item&gt; &lt;/remove_item&gt;
+                      </td>
+                  </tr>
+                  <tr>
+                      <td class="t_bg"></td>
+                      <td>
+                          메뉴바에서 [편집] 메뉴의 하위 메뉴를 표시하거나 숨기는 기능을 설정합니다.<br />
+                          &lt;remove_item /&gt;에 하위 앨리먼트로 하위 메뉴 command 명을 지정해 주면 해당 하위 메뉴를 표시하지 않습니다.<br />
+                          <table class="h1_table">
+                              <caption>메뉴바에서 [편집] 메뉴의 하위 메뉴를 표시하거나 숨기는 기능을 설정하는 예</caption>
+                              <colgroup>
+                                  <col style="text-align:left; width:50%;" />
+                                  <col style="text-align:left; width:50%;" />
+                              </colgroup>
+                              <thead>
+                                  <tr>
+                                      <th>메뉴명</th>
+                                      <th>command 명</th>
+                                  </tr>
+                              </thead>
+                              <tbody>
+                                  <tr>
+                                      <td>되돌리기</td>
+                                      <td>undo</td>
+                                  </tr>
+                                  <tr>
+                                      <td>다시 실행</td>
+                                      <td>redo</td>
+                                  </tr>
+                                  <tr>
+                                      <td>복사</td>
+                                      <td>copy</td>
+                                  </tr>
+                                  <tr>
+                                      <td>잘라내기</td>
+                                      <td>cut</td>
+                                  </tr>
+                                  <tr>
+                                      <td>붙여넣기</td>
+                                      <td>paste</td>
+                                  </tr>
+                                  <tr>
+                                      <td>전체선택</td>
+                                      <td>select_all</td>
+                                  </tr>
+                                  <tr>
+                                      <td>찾기</td>
+                                      <td>find</td>
+                                  </tr>
+                                  <tr>
+                                      <td>바꾸기</td>
+                                      <td>replace</td>
+                                  </tr>
+                              </tbody>
+                          </table>
+                          예를 들면 [편집] 하위의 "복사"와 "찾기" 메뉴를 표시하지 않으려면<br />
+                          &lt;remove_item&gt; &lt;item&gt; copy &lt;/item&gt; &lt;item&gt; find &lt;/item&gt; &lt;/remove_item&gt;
+                          로 설정합니다.
+                      </td>
+                  </tr>
+                  <tr>
+                      <td class="t_bg">
+                          m_view
+                      </td>
+                      <td>
+                          메뉴바에서 <b>[보기]</b> 메뉴를 표시하거나 숨기는 기능을 설정합니다.<br />
+                          &lt;remove_item /&gt;에 하위 앨리먼트로 추가 시 [보기] 메뉴를 표시하지 않습니다.<br />
+                          예 : &lt;remove_item&gt; &lt;item&gt; m_view &lt;/item&gt; &lt;/remove_item&gt;
+                      </td>
+                  </tr>
+                  <tr>
+                      <td class="t_bg"></td>
+                      <td>
+                          메뉴바에서 [보기] 메뉴의 하위 메뉴를 표시하거나 숨기는 기능을 설정합니다.<br />
+                          &lt;remove_item /&gt;에 하위 앨리먼트로 하위 메뉴 command 명을 지정해 주면 해당 하위 메뉴를 표시하지 않습니다.
+                          <table class="h1_table">
+                              <caption>메뉴바에서 [보기] 메뉴의 하위 메뉴를 표시하거나 숨기는 기능을 설정하는 예</caption>
+                              <colgroup>
+                                  <col style="text-align:left; width:50%;" />
+                                  <col style="text-align:left; width:50%;" />
+                              </colgroup>
+                              <thead>
+                                  <tr>
+                                      <th>메뉴명</th>
+                                      <th>command 명</th>
+                                  </tr>
+                              </thead>
+                              <tbody>
+                                  <tr>
+                                      <td>전체화면</td>
+                                      <td>full_screen</td>
+                                  </tr>
+                                  <tr>
+                                      <td>디자인</td>
+                                      <td>design</td>
+                                  </tr>
+                                  <tr>
+                                      <td>HTML</td>
+                                      <td>source</td>
+                                  </tr>
+                                  <tr>
+                                      <td>미리보기</td>
+                                      <td>preview</td>
+                                  </tr>
+                                  <tr>
+                                      <td>TEXT</td>
+                                      <td>text</td>
+                                  </tr>
+                              </tbody>
+                          </table>
+                          예를 들면 [보기] 하위의 "전체화면"와 "미리보기" 메뉴를 표시하지 않으려면<br />
+                          &lt;remove_item&gt; &lt;item&gt; full_screen &lt;/item&gt; &lt;item&gt; preview &lt;/item&gt; &lt;/remove_item&gt;
+                          로 설정합니다.
+                      </td>
+                  </tr>
+                  <tr>
+                      <td class="t_bg">
+                          m_insert
+                      </td>
+                      <td>
+                          메뉴바에서 <b>[삽입]</b> 메뉴를 표시하거나 숨기는 기능을 설정합니다.<br />
+                          &lt;remove_item /&gt;에 하위 앨리먼트로 추가 시 [삽입] 메뉴를 표시하지 않습니다.<br />
+                          예 : &lt;remove_item&gt; &lt;item&gt; m_insert &lt;/item&gt; &lt;/remove_item&gt;
+                      </td>
+                  </tr>
+                  <tr>
+                      <td class="t_bg"></td>
+                      <td>
+                          메뉴바에서 [삽입] 메뉴의 하위 메뉴를 표시하거나 숨기는 기능을 설정합니다.<br />
+                          &lt;remove_item /&gt;에 하위 앨리먼트로 하위 메뉴 command 명을 지정해 주면 해당 하위 메뉴를 표시하지 않습니다.
+                          <table class="h1_table">
+                              <caption>메뉴바에서 [삽입] 메뉴의 하위 메뉴를 표시하거나 숨기는 기능을 설정하는 예</caption>
+                              <colgroup>
+                                  <col style="text-align:left; width:50%;" />
+                                  <col style="text-align:left; width:50%;" />
+                              </colgroup>
+                              <thead>
+                                  <tr>
+                                      <th>메뉴명</th>
+                                      <th>command 명</th>
+                                  </tr>
+                              </thead>
+                              <tbody>
+                                  <tr>
+                                      <td>문서 배경 이미지</td>
+                                      <td>doc_bg_image</td>
+                                  </tr>
+                                  <tr>
+                                      <td>이미지</td>
+                                      <td>image_create</td>
+                                  </tr>
+                                  <tr>
+                                      <td>개체</td>
+                                      <td>entity</td>
+                                  </tr>
+                                  <tr>
+                                      <td>개체 &gt; 외부동영상공유 </td>
+                                      <td>insert_link_media</td>
+                                  </tr>
+                                  <tr>
+                                      <td>개체 &gt; Iframe </td>
+                                      <td>iframe_create</td>
+                                  </tr>
+                                  <tr>
+                                      <td>개체 &gt; Flash </td>
+                                      <td>flash_create</td>
+                                  </tr>
+                                  <tr>
+                                      <td>개체 &gt; 영상 </td>
+                                      <td>media_create</td>
+                                  </tr>
+                                  <tr>
+                                      <td>파일넣기</td>
+                                      <td>insert_file</td>
+                                  </tr>
+                                  <tr>
+                                      <td>하이퍼링크</td>
+                                      <td>hyperlink_create</td>
+                                  </tr>
+                                  <tr>
+                                      <td>책갈피</td>
+                                      <td>bookmark</td>
+                                  </tr>
+                                  <tr>
+                                      <td>수평선</td>
+                                      <td>horizontal_line</td>
+                                  </tr>
+                                  <tr>
+                                      <td>특수기호</td>
+                                      <td>symbol</td>
+                                  </tr>
+                                  <tr>
+                                      <td>이모티콘</td>
+                                      <td>emoticon</td>
+                                  </tr>
+                              </tbody>
+                          </table>
+                          예를 들면 [삽입] 하위의 "개체"와 "책갈피" 메뉴를 표시하지 않으려면<br />
+                          &lt;remove_item&gt; &lt;item&gt; entity &lt;/item&gt; &lt;item&gt; bookmark &lt;/item&gt; &lt;/remove_item&gt;
+                          로 설정합니다.
+                      </td>
+                  </tr>
+                  <tr>
+                      <td class="t_bg">
+                          m_form
+                      </td>
+                      <td>
+                          메뉴바에서 <b>[서식]</b> 메뉴를 표시하거나 숨기는 기능을 설정합니다.<br />
+                          &lt;remove_item /&gt;에 하위 앨리먼트로 추가 시 [서식] 메뉴를 표시하지 않습니다.<br />
+                          예 : &lt;remove_item&gt; &lt;item&gt; m_form &lt;/item&gt; &lt;/remove_item&gt;
+                      </td>
+                  </tr>
+                  <tr>
+                      <td class="t_bg"></td>
+                      <td>
+                          메뉴바에서 [서식] 메뉴의 하위 메뉴를 표시하거나 숨기는 기능을 설정합니다.<br />
+                          &lt;remove_item /&gt;에 하위 앨리먼트로 하위 메뉴 command 명을 지정해 주면 해당 하위 메뉴를 표시하지 않습니다.
+                          <table class="h1_table">
+                              <caption>메뉴바에서 [서식] 메뉴의 하위 메뉴를 표시하거나 숨기는 기능을 설정하는 예</caption>
+                              <colgroup>
+                                  <col style="text-align:left; width:50%;" />
+                                  <col style="text-align:left; width:50%;" />
+                              </colgroup>
+                              <thead>
+                                  <tr>
+                                      <th>메뉴명</th>
+                                      <th>command 명</th>
+                                  </tr>
+                              </thead>
+                              <tbody>
+                                  <tr>
+                                      <td>
+                                          굵게
+                                      </td>
+                                      <td>
+                                          bold
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          이탤릭
+                                      </td>
+                                      <td>
+                                          italic
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          밑줄
+                                      </td>
+                                      <td>
+                                          underline
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          취소선
+                                      </td>
+                                      <td>
+                                          strike_through
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          위 첨자
+                                      </td>
+                                      <td>
+                                          superscript
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          아래 첨자
+                                      </td>
+                                      <td>
+                                          subscript
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          서식 지우기
+                                      </td>
+                                      <td>
+                                          remove_format
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          CSS 지우기
+                                      </td>
+                                      <td>
+                                          remove_css
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          글머리 번호
+                                      </td>
+                                      <td>
+                                          list_number
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          글머리 기호
+                                      </td>
+                                      <td>
+                                          list_bullets
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          들여 쓰기
+                                      </td>
+                                      <td>
+                                          indent
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          내어 쓰기
+                                      </td>
+                                      <td>
+                                          outdent
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          수평 정렬
+                                      </td>
+                                      <td>
+                                          align_full
+                                      </td>
+                                  </tr>
+                              </tbody>
+                          </table>
+                          예를 들면 [서식] 하위의 "굵게"와 "수평 정렬" 메뉴를 표시하지 않으려면<br />
+                          &lt;remove_item&gt; &lt;item&gt; bold &lt;/item&gt; &lt;item&gt; align_full &lt;/item&gt; &lt;/remove_item&gt;
+                          로 설정합니다.
+                      </td>
+                  </tr>
+                  <tr>
+                      <td class="t_bg">
+                          m_table
+                      </td>
+                      <td>
+                          메뉴바에서 <b>[표]</b> 메뉴를 표시하거나 숨기는 기능을 설정합니다.<br />
+                          &lt;remove_item /&gt;에 하위 앨리먼트로 추가 시 [표] 메뉴를 표시하지 않습니다.<br />
+                          예 : &lt;remove_item&gt; &lt;item&gt; m_table &lt;/item&gt; &lt;/remove_item&gt;
+                      </td>
+                  </tr>
+                  <tr>
+                      <td class="t_bg"></td>
+                      <td>
+                          메뉴바에서 [표] 메뉴의 하위 메뉴를 표시하거나 숨기는 기능을 설정합니다.<br />
+                          &lt;remove_item /&gt;에 하위 앨리먼트로 하위 메뉴 command 명을 지정해 주면 해당 하위 메뉴를 표시하지 않습니다.
+                          <table class="h1_table">
+                              <caption>메뉴바에서 [표] 메뉴의 하위 메뉴를 표시하거나 숨기는 기능을 설정하는 예</caption>
+                              <colgroup>
+                                  <col style="text-align:left; width:50%;" />
+                                  <col style="text-align:left; width:50%;" />
+                              </colgroup>
+                              <thead>
+                                  <tr>
+                                      <th>메뉴명</th>
+                                      <th>command 명</th>
+                                  </tr>
+                              </thead>
+                              <tbody>
+                                  <tr>
+                                      <td>표 선택</td>
+                                      <td>table_selection</td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          표 삽입
+                                      </td>
+                                      <td>
+                                          detail_table_insert
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          표 삭제
+                                      </td>
+                                      <td>
+                                          table_delete
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          가로줄/세로줄 삽입
+                                      </td>
+                                      <td>
+                                          insert_row_column
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          가로줄 삽입
+                                      </td>
+                                      <td>
+                                          insert_row
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          가로줄 삽입 &gt; 위에 가로줄 삽입
+                                      </td>
+                                      <td>
+                                          insert_row_up
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          가로줄 삽입 &gt; 아래에 가로줄 삽입
+                                      </td>
+                                      <td>
+                                          insert_row_down
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          세로줄 삽입
+                                      </td>
+                                      <td>
+                                          insert_column
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          세로줄 삽입 &gt; 왼쪽에 세로줄 삽입
+                                      </td>
+                                      <td>
+                                          insert_column_left
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          세로줄 삽입 &gt; 오른쪽에 세로줄 삽입
+                                      </td>
+                                      <td>
+                                          insert_column_right
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          가로줄 삭제
+                                      </td>
+                                      <td>
+                                          delete_row
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          세로줄 삭제
+                                      </td>
+                                      <td>
+                                          delete_column
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          셀 합치기
+                                      </td>
+                                      <td>
+                                          merge_cell
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          셀 나누기
+                                      </td>
+                                      <td>
+                                          split_cell
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          가로줄 복제
+                                      </td>
+                                      <td>
+                                          table_row_clone
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          선택
+                                      </td>
+                                      <td>
+                                          table_select
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          선택 &gt; 셀 선택
+                                      </td>
+                                      <td>
+                                          table_select_cell
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          선택 &gt; 가로줄 선택
+                                      </td>
+                                      <td>
+                                          table_select_row
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          선택 &gt; 세로줄 선택
+                                      </td>
+                                      <td>
+                                          table_select_column
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          선택 &gt; 전체 셀 선택
+                                      </td>
+                                      <td>
+                                          table_select_all
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          셀 크기 조정
+                                      </td>
+                                      <td>
+                                          cell_size
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          셀 크기 조정 &gt; 너비를 같게
+                                      </td>
+                                      <td>
+                                          table_same_width
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          셀 크기 조정 &gt; 높이를 같게
+                                      </td>
+                                      <td>
+                                          table_same_height
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          셀 크기 조정 &gt; 너비/높이를 같게
+                                      </td>
+                                      <td>
+                                          table_same_widthheight
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          수직 정렬
+                                      </td>
+                                      <td>
+                                          align_vertical
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          수직 정렬 &gt; 위쪽 정렬
+                                      </td>
+                                      <td>
+                                          valign_up
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          수직 정렬 &gt; 가운데 정렬
+                                      </td>
+                                      <td>
+                                          valign_center
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          수직 정렬 &gt; 기준선 정렬
+                                      </td>
+                                      <td>
+                                          valign_baseline
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          수직 정렬 &gt; 아래쪽 정렬
+                                      </td>
+                                      <td>
+                                          valign_bottom
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          가로줄 속성
+                                      </td>
+                                      <td>
+                                          row_property
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          세로줄 속성
+                                      </td>
+                                      <td>
+                                          column_property
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          표 도구
+                                      </td>
+                                      <td>
+                                          table_tool
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          표 도구 &gt; 표 텍스트로 변환
+                                      </td>
+                                      <td>
+                                          convert_table_to_text
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          표 속성
+                                      </td>
+                                      <td>
+                                          table_property
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          셀 속성
+                                      </td>
+                                      <td>
+                                          cell_property
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          계산식  &gt; 가로줄 합계
+                                      </td>
+                                      <td>
+                                          horizontal_sum
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          계산식  &gt; 세로줄 합계
+                                      </td>
+                                      <td>
+                                          vertical_sum
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          계산식  &gt; 가로줄 평균
+                                      </td>
+                                      <td>
+                                          horizontal_avg
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          계산식  &gt; 세로줄 평균
+                                      </td>
+                                      <td>
+                                          vertical_avg
+                                      </td>
+                                  </tr>
+                              </tbody>
+                          </table>
+                          예를 들면 [표] 하위의 "선택"와 "표 도구" 메뉴를 표시하지 않으려면<br />
+                          &lt;remove_item&gt; &lt;item&gt; table_select &lt;/item&gt; &lt;item&gt; table_tool &lt;/item&gt; &lt;/remove_item&gt;
+                          로 설정합니다.
+                      </td>
+                  </tr>
+                  <tr>
+                      <td class="t_bg">
+                          m_tool
+                      </td>
+                      <td>
+                          메뉴바에서 <b>[도구]</b> 메뉴를 표시하거나 숨기는 기능을 설정합니다.<br />
+                          &lt;remove_item /&gt;에 하위 앨리먼트로 추가 시 [도구] 메뉴를 표시하지 않습니다.<br />
+                          예 : &lt;remove_item&gt; &lt;item&gt; m_tool &lt;/item&gt; &lt;/remove_item&gt;
+                      </td>
+                  </tr>
+                  <tr>
+                      <td class="t_bg"></td>
+                      <td>
+                          메뉴바에서 [도구] 메뉴의 하위 메뉴를 표시하거나 숨기는 기능을 설정합니다.<br />
+                          &lt;remove_item /&gt;에 하위 앨리먼트로 하위 메뉴 command 명을 지정해 주면 해당 하위 메뉴를 표시하지 않습니다.
+                          <table class="h1_table">
+                              <caption>메뉴바에서 [도구] 메뉴의 하위 메뉴를 표시하거나 숨기는 기능을 설정하는 예</caption>
+                              <colgroup>
+                                  <col style="text-align:left; width:50%;" />
+                                  <col style="text-align:left; width:50%;" />
+                              </colgroup>
+                              <thead>
+                                  <tr>
+                                      <th>
+                                          메뉴명
+                                      </th>
+                                      <th>
+                                          command 명
+                                      </th>
+                                  </tr>
+                              </thead>
+                              <tbody>
+                                  <tr>
+                                      <td>
+                                          대/소문자 바꾸기
+                                      </td>
+                                      <td>
+                                          tool_replace
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          환경설정
+                                      </td>
+                                      <td>
+                                          setting
+                                      </td>
+                                  </tr>
+                              </tbody>
+                          </table>
+                          예를 들면 [도구] 하위의 "환경설정" 메뉴를 표시하지 않으려면<br />
+                          &lt;remove_item&gt; &lt;item&gt; setting &lt;/item&gt; &lt;/remove_item&gt;
+                          로 설정합니다.
+                      </td>
+                  </tr>
+              </tbody>
+          </table>
+          <!--//메뉴바 -->
+          <!-- 상단툴바 -->
+          <table class="h_table">
+              <caption>상단 툴바 환경 설명</caption>
+              <colgroup>
+                  <col style="text-align:left; width:20%;" />
+                  <col style="text-align:left; width:80%;" />
+              </colgroup>
+              <thead>
+                  <tr>
+                      <th>&lt;tool_bar_1 /&gt;</th>
+                      <th>상단(기본) 툴바 환경 설명</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr>
+                      <td class="t_bg"></td>
+                      <td>
+                          상단(기본) 툴바의 메뉴를 표시하거나 숨기는 기능을 설정합니다.<br />
+                          &lt;remove_item /&gt;에 하위 앨리먼트로 하위 메뉴 command 명을 지정해 주면 해당 하위 메뉴를 표시하지 않습니다.
+                          <br /><br />
+                          <img src="../../Images/tool_bar_1.png" width="96%" height="23" alt="상단(기본) 툴바" />
+
+                          <!-- 미완료 -->
+                          <table class="h1_table">
+                              <caption>상단(기본) 툴바의 메뉴를 표시하거나 숨기는 기능을 설정하는 예</caption>
+                              <colgroup>
+                                  <col style="text-align:left; width:50%;" />
+                                  <col style="text-align:left; width:50%;" />
+                              </colgroup>
+                              <thead>
+                                  <tr>
+                                      <th>
+                                          메뉴명
+                                      </th>
+                                      <th>
+                                          command 명
+                                      </th>
+                                  </tr>
+                              </thead>
+                              <tbody>
+                                  <tr>
+                                      <td>
+                                          새 문서
+                                      </td>
+                                      <td>
+                                          new
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          파일로 저장
+                                      </td>
+                                      <td>
+                                          save
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          인쇄
+                                      </td>
+                                      <td>
+                                          print
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          페이지 분할
+                                      </td>
+                                      <td>
+                                          pagebreak
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          실행 취소
+                                      </td>
+                                      <td>
+                                          undo
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          다시 실행
+                                      </td>
+                                      <td>
+                                          redo
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          복사
+                                      </td>
+                                      <td>
+                                          copy
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          잘라내기
+                                      </td>
+                                      <td>
+                                          cut
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          붙여넣기
+                                      </td>
+                                      <td>
+                                          paste
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          전체선택
+                                      </td>
+                                      <td>
+                                          select_all
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          바꾸기
+                                      </td>
+                                      <td>
+                                          replace
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          특수문자/기호
+                                      </td>
+                                      <td>
+                                          symbol
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          수평선
+                                      </td>
+                                      <td>
+                                          horizontal_line
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          하이퍼링크
+                                      </td>
+                                      <td>
+                                          hyperlink_create
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          날짜/시간 삽입
+                                      </td>
+                                      <td>
+                                          insert_datetime
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          이모티콘
+                                      </td>
+                                      <td>
+                                          emoticon
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          문서 배경 이미지
+                                      </td>
+                                      <td>
+                                          doc_bg_image
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          이미지
+                                      </td>
+                                      <td>
+                                          image_create
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          외부 동영상 공유
+                                      </td>
+                                      <td>
+                                          insert_link_media
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          영상
+                                      </td>
+                                      <td>
+                                          media_create
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          파일 넣기
+                                      </td>
+                                      <td>
+                                          insert_file
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          표 삽입
+                                      </td>
+                                      <td>
+                                          table_insert
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          표 선택
+                                      </td>
+                                      <td>
+                                          table_selection
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          표 편집
+                                      </td>
+                                      <td>
+                                          table_group<br /><br />
+                                          아래의 표 관련 기능들(아래에 가로줄 삽입, 세로줄 삭제, 오른쪽에 세로줄 삽입, 표 삭제, 셀 합치기, 셀 나누기, 너비를 같게, 높이를 같게)을 하나의 아이콘으로 사용하실수 있습니다.
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          위에 가로줄 삽입
+                                      </td>
+                                      <td>
+                                          insert_row_up
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          아래에 가로줄 삽입
+                                      </td>
+                                      <td>
+                                          insert_row_down
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          세로줄 삭제
+                                      </td>
+                                      <td>
+                                          delete_column
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          왼쪽에 세로줄 삽입
+                                      </td>
+                                      <td>
+                                          insert_column_left
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          오른쪽에 세로줄 삽입
+                                      </td>
+                                      <td>
+                                          insert_column_right
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          표 삭제
+                                      </td>
+                                      <td>
+                                          table_delete
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          셀 합치기
+                                      </td>
+                                      <td>
+                                          merge_cell
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          셀 나누기
+                                      </td>
+                                      <td>
+                                          split_cell
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          행 너비 동일하게
+                                      </td>
+                                      <td>
+                                          table_same_width
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          열 높이 동일하게
+                                      </td>
+                                      <td>
+                                          table_same_height
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          셀 배경색
+                                      </td>
+                                      <td>
+                                          cell_bg_color
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          블록 보기
+                                      </td>
+                                      <td>
+                                          show_blocks
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          웹 접근성 검증
+                                      </td>
+                                      <td>
+                                          accessibility_validation
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          환경설정
+                                      </td>
+                                      <td>
+                                          setting
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          전체화면
+                                      </td>
+                                      <td>
+                                          full_screen
+                                      </td>
+                                  </tr>
+
+
+                                  <!--  <tr>
+                                <td>
+                                    DEXT5 정보
+                                </td>
+                                <td>
+                                    about
+                                </td>
+                            </tr>    -->
+                                  <tr>
+                                      <td>
+                                          구분선
+                                      </td>
+                                      <td>
+                                          separator
+                                      </td>
+                                  </tr>
+                              </tbody>
+                          </table>
+                          예를 들면 상단(기본) 툴바 하위의 "표 삭제" 와 "전체화면" 메뉴를 표시하지 않으려면<br />
+                          &lt;remove_item&gt; &lt;item&gt; table_delete &lt;/item&gt; &lt;item&gt; full_screen &lt;/item&gt; &lt;/remove_item&gt;
+                          로 설정합니다.
+                      </td>
+                  </tr>
+              </tbody>
+          </table>
+          <!-- //상단툴바 -->
+          <!-- 하단툴바 -->
+          <table class="h_table">
+              <caption>하단(서식) 툴바 환경 설명</caption>
+              <colgroup>
+                  <col style="text-align:left; width:20%;" />
+                  <col style="text-align:left; width:80%;" />
+              </colgroup>
+              <thead>
+                  <tr>
+                      <th>
+                          <b>&lt;tool_bar_2 /&gt;</b>
+                      </th>
+                      <th>
+                          하단(서식) 툴바 환경 설명
+                      </th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr>
+                      <td class="t_bg"></td>
+                      <td>
+                          하단(서식) 툴바의 메뉴를 표시하거나 숨기는 기능을 설정합니다.<br />
+                          &lt;remove_item /&gt;에 하위 앨리먼트로 하위 메뉴 command 명을 지정해 주면 해당 하위 메뉴를 표시하지 않습니다.
+                          <br /><br />
+                          <img src="../../images/tool_bar_2.png" width="96%" height="23" border="0" alt="하단(서식) 툴바" /><br />
+                          <table class="h1_table">
+                              <caption>하단(서식) 퉆바의 메뉴를 표시하거나 숨기는 기능을 설정한 예 </caption>
+                              <colgroup>
+                                  <col style="width:50%; text-align:left;" />
+                                  <col style="width:50%; text-align:left;" />
+                              </colgroup>
+                              <thead>
+                                  <tr>
+                                      <th>
+                                          메뉴명
+                                      </th>
+                                      <th>
+                                          command 명
+                                      </th>
+                                  </tr>
+                              </thead>
+                              <tbody>
+                                  <tr>
+                                      <td>
+                                          서식 콤보
+                                      </td>
+                                      <td>
+                                          formatting
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          폰트 콤보
+                                      </td>
+                                      <td>
+                                          font_family
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          폰트 크기 콤보
+                                      </td>
+                                      <td>
+                                          font_size
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          줄간격
+                                      </td>
+                                      <td>
+                                          line_height
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          진하게
+                                      </td>
+                                      <td>
+                                          bold
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          이탤릭
+                                      </td>
+                                      <td>
+                                          italic
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          밑줄
+                                      </td>
+                                      <td>
+                                          underline
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          취소선
+                                      </td>
+                                      <td>
+                                          strike_through
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          위 첨자
+                                      </td>
+                                      <td>
+                                          superscript
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          아래 첨자
+                                      </td>
+                                      <td>
+                                          subscript
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          서식 지우기
+                                      </td>
+                                      <td>
+                                          remove_format
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          css 지우기
+                                      </td>
+                                      <td>
+                                          remove_css
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          글자색
+                                      </td>
+                                      <td>
+                                          font_color
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          글자 배경색
+                                      </td>
+                                      <td>
+                                          font_bg_color
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          번호 매기기
+                                      </td>
+                                      <td>
+                                          list_number
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          글머리 기호
+                                      </td>
+                                      <td>
+                                          list_bullets
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          왼쪽 정렬
+                                      </td>
+                                      <td>
+                                          align_left
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          가운데 정렬
+                                      </td>
+                                      <td>
+                                          align_center
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          오늘쪽 정렬
+                                      </td>
+                                      <td>
+                                          align_right
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          양쪽 정렬
+                                      </td>
+                                      <td>
+                                          align_full
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          들여 쓰기
+                                      </td>
+                                      <td>
+                                          indent
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          내어 쓰기
+                                      </td>
+                                      <td>
+                                          outdent
+                                      </td>
+                                  </tr>
+                              </tbody>
+                          </table>
+                          예를 들면 하단(서식) 툴바 하위의 "들여 쓰기" 와 "내어 쓰기" 메뉴를 표시하지 않으려면<br />
+                          &lt;remove_item&gt; &lt;item&gt; indent &lt;/item&gt; &lt;item&gt; outdent &lt;/item&gt; &lt;/remove_item&gt;
+                          로 설정합니다.
+                      </td>
+                  </tr>
+              </tbody>
+          </table>
+          <!--//하단툴바 -->
+          <!-- 상태바 -->
+          <table class="h_table">
+              <caption>상태바 환경 설정</caption>
+              <colgroup>
+                  <col style="width:20%; text-align:left;" />
+                  <col style="width:80%; text-align:left;" />
+              </colgroup>
+              <thead>
+                  <tr>
+                      <th>
+                          <b>&lt;status_bar /&gt;</b>
+                      </th>
+                      <th>
+                          상태바 환경 설명
+                      </th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr>
+                      <td class="t_bg"></td>
+                      <td>
+                          상태바의 메뉴를 표시하거나 숨기는 기능을 설정합니다.<br />
+                          <table class="h1_table">
+                              <caption>상태바의 메뉴를 표시하거나 숨기는 기능 설정 예</caption>
+                              <colgroup>
+                                  <col style="width:50%; text-align:left;" />
+                                  <col style="width:50%; text-align:left;" />
+                              </colgroup>
+                              <thead>
+                                  <tr>
+                                      <th>
+                                          메뉴명
+                                      </th>
+                                      <th>
+                                          command 명
+                                      </th>
+                                  </tr>
+                              </thead>
+                              <tbody>
+                                  <tr>
+                                      <td>
+                                          디자인
+                                      </td>
+                                      <td>
+                                          design
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          HTML
+                                      </td>
+                                      <td>
+                                          source
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          미리보기
+                                      </td>
+                                      <td>
+                                          preview
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          TEXT
+                                      </td>
+                                      <td>
+                                          text
+                                      </td>
+                                  </tr>
+                              </tbody>
+                          </table>
+                          예를 들면 상태바 하위의 "디자인" 과 "HTML" 만 표시하려면<br />
+                          &lt;status_bar&gt; &lt;status&gt; design &lt;/status&gt; &lt;status&gt; source &lt;/status&gt; &lt;/status_bar&gt;
+                          로 설정합니다.
+                      </td>
+                  </tr>
+              </tbody>
+          </table>
+          <!--//상태바 -->
+     </div>
+</div>
+</div>
+</body>
+</html>
+

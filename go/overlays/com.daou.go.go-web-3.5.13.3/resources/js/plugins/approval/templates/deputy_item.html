@@ -1,0 +1,19 @@
+<td class="check first"><input type="checkbox" name="checkbox" class="absence_item_checkbox" data-id="{{doc.id}}"></td>
+{{#columns.부재 시작}}
+<td class="absence_start">{{doc.startAt}}</td>
+{{/columns.부재 시작}}
+{{#columns.부재 종료}}
+<td class="absence_end">{{doc.endAt}}</td>
+{{/columns.부재 종료}}
+{{#columns.소속 부서}}
+<td class="depart">{{doc.deputyUserDeptName]}}</td>
+{{/columns.소속 부서}}
+{{#columns.대결자}}
+<td class="people"><a href="#">{{doc.deputyUserName}}</a></td>
+{{/columns.대결자}}
+{{#columns.부재 사유}}
+<td class="absence_reason" data-id="{{doc.id}}" style="cursor:pointer;">{{doc.absenceContent}}</td>
+{{/columns.부재 사유}}
+{{#columns.사용 여부}}
+<td class="useFlag">{{doc.useFlag}}</td>
+{{/columns.사용 여부}}

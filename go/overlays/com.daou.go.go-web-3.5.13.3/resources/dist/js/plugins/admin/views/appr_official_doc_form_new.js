@@ -1,0 +1,1 @@
+(function(){define(["jquery","backbone","app","i18n!nls/commons","i18n!admin/nls/admin","admin/models/appr_official_doc_form","admin/views/appr_official_doc_form"],function(e,t,n,r,i,s,o){var u=t.View.extend({formView:null,initialize:function(){this.formView=new o({model:new s})},render:function(){this.formView.render()}});return u})}).call(this);

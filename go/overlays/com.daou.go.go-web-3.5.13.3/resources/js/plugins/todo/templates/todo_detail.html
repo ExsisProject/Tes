@@ -1,0 +1,53 @@
+<header class="content-header conent_header">
+    <h1 class="board_name">
+        {{#useToolbar?}}
+        {{#editable?}}
+        <span class="btn-board-menu btn_setting">
+            <span class="ic_board ic_setting"></span>
+        </span>
+        {{/editable?}}
+        {{/useToolbar?}}
+        <span class="ui-todo-title txt txt_ellipsis{{#owner?}} editable{{/owner?}}">{{title}}</span>
+        {{#useToolbar?}}
+        <span class="action">
+            <a href="#" class="btn-favorite btn_star" data-bypass>
+                <ins id="favorite" class="{{#favorite?}}ic_star{{/favorite?}}{{^favorite?}}ic_star_off{{/favorite?}}" title="{{attr_title_favorite}}"></ins>
+            </a>
+        </span>
+        {{/useToolbar?}}
+    </h1>
+    <div class="optional">
+        {{#useToolbar?}}
+        <a class="btn-open-calendar btn_statistic" href="#" alt="{{label.calendar}}" title="{{label.calendar}}" data-bypass><span class="ic_board ic_board_statistic"></span></a>
+        <a class="btn-open-stat btn_statistic" href="#" alt="{{label.stat}}" title="{{label.stat}}" data-bypass><span class="ic_board ic_statistic"></span></a>
+        {{/useToolbar?}}
+        <a class="btn-open-timeline btn_flat" href="#" data-bypass><span class="ic_board ic_slide_open"></span><span class="txt">{{label.timeline}}</span></a>
+    </div>
+</header>
+
+<div class="ui-scroll-container" id="board-container" data-scroll-axis="x">
+    <div class="ui-scroll-content content_body" id="board-content" data-scrollcontent="true">
+
+        {{#editable?}}
+        <div class="ui-column-container ui-add-cloumn-container board_column_wrap column_create_wrap" data-type="button">
+            <div class="board_card_wrap" style="overflow: hidden">
+                <div class="ui-column-add-btn column_create">
+                    <a href="#" class="btn-add-column create_box" data-bypass><span class="ic_board ic_plus_w" title="{{label.columnAdd}}"></span></a>
+                </div>
+
+                <div class="ui-column-add-form create_form" style="display:none">
+                    <form name="form_column_add">
+                        <span class="wrap_txt">
+                            <input class="txt" type="text" name="title" maxlength="500" value="">
+                        </span>
+                        <footer class="btn_wrap">
+                            <a class="btn-save btn_major_s"><span class="txt">{{label.save}}</span></a>
+                            <a class="btn-cancel btn_minor_s"><span class="txt">{{label.cancel}}</span></a>
+                        </footer>
+                    </form>
+                </div>
+            </div>
+        </div>
+        {{/editable?}}
+    </div>
+</div>

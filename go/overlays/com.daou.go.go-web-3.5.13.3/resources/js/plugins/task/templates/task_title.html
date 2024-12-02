@@ -1,0 +1,35 @@
+<h1>
+	<span class="ic_side {{#isPrivate}}ic_private{{/isPrivate}}"></span>
+	<span class="txt">{{title}}</span>
+	<span class="meta">
+		{{#subTitle}}
+		<span class="team">in {{subTitle}}</span>
+		{{/subTitle}}
+		{{#count}}
+		<span class="num">({{lang.total}}
+			<strong>{{count}}</strong>{{lang.count}})
+		</span>
+		{{/count}}
+	</span>
+	{{#hasFavorite}}
+	<span class="action">
+		<ins id="favorite" class="
+			{{^isFavorite}}ic_star_off{{/isFavorite}}
+			{{#isFavorite}}ic_star{{/isFavorite}}" value="{{isFavorite}}">
+		</ins>
+	</span>
+	{{/hasFavorite}}
+</h1>
+
+<section class="combine_search">
+	<div class="c_search_wrap"><!--focus되면 "search_focus" multi class로 추가해주세요.-->
+		<select class="search_op" id="searchType">
+			<option value="appSearch">{{lang.task}}</option>
+			<option value="totalSearch">{{lang.unified_search}}</option>
+		</select>
+		<input class="c_search" type="text" id="keyword" placeholder="{{lang.search}}">
+		<a class="c_btn_detail" id="searchDetail" title="{{lang.searchDetail}}"><span class="txt">{{lang.detail}}</span><span class="ic ic_cs_detail_arrow  "></span></a>
+		<input class="btn_c_search" type="button" id="searchSimple" value="" title="{{lang.search}}">
+		<input type="hidden" name="hiddenInput"/>
+	</div>
+</section>

@@ -1,0 +1,51 @@
+<div class="content_page">
+    <form name="formMobileContactConfig" id="formMobileContactConfig">
+        <div class="container">
+            <div class="header">
+                <h2>{{lang.label_contact_list_exposure}}</h2>
+            </div>
+            <div class="content">
+                <table>
+                    <colgroup>
+                        <col width="160px">
+                        <col width="*">
+                    </colgroup>
+                    <tbody>
+                    <tr class="last">
+                        <th>
+                            <span class="title">{{lang.use_contact_list}}</span>
+                            <span class="help">
+                                <span class="tool_tip">{{lang.contact_exposure_help}}<i class="tail_left"></i></span>
+                            </span>
+                        </th>
+                        <td>
+                            <div class="content">
+                                <div class="vertical_wrap_s">
+                                    <span class="option_wrap">
+                                        <input type="radio" id="mobileContactList_true" value="true" name="mobileContactList"
+                                               {{#model.mobileContactList}} checked="checked" {{/model.mobileContactList}}>
+                                        <label for="mobileContactList_true">{{lang.label_use}}</label>
+                                    </span>
+                                                </div>
+                                                <div class="vertical_wrap_s">
+                                    <span class="option_wrap">
+                                        <input type="radio" id="mobileContactList_false" value="false" name="mobileContactList"
+                                               {{^model.mobileContactList}} checked="checked" {{/model.mobileContactList}}>
+                                        <label for="mobileContactList_false">{{lang.label_not_use}}</label>
+                                    </span>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="page_action mini">
+                <span class="btn" id="btn_ok">{{lang.label_ok}}</span>
+                <span class="btn_nega" id="btn_cancel">{{lang.label_cancel}}</span>
+            </div>
+        </div>
+    </form>
+
+</div>

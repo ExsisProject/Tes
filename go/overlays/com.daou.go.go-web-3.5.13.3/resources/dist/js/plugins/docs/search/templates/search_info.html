@@ -1,0 +1,43 @@
+<div class="content_search_wrap">
+    <h1><ins class="bullet"></ins><span class="title">{{lang.keyword}} :</span></h1>
+    {{#isSimple}}
+    <span class="info">{{param.keyword}}</span>
+    {{/isSimple}}
+    {{^isSimple}}
+        <dl class="info">
+            {{#param.folderPathName}}
+            <dt>[{{lang.folder}}]</dt>
+            <dd>{{param.folderPathName}} {{#isIncludeSub}}({{lang.includeType}}){{/isIncludeSub}}</dd>
+            {{/param.folderPathName}}
+            {{#param.title}}
+            <dt>[{{lang.title}}]</dt>
+            <dd>{{param.title}}</dd>
+            {{/param.title}}
+            {{#param.content}}
+            <dt>[{{lang.content}}]</dt>
+            <dd>{{param.content}}</dd>
+            {{/param.content}}
+            {{#param.attachFileNames}}
+            <dt>[{{lang.attachName}}]</dt>
+            <dd>{{param.attachFileNames}}</dd>
+            {{/param.attachFileNames}}
+            {{#param.attachFileContents}}
+            <dt>[{{lang.attachContent}}]</dt>
+            <dd>{{param.attachFileContents}}</dd>
+            {{/param.attachFileContents}}
+            {{#param.docsYear}}
+            <dt>[{{lang.docsyear}}]</dt>
+            <dd>{{param.docsYearValue}}</dd>
+            {{/param.docsYear}}
+            {{#param.docNum}}
+            <dt>[{{lang.docNum}}]</dt>
+            <dd>{{param.docNum}}</dd>
+            {{/param.docNum}}
+            {{#param.creatorName}}
+            <dt>[{{lang.creator}}]</dt>
+            <dd>{{param.creatorName}}</dd>
+            {{/param.creatorName}}
+            <dt>[{{lang.term}}]</dt>
+            <dd><span class="date">{{term}}</span></dd>
+            {{/isSimple}}
+</div>

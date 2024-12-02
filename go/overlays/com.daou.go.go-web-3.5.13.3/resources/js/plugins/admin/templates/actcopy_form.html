@@ -1,0 +1,86 @@
+<div class="container">         
+    <div class="header">
+        <h2>{{lang.caption}}</h2>
+    </div>          
+    <div class="content">
+        <table class="detail">
+            <form id="actcopy_form">
+                <caption>{{lang.head_title}}</caption>
+                <colgroup>
+                    <col width="100px">
+                    <col width="*">
+                </colgroup>
+                <tbody>
+                    <tr>
+                        <th><span class="title"><ins class="asterisk">*</ins>{{lang.form_name}}</span></th>
+                        <td><input class="w_half input" name="name" type="text" value="{{name}}"></td>
+                    </tr>
+                    <tr>
+                        <th><span class="title"><ins class="asterisk">*</ins>{{lang.alias}}</span></th>
+                        <td><input class="w_half input" name="alias" type="text" value="{{alias}}"></td>
+                    </tr>
+                    <tr>
+	                    <th><span class="title">{{lang.description}}</span></th>
+	                    <td><textarea class="w_full input" name="description">{{description}}</textarea></td>                                                         
+	                </tr>
+                    <tr>
+                        <th><span class="title">{{lang.edit_template}}</span></th>
+                        <td>
+                            <span class="btn_wrap"><span class="btn_s" id="load_template_editor">{{lang.template_editor}}</span></span>
+                            <span class="btn_wrap"><span class="btn_s" id="preview_template">{{lang.template_preview}}</span></span>
+                        </td>
+                    </tr>
+                    <tr>
+	                    <th><span class="title"><ins class="asterisk">*</ins>{{lang.company_doc_folder}}</span></th>
+	                    <td>
+	                        <span class="txt_form"><span id="docInfo_txt_form"  data-doctypeid="{{companyDocFolder.id}}">{{companyDocFolder.parentName}}</span></span>
+	                        <span class="btn_box">
+	                                    <span class="ic ic_edit" title="{{lang.modify}}" id="docInfo_btn_edit"></span>
+	                        </span>
+	                        <span class="btn_box">
+	                            <span class="ic ic_del" id="docInfo_btn_delete"></span>
+	                        </span>                  
+							<span class="go_alert" id="docInfo_txt_formAlert"></span> 
+	                    </td>
+	                </tr>
+	                <tr>
+	                    <th><span class="title">{{lang.preserve_in_year}}</span></th>
+	                    <td>
+	                        <select name="preserveDurationInYear">
+	                            {{#preserveYears}}
+	                            <option value="{{value}}" {{#isSelected}}selected{{/isSelected}}>{{label}}</option>
+	                            {{/preserveYears}}
+	                        </select>
+	                    </td>
+	                </tr>
+	                <tr>
+	                    <th><span class="title">{{lang.security_level}}</span></th>
+	                    <td>
+	                        <select name="securityLevel">
+	                        </select>
+	                    </td>
+	                </tr>
+                    <tr class="last">
+                        <th><span class="title">{{lang.state}}</span></th>
+                        <td>
+                            {{#wrappedState}}
+                            <span class="option_wrap">
+                                <input id="state_HIDDEN" type="radio" name="state" value="HIDDEN"> 
+                                <label for="state_HIDDEN">{{lang.hidden}}</label>                                        
+                            </span>
+                            <span class="option_wrap">
+                                <input id="state_NORMAL" type="radio" name="state" value="NORMAL"> 
+                                <label for="state_NORMAL">{{lang.normal}}</label>                                        
+                            </span>
+                            {{/wrappedState}}
+                        </td>
+                    </tr>
+                </tbody>
+            </form>
+        </table>
+    </div>
+</div>
+<div class="page_action">
+    <span class="btn" id="save_btn">{{lang.save}}</span>
+    <span class="btn_nega" id="cancel_btn">{{lang.cancel}}</span>
+</div>

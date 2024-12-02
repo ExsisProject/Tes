@@ -1,0 +1,13 @@
+<ul class="list_normal list_photo">
+	{{#dataset}}
+	<li>
+		<div class="tit">
+			<div class="photo"><img src="{{recommender.thumbSmall}}" /></div>
+			<div class="info">
+				<span class="name">{{recommender.name}} {{recommender.positionName}}</span>
+				<span class="date">{{dateformat}}</span>
+			</div>
+		</div>
+	</li>
+	{{/dataset}}
+</ul>

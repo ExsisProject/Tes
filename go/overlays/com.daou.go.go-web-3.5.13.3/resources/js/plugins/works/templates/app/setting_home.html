@@ -1,0 +1,119 @@
+<header class="content_top works_tit" id="worksContentTop">
+</header>
+<div class="works_app_info set_tit">
+   <div class="wrap_applet"><img src="{{thumbSmall}}" alt="" name="goAppIcon"></div>
+   <h5><a name="appHome">{{name}}</a></h5>
+</div>
+
+<div class="content_page">
+   <div class="wrap_works app_admin_card">
+      <ul>
+         <li>
+            <a id="settingsBaseinfo" class="wrap_works_info">
+               <div class="wrap_img_ic"><i class="ic_works ic_app_set"></i></div>
+               <div class="inner_works_info">
+                  <span class="tit">{{lang.기본 정보}}</span>
+                  {{{lang.기본설정 설명}}}
+               </div>
+            </a>
+         </li>
+         <li>
+            <a id="settingsUserform" class="wrap_works_info">
+               <div class="wrap_img_ic"><i class="ic_works ic_app_form"></i></div>
+               <div class="inner_works_info">
+                  <span class="tit">{{lang.입력 화면}}</span>
+                  {{{lang.입력화면 설명}}}
+               </div>
+            </a>
+         </li>
+         <li>
+            <a id="settingsListview" class="wrap_works_info">
+               <div class="wrap_img_ic"><i class="ic_works ic_app_list"></i></div>
+               <div class="inner_works_info">
+                  <span class="tit">{{lang.목록 화면}}</span>
+                  {{{lang.목록화면 설명}}}
+               </div>
+            </a>
+         </li>
+         <li>
+            <a id="settingsWorkflow" class="wrap_works_info">
+               <div class="wrap_img_ic"><i class="ic_works ic_app_status"></i></div>
+               <div class="inner_works_info">
+                  <span class="tit">{{lang.프로세스}}</span>
+                  {{{lang.프로세스 설명}}}
+               </div>
+            </a>
+         </li>
+         <li>
+            <a id="settingsShare" class="wrap_works_info">
+               <div class="wrap_img_ic"><i class="ic_works ic_app_share"></i></div>
+               <div class="inner_works_info">
+                  <span class="tit">{{lang.접근 제어}}</span>
+                  {{{lang.접근 제어 설명}}}
+               </div>
+            </a>
+         </li>
+      </ul>
+   </div>
+
+   	<div class="sub_app_menu">
+		<div class="sub_app">
+			<ul class="sub_app_inner">
+				<li>
+					<a id="integration">
+						<span class="ic ic_app_link" title=""></span>
+						<dl class="desc">
+							<dt>{{lang.앱간 데이터 연동}}</dt>
+							<dd>{{lang.앱간 데이터 연동 설명}}</dd>
+						</dl>
+					</a>
+				</li>
+				<li>
+					<a id="import">
+						<span class="ic ic_app_dataUp" title=""></span>
+						<dl class="desc">
+							<dt>{{lang.데이터 일괄 등록}}</dt>
+							<dd>{{lang.데이터 일괄 등록 설명}}</dd>
+						</dl>
+					</a>
+				</li>
+				<li>
+                    <a id="download">
+                        <span class="ic ic_app_dataSearch" title=""></span>
+                        <dl class="desc">
+                            <dt>{{lang.데이터 목록 다운로드}}</dt>
+                            <dd>{{lang.데이터 목록 다운로드 설명}}</dd>
+                        </dl>
+                    </a>
+                </li>
+                <li>
+                    <a id="settingsOpenApi">
+                        <span class="ic_2019 ic_app_api" title=""></span>
+                        <dl class="desc">
+                            <dt>{{lang.외부 데이터 가져오기}}
+                                {{#useOpenApi}}
+                                    <span class="label_set label_on">{{lang.API 연동 ON}}</span>
+                                {{/useOpenApi}}
+                                {{^useOpenApi}}
+                                    <span class="label_set label_off">{{lang.API 연동 OFF}}</span>
+                                {{/useOpenApi}}
+                            </dt>
+                            <dd>{{lang.외부 데이터 가져오기 설명}}</dd>
+                        </dl>
+                    </a>
+                </li>
+            </ul>
+		</div>
+	</div>
+
+	<div class="page_action_wrap">
+		<a class="btn_major" data-role="button" name="appHome"><span class="txt">{{lang.해당 앱으로 이동}}</span></a>
+		<a class="btn_minor" data-role="button" id="appleteDelete"><span class="txt">{{lang.앱 삭제}}</span></a>
+		{{#isLocaleKo?}}
+        <!--<a class="btn_minor" data-role="button" id="btnPopupLayer">
+			<span class="ic ic_help2 help"></span>
+			<span class="txt">{{lang.가이드}}</span>
+		</a>-->
+        {{/isLocaleKo?}}
+	</div>
+</div>

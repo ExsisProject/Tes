@@ -1,0 +1,22 @@
+    <p class="txt">
+
+        {{#normal}}
+        <span class="txt normal">{{clockInTime}}</span>
+        {{/normal}}
+
+        {{#tardy}}
+        <span class="txt late">{{clockInTime}}</span>
+        {{/tardy}}
+
+        {{#modify}}
+        <span class="txt modify">{{clockInTime}}</span>
+        {{/modify}}
+
+        <span class="txt date_wave">-</span><span class="txt">{{clockOutTime}}</span></p>
+    <ul class="time_detail">
+        <li>{{totalWorkingTime}}</li>
+
+        {{#approvals}}
+        <li>{{message}}</li>
+        {{/approvals}}
+    </ul>

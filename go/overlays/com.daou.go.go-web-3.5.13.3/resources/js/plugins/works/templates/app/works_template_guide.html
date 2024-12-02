@@ -1,0 +1,26 @@
+{{#data}}
+<div class="layer_normal layer_app_template">
+    <div class="content">
+        <div class="wrap_img_ic">
+            <img src="{{thumbSmall}}"/>
+        </div>
+        <div class="app_info">
+            <p class="tit">{{name}}</p>
+            <div class="btn_wrap">
+                <a class="btn_minor_s" id="cancel"><span class="txt">{{lang.취소}}</span></a>
+                <a class="btn_major_s" id="createApp"><span class="txt">{{lang.적용하기}}</span></a>
+            </div>
+            <div class="app_desc">
+                {{{guideContents}}
+            </div>
+        </div>
+    </div>
+    <div class="img_guide">
+        <div id="guideImage">
+            {{#guideImageUrls}}
+            <img src="{{.}}" />
+            {{/guideImageUrls}}
+        </div>
+    </div>
+</div>
+{{/data}}

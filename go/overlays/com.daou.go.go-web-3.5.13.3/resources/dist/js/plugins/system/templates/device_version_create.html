@@ -1,0 +1,372 @@
+<div class="content_page">
+	<div class="container">			
+		<div class="header">
+			<h2>{{lang.label_title_add}}</h2>
+		</div>			
+        
+		<div class="content">
+			<input type="hidden" id="installLocale" value="">
+			<table class="detail">
+				<colgroup>
+					<col width="180px"/>
+					<col width="*" />
+				</colgroup>
+				<tbody>
+    				<tr>
+    					<th class="title">{{lang.label_device}}</th>
+                			<td>
+                                <div class="vertical_wrap_s">
+                                    <span class="option_wrap">
+                        				<input type="radio" name="deviceType" value="pc" id="pc" checked="checked"/>
+                                        <label for="pc">{{lang.label_pc}}</label>
+                                    </span>
+                                </div>
+                                <div class="vertical_wrap_s">
+                                    <span class="option_wrap">
+                                        <input type="radio" name="deviceType" value="pc_electron" id="pc_electron" />
+                                        <label for="pc_electron">{{lang.label_pc_electron}}</label>
+                                    </span>
+                                </div>
+                                <div class="vertical_wrap_s">
+                                    <span class="option_wrap">
+                                        <input type="radio" name="deviceType" value="pc_mac" id="pc_mac" />
+                                        <label for="pc_mac">{{lang.label_pc_mac}}</label>
+                                    </span>
+                                </div>
+                                <div class="vertical_wrap_s">
+                                    <span class="option_wrap">
+                                        <input type="radio" name="deviceType" value="pc_xp" id="pc_xp" />
+                                        <label for="pc_xp">{{lang.label_pc_xp}}</label>
+                                    </span>
+                                </div>
+                                <div class="vertical_wrap_s">
+                                    <span class="option_wrap" id="deviceType_iphone">
+                        				<input type="radio" name="deviceType" value="iphone" id="iphone" />
+                                        <label for="iphone">{{lang.label_iphone}}</label>
+                                    </span>
+                                </div>
+                                <div class="vertical_wrap_s">
+                    				<span class="option_wrap" id="deviceType_android">
+                                        <input type="radio" name="deviceType" value="android" id="android" />
+                                        <label for="android">{{lang.label_android}}</label>
+                                    </span>
+                                </div>
+                			</td>
+    				</tr>
+            		<tr>
+            			<th class="title">{{lang.label_importance}}</th>
+            			<td>
+                            <span class="option_wrap">
+            				    <input type="radio" name="importance" value="urgent" id="urgent"> 
+                                <label for="urgent">{{lang.label_urgent}}</label>
+                            </span>
+                            <span class="option_wrap">
+            				    <input type="radio" name="importance" value="high" id="high"> 
+                                <label for="high">{{lang.label_high}}</label>
+                            </span>
+                            <span class="option_wrap">
+            				    <input type="radio" name="importance" value="medium" id="medium" checked="checked"/> 
+                                <label for="medium">{{lang.label_medium}}</label>
+                            </span>
+                            <span class="option_wrap">
+            				    <input type="radio" name="importance" value="low" id="low" /> 
+                                <label for="low">{{lang.label_low}}</label>
+                            </span>
+            			</td>
+            		</tr>
+            		<tr>
+            			<th class="title">{{lang.label_version}}
+                            <span class="help">
+                                    <span class="tool_tip">{{lang.label_version_ex}}</span>
+                            </span>
+                        </th>
+            			<td>
+            				<input class="w_half input" type="text" id="version" name="version">
+            			</td>
+            		</tr>
+            		{{#isKoLocale}}
+            		<tr id="koUpdateMessage">
+            			<th class="title">{{lang.label_ko_message}}</th>
+            			<td>
+            				<textarea class="w_full input" id="koUpdateMessage"></textarea> <br />
+            				{{lang.label_message_desc}}
+            			</td>
+            		</tr>
+            		{{/isKoLocale}}
+            		{{#isEnLocale}}
+                    <tr id="enUpdateMessage">
+                        <th class="title">{{lang.label_en_message}}</th>
+                        <td>
+                            <textarea class="w_full input" id="enUpdateMessage"></textarea> <br />
+                            {{lang.label_message_desc}}
+                        </td>
+                    </tr>
+                    {{/isEnLocale}}
+                    {{#isJpLocale}}
+                    <tr id="jpUpdateMessage">
+                        <th class="title">{{lang.label_jp_message}}</th>
+                        <td>
+                            <textarea class="w_full input" id="jpUpdateMessage"></textarea> <br />
+                            {{lang.label_message_desc}}
+                        </td>
+                    </tr>
+                    {{/isJpLocale}}
+                    {{#isZhcnLocale}}
+                    <tr id="zhcnUpdateMessage">
+                        <th class="title">{{lang.label_zhcn_message}}</th>
+                        <td>
+                            <textarea class="w_full input" id="zhcnUpdateMessage"></textarea> <br />
+                            {{lang.label_message_desc}}
+                        </td>
+                    </tr>
+                    {{/isZhcnLocale}}
+                    {{#isZhtwLocale}}
+                    <tr id="zhtwUpdateMessage">
+                        <th class="title">{{lang.label_zhtw_message}}</th>
+                        <td>
+                            <textarea class="w_full input" id="zhtwUpdateMessage"></textarea> <br />
+                            {{lang.label_message_desc}}
+                        </td>
+                    </tr>
+                    {{/isZhtwLocale}}
+                    {{#isViLocale}}
+                    <tr id="viUpdateMessage">
+                        <th class="title">{{lang.label_vi_message}}</th>
+                        <td>
+                            <textarea class="w_full input" id="viUpdateMessage"></textarea> <br />
+                            {{lang.label_message_desc}}
+                        </td>
+                    </tr>
+                    {{/isViLocale}}
+                    {{^isKoLocale}}
+            		<tr id="koUpdateMessage" style="display:none">
+            			<th class="title">{{lang.label_ko_message}}</th>
+            			<td>
+            				<textarea class="w_full input" id="koUpdateMessage"></textarea> <br />
+            				{{lang.label_message_desc}}
+            			</td>
+            		</tr>
+            		{{/isKoLocale}}
+            		{{^isEnLocale}}
+                    <tr id="enUpdateMessage" style="display:none">
+                        <th class="title">{{lang.label_en_message}}</th>
+                        <td>
+                            <textarea class="w_full input" id="enUpdateMessage"></textarea> <br />
+                            {{lang.label_message_desc}}
+                        </td>
+                    </tr>
+                    {{/isEnLocale}}
+                    {{^isJpLocale}}
+                    <tr id="jpUpdateMessage" style="display:none">
+                        <th class="title">{{lang.label_jp_message}}</th>
+                        <td>
+                            <textarea class="w_full input" id="jpUpdateMessage"></textarea> <br />
+                            {{lang.label_message_desc}}
+                        </td>
+                    </tr>
+                    {{/isJpLocale}}
+                    {{^isZhcnLocale}}
+                    <tr id="zhcnUpdateMessage" style="display:none">
+                        <th class="title">{{lang.label_zhcn_message}}</th>
+                        <td>
+                            <textarea class="w_full input" id="zhcnUpdateMessage"></textarea> <br />
+                            {{lang.label_message_desc}}
+                        </td>
+                    </tr>
+                    {{/isZhcnLocale}}
+                    {{^isZhtwLocale}}
+                    <tr id="zhtwUpdateMessage" style="display:none">
+                        <th class="title">{{lang.label_zhtw_message}}</th>
+                        <td>
+                            <textarea class="w_full input" id="zhtwUpdateMessage"></textarea> <br />
+                            {{lang.label_message_desc}}
+                        </td>
+                    </tr>
+                    {{/isZhtwLocale}}
+                    {{^isViLocale}}
+                    <tr id="viUpdateMessage" style="display:none">
+                        <th class="title">{{lang.label_vi_message}}</th>
+                        <td>
+                            <textarea class="w_full input" id="viUpdateMessage"></textarea> <br />
+                            {{lang.label_message_desc}}
+                        </td>
+                    </tr>
+                    {{/isViLocale}}
+                    <tr id="addUpdateMessage">
+                        <th class="title">{{lang.label_info_add}}</th>
+                        <td colspan="3">
+                            <select id="more_message">
+                                <option value="">{{lang.label_info_add_select}}</option>
+                                {{^isKoLocale}}<option value="koUpdateMessage">{{lang.label_ko_message}}</option>{{/isKoLocale}}
+                                {{^isEnLocale}}<option value="enUpdateMessage">{{lang.label_en_message}}</option>{{/isEnLocale}}
+                                {{^isJpLocale}}<option value="jpUpdateMessage">{{lang.label_jp_message}}</option>{{/isJpLocale}}
+                                {{^isZhcnLocale}}<option value="zhcnUpdateMessage">{{lang.label_zhcn_message}}</option>{{/isZhcnLocale}}
+                                {{^isZhtwLocale}}<option value="zhtwUpdateMessage">{{lang.label_zhtw_message}}</option>{{/isZhtwLocale}}
+                                {{^isViLocale}}<option value="viUpdateMessage">{{lang.label_vi_message}}</option>{{/isViLocale}}
+                            </select>
+                        </td>
+                    </tr> 
+            		<tr id="packageUpload">
+            			<th class="title">{{lang.label_package_upload}}</th>
+            			<td>
+                            <span class="option_wrap">
+                                <input type="radio" name="linkType" value="upload" id="upload" checked="checked"> 
+                                <label for="upload">{{lang.label_upload}}</label>
+                            </span>
+                            <span class="option_wrap">
+                                <input type="radio" name="linkType" value="link" id="link"> 
+                                <label for="link">{{lang.label_link}}</label>
+                            </span><br />
+                            <ul class="file_wrap" >
+                            </ul>
+                            <span id="file_upload_btn">
+                            	<span class="btn_minor_s" id="swfupload-control" style="padding:0 !important;"></span>
+                           	</span>
+                            
+                            <span id="file_upload_link" style="display:none;">
+                                <input class="w_half input" type="text" id="file_link" name="file_link">
+                                {{lang.label_link_message}}
+                            </span>
+            			</td>
+            		</tr>
+                    <tr id="marketLink" style="display:none">
+                        <th class="title">{{lang.label_market_url}}
+                            <span class="help">
+                                    <span class="tool_tip">※{{lang.label_market_url_message}}<i class="tail_left"></i></span>
+                            </span>
+                        </th>
+                        <td>
+                            <input class="w_full input" type="text" id="marketUrl" name="marketUrl">
+                        </td>
+                    </tr>
+            		{{#isKoLocale}}
+                    <tr id="koUpdateContents">
+                        <th class="title">{{lang.label_ko_contents}}</th>
+                        <td>
+                            <textarea class="w_full input" id="koUpdateContents"></textarea> <br />
+                        </td>
+                    </tr>
+                    {{/isKoLocale}}
+                    {{#isEnLocale}}
+                    <tr id="enUpdateContents">
+                        <th class="title">{{lang.label_en_contents}}</th>
+                        <td>
+                            <textarea class="w_full input" id="enUpdateContents"></textarea> <br />
+                        </td>
+                    </tr>
+                    {{/isEnLocale}}
+                    {{#isJpLocale}}
+                    <tr id="jpUpdateContents">
+                        <th class="title">{{lang.label_jp_contents}}</th>
+                        <td>
+                            <textarea class="w_full input" id="jpUpdateContents"></textarea> <br />
+                        </td>
+                    </tr>
+                    {{/isJpLocale}}
+                    {{#isZhcnLocale}}
+                    <tr id="zhcnUpdateContents">
+                        <th class="title">{{lang.label_zhcn_contents}}</th>
+                        <td>
+                            <textarea class="w_full input" id="zhcnUpdateContents"></textarea> <br />
+                        </td>
+                    </tr>
+                    {{/isZhcnLocale}}
+                    {{#isZhtwLocale}}
+                    <tr id="zhtwUpdateContents">
+                        <th class="title">{{lang.label_zhtw_contents}}</th>
+                        <td>
+                            <textarea class="w_full input" id="zhtwUpdateContents"></textarea> <br />
+                        </td>
+                    </tr>
+                    {{/isZhtwLocale}}
+                    {{#isViLocale}}
+                    <tr id="viUpdateContents">
+                        <th class="title">{{lang.label_vi_contents}}</th>
+                        <td>
+                            <textarea class="w_full input" id="viUpdateContents"></textarea> <br />
+                        </td>
+                    </tr>
+                    {{/isViLocale}}
+                    {{^isKoLocale}}
+                    <tr id="koUpdateContents" style="display: none">
+                        <th class="title">{{lang.label_ko_contents}}</th>
+                        <td>
+                            <textarea class="w_full input" id="koUpdateContents"></textarea> <br />
+                        </td>
+                    </tr>
+                    {{/isKoLocale}}
+                    {{^isEnLocale}}
+                    <tr id="enUpdateContents" style="display: none">
+                        <th class="title">{{lang.label_en_contents}}</th>
+                        <td>
+                            <textarea class="w_full input" id="enUpdateContents"></textarea> <br />
+                        </td>
+                    </tr>
+                    {{/isEnLocale}}
+                    {{^isJpLocale}}
+                    <tr id="jpUpdateContents" style="display: none">
+                        <th class="title">{{lang.label_jp_contents}}</th>
+                        <td>
+                            <textarea class="w_full input" id="jpUpdateContents"></textarea> <br />
+                        </td>
+                    </tr>
+                    {{/isJpLocale}}
+                    {{^isZhcnLocale}}
+                    <tr id="zhcnUpdateContents" style="display: none">
+                        <th class="title">{{lang.label_zhcn_contents}}</th>
+                        <td>
+                            <textarea class="w_full input" id="zhcnUpdateContents"></textarea> <br />
+                        </td>
+                    </tr>
+                    {{/isZhcnLocale}}
+                    {{^isZhtwLocale}}
+                    <tr id="zhtwUpdateContents" style="display: none">
+                        <th class="title">{{lang.label_zhtw_contents}}</th>
+                        <td>
+                            <textarea class="w_full input" id="zhtwUpdateContents"></textarea> <br />
+                        </td>
+                    </tr>
+                    {{/isZhtwLocale}}
+                    {{^isViLocale}}
+                    <tr id="viUpdateContents" style="display: none">
+                        <th class="title">{{lang.label_vi_contents}}</th>
+                        <td>
+                            <textarea class="w_full input" id="viUpdateContents"></textarea> <br />
+                        </td>
+                    </tr>
+                    {{/isViLocale}}
+                    <tr id="addUpdateContents">
+                        <th class="title">{{lang.label_info_add}}</th>
+                        <td colspan="3">
+                            <select id="more_contents">
+                                <option value="">{{lang.label_info_add_select}}</option>
+                                {{^isKoLocale}}<option value="koUpdateContents">{{lang.label_ko_contents}}</option>{{/isKoLocale}}
+                                {{^isEnLocale}}<option value="enUpdateContents">{{lang.label_en_contents}}</option>{{/isEnLocale}}
+                                {{^isJpLocale}}<option value="jpUpdateContents">{{lang.label_jp_contents}}</option>{{/isJpLocale}}
+                                {{^isZhcnLocale}}<option value="zhcnUpdateContents">{{lang.label_zhcn_contents}}</option>{{/isZhcnLocale}}
+                                {{^isZhtwLocale}}<option value="zhtwUpdateContents">{{lang.label_zhtw_contents}}</option>{{/isZhtwLocale}}
+                                {{^isViLocale}}<option value="viUpdateContents">{{lang.label_vi_contents}}</option>{{/isViLocale}}
+                            </select>
+                        </td>
+                    </tr> 
+            		<tr class="last">
+            			<th class="title">{{lang.label_note}}
+                            <span class="help">
+                                    <span class="tool_tip">※{{lang.label_note_message}}<i class="tail_left"></i></span>
+                            </span>
+                        </th>
+            			<td>
+            				<textarea class="w_full input" id="note"></textarea>
+            			</td>
+            		</tr>
+                </tbody>
+			</table>
+		</div>
+	</div>
+	
+	<div class="page_action">
+		<span class="btn" id="btn_device_version_ok">{{lang.label_ok}}</span>
+		<span class="btn_nega" id="btn_device_version_cancel">{{lang.label_cancel}}</span>
+	</div>
+					
+</div>

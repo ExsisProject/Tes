@@ -1,0 +1,39 @@
+<form onsubmit="return false;"></form>
+<!-- 결재 진행 상황 -->
+<div class="reply_wrap div_scroll">
+	<ul class="reply" id="apprflow">
+		{{#dataset}}
+		<input type="hidden" class="activityGroup"  data-groupSeq="{{seq}}" data-groupId="{{id}}" data-groupCount="{{activities.length}}"/>
+			{{#activities}}
+				{{#isActive}}
+				<li>
+				{{/isActive}}<!-- 비활성화 결재선 -->
+				{{^isActive}}
+				<li class="inactive">
+				{{/isActive}}
+				    {{#isCurrent}}<div class="bar_current"></div>{{/isCurrent}}<!-- 현재 결재 위치 표시 -->
+					<span class="photo"><img alt="{{lang.portrait}}" src="{{#isAdmin}}/go{{/isAdmin}}/{{#thumbnail}}{{thumbnail}}{{/thumbnail}}{{^thumbnail}}resources/images/photo_profile_small.jpg{{/thumbnail}}"></span>
+					<div class="msg_wrap" >
+						<div class="info" data-userid="{{userId}}" data-userName="{{userName}}" data-userPosition="{{userPosition}}"  data-userDeptId="{{deptId}}" data-userDeptName="{{deptName}}"  data-userActivityType="{{type}}" data-userActivityName="{{name}}">
+							{{#userId}}<span class="name">{{userName}} {{userPosition}}</span>{{/userId}}
+							<span class="department">{{deptName}}</span>
+						<span class="date">{{name}}{{#statusName}} ({{statusName}}) {{/statusName}}{{#completedAt}}<span class="part">|</span>{{fCompletedAt}}</span>{{/completedAt}}
+						</div>
+						{{#comment}}<pre>{{comment}}</pre>{{/comment}}
+						{{#deputyActivity}}
+						<div class="info">
+							<span class="name">{{userName}} {{userPosition}}</span>
+							<span class="date">{{name}}{{#statusName}} ({{statusName}}) {{/statusName}}{{#completedAt}}<span class="part">|</span>{{fCompletedAt}}</span>{{/completedAt}}
+						</div>
+						{{#comment}}<pre class="">{{comment}}</pre>{{/comment}}
+						{{/deputyActivity}}
+					</div>															
+				</li>
+			{{/activities}}
+		{{/dataset}}
+		{{^dataset}}
+			<li class="inactive last">결재선 정보가 없습니다</li>
+		{{/dataset}}
+	</ul>
+</div>
+<!-- // 결재 진행 상황 -->

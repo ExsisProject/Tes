@@ -1,0 +1,26 @@
+<tr>
+	<td>
+		<select id="dept_select" {{#selectClass}}class="{{selectClass}}"{{/selectClass}}>
+			{{#allSelectUse}}
+				<option value="all">{{lang.all}}</option>
+			{{/allSelectUse}}
+			{{#dataSet}}
+				{{#isCompany}}
+				<option value="{{ownerId}}" data-ownertype="{{ownerType}}">
+					{{lang.company_board}}
+				</option>
+				{{/isCompany}}
+				{{^isCompany}}
+				<option value="{{ownerId}}" data-ownertype="{{ownerType}}">
+					{{#isDepartment}}[{{lang.department_board}}]{{/isDepartment}}
+					{{name}}
+				</option>
+				{{/isCompany}}
+			{{/dataSet}}
+		</select>
+	</td>
+</tr>	
+<tr>
+	<td id="board_select_wrap">		
+	</td>
+</tr>	

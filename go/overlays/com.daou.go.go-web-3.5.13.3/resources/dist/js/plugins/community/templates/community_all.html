@@ -1,0 +1,33 @@
+<div style="overflow: hidden;">
+	<div class="critical mar10t" id="toolBar" style="display:none">
+		<span class="title">{{lang.communityall}}</span>
+		<span class="num">({{lang.total}} <strong><span id="communityTotalElements"></span></strong>{{lang.count}})</span>
+	</div>
+
+	<table id="allCommunity" class="type_normal list_comm001">
+		<thead>
+			<tr>
+				<th class="name" ><span class="title_sort align_c">{{lang.community}} <ins class="ic"></ins></span></th>
+				<th class="members" ><span class="title_sort">{{lang.community_member}}<ins class="ic"></ins></span></th>
+				<!-- <th class="posts"><span class="title_sort">{{lang.all_post}}<ins class="ic"></ins></span></th>
+				<th class="createAt" ><span class="title_sort">{{lang.community_create_at}}<ins class="ic"></ins></span></th> -->
+				<th class="master" ><span class="title_sort">{{lang.community_master}}<ins class="ic"></ins></span></th>
+				<th class="join" >{{lang.community_join}}</th>
+				<!-- <th td class="action" ></th> -->
+			</tr>
+		</thead>
+	</table>
+	<div class="tool_bar">
+		<div class="table_search">
+			<select>
+				<option value="name">{{lang.community_name}}</option>
+			</select>
+			<section class="search2">
+				<div id="communitySearch" class="search_wrap">
+					<input class="search2" type="text" placeholder="{{lang.placeholder_search}}">
+					<span id="communitySearch2" class="btn_search2" title="{{lang.search}}"></span>
+				</div>
+			</section>
+		</div>
+	</div>
+</div>

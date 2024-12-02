@@ -1,0 +1,96 @@
+<!-- 약관 관련된 내용은 다국어 처리 하지 않습니다.(버튼 제외) -->
+<div class="linkplus_apply">
+    <div class="header">
+        <div class="logo"><img class="service_logo" src="{{baseImgUrl}}{{product.logoUrl}}" alt=""></div>
+        <h1>제휴 서비스 가입신청 문의</h1>
+        <p class="desc">해당 제휴 서비스 가입신청을 원하시는 분은 아래의 내용을 기재해 주세요<br>담당 컨설턴트가 최대한 빠르게 연락을 드리도록 하겠습니다.</p>
+    </div>
+
+    <div class="form" id="regForm">
+        <div class="form_tr">
+            <div class="form_td">
+                <input class="w_max" type="text" value="{{product.name}}" name="additionalService"
+                       disabled="disabled">
+            </div>
+        </div>
+        <div class="form_tr">
+            <div class="form_td">
+                <input class="w_max" type="text" placeholder="이름(필수)" name="additionalName">
+            </div>
+        </div>
+        <div class="form_tr">
+            <div class="form_td">
+                <input class="w_max" type="text" placeholder="이메일(필수)" name="additionalEmail">
+            </div>
+        </div>
+        <div class="form_tr">
+            <div class="form_td">
+                <input class="w_max" type="text" placeholder="연락처(필수)" name="additionalPhone">
+            </div>
+        </div>
+        <div class="form_tr">
+            <div class="form_td">
+                <textarea class="w_max" rows="5" name="additionalMemo"
+                          placeholder="궁금하신 점이나 기타 문의 사항에 대해 자유롭게 입력해주세요."></textarea>
+            </div>
+        </div>
+        <ul class="list_agree">
+            <li>
+                <input class="ipt" type="checkbox" id="termsCollect" name="termsCollect">
+                <label for="termsCollect"><a id="popCollect">{{storeLang.개인정보 수집 및 활용 동의}}</a> ({{storeLang.선택}})</label>
+            </li>
+            <li>
+                <input class="ipt" type="checkbox" id="termsProvided" name="termsProvided">
+                <label for="termsProvided"><a id="popProvided">{{storeLang.개인정보 3자 제공 동의}}</a> ({{storeLang.선택}})</label>
+            </li>
+            <li>
+                <input class="ipt" type="checkbox" id="termsMarketing" name="termsMarketing">
+                <label for="termsMarketing"><a id="popMarketing">{{storeLang.마케팅 수집 및 활용 동의}}</a> ({{storeLang.선택}})</label>
+            </li>
+        </ul>
+        <a class="btn_major btn_linkplus_apply" data-role="button" id="register">
+            <span class="txt">{{commonLang.신청하기}}</span>
+        </a>
+        <a class="btn_minor btn_linkplus_apply" data-role="button" id="cancel">
+            <span class="txt">{{storeLang.취소하기}}</span>
+        </a>
+    </div>
+</div>
+
+<div id="providedTmpl" style="display: none">
+    <p class="desc">다우기술(회사)은 Link+(링크플러스)에 게시된 제휴서비스 연동을 위해 다음과 같이 개인정보를 제휴사에 제공합니다.</p>
+    <div class="content">
+        <p class="tit">1. 개인정보를 제공받는 자</p>
+        <p class="desc">
+            {{partnerName}}
+        </p>
+        <p class="tit">2. 개인정보 제공 목적</p>
+        <p class="desc">제휴사 상품, 서비스 안내 및 마케팅</p>
+        <p class="tit">3. 개인정보 제공 항목</p>
+        <p class="desc">이름, 이메일, 연락처</p>
+        <p class="tit">4. 개인정보를 제공 받는 자의 보유 및 이용기간</p>
+        <p class="desc">제휴 서비스 이용 시까지</p>
+    </div>
+    <p class="desc">귀하는 위 개인정보 수집 및 이용동의를 거부할 수 있으나, 동의를 거부하실 경우 제휴사 서비스 안내를 받으실 수 없습니다.</p>
+</div>
+
+
+<div id="collectTmpl" style="display: none">
+    <p class="desc">다우기술(회사)은 Link+(링크플러스)에 게시된 제휴서비스 연동을 위해 다음과 같이 개인정보를 제휴사에 제공합니다.</p>
+    <div class="content">
+        <p class="tit">1. 수집 및 이용목적</p>
+        <p class="desc">제휴사 상품, 서비스 안내 및 마케팅</p>
+        <p class="tit">2. 항목</p>
+        <p class="desc"> 이름, 이메일, 연락처 </p>
+        <p class="tit">3. 보관기간</p>
+        <p class="desc">다우오피스 서비스 이용 시까지</p>
+    </div>
+    <p class="desc">귀하는 위 개인정보 수집 및 이용동의를 거부할 수 있으나, 동의를 거부하실 경우 제휴사 서비스 안내를 받으실 수 없습니다. </p>
+</div>
+
+<div id="marketingTmpl" style="display: none">
+    <p class="desc">다우오피스에 연동된 다양한 제휴 상품 등
+        서비스 관련 안내를 연락처, 이메일을 통해
+        받아보실 수 있습니다.
+    </p>
+</div>

@@ -1,0 +1,69 @@
+<table id="currentTimelineApprovals" class="__se_tbl" style="width: 800px; margin-bottom:20px; margin-top : 0; border-collapse: collapse !important; color: black; background: white; font-size: 12px; font-family: malgun gothic,dotum,arial,tahoma;">
+    <tbody>
+        <tr>
+            <td width="100px"></td>
+            <td width="100px"></td>
+            <td width="100px"></td>
+            <td width="100px"></td>
+            <td width="100px"></td>
+            <td width="100px"></td>
+            <td width="100px"></td>
+            <td width="100px"></td>
+        </tr>
+        <tr>
+            <td colspan="8" style="background: rgb(255, 255, 255); padding: 5px; border: 1px solid black; height: 25px; text-align: left; color: rgb(0, 0, 0); font-size: 14px; font-weight: bold; vertical-align: middle;">신청 내역</td>
+        </tr>
+        <tr>
+            <td style="background: rgb(221, 221, 221); padding: 5px; border: 1px solid black; height: 25px; text-align: center; color: rgb(0, 0, 0); font-size: 14px; font-weight: bold; vertical-align: middle;">
+                근무구분
+            </td>
+            <td colspan="1" style="background: rgb(221, 221, 221); padding: 5px; border: 1px solid black; height: 25px; text-align: center; color: rgb(0, 0, 0); font-size: 14px; font-weight: bold; vertical-align: middle;">
+                근무일시
+            </td>
+            <td colspan="2" style="background: rgb(221, 221, 221); padding: 5px; border: 1px solid black; height: 25px; text-align: center; color: rgb(0, 0, 0); font-size: 14px; font-weight: bold; vertical-align: middle;">
+                근무시간
+            </td>
+            <td colspan="4" style="background: rgb(221, 221, 221); padding: 5px; border: 1px solid black; height: 25px; text-align: center; color: rgb(0, 0, 0); font-size: 14px; font-weight: bold; vertical-align: middle;">
+                신청사유
+            </td>
+        </tr>
+    </tbody>
+
+    <tbody>
+    {{#data}}
+        <tr>
+            <td style="padding:3px; border:1px solid black; height:22px; text-align:center; vertical-align: middle;">
+                {{name}}
+            </td>
+            <td colspan="1" style="padding:3px; border:1px solid black; height:22px; text-align:center; vertical-align: middle;">
+                {{workingDay}}<br>({{timeRange}})
+            </td>
+            <td colspan="2" style="padding: 3px; border: 1px solid black; height: 22px; text-align: center; vertical-align: middle;">
+                <!-- {{totalTime}} -->
+                기본 : {{normalTimeStr}}
+                <br>
+                연장 : {{extensionStr}}
+                <br>
+                야간 : {{nightTimeStr}}
+            </td>
+            <td colspan="4" style="padding: 3px; border: 1px solid black; height: 22px; text-align: center; vertical-align: middle;">
+                {{reasons}}
+            </td>
+        </tr>
+        <tr>
+            <td style="background: rgb(221, 221, 221); padding: 5px; border: 1px solid black; height: 25px; text-align: center; color: rgb(0, 0, 0); font-size: 14px; font-weight: bold; vertical-align: middle;">
+                주 근무시간
+            </td>
+            <td colspan="3" style="background: rgb(221, 221, 221); padding: 3px; border: 1px solid black; height: 22px; text-align: center; color: rgb(0, 0, 0); font-size: 12px; vertical-align: middle;">
+                {{weeklyTotalTimeStr}} (초과 : {{weeklyExtensionTimeStr}})
+            </td>
+            <td style="background: rgb(221, 221, 221); padding: 5px; border: 1px solid black; height: 25px; text-align: center; color: rgb(0, 0, 0); font-size: 14px; font-weight: bold; vertical-align: middle;">
+                월 근무시간
+            </td>
+            <td colspan="3" style="background: rgb(221, 221, 221); padding: 3px; border: 1px solid black; height: 22px; text-align: center; color: rgb(0, 0, 0); font-size: 12px; vertical-align: middle;">
+                {{monthlyTotalTimeStr}} (초과 : {{monthlyExtensionTimeStr}})
+            </td>
+        </tr>
+    {{/data}}
+    </tbody>
+</table>

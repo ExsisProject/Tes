@@ -1,0 +1,113 @@
+<fieldset>
+    <table class="form_type">
+        <colgroup>
+            <col width="70px">
+            <col width="*">
+        </colgroup>
+        <tbody>
+        <tr>
+            <th>
+                <span class="title">{{lang.앱 명}}</span>
+            </th>
+            <td>
+                <select id="appType">
+                    <option value="">{{lang.앱 명}}</option>
+                    <option value="directInput">{{lang.직접 입력}}</option>
+                </select>
+                <select id="appList" class="wfix_large">
+                    <option value="">{{lang.all}}</option>
+                </select>
+                <input id="appName" name="appName" class="txt_mini wfix_large" type="text" style="display: none">
+            </td>
+        </tr>
+        <tr>
+            <th>
+                <span class="title">{{lang.creator}}</span>
+            </th>
+            <td>
+                <input id="creator" name="creator" class="txt_mini w_max" type="text">
+            </td>
+        </tr>
+        <tr>
+            <th>
+                <span class="title">{{lang.keyword}}</span>
+            </th>
+            <td>
+                    <span class="vertical_option">
+                        <span class="wrap_option">
+                            <input id="checkboxText" type="checkbox" checked="checked" name="text" />
+                            <label for="checkboxText">{{lang.텍스트}}</label>
+                        </span>
+                        <span class="horspace1"></span>
+                        <span class="wrap_option">
+                            <input id="checkboxActivity" type="checkbox" name="activity" />
+                            <label for="checkboxActivity">{{lang.활동기록}}</label>
+                        </span>
+                        <span class="horspace1"></span>
+                        <span class="wrap_option">
+                            <input id="checkboxComment" type="checkbox" name="comment" />
+                            <label for="checkboxComment">{{lang.댓글}}</label></span>
+                        <span class="horspace1"></span>
+                        <span class="wrap_option">
+                            <input id="checkboxAttachName" type="checkbox" name="attachName" />
+                            <label for="checkboxAttachName">{{lang.첨부파일 명}}</label>
+                        </span>
+                        <span class="horspace1"></span>
+                        <span class="wrap_option">
+                            <input id="checkboxAttachContent" type="checkbox" name="attachContent" />
+                            <label for="checkboxAttachContent">{{lang.첨부파일 내용}}</label>
+                        </span>
+                    </span>
+                <input id="keyword" name="keyword" class="txt_mini w_max" type="text">
+            </td>
+        </tr>
+        <tr>
+            <th><span class="title">{{lang.period}}</span></th>
+            <td class="last">
+                <ul class="select_option">
+                    <li>
+                            <span class="option_wrap">
+                                <input id="radioAll" name="term" type="radio" checked="" value="all">
+                                <label for="radioAll">{{lang.all}}</label>
+                            </span>
+                    </li>
+                    <li>
+                            <span class="option_wrap">
+                                <input id="radio1Week" name="term" type="radio" value="-1">
+                                <label for="radio1Week">{{lang.aweek}}</label>
+                            </span>
+                    </li>
+                    <li>
+                            <span class="option_wrap">
+                                <input type="radio" id="radio2Week" name="term" value="-2">
+                                <label for="radio2Week">{{lang.twoweeks}}</label>
+                            </span>
+                    </li>
+                    <li>
+                            <span class="option_wrap">
+                                <input type="radio" id="radio1Month" name="term" value="month">
+                                <label for="radio1Month">{{lang.amonth}}</label>
+                            </span>
+                    </li>
+
+                    <li>
+                            <span class="option_wrap">
+                                <input type="radio" id="radioDirectly" name="term" value="directly">
+                                <label for="radioDirectly">{{lang.directly}}</label>
+                            </span>
+                        <span class="noti_date_wrap option_wrap">
+                                <input name="fromDate" data-type="datepicker" id="fromDate" class="input wfix_medium" type="text" disabled="disabled">
+                                <span class="ic ic_calendar"></span>
+                            </span>
+                        ~
+                        <span class="noti_date_wrap option_wrap">
+                                <input name="toDate" data-type="datepicker" id="toDate" class="input wfix_medium" type="text" disabled="disabled">
+                                <span class="ic ic_calendar"></span>
+                            </span>
+                    </li>
+                </ul>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</fieldset>

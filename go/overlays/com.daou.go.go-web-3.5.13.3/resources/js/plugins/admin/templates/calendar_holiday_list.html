@@ -1,0 +1,49 @@
+<div id="controlButtons" style="display:none">
+    <div class="critical" id="btnHoliday">
+        <span id="btnHolidayControllGroup">
+            <span class="btn_tool" id="btn_add">{{lang.label_add}}</span>
+            <span class="btn_tool txt_caution" id="btn_delete">{{lang.label_delete}}</span>
+            <span class="btn_tool" id="btn_down">{{lang.label_download}}</span>
+        </span> 
+    </div>
+</div>
+<div class="content_page">
+    <div class="dataTables_wrapper container">
+        <form name="formHolidayList">
+        <div id="postBbsDataTable_processing"
+            class="dataTables_processing" style="visibility: hidden">Processing...</div>
+        <div class="toolbar_top header_tb"></div>
+        <div class="content_tb">
+            <table class="chart size tb_cal_holiday" id="holidayList">
+                <thead>
+                    <tr>
+                        <th class="sorting_desc calendar">
+                            <span class="title_sort">
+                                <label>{{lang.label_calendar}}</label>
+                            </span>
+                        </th>
+                        <th class="sorting_desc date">
+                            <span class="title_sort">
+                                <label>{{lang.label_date}}</label>
+                                <ins class="ic"></ins><span class="selected"></span>
+                            </span>
+                        </th>
+                        <th class="sorting_desc subject">
+                            <span class="title_sort">
+                                <label>{{lang.label_title}}</label>
+                                <ins class="ic"></ins><span class="selected"></span>
+                            </span>
+                        </th>
+                        <th class="sorting_desc state">
+                            <span class="title_sort">
+                                <label>{{lang.label_status}}</label>
+                            </span>
+                        </th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+        </form>
+    </div>
+    
+</div>

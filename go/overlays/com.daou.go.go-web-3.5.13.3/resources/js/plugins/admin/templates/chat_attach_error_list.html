@@ -1,0 +1,51 @@
+<div class="dataTables_wrapper container">
+    <div class="content_tb dataTables_wrapper">
+		<div class="tool_bar toolbar_top header_tb">
+			<div class="critical custom_header">
+				<span class="btn_tool txt_caution deleteAttaches" data-type="deleteErrorAttaches">{{lang.label_attach_error_delete}}</span>				
+			</div>
+			<span class="caution" style="margin-top:12px;display:block;padding-left:122px">{{lang.label_attach_error_delete_desc}}</span>
+		</div>
+		<table class="chart size">
+			<thead>
+				<tr role="row">
+					<th class="check"><input type="checkbox" id="checkErrorlistAll">
+					</th>
+					<th class="title sorting">
+						<span class="title_sort">
+							{{lang.label_attach_name}}
+						</span>
+					</th>
+					<th class="num sorting">
+						<span class="title_sort">
+							{{lang.label_size}}
+						</span>
+					</th>
+					<th class="align_c sorting">
+						<span class="title_sort">
+							{{lang.label_created_at}}
+						</span>
+					</th>			
+				</tr>
+			</thead>
+			<tbody id="chatErrorAttachList">
+				{{#data}}
+				<tr class="odd">
+					<td class="check" >
+						<input type="checkbox" data-id="{{id}}">
+					</td>
+					<td class="title">
+						{{name}}
+					</td>
+					<td class="num">
+						{{sizeCal}}
+					</td>
+					<td class="align_c">
+						{{created}}
+					</td>	
+				</tr>
+				{{/data}}
+			</tbody>
+		</table>
+	</div>
+</div>

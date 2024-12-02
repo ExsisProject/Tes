@@ -1,0 +1,12 @@
+<ul class="group_tag">
+	{{#data}}
+	<li class="popupGroupName" data-id="{{id}}"><a data-bypass>{{name}}</a></li>
+	{{/data}}
+
+	<li class="edit" style="display:none">
+		<input class="txt_mini edit" type="text" placeholder="{{lang.new_group_name}}" >
+		<a id="popupGroupCreate" class="btn_fn4" ><span class="ic_edit" title="{{lang.modify}}"></span></a>
+		<a id="popupGroupCancel" class="btn_fn4" ><span class="ic_side ic_cancel" title="{{lang.cancel}}"></span></a>
+	</li>
+	<li class="creat"><a id="popupGroupAdd" data-bypass><ins class="ic"></ins><span class="txt">{{lang.new_group}}</span></a></li>
+</ul>

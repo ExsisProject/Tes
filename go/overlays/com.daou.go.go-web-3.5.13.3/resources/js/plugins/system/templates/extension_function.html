@@ -1,0 +1,283 @@
+<div class="content_page">
+    <form name="extensionFunctionConfig" id="extensionFunction">
+        <div class="container">
+            <div class="header">
+                <h2>{{lang.label_extension_function}}</h2>
+            </div>
+            <div class="content">
+                <table class="detail">
+                    <colgroup>
+                        <col width="150px"/>
+                        <col width="*"/>
+                    </colgroup>
+                    <tbody>
+                    <tr>
+                        <th>
+                            <span class="title">{{lang.label_cert_login}}</span>
+                        </th>
+                        <td>
+                            <div class="vertical_wrap_s">
+                                    <span class="option_wrap"> 
+                                        <input type="radio" value="on" id="use_cert_on" name="useCert" {{#useCert}}
+                                               checked="checked" {{/useCert}} />
+                                        <label for="use_cert_on">{{lang.label_use}}</label>
+                                    </span>
+                                <span class="option_wrap">
+                                        <input type="radio" value="off" id="use_cert_off" name="useCert" {{^useCert}}
+                                               checked="checked" {{/useCert}} />
+                                        <label for="use_cert_off">{{lang.label_unuse}}</label>
+                                    </span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <span class="title">{{lang.label_task_config}}</span>
+                            <span class="help">
+                                    <span class="tool_tip">{{{lang.label_task_config_desc}}}<i
+                                            class="tail_left"></i></span>
+                                </span>
+                        </th>
+                        <td>
+                            <div class="vertical_wrap_s">
+                                    <span class="option_wrap"> 
+                                        <input type="radio" value="on" id="use_task_on" name="useTask" {{#useTask}}
+                                               checked="checked" {{/useTask}}  />
+                                        <label for="use_task_on">{{lang.label_use}}</label>
+                                    </span>
+                                <span class="option_wrap">
+                                        <input type="radio" value="off" id="use_task_off" name="useTask" {{^useTask}}
+                                               checked="checked" {{/useTask}}/>
+                                        <label for="use_task_off">{{lang.label_unuse}}</label>
+                                    </span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <span class="title">{{lang.label_note_config}}</span>
+                            <span class="help">
+                                    <span class="tool_tip">{{{lang.label_note_config_desc}}}<i
+                                            class="tail_left"></i></span>
+                                </span>
+                        </th>
+                        <td>
+                            <div class="vertical_wrap_s">
+                                    <span class="option_wrap">
+                                        <input type="radio" value="on" id="use_note_on" name="useNote" {{#useNote}}
+                                               checked="checked" {{/useNote}}  />
+                                        <label for="use_note_on">{{lang.label_use}}</label>
+                                    </span>
+                                <span class="option_wrap">
+                                        <input type="radio" value="off" id="use_note_off" name="useNote" {{^useNote}}
+                                               checked="checked" {{/useNote}}/>
+                                        <label for="use_note_off">{{lang.label_unuse}}</label>
+                                    </span>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th>
+                            <span class="title">{{lang.label_sms}}</span>
+                        </th>
+                        <td>
+                            <div class="vertical_wrap_s">
+                                    <span class="option_wrap"> 
+                                        <input type="radio" value="on" id="use_sms_on" name="useSms" {{#useSms}}
+                                               checked="checked" {{/useSms}}  />
+                                        <label for="use_sms_on">{{lang.label_use}}</label>
+                                    </span>
+                                <span class="option_wrap">
+                                        <input type="radio" value="off" id="use_sms_off" name="useSms" {{^useSms}}
+                                               checked="checked" {{/useSms}}/>
+                                        <label for="use_sms_off">{{lang.label_unuse}}</label>
+                                    </span>
+                            </div>
+                        </td>
+                    </tr>
+                    {{#hasDrmImpl}}
+                    <tr>
+                        <th>
+                            <span class="title">{{lang.label_drm}}</span>
+                        </th>
+                        <td>
+                            <div class="vertical_wrap_s">
+                                    <span class="option_wrap"> 
+                                        <input type="radio" value="on" id="use_drm_on" name="useDrm" {{#useDrm}}
+                                               checked="checked" {{/useDrm}}  />
+                                        <label for="use_drm_on">{{lang.label_use}}</label>
+                                    </span>
+                                <span class="option_wrap">
+                                        <input type="radio" value="off" id="use_drm_off" name="useDrm" {{^useDrm}}
+                                               checked="checked" {{/useDrm}}/>
+                                        <label for="use_drm_off">{{lang.label_unuse}}</label>
+                                    </span>
+                            </div>
+                        </td>
+                    </tr>
+                    {{/hasDrmImpl}}
+                    {{#useActiveDesigner}}
+                    <tr>
+                        <th>
+                            <span class="title">{{lang.label_editor_custom_config}}</span>
+                        </th>
+                        <td>
+	                            <span class="user_data editable" data-formname="customEditorName"
+                                      data-value="{{customEditorName}}">
+	                                <span class="edit_data">{{customEditorName}}</span>
+	                                <span class="btn_box" data-btntype="changeCustomEditorName">
+	                                    <span class="ic ic_edit" title="{{lang.label_edit}}label_edit"></span>
+	                                </span>
+	                            </span>
+                        </td>
+                    </tr>
+                    {{/useActiveDesigner}}
+                    <tr>
+                        <th>
+                            <span class="title">{{lang.label_allow_agreement_config}}</span>
+                            <span class="help">
+                                    <span class="tool_tip">{{{lang.label_allow_agreement_config_desc}}}<i
+                                            class="tail_left"></i></span>
+                                </span>
+                        </th>
+                        <td>
+                            <div class="vertical_wrap_s">
+                                    <span class="option_wrap"> 
+                                        <input type="radio" value="on" id="use_agreement_allow_on"
+                                               name="useAgreementAllow" {{#useAgreementAllow}} checked="checked" {{/useAgreementAllow}}  />
+                                        <label for="use_agreement_allow_on">{{lang.label_use}}</label>
+                                    </span>
+                                <span class="option_wrap">
+                                        <input type="radio" value="off" id="use_agreement_allow_off"
+                                               name="useAgreementAllow" {{^useAgreementAllow}} checked="checked" {{/useAgreementAllow}}/>
+                                        <label for="use_agreement_allow_off">{{lang.label_unuse}}</label>
+                                    </span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <span class="title">{{lang.label_attach_shared_storage}}</span>
+                        </th>
+                        <td>
+                            <div class="vertical_wrap_s">
+                                    <span class="option_wrap"> 
+                                        <input type="radio" value="on" id="use_attach_shared_Storage_on"
+                                               name="useAttachSharedStorage" {{#useAttachSharedStorage}}
+                                               checked="checked" {{/useAttachSharedStorage}}  />
+                                        <label for="use_attach_shared_Storage_on">{{lang.label_use}}</label>
+                                    </span>
+                                <span class="option_wrap">
+                                        <input type="radio" value="off" id="use_attach_shared_Storage_off"
+                                               name="useAttachSharedStorage" {{^useAttachSharedStorage}}
+                                               checked="checked" {{/useAttachSharedStorage}}/>
+                                        <label for="use_attach_shared_Storage_off">{{lang.label_unuse}}</label>
+                                    </span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <span class="title">{{lang.label_store_config}}</span>
+                        </th>
+                        <td>
+                            <div class="vertical_wrap_s">
+                                    <span class="option_wrap">
+                                        <input type="radio" value="on" id="use_store_config_on"
+                                               name="useStoreConfig" {{#useStoreConfig}}
+                                               checked="checked" {{/useStoreConfig}}  />
+                                        <label for="use_store_config_on">{{lang.label_use}}</label>
+                                    </span>
+                                <span class="option_wrap">
+                                        <input type="radio" value="off" id="use_store_config_off"
+                                               name="useStoreConfig" {{^useStoreConfig}}
+                                               checked="checked" {{/useStoreConfig}}/>
+                                        <label for="use_store_config_off">{{lang.label_unuse}}</label>
+                                    </span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <span class="title">{{lang.label_otp_in_admin}}</span>
+                        </th>
+                        <td>
+                            <div class="vertical_wrap_s">
+                                    <span class="option_wrap">
+                                        <input type="radio" value="on" id="use_otp_in_admin_on"
+                                               name="useOtpInAdmin" {{#useOtpInAdmin}}
+                                               checked="checked" {{/useOtpInAdmin}}  />
+                                        <label for="use_otp_in_admin_on">{{lang.label_use}}</label>
+                                    </span>
+                                <span class="option_wrap">
+                                        <input type="radio" value="off" id="use_otp_in_admin_off"
+                                               name="useOtpInAdmin" {{^useOtpInAdmin}}
+                                               checked="checked" {{/useOtpInAdmin}}/>
+                                        <label for="use_otp_in_admin_off">{{lang.label_unuse}}</label>
+                                    </span>
+                            </div>
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                      <th>
+                        <span class="title">{{lang.label_stop_no_used_admin}}</span>
+                        <span class="help">
+                          <span class="tool_tip">{{{lang.label_stop_no_used_admin_toolTip}}}<i
+                              class="tail_left"></i></span>
+                        </span>
+                      </th>
+                      <td>
+                        <div class="vertical_wrap_s">
+                          <span class="option_wrap">
+                            <input type="radio" value="on" id="stop_no_used_system_admin_on"
+                                   name="stopNoUsedSystemAdmin" {{#stopNoUsedSystemAdmin}}
+                                   checked="checked" {{/stopNoUsedSystemAdmin}}  />
+                            <label for="stop_no_used_system_admin_on">{{lang.label_use}}</label>
+                          </span>
+                          <span class="option_wrap">
+                            <input type="radio" value="off" id="stop_no_used_system_admin_off"
+                                   name="stopNoUsedSystemAdmin" {{^stopNoUsedSystemAdmin}}
+                                   checked="checked" {{/stopNoUsedSystemAdmin}}/>
+                            <label
+                                for="stop_no_used_system_admin_off">{{lang.label_unuse}}</label>
+                          </span>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr class="last">
+                      <th>
+                        <span class="title">{{lang.label_allow_duplicate_empNo}}</span>
+                        <span class="help">
+                          <span class="tool_tip">{{{lang.label_allow_duplicate_empNo_toolTip}}}<i
+                              class="tail_left"></i></span>
+                        </span>
+                      </th>
+                      <td>
+                        <div class="vertical_wrap_s">
+                          <span class="option_wrap">
+                            <input type="radio" value="on" id="allowDuplicateEmpNum_on"
+                                   name="allowDuplicateEmpNum" {{#allowDuplicateEmpNum}}
+                                   checked="checked" {{/allowDuplicateEmpNum}}  />
+                            <label for="allowDuplicateEmpNum_on">{{lang.label_use}}</label>
+                          </span>
+                          <span class="option_wrap">
+                            <input type="radio" value="off" id="allowDuplicateEmpNum_off"
+                                   name="allowDuplicateEmpNum" {{^allowDuplicateEmpNum}}
+                                   checked="checked" {{/allowDuplicateEmpNum}}/>
+                            <label
+                                for="allowDuplicateEmpNum_off">{{lang.label_unuse}}</label>
+                          </span>
+                        </div>
+                      </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </form>
+    <div class="page_action">
+        <span class="btn" id="btn_extension_ok">{{lang.label_ok}}</span>
+    </div>
+</div>

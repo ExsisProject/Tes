@@ -1,0 +1,193 @@
+<div class="content_page">
+
+	<!-- TODO GO-19528 개인 정보 수정 UI 추가 -->
+	<div class="container">
+		<div class="header">
+			<h2>{{lang.account_profile_modification_title}}</h2>
+		</div>
+		<div class="content">
+			<table class="detail">
+				<tbody>
+				<colgroup>
+					<col width="120px"/><!-- 개발쪽에서 width값을 받아가서 재설정 후 삭제  -->
+					<col width="*" />
+				</colgroup>
+				<tr class="last">
+					<th><span class="title">{{lang.account_profile_modification_sub_title}}</span></th>
+					<td>
+					<span class="option_wrap">
+						<input type="radio" id="allowed_true" name="allowed" value="true" />
+						<label for="allowed_true">{{lang.account_profile_modification_allow}}</label>
+					</span>
+					<span class="option_wrap">
+						<input type="radio" id="allowed_false" name="allowed" value="false" />
+						<label for="allowed_false">{{lang.account_profile_modification_not_allow}}</label>
+					</span>
+					</td>
+				</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+    <div class="container">
+        <div class="header">
+            <h2>{{lang.exposure_item}}</h2>
+        </div>
+        <div class="content">
+            <table class="detail">
+                <caption>{{lang.decorate_profile}}</caption>
+                <colgroup>
+                    <col width="110px"/><!-- 개발쪽에서 width값을 받아가서 재설정 후 삭제  -->
+                    <col width="400px"/>
+                </colgroup>
+                <tbody>
+                <tr class="last">
+                    <th>
+                        <span class="title">{{lang.select_item}}</span>
+						<span class="help">
+							<span class="tool_tip">{{lang.select_item_tool_tip}}.<i class="tail_left"></i></span>
+						</span>
+                    </th>
+                    <td>
+                        <div class="vertical_wrap_s">
+							<span class="option_wrap">
+								<input type="checkbox" id="thumbLarge" value="thumbLarge" checked="checked" disabled/>
+								<label for="thumbLarge">{{lang.photo}}</label>
+							</span>
+                        </div>
+                        <div class="vertical_wrap_s">
+							<span class="option_wrap">
+								<input type="checkbox" id="name" value="name" checked="checked" disabled/>
+								<label for="name">{{lang.name}}</label>
+							</span>
+                        </div>
+						<div class="vertical_wrap_s">
+							<span class="option_wrap">
+								<input type="checkbox" id="companyName" value="companyName" checked="checked" disabled />
+								<label for="companyName">{{lang.company_name}}</label>
+							</span>
+						</div>
+						<div class="vertical_wrap_s">
+							<span class="option_wrap">
+								<input type="checkbox" id="position" value="position"/>
+								<label for="position">{{lang.position}}</label>
+							</span>
+						</div>
+						<div class="vertical_wrap_s">
+							<span class="option_wrap">
+								<input type="checkbox" id="email" value="email"/>
+								<label for="email">{{lang.email}}</label>
+							</span>
+						</div>
+						<div class="vertical_wrap_s">
+							<span class="option_wrap">
+								<input type="checkbox" id="selfInfo" value="selfInfo"/>
+								<label for="selfInfo">{{lang.selfInfo}}</label>
+							</span>
+						</div>
+						<div class="vertical_wrap_s">
+							<span class="option_wrap">
+								<input type="checkbox" id="duty" value="duty"/>
+								<label for="duty">{{lang.duty}}</label>
+							</span>
+						</div>
+						<div class="vertical_wrap_s">
+							<span class="option_wrap vt">
+								<input type="checkbox" id="job" value="job"/>
+								<label for="job">{{lang.job}}</label>
+							</span>
+						</div>
+						<div class="vertical_wrap_s">
+							<span class="option_wrap">
+								<input type="checkbox" id="grade" value="grade"/>
+								<label for="grade">{{lang.grade}}</label>
+							</span>
+						</div>
+						<div class="vertical_wrap_s">
+							<span class="option_wrap">
+								<input type="checkbox" id="directTel" value="directTel"/>
+								<label for="directTel">{{lang.direct_tel}}</label>
+							</span>
+						</div>
+						<div class="vertical_wrap_s">
+							<span class="option_wrap">
+								<input type="checkbox" id="mobileNo" value="mobileNo"/>
+								<label for="mobileNo">{{lang.phone}}</label>
+							</span>
+						</div>
+                    </td>
+                    <td>
+						<div class="vertical_wrap_s">
+							<span class="option_wrap">
+								<input type="checkbox" id="repTel" value="repTel"/>
+								<label for="repTel">{{lang.representive_tel}}</label>
+							</span>
+						</div>
+						<div class="vertical_wrap_s">
+							<span class="option_wrap">
+								<input type="checkbox" id="fax" value="fax"/>
+								<label for="fax">{{lang.fax}}</label>
+							</span>
+						</div>
+						<div class="vertical_wrap_s">
+							<span class="option_wrap">
+								<input type="checkbox" id="location" value="location"/>
+								<label for="location">{{lang.location}}</label>
+							</span>
+						</div>
+						<div class="vertical_wrap_s">
+							<span class="option_wrap vt">
+								<input type="checkbox" id="employeeNumber" value="employeeNumber"/>
+								<label for="employeeNumber">{{lang.employee_no}}</label>
+							</span>
+						</div>
+						<div class="vertical_wrap_s">
+							<span class="option_wrap">
+								<input type="checkbox" id="birthday" value="birthday"/>
+								<label for="birthday">{{lang.birthday}}</label>
+							</span>
+						</div>
+						<div class="vertical_wrap_s">
+							<span class="option_wrap vt">
+								<input type="checkbox" id="homePage" value="homePage"/>
+								<label for="homePage">{{lang.homepage}}</label>
+							</span>
+						</div>
+						<div class="vertical_wrap_s">
+							<span class="option_wrap">
+								<input type="checkbox" id="messanger" value="messanger"/>
+								<label for="messanger">{{lang.messanger}}</label>
+							</span>
+						</div>
+						<div class="vertical_wrap_s">
+							<span class="option_wrap">
+								<input type="checkbox" id="anniversary" value="anniversary"/>
+								<label for="anniversary">{{lang.anniversary}}</label>
+							</span>
+						</div>
+						<div class="vertical_wrap_s">
+							<span class="option_wrap">
+								<input type="checkbox" id="address" value="address"/>
+								<label for="address">{{lang.address}}</label>
+							</span>
+						</div>
+						<div class="vertical_wrap_s">
+							<span class="option_wrap">
+								<input type="checkbox" id="memo" value="memo"/>
+								<label for="memo">{{lang.memo}}</label>
+							</span>
+						</div>
+                    </td>
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="page_action">
+        <span class="btn" id="update_profile_card_config">{{lang.confirm}}</span>
+        <span class="btn_nega" id="cancel">{{lang.cancel}}</span>
+    </div>
+
+</div>

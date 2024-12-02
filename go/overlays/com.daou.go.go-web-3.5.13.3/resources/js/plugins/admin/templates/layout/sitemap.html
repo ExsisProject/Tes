@@ -1,0 +1,67 @@
+    <a class="btn_layer_x"><span class="ic_adm ic_btn_x1"></span><span class="txt">닫기</span></a>
+    <div class="content">
+        <div class="column_left">
+            <div class="wrap_profile">
+                <div class="profile">
+                    <img src='{{thumbnail}}' alt="사용자 사진">
+                    <a href="{{contextRoot}}logout">
+                        <span class="btn_minor_s">{{AdminLang.로그아웃}}</span></a>
+
+                    <p class="name">{{name}}</p>
+                    <ul class="login_info">
+                        <li>
+                            <ins class="ic_adm ic_home"></ins>
+                            <span class="txt">{{companyName}}</span>
+                        </li>
+                        <li>
+                            <ins class="ic_adm ic_email"></ins>
+                            <span class="txt">{{email}}</span>
+                        </li>
+                        <li>
+                            <ins class="ic_adm ic_login"></ins>
+                            <span class="txt">Last login : {{lastLoginDate}}</span>
+                        </li>
+                    </ul>
+                </div>
+                <ul class="admin_select">
+                    <li>
+                        <span class="title">{{AdminLang.언어}}</span>
+                        <select id="lang_select">
+                            <option id="lang-ko" value="ko">한국어</option>
+                            <option id="lang-en" value="en">English</option>
+                            <option id="lang-jp" value="jp">日本語</option>
+                            <option id="lang-cn" value="cn">簡体中文</option>
+                            <option id="lang-tw" value="tw">繁体中文</option>
+                        </select>
+                    </li>
+                    <li>
+                        <span class="title">{{AdminLang.그래프 종류}}</span>
+                        <select id="graph_select">
+                            <option id="graph-flow" value="flow">{{AdminLang.꺾은선 그래프}}</option>
+                            <option id="graph-stack" value="stack">{{AdminLang.막대 그래프}}</option>
+                        </select>
+                    </li>
+                    <li>
+                        <span class="title">{{AdminLang.세션 유지 시간}}</span>
+                        <select id="session_time_select">
+                            <option id="session-time-0" value="0">{{AdminLang.무제한}}</option>
+                            <option id="session-time-5" value="5">5 {{AdminLang.분}}</option>
+                            <option id="session-time-15" value="15">15 {{AdminLang.분}}</option>
+                            <option id="session-time-30" value="30">30 {{AdminLang.분}}</option>
+                            <option id="session-time-60" value="60">60 {{AdminLang.분}}</option>
+                        </select>
+                    </li>
+                </ul>
+            </div>
+            <div class="wrap_recentmenu">
+                <h2>{{AdminLang.최근 사용한 메뉴}}</h2>
+                <ul class="menu_group" id="recently_menu_group">
+
+                </ul>
+            </div>
+        </div>
+        <div class="column_right">
+            <div class="admin_basic"> </div>
+            <div class="admin_menu"> </div>
+        </div>
+    </div>

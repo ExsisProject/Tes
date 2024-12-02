@@ -1,0 +1,36 @@
+{{^data}}
+<li class="creat data_null">
+    <span class="txt">{{lang.검색결과없음}}</span>
+</li>
+{{/data}}
+{{#data}}
+<li data-docsId="{{id}}" data-folderId="{{folderId}}">
+    <a class="tit" href="" data-bypass>
+        <span class="subject">
+            <span class="title">
+                 {{{title}}}
+            </span>
+        </span>
+        <span class="content"> {{{content}}}</span>
+        {{#attachFileNames}}
+        <div class="file_wrap">
+            <ul class="file_wrap_normal">
+                <li>
+                    <span class="ic ic_attach"></span>
+                    <span class="file_name">{{{attachFileNames}}}</span>
+                </li>
+            </ul>
+        </div>
+        {{/attachFileNames}}
+        <span class="info">
+            <span class="name txt_ellipsis">{{folderName}}</span>
+            <span class="part">|</span>
+            <span class="date">{{creatorName}}</span>
+            <span class="part">|</span>
+            <span class="category">{{lang.버전}}{{version}}</span>
+            <span class="part">|</span>
+            <span class="category">{{convertDate}}</span>
+        </span>
+    </a>
+</li>
+{{/data}}

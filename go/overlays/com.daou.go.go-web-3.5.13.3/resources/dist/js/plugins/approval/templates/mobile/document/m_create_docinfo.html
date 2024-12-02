@@ -1,0 +1,80 @@
+{{#isEdit}}
+<h2>
+    <select class="w_max" id="formSelect">
+        {{#isCreate}}
+        {{#forms}}
+        <option value="{{metadata.id}}">{{metadata.name}}</option>
+        {{/forms}}
+        {{/isCreate}}
+        {{^isCreate}}
+        <option value="{{formId}}">{{document.formName}}</option>
+        {{/isCreate}}
+    </select>
+    <a id="docInfoFoldedBtn">
+    <span class="btn_more">
+        <!-- 접힌상태 ic_dropdown_large_down -->
+        <!-- 펼친상태 ic_dropdown_large_up -->
+        <span class="ic_cmm ic_dropdown_large_up" ></span>
+    </span>
+    </a>
+</h2>
+
+<div class="article_wrap" id="docInfoWrap">
+    <dl class="article_explain">
+        <dt>{{lang.기안부서}}</dt>
+        <dd>
+            <select class="" id="draftDeptId">
+                {{#drafterDept}}
+                <option value="{{deptId}}">{{deptName}}</option>
+                {{/drafterDept}}
+                {{#emptyDept}}
+                <option>{{lang.소속된 부서가 없습니다}}</option>
+                {{/emptyDept}}
+            </select>
+        </dd>
+    </dl>
+    <dl class="article_explain">
+        <dt>{{lang.문서함}}</dt>
+        <dd>
+            {{^emptyDept}}
+            <select id="deptFolderId">
+
+            </select>
+            {{/emptyDept}}
+        </dd>
+    </dl>
+</div>
+{{/isEdit}}
+{{^isEdit}}
+<h2>
+    <span class="txt">{{doc.title}}</span>
+</h2>
+<a id="docInfoFoldedBtn">
+    <span class="btn_more">
+        <!-- 접힌상태 ic_dropdown_large_down -->
+        <!-- 펼친상태 ic_dropdown_large_up -->
+        <span class="ic_cmm {{#isFolded}}ic_dropdown_large_down{{/isFolded}}{{^isFolded}}ic_dropdown_large_up{{/isFolded}}"></span>
+    </span>
+</a>
+<div id="fontResizeWrap" style="display:none"></div>
+<a href="javascript:;" class="btn_share" id="copyUrl">
+    <span class="ic ic_link"></span>
+</a>
+{{/isEdit}}
+<!--<div class="article_wrap" id="docInfoWrap">
+    {{#docNum}}
+    <dl class="article_explain">
+        <dt>{{lang.문서번호}}</dt>
+        <dd>{{docNum}}</dd>
+    </dl>
+    {{/docNum}}
+    <dl class="article_explain">
+        <dt>{{lang.기안부서}}</dt>
+        <dd>{{doc.drafterDeptName}}</dd>
+    </dl>
+</div>-->
+
+<div style="padding : 0px 15px 5px">
+    <a href="javascript:;" id="contentViewBtn" class="btn_bdr_s view_con" style="display: none;"><span class="txt">{{lang.본문보기}}</span></a>
+</div>
+<div id="apprflowline" {{#isFolded}}style="display:none"{{/isFolded}}></div>

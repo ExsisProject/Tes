@@ -1,0 +1,41 @@
+<h1 class="user {{^isToggleOpen}}folded{{/isToggleOpen}}">
+    <a data-bypass="" class="side_toggle">
+        <ins class="ic"></ins>
+        <span class="ic_side ic_hide_up"
+              title="{{#isToggleOpen}}{{lang.fold}}{{/isToggleOpen}}{{^isToggleOpen}}{{lang.open}}{{/isToggleOpen}}"></span>
+        <span class="txt" title="{{lang.USER}}">{{lang.USER}}</span>
+    </a>
+    <span class="btn_wrap">
+        <span class="btn_ic_list_reorder normalmode">
+            <span class="ic_side ic_list_reorder" title="{{lang.edit}}"></span>
+        </span>
+        <span class="ic_side ic_done editmode" title="{{lang.modify}}" style="display:none;"></span>
+        <span class="ic_side ic_cancel editmode"  title="{{lang.cancel}}" style="display:none;"></span>
+        <span class="groupManage ic_side ic_side_setting normalmode" title="{{lang.contact_manage}}"></span>
+    </span>
+</h1>
+
+<ul class="side_depth" {{^isToggleOpen}} style="display: none;" {{/isToggleOpen}}>
+    <li class="group ui-state-disabled">
+        <p class="title">
+            <a>
+                <ins class="ic"></ins>
+                <span class="contactTag" title="{{lang.contact_all}}">{{lang.contact_all}}</span>
+            </a>
+        </p>
+    </li>
+    {{#data}}
+    <li class="group" data-id="{{id}}">
+        <p class="title">
+            <a>
+                <ins class="ic"></ins>
+                <span class="txt contactTag" title="{{name}}">{{name}}</span>
+                {{#hasContactCount}}<span class="num">{{contactCount}}</span>{{/hasContactCount}}
+            </a>
+            <span class="btn_wrap">
+                <span class="ic_side ic_list_del editmode remove_personal_group" style="display:none;" title="{{lang.delete}}"></span>
+            </span>
+        </p>
+    </li>
+    {{/data}}
+</ul>

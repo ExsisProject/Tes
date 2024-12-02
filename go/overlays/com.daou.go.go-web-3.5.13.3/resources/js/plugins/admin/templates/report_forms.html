@@ -1,0 +1,35 @@
+			<div class="content_page">
+				<div class="dataTables_wrapper container">				
+					<div class="toolbar_top header_tb" style="display: none;">
+						<div  id="controlButtons">
+							<span class="remove btn_tool txt_caution">{{lang.remove}}</span>
+							<span class="create btn_tool">{{lang.new_form}}</span>
+							<span class="copy btn_tool">{{lang.copy_form}}</span>
+						</div>						
+					</div>
+					<div class="content_tb">			
+						<table class="chart size" id="reportFormTable">
+							<thead>
+								<tr>
+									<th class="sorting"><span class="title_sort">{{lang.created_at}}</span></th>
+									<th class="sorting"><span class="title_sort">{{lang.form_name}}</span></th>
+									<th class="sorting_disable"><span class="title_sort">{{lang.selection}}</span></th>
+								</tr>
+							</thead>	
+							<tbody>	
+							</tbody>
+						</table>	
+						<div class="table_search">				
+							<select id="searchSelect">
+								<option value="name">{{lang.form_name}}</option>
+							</select>		
+							
+							<span class="search_wrap"  id="reportSearch">
+								<input class="input" type="text">
+								<span class="btn_search" title="{{lang.search}}"></span>
+								<input class="submit" type="submit" value="">
+							</span>
+						</div>
+					</div>
+				</div>
+			</div>	

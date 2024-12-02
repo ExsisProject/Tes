@@ -1,0 +1,1 @@
+(function(){var e=$("body");e.on("ehr.sideRender",function(){console.info("ehr:sideRender")}),e.on("ehr.myListRender",function(){console.info("ehr:myListRender call")}),e.on("ehr.attndListRender",function(){console.info("ehr.attndListRender call")}),e.on("ehr.statListRender",function(){console.info("ehr.:statListRender call")})})();

@@ -1,0 +1,34 @@
+{{#dataSet}}
+{{#folders}}
+<li>
+    <a class="goSubWebFolder" href="javascript:;" data-type="{{dataSet.type}}" data-userseq="{{dataSet.userSeq}}"
+       data-sroot="{{dataSet.sroot}}" data-full-path="{{realPath}}" data-node-num="{{nodeNumber}}">
+        <span class="item_file">
+            <span class="ic_file ic_folder"></span>
+            <span class="subject">{{folderName}}</span>
+        </span>
+    </a>
+</li>
+{{/folders}}
+{{#messages}}
+<li>
+    <a class="clickFile" href="javascript:;">
+        <span class="item_file">
+            <span class="ic_file ic_{{#webFolderPPT}}file_{{/webFolderPPT}}{{webFolderFileExt}}"></span>
+            <span class="subject">{{subject}}</span>
+            <span class="info">
+                <span class="date">{{formattedUtcDate}}</span>
+                <span class="part">|</span>
+                <span class="size" data-size="{{webFolderFileSize}}">{{formattedFileSize}}</span>
+            </span>
+        </span>
+    </a>
+    <input type="checkbox" data-uid="{{id}}">
+</li>
+{{/messages}}
+{{/dataSet}}
+{{^dataSet}}
+<li class="creat data_null">
+    <span class="txt">{{lang.no_list}}</span>
+</li>
+{{/dataSet}}

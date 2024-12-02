@@ -1,0 +1,63 @@
+<header class="content_top"></header>
+
+<div class="content_page report_nonscheduled reportCreateArea">
+	<fieldset>
+		<table class="form_type form_report_nonscheduled">
+			<tbody>
+				<tr>
+					<th>
+						<span class="title">{{lang.title}}</span>
+					</th>
+					<td>
+						<div class="wrap_txt "><input class="txt w_max" type="text" id="reportName" value="{{data.name}}"/></div>
+					</td>
+				</tr>
+				<tr>
+					<th>
+						<span class="title">{{lang.attach_file}}</span>
+						{{#isSaaS}}
+						<span class="help">
+							<span class="tool_tip top" style="width:210px">{{lang.첨부파일 1개의 최대 용량은 NNN MB 이며 최대 N개 까지 등록 가능합니다}}
+								<i class="tail_left"></i>
+							</span>
+						</span>
+						{{/isSaaS}}
+					</th>
+					<td>
+						<div id="fileComplete">
+							<!-- 첨부파일 default -->
+							<div id="dropZone" class="dd_attach">
+								<p class="drag_txt">{{lang.이 곳에 파일을 드래그 하세요}}</p>
+								<div class="area_txt">
+									<span class="ic_attach ic_upload"></span>
+									<span class="msg">{{lang.이 곳에 파일을 드래그 하세요 또는}}
+										<span class="btn_file" id="swfupload-control"></span>
+										<span id="total_size" class="size"></span>
+									</span>
+								</div>
+								<div class="progress">
+								</div>
+								<div class="wrap_attach">
+									<!-- 파일 첨부 스타일  -->
+									<ul class="file_wrap" id="fileWrap"></ul>
+									<!-- 이미지 첨부 스타일  -->
+									<ul class="img_wrap" id="imgWrap"></ul>
+								</div>
+							</div>
+						</div>
+					</td>
+				</tr>
+				<tr class="line"><td colspan="2"><hr/></td></tr>
+			</tbody>
+		</table>
+		<form class="form_doc_editor ie9-scroll-fix" id="reportCreateForm">
+			<div class="editor" style="border:0px">
+				<div id="editor" style="width: 100%;"></div>
+			</div>
+		</form>
+	</fieldset>
+	<div class="page_action_wrap" id="actions">
+		<a class="btn_major save" data-role="button"><span class="txt">{{lang.save}}</span></a>
+		{{#isCreate}}<a class="btn_minor tempSave" data-role="button"><span class="txt">{{lang.temp_save}}</span></a>{{/isCreate}}
+	</div>
+</div>

@@ -1,0 +1,42 @@
+<div class="tb_wrap">
+    <table class="detail tb_admin_addr_public">
+        <tbody>
+        <tr>
+            <th><span class="title">{{lang.주소록 명}}</span></th>
+            <td>
+                <input class="w_max input" type="text" id="name" value="{{name}}">
+            </td>
+        </tr>
+        <tr>
+            <th>
+                <span class="title">{{lang.운영자}}</span>
+            </th>
+            <td>
+                <div class="vertical_tit_wrap">
+                    <span id="admin"></span>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <th><span class="title">{{lang.열람자 설정}}</span></th>
+            <td>
+                <div class="vertical_tit_wrap">
+                    <span id="accessTarget"></span>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <th><span class="title">{{lang.예외자 설정}}</span></th>
+            <td>
+                <div class="vertical_tit_wrap">
+                    <span id="exceptionTarget"></span>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="page_action">
+        <span class="btn" id="save">{{lang.저장}}</span>
+        <span class="btn_nega" id="cancel">{{lang.취소}}</span>
+    </div>
+</div>

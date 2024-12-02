@@ -1,0 +1,91 @@
+		<section class="gnb_title">
+			<h1>
+				<a id="reportHome">
+					{{appName}}
+				</a>
+			</h1>
+		</section>
+        
+        <section class="lnb" id="side_favorite">
+        </section>
+        <!-- new 아이콘 마크업 개행처리 해주세요 -->
+
+        <section class="lnb" id="side_folder">
+            <h1 class="org {{^category_is_open}}folded{{/category_is_open}}" id="folderOption">
+                <ins class="ic"></ins>
+                <span class="ic_side ic_hide_up"
+                      title="{{#category_is_open}}{{lang.fold}}{{/category_is_open}}{{^category_is_open}}{{lang.unfold}}{{/category_is_open}}"></span>
+                <span class="txt">{{lang.deptFolder}}</span>
+            </h1>
+            
+            {{^data}}
+			<section class="intro">
+				<span class="ic_side ic_report_symbol"></span> 
+				<p class="desc">{{{lang.empty_department}}}</p>
+			</section>
+            {{/data}}
+            <ul class="side_depth" id="folders" {{^category_is_open}} style="display: none" {{/category_is_open}}>
+                {{#data}}
+                <li class="org department" data-id="{{id}}">
+                    <p class="title">
+                    <a><ins class="ic"></ins><span class="txt" title="{{name}}">{{name}} {{#deleted}} ({{lang.deleted_department}}) {{/deleted}}</span></a>
+                        {{#actions.managable}}
+                        <span class="btn_wrap"><span class="ic_side ic_side_setting dept_managable" title="{{lang.reportManage}}"></span></span>
+                        {{/actions.managable}}
+                    </p>
+                    <ul class="side_depth">
+                    {{#folders}}
+                    	{{^separator}}
+                        <li class="report {{#shared}}report_share{{/shared}}" data-id="{{id}}" data-type="{{type}}" data-form-flag={{formFlag}}>
+                            <p class="title">
+                            <a class="active_folder" href="javascript:;"><ins class="ic"></ins> {{^isPublic}}<span class="ic_side ic_private"></span> {{/isPublic}} <span class="txt" title="{{name}}">{{name}}</span></a>
+                            <span class="ic_classic {{#newReport}} ic_new2 {{/newReport}}"></span>
+                            {{#actions.managable}}
+                            <span class="btn_wrap"><span class="ic_side ic_side_setting managable" title="{{lang.reportConfig}}" data-id="{{id}}"></span></span>
+                            {{/actions.managable}}
+                            </p>
+                        </li>
+                        {{/separator}}
+                        {{#separator}}
+						<li class="delimiter"> 
+							<p class="title"> 
+							<ins class="ic"></ins><span class="txt">&lt;{{name}}&gt;</span> 
+							</p> 
+						</li>
+						{{/separator}}
+                    {{/folders}}
+                    {{^folders}}
+                    	<li class="null">
+							<p class="title">
+							<a><span class="txt" title="{{lang.empty_report}}">{{lang.empty_report}} </span></a>
+							</p>
+						</li>
+                    {{/folders}}
+                    </ul>
+                </li>
+                {{/data}}
+                
+                {{#hasDescendant}}
+                <li class="assigned">
+                    <p class="title">
+                        <a id="descendant"><ins class="ic"></ins><span class="txt" title="{{lang.descendant}}">{{lang.descendant}}</span></a>
+                    </p>
+                </li>
+                {{/hasDescendant}}
+                
+                {{#hasClosedReport}}
+                <li class="closed">
+					<p class="title">
+						<a href="{{contextRoot}}app/report/folder/close"><ins class="ic"></ins><span class="txt">{{lang.closed_report_list}}</span></a>
+					</p>
+				</li>
+				{{/hasClosedReport}}
+                </ul>
+            {{#show_folder_add_btn}}
+            <div class="list_action">
+                <span class="btn_wrap">
+                	<span class="btn_side2" id="reportFolderAdd">{{lang.folderAdd}}</span>
+            	</span>
+            </div>
+            {{/show_folder_add_btn}}
+        </section>

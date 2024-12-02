@@ -1,0 +1,21 @@
+<div class="content">
+	{{#hasBoard}}
+	<ul class="list_normal list_board home_list">		
+		
+			<li class="creat data_null">
+				<span class="subject"><span class="txt_ellipsis">{{lang.not_board}}</span></span>
+			</li>
+		
+	</ul>
+	{{/hasBoard}}
+	{{^hasBoard}}
+		<div class="notice">
+			<br/><br/>
+			<h2 class="title">{{lang.board_null_msg1}}</h2>
+			<p class="desc">{{lang.board_null_msg2}}</p>
+			<div class="page_action_wrap">
+				<a href="home"><span class="btn_major" data-role="button"><span class="txt">{{lang.move_to_home}}</span></span></a>
+			</div>
+		</div>
+	{{/hasBoard}}
+</div>

@@ -1,0 +1,1 @@
+define("works/views/app/home/works_home_layout",function(require){var e=require("views/layouts/default"),t=e.extend({name:"works_home",className:"go_skin_default go_full_screen go_skin_works",_init:function(){this.setUseSide(!1),this.setUseContentWrapper(!1),GO.config("workspace_expansion_button_visible",!0),this.appName="works"}},{__instance__:null});return t});

@@ -1,0 +1,56 @@
+<table class="detail nude">
+	<tbody>
+	<tr>
+		<th>
+			<span class="title" data-id={{id}}>{{lang.label_code}}</span>
+		</th>
+		<td>
+			<input class="w_max" type="text" id="timelineCode" {{#isSyncActive}} disabled="disabled" {{/isSyncActive}} value={{timelineCode}}>
+		</td>
+	</tr>
+	<tr>
+		<th class="">
+			<ins class="asterisk">*</ins><span class="title">{{lang.label_code_name}}</span>
+		</th>
+		<td>
+			<input class="w_max" type="text" id="name" {{#isSyncActive}} disabled="disabled" {{/isSyncActive}} value={{name}}>
+		</td>
+	</tr>
+	<tr>
+		<th>
+			<span class="title">{{lang.label_include_working_time}}</span>
+		</th>
+		<td>
+						<span class="wrap_btn_toggle t2">
+							<button class="btn_toggle t2 {{#includeWorkingTimeOnOff}} on {{/includeWorkingTimeOnOff}}" id="onIncludeWorkingTime" name="includeWorkingTime" type="button" title="">{{lang.label_include_y}}</button>
+							<button class="btn_toggle t1 {{^includeWorkingTimeOnOff}} on {{/includeWorkingTimeOnOff}}" id="offIncludeWorkingTime" name="includeWorkingTime" type="button" title="">{{lang.label_include_n}}</button>
+						</span>
+		</td>
+	</tr>
+	<tr>
+		<th>
+			<span class="title">{{lang.label_use_yn}}</span>
+			<span class="help">
+							<span class="tool_tip">{{lang.label_use_yn_tooltip}}<i class="tail_left"></i></span>
+					</span>
+		</th>
+		<td>
+						<span class="wrap_btn_toggle t2">
+							<button class="btn_toggle t2 {{#useOnOff}} on {{/useOnOff}}" id="onUse" name="useYN" type="button" title="">{{lang.label_use}}</button>
+							<button class="btn_toggle t1 {{^useOnOff}} on {{/useOnOff}}" id="offUse" name="useYN" type="button" title="">{{lang.label_unuse}}</button>
+						</span>
+		</td>
+	</tr>
+	</tbody>
+</table>
+
+<table>
+	<tbody>
+	<tr>
+		<td style="text-align:center;">
+			<br/>
+			<p><span class="go_alert" id="stateNameValidate"></span></p>
+		</td>
+	</tr>
+	</tbody>
+</table>

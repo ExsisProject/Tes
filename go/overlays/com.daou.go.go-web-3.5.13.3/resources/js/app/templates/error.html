@@ -1,0 +1,18 @@
+<div class="error_page">
+	<hgroup>
+		<span class="ic_data_type ic_error_page"></span>
+		<h2>{{title}}</h2>
+	</hgroup>
+	{{#messages}}
+	<p class="desc">
+        {{&.}}
+    </p>
+	{{/messages}}
+	{{#hasPrev}}
+    <div class="wrap_btn">
+    	<a class="btn_major_s" data-role="button">
+    		<span class="txt">{{label_prev}}</span>
+    	</a>
+    </div>
+	{{/hasPrev}}
+</div>	

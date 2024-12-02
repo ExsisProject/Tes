@@ -1,0 +1,407 @@
+<div class="container">
+    <div class="header">
+        <h2>{{lang.label_defaultSetting}}</h2>
+    </div>
+    <div class="content">
+        <table class="detail">
+            <tbody>
+            <tr>
+                <th>
+                    <span class="title">{{lang.label_menuActive}}</span>
+                </th>
+                <td>
+                    <table class="in_table nude">
+                        <tbody>
+                        <tr>
+                            <th><span class="tit">{{lang.label_timeline}}</span></th>
+                            <td>
+                                                        <span class="wrap_btn_toggle">
+															<button class="btn_toggle onOffToggle {{#data.timelineMenuActive}}on{{/data.timelineMenuActive}}"
+                                                                    id="timelineMenuActive" type="button"
+                                                                    title="">{{lang.label_use}}</button>
+															<button class="btn_toggle onOffToggle {{^data.timelineMenuActive}}on{{/data.timelineMenuActive}}"
+                                                                    type="button"
+                                                                    title="">{{lang.label_no_use}}</button>
+														</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th><span class="tit">{{lang.label_vacation}}</span></th>
+                            <td>
+														<span class="wrap_btn_toggle">
+															<button class="btn_toggle onOffToggle {{#data.vacationMenuActive}}on{{/data.vacationMenuActive}}"
+                                                                    id="vacationMenuActive" type="button"
+                                                                    title="">{{lang.label_use}}</button>
+															<button class="btn_toggle onOffToggle {{^data.vacationMenuActive}}on{{/data.vacationMenuActive}}"
+                                                                    type="button" title="">{{lang.label_no_use}}</button>
+														</span>
+                            </td>
+                        </tr>
+                        {{^data.accountEhrMenuActive}}
+                        <tr >
+                            <th><span class="tit">{{lang.label_hrCard}}</span></th>
+                            <td>
+														<span class="wrap_btn_toggle">
+															<button class="btn_toggle onOffToggle {{#data.hrMenuActive}}on{{/data.hrMenuActive}}"
+                                                                    id="hrMenuActive" type="button"
+                                                                    title="">{{lang.label_use}}</button>
+															<button class="btn_toggle onOffToggle {{^data.hrMenuActive}}on{{/data.hrMenuActive}}"
+                                                                    type="button"
+                                                                    title="">{{lang.label_no_use}}</button>
+														</span>
+                            </td>
+                        </tr>
+                        {{/data.accountEhrMenuActive}}
+                        {{#data.welfareSiteConfig}}
+                        <tr {{#isSaaS}} style="display: none" {{/isSaaS}}>
+                            <th><span class="tit">{{lang.label_welfare}}</span></th>
+                            <td>
+														<span class="wrap_btn_toggle ">
+															<button class="btn_toggle  onOffToggle {{#data.welfareMenuActive}}on{{/data.welfareMenuActive}}"
+                                                                    id="welfareMenuActive" type="button"
+                                                                    title="">{{lang.label_use}}</button>
+															<button class="btn_toggle onOffToggle {{^data.welfareMenuActive}}on{{/data.welfareMenuActive}}"
+                                                                    type="button"
+                                                                    title="">{{lang.label_no_use}}</button>
+														</span>
+                            </td>
+                        </tr>
+                        {{/data.welfareSiteConfig}}
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <span class="title">{{lang.label_manager}}</span>
+                </th>
+                <td>
+                    <table class="in_table nude">
+                        <tbody>
+                        <tr>
+                            <th><span class="tit">{{lang.label_timeline}}</span></th>
+                            <td>
+                                <ul class="name_tag" id="timelineAdministrators">
+                                    {{#data.timelineAdministrators}}
+                                    <li data-id="{{userId}}" data-name="members">
+                                        <span class="name">{{name}} {{position}}</span>
+                                        <span class="btn_wrap">
+										<input type="hidden" name="memberId" value="{{userId}}"/>
+										<span class="ic_classic ic_del"></span>
+									</span>
+                                    </li>
+                                    {{/data.timelineAdministrators}}
+                                    <li class="addAdmin">
+															<span class="btn_wrap">
+																<span class="ic ic_addlist"></span>
+																<span class="txt">{{lang.label_add_manager}}</span>
+															</span>
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th><span class="tit">{{lang.label_vacation}}</span></th>
+                            <td>
+                                <ul class="name_tag" id="vacationAdministrators">
+                                    {{#data.vacationAdministrators}}
+                                    <li data-id="{{userId}}" data-name="members">
+                                        <span class="name">{{name}} {{position}}</span>
+                                        <span class="btn_wrap">
+										<input type="hidden" name="memberId" value="{{userId}}"/>
+										<span class="ic_classic ic_del"></span>
+									</span>
+                                    </li>
+                                    {{/data.vacationAdministrators}}
+                                    <li class="addAdmin">
+															<span class="btn_wrap">
+																<span class="ic ic_addlist"></span>
+																<span class="txt">{{lang.label_add_manager}}</span>
+
+
+
+
+															</span>
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                        {{^data.accountEhrMenuActive}}
+                        <tr>
+                            <th><span class="tit">{{lang.label_hrCard}}</span></th>
+                            <td>
+                                <ul class="name_tag" id="hrAdministrators">
+                                    {{#data.hrAdministrators}}
+                                    <li data-id="{{userId}}" data-name="members">
+                                        <span class="name">{{name}} {{position}}</span>
+                                        <span class="btn_wrap">
+										<input type="hidden" name="memberId" value="{{userId}}"/>
+										<span class="ic_classic ic_del"></span>
+									</span>
+                                    </li>
+                                    {{/data.hrAdministrators}}
+                                    <li class="addAdmin">
+															<span class="btn_wrap">
+																<span class="ic ic_addlist"></span>
+																<span class="txt">{{lang.label_add_manager}}</span>
+															</span>
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                        {{/data.accountEhrMenuActive}}
+                        {{#data.welfareSiteConfig}}
+                        <tr {{#isSaaS}} style="display: none" {{/isSaaS}}>
+                            <th><span class="tit">{{lang.label_welfare}}</span></th>
+                            <td>
+                                <ul class="name_tag" id="welfareAdministrators">
+                                    {{#data.welfareAdministrators}}
+                                    <li data-id="{{userId}}" data-name="members">
+                                        <span class="name">{{name}} {{position}}</span>
+                                        <span class="btn_wrap">
+										<input type="hidden" name="memberId" value="{{userId}}"/>
+										<span class="ic_classic ic_del"></span>
+									</span>
+                                    </li>
+                                    {{/data.welfareAdministrators}}
+                                    <li class="addAdmin">
+															<span class="btn_wrap">
+																<span class="ic ic_addlist"></span>
+																<span class="txt">{{lang.label_add_manager}}</span>
+															</span>
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                        {{/data.welfareSiteConfig}}
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="container">
+    <div class="header">
+        <h2>{{lang.label_setting}}</h2>
+    </div>
+    <div class="content">
+        <table class="detail">
+            <tbody>
+            <tr>
+                <th><span class="title">{{lang.label_status}}</span>
+                    <span class="help">
+                        <span class="tool_tip">{{lang.label_timeline_status_tooltip}}<i class="tail_left"></i></span>
+                    </span>
+                </th>
+                <td>
+
+                    <table class="in_table nude">
+                        <tbody>
+                        <tr>
+                            <th><span class="tit">{{lang.label_fix_permissions}}</span></th>
+                            <td>
+                                <span class="wrap_btn_toggle t4" id="statusEditAuth">
+                                    <button {{#data.syncActive}} disabled="disabled" {{/data.syncActive}} id="statusManager" value="manager" class="btn_toggle t4 onOffChange {{#statusEditAuthData.manager}}on{{/statusEditAuthData.manager}}" type="button" title="">{{lang.label_manager}}</button>
+                                    <button {{#data.syncActive}} disabled="disabled" {{/data.syncActive}} id="statusMaster" value="master" class="btn_toggle t3 onOffChange {{#statusEditAuthData.master}}on{{/statusEditAuthData.master}}" type="button" title="">{{lang.label_chief}}</button>
+                                    <button {{#data.syncActive}} disabled="disabled" {{/data.syncActive}} id="statusModerator" value="master" class="btn_toggle t2 onOffChange {{#statusEditAuthData.moderator}}on{{/statusEditAuthData.moderator}}" type="button" title="">{{lang.label_vice_chief}}</button>
+                                    <button {{#data.syncActive}} disabled="disabled" {{/data.syncActive}} id="statusMember" value="member"class="btn_toggle t1 onOffChange {{#statusEditAuthData.member}}on{{/statusEditAuthData.member}}" type="button" title="">{{lang.label_member}}</button>
+                                </span>
+                                <p class="desc" id="alertMessage" {{^data.syncActive}} style="display:none" {{/data.syncActive}}> <span class="txt_caution">{{lang.label_sync_noti}}</span></p>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+
+            <tr>
+                <th><span class="title">{{lang.label_open_state}}</span>
+                    <span class="wrap_ic_s">
+                                <span class="help">
+                                <span class="tool_tip">{{lang.label_open_state_caption}}<i class="tail_left"></i></span>
+                            </span>
+                        </span>
+                </th>
+                <td>
+                    <table class="in_table nude">
+                        <tbody>
+                        <tr>
+                            <th><span class="tit">공개여부</span></th>
+                            <td>
+                                <span class="wrap_btn_toggle t2">
+                                    <button class="btn_toggle t2 onOffToggle {{#data.useDeptSituationAndStats}} on {{/data.useDeptSituationAndStats}}" id="useDeptSituationAndStats" type="button" title="">{{lang.label_use}}</button>
+                                    <button class="btn_toggle t1 onOffToggle {{^data.useDeptSituationAndStats}} on {{/data.useDeptSituationAndStats}}" type="button" title="">{{lang.label_no_use}}</button>
+                                </span>
+
+                            </td>
+                        </tr>
+
+                        </tbody>
+                    </table>
+
+                </td>
+            </tr>
+            <tr>
+                <th><span class="title">{{lang.label_actionLogs}}</span>
+                    <span class="wrap_ic_s">
+                        <span class="help">
+                            <span class="tool_tip">{{lang.label_use_charge_history_tooltip}}<i class="tail_left"></i></span>
+                        </span>
+                    </span>
+                </th>
+                <td>
+                    <table class="in_table nude">
+                        <tbody>
+                        <tr>
+                            <th><span class="tit">사용여부</span></th>
+                            <td>
+                                <span class="wrap_btn_toggle t2">
+                                    <button class="btn_toggle t2 onOffToggle {{#data.useTimelineActivityLogs}} on {{/data.useTimelineActivityLogs}}" id="useTimelineActivityLogs" name="useTimelineActivityLogs" type="button" title="">{{lang.label_use}}</button>
+                                    <button class="btn_toggle t1 onOffToggle {{^data.useTimelineActivityLogs}} on {{/data.useTimelineActivityLogs}}" id="offUseTimelineActivityLogs"
+                                            name="useTimelineActivityLogs" type="button" title="">{{lang.label_no_use}}</button>
+                                </span>
+
+                            </td>
+                        </tr>
+
+                        </tbody>
+                    </table>
+
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="container">
+    <div class="header">
+        <h2>{{lang.label_working_status_setting}}</h2>
+    </div>
+    <div class="content">
+        <table class="detail">
+            <tbody>
+            <tr>
+                <th>
+                    <span class="title">{{lang.label_display_working_status}}</span>
+                    <span class="help">
+                        <span class="tool_tip">{{lang.label_working_status_setting_tooltip}}<i class="tail_left"></i></span>
+                    </span>
+                </th>
+                <td>
+                    <span class="action" id="displayWorkingStatus">
+                        <div class="vertical_wrap_s">
+                            <span class="option_wrap">
+                                <input type="radio" id="enableWorkingStatus" name="workingStatus" value="true" {{#timelineDisplaySettingModel.enable}} checked {{/timelineDisplaySettingModel.enable}}>
+                                <label for="enableWorkingStatus">{{lang.label_use}}</label>
+                            </span>
+                            <span class="option_wrap">
+                                <input type="radio" id="disableWorkingStatus" name="workingStatus" value="false"{{^timelineDisplaySettingModel.enable}} checked {{/timelineDisplaySettingModel.enable}}>
+                                <label for="disableWorkingStatus">{{lang.label_no_use}}</label>
+                            </span>
+                        </div>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                </th>
+                <td>
+                    <div class="option_display" id="timelineDisplayOption">
+                        <table class="detail">
+                            <tbody>
+                                <tr>
+                                    <th>
+                                        <span class="title">{{lang.label_display_working_status_range}}</span>
+                                    </th>
+                                    <td>
+                                        <span class="action" id="rangeOfDisplayWorkingStatus">
+                                        <div class="vertical_wrap_s">
+                                            <span class="option_wrap">
+                                                <input type="radio" id="allStatus" name="statusRange" value="true" {{#timelineDisplaySettingModel.permitAllStatus}} checked {{/timelineDisplaySettingModel.permitAllStatus}}>
+                                                <label for="allStatus">{{lang.label_all}}</label>
+                                            </span>
+                                            <span class="option_wrap">
+                                                <input type="radio" id="partialStatus" name="statusRange" value="false" {{^timelineDisplaySettingModel.permitAllStatus}} checked {{/timelineDisplaySettingModel.permitAllStatus}}>
+                                                <label for="partialStatus">{{lang.label_partial}}</label>
+                                            </span>
+                                        </div>
+                                        </span>
+                                        <div id="statusDisplaySettingModel">
+                                            <!-- 클래스 선택 -->
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        <span class="title">{{lang.label_display_vacation_range}}</span>
+                                    </th>
+                                    <td>
+                                        <span class="action" id="rangeOfDisplayVacation">
+                                        <div class="vertical_wrap_s">
+                                            <span class="option_wrap">
+                                                <input type="radio" id="allVacation" name="vacationRange" value="true" {{#timelineDisplaySettingModel.permitAllVacation}} checked {{/timelineDisplaySettingModel.permitAllVacation}}>
+                                                <label for="allVacation">{{lang.label_all}}</label>
+                                            </span>
+                                            <span class="option_wrap">
+                                                <input type="radio" id="partialVacation" name="vacationRange" value="false" {{^timelineDisplaySettingModel.permitAllVacation}} checked {{/timelineDisplaySettingModel.permitAllVacation}}>
+                                                <label for="partialVacation">{{lang.label_partial}}</label>
+                                            </span>
+                                        </div>
+                                        </span>
+                                        <div id="vacationDisplaySettingModel">
+                                            <!-- 클래스 선택 -->
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="container">
+    <div class="header">
+        <h2>{{lang.label_restrict_setting}}</h2>
+        <div class="optional">
+            <span class="btn_s" id="restrictGuide">{{lang.label_restrict_guide}}</span>
+        </div>
+    </div>
+    <div class="content">
+        <table class="detail">
+            <tbody>
+            <tr>
+                <th>
+                    <span class="title">{{lang.label_timeline_sync}}
+                        <span class="help"><span class="tool_tip">{{lang.label_restrict_desc}}<i class="tail_left"></i></span></span>
+                    </span>
+                </th>
+                <td>
+                    <table class="in_table nude">
+                        <tbody>
+                        <tr>
+                            <th><span class="tit">{{lang.label_sync_data}}<br>{{lang.label_modify_restrict}}</span></th>
+                            <td>
+                                <span class="wrap_btn_toggle t2">
+                                    <button class="btn_toggle t2 onOffToggle {{#data.syncActive}} on {{/data.syncActive}}"  id="activeSync" type="button" title="">{{lang.label_use}}</button>
+                                    <button class="btn_toggle t1 onOffToggle {{^data.syncActive}} on {{/data.syncActive}} " id="deactivateSync" type="button" title="">{{lang.label_no_use}}</button>
+                                </span>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="page_action">
+    <span class="btn" id="saveBasicSetting">{{lang.label_ok}}</span>
+    <span class="btn_nega" id="cancelBasicSetting">{{lang.label_cancel}}</span>
+</div>

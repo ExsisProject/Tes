@@ -1,0 +1,36 @@
+<div class="content_page">
+    <div class="container">
+        <div class="header">
+            <h2>chat bot config</h2>
+        </div>
+        <div class="content">
+            <table class="detail">
+                <tbody>
+                <tr>
+                    <th>
+                        <span class="title">{{lang.사용여부}}</span>
+                    </th>
+                    <td>
+                        <div class="vertical_wrap_s">
+                            <span class="option_wrap">
+                                <input type="radio" value="on" id="use_on" name="chatBotUse" {{#chatBot.use}}
+                                               checked="checked" {{/chatBot.use}} />
+                                <label for="use_on">{{lang.사용}}</label>
+                            </span>
+                            <span class="option_wrap">
+                                <input type="radio" value="off" id="user_off" name="chatBotUse" {{^chatBot.use}}
+                                               checked="checked" {{/chatBot.use}} />
+                                <label for="user_off">{{lang.사용하지않음}}</label>
+                            </span>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="page_action">
+            <span class="btn" id="btn_ok">{{lang.저장}}</span>
+        </div>
+    </div>
+</div>
+

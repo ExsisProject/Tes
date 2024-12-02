@@ -1,0 +1,35 @@
+{{#data}}
+<tr>
+	<td class="checkbox">
+		<input {{^isCheckBoxEnable}} disabled="disabled" {{/isCheckBoxEnable}} name="email" data-mobileno="{{mobileNo}}" data-email="{{email}}" data-name="{{name}}" data-deptname="{{departmentName}}" data-position="{{positionName}}" type="checkbox" data-id="{{id}}" data-nodetype="{{nodeType}}"/>
+	</td>
+	<td class="name">
+		{{name}}
+	</td>
+    <td class="position">
+        {{positionName}}
+    </td>
+	<td class="part">
+		{{departmentName}}
+	</td>
+    {{#isMailExposure}}
+    <td class="email">{{email}}</td>
+    {{/isMailExposure}}
+
+    {{#isSMSMode}}
+    <td class="mobileNo">{{mobileNo}}</td>
+    {{/isSMSMode}}
+
+	<td class="company">
+		{{companyName}}
+	</td>
+</tr>
+{{/data}}
+{{^data}}
+<tr>
+	<td class="null_data" colspan="6">
+		<span>{{lang.search_null}}</span>
+	</td>
+</tr>
+{{/data}}
+	

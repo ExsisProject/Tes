@@ -1,0 +1,13 @@
+<a id="communityList" data-bypass class="btn_home" title="{{lang.community_home}}"></a>
+<span class="select_nav" el-backdrop-link data-id="{{model.communityId}}" data-memberStatus="{{model.memberStatus}}" data-memberType="{{model.memberType}}">
+	<span id="dropDown" class="comm_name">
+		<a href="#" data-bypass>
+			<span class="txt">{{model.name}}</span>
+			<span class="ic ic_dropdown"></span>
+		</a>
+	</span>
+	<span class="action_wrap">
+		{{#isMemberTypeMaster}}<a data-bypass><span id="masterHomeSide" title="{{lang.community_master}}" class="ic_side ic_side_setting"></span></a>{{/isMemberTypeMaster}}
+	</span>
+</span>
+		

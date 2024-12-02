@@ -1,0 +1,9 @@
+@charset "UTF-8";
+/* captcha */
+.login_box .captchaContents {margin:-10px 0 10px}
+.captchaContents {position:relative; border:1px solid #25cad3; background:#f2f9f9; padding:20px}
+.captchaContents .txt {color:#888; line-height:1.5; margin-right:40px}
+.captchaContents img {display:block; margin:15px 0 0 -23px}
+.captchaContents input {border:1px solid #ccc; height:44px; width:100%; padding:0 10px; box-sizing: border-box; box-shadow:none!important; font-size:16px!important}
+.captchaContents .ic_refresh_tyep2 {position:absolute; top:20px; right:20px; display:inlne-block; background-position:0 -1050px!important; width:16px; height:16px}
+.txt_message {padding: 0 0 10px 0; color:#888}

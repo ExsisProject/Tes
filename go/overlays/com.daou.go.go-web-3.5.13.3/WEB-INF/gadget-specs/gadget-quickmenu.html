@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <title>Quick Menu</title>
+    <meta name = "gadget:name-ko" content="Quick Menu" />
+    <meta name = "gadget:name-en" content="Quick Menu" />
+    <meta name = "gadget:name-ja" content="Quick Menu" />
+    <meta name = "gadget:name-zhcn" content="Quick Menu" />
+    <meta name = "gadget:name-zhtw" content="Quick Menu" />
+    <meta name = "gadget:name-vi" content="Quick Menu" />
+    <meta name = "gadget:description" content="각 앱의 주요 기능과 관련된 링크를 제공하는 가젯입니다." />
+    <meta name = "gadget:version" content="1.5.0" />
+    <meta name = "gadget:thumbnail" content="gadget_quick.png" />
+    
+    <!-- 테스트 할 로케일은 여기에 설정하세요.-->
+    <meta name = "locale" content="ko" />
+    
+    <!-- 컨텍스트 루트는 여기서 설정하세요 -->
+    <meta name = "contextRoot" content="/" />
+
+    <link rel="stylesheet" href="css/go-gadget-standalone.css" media="screen, print" />
+    <!--[if IE]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="js/go-gadget-standalone.js"></script>
+
+    <script type="text/javascript" id="go-gadget-script">    
+    gadget.load({
+    	
+    	highlightable : true,
+    	
+    	refreshable: false, 
+    	    	    	
+    	langs: {
+    		"mail_label": "메일쓰기", 
+    		"contact_label": "연락처 추가", 
+    		"calendar_label": "일정등록", 
+    		"board_label": "게시물쓰기", 
+    		"survey_label": "설문작성", 
+    		"task_label": "업무등록", 
+    		"approval_label": "새 결재 진행", 
+    		"option_display_title": "표시", 
+    		"download_messenger": "PC메신저 다운로드",
+    		"msg_validate": "한개 이상의 표시 옵션을 선택해주시기 바랍니다.", 
+    		"msg_need_config": "가젯 설정이 필요합니다. 가젯을 편집하시거나 운영자에게 문의해 주시기 바랍니다.", 
+    		
+    		"en": {
+    			"mail_label": "Compose", 
+        		"contact_label": "Add Contact", 
+        		"calendar_label": "Add Event", 
+        		"board_label": "Write Post", 
+        		"survey_label": "Create Survey", 
+        		"task_label": "Add Task", 
+        		"approval_label": "New Approval", 
+        		"option_display_title": "Show", 
+        		"download_messenger": "Download Windows PC Messenger", 
+        		"msg_validate": "Please select at least one option.", 
+        		"msg_need_config": "You need to set gadgets. Please edit it or ask for your administrator."
+    		}, 
+    		
+    		"ja": {
+    			"mail_label": "メール作成", 
+        		"contact_label": "連絡先追加", 
+        		"calendar_label": "予定登録", 
+        		"board_label": "掲示物投稿", 
+        		"survey_label": "アンケート作成", 
+        		"task_label": "タスク登録", 
+        		"approval_label": "新しいワークフロー", 
+        		"option_display_title": "表示", 
+        		"download_messenger": "PCメッセンジャーダウンロード", 
+        		"msg_validate": "表示オプションは一つ以上を選択してください。", 
+        		"msg_need_config": "ガジェット設定が必要です。ガジェットを変更するか、管理者にお問合わせください。"
+    		}, 
+    		
+    		"zh_CN": {
+    			"mail_label": "撰写邮件", 
+        		"contact_label": "添加联系人", 
+        		"calendar_label": "日程登录", 
+        		"board_label": "创建公告语", 
+        		"survey_label": "创建问卷", 
+        		"task_label": "登录业务", 
+        		"approval_label": "进行新的电子签核", 
+        		"option_display_title": "显示", 
+        		"download_messenger": "下载Windows PC的Messenger。", 
+        		"msg_validate": "请选择一个以上的显示项目。", 
+        		"msg_need_config": "需要设置小工具。请编辑小工具或联系管理员。"
+    		}, 
+    		
+    		"zh_TW": {
+    			"mail_label": "撰寫郵件", 
+        		"contact_label": "添加聯繫人", 
+        		"calendar_label": "日程登錄", 
+        		"board_label": "創建公告語", 
+        		"survey_label": "創建問卷", 
+        		"task_label": "登錄業務", 
+        		"approval_label": "進行新的電子簽核", 
+        		"option_display_title": "顯示", 
+        		"download_messenger": "下載Windows PC的Messenger。", 
+        		"msg_validate": "請選擇一個以上的顯示項目。", 
+        		"msg_need_config": "需要設置小工具。請編輯小工具或聯繫管理員。"
+    		},
+    		"vi": {
+    			"mail_label": "Viết thư",
+        		"contact_label": "Thêm địa chỉ liên lạc",
+        		"calendar_label": "Đăng kí lịch trình",
+        		"board_label": "Viết thông báo",
+        		"survey_label": "Soạn thảo thăm dò ý kiến",
+        		"task_label": "Đăng tác vụ",
+        		"approval_label": "Thi hành phê duyệt mới",
+        		"option_display_title": "Hiển thị",
+        		"download_messenger": "Tải về tin nhắn Windows PC",
+        		"msg_validate": "Vui lòng chọn biểu thị trên một hiển thị.",
+        		"msg_need_config": "Cần cài đặt gadget. Vui lòng biên tập gadget hoặc liên hệ với người điều hành."
+    		}
+    	}, 
+    	
+    	defaultOptions: {
+    		"use_mail": "Y", 
+    		"use_calendar": "Y", 
+    		"use_survey": "Y", 
+    		"use_task": "Y", 
+    		"use_messenger": "Y"
+    	}, 
+    	
+    	events: {
+    		"click a[data-popup]": "_callPopup"
+    	}, 
+
+        renderConfig: function(el) {
+        	$(el).append(this._configTemplate());
+        }, 
+
+        onSuccess: function(el, resp) {
+        	var buttons = this._buildButtons(), 
+        		useMessenger = this._usableMessenger();
+        	
+        	if(!useMessenger && buttons.length < 1) {
+        		this._renderNeedConfigPage(el);
+        		return;
+        	}
+        	
+            $(el).append(this._contentTemplate({
+            	"buttons": this._buildButtons(), 
+            	"use_messenger?": this._usableMessenger(), 
+            	"download_messenger": this.i18n.parse("download_messenger"), 
+            	"messenger_down_url": this.contextRoot + 'api/device/package/download'
+            }));
+        },         
+        
+        validate: function(el) {
+        	var $target = $(el).find('.display-options');
+        	
+        	if($target.find('input[type=checkbox]:checked').length < 1) {
+        		return this.i18n.parse("msg_validate");
+        	}
+        	
+        	return false;
+        }, 
+        
+        _callPopup: function(e) {
+        	var $el = $(e.currentTarget), 
+        		popupOptions = $el.data('popup');
+        	
+        	e.preventDefault();
+        	window.open($(e.currentTarget).attr('href'), (new Date).valueOf(), popupOptions);
+        }, 
+        
+        _renderNeedConfigPage: function(el) {            
+            $(el).empty().append(this._contentBorderDecorator(this.pageTemplate.empty(this.i18n.parse("msg_need_config")), {"has_border?": true}));
+        }, 
+        
+        _contentBorderDecorator: function(content, tvars) {
+        	return this.template(
+       			'<div class="gadget_design_wrap">{{>content}}</div>', 
+       			_.defaults(tvars || {}, { "has_border?": false }), 
+       			{"content": content}
+     		);
+        }, 
+        
+        _connectedApp: ['mail', 'contact', 'calendar', 'board', 'survey', 'task', 'approval'], 
+        
+        _contentTemplate: function(tvars) {
+        	var html = [];
+        	
+   			html.push('<ul class="type_btn_list_block">');
+   				html.push('{{#buttons}}');
+   				html.push('<li class="{{#odd?}}odd{{/odd?}}{{^odd?}}even{{/odd?}}">');
+   					html.push('<a href="{{url}}" data-bypass{{#popupOptions}} data-popup="{{popupOptions}}"{{/popupOptions}}>');
+   						html.push('<span class="type"><span class="ic_dashboard2 {{classname}}" title="{{text}}"></span></span>');
+   						html.push('<span class="txt">{{text}}</span>');
+   					html.push('</a>');
+   				html.push('</li>');
+   				html.push('{{/buttons}}');
+   			html.push('</ul>');
+   			
+   			html.push('{{#use_messenger?}}');
+   			html.push('<ul class="type_btn_list_static">');
+				html.push('<li>');
+					html.push('<a href="{{messenger_down_url}}" data-bypass>');
+						html.push('<span class="type"><span class="ic_dashboard2 ic_download" title="{{download_messenger}}"></span></span>');
+						html.push('<span class="txt">{{{download_messenger}}}</span>');
+					html.push('</a>');
+				html.push('</li>');
+			html.push('</ul>');
+			html.push('{{/use_messenger?}}');
+        	
+        	return this._contentBorderDecorator(html.join("\n"), tvars);
+        }, 
+        
+        _configTemplate: function() {
+        	var html = [];
+        	
+        	html.push('<ul class="static_style display-options">');
+        		html.push('<p class="title">' + this.i18n.parse('option_display_title') + '</p>');
+        		_.each(this._connectedApp, function(appName) {
+        			if(this._usablePackage(appName)) {
+        				html.push(this._buildCheckOption('use_' + appName, 'Y', this.i18n.parse(appName + '_label')));
+        			}
+        		}, this);
+        		
+        		if(GO.config("usePcMessenger") === true) {
+        			html.push('<p class="bar"></p>');
+            		html.push(this._buildCheckOption('use_messenger', 'Y', this.i18n.parse('download_messenger')));
+                }
+        		
+        	html.push('</ul>');
+        	
+        	return html.join("\n");
+        }, 
+        
+        _buildButtons: function() {
+        	var buttons = [];
+        	
+        	this._addButton(buttons, 'mail', this.contextRoot + 'app/mail/popup/process', 'ic_create_mail', 'width=1280,height=790,scrollbars=yes,resizable=yes');
+        	this._addButton(buttons, 'contact', this.contextRoot + "app/contact/create", 'ic_create_contact');
+        	this._addButton(buttons, 'calendar', this.contextRoot + "app/calendar/regist", 'ic_create_cal');
+        	this._addButton(buttons, 'board', this.contextRoot + "app/board/post/write", 'ic_create_bbs');
+        	this._addButton(buttons, 'survey', this.contextRoot + "app/survey/new", 'ic_create_survey');
+        	this._addButton(buttons, 'task', this.contextRoot + "app/task/create", 'ic_create_task');
+        	this._addButton(buttons, 'approval', this.contextRoot + "app/approval?openWriteLayout=true", "ic_create_approval");
+        	
+        	return buttons;
+        }, 
+        
+        _addButton: function(buttons, appName, url, classname, popupOptions) {        	
+        	if(this._usablePackage(appName) && this._isCheckedApp(appName)) {
+        		var isNextOdd = (buttons.length % 2) === 0;
+        		buttons.push({
+        			"app": appName, 
+        			"url": url, 
+        			"text": this.i18n.parse(appName + "_label"), 
+        			"classname": classname, 
+        			"odd?": isNextOdd, 
+      				"popupOptions": popupOptions
+				});
+        	}
+        }, 
+        
+        _buildCheckOption: function(key, value, text) {
+        	var idAttr = key + '_' + value;
+        	
+        	var html = [];
+        	html.push('<span class="wrap_option wrap_label">');
+        		html.push('<input id="{{id_attr}}" type="checkbox" name="{{name}}" value="{{value}}"{{#checked?}} checked="checked"{{/checked?}}>');
+        		html.push('<label for="{{id_attr}}">{{label}}</label>');
+        	html.push('</span>');
+        	
+        	return this.template(html.join("\n"), {
+        		"id_attr": idAttr,
+        		"name": key, 
+        		"value": value, 
+        		"label": text, 
+        		"checked?": !!(this.options[key] && this.options[key] === 'Y')
+        	});
+        }, 
+        
+        _usablePackage: function(appName) {
+        	return _.indexOf(GO.config('packages'), appName) > -1;
+        }, 
+        
+        _usableMessenger: function() {
+        	return GO.config("usePcMessenger") && (this.options["use_messenger"] || false);
+        }, 
+        
+        _isCheckedApp: function(appName) {
+        	var key = 'use_' + appName;
+        	return _.has(this.options, key) && this.options[key] === 'Y';
+        }
+    });
+    </script>
+</head>
+
+<body id="main" class="go_skin_home_default" data-role="main">
+    <div class="go-dashboard go-dashboard-editing go_dashboard_3_2">
+        <div class="go-gadget-column gadget-col-1" data-columnid="1">
+            <!-- empty -->
+        </div>
+        
+        <div class="gripper"></div>
+
+        <div id="gadget-containter" class="go-gadget-column gadget-col-2" data-columnid="2">
+            <!-- empty -->
+        </div>
+
+        <div class="gripper"></div>
+
+        <div class="go-gadget-column gadget-col-3" data-columnid="3">
+            <!-- empty -->
+        </div>
+    </div>
+</body>
+</html>

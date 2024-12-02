@@ -1,0 +1,149 @@
+<div class="content_page">
+    <div class="dataTables_wrapper container">
+        <form name="formGlobalScheduleList" class="global">
+        <div id="dataTable_processing" class="dataTables_processing" style="visibility: hidden">Processing...</div>
+        <!-- <div class="toolbar_top header_tb"></div> -->
+        <div class="content_tb">
+            <table class="chart size" id="globalScheduleList">
+                <thead>
+                    <tr>
+                        <th>
+                            <span class="title_sort">
+                                <label>{{lang.label_job_name}}</label>
+                            </span>
+                        </th>
+                        <th>
+                            <span class="title_sort">
+                                <label>{{lang.label_description}}</label>
+                            </span>
+                        </th>
+                        <th>
+                            <span class="title_sort">
+                                <label>{{lang.label_job_group}}</label>
+                            </span>
+                        </th>
+                        <th>
+                            <span class="title_sort">
+                                <label>{{lang.label_prev_fire_time}}</label>
+                            </span>
+                        </th>
+                        <th>
+                            <span class="title_sort">
+                                <label>{{lang.label_next_fire_time}}</label>
+                            </span>
+                        </th>
+                        <th class="last">
+                            <span class="title_sort">
+                                <label>{{lang.label_execution}}</label>
+                            </span>
+                        </th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+        </form>
+    </div>
+
+    <header class="content_top">
+        <h1>
+            <span class="title">admin schedule</span>
+        </h1>
+    </header>
+
+    <div class="dataTables_wrapper container">
+        <form name="formLocalScheduleList" class="admin">
+            <div id="dataTable_processing"
+                 class="dataTables_processing" style="visibility: hidden">Processing...</div>
+            <div class="toolbar_top header_tb align_r">{{lang.label_host_name}} : <select id="hostName"></select></div>
+            <div class="content_tb">
+                <table class="chart size" id="adminScheduleList">
+                    <thead>
+                    <tr>
+                        <th>
+                            <span class="title_sort">
+                                <label>{{lang.label_job_name}}</label>
+                            </span>
+                        </th>
+                        <th>
+                            <span class="title_sort">
+                                <label>{{lang.label_description}}</label>
+                            </span>
+                        </th>
+                        <th>
+                            <span class="title_sort">
+                                <label>{{lang.label_job_group}}</label>
+                            </span>
+                        </th>
+                        <th>
+                            <span class="title_sort">
+                                <label>{{lang.label_prev_fire_time}}</label>
+                            </span>
+                        </th>
+                        <th>
+                            <span class="title_sort">
+                                <label>{{lang.label_next_fire_time}}</label>
+                            </span>
+                        </th>
+                        <th class="last">
+                            <span class="title_sort">
+                                <label>{{lang.label_execution}}</label>
+                            </span>
+                        </th>
+                    </tr>
+                    </thead>
+                </table>
+            </div>
+        </form>
+    </div>
+    
+    <header class="content_top">
+	    <h1>
+            <span class="title">admin serial schedule</span>
+        </h1>
+	</header>
+    
+    <div class="dataTables_wrapper container">
+        <form name="formLocalScheduleList" class="admin/serial">
+        <div id="dataTable_processing"
+            class="dataTables_processing" style="visibility: hidden">Processing...</div>
+        <div class="content_tb">
+            <table class="chart size" id="adminSerialScheduleList">
+                <thead>
+                    <tr>
+                        <th>
+                            <span class="title_sort">
+                                <label>{{lang.label_job_name}}</label>
+                            </span>
+                        </th>
+                        <th>
+                            <span class="title_sort">
+                                <label>{{lang.label_description}}</label>
+                            </span>
+                        </th>
+                        <th>
+                            <span class="title_sort">
+                                <label>{{lang.label_job_group}}</label>
+                            </span>
+                        </th>
+                        <th>
+                            <span class="title_sort">
+                                <label>{{lang.label_prev_fire_time}}</label>
+                            </span>
+                        </th>
+                        <th>
+                            <span class="title_sort">
+                                <label>{{lang.label_next_fire_time}}</label>
+                            </span>
+                        </th>
+                        <th class="last">
+                            <span class="title_sort">
+                                <label>{{lang.label_execution}}</label>
+                            </span>
+                        </th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+        </form>
+    </div>
+</div>

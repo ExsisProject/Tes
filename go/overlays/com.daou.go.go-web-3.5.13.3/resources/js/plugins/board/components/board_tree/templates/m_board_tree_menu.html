@@ -1,0 +1,21 @@
+<li class="{{iconType}}" data-type="{{nodeType}}" data-id="{{nodeId}}">
+	<p class="title">
+		<a class="node-value" href="{{linkUrl}}" data-id="{{nodeId}}" data-bypass>
+			<span class="btn_wrap">
+				<span class="ic_side ic_{{iconType}}"></span>
+				{{#isPrivateBoard}}
+				<span class="ic_side ic_board_secret"></span>
+				{{/isPrivateBoard}}
+				<span class="txt_ellipsis">{{nodeValue}}</span>
+				{{#hasBoardNewPost}}
+				<span class="ic ic_new"></span>
+				{{/hasBoardNewPost}}
+				{{#hasChildren}}
+				{{#isFolderNode}}
+				<span class="btnToggleNode ic close"></span>
+				{{/isFolderNode}}
+				{{/hasChildren}}
+			</span>
+		</a>
+	</p>
+</li>

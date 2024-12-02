@@ -1,0 +1,72 @@
+<div class="content_page">
+    <form name="storagePeriodForm" id="storagePeriodForm" >
+       <div class="container">
+            <div class="header">
+                <h2>{{lang.label_set_storage_period}}</h2>
+            </div>
+            <div class="content">
+                <table class="detail">
+                    <caption>{{lang.label_set_storage_period}}</caption>
+                    <colgroup>
+                        <col width="200px">
+                        <col width="*">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <th><span class="title">{{lang.label_noti_period}}</span></th>
+                            <td>
+                                <div class="vertical_wrap_s">
+                                    <select name="notiPeriod" id="notiPeriod">
+                                    	<option value="15_days" >15{{lang.label_days}}</option>
+                                    	<option value="1_months">1{{lang.label_months}}</option>
+                                    	<option value="3_months">3{{lang.label_months}}</option>
+                                    	<option value="1_years">1{{lang.label_years}}</option>
+                                    	<option value="etc" >{{lang.label_direct_input}}</option>
+                                    </select>
+                                    <span id="notiPerioddirect">
+		                            	&nbsp;&nbsp;
+		                            	<input class="input" type="text" id="notiPeriodDirectValue" name="notiPeriodDirect" value="-" maxlength=3 style="width:50px; text-align:right;" disabled> {{lang.label_days}} {{lang.label_validation_input}}
+                                	</span>
+                                </div>                                  
+                            </td>
+                        </tr>
+                        <tr class="last">
+	                        <th>
+                                <div>
+                                    <span class="title">{{lang.label_chat_and_attach}}</span>
+                                    <span class="help">
+                                        <span class="tool_tip" >{{lang.label_tool_tip}}<i class="tail_left"></i></span>
+                                    </span>
+                                </div>
+	                        </th>
+	                        <td>
+	                        	<div class="vertical_wrap_s">
+                                    <span class="option_wrap"> 
+                                        <input type="radio" value="ALL" id="applyAll" name="applyType" {{#isApplyAll}} checked="checked" {{/isApplyAll}} />
+                                        <label for="applyAll">{{lang.label_apply_all}}</label>
+                                    </span>
+                                    <span class="option_wrap"> 
+                                        <input type="radio" value="SITE_APART" id="applySiteApart" name="applyType" {{^isApplyAll}} checked="checked" {{/isApplyAll}}/>
+                                        <label for="applySiteApart">{{lang.label_apply_site}}</label>
+                                    </span> 
+                                </div>
+                                <div class="vertical_wrap_s" id="chatPeriodDiv">
+                                    <label for="applyAll">{{lang.label_chat}}</label>
+                                    <input class="input" type="text" id="chatPeriod" name="chatPeriod" maxlength=3 style="width:150px; text-align:right;"> {{lang.label_days}}
+                                </div>
+                                <div class="vertical_wrap_s" id="chatAttachPeriodDiv">
+                                    <label for="applyAll">{{lang.label_attach}}</label>
+                                    <input class="input" type="text" id="chatAttachPeriod" name="chatPeriod" maxlength=3 style="width:150px; text-align:right;"> {{lang.label_days}}
+                                </div>
+	                        </td>
+	                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </form>
+    <div class="page_action">
+        <span class="btn" id="btn_ok">{{lang.label_ok}}</span>
+        <span class="btn_nega" id="btn_cancel">{{lang.label_cancel}}</span>
+    </div>
+</div>

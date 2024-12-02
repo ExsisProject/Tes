@@ -1,0 +1,2041 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <title>업무 현황</title>
+    <meta name = "gadget:name-ko" content="업무 현황" />
+    <meta name = "gadget:name-en" content="Task Status" />
+    <meta name = "gadget:name-ja" content="タスク現況" />
+    <meta name = "gadget:name-zhcn" content="業務狀況" />
+    <meta name = "gadget:name-zhtw" content="业务状况" />
+    <meta name = "gadget:name-vi" content="Tình trạng tác vụ" />
+    <meta name = "gadget:description" content="" />
+    <meta name = "gadget:version" content="1.5.0" />
+    <meta name = "gadget:app-dependency" content="TASK" />
+    <meta name = "gadget:thumbnail" content="gadget_taskStatus.png" />
+    
+    <meta name = "locale" content="ko" />
+    <meta name = "contextRoot" content="/" />
+    <link rel="stylesheet" href="css/go-gadget-standalone.css" media="screen, print" />
+    <!--[if IE]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="js/go-gadget-standalone.js"></script>
+    <script type="text/javascript" src="../../resources/js/vendors/jquery/jquery-ui/js/jquery-ui-1.10.3.datepicker.js"></script>
+    <script type="text/javascript" src="../../resources/js/vendors/jquery/plugins/flot/jquery.flot.js"></script>
+    <script type="text/javascript" src="../../resources/js/vendors/jquery/plugins/flot/jquery.flot.pie.js"></script>
+	<script type="text/javascript" src="../../resources/js/vendors/jquery/plugins/flot/jquery.flot.stack.js"></script>
+	<script type="text/javascript" src="../../resources/js/vendors/jquery/plugins/flot/jquery.flot.orderBars.js"></script>
+	<script type="text/javascript" src="../../resources/js/vendors/jquery/plugins/flot/jquery.flot.tooltip.js"></script>
+	<script type="text/javascript" src="../../resources/js/vendors/justgage/raphael.2.1.2.js"></script>
+	<script type="text/javascript" src="../../resources/js/vendors/justgage/justgage.1.0.1.js"></script>
+    
+    <script type="text/javascript">
+    $.ajaxMock.register('/api/department/list/joined', {
+        responseText:$.parseJSON('{"data" : [ {"id" : 7,"name" : "메일팀","code" : "106","email" : "dept7@daou.co.kr","emailId" : "dept7","memberCount" : 11,"childrenCount" : 1,"parentId" : 3,"parentCode" : "102","sortOrder" : 0,"depth" : 0,"csvData" : [ "106", "102", "0", "메일팀", "dept7", null ]}, {"id" : 6,"name" : "캘린더팀","code" : "","email" : "dept4@daou.co.kr","emailId" : "dept4","memberCount" : 10,"childrenCount" : 0,"parentId" : 2,"parentCode" : "101","sortOrder" : 1,"depth" : 0,"csvData" : [ "", "101", "1", "캘린더팀", "dept4", null ]} ],"message" : "OK","code" : "200","__go_checksum__" : true}'),
+        /* responseText:$.parseJSON('{"data" : [ ],"message" : "OK","code" : "200","__go_checksum__" : true}'), */
+        statusCode: 200,
+        status:'OK',
+        type: 'GET'
+    });
+    $.ajaxMock.register('/api/task/folder/dept/7/low', {
+    	/* responseText:$.parseJSON('{"data" : [ {"id" : 1,"createdAt" : "2013-12-23T09:23:34","updatedAt" : "2013-12-23T09:23:34","deptId" : 7,"departmentName" : "메일팀","name" : "메일팀 폴더1","privateTask" : false,"types" : [ {"id" : 1,"name" : "메일팀 유형","description" : "대기 -> 진행 -> 완료 순의 상태가 변경되며, 업무 처리 담당자가 업무를 종료시키는 업무 형태입니다.","approver" : false,"fields" : [ ]} ],"taskCount" : 0,"admins" : [ {"id" : 2,"name" : "진범동1","email" : "test1@daou.co.kr","position" : "부회장","thumbnail" : "/go/resources/images/photo_profile_small.jpg"} ],"share" : {"id" : 1,"nodes" : [ {"id" : 1,"nodeId" : 7,"nodeType" : "department","nodeValue" : "메일팀","members" : [ ]} ]},"attachSize" : 0,"actions" : {"updatable" : true,"removable" : true,"writable" : true,"managable" : true,"readable" : true,"transferable" : true}}, {"id" : 2,"createdAt" : "2013-12-23T09:25:39","updatedAt" : "2013-12-23T09:25:39","deptId" : 7,"departmentName" : "메일팀","name" : "메일팀 폴더2","privateTask" : false,"types" : [ {"id" : 1,"name" : "메일팀 유형2","description" : "대기 -> 진행 -> 완료 순의 상태가 변경되며, 업무 처리 담당자가 업무를 종료시키는 업무 형태입니다.","approver" : false,"fields" : [ ]}, {"id" : 2,"name" : "메일팀 유형3","description" : "부서내 또는 타부서와 협업하는 일이 많을 때 사용하는 유형입니다. 요청자가 업무를 요청하면 폴더 운영자가 업무의 담당자를 지정하고 업무가 처리되면 요청자가 최종 확인 후, 업무를 종료하는 형태입니다.","approver" : false,"fields" : [ ]} ],"taskCount" : 0,"admins" : [ {"id" : 2,"name" : "진범동1","email" : "test1@daou.co.kr","position" : "부회장","thumbnail" : "/go/resources/images/photo_profile_small.jpg"} ],"share" : {"id" : 2,"nodes" : [ {"id" : 2,"nodeId" : 7,"nodeType" : "department","nodeValue" : "메일팀","members" : [ ]} ]},"attachSize" : 0,"actions" : {"updatable" : true,"removable" : true,"writable" : true,"managable" : true,"readable" : true,"transferable" : true}} ],"message" : "OK","code" : "200","__go_checksum__" : true}'), */
+        responseText:$.parseJSON('{"data" : {},"message" : "OK","code" : "200","__go_checksum__" : true}'),
+        statusCode: 200,
+        status:'OK',
+        type: 'GET'
+    });
+    $.ajaxMock.register('/api/task/folder/dept/6/low', {
+        /* responseText:$.parseJSON('{"data" : [ {"id" : 1,"createdAt" : "2013-12-23T09:23:34","updatedAt" : "2013-12-23T09:23:34","deptId" : 7,"departmentName" : "캘린더팀","name" : "캘린더팀 폴더1","privateTask" : false,"types" : [ {"id" : 1,"name" : "캘린더팀 유형","description" : "대기 -> 진행 -> 완료 순의 상태가 변경되며, 업무 처리 담당자가 업무를 종료시키는 업무 형태입니다.","approver" : false,"fields" : [ ]} ],"taskCount" : 0,"admins" : [ {"id" : 2,"name" : "진범동1","email" : "test1@daou.co.kr","position" : "부회장","thumbnail" : "/go/resources/images/photo_profile_small.jpg"} ],"share" : {"id" : 1,"nodes" : [ {"id" : 1,"nodeId" : 7,"nodeType" : "department","nodeValue" : "메일팀","members" : [ ]} ]},"attachSize" : 0,"actions" : {"updatable" : true,"removable" : true,"writable" : true,"managable" : true,"readable" : true,"transferable" : true}}, {"id" : 2,"createdAt" : "2013-12-23T09:25:39","updatedAt" : "2013-12-23T09:25:39","deptId" : 7,"departmentName" : "캘린더팀","name" : "캘린더팀 폴더2","privateTask" : false,"types" : [ {"id" : 1,"name" : "캘린더팀 유형2","description" : "대기 -> 진행 -> 완료 순의 상태가 변경되며, 업무 처리 담당자가 업무를 종료시키는 업무 형태입니다.","approver" : false,"fields" : [ ]}, {"id" : 2,"name" : "캘린더팀 유형3","description" : "부서내 또는 타부서와 협업하는 일이 많을 때 사용하는 유형입니다. 요청자가 업무를 요청하면 폴더 운영자가 업무의 담당자를 지정하고 업무가 처리되면 요청자가 최종 확인 후, 업무를 종료하는 형태입니다.","approver" : false,"fields" : [ ]} ],"taskCount" : 0,"admins" : [ {"id" : 2,"name" : "진범동1","email" : "test1@daou.co.kr","position" : "부회장","thumbnail" : "/go/resources/images/photo_profile_small.jpg"} ],"share" : {"id" : 2,"nodes" : [ {"id" : 2,"nodeId" : 7,"nodeType" : "department","nodeValue" : "메일팀","members" : [ ]} ]},"attachSize" : 0,"actions" : {"updatable" : true,"removable" : true,"writable" : true,"managable" : true,"readable" : true,"transferable" : true}} ],"message" : "OK","code" : "200","__go_checksum__" : true}'), */
+        responseText:$.parseJSON('{"data" : {},"message" : "OK","code" : "200","__go_checksum__" : true}'),
+        statusCode: 200,
+        status:'OK',
+        type: 'GET'
+    });
+    $.ajaxMock.register('/api/task/type/1', {
+        responseText:$.parseJSON('{"data" : {"id" : 1,"name" : "일반업무","description" : "대기 -> 진행 -> 완료 순의 상태가 변경되며, 업무 처리 담당자가 업무를 종료시키는 업무 형태입니다.","approver" : false,"appliedFolders" : 1,"taskStatuses" : [ {"id" : 1,"name" : "대기","start" : true,"end" : false,"doing" : false}, {"id" : 2,"name" : "진행","start" : false,"end" : false,"doing" : true}, {"id" : 3,"name" : "완료","start" : false,"end" : true,"doing" : false} ],"status" : "SHOW","addPushes" : [ "ASSIGNEE", "REFERER" ],"editPrivileges" : [ {"attribute" : "NAME","roles" : [ "ASSIGNEE", "REGISTRANT", "ADMIN" ]}, {"attribute" : "APPROVER","roles" : [ "ASSIGNEE", "REGISTRANT", "ADMIN" ]}, {"attribute" : "PRIVATETASK","roles" : [ "ASSIGNEE", "REGISTRANT", "ADMIN" ]}, {"attribute" : "DUEDATE","roles" : [ "ASSIGNEE", "REGISTRANT", "ADMIN" ]}, {"attribute" : "CONTENT","roles" : [ "ASSIGNEE", "REGISTRANT", "ADMIN" ]}, {"attribute" : "ASSIGNEE","roles" : [ "ASSIGNEE", "REGISTRANT", "ADMIN" ]}, {"attribute" : "REFERER","roles" : [ "ASSIGNEE", "REGISTRANT", "ADMIN" ]}, {"attribute" : "TAG","roles" : [ "ASSIGNEE", "REGISTRANT", "ADMIN" ]}, {"attribute" : "FIELD","roles" : [ "ASSIGNEE", "REGISTRANT", "ADMIN" ]} ],"editPushes" : [ {"attribute" : "PRIVATETASK","roles" : [ "ASSIGNEE", "REFERER", "REGISTRANT" ]}, {"attribute" : "ASSIGNEE","roles" : [ "ASSIGNEE", "REFERER", "REGISTRANT" ]}, {"attribute" : "APPROVER","roles" : [ "ASSIGNEE", "REFERER", "REGISTRANT" ]}, {"attribute" : "FIELD","roles" : [ "ASSIGNEE", "REFERER", "REGISTRANT" ]}, {"attribute" : "DUEDATE","roles" : [ "ASSIGNEE", "REFERER", "REGISTRANT" ]}, {"attribute" : "TAG","roles" : [ "ASSIGNEE", "REFERER", "REGISTRANT" ]}, {"attribute" : "REFERER","roles" : [ "ASSIGNEE", "REFERER", "REGISTRANT" ]}, {"attribute" : "NAME","roles" : [ "ASSIGNEE", "REFERER", "REGISTRANT" ]}, {"attribute" : "CONTENT","roles" : [ "ASSIGNEE", "REFERER", "REGISTRANT" ]} ],"transitions" : [ ]},"message" : "OK","code" : "200","__go_checksum__" : true}'),
+        statusCode: 200,
+        status:'OK',
+        type: 'GET'
+    });
+    $.ajaxMock.register('/api/task/type/2', {
+        responseText:$.parseJSON('{"data" : {"id" : 2,"name" : "요청업무","description" : "부서내 또는 타부서와 협업하는 일이 많을 때 사용하는 유형입니다. 요청자가 업무를 요청하면 폴더 운영자가 업무의 담당자를 지정하고 업무가 처리되면 요청자가 최종 확인 후, 업무를 종료하는 형태입니다.","approver" : false,"appliedFolders" : 1,"taskStatuses" : [ {"id" : 4,"name" : "요청","start" : true,"end" : false,"doing" : false}, {"id" : 5,"name" : "진행","start" : false,"end" : false,"doing" : true}, {"id" : 6,"name" : "승인대기","start" : false,"end" : false,"doing" : true}, {"id" : 7,"name" : "완료","start" : false,"end" : true,"doing" : false} ],"status" : "SHOW","addPushes" : [ "REFERER", "ADMIN" ],"editPrivileges" : [ {"attribute" : "REFERER","roles" : [ "ASSIGNEE", "REGISTRANT", "ADMIN" ]}, {"attribute" : "TAG","roles" : [ "ASSIGNEE", "REGISTRANT", "ADMIN" ]}, {"attribute" : "CONTENT","roles" : [ "ASSIGNEE", "REGISTRANT", "ADMIN" ]}, {"attribute" : "APPROVER","roles" : [ "ASSIGNEE", "REGISTRANT", "ADMIN" ]}, {"attribute" : "DUEDATE","roles" : [ "ASSIGNEE", "ADMIN" ]}, {"attribute" : "FIELD","roles" : [ "ASSIGNEE", "REGISTRANT", "ADMIN" ]}, {"attribute" : "NAME","roles" : [ "ASSIGNEE", "REGISTRANT", "ADMIN" ]}, {"attribute" : "ASSIGNEE","roles" : [ "ASSIGNEE", "ADMIN" ]}, {"attribute" : "PRIVATETASK","roles" : [ "ASSIGNEE", "REGISTRANT", "ADMIN" ]} ],"editPushes" : [ {"attribute" : "PRIVATETASK","roles" : [ "ASSIGNEE", "REFERER", "REGISTRANT" ]}, {"attribute" : "REFERER","roles" : [ "ASSIGNEE", "REFERER", "REGISTRANT" ]}, {"attribute" : "APPROVER","roles" : [ "ASSIGNEE", "REFERER", "REGISTRANT" ]}, {"attribute" : "CONTENT","roles" : [ "ASSIGNEE", "REFERER", "REGISTRANT" ]}, {"attribute" : "DUEDATE","roles" : [ "ASSIGNEE", "REFERER", "REGISTRANT" ]}, {"attribute" : "FIELD","roles" : [ "ASSIGNEE", "REFERER", "REGISTRANT" ]}, {"attribute" : "NAME","roles" : [ "ASSIGNEE", "REFERER", "REGISTRANT" ]}, {"attribute" : "TAG","roles" : [ "ASSIGNEE", "REFERER", "REGISTRANT" ]}, {"attribute" : "ASSIGNEE","roles" : [ "ASSIGNEE", "REFERER" ]} ],"transitions" : [ ]},"message" : "OK","code" : "200","__go_checksum__" : true}'),
+        statusCode: 200,
+        status:'OK',
+        type: 'GET'
+    });
+    $.ajaxMock.register('/api/organization/list?scope=none&deptid=7', {
+        responseText:$.parseJSON('[ {"data" : {"id" : "MEMBER_7","title" : "최경영1 회장","attr" : {"title" : "최경영1 회장","rel" : "MEMBER","companyFolderId" : 7}},"metadata" : {"id" : 10,"name" : "최경영1","email" : "test9@daou.co.kr","position" : "회장","thumbnail" : "/go/resources/images/photo_profile_small.jpg"},"positionSortOrder" : 2,"sortOrder" : 10}, {"data" : {"id" : "MEMBER_8","title" : "최경영2 부회장","attr" : {"title" : "최경영2 부회장","rel" : "MEMBER","companyFolderId" : 8}},"metadata" : {"id" : 11,"name" : "최경영2","email" : "test10@daou.co.kr","position" : "부회장","thumbnail" : "/go/resources/images/photo_profile_small.jpg"},"positionSortOrder" : 2,"sortOrder" : 11}, {"data" : {"id" : "MASTER_62","title" : "진범동1 부회장","attr" : {"title" : "진범동1 부회장","rel" : "MASTER","companyFolderId" : 62}},"metadata" : {"id" : 2,"name" : "진범동1","email" : "test1@daou.co.kr","position" : "부회장","thumbnail" : "/go/resources/images/photo_profile_small.jpg"},"positionSortOrder" : 2,"sortOrder" : 0}, {"data" : {"id" : "MEMBER_2","title" : "윤여진2 과장","attr" : {"title" : "윤여진2 과장","rel" : "MEMBER","companyFolderId" : 2}},"metadata" : {"id" : 5,"name" : "윤여진2","email" : "test4@daou.co.kr","position" : "과장","thumbnail" : "/go/resources/images/photo_profile_small.jpg"},"positionSortOrder" : 5,"sortOrder" : 4}, {"data" : {"id" : "MEMBER_3","title" : "인턴2-1 대리","attr" : {"title" : "인턴2-1 대리","rel" : "MEMBER","companyFolderId" : 3}},"metadata" : {"id" : 6,"name" : "인턴2-1","email" : "test5@daou.co.kr","position" : "대리","thumbnail" : "/go/resources/images/photo_profile_small.jpg"},"positionSortOrder" : 6,"sortOrder" : 6}, {"data" : {"id" : "MEMBER_4","title" : "인턴2-2 사원","attr" : {"title" : "인턴2-2 사원","rel" : "MEMBER","companyFolderId" : 4}},"metadata" : {"id" : 7,"name" : "인턴2-2","email" : "test6@daou.co.kr","position" : "사원","thumbnail" : "/go/resources/images/photo_profile_small.jpg"},"positionSortOrder" : 7,"sortOrder" : 7}, {"data" : {"id" : "MEMBER_5","title" : "임형민1 사원","attr" : {"title" : "임형민1 사원","rel" : "MEMBER","companyFolderId" : 5}},"metadata" : {"id" : 8,"name" : "임형민1","email" : "test7@daou.co.kr","position" : "사원","thumbnail" : "/go/resources/images/photo_profile_small.jpg"},"positionSortOrder" : 7,"sortOrder" : 8}, {"data" : {"id" : "MEMBER_6","title" : "임형민2 사원","attr" : {"title" : "임형민2 사원","rel" : "MEMBER","companyFolderId" : 6}},"metadata" : {"id" : 9,"name" : "임형민2","email" : "test8@daou.co.kr","position" : "사원","thumbnail" : "/go/resources/images/photo_profile_small.jpg"},"positionSortOrder" : 7,"sortOrder" : 9} ]'),
+        statusCode: 200,
+        status:'OK',
+        type: 'GET'
+    });
+    $.ajaxMock.register('/api/task/present/folders?deptId=7&startDate=&endDate=', {
+        responseText:$.parseJSON('{"data" : [ {"target" : {"deptId" : 0,"name" : "기본 폴더","privateTask" : false,"types" : [ ],"taskCount" : 0,"admins" : [ ],"attachSize" : 0},"present" : {"미완료" : 1,"완료" : 2,"지연" : 3}} ],"message" : "OK","code" : "200","__go_checksum__" : true}'),
+        statusCode: 200,
+        status:'OK',
+        type: 'GET'
+    });
+    $.ajaxMock.register('/api/task/present/folder?issueTypeId=1&folderId=1&startDate=&endDate=', {
+        responseText:$.parseJSON('{"data" : {"target" : {"deptId" : 0,"name" : "기본 폴더","privateTask" : false,"types" : [ ],"taskCount" : 0,"admins" : [ ],"attachSize" : 0},"present" : {"미완료" : 1,"완료" : 2,"지연" : 3}},"message" : "OK","code" : "200","__go_checksum__" : true}'),
+        statusCode: 200,
+        status:'OK',
+        type: 'GET'
+    });
+    $.ajaxMock.register('/api/task/present/members?deptId=7&startDate=&endDate=', {
+        responseText:$.parseJSON('{"data" : [ {"target" : {"id" : 2,"name" : "진범동1","email" : "test1@daou.co.kr","position" : "부회장","thumbnail" : "/go/resources/images/photo_profile_small.jpg"},"present" : {"미완료" : 1,"완료" : 2,"지연" : 3}}, {"target" : {"id" : 11,"name" : "최경영2","email" : "test10@daou.co.kr","position" : "부회장","thumbnail" : "/go/resources/images/photo_profile_small.jpg"},"present" : {"미완료" : 2,"완료" : 2,"지연" : 2}}, {"target" : {"id" : 10,"name" : "최경영1","email" : "test9@daou.co.kr","position" : "회장","thumbnail" : "/go/resources/images/photo_profile_small.jpg"},"present" : {"미완료" : 3,"완료" : 2,"지연" : 1}}, {"target" : {"id" : 9,"name" : "임형민2","email" : "test8@daou.co.kr","position" : "사원","thumbnail" : "/go/resources/images/photo_profile_small.jpg"},"present" : {"미완료" : 4,"완료" : 1,"지연" : 1}}, {"target" : {"id" : 8,"name" : "임형민1","email" : "test7@daou.co.kr","position" : "사원","thumbnail" : "/go/resources/images/photo_profile_small.jpg"},"present" : {"미완료" : 3,"완료" : 3,"지연" : 0}}, {"target" : {"id" : 7,"name" : "인턴2-2","email" : "test6@daou.co.kr","position" : "사원","thumbnail" : "/go/resources/images/photo_profile_small.jpg"},"present" : {"미완료" : 1,"완료" : 5,"지연" : 0}}, {"target" : {"id" : 6,"name" : "인턴2-1","email" : "test5@daou.co.kr","position" : "대리","thumbnail" : "/go/resources/images/photo_profile_small.jpg"},"present" : {"미완료" : 4,"완료" : 1,"지연" : 1}}, {"target" : {"id" : 5,"name" : "윤여진2","email" : "test4@daou.co.kr","position" : "과장","thumbnail" : "/go/resources/images/photo_profile_small.jpg"},"present" : {"미완료" : 3,"완료" : 3,"지연" : 0}} ],"message" : "OK","code" : "200","__go_checksum__" : true}'),
+        statusCode: 200,
+        status:'OK',
+        type: 'GET'
+    });
+    $.ajaxMock.register('/api/task/present/member?deptId=7&memberId=10&folderId=1&issueTypeId=1&startDate=&endDate=', {
+        responseText:$.parseJSON('{"data" : {"target" : {"id" : 10,"name" : "최경영1","email" : "test9@daou.co.kr","position" : "회장","thumbnail" : "/go/resources/images/photo_profile_small.jpg"},"present" : {"대기" : 2,"진행" : 3,"완료" : 1,"지연" : 4}},"message" : "OK","code" : "200","__go_checksum__" : true}'),
+        statusCode: 200,
+        status:'OK',
+        type: 'GET'
+    });
+    </script>
+    
+    <script type="text/javascript" id="go-gadget-script">
+    try{
+    var Gadget = Backbone.Model.extend({
+    	initialize : function(options) {
+    		this.i18n = options.i18n;
+    		this.contextRoot = options.contextRoot;
+    		
+    		if (!options.dataType) this.set(this.dataTemplate().at(0));
+    	},
+    	
+    	
+    	init : function() {
+    		this.getDepts();
+    		this.getFolders();
+    		this.getMembers();
+    		this.getTypes();
+    	},
+    	
+    	
+    	dataTemplate : function() {
+    		return new Backbone.Collection([{
+    			dataType : ""
+    		}, {
+    			title : this.i18n.parse("allFolder"),
+    			dataType : "f1",
+    			folderRange : "all",
+    			chartType : "bar",
+    			allStatus : "on",
+    			standard : 10
+    		}, {
+    			title : this.i18n.parse("oneFolder"),
+    			dataType : "f2",
+    			folderRange : "one",
+    			folderId : this.getDefaultFolderId(),
+    			typeId : this.getDefaultTypeId(),
+    			chartType : "bar",
+    			allStatus : "on",
+    			standard : 10
+    		}, {
+    			title : this.i18n.parse("delayFolder"),
+    			dataType : "f3",
+    			folderRange : "one",
+    			folderId : this.getDefaultFolderId(),
+    			typeId : this.getDefaultTypeId(),
+    			chartType : "gage",
+    			allStatus : "on",
+    			standard : 10
+    		}, {
+    			title : this.i18n.parse("allMember"),
+    			dataType : "m1",
+    			memberRange : "all",
+    			folderId : this.getDefaultFolderId(),
+    			chartType : "bar",
+    			allStatus : "on",
+    			standard : 10
+    			
+    		}, {
+    			title : this.i18n.parse("oneMember"),
+    			dataType : "m2",
+    			memberRange : "one",
+    			folderId : this.getDefaultFolderId(),
+    			chartType : "bar",
+    			allStatus : "on",
+    			standard : 10
+    		}, {
+    			title : this.i18n.parse("delayMember"),
+    			dataType : "m3",
+    			memberRange : "one",
+    			folderId : this.getDefaultFolderId(),
+    			chartType : "gage",
+    			allStatus : "on",
+    			standard : 10
+    		}]);
+    	},
+    	
+    	
+    	getDepts : function() {
+    		var self = this;
+    		$.ajax({
+    			url : this.contextRoot + "api/department/list/joined",
+    			type : "GET",
+    			async : false,
+    			success : function(resp) {
+    				var depts = resp.data;
+    				self.depts = new Backbone.Collection(depts);
+    				self.set("deptId", self.get("deptId") || self.getDefaultDeptId()); 
+    			}
+    		});
+    		
+    		return this.depts; 
+    	},
+    	
+    	
+    	getFolders : function() {
+    		var self = this;
+    		var deptId = this.get("deptId");
+    		
+    		if (!deptId) {
+    			this.folders = new Backbone.Collection([{id : "", name : self.i18n.parse("notExist")}]);
+    			this.set("folderId", null);
+    			this.set("typeId", null);
+    			this.getTypes(); 
+    			return this.folders;
+    		}
+    		
+    		$.ajax({
+    			url : this.contextRoot + "api/task/folder/dept/" + deptId + "/low",
+    			type : "GET",
+    			async : false,
+    			success : function(resp) {
+    				var folders = resp.data;
+    				if (!folders.length) folders = [];
+		    		self.folders = new Backbone.Collection(folders);
+		    		self.set("folderId", self.get("folderId") || self.getDefaultFolderId());
+    			}
+    		});
+    		
+    		return this.folders;
+    	},
+    	
+    	
+    	getMembers : function() {
+    		var self = this;
+			var deptId = this.get("deptId");
+    		
+    		if (!deptId) {
+    			this.members = new Backbone.Collection([{id : "", name : self.i18n.parse("notExist")}]);
+    			this.set("memberId", null);
+    			return this.members;
+    		}
+    		
+    		$.ajax({
+    			url : this.contextRoot + "api/organization/list?scope=none&deptid=" + deptId,
+    			type : "GET",
+    			async : false,
+    			success : function(resp) {
+    				var members = _.map(resp, function(data) {
+						return data.metadata;
+					});
+    				
+		    		self.members = new Backbone.Collection(members);
+		    		self.set("memberId", self.get("memberId") || self.getDefaultMemberId());
+    			}
+    		});
+    		
+    		return this.members;
+    	},
+    	
+    	
+    	getTypes : function() {
+    		var self = this;
+    		var folderId = this.get("folderId");
+    		
+    		if (!folderId) {
+    			this.types = new Backbone.Collection([]);
+    			return this.types;
+    		}
+    		var types = this.folders.get(folderId) ? this.folders.get(folderId).get("types") : [];
+    		this.types = new Backbone.Collection(types);
+    		this.set("typeId", this.get("typeId") || this.getDefaultTypeId());
+    		
+    		return this.types;
+    	},
+    	
+    	
+    	getStatus : function(paramTypeId) {
+    		var typeId = paramTypeId || this.get("typeId");
+    		
+    		/* if (Store.get("taskType" + typeId)) this.statuses = new Backbone.Collection(Store.get("taskType" + typeId)); */
+    		if (!typeId) {
+    			this.statuses = new Backbone.Collection([]);
+    			return this.statuses;
+    		}
+    		
+    		if (!this.statuses || paramTypeId) {
+	    		var self = this;
+	    		$.ajax({
+	    			url : this.contextRoot + "api/task/type/" + typeId,
+	    			type : "GET",
+	    			async : false,
+	    			success : function(resp) {
+			    		self.statuses = new Backbone.Collection(resp.data.taskStatuses);
+			    		/* Store.set("taskType" + typeId, self.statuses, {type : "session", expires : 1000}); */
+	    			}
+	    		});
+    		}
+    		
+    		_.each(this.statuses.models, function(status) {
+    			var isChecked = _.contains(this.get("status"), status.get("name")) || this.isAllStatus();
+    			status.set("isChecked", isChecked);
+    		}, this);
+    		
+    		return this.statuses;
+    	},
+    	
+    	
+    	getDepartmentName : function() {
+    		if (!this.depts) this.getDepts();
+    		return this.depts.get(this.get("deptId")).get("name");
+    	},
+    	
+    	
+    	getFolderName : function() {
+    		if (!this.folders) this.getFolders();
+    		return this.folders.get(this.get("folderId")).get("name");
+    	},
+    	
+    	
+    	getDefaultDeptId : function() {
+    		return this.depts && this.depts.length ? this.depts.at(0).id : null;
+    	},
+    	
+    	
+    	getDefaultFolderId : function() {
+    		return this.folders && this.folders.length ? this.folders.at(0).id : null;
+    	},
+    	
+    	
+    	getDefaultMemberId : function() {
+    		return this.members && this.members.length ? this.members.at(0).id : null;
+    	},
+    	
+    	
+    	getDefaultTypeId : function() {
+    		return this.types && this.types.length ? this.types.at(0).id : null;
+    	},
+    	
+    	
+    	isFolderType : function(type) {
+    		return type.substr(0, 1) == "f";
+    	},
+    	
+    	
+    	isMemberType : function(type) {
+    		return type.substr(0, 1) == "m";
+    	},
+    	
+    	
+    	hasDataType : function() {
+    		return !this.get("dataType") || this.get("dataType") == "";
+    	},
+    	
+    	
+    	isFolderRange : function(options) {
+    		return this.has("folderRange");
+    	},
+    	
+    	
+    	isMemberRange : function(options) {
+    		return this.has("memberRange");
+    	},
+    	
+    	
+    	isAllFolder : function() {
+    		return this.get("folderRange") == "all";
+    	},
+    	
+    	isDeptFolder : function() {
+    		return this.get("folderRange") == "dept";
+    	},
+    	
+    	isListFolder : function() {
+    		return this.isAllFolder() || this.isDeptFolder();
+    	},    	
+    	
+    	isOneFolder : function() {
+    		return this.get("folderRange") == "one";
+    	},
+    	
+    	
+    	isAllMember : function() {
+    		return this.get("memberRange") == "all";
+    	},
+    	
+    	
+    	isOneMember : function() {
+    		return this.get("memberRange") == "one";
+    	},
+    	
+    	
+    	isOneData : function(options) {
+    		return this.get("folderRange") == "one" || this.get("memberRange") == "one";
+    	},
+    	
+    	
+    	isOneType : function(options) {
+    		return this.types.length == 1;
+    	},
+    	
+    	
+    	isStatus : function() {
+    		return (this.isOneData() || !this.isListFolder()) && !this.isGage();
+    	},
+    	
+    	
+    	isAllStatus : function() {
+    		return this.get("allStatus") == "on";
+    	},
+    	
+    	
+    	hasTime : function() {
+    		return this.get("time") == "direct";
+    	},
+    	
+    	/* 검증 필요 */
+    	hasFolderId : function() {
+    		return this.get("folderId") && this.get("folderId") != "all"; 
+    	},
+
+    	
+    	isStack : function() {
+    		return this.get("chartType") == "bar" && (this.isListFolder() || this.isAllMember());
+    	},
+    	
+    	
+    	isBar : function() {
+    		return this.get("chartType") == "bar" && this.hasFolderId();
+    	},
+    	
+    	
+    	isGage : function() {
+    		return this.get("chartType") == "gage";
+    	},
+    	
+    	
+    	isPie : function() {
+    		return this.get("chartType") == "pie";
+    	},
+    	
+    	
+    	isAllMemberAndOneFolder : function() {
+    		return this.isAllMember() && this.hasFolderId(); 
+    	},
+    	
+    	
+    	isDelayOnly : function() {
+    		return this.get("delayStatus") == "delay" && this.isGage();
+    	},
+    	
+    	
+    	setChartData : function(resp) {
+    		var chartData = _.isArray(resp) ? resp : [resp];
+    		this.chartData = this.get("memberRange") == "all" ?  this.statusParser(chartData) : chartData;
+    	},
+    	
+    	
+    	getChartData : function() {
+    		var data = null;
+    		var legend = {};
+    		
+    		// 전체 폴더
+    		if (this.isFolderType(this.get("dataType")) && this.isListFolder()) {
+    			data = this.chartData;
+    			legend.title = this.getDepartmentName();
+    			
+    		// 특정 폴더
+    		} else if (this.isFolderType(this.get("dataType")) && this.get("folderRange") == "one") {
+    			data = this.isDelayOnly() ? this.delayParser(this.chartData) : this.statusParser(this.chartData);
+				legend.title = this.chartData[0].target.name;
+  				legend.status = _.keys(this.chartData[0].present);
+    		
+    		// 전체 멤버 && 특정 폴더
+    		} else if (this.isMemberType(this.get("dataType")) && this.get("memberRange") == "all" && this.get("folderId")) {
+    			data = this.chartData;
+    			legend.title = this.getFolderName();
+    			
+    		// 전체 멤버 && 전체 폴더
+    		} else if (this.isMemberType(this.get("dataType")) && this.get("memberRange") == "all") {
+    			data = this.chartData;
+    			legend.title = "";
+    		
+    		// 특정 멤버
+    		} else if (this.isMemberType(this.get("dataType")) && this.get("memberRange") == "one") {
+    			data = this.isDelayOnly() ? this.delayParser(this.chartData) : this.statusParser(this.chartData);
+    			legend.title = this.chartData[0].target.name + " " + (this.chartData[0].target.position || "");
+    			legend.status = _.keys(this.chartData[0].present);
+    			
+    		} else {
+    			console.log("error?");
+    		}
+    		
+    		return {data : data, legend : legend};
+    	},
+    	
+    	
+    	statusParser : function(datas) {
+    		var statuses = _.map(this.getStatus().models, function(status){
+    			return status.get("name");
+   			});
+    		
+    		var checkedStatus = _.filter(statuses, function(status) {
+    			return _.contains(this.get("status"), status);
+    		}, this);
+    		
+    		_.each(datas, function(data) {
+    			var usedStatus = _.pick(data.present, checkedStatus);
+    			data.present = usedStatus;
+    		}, this);
+    		
+    		return datas;
+    	},
+    	
+    	
+    	delayParser : function(datas) {
+    		var delayStatus = this.i18n.parse("delay");
+    		
+    		_.each(datas, function(data) {
+    			var usedStatus = _.pick(data.present, delayStatus);
+    			data.present = usedStatus;
+    		}, this);
+    		
+    		return datas;
+    	},
+		
+		
+		validate : function() {
+			/* console.log("model validate"); */
+			return this.hasDepts() && this.hasFolders() && this.hasMembers() && this.hasTypes();
+		},
+		
+		
+		hasDepts : function() {
+			return this.depts.length > 0;
+		},
+		
+		
+		hasFolders : function() {
+			return this.folders.length > 0;
+		},
+		
+		
+		hasMembers : function() {
+			return this.members.length > 0;
+		},
+		
+		
+		hasTypes : function() {
+			return this.types.length > 0;
+		},
+		
+		
+		getDeptList : function() {
+			var depts = this.depts.clone();
+			if (!this.hasDepts()) depts.add({id : "", name : this.i18n.parse("notExist")});
+			return depts.toJSON();
+		},
+		
+		
+		getFolderList : function() {
+			var folders = this.folders.clone();
+			if (!this.hasFolders()) folders.add({id : "", name : this.i18n.parse("notExist")});
+			return folders.toJSON();
+		},
+		
+		
+		getMemberList : function() {
+			var members = this.members.clone();
+			if (!this.hasMembers()) members.add({id : "", name : this.i18n.parse("notExist")});
+			return members.toJSON();
+		},
+		
+		
+		getTypeList : function() {
+			var types = this.types.clone();
+			if (!this.hasTypes()) types.add({id : "", name : this.i18n.parse("notExist")});
+			return types.toJSON();
+		}
+    });
+    
+    
+    var ChartDatas = Backbone.Collection.extend({
+    	
+    	stackDataParser : function(isAllMemberAndOneFolder) {
+    		var data = [];
+    		var legend = [];
+    		
+    		// IE8 대응코드
+    		if (!this.length) return {data : [], legend : []};
+    		
+    		var keys = _.keys(this.at(0).get("present"));
+    		
+   			var DATA_SET_SIZE = isAllMemberAndOneFolder ? 1 : 1.5; 				// 2줄이 하나의 model data
+   			var INPROGRESS_AND_COMPLETE = isAllMemberAndOneFolder ? 1 : 1.5; 	// 아래에서 부터 2번째 줄이inprogress와 complete
+   			var DELAY = 0.9; 						// 아래에서 1번째 줄이 delay
+    		
+    		_.each(keys, function(key, keyIndex) {
+    			var keyData = [];
+    			
+    			_.each(this.models, function(model, modelIndex) {
+    				var dataIndex = 0;
+    				if (this.isDelay(keys.length, keyIndex) && !isAllMemberAndOneFolder) {
+    					dataIndex = DELAY;
+    				} else {
+    					dataIndex = INPROGRESS_AND_COMPLETE;
+    				}
+    				
+   					keyData.push([model.get("present")[key], modelIndex * DATA_SET_SIZE + dataIndex]);
+    			}, this);
+    			
+    			var color = isAllMemberAndOneFolder ? this.getColor(keyIndex) : this.getFixedColor(keyIndex);
+    			data.push({
+    				label : key,
+    				data : keyData,
+    				color : color
+    			});
+    			
+    			legend.push({color : color, key : key})
+    			
+    		}, this);
+    		
+    		return {data : data, legend : legend};
+    	},
+    	
+    	
+    	stackLabelParser : function(isAllMemberAndOneFolder) {
+    		var BLANK = 0.5;
+    		var DATA_SET_SIZE = isAllMemberAndOneFolder ? 1 : 1.5; 				// 3줄이 하나의 model data
+    		var NAME_LABEL = isAllMemberAndOneFolder ? 1 : 1.5;						// 아래에서 부터 2번째 줄이 name Label
+    		var label = [];
+    		
+    		label.push([BLANK, ""]); // 여백
+    		_.each(this.models.reverse(), function(model, index) {
+    			label.push([index * DATA_SET_SIZE + NAME_LABEL, this.labelFormatFilter(model.get("target").name)]);
+    		}, this);
+    		label.push([this.length + BLANK, ""]); // 여백
+    		
+    		return label;
+    	},
+    	
+    	
+    	barDataParser : function() {
+    		var data = [];
+    		var legend = [];
+    		var keys = _.keys(this.at(0).get("present"));
+    		
+    		_.each(keys, function(key, index) {
+    			var color = this.getColor(index);
+    			data.push({
+    				label : key,
+    				data : [[this.at(0).get("present")[key], index + 1]],
+    				color : color
+    			});
+    			
+	    		legend.push({color : color, key : key})
+	    		
+    		}, this);
+    		
+    		return {data : data, legend : legend};
+    	},
+    	
+    	
+    	barLabelParser : function() {
+    		var BLANK = 0.5;
+    		var label = [];
+    		var keys = _.keys(this.at(0).get("present"));
+    		
+   			label.push([BLANK, ""]); // 여백 
+    		_.each(keys, function(key, index) {
+    			label.push([index + 1, this.labelSizeFilter(key)]);
+    		}, this);
+   			label.push([keys.length + BLANK, ""]);
+    		
+    		return label;
+    	},
+    	
+    	
+    	gageDataParser : function(isDelayOnly) {
+    		var values = _.values(this.at(0).get("present"));
+			var sum = 0;
+    		
+  			_.each(this.models, function(model) {
+    			_.each(values, function(value, index) {
+    				sum = sum + value;
+    			});
+    		}, this);
+    		
+    		return sum;
+    	},
+    	
+    	
+    	pieDataParser : function() {
+    		var data = [];
+    		var keys = _.keys(this.at(0).get("present"));
+    		
+    		_.each(keys, function(key, index) {
+    			data.push({
+    				label : key,
+    				data : this.at(0).get("present")[key], // 여백을 주기위해 +1
+    				color : this.getColor(index)
+    			});
+    		}, this);
+    		
+    		return data;
+    	},
+    	
+    	
+    	labelFormatFilter : function(label) {
+    		return "<p style='width: 50px; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;'>" + label + "</p>";
+    	},
+    	
+    	
+    	labelSizeFilter : function(label) {
+    		if (label.length > 5) label = label.substr(0, 4) + "..";
+    		
+    		return label;
+    	},
+    	
+    	
+    	isDelay : function(keyLength, index) {
+    		return (keyLength - 1) == index;
+    	},
+    	
+    	
+    	getFixedColor : function(index) {
+    		return ['#109af2', '#a2a2a2', '#fb4c49'][index];
+    	},
+    	
+    	
+    	getColor : function(index) {
+    		var colors = [
+    			"#4487ed", "#a4c423", "#24baf5", "#f5b139", "#db397a",
+    			"#f47ca0", "#a5205b", "#7e0fe8", "#f524f4", "#ba0fe8", 
+    			"#5b67cd", "#75a8d9", "#004d9c", "#4c9ba4", "#42d692", 
+    			"#16a765", "#bd9265", "#6f310e", "#e78b02", "#7c807a"
+    		];
+    		
+    		return colors[parseInt(index % 20)];
+    	}
+    });
+    
+    
+    var GadgetView = Backbone.View.extend({
+    	events : {
+    		"change #dataType" : "changeDataType",
+    		"change #deptSelect" : "changeDept",
+    		"change #folderSelect" : "changeFolder",
+    		"change #typeSelect" : "changeType",
+    		"change #chartSelect" : "changeChart",
+    		"click #allStatus" : "checkAll",
+    		"click input[name=folderRange]" : "changeFolderRange",
+    		"click input[name=memberRange]" : "changeMemberRange",
+    		"click input[name=delayStatus]" : "changeGageSetting",
+    		"click input[name=time]" : "toggleDateView",
+    		"click input[data-type=status]" : "checkStatus"
+    	},
+
+    	
+    	initialize : function(options) {
+    		this.i18n = options.i18n;
+    		this.emptyView = options.emptyView;
+    	},
+    	
+    	render : function() {
+    		this.$el.html(Hogan.compile(this.makeConfigTemplate()).render({
+    			data : this.model.toJSON(),
+    			hasDataType : this.model.hasDataType(),
+    			isAllFolder : this.model.isAllFolder(),
+    			isDeptFolder : this.model.isDeptFolder(),
+    			isListFolder : this.model.isListFolder(),
+    			isOneFolder : this.model.isOneFolder(),
+    			isAllMember : this.model.isAllMember(),
+    			isOneMember : this.model.isOneMember(),
+				isFolderRange : this.model.isFolderRange(),
+				isMemberRange : this.model.isMemberRange(),
+				isOneData : this.model.isOneData(),
+				isOneType : this.model.isOneType(),
+				isStatus : this.model.isStatus(),
+				isGage : this.model.isGage(),
+				typeView : !this.model.isListFolder() && !this.model.isOneType(),
+    			deptList : this.model.getDeptList(),
+    			folderList : this.model.getFolderList(),
+    			memberList : this.model.getMemberList(),
+    			typeList : this.model.getTypeList(),
+    			status : this.model.getStatus().toJSON(),
+    			isAllStatus : this.model.isAllStatus(),
+    			hasTime : this.model.hasTime()
+    		}));
+    		
+    		this.setSelectData();
+    		this.renderState();
+    		
+    		return this;
+    	},
+    	
+    	
+    	setSelectData : function() {
+    		this.$("#dataType").val(this.model.get("dataType"));
+    		this.$("#chartSelect").val(this.model.get("chartType"));
+    		this.$("#deptSelect").val(this.model.get("deptId"));
+    		this.$("#folderSelect").val(this.model.get("folderId"));
+    		this.$("#typeSelect").val(this.model.get("typeId"));
+    		this.$("#memberSelect").val(this.model.get("memberId"));
+    	},
+    	
+    	
+    	changeDataType : function(e) {
+    		var target = $(e.currentTarget);
+    		this.model.clear();
+    		this.model.set(this.model.dataTemplate().findWhere({dataType : target.val()}).toJSON());
+    		this.model.set({
+    			deptId : this.model.getDefaultDeptId(),
+    			folderId : this.model.getDefaultFolderId(),
+    			memberId : this.model.getDefaultMemberId(),
+    			typeId : this.model.getDefaultTypeId()
+    		}, this);
+    		this.render();
+    	},
+    	
+    	
+    	changeDept : function(e) {
+    		var target = $(e.currentTarget);
+    		var deptId = target.val();
+    		this.model.set("deptId", deptId);
+    		this.model.set("folderId", null);
+    		this.renderFolderList(deptId);
+    	},
+    	
+    	
+    	renderFolderList : function(deptId) {
+    		this.$("#folderSelect").find("option").remove();
+    		_.each(this.model.getFolders(deptId).toJSON(), function(folder) {
+    			this.$("#folderSelect").append("<option value=" + folder.id + ">" + folder.name + "</option>");
+    		}, this);
+    		var folderId = this.model.getDefaultFolderId();
+    		this.renderTypeList(folderId);
+    	},
+    	
+    	
+    	renderTypeList : function(folderId) {
+    		this.$("#typeSelect").find("option").remove();
+    		_.each(this.model.getTypes(folderId).toJSON(), function(folder) {
+    			this.$("#typeSelect").append("<option value=" + folder.id + ">" + folder.name + "</option>");
+    		}, this);
+    	},
+    	
+    	
+    	renderState : function(typeId) {
+    		var html = [];
+    		
+    		html.push('<li {{^isStatus}}style="display:none;"{{/isStatus}} id="statusArea">');
+				html.push('<p class="title">' + this.i18n.parse("status") + '</p>');
+				html.push('<span class="wrap_option">');
+					html.push('<input id="allStatus" type="checkbox" name="allStatus" {{#isAllStatus}}checked="checked"{{/isAllStatus}}>');
+					html.push('<label for="allStatus">' + this.i18n.parse("all") + '</label>');
+				html.push('</span>');
+				html.push('<span class="horspace1"></span>');
+				html.push('{{#status}}');
+				html.push('<span class="wrap_option">');
+					html.push('<input id="{{name}}" type="checkbox" name="status" value="{{name}}" data-type="status" {{#isChecked}}checked="checked"{{/isChecked}}>');
+					html.push('<label for="{{name}}">{{name}}</label>');
+				html.push('</span>');
+				html.push('<span class="horspace1"></span>');
+				html.push('{{/status}}');
+			html.push('</li>');
+			
+			var statusView = Hogan.compile(html.join("\n")).render({
+				status : this.model.getStatus(typeId).toJSON(),
+				isStatus : this.model.isStatus(),
+				isAllStatus : this.model.isAllStatus()
+			});
+			
+			this.$("#statusArea").replaceWith(statusView);
+    	},
+    	
+    	
+    	changeFolderRange : function(e) {
+    		var target = $(e.currentTarget);
+    		var isOneFolder = target.val() == "one";
+    		this.$("#folderArea").toggle(isOneFolder);
+    		this.$("#typeArea").toggle(isOneFolder && !this.model.isListFolder() && !this.model.isOneType());
+    		this.$("#chartArea").toggle(isOneFolder).find("#chartSelect").val("bar");
+    		this.$("#statusArea").toggle(isOneFolder);
+    		this.$("#gageSetting").hide();
+    	},
+    	
+    	
+    	changeMemberRange : function(e) {
+    		var target = $(e.currentTarget);
+    		var isOneMember = target.val() == "one";
+    		this.$("#memberArea").toggle(isOneMember);
+    	},
+    	
+    	
+    	changeFolder : function(e) {
+    		var target = $(e.currentTarget);
+    		var folderId = target.val();
+    		this.model.set("folderId", folderId);
+    		this.renderTypeList(folderId);
+    		this.changeType(null, this.model.getDefaultTypeId());
+    	},
+    	
+    	
+    	changeType : function(e, typeID) {
+    		var typeId = e ? $(e.currentTarget).val() : typeID;
+    		
+    		this.model.set("typeId", typeId);
+    		this.renderState(typeId);
+    	},
+    	
+    	
+    	changeChart : function(e) {
+    		var target = $(e.currentTarget);
+    		var chartType = target.val();
+    		var isGageType = chartType == "gage";
+   			this.$("#gageSetting").toggle(isGageType);
+    		this.$("#statusArea").toggle(!isGageType);
+    		this.$("#delayOnly").attr("checked", true);
+    	},
+    	
+    	
+    	changeGageSetting : function(e) {
+    		var target = $(e.currentTarget);
+    		var isOtherStatus = (target.val() == "other");
+    		this.$("#statusArea").toggle(isOtherStatus);
+    	},
+    	
+    	
+    	toggleDateView : function(e) {
+    		var target = $(e.currentTarget);
+    		var isShow = target.attr("id") == "direct";
+    		this.$("#dateArea").toggle(isShow);
+    		if (!isShow) {
+	    		this.$("input[name=startAt]").val("");
+    			this.$("input[name=endAt]").val("");
+    		} else {
+    			this.setDatepicker();
+    		}
+    	},
+    	
+    	
+    	setDatepicker : function() {
+    		$.datepicker.setDefaults( $.datepicker.regional["ko"] );
+        	this.$("input[name=startAt]").datepicker({
+				yearSuffix: "",
+				dateFormat: "yymmdd", 
+				changeMonth: true,
+				changeYear: true
+            });
+        	this.$("input[name=endAt]").datepicker({
+				yearSuffix: "",
+				dateFormat: "yymmdd", 
+				changeMonth: true,
+				changeYear: true
+            });
+    	},
+    	
+    	
+    	checkAll : function(e) {
+    		var target = $(e.currentTarget);
+    		var isChecked = target.is(":checked");
+    		this.$("#statusArea").find("input[type=checkbox]").attr("checked", isChecked);
+    	},
+    	
+    	
+    	checkStatus : function() {
+    		var isCheckAll = true;
+    		_.each(this.$("input[data-type=status]"), function(checkbox) {
+    			if (!$(checkbox).is(":checked")) isCheckAll = false;
+    		});
+    		this.$("#allStatus").attr("checked", isCheckAll);
+    	},
+    	
+    	
+    	renderChart : function(chartEl) {
+    		this.chartEl = chartEl;
+    		var resp = this.model.getChartData();
+    		var titleLabel = resp.legend;
+    		var dataColection = new ChartDatas(resp.data);
+    		
+    		if (this.model.isStack(dataColection)) {
+    			var isAllMemberAndOneFolder = this.model.isAllMemberAndOneFolder();
+    			var label = dataColection.stackLabelParser(isAllMemberAndOneFolder);
+    			var height = isAllMemberAndOneFolder ? dataColection.length * 40 : (label.length > 0 ? (label.length - 1) : label.length) * 40; // -1은 여백제거
+    			var parsedData = dataColection.stackDataParser(isAllMemberAndOneFolder);
+    			
+	    		this.chartEl.parents("div.figure").after(this.makeFooterEl(titleLabel, parsedData.legend, true)); // footer 영역이 resize event를 발생시키는 버그가있음
+    			this.renderBar(parsedData.data, label, height, parsedData.legend);
+    			
+    		} else if (this.model.isBar(dataColection)) {
+    			var label = dataColection.barLabelParser();
+    			var height = (label.length - 2) * 50; // -2는 여백 제거 
+    			var parsedData = dataColection.barDataParser();
+    			
+	    		this.chartEl.parents("div.figure").after(this.makeFooterEl(titleLabel, parsedData.legend, true));
+    			this.renderBar(parsedData.data, label, height, parsedData.legend);
+    			
+    		} else if (this.model.isGage(dataColection)) {
+    			var isDelayOnly = this.model.isDelayOnly();
+    			
+	    		this.chartEl.parents("div.figure").before(this.makeFooterEl(titleLabel, titleLabel.status, true));
+    			this.renderGage(dataColection.gageDataParser(isDelayOnly), this.model.get("standard"));
+    			
+    		} else if (this.model.isPie(dataColection)) {
+	    		this.chartEl.parents("div.figure").after(this.makeFooterEl(titleLabel, null, false));
+    			this.renderPie(dataColection.pieDataParser());
+    			
+    		} else {
+    			console.log("error@");
+    		}
+    		
+    	},
+    	
+    	
+    	makeFooterEl : function(label, status, isStatusLabel) {
+    		var html = [];
+    		html.push('<div class="footnote">');
+    		
+	    	if (isStatusLabel) {
+	    		html.push('<div class="state">');
+	    		
+	    		_.each(status, function(state) {
+	    				var color = state.color || "white";
+	    				var fontColor = color == "white" ? "black" : "white";
+	    				var borderColor = color == "white" ? "#d9d9d9" : color ;
+	    				var key = state.key || state;
+	    				
+			    		html.push('<span class="state" style="color:' + fontColor + ';background-color:' + color + ';border:1px solid ' + borderColor + '">' + key + '</span>');
+	    		}, this);
+	    		
+	    		html.push('</div>');
+	    	}
+    		
+	    		html.push('<p class="desc" title="' + label.title + '">' + label.title + '</p>');
+    		html.push('</div>');
+    		
+    		return html.join("\n");
+    	},
+        
+        
+        renderBar : function(data, label, height, legend) {
+            var chartOptions = {
+                xaxis: {
+                	min : 0,
+        			minTickSize: 1,
+        			tickFormatter: function(a, b) {
+        				return parseInt(a);
+        			},
+        			font : {
+        				size : 12,
+        				color : "#0000"
+        			}
+                },
+        		yaxis: {
+        			ticks : label, 
+        			tickFormatter: function(a, b) {
+        				return b;
+        			},
+        			font : {
+        				size : 12,
+        				color : "#0000"
+        			}
+                },
+                grid: {
+                    hoverable: true,
+                    clickable: true,
+                    borderWidth: 0
+                },
+        		series : {
+        			stack : true
+        		},
+        		bars: {
+        			align : "center",
+                	horizontal: true,
+        	    	show: true,
+                    barWidth: .50,
+                    fill: true,
+        			//order: true,
+                    lineWidth: 0,
+        			fillColor: { colors: [ { opacity: 1 }, { opacity: 1 } ] }
+        	    },
+        	    legend : {
+        			show : false,
+        			position : "se",
+        			labelFormatter: function(label, series) {
+        				return '<span>' + label + '</span>';
+        			}
+        		},
+        		
+        		tooltip: true,
+
+        		tooltipOpts: {
+        			content : function(label, xval, yval, flotItem) {
+        				var yData = _.find(flotItem.series.yaxis.ticks, function(tick) {
+        					return tick.v == yval;
+       					});
+        				var yLabel = yData ? $(yData.label).text() : "";
+        				var baseTooltip = " : " + flotItem.series.data[flotItem.dataIndex][0];
+        				var tooltip = yLabel ? yLabel + "(" + label + ")" + baseTooltip : label + baseTooltip;  
+        				return tooltip;
+        			}
+        		}
+            };
+            
+            this.chartEl.css({
+            	"min-height" : 80,
+            	"height" : height
+           	});
+			$.plot(this.chartEl, data, chartOptions );
+        },
+        
+        
+        renderGage : function(value, max) {
+        	var width = parseInt(this.chartEl.css("width"));
+        	if (width > 500) width = 500;
+        	// IE8 대응
+        	this.chartEl.css({
+        		width : width,
+	        	height : width * 0.8
+        	});
+        	var chartId = this.chartEl.attr("id");
+        	var gage = new JustGage({
+           		id : chartId,
+           		value : value,
+           		min : 0,
+           		max : max,
+           		title : " ",
+           		showInnerShadow : false,
+           		levelColors : ["#56d221", "#2ec882", "#32bae0", "#6e8df8", "#6b67ff", "#9659ee", "#c200a9", "#f1324a"]
+           	});
+        	
+        	var wrapper = this.chartEl.parents("div.gadget_design_wrap").css("position", "relative");
+        	var footnote = wrapper.find("div.footnote");
+        		
+        	footnote.css({
+        		position : "absolute",
+        		top : "16%"
+        	});
+        	
+        	/* var left = (parseInt(wrapper.css("width")) / 2) - (parseInt(footnote.css("width")) / 2); */ 
+        	/* footnote.css("left", left); // absolute 로 띄워져야만 width가 제대로 잡히기 때문에 스타일을 두번에 걸쳐 처리한다. */
+        	
+        	footnote.css("width", "100%"); 
+        	footnote.addClass("footnote_speed");
+        	
+        	this.chartEl.css("margin", "0 auto"); // 레이아웃이 넓은경우 중앙에 위치시킴
+        },
+        
+        
+        renderPie : function(data) {
+        	var sum = _.reduce(data, function(sum, data) {return sum + data.data;}, 0);
+        	if (sum == 0) {
+        		this.chartEl.html(this.emptyView(this.i18n.parse("emptyData")));
+        		return;
+        	}
+        	
+        	this.chartEl.css({
+        		"height" : 250
+        	});
+        	$.plot(this.chartEl, data, {
+                series: {
+                    pie: { 
+                        show: true,
+                        radius: 1,
+                        label: {
+                            show: true,
+                            radius: 7/10,
+                            formatter: function(label, series){
+                                return '<div style="font-size:8pt;text-align:center;padding:2px;color:white;">' + label + " " + series.data[0][1] + '<br/>' + Math.round(series.percent) + '%</div>';
+                            },
+                            background: { opacity: 0 },
+                            threshold: 0.1
+                        }
+                    }
+                },
+                grid: {
+                    hoverable: true 
+            	},
+                legend: {
+                    show: false
+                },
+                tooltip: true,
+                tooltipOpts: {
+        			content: "%s: %p.0%"
+        		}
+        	});
+        },
+    	
+        
+    	makeConfigTemplate : function() {
+			var html = [];
+            
+            html.push('<ul class="standard_style">');
+            
+            
+	         	html.push('<li>');
+		            html.push('<p class="title">' + this.i18n.parse("selectTheme") + '</p>');
+					html.push('<select name="dataType" id="dataType">');
+						html.push('<option value="">' + this.i18n.parse("pleaseSelect") + '</option>');
+						html.push('<option value="f1">' + this.i18n.parse("allFolder") + '</option>');
+						html.push('<option value="f2">' + this.i18n.parse("oneFolder") + '</option>');
+						html.push('<option value="m1">' + this.i18n.parse("allMember") + '</option>');
+						html.push('<option value="m2">' + this.i18n.parse("oneMember") + '</option>');
+						html.push('<option value="f3">' + this.i18n.parse("delayFolder") + '</option>');
+						html.push('<option value="m3">' + this.i18n.parse("delayMember") + '</option>');
+					html.push('</select>');
+				html.push('</li>');
+				
+				
+	         	html.push('<div {{#hasDataType}}style="display:none;"{{/hasDataType}}>');
+	         	
+	         	
+	         	html.push('<li>');
+		            html.push('<p class="title">' + this.i18n.parse("gadgetTitle") + '</p>');
+	            	html.push('<span class="wrap_txt">');
+		            	html.push('<input name="title" class="txt w_max" type="text" value="{{data.title}}">');
+	            	html.push('</span>');
+				html.push('</li>');
+				
+				
+				html.push('<li>');
+					html.push('<p class="title">' + this.i18n.parse("selectDepartment") + '</p>');
+					html.push('<select name="deptId" id="deptSelect">');
+						html.push('{{#deptList}}');
+						html.push('<option value={{id}}>{{name}}</option>');
+						html.push('{{/deptList}}');
+					html.push('</select>');
+				html.push('</li>');
+				
+				
+				html.push('{{#isFolderRange}}');
+				html.push('<li>');
+					html.push('<p class="title">' + this.i18n.parse("folderRange") + '</p>');
+					html.push('<span class="wrap_option">');
+						html.push('<input id="folderAll" name="folderRange" value="all" type="radio" {{#isAllFolder}}checked="checked"{{/isAllFolder}}>');
+						html.push('<label for="folderAll">' + this.i18n.parse("showAllFolder") + '</label>');
+					html.push('</span>');
+					html.push('<br>');
+					html.push('<span class="wrap_option">');
+						html.push('<input id="folderDept" name="folderRange" value="dept" type="radio" {{#isDeptFolder}}checked="checked"{{/isDeptFolder}}>');
+						html.push('<label for="folderDept">' + this.i18n.parse("showDeptFolder") + '</label>');
+					html.push('</span>');
+					html.push('<br>');
+					html.push('<span class="wrap_option">');
+						html.push('<input id="folderOne" name="folderRange" value="one" type="radio" {{#isOneFolder}}checked="checked"{{/isOneFolder}}>');
+						html.push('<label for="folderOne">' + this.i18n.parse("showOneFolder") + '</label>');
+					html.push('</span>');
+				html.push('</li>');			
+				html.push('{{/isFolderRange}}');
+				
+				
+				html.push('{{#isMemberRange}}');
+				html.push('<li>');
+					html.push('<p class="title">' + this.i18n.parse("memberRange") + '</p>');
+					html.push('<span class="wrap_option">');
+						html.push('<input id="memberAll" name="memberRange" value="all" type="radio" {{#isAllMember}}checked="checked"{{/isAllMember}}>');
+						html.push('<label for="memberAll">' + this.i18n.parse("showAllMember") + '</label>');
+					html.push('</span>');
+					html.push('<br>');
+					html.push('<span class="wrap_option">');
+						html.push('<input id="memberOne" name="memberRange" value="one" type="radio" {{^isAllMember}}checked="checked"{{/isAllMember}}>');
+						html.push('<label for="memberOne">' + this.i18n.parse("showOneMember") + '</label>');
+					html.push('</span>');
+				html.push('</li>');			
+				html.push('{{/isMemberRange}}');
+				
+				
+				html.push('<li id="memberArea" {{^isOneMember}}style="display:none;"{{/isOneMember}}>');
+					html.push('<p class="title">' + this.i18n.parse("selectMember") + '</p>');
+					html.push('<select id="memberSelect" name="memberId">');
+						html.push('{{#memberList}}');
+						html.push('<option value={{id}}>{{name}}</option>');
+						html.push('{{/memberList}}');
+					html.push('</select>');
+				html.push('</li>');
+				
+				
+				html.push('<li id="folderArea" {{#isListFolder}}style="display:none;"{{/isListFolder}}>');
+					html.push('<p class="title">' + this.i18n.parse("selectFolder") + '</p>');
+					html.push('<select id="folderSelect" name="folderId">');
+						html.push('{{#folderList}}<option value={{id}}>{{name}}</option>{{/folderList}}');
+					html.push('</select>');
+				html.push('</li>');
+				
+				
+				html.push('<li id="typeArea" {{^typeView}}style="display:none;"{{/typeView}}>');
+					html.push('<p class="title">' + this.i18n.parse("selectType") + '</p>');
+					html.push('<select id="typeSelect" name="typeId">');
+						html.push('{{#typeList}}<option value={{id}}>{{name}}</option>{{/typeList}}');
+					html.push('</select>');
+				html.push('</li>');
+				
+				
+				html.push('<li id="chartArea" {{^isOneData}}style="display:none;"{{/isOneData}}>');
+					html.push('<p class="title">' + this.i18n.parse("selectChart") + '</p>');
+					html.push('<select id="chartSelect" name="chartType">');
+					html.push('<option value="bar">' + this.i18n.parse("bar") + '</option>');
+					html.push('<option value="pie">' + this.i18n.parse("pie") + '</option>');
+					html.push('<option value="gage">' + this.i18n.parse("gage") + '</option>');
+					html.push('</select>');
+				html.push('</li>');
+				
+				
+				html.push('<li {{^isGage}}style="display:none;"{{/isGage}} id="gageSetting">');
+					html.push('<p class="title">' + this.i18n.parse("setGage") + '</p>');
+					html.push('<span class="wrap_txt">');
+						html.push('<label>' + this.i18n.parse("standard") + '</label>');
+						html.push('<input id="standard" name="standard" class="txt wfix_mini" type="text" value="{{data.standard}}">');
+						html.push('<label class="txt">' + this.i18n.parse("count") + '</label>');
+					html.push('</span>');
+					html.push('<br>');
+					html.push('<span class="wrap_option">');
+						html.push('<input id="delayOnly" name="delayStatus" value="delay" type="radio" checked="checked">');
+						html.push('<label for="delayOnly">' + this.i18n.parse("showDelay") + '</label>');
+					html.push('</span>');
+					html.push('<br>');
+					html.push('<span class="wrap_option">');
+						html.push('<input id="selectState" name="delayStatus" value="other" type="radio">');
+						html.push('<label for="selectState">' + this.i18n.parse("selectStatus") + '</label>');
+					html.push('</span>');
+					html.push('<br>');
+					html.push('');
+				html.push('</li>');
+				
+				
+				html.push('<li {{^isStatus}}style="display:none;"{{/isStatus}} id="statusArea">');
+				html.push('</li>');
+				
+				
+				html.push('<li>');
+					html.push('<p class="title">' + this.i18n.parse("time") + '</p>');
+					html.push('<span class="wrap_option">');
+						html.push('<input id="all" value="all" name="time" type="radio" {{^hasTime}}checked="checked"{{/hasTime}}>');
+						html.push('<label for="all">' + this.i18n.parse("all") + '</label>');
+					html.push('</span>');
+					html.push('<br />');
+					html.push('<span class="wrap_option">');
+						html.push('<input id="direct" value="direct" name="time" type="radio" {{#hasTime}}checked="checked"{{/hasTime}}>');
+						html.push('<label for="direct">' + this.i18n.parse("direct") + '</label>');
+					html.push('</span>');
+					html.push('<span id="dateArea" class="wrap_dateselect" {{^hasTime}}style="display:none"{{/hasTime}}>');
+						html.push('<span class="wrap_date">');
+							html.push('<input name="startAt" class="txt wfix_small" type="text" readonly="readonly" value="{{data.startAt}}">');
+							html.push('<span class="ic ic_calendar"></span>');
+						html.push('</span>');
+						html.push('<span class="date_wave">~</span>');
+						html.push('<span class="wrap_date">');
+							html.push('<input name="endAt" class="txt wfix_small" type="text" readonly="readonly" value="{{data.endAt}}"">');
+							html.push('<span class="ic ic_calendar"></span>');
+						html.push('</span>');
+					html.push('</span>');					
+				html.push('</li>');
+				
+				
+				html.push('</div>');
+				
+				
+			html.push('</ul>');
+				
+            return html.join("\n");
+    	}
+    });
+    
+    var Store = null;
+    if(!!window.amplify) {
+    	Store = (function() {
+	    	function getStorage(type/*,key, val, options*/) {
+	    		var storeType = type || 'local', 
+	    			args = Array.prototype.slice.apply(arguments), 
+	    			rargs = args.slice(1), 
+	    			func = (storeType === 'session' && !!window.sessionStorage ? amplify.store.sessionStorage : amplify.store);
+	    		
+	    		return func.apply(amplify, rargs);
+	    	}
+	    	
+	    	return {
+	    		get: function(key) {
+	    			return (getStorage('local', key) || getStorage('session', key));
+	    		}, 
+	    		
+	    		set: function(key, val, options) {
+	    			var opts = _.defaults(options || {}, { type: 'local' });
+	    			return getStorage(opts.type, key, val, _.omit(opts, 'type'));
+	    		}
+	    	};
+	    })();
+    }
+    
+    
+    var Resizer = (function($, undefined) {
+        
+        function WindowResizer(delay) {
+            this.ignoreWindowResize = 0;
+            this.resizeUID = 0;
+            this.delay = delay || 200;
+        }
+        
+        WindowResizer.prototype = {
+            setDelay: function(delay) {
+                this.delay = delay;
+            }, 
+            
+            bind: function(e, callback) {
+                var self = this;
+                
+                if(e.target === window || e.target === document) {
+                    var args = Array.prototype.slice.call( arguments, 1 );
+                    if(!this.ignoreWindowResize) {
+                        var uid = ++this.resizeUID; 
+                        setTimeout(function() {
+                            if(uid == self.resizeUID && !self.ignoreWindowResize) {
+                                self.ignoreWindowResize++;
+                                callback.apply(undefined, args);
+                                self.ignoreWindowResize--;
+                            }
+                        }, this.delay);
+                    }
+                }
+            }
+        };
+        
+        window.WindowResizer = WindowResizer;
+        return WindowResizer;
+        
+    })(jQuery);
+
+    
+    gadget.load({
+    	styles: {
+            "li.null_data" : "border-top:0px"
+        },
+        
+    	refreshable: true,
+    	
+    	highlightable : true,
+        
+        defaultOptions: {
+    		"editable": "Y"
+    	},
+
+        setTitle: function() {
+        	console.log("setTitle");
+            return this.options.title || this.i18n.parse("gadget-title");
+        },
+        
+        
+        url : function() {
+        	var url = "api/task/present/";
+        	var params = {
+       			startDate : this.options.startAt,
+    			endDate : this.options.endAt
+        	};
+        	
+        	if (!this.options.dataType) return "";
+        	
+        	if (this._isFolderType(this.options.dataType)) {
+        		
+        		// 전체폴더
+        		if (this.options.folderRange == "all") {
+        			params.deptId = this.options.deptId;
+        			params.includingSharedFolders = true;
+        			url += "folders?";
+        		// 공유받은 폴더를 제외한 부서폴더
+        		} else if (this.options.folderRange == "dept") {
+        			params.deptId = this.options.deptId;
+        			params.includingSharedFolders = false;
+        			url += "folders?";
+        		// 특정폴더
+        		} else {
+        			params.issueTypeId = this.options.typeId;
+        			params.folderId = this.options.folderId;
+        			url += "folder?";
+        		}
+        	} else {
+    			params.deptId = this.options.deptId;
+        		if (this.options.memberRange == "all") {
+        			
+        			// 전체멤버 && 특정폴더
+        			if (this.options.folderId) {
+        				params.folderId = this.options.folderId;
+        				params.issueTypeId = this.options.typeId; 
+        				url += "members/folder?"
+        						
+        			// 전체멤버 && 전체폴더
+        			} else {
+        				url += "members?"
+        			}
+        			
+        		// 특정멤버
+        		} else {
+        			params.memberId = this.options.memberId;
+        			params.folderId = this.options.folderId;
+        			params.issueTypeId = this.options.typeId;
+        			url += "member?"
+        		}
+        	}
+        	
+        	url += $.param(params);
+        	
+        	return this.contextRoot + url;
+        	
+        	// 위 분기와 같은 기능의 코드. 뭐가좋을까..
+        	/* if (this._isFolderType(this.options.dataType) && this.options.folderRange == "all") {
+    		} else if (this._isFolderType(this.options.dataType) && this.options.folderRange == "one") {
+    		} else if (this._isMemberType(this.options.dataType) && this.options.memberRange == "all" && this.options.folderId) {
+    		} else if (this._isMemberType(this.options.dataType) && this.options.memberRange == "all") {
+    		} else if (this._isMemberType(this.options.dataType) && this.options.memberRange == "one") {
+    		} */
+        },
+        
+        
+        _isFolderType : function(type) {
+        	return type.substr(0, 1) == "f";
+        },
+        
+
+        renderConfig: function( el ) {
+        	console.log("renderConfig");
+        	
+        	var self = this;
+        	
+        	this.initModel();
+        	this.initView();
+
+        	this.model.init();
+            
+            $(el).html(this.view.render().el);
+        	
+        	this.setDatepicker();
+        }, 
+        
+
+        onSuccess: function(el, resp) {
+        	this.lastResp = _.isEmpty(resp) ? this.lastResp : resp;
+        	if (!this.lastResp) this.lastResp = {};
+        	if (!this.Resizer) {
+        		this.Resizer = new Resizer(200);
+	        	var self = this;
+	        	
+	        	$(window).on('activator', function(e) {
+                	self.render(el, self.lastResp);
+                });
+	        	
+	        	$(window).on('resize.dashboard_layout', function(e) {
+	        		self.Resizer.bind(e, function() {
+	                    self.render(el, self.lastResp);
+	                });
+	            });
+        	}
+        	
+        	if (!this.model) this.initModel();
+        	if (!this.view) this.initView();
+        	this.model.set(this.options);
+        	this.model.setChartData(this.lastResp.data);
+        	
+        	console.log("onSuccess");
+        	this.render(el, this.lastResp);
+        },
+        
+        
+        onMoved : function(el, resp) {
+        	console.log("onMoved");
+        	this.render(el, resp);
+        },
+        
+        
+        initModel : function() {
+        	var options = _.extend(this.options, {
+        		i18n : this.i18n,
+        		contextRoot : this.contextRoot
+        	});
+        	
+        	this.model = new Gadget(options);
+        },
+        
+        
+        initView : function() {
+        	var self = this;
+        	this.view = new GadgetView({
+            	model : this.model,
+            	i18n : this.i18n,
+            	emptyView : function(title) {
+            		return self.pageTemplate.empty(title);
+            	}
+            });
+        },
+        
+        
+        setDatepicker : function() {
+        	$.datepicker.setDefaults( $.datepicker.regional["ko"] );
+        	this.view.$("input[name=startAt]").datepicker({
+				yearSuffix: "",
+				dateFormat: "yymmdd", 
+				changeMonth: true,
+				changeYear: true
+            });
+        	this.view.$("input[name=endAt]").datepicker({
+				yearSuffix: "",
+				dateFormat: "yymmdd", 
+				changeMonth: true,
+				changeYear: true
+            });
+        },
+        
+        
+        render : function(el, resp) {
+        	console.log("render");
+        	
+        	// 히든 영역에 들어갔을때 width 값이 없다.
+        	if (!$(el).width()) return;
+        	
+        	$(el).html(this.makeTitleView());
+        	
+           	var chartID = "chart_" + (new Date()).getTime() + parseInt(Math.random() * 10);
+           	var chartEl = $('<div id="' + chartID + '"></div>');
+           	
+            $(el).find("div.figure").append(chartEl);
+            
+          	if(!this.options.dataType) {
+          		$(chartEl).html(this.pageTemplate.empty(this.i18n.parse("initPlease")));
+            } else {
+            	if (resp && resp.data) this.model.setChartData(resp.data);
+                this.view.renderChart(chartEl);
+            }
+        },
+        
+        
+        makeTitleView : function() {
+        	var html = [];
+        	var title = this.options.title || this.i18n.parse("gadget-title");
+        	
+        	html.push('<div class="gadget_design_wrap">');
+	        	html.push('<div class="go_gadget_header ui-widget-header ui-corner-all">');
+		        	html.push('<div class="gadget_h1">');
+		        		html.push('<span class="type"><span class="ic_dashboard2 ic_type_task"></span></span>');
+		        		html.push('<span class="title">' + title + '</span>');
+		        	html.push('</div>');
+	        	html.push('</div>');
+	        	html.push('<div class="figure">');
+	        	html.push('</div>');
+        	html.push('</div>');
+			
+			return html.join("\n");
+        },
+        
+        
+        validate: function( el, formData ) {
+        	console.log("validate");
+        	
+            var $el = $(el);
+            
+            if(!this.model.validate()) {
+            	return this.i18n.parse("notInit");
+            } 
+            
+            var titleEl = $el.find("input[name=title]");
+            if (titleEl.is(":visible")) {
+	            if(!titleEl.val()) {
+	                return this.i18n.parse("msg-required-title");
+	            }
+	            if(titleEl.val().length > 20 || titleEl.val().length < 2) {
+	                return this.i18n.parse("betweenAandB", {"arg1" : "2", "arg2" : "20"});
+	            }
+            }
+            
+            var dataTypeEl = $el.find("#dataType");
+            if(dataTypeEl && dataTypeEl.val() == "") {
+                return this.i18n.parse("pleaseSelectTheme");
+            }
+            
+            var deptEl = $el.find("#deptSelect");
+            if(deptEl && deptEl.is(":visible") && !deptEl.val()) {
+                return this.i18n.parse("pleaseSelectDepartment");
+            }
+            
+            var memberEl = $el.find("#memberSelect");
+            if(memberEl && memberEl.is(":visible") && !memberEl.val()) {
+                return this.i18n.parse("pleaseSelectMember");
+            }
+            
+            var folderEl = $el.find("#folderSelect");
+            if(folderEl && folderEl.is(":visible") && !folderEl.val()) {
+                return this.i18n.parse("pleaseSelectFolder");
+            }
+            
+            var typeEl = $el.find("#typeSelect");
+            if(typeEl && typeEl.is(":visible") && !typeEl.val()) {
+                return this.i18n.parse("pleaseSelectType");
+            }
+            
+            var standardEl = $el.find("#standard");
+            if(standardEl && standardEl.is(":visible")) {
+            	if (!standardEl.val()) {
+	                return this.i18n.parse("pleaseStandardCount");
+            	}
+            	if (!/^([0-9])+$/.test(standardEl.val())) {
+	                return this.i18n.parse("standardIsNumericOnly");
+            	}
+            }
+            
+            return false;
+        }, 
+        
+        
+        langs: {
+        	"gadget-title": "업무 현황", 
+        	"title": "가젯 제목", 
+        	"notExist" : "존재하지 않습니다.",
+        	"status" : "상태",
+        	"all" : "전체",
+        	"selectTheme" : "테마 선택",
+        	"pleaseSelect" : "선택하세요",
+        	"allFolder" : "폴더 전체 업무 현황 보기",
+        	"oneFolder" : "특정 폴더의 상태별 업무 현황 보기",
+        	"allMember" : "우리 부서원 업무 현황 보기",
+        	"oneMember" : "특정 부서원의 상태별 업무 현황 보기",
+        	"delayFolder" : "특정 폴더의 지연 업무 현황 보기",
+        	"delayMember" : "특정 부서원의 지연 업무 현황 보기",
+        	"gadgetTitle" : "가젯제목",
+        	"selectDepartment" : "부서 선택",
+        	"folderRange" : "폴더범위",
+        	"showAllFolder" : "부서 전체 현황보기",
+        	"showDeptFolder" : "선택한 부서 현황보기",
+        	"showOneFolder" : "선택한 부서의 특정 폴더 현황보기",
+        	"memberRange" : "부서원 범위",
+        	"showAllMember" : "전체 부서원 현황보기",
+        	"showOneMember" : "특정 부서원 현황보기",
+        	"selectMember" : "부서원 선택",
+        	"selectFolder" : "폴더 선택",
+        	"selectType" : "유형선택",
+        	"selectChart" : "표시방법",
+        	"bar" : "가로 그래프",
+        	"pie" : "원 그래프",
+        	"gage" : "속도 그래프",
+        	"setGage" : "속도 그래프 설정",
+        	"standard" : "기준 개수",
+        	"count" : "개",
+        	"showDelay" : "지연 업무 개수만 보기",
+        	"selectStatus" : "특정 상태 선택하기",
+        	"time" : "업무등록 시점",
+        	"direct" : "직접선택",
+        	"border" : "가젯 테두리",
+        	"highlight" : "강조",
+        	"pleaseSelectTheme" : "테마를 선택해주세요.",
+        	"pleaseSelectDepartment" : "부서를 선택해주세요.",
+        	"pleaseSelectMember" : "멤버를 선택해주세요.",
+        	"pleaseSelectFolder" : "폴더를 선택해주세요.",
+        	"pleaseSelectType" : "유형을 선택해주세요.",
+        	"msg-required-title" : "제목을 입력해주세요.",
+       		"notInit" : "가젯에 필요한 데이터가 생성되지 않았습니다. 관리자에게 문의하세요.",
+       		"delay" : "지연",
+       		"initPlease" : "'업무 현황' 가젯은 사용자에 맞게 설정을 해야 합니다. [대시보드] 편집 모드에서 설정 값을 변경하세요.",
+       		"emptyData" : "업무의 데이터가 존재하지 않아 그래프로 표현할 수 없습니다. 설정을 변경하거나 업무를 등록하세요.",
+       		"betweenAandB" : "제목은 {{arg1}}자 이상, {{arg2}}자 이하를 입력해야합니다.",
+       		"pleaseStandardCount" : "기준개수는 필수사항입니다.",
+       		"standardIsNumericOnly" : "기준개수는 숫자만 입력할 수 있습니다.",
+
+            "en": {
+            	"gadget-title": "Task Status", 
+            	"title": "Gadget Title", 
+            	"notExist" : "No tasks found.",
+            	"status" : "Status",
+            	"all" : "All",
+            	"selectTheme" : "Theme",
+            	"pleaseSelect" : "Select",
+            	"allFolder" : "Task Status of All Folders",
+            	"oneFolder" : "Task Status of Specific Folders By Status",
+            	"allMember" : "Task Status of Staff",
+            	"oneMember" : "Task Status of Specific Staff",
+            	"delayFolder" : "Delaying Task Status of Specific Folders",
+            	"delayMember" : "Delaying Task Status of Specific User",
+            	"gadgetTitle" : "Gadget Title",
+            	"selectDepartment" : "Department",
+            	"folderRange" : "Folder Range",
+            	"showAllFolder" : "부서 전체 현황보기",
+            	"showDeptFolder" : "선택한 부서 현황보기",
+            	"showOneFolder" : "선택한 부서의 특정 폴더 현황보기",
+            	"memberRange" : "Staff Range",
+            	"showAllMember" : "All statff",
+            	"showOneMember" : "Specific staff",
+            	"selectMember" : "Staff",
+            	"selectFolder" : "Folder",
+            	"selectType" : "Type",
+            	"selectChart" : "How to display",
+            	"bar" : "Horizontal Graph",
+            	"pie" : "Pie Chart",
+            	"gage" : "Velocity Graph",
+            	"setGage" : "Velocity Graph Settings",
+            	"standard" : "Tasks",
+            	"count" : "",
+            	"showDelay" : "View Delaying Tasks Only",
+            	"selectStatus" : "Select Status",
+            	"time" : "When the task was added",
+            	"direct" : "Select",
+            	"border" : "Gadget Border",
+            	"highlight" : "Highlight",
+            	"pleaseSelectTheme" : "Please select a theme.",
+            	"pleaseSelectDepartment" : "Please select a department.",
+            	"pleaseSelectMember" : "Please select a member.",
+            	"pleaseSelectFolder" : "Please select a folder.",
+            	"pleaseSelectType" : "Please select a status.",
+            	"msg-required-title" : "Please enter a title.",
+            	"notInit" : "Data for the gadget was not created. Please ask your administrator.",
+            	"delay" : "Delaying",
+            	"initPlease" : "It cannot turn the task into a graph because there is no data. Please change the setting or add a task.",
+            	"emptyData" : "It cannot turn the task into a graph because there is no data. Please change the setting or add a task.",
+            	"betweenAandB" : "You have to enter {{arg1}} character(s) or more and {{arg2}} character(s) or below.",
+           		"pleaseStandardCount" : "You have to enter numbers in Tasks.",
+           		"standardIsNumericOnly" : "You can enter numbers only in Tasks."
+            }, 
+
+            "ja": {
+            	"gadget-title": "タスク現況", 
+            	"title": "ガゼットのタイトル", 
+            	"notExist" : "存在しません。",
+            	"status" : "ステータス",
+            	"all" : "全体",
+            	"selectTheme" : "テーマ選択",
+            	"pleaseSelect" : "選択してください。",
+            	"allFolder" : "フォルダの全体タスク現況",
+            	"oneFolder" : "特定フォルダのステータス毎のタスク現況",
+            	"allMember" : "自分の部署員のタスク現況",
+            	"oneMember" : "特定部署員のステータス毎のタスク現況",
+            	"delayFolder" : "特定フォルダの遅延タスク現況",
+            	"delayMember" : "特定部署員の遅延タスク現況",
+            	"gadgetTitle" : "ガジェットのタイトル",
+            	"selectDepartment" : "部署選択",
+            	"folderRange" : "部署フォルダの全体現況",
+            	"showAllFolder" : "부서 전체 현황보기",
+            	"showDeptFolder" : "선택한 부서 현황보기",
+            	"showOneFolder" : "선택한 부서의 특정 폴더 현황보기",
+            	"memberRange" : "部署員範囲",
+            	"showAllMember" : "特定部署員の現況",
+            	"showOneMember" : "特定部署員の現況",
+            	"selectMember" : "フォルダ選択",
+            	"selectFolder" : "フォルダ選択",
+            	"selectType" : "表示方法",
+            	"selectChart" : "表示方法",
+            	"bar" : "横棒グラフ",
+            	"pie" : "円グラフ",
+            	"gage" : "速度グラフ",
+            	"setGage" : "基準件数",
+            	"standard" : "基準件数",
+            	"count" : "件",
+            	"showDelay" : "遅延タスク件数のみ",
+            	"selectStatus" : "特定ステータス選択",
+            	"time" : "タスク登録時点",
+            	"direct" : "直接選択",
+            	"border" : "ガジェットの境界線",
+            	"highlight" : "強調",
+            	"pleaseSelectTheme" : "テーマを選択してください。",
+            	"pleaseSelectDepartment" : "部署を選択してください。",
+            	"pleaseSelectMember" : "メンバーを選択してください。",
+            	"pleaseSelectFolder" : "フォルダを選択してください。",
+            	"pleaseSelectType" : "タイプを選択してください。",
+            	"msg-required-title" : "タイトルを選択してください。",
+            	"notInit" : "ガジェットに必要なデータが作成されていません。管理者にお問合わせください。",
+            	"delay" : "遅延",
+            	"initPlease" : "タスク現況' ガジェットはユーザに合わせて設定する必要があります。 [ダッシュボード]の編集モードから設定値を変更してください。",
+            	"emptyData" : "タスクのデータが存在しないため、グラフで表示することができません。設定を変更するかタスクを登録してください。",
+            	"betweenAandB" : "{{arg1}}文字以上、 {{arg2}}文字以下で入力してください。",
+           		"pleaseStandardCount" : "基準個数は必須事項です。",
+           		"standardIsNumericOnly" : "基準個数は数字のみ入力可能です。"
+            },
+            
+            "zh_CN": {
+            	"gadget-title": "業務狀況", 
+            	"title": "小工具的标题", 
+            	"notExist" : "不存在。",
+            	"status" : "状态",
+            	"all" : "全体",
+            	"selectTheme" : "选择主题",
+            	"pleaseSelect" : "请选择",
+            	"allFolder" : "查看文件夹的所有业务的状况",
+            	"oneFolder" : "查看特定文件夹的每个状态的业务状况",
+            	"allMember" : "查看自己的部门人员的业务状况",
+            	"oneMember" : "查看特定部门人员每个状态的业务状况",
+            	"delayFolder" : "查看特定文件夹的的迟业的务状况",
+            	"delayMember" : "查看部门人员的迟延的业务状况",
+            	"gadgetTitle" : "小工具的标题",
+            	"selectDepartment" : "选择部门",
+            	"folderRange" : "文件夹范围",
+            	"showAllFolder" : "부서 전체 현황보기",
+            	"showDeptFolder" : "선택한 부서 현황보기",
+            	"showOneFolder" : "선택한 부서의 특정 폴더 현황보기",
+            	"memberRange" : "部门人员的范围",
+            	"showAllMember" : "查看所有部门人员的状况",
+            	"showOneMember" : "查看特定部门人员的状况",
+            	"selectMember" : "选择部门人员",
+            	"selectFolder" : "选择文件夹",
+            	"selectType" : "选择类型",
+            	"selectChart" : "显示方法",
+            	"bar" : "棒形图",
+            	"pie" : "园形图",
+            	"gage" : "速度图",
+            	"setGage" : "设置速度图",
+            	"standard" : "标准个数",
+            	"count" : "个",
+            	"showDelay" : "只查看迟延业务的个数",
+            	"selectStatus" : "选择特定状态",
+            	"time" : "业务登录时间",
+            	"direct" : "直接选择",
+            	"border" : "小工具边框",
+            	"highlight" : "强调",
+            	"pleaseSelectTheme" : "请选择主题。",
+            	"pleaseSelectDepartment" : "请选择部门。",
+            	"pleaseSelectMember" : "请选择会员。",
+            	"pleaseSelectFolder" : "请选择文件夹。",
+            	"pleaseSelectType" : "请选择类型。",
+            	"msg-required-title" : "请输入标题。",
+           		"notInit" : "没有生成小工具需要的数据。请与管理员联系。",
+           		"delay" : "迟延",
+           		"initPlease" : "业务状况' 的小工具必须根据用户设置。请在[仪表盘]的编辑模式里更改设置值。 ",
+           		"emptyData" : "因业务的数据不存在，所以无法用图形表示。请更改设置或登录业务。",
+           		"betweenAandB" : "請輸入{{arg1}}以上、 {{arg2}}以下的字符。",
+           		"pleaseStandardCount" : "基本個數是必須事項。",
+           		"standardIsNumericOnly" : "基本個數只可以輸入數字。"
+            },
+            
+            "zh_TW": {
+            	"gadget-title": "业务状况", 
+            	"title": "小工具的標題", 
+            	"notExist" : "不存在。",
+            	"status" : "狀態",
+            	"all" : "全體",
+            	"selectTheme" : "選擇主題",
+            	"pleaseSelect" : "請選擇",
+            	"allFolder" : "查看文件夾的所有業務的狀況",
+            	"oneFolder" : "查看特定文件夾的每個狀態的業務狀況",
+            	"allMember" : "查看自己的部門人員的業務狀況",
+            	"oneMember" : "查看特定部門人員每個狀態的業務狀況",
+            	"delayFolder" : "查看特定文件夾的的遲業的務狀況",
+            	"delayMember" : "查看部門人員的遲延的業務狀況",
+            	"gadgetTitle" : "小工具的標題",
+            	"selectDepartment" : "選擇部門",
+            	"folderRange" : "文件夾範圍",
+            	"showAllFolder" : "부서 전체 현황보기",
+            	"showDeptFolder" : "선택한 부서 현황보기",
+            	"showOneFolder" : "선택한 부서의 특정 폴더 현황보기",
+            	"memberRange" : "部門人員的範圍",
+            	"showAllMember" : "部門人員的範圍",
+            	"showOneMember" : "查看特定部門人員的狀況",
+            	"selectMember" : "選擇部門人員",
+            	"selectFolder" : "選擇文件夾",
+            	"selectType" : "選擇類型",
+            	"selectChart" : "顯示方法",
+            	"bar" : "棒形圖",
+            	"pie" : "園形圖",
+            	"gage" : "速度圖",
+            	"setGage" : "設置速度圖",
+            	"standard" : "標準個數",
+            	"count" : "個",
+            	"showDelay" : "只查看遲延業務的個數",
+            	"selectStatus" : "選擇特定狀態",
+            	"time" : "業務登錄時間",
+            	"direct" : "直接選擇",
+            	"border" : "小工具邊框",
+            	"highlight" : "強調",
+            	"pleaseSelectTheme" : "請選擇主題。",
+            	"pleaseSelectDepartment" : "請選擇部門。",
+            	"pleaseSelectMember" : "請選擇會員。",
+            	"pleaseSelectFolder" : "請選擇文件夾。",
+            	"pleaseSelectType" : "請選擇類型。",
+           		"msg-required-title" : "請輸入標題。",
+           		"notInit" : "沒有生成小工具需要的數據。請與管理員聯繫。",
+           		"delay" : "遲延",
+           		"initPlease" : "業務狀況' 的小工具必鬚根據用戶設置。請在[儀錶盤]的編輯模式裡更改設置值。",
+           		"emptyData" : "因業務的數據不存在，所以無法用圖形表示。請更改設置或登錄業務。",
+           		"betweenAandB" : "请输入{{arg1}}以上、 {{arg2}}以下的字符。",
+           		"pleaseStandardCount" : "基本个数是必须事项。",
+           		"standardIsNumericOnly" : "基本个数只可以输入数字。"
+            },
+
+            "vi": {
+            	"gadget-title": "Tình trạng tác vụ",
+            	"title": "Tiêu đề gadget",
+            	"notExist" : "Không tồn tại.",
+            	"status" : "Trạng thái",
+            	"all" : "Toàn bộ",
+            	"selectTheme" : "Chọn theme",
+            	"pleaseSelect" : "Hãy chọn",
+            	"allFolder" : "Xem tình trạng toàn bộ tác vụ của thư mục",
+            	"oneFolder" : "Xem tình trạng tác vụ theo từng trạng thái của thư mục",
+            	"allMember" : "Xem tình trạng tác vụ của thành viên phòng ban của tôi",
+            	"oneMember" : "Xem tình trạng tác vụ theo từng trạng thái của nhân viên phòng ban cụ thể",
+            	"delayFolder" : "Xem tình trạng tác vụ chậm trễ của thư mục đặc biệt",
+            	"delayMember" : "Xem tình trạng tác vụ chậm trễ của thành viên phòng ban cụ thể",
+            	"gadgetTitle" : "Tiêu đề tiện ích",
+            	"selectDepartment" : "Chọn phòng ban",
+            	"folderRange" : "Phạm vi thư mục",
+            	"showAllFolder" : "Xem tình trạng toàn bộ của thư mục phòng ban",
+            	"showDeptFolder" : "Xem tình trạng phòng ban đã chọn",
+            	"showOneFolder" : "Xem tình trạng thư mục đặc biệt của phòng ban đã chọn",
+            	"memberRange" : "Phạm vi thành viên phòng ban",
+            	"showAllMember" : "Xem toàn bộ tình trạng của thành viên phòng ban",
+            	"showOneMember" : "Xem tình trạng của thành viên phòng ban đặc biệt",
+            	"selectMember" : "Chọn thành viên phòng ban",
+            	"selectFolder" : "Chọn thư mục",
+            	"selectType" : "Chọn loại hình",
+            	"selectChart" : "Phương thức hiển thị",
+            	"bar" : "Biểu đồ ngang",
+            	"pie" : "Biểu đồ tròn",
+            	"gage" : "Biểu đồ vận tốc",
+            	"setGage" : "Cài đặt biểu đồ vận tốc",
+            	"standard" : "Số lượng tiêu chuẩn",
+            	"count" : "tập tin",
+            	"showDelay" : "Chỉ xem số tác vụ bị hoãn",
+            	"selectStatus" : "Chọn trạng thái cụ thể",
+            	"time" : "Thời điểm đăng tác vụ",
+            	"direct" : "Chọn trực tiếp",
+            	"border" : "Đường viền tiện ích",
+            	"highlight" : "Làm nổi",
+            	"pleaseSelectTheme" : "Vui lòng chọn chủ đề.",
+            	"pleaseSelectDepartment" : "Vui lòng chọn phòng ban.",
+            	"pleaseSelectMember" : "Vui lòng chọn thành viên.",
+            	"pleaseSelectFolder" : "Vui lòng chọn thư mục.",
+            	"pleaseSelectType" : "Vui lòng chọn loại hình.",
+            	"msg-required-title" : "Hãy nhập tiêu đề.",
+           		"notInit" : "Dữ liệu tiện ích chưa được tạo. Xin vui lòng liên hệ với người điều hành.",
+           		"delay" : "Chậm trễ",
+           		"initPlease" : "Phải cài đặt tiện ích ở 'trạng thái tác vụ' phù hợp với người sử dụng. Vui lòng đổi giá trị cài đặt tại chế độ biên tập [Bảng điều khiển].",
+           		"emptyData" : "Dữ liệu của tác vụ không tồn tại nên không thể hiển thị thành biểu đồ. Vui lòng thay đổi cài đặt hoặc thêm tác vụ.",
+           		"betweenAandB" : "Phải nhập tiêu đề trên {{arg1}} ký tự, dưới {{arg2}} ký tự.",
+           		"pleaseStandardCount" : "Số lượng tiêu chuẩn là nội dung bắt buộc.",
+           		"standardIsNumericOnly" : "Chỉ được nhập số vào số lượng tiêu chuẩn."
+            }
+        }
+    });
+    }catch(e){
+    	console.info(e);
+    }
+    </script>
+</head>
+
+<body id="main" class="go_skin_home_default" data-role="main">
+    <div class="go-dashboard go-dashboard-editing go_dashboard_3_2">
+        <div class="go-gadget-column gadget-col-1" data-columnid="1">
+            <!-- empty -->
+        </div>
+        
+        <div class="gripper"></div>
+
+        <div id="gadget-containter" class="go-gadget-column gadget-col-2" data-columnid="2">
+            <!-- empty -->
+        </div>
+
+        <div class="gripper"></div>
+
+        <div class="go-gadget-column gadget-col-3" data-columnid="3">
+            <!-- empty -->
+        </div>
+    </div>
+</body>
+</html>

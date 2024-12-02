@@ -1,0 +1,17 @@
+<span class="vertical_wrap alarm_wrap remindersPart">
+	<input class="input wfix_small" type="text" value="{{time}}"/>
+
+	<select name="reminder_type_{{index}}" id="reminder_type">
+		<option value="minute">{{lang.minute}}</option>
+		<option value="hour">{{lang.hour}}</option>
+		<option value="week">{{lang.week}}</option>
+		<option value="day">{{lang.day}}</option>
+	</select>
+
+	<select name="reminder_method_{{index}}" id="reminder_method">
+		<option value="notification">{{lang.pushNoti}}</option>
+		<option value="email">{{lang.mailNoti}}</option>
+	</select>	
+	
+	<a href="javascript:;" data-bypass data-btntype="reminderDelete" class="iscroll-tap-highlight"><span class="btn btn_alarm_del"></span></a>
+</span>

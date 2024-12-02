@@ -1,0 +1,12 @@
+		<div class="vertial_wrap_s">
+			<span class="title">{{lang.undoneReporters}}</span>
+		</div>
+		<ul class="group_tag" id="exculdeCheckList">
+			<li class="" data-id=""><input type="checkbox" value="all" id="excludeAll"><label for="excludeAll">{{lang.all}}</label></li><!--id=m*, for=m*은 임의로 붙인것입니다. 개발자분이 수정가능-->
+            {{#exclusion}}
+            <li class="" data-id=""><input type="checkbox" checked = "checked" value="{{reportId}}" data-id="{{id}}" id="{{reportId}}"><label for="{{reportId}}">{{name}} {{position}}</label></li>
+            {{/exclusion}}
+			{{#data}}
+			<li class="" data-id=""><input type="checkbox" value="{{reportId}}" data-id="{{id}}" id="{{reportId}}"><label for="{{reportId}}">{{name}} {{position}}</label></li>
+			{{/data}}
+		</ul>

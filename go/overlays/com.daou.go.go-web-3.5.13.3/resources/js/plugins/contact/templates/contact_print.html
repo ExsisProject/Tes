@@ -1,0 +1,30 @@
+<body  class="print">
+	<div class="go_content go_addr_list">
+		<div class="content" id="contactPrintTable" style="background: #ffffff;">
+			<table class="type_normal tb_addr_list">	
+				<thead>
+					<tr>
+						<th class="name"><span class="title_sort">{{lang.name}}<ins class="ic"></ins></span></th>
+						<th class="hp"><span class="title_sort">{{lang.mobileno}}<ins class="ic"></ins></span></th>
+						<th class="email"><span class="title_sort">{{lang.email}}<ins class="ic"></ins></span></th>
+						<th class="sorting company"><span class="title_sort">{{lang.companyname}}<ins class="ic"></ins></span></th>
+						<th class="sorting tel"><span class="title_sort">{{lang.company_tel}}<ins class="ic"></ins></span></th>
+					</tr>
+				</thead>
+				<tbody>
+					{{#data}}
+					<tr>					
+						<td class="name">
+							<span class="name">{{name}}</span>
+						</td>
+						<td class="hp"><span class="hp">{{mobileNo}}</span></td>
+						<td class="email"><span class="email">{{email}}</span></td>
+						<td class="company"><span class="company">{{companyName}}</span></td>
+						<td class="tel"><span class="tel">{{office.tel}}</span></td>
+					</tr>
+					{{/data}}
+				</tbody>
+			</table>
+		</div>
+	</div>
+</body>

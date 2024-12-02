@@ -1,0 +1,42 @@
+<div class="wrap_container">
+	<section class="content_wrapper classic_detail"> 
+		<header class="article_header">
+			<h1>{{data.name}}<span class="num">[<span class="reply_count">{{data.commentCount}}</span>]</span></h1>
+
+			<div class="article_wrap">				
+				<span class="photo">
+					<a href="javascript:;"><img alt="{{data.reporter.name}} {{data.reporter.position}}" title="{{data.reporter.name}} {{data.reporter.position}}" src="{{data.reporter.thumbnail}}"></a>
+				</span>
+				<div class="info">
+					<a class="name" href="javascript:;" >
+					{{#data.reporter}}
+						{{name}} {{position}}
+					{{/data.reporter}}
+					</a>
+					<br/>
+					<span class="date">{{data.submittedAtBasicDate}}</span>
+				</div>
+			</div>
+		</header>
+
+		<article class="article_view editor_view">
+			<div id="reportContent">
+			{{{data.content}}}
+			</div>
+			<div id="report-attach-placeholder"></div>
+		</article>
+	</section>
+	
+			<!-- 댓글 -->		
+	<section class="aside_wrapper article_reply">
+		<div data-replies-wrapper class="reply_wrap">
+			<ul class="reply">
+				<li class="view_option" data-role="button" style="display:"> <!-- 댓글수가 5개 이상 일 때 보임. -->
+					<span class="ic_classic ic_reply"></span>
+					<span class="txt_b">{{lang.comment}}<span class="num">{{data.commentCount}}</span></span>
+				</li>
+				<span id="reportReply"></span>
+			</ul>
+		</div>						
+	</section>
+</div>

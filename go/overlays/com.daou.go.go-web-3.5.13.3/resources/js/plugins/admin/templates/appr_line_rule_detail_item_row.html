@@ -1,0 +1,43 @@
+<td class="align_c num">
+    {{data.seq}}
+</td>
+<td class="type">
+    <select name="activityTypeName">
+        {{#data.types}}
+            <option value="{{type}}" {{#isSelected}}selected{{/isSelected}}>{{name}}</option>
+        {{/data.types}}
+    </select>
+</td>
+<td class="group">
+    <input type="text" class="w_max" value="{{data.name}}" name="groupName"/>
+</td>
+<td class="detail">
+    <div class="name_tag_add">
+        {{^data.isUserType}}
+            <select name="domainCodeId">
+                {{#data.domains}}
+                    <option value="{{id}}">{{name}}</option>
+                {{/data.domains}}
+            </select>
+        {{/data.isUserType}}
+    </div>
+    <ul>
+        <li class="creat">
+            <span class="btn_wrap" name="addDomain">
+                <span class="ic ic_addlist"></span>
+                <span class="txt">{{lang.추가}}</span>
+            </span>
+        </li>
+    </ul>
+</td>
+<td class="pay" name="useAccountRuleTd" {{^data.useAccountRule}}style="display:none"{{/data.useAccountRule}}>
+    <input type="text" class="wfix_medium" name="moreAmount" value="{{data.moreAmount}}"/>{{lang.이상}}&nbsp
+    <input type="text" class="wfix_medium" name="underAmount" value="{{data.underAmount}}"/>{{lang.미만}}
+</td>
+<td class="opt">
+    <span class="wrapBtn" name="removeRow">
+        <span class="ic ic_delete" title="{{lagn.삭제}}"></span>
+    </span>
+</td>
+    
+    

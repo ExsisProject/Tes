@@ -1,0 +1,266 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="ko">
+<head>
+<title>Works 앱 함께 만들어 보기</title> 
+<meta name='Format'                  content='text/html'>
+<meta name='Robots'                  content='index,follow'>
+<meta name='Charset'                 content='utf-8'>
+<meta name='Keywords'                content='다우기술,오피스,다우오피스'>
+<meta http-equiv='Content-Type'      content='text/html; charset=utf-8'>
+<meta http-equiv='Cache-Control'     content='no-cache'>
+<meta http-equiv='Pragma'            content='no-cache'>
+<meta http-equiv='Expires'           content='0'>
+<meta name="format-detection" content="telephone=no" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, target-densitydpi=medium-dpi" /> 
+<script type="text/javascript" src="./common/util.js"></script>     
+<script type="text/javascript">     
+
+// 설명할 템플릿번호
+subject = "01";
+currentPage = 1;
+totalPage = 55;
+
+
+checkExp01 = function() {
+            isExist = $("#img" + currentPage).attr("exp");
+            if (isExist != "n") {
+                  $("#expString").remove();
+                  expstr = "<div id= 'expString'>";
+                  
+                  switch (currentPage) {
+                        case 1:
+                            expstr = expstr + "경영지원팀에서는 회사가 보유하고 있는 제품(서비스)의 <b>일반 소개 자료</b>나 <b>원가 분석 등 정책 자료</b>를 별도의 파일로 제작해 사내 공유 폴더에 저장하고 제반 내역을 화면과 같이 스프레드시트로 기록, 관리하며 이 내용을 경영진과 팀장급, 그리고 영업팀에게만 공개하고 있습니다.";
+                            break;
+                        case 2:
+                            expstr = expstr + "이렇게 운영되고 있는 업무를<br/>Works에서 화면과 같이 데이터를 입력하도록 하고";
+                            break;
+                        case 3:
+                            expstr = expstr + "누적된 데이터들에 대해 앱 실행 홈 화면에서 <b>제품 상태 현황</b> 차트를 보여주며 그 아래에는 <b>둥록일</b>과 <b>제품(서비스)명</b>, <b>현재 상태</b> 항목들로 구성된 데이터 목록이 나열되도록 하는 <b>제품 관리</b> 앱을 지금부터 함께 만들어 보겠습니다.";
+                            break;
+                        case 4:
+                            expstr = expstr + "이를 위해 Works 홈 화면에서 <b>앱 만들기</b>나 <b>+</b> 아이콘을 클릭합니다.<br/><br/>좌측의 <b>+ 만들기</b> 버튼을 클릭했을 때 <b>앱 만들기</b> 메뉴가 나타나고 우측 화면에 <b>+</b> 아이콘이 나타나는 것은 <b>현재 사용자가 Works 운영자로 지정되었기 때문</b>입니다.";
+                            break;
+                        case 5:
+                            expstr = expstr + "모든 것을 새롭게 기획하여 앱을 만들 것이기 때문에 <b>새로운 앱</b>을 클릭합니다.";
+                            break;     
+                        case 6:
+                            expstr = expstr + "<b>앱 이름</b>을 지정하고<br/><br/>지금 이 앱을 만들고 있는 Works 운영자 외 별도 앱 운영자가 필요한 경우라면 <b>운영자</b>의 <b>+ 추가</b> 클릭 후 제시되는 조직도를 통해 운영자를 지정합니다. <br/><br/><b>앱 설명</b>을 입력하고<br/><br/><b>앱 아이콘</b>을 지정합니다.";
+                            break;
+                        case 7:
+                            expstr = expstr + "모든 값을 지정하였다면 <b>기본 정보</b> 화면 하단의 <b>앱 만들기</b> 버튼을 클릭합니다.";
+                            break;
+                        case 8:
+                            expstr = expstr + "<b>제품 관리</b>로 명명한 앱의 관리 홈 화면입니다.<br/><br/><b>기본 정보</b>를 클릭하면";
+                            break;
+                        case 9:
+                            expstr = expstr + "바로 앞서 보았던 <b>기본 정보</b> 화면이 그대로 나타나 지정했던 앱 이름이나 설명, 운영자, 아이콘 등을 변경할 수 있습니다. <br/><br/>만약 변경된 내용이 있다면 <b>저장</b> 버튼을 클릭하십시오. <br/><br/>계속해서 앱을 만들기 위해 <b>관리 홈으로 이동</b>을 클릭합니다.";
+                            break;
+                        case 10:
+                            expstr = expstr + "스프레드시트의 내용을 바탕으로 데이터를 등록할 입력 화면을 만들기 위해 <b>입력 화면</b>을 클릭합니다.";
+                            break;         
+                        case 11:
+                            expstr = expstr + "<b>제목</b>과 <b>내용</b>과 <b>파일첨부</b> 끝으로 마우스를 가져간 후 나타나는 <b>X</b> 아이콘을 클릭해 <b>새로운 앱</b> 만들기를 선택했을 때 기본으로 제공된 입력 항목들을 모두 삭제합니다.";
+                            break;
+                        case 12:
+                            expstr = expstr + "좌측 <b>입력 항목</b>의 <b>컬럼(다단)</b>을 마우스로 우측 화면에 드래그 앤 드롭하여 다른 입력 항목들을 두 컬럼에 배열할 수 있도록 준비합니다.";
+                            break;
+                        case 13:
+                            expstr = expstr + "컬럼의 왼쪽에 <b>텍스트</b> 입력 항목을 마우스로 드래그 앤 드롭하고";
+                            break;
+                        case 14:
+                            expstr = expstr + "클릭하여 좌측에 <b>속성</b>들이 나타나게 합니다. <br/>그리고 <b>텍스트</b> 입력 항목의 <b>속성</b> 중 <br/>- <b>이름</b>을 <b>제품(서비스)명</b>으로 변경하고<br/>- <b>필수 입력 항목</b>을 체크함으로써<br/><b>제품(서비스)명</b>을 반드시 입력하여야만 이 데이터를 등록할 수 있도록 합니다.";
+                            break;
+                        case 15:
+                            expstr = expstr + "이번에는 <b>파일첨부</b> 입력 항목을 컬럼 왼쪽 <b>제품(서비스)명</b> 아래에 가져다 놓은 후<br/><br/>※ 이후로는 <b>'마우스로 드래그 앤 드롭하다'를 '가져다 놓다'</b>로 표현하겠습니다.";
+                            break;     
+                        case 16:
+                            expstr = expstr + "클릭하여 좌측에 <b>속성</b>들이 나타나게 하고 <b>이름</b>을 <b>일반 소개 자료</b>로 변경합니다.";
+                            break;
+                        case 17:
+                            expstr = expstr + "동일한 방법으로 <b>일반 소개 자료</b> 아래에 <b>이름</b> 속성을 <b>원가 분석 등 정책 자료</b>로 변경한 <b>파일첨부</b> 입력 항목을 만듭니다.";
+                            break;
+                        case 18:
+                            expstr = expstr + "다음으로 <b>드롭 박스</b> 입력 항목을 컬럼 우측에 가져다 놓고";
+                            break;
+                        case 19:
+                            expstr = expstr + "클릭하여 나타난 좌측의 <b>속성</b> 중<br/>- <b>이름</b>은 <b>현재 상태</b>로 <br/>- <b>세부항목</b>은 옵션1, 옵션2, 옵션3의 값을 순서대로 <b>판매(서비스)중</b>, <b>일시중지-업그레이드중</b>, <b>단종-판매(서비스)중단</b>으로 변경합니다.";
+                            break;
+                        case 20:
+                            expstr = expstr + "<b>현재 상태</b> 입력 항목 바로 밑에 <b>날짜</b> 입력 항목을 가져다 놓고";
+                            break;      
+                        case 21:
+                            expstr = expstr + "클릭한 후 좌측에 나타난 <b>속성</b> 중 <b>이름</b>을 <b>재개 예정일</b>로 변경합니다.";
+                            break;
+                        case 22:
+                            expstr = expstr + "또 <b>날짜와 시간</b> 입력 항목을 <b>재개 예정일</b> 밑에 가져다 놓고";
+                            break;
+                        case 23:
+                            expstr = expstr + "클릭 후 <b>이름</b> 속성을 <b>단종 일시</b>로 변경합니다.";
+                            break;
+                        case 24:
+                            expstr = expstr + "마지막으로 <b>컬럼(다단)</b> 아래에 <b>멀티 텍스트</b> 입력 항목을 가져다 놓고 ";
+                            break;
+                        case 25:
+                            expstr = expstr + "클릭 후<br/>- <b>이름</b> 속성을 <b>가격 정책</b>으로 변경하고<br/>- <b>입력 높이 조절</b> 속성 값을 <b>5</b>로 변경합니다. <br/><br/>완성된 <b>제품 관리</b> 앱의 입력 화면은 반드시 <b>저장</b> 버튼을 클릭해 저장하고 다음 작업을 위해 <b>관리 홈으로 이동</b> 버튼을 클릭합니다.";
+                            break;     
+                        case 26:
+                            expstr = expstr + "<b>제품 관리</b> 앱은 절차와 상태 변화에 대한 별도 관리가 필요 없는 업무를 앱으로 만들고자 하는 것입니다. <br/>이러한 경우 앱 관리 홈 화면에서 <b>프로세스</b>를 클릭한 후";
+                            break;
+                        case 27:
+                            expstr = expstr + "<b>이 앱에서는 상태를 사용하지 않겠습니다</b>를 체크하고";
+                            break;
+                        case 28:
+                            expstr = expstr + "하단의 <b>저장</b> 버튼을 클릭해 이 내용을 저장한 후<br/>다음 작업을 위해 <b>관리 홈으로 이동</b> 버튼을 클릭합니다.";
+                            break;
+                        case 29:
+                            expstr = expstr + "이번에는 데이터를 차트로 표현할 수 있고 데이터 목록으로 나열될 항목들을 정의하는 <b>목록 화면</b>을 클릭합니다.";
+                            break;
+                        case 30:
+                            expstr = expstr + "<b>제품 관리</b> 앱의 데이터 특성을 고려한 차트를 만들기 위해 <b>+ 차트 추가</b>를 클릭합니다.";
+                            break; 
+                        case 31:
+                            expstr = expstr + "- <b>차트 이름</b>에 <b>제품 상태 현황</b>을 입력하고<br/>- <b>차트 타입</b>은 <b>원형</b>을 선택합니다. <br/>- <b>그룹별 통계</b>는 <b>현재 상태</b> 항목을 선택하고<br/>- <b>집계 방식</b>으로는 <b>개수</b>를 선택합니다.";
+                            break;
+                        case 32:
+                            expstr = expstr + "이제 데이터 목록으로 나열될 항목들을 정의하기 위해 <b>차트</b> 아래에 있는 <b>목록 화면 관리</b>를 살펴보면, <br/>자동 입력 항목인 <b>등록일</b>을 기준으로 데이터들이 내림차순으로 정렬되게 되어 있음을 볼 수 있습니다<br/><br/>항목들을 데이터 목록에 추가하기 위해 <b>항목을 목록 화면에 추가</b>를 클릭합니다.";
+                            break;
+                        case 33:
+                            expstr = expstr + "<b>제품(서비스)명</b> 항목과 <b>현재 상태</b> 항목을 선택하여 목록에 추가합니다.";
+                            break;
+                        case 34:
+                            expstr = expstr + "참고적으로, <br/>- <b>파일첨부</b> 입력 항목으로 만든 <b>일반 소개 자료</b>, <b>원가 분석 등 정책 자료</b> 항목과<br/>- <b>멀티 텍스트</b> 입력 항목으로 만든 <b>가격 정책</b> 항목은<br/><b>데이터 목록의 항목으로 나타낼 수 없는 입력 항목</b>이므로 이 곳에 나타나지 않습니다.";
+                            break;
+                        case 35:
+                            expstr = expstr + "데이터 목록에 나타날 항목들을 선택하였다면 <b>그 중 하나는 반드시 제목으로 지정</b>해 주어야만 합니다. <br/><br/>이를 위해 <b>제품(서비스)명</b>의 아래 방향 화살표를 클릭하고";
+                            break;     
+                        case 36:
+                            expstr = expstr + "<b>제목으로 지정</b>을 클릭하면";
+                            break;
+                        case 37:
+                            expstr = expstr + "목록의 항목 중 <b>제품(서비스)명</b>이 제목임을 의미하는 푸른색 으로 바탕이 변경됩니다. <br/><br/><b>저장</b> 버튼을 클릭해 작업한 내용을 저장하고<br/>다음 작업을 위해 <b>관리 홈으로 이동</b> 버튼을 클릭합니다.";
+                            break;
+                        case 38:
+                            expstr = expstr + "운영자에 의해 등록 관리되는 제품(서비스) 데이터들이 경영진과 팀장급, 그리고 영업팀에게만 공개되도록 설정하기 위해 <b>접근 제어</b>를 클릭합니다.";
+                            break;
+                        case 39:
+                            expstr = expstr + "<b>공유 설정</b>에 <b>사용자 설정</b>이 선택되어 나타나 있는 단일 선택 목록에서 <b>부서</b>를 선택하고 <b>추가</b> 버튼을 클릭한 후";
+                            break;
+                        case 40:
+                            expstr = expstr + "조직도에서 <b>영업팀</b>을 선택합니다.";
+                            break;    
+                        case 41:
+                            expstr = expstr + "이번에는 <b>부서</b> 대신 <b>직책</b>을 선택하고";
+                            break;
+                        case 42:
+                            expstr = expstr + "단일 선택 목록 우측에 나타나는 직책 목록 중 <b>팀장</b>을 선택한 후 <b>추가</b> 버튼을 클릭합니다, <br/><br/>일단 여기까지의 작업으로 화면과 같이 영업팀원과 팀장급들이 사용자로 지정된 것입니다.";
+                            break;
+                        case 43:
+                            expstr = expstr + "마지막으로, <b>직책</b> 대신 <b>사용자</b>를 선택하고 <b>추가</b> 버튼을 클릭하여 조직도에서 경영진을 직접 선택함으로써 사용자 지정을 모두 마칩니다. <br/>만약, 다우오피스 관리자에 의해 <b>임원</b>이라는 직책이 존재하고 이 값이 경영진들에게 부여된 상황이라면 <b>팀장</b>을 선택한 방법과 동일하게 <b>임원</b>을 선택하면 됩니다.";
+                            break;
+                        case 44:
+                            expstr = expstr + "제품(서비스) 관련 데이터는 <b>제품 관리</b> 앱 운영자만이 등록하도록 할 것이므로 <b>데이터 등록 권한</b>에서 <b>운영자</b>만 선택합니다. <br/>이로 인해 <b>등록자 = 운영자</b>가 되었으므로 <b>데이터 수정 권한</b>과 <b>수정 알림 대상</b>, <b>데이터 삭제 권한</b>은 <b>등록자</b>와 <b>운영자</b>만 선택합니다.";
+                            break;
+                        case 45:
+                            expstr = expstr + "이로써 앞서 <b>공유 설정</b>을 통해 사용자로  지정된 영업팀과 팀장들 그리고 임원은 제품(서비스) 내역을 열람만할 수 있게 되었습니다. <br/><br/><b>저장</b> 버튼을 클릭해 작업한 내용을 저장하고<br/>다음 작업을 위해 <b>관리 홈으로 이동</b> 버튼을 클릭합니다.";
+                            break;     
+                        case 46:
+                            expstr = expstr + "자, 이제는 기존 스프레드시트를 <b>제품(서비스)명</b>, <b>현재 상태</b>, <b>재개 예정일</b>, <b>단종 일시</b>만으로 정리한 csv 파일을 이용해 데이터를 일괄 등록해 보겠습니다. <br/>자세한 방법은 <b>PART 2 Works 낱낱이 훑어보기 > 앱 관리 홈 화면 훑어보기 > 데이터 일괄 등록</b>을 참조하십시오.";
+                            break;
+                        case 47:
+                            expstr = expstr + "<b>제품 관리</b> 앱 홈 화면 하단의 <b>데이터 일괄 등록</b>을 클릭합니다.";
+                            break;
+                        case 48:
+                            expstr = expstr + "<b>일괄 등록</b> 화면에서 <b>파일 찾기</b> 버튼을 클릭하고";
+                            break;
+                        case 49:
+                            expstr = expstr + "정리된 csv 파일을 선택한 후";
+                            break;
+                        case 50:
+                            expstr = expstr + "하단의 <b>일괄 등록</b> 버튼을 클릭합니다.";
+                            break;   
+                        case 51:
+                            expstr = expstr + "일괄 등록 처리가 완료된 후 <b>앱 홈으로 이동</b> 버튼을 클릭합니다.";
+                            break;
+                        case 52:
+                            expstr = expstr + "<b>제품(서비스)명</b>, <b>현재 상태</b>, <b>재개 예정일</b>, <b>단종 일시</b> 항목들로 구성된 데이터들이 일괄 등록되었으므로 이 데이터들을 바탕으로 분석된 차트가 앱 실행 홈 화면 상단에 나타나 있습니다.";
+                            break;
+                        case 53:
+                            expstr = expstr + "데이터 일괄 등록을 통해 등록하지 못한 <b>일반 소개 자료</b>, <b>원가 분석 등 정책 자료</b> 항목과 <b>가격 정책</b> 항목을 입력하기 위해 데이터 목록에서 데이터를 클릭하고";
+                            break;
+                        case 54:
+                            expstr = expstr + "데이터 상세 화면에서 <b>수정</b> 버튼을 클릭한 후";
+                            break;
+                        case 55:
+                            expstr = expstr + "- <b>일반 소개 자료</b>, <b>원가 분석 등 정책 자료</b>의 <b>파일 첨부</b> 버튼을 클릭해 해당 파일들을 첨부하고 <br/>- <b>가격 정책</b>에 해당 내용을 입력한 후 <br/>- 하단의 <b>확인</b> 버튼을 클릭해 <br/>일괄 등록에서 빠졌던 항목들을 모두 채운 완전한 데이터를 등록합니다.<br/><br/>이상으로 <b>제품 관리 앱 만들기</b>의 설명을 마치겠습니다.";
+                            break;                                                                                                                                                                                                                                                                              
+                  }
+                        
+                  expstr = expstr + "</div>";
+                  
+                  $(expstr).appendTo("#expDIV");
+                  
+                  //srcName = "./" + subject + "/exp" + currentPage + ".jpg";
+                  //$("#expDIV").css("opacity", "0").attr("src", srcName).animate({opacity : 1}, 900);
+                  $("#expDIV").css("opacity", "0").animate({opacity : 1}, 900);
+            }
+            
+            isClick = true;
+}    
+</script>
+</head>
+
+<body style="background:#25cad3;" onload="viewSubject()">
+    <div id="backgroundDIV" style="width:1220px;height:625px;position:absolute;top:0px;left:0px;margin,padding:0;overflow:hidden;background:#ffffff;border-right:1px #fff solid;">        
+        <img src="./common/parttitle01.jpg" style="width:230px;height:26px;position:absolute;top:19px;left:38px;margin,border,padding:0;overflow:hidden;" />    
+        <img id="titleDIV" src="./01/ntitle01.jpg" style="width:200px;height:63px;position:absolute;top:120px;left:930px;margin,border,padding:0;overflow:hidden;" />  
+
+            <img id="subject" src="./common/list.jpg" style="width:57px;height:57px;position:fixed;top:0px;left:1163px;margin,border,padding:0;overflow:hidden;cursor:pointer;z-index:1000" />
+            <img id="menu" src="./common/menu01.png" style="width:320px;height:625;position:absolute;top:0px;left:1230px;margin,border,padding:0;overflow:hidden;z-index:800;" usemap=#navi />
+        
+        
+        <!-- <img id="expDIV" src="./common/exp-blank.jpg" style="width:260px;height:250px;position:absolute;top:260px;left:950px;margin,border,padding:0;overflow:hidden;" /> -->
+            <div id="expDIV" style="letter-spacing:-1px;color:#222;font-family: 'Malgun Gothic', 'Dotum', Helvetica, sans-serif, Arial;text-align:justify;line-height:1.8em;font-size:13px;width:210px;height:300px;position:absolute;top:210px;left:930px;margin,border,padding:0;overflow:hidden;" />
+                <div id= "expString">
+                </div>
+            </div>
+        
+        <div style="width:861px;height:512px;position:absolute;top:57px;left:37px;border:1px #ccc solid;margin,padding:0;"> 
+        </div>
+        <div id="imageDIV" style="width:861px;height:512px;position:absolute;top:58px;left:38px;margin,border,padding:0;overflow:hidden;z-index:100;"> 
+        </div>
+        
+       
+        <img id="lbutton" src="./common/bt_nav_prev.png" style="z-index:700;width:47px;height:47px;position:fixed;top:286px;left:10px;margin,border,padding:0;cursor:pointer;" />  
+        <img id="rbutton" src="./common/bt_nav_next.png" style="z-index:700;width:47px;height:47px;position:fixed;top:286px;left:1163px;margin,border,padding:0;cursor:pointer;" />           
+        
+        <div id="pageDIV" style="letter-spacing:-1px;color:#8d8d8d;width:1220px;position:fixed;top:590px;left:0px;margin,border,padding:0;overflow:hidden;border:0;font-size:15px;font-family: 'Malgun Gothic', 'Dotum', Helvetica, sans-serif, Arial;vertical-align:top;font-weight:normal;line-height:1.0em;text-align:center;">  
+        </div>   
+              
+         <!--        
+        <div id="naviDIV" style="z-index:700;color:#222;width:260px;height:29px;position:fixed;bottom:25px;right:10px;margin,border,padding:0;overflow:hidden;text-align:center;">  
+          <table style="width:100%">
+            <tr><td style="width:20px;"></td>
+                <td style="width:16px;height:29px;"><img id="lbutton" src="./common/bt_nav_prev.png" style="width:16px;height:29px;margin,border,padding:0;cursor:pointer;" /></td>
+                <td id="pageDIV" style="margin,border,padding:0;font-size:16px;font-family: 'Malgun Gothic', 'Dotum', Helvetica, sans-serif, Arial;vertical-align:middle;font-weight:normal;line-height:1.0em;letter-spacing:0px;text-align:center;"></td>
+                <td style="width:16px;height:29px;"><img id="rbutton" src="./common/bt_nav_next.png" style="width:16px;height:29px;margin,border,padding:0;cursor:pointer;" /></td>
+            <td style="width:20px;"></td></tr>
+          </table>
+        </div>    
+        -->      
+    </div>
+    
+<map name="navi">
+<area shape=rect COORDS="30,230,107,246" HREF="Javascript:jump(1)" onMouseOver="window.status=''; return true;" onMouseOut="window.status=''; return true;" onfocus="this.blur()">
+<area shape=rect COORDS="30,255,130,271" HREF="Javascript:jump(10)" onMouseOver="window.status=''; return true;" onMouseOut="window.status=''; return true;" onfocus="this.blur()">
+<area shape=rect COORDS="30,282,130,298" HREF="Javascript:jump(26)" onMouseOver="window.status=''; return true;" onMouseOut="window.status=''; return true;" onfocus="this.blur()">
+<area shape=rect COORDS="30,308,130,324" HREF="Javascript:jump(29)" onMouseOver="window.status=''; return true;" onMouseOut="window.status=''; return true;" onfocus="this.blur()">
+<area shape=rect COORDS="30,334,130,350" HREF="Javascript:jump(38)" onMouseOver="window.status=''; return true;" onMouseOut="window.status=''; return true;" onfocus="this.blur()">
+<area shape=rect COORDS="30,359,140,375" HREF="Javascript:jump(46)" onMouseOver="window.status=''; return true;" onMouseOut="window.status=''; return true;" onfocus="this.blur()">
+
+<area shape=rect COORDS="30,154,70,174" HREF="Javascript:part(0, 0)" onMouseOver="window.status=''; return true;" onMouseOut="window.status=''; return true;" onfocus="this.blur()">
+<area shape=rect COORDS="30,398,193,418" HREF="Javascript:part(2, 0)" onMouseOver="window.status=''; return true;" onMouseOut="window.status=''; return true;" onfocus="this.blur()">
+<area shape=rect COORDS="30,440,175,460" HREF="Javascript:part(3, 0)" onMouseOver="window.status=''; return true;" onMouseOut="window.status=''; return true;" onfocus="this.blur()">
+</map>
+    
+</body>
+</html>

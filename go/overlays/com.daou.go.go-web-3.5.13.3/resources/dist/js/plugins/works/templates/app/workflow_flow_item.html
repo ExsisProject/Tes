@@ -1,0 +1,34 @@
+<!--<div class="layer_option">-->
+<div class="option_tit">
+	<p class="tit">{{{lang.상태변경}}}</p>
+</div>
+
+<div class="vertical_wrap_s">
+	<p class="tit">{{{lang.상태변경 버튼명}}}</p>
+	{{#isFirst}}<span class="txt">-</span>{{/isFirst}}
+	{{^isFirst}}
+	<input type="text" class="input wfix_medium" value="{{model.actionName}}" name="actionName">
+	{{/isFirst}}
+</div>
+
+<div class="vertical_wrap_s" data-type="action">
+	<p class="tit">{{{lang.상태 변경자}}}</p>
+	{{#isFirst}}<span class="txt">-</span>{{/isFirst}}
+	{{^isFirst}}
+		{{#roles}}
+			<div class="option_wrap">
+				<input type="checkbox" name="actionRoles" value="{{value}}" id="{{cid}}_action_{{value}}">
+				<label for="{{cid}}_action_{{value}}">{{lang}}</label>
+			</div>
+		{{/roles}}
+	{{/isFirst}}
+</div>
+<div class="vertical_wrap_s" data-type="push">
+	<p class="tit">{{{lang.상태 변경 알림대상}}}</p>
+	{{#roles}}
+		<div class="option_wrap">
+			<input type="checkbox" name="pushRoles" value="{{value}}" id="{{cid}}_push_{{value}}">
+			<label for="{{cid}}_push_{{value}}">{{lang}}</label>
+		</div>
+	{{/roles}}
+</div>

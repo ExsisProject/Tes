@@ -1,0 +1,35 @@
+{{#model.producers}}
+<tr>
+	<td class="ref_item">
+	    <div class="vertical_wrap_s">
+	        <span class="txt">{{fieldLabels}}</span>
+	    </div>
+	</td>
+	<td class="">
+		<div class="vertical_wrap_s">
+			<a data-id="{{producer.id}}">
+		        <span class="txt">{{producer.name}}</span>
+			</a>
+	    </div>
+	</td>
+	<td class="ref_link">
+	    <span class="txt">
+		    {{#hasListAuth}}{{lang.허용}}{{/hasListAuth}}
+		    {{^hasListAuth}}{{lang.비허용}}{{/hasListAuth}}
+	    </span>
+	</td>
+	<td class="ref_view" data-type="action">
+		<span class="txt">
+			{{#hasDocAuth}}{{lang.허용}}{{/hasDocAuth}}
+			{{^hasDocAuth}}{{lang.비허용}}{{/hasDocAuth}}
+		</span>
+	</td>
+</tr>
+{{/model.producers}}
+{{^model.producers}}
+<tr>
+	<td colspan="4">
+		<p class="data_null"><span class="ic_data_type ic_no_contents"></span><span class="txt">{{lang.목록이 없습니다}}</span></p>
+	</td>
+</tr>
+{{/model.producers}}

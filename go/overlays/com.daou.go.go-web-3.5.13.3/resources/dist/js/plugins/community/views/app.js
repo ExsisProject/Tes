@@ -1,0 +1,1 @@
+define(["backbone","app","community/views/list_tab"],function(e,t,n){var r=null,i=e.View.extend({el:"#content",remove:function(){this.$el.empty(),this.undelegateEvents()},render:function(){n.render()}});return i});

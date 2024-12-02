@@ -1,0 +1,1 @@
+define(["jquery","backbone","attendance/models/status"],function(e,t,n){var r=t.Collection.extend({model:n,initialize:function(){},get:function(){var e=new r;return this.each(function(t){e.add(t)}),e},getById:function(e){return this.find(function(t){if(t.id==e)return t})}});return r});

@@ -1,0 +1,22 @@
+<div class="content">
+	<section class="classic_detail">
+		<ul class="list_normal list_photo">
+			{{#dataset}}
+			<li>
+				<div class="tit">
+					<div class="photo"><img src="{{recommender.thumbSmall}}" /></div>
+					<div class="info">
+						<span class="name">{{recommender.name}} {{recommender.positionName}}</span>
+						<span class="date">{{dateformat}}</span>
+					</div>
+				</div>
+			</li>
+			{{/dataset}}
+			{{^dataset}}
+			<li class="creat data_null">
+				{{lang.recommend_null}}
+			</li>
+			{{/dataset}}
+		</ul>
+	</section>
+</div>

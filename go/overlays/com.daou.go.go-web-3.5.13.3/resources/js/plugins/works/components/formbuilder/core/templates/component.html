@@ -1,0 +1,18 @@
+<div class="build_box_inner">
+	{{#editable}}
+	<span class="ic_works ic_drag sort-handler"></span>
+	{{/editable}}
+	<div class="component-body wrap_build_data"></div>
+	{{#editable}}
+	<div class="wrap_btn">
+		{{#mainForm}}
+		<a class="btn_ic24 btn-copy prevent-component-select">
+			<span class="ic_toolbar copy" title="{{lang.copy}}"></span>
+		</a>
+		{{/mainForm}}
+		<a class="btn_ic24 btn-remove prevent-component-select" data-confirm="{{mainForm}}">
+			<span class="ic_toolbar del" title="{{lang.remove}}"></span>
+		</a>
+	</div>
+	{{/editable}}
+</div>

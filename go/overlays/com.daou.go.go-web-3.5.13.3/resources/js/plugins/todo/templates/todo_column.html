@@ -1,0 +1,22 @@
+<header class="board_column">
+    <h1 class="column_title">
+    	<span class="ui-column-title title txt_ellipsis">{{title}}</span>
+        <span class="ui-card-count num" style="display:none"></span>
+    </h1>
+    {{#editable?}}
+    <a href="#" class="btn-action-menu btn_board_more" data-bypass><span class="ic_board ic_more"></span></a>
+    {{/editable?}}
+</header>
+
+<div class="ui-board-content">
+    <div class="ui-scroll-container board_card_wrap" id="column-container-{{category.id}}" data-scroll-axis="y">
+        <div class="ui-card-container ui-scroll-content" id="column-content-{{category.id}}" style="min-height:20px" data-scrollcontent="true"></div>
+    </div>
+    {{#editable?}}
+    <div class="ui-add-card card_create">
+        <a href="#" class="btn-add-card create_box" data-bypass>
+            <span class="ic_board ic_plus_w" title="{{label.add_card}}"></span>
+        </a>
+    </div>
+    {{/editable?}}
+</div>

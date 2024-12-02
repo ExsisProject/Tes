@@ -1,0 +1,56 @@
+<!--// 검색-->
+<div class="wrap_filter">
+        <p id="length_wrap" class="filter_result_desc"><strong id="docsLength">0</strong> {{CommonLang.개의 데이터가 있습니다}}</p> <!-- 검색 결과가 있는 경우 노출-->
+</div>
+<!--검색 //-->
+
+
+<!-- ehr datatable -->
+<div class="wrap_tb_list">
+    <div class="wrap_tb_box">
+        <section class="tool_bar">
+            <div class="critical">
+                <a class="btn_tool download">
+                    <span class="ic_toolbar download"></span>
+                    <span class="txt">{{CommonLang.목록 다운로드}}</span></a>
+                </a>
+            </div>
+            <div class="optional">
+                <a class="btn_tool">
+                    <span class="ic_toolbar filter"></span>
+                    <span id="view_item_manage" class="txt">{{CommonLang.목록 관리}}</span>
+                </a>
+                <select class="tb_paging select_box">
+                    <option value="10">10</option>
+                    <option value="20">20</option>
+                    <option value="40">40</option>
+                    <option value="60">60</option>
+                    <option value="80">80</option>
+                </select>
+            </div>
+        </section>
+        <div class="wrap_tb_shadow">
+            <table id="tb_list" class="type_normal type_white list list_statistic_detail">
+                <thead>
+                <tr>
+                    <th class="name"><span class="title_sort">{{CommonLang.부서원}}<ins class="ic"></ins><span></span></span></th>
+                    <th class="sortable sorting depart" value="departmentName"><span class="title_sort">{{CommonLang.부서명}}<ins class="ic"></ins></span></th>
+                    <th class="sortable sorting date" value="workingDay"><span class="title_sort">{{CommonLang.날짜}}<ins class="ic"></ins></span></th>
+                    <th name="clockIn" class="attend"><span class="title_sort">{{TimelineLang.출근}}<ins class="ic"></ins></span></th>
+                    <th name="clockOut" class="leave"><span class="title_sort">{{TimelineLang.퇴근}}<ins class="ic"></ins></span></th>
+                    {{#viewAbsence}}<th name="absence" class="absence"><span class="title_sort">{{TimelineLang.결근}}<ins class="ic"></ins></span></th>{{/viewAbsence}}
+                    {{#viewVacation}}<th name="vacation" class="holiday"><span class="title_sort">{{TimelineLang.휴가}}<ins class="ic"></ins></span></th>{{/viewVacation}}
+                    {{#viewUnAuthDevice}}<th name="unAuthDevice" class="unAuthDevice"><span class="title_sort">{{TimelineLang.접속 미인증}}<ins class="ic"></ins></span></th>{{/viewUnAuthDevice}}
+                    {{#viewExtensionWorkingTime}}<th name="extensionWorkingTime" class="extensionWorkingTime"><span class="title_sort">{{TimelineLang.연장근무}}<ins class="ic"></ins></span></th>{{/viewExtensionWorkingTime}}
+                    {{#viewNightWorkingTime}}<th name="nightWorkingTime" class="nightWorkingTime"><span class="title_sort">{{TimelineLang.야간근무}}<ins class="ic"></ins></span></th>{{/viewNightWorkingTime}}
+                    {{#viewHolyDayWorkingTime}}<th name="holyDayWorkingTime" class="holyDayWorkingTime"><span class="title_sort">{{TimelineLang.휴일근무}}<ins class="ic"></ins></span></th>{{/viewHolyDayWorkingTime}}
+                    {{#viewEtcStatus}}<th class="etcStatus"><span class="etsStatus">{{TimelineLang.기타상태}}<ins class="ic"></ins></span></th>{{/viewEtcStatus}}
+                </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div id="tool_footer" class="tool_bar tool_absolute">
+</div>

@@ -1,0 +1,14 @@
+<li id='item_file'>
+    <span class='item_file'>
+        <span class='ic_file ic_def'></span>
+        <span class='name'>{{data.fileName}}</span>
+        <span class='size'>{{data.fileSize}}</span>
+        <span class='btn_wrap' title={{data.deleteTxt}}>
+            <span class='ic_classic ic_del'></span>
+        </span>
+    </span>
+    <input type='hidden' value={{data.filePath}} id='file_path'/>
+    <input type='hidden' value={{data.fileName}} id='file_name'/>
+    <input type='hidden' value={{data.hostId}} id='host_id'/>
+    <input type='hidden' value={{data.fileExt}} id='file_ext'/>
+</li>

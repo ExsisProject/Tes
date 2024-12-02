@@ -1,0 +1,42 @@
+{{#data}}
+<li>
+    <a href="" class="tit" data-id="{{id}}">
+        <div class="photo"><img src="{{thumbSmall}}"></div>
+        <div class="info">
+            <span class="name txt_ellipsis">{{name}} {{positionName}}</span>
+            <span class="info">
+                    <span class="company">{{companyName}}</span>
+                    {{#companyName}}
+                    {{#departmentName}}
+                    <span class="part">·</span>
+                    {{/departmentName}}
+                    {{/companyName}}
+                    <span class="team">{{departmentName}}</span>
+                </span>
+        </div>
+    </a>
+    <div class="optional">
+        {{#mobileNo}}
+        <a href="" class="btn btn_user_phone telMobile" data-mobile="{{mobileNo}}"></a>
+        <a href="" class="btn btn_user_sms smsMobile" data-mobile="{{mobileNo}}"></a>
+        {{/mobileNo}}
+        {{^mobileNo}}
+        <span href="" class="btn btn_user_phone_off"></span>
+        <span href="" class="btn btn_user_sms_off"></span>
+        {{/mobileNo}}
+        {{#isAvailableMail}}
+        {{#email}}
+        <a href="" class="btn btn_user_mail sendMail" data-email="{{email}}"></a>
+        {{/email}}
+        {{^email}}
+        <span href="" class="btn btn_user_mail_off"></span>
+        {{/email}}
+        {{/isAvailableMail}}
+    </div>
+</li>
+{{/data}}
+{{^data}}
+<li class="creat data_null">
+    <span class="txt">{{lang.검색결과없음}}</span>
+</li>
+{{/data}}

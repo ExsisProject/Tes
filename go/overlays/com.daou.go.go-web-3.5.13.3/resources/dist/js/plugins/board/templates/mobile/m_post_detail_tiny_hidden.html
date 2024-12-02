@@ -1,0 +1,17 @@
+<li>
+    <div class="tit">
+        <span class="ic {{#isPrev}}ic_arrow3_t{{/isPrev}}{{^isPrev}}ic_arrow3_d{{/isPrev}}">
+        </span>
+        <span class="desc">
+            {{#isPrev}}{{tplVar.prev}}{{/isPrev}}
+            {{^isPrev}}{{tplVar.next}}{{/isPrev}}
+        </span>
+        <span class="ic ic_lock">
+
+        </span>
+        <span class="title">
+            {{#isTitleHidden}}{{tplVar.hidden_post}}{{/isTitleHidden}}
+            {{^isTitleHidden}}{{{title}}}{{/isTitleHidden}}
+        </span>
+    </div>
+</li>

@@ -1,0 +1,97 @@
+<div class="nav" id="searchNav">
+</div>
+<div id="searchDetail" class="search_detail">
+    <span id="simpleSearchWrap">
+        <p class="tit">{{lang.검색 조건}}</p>
+        <ul class="search_result">
+            <li>
+                <a href="" data-search="all">
+                    <label class="tit">{{lang.전체}} {{lang.검색}}</label>
+                    <div class="txt">
+                        <span class="searchText"></span>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="" data-search="name">
+                    <label class="tit">{{lang.이름(표시명)}}</label>
+                    <div class="txt">
+                        <span class="searchText"></span>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="" data-search="email">
+                    <label class="tit">{{lang.이메일}}</label>
+                    <div class="txt">
+                        <span class="searchText"></span>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="" data-search="mobileNo">
+                    <label class="tit">{{lang.휴대폰}}</label>
+                    <div class="txt">
+                        <span class="searchText"></span>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </span>
+    <span id="detailSearchWrap">
+        <ul class="search_result">
+            <li>
+                <label class="tit">{{lang.주소록 구분}}</label>
+                <div class="txt">
+                    <select class="" id="searchType">
+                        <option value="USER">{{lang.개인주소록}}</option>
+                        <option value="COMPANY">{{lang.공용주소록}}</option>
+                        <option value="DEPARTMENT">{{lang.부서주소록}}</option>
+                    </select>
+                    <select id="deptList" style="display: none">
+                        {{#depts}}
+                        <option value="{{id}}">{{name}}</option>
+                        {{/depts}}
+                    </select>
+                </div>
+            </li>
+            <li>
+                <label class="tit">{{lang.이름(표시명)}}</label>
+                <div class="txt">
+                    <input id="addrName" class="input" type="search" placeholder="{{lang.검색 키워드를 입력하세요}}">
+                </div>
+            </li>
+            <li>
+                <label class="tit">{{lang.이메일}}</label>
+                <div class="txt">
+                    <input id="addrEmail" class="input" type="search" placeholder="{{lang.검색 키워드를 입력하세요}}">
+                </div>
+            </li>
+            <li>
+                <label class="tit">{{lang.휴대폰}}</label>
+                <div class="txt">
+                    <input id="addrMobileNo" class="input" type="search" placeholder="{{lang.검색 키워드를 입력하세요}}">
+                </div>
+            </li>
+            <li>
+                <label class="tit">{{lang.회사}}</label>
+                <div class="txt">
+                    <input id="addrCompanyName" class="input" type="search" placeholder="{{lang.검색 키워드를 입력하세요}}">
+                </div>
+            </li>
+            <li>
+                <label class="tit">{{lang.회사전화}}</label>
+                <div class="txt">
+                    <input id="addrOfficeTel" class="input" type="search" placeholder="{{lang.검색 키워드를 입력하세요}}">
+                </div>
+            </li>
+        </ul>
+        <a class="btn_wrap" id="searchInit">
+            <span class="btn btn_refresh"></span>
+            <span class="txt">{{lang.초기화}}</span>
+        </a>
+    </span>
+    <span id="searchResultWrap">
+
+    </span>
+</div>

@@ -1,0 +1,16 @@
+{{#flowHistories}}
+<tr>
+    <td class="date"><span class="date">{{date}}</span></td>
+    <td class="user">{{modifier}}</td>
+    <td class="func">
+    	<span class="btn_wrap">
+    		<span class="ic_classic ic_open apprflowHistoryView" data-index="{{index}}" title="{{lang.보기}}"></span>
+    	</span>
+    </td>
+</tr>
+{{/flowHistories}}
+{{^flowHistories}}
+<tr>
+    <td colspan="3">{{lang.변경이력이 없습니다.}}</td>
+</tr>
+{{/flowHistories}}

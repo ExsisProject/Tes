@@ -1,0 +1,131 @@
+<div class="content_info">
+    <ul class="info_summary">
+        <li class="first">
+            <span class="label_state abnormal">notice</span>
+            <span class="caution">{{lang.label_delete_caution_desc}}</span>
+        </li>
+        <li style="display: none;">
+            <span class="label_state abnormal">notice</span>
+            <span class="caution">{{lang.label_sync_caution_desc}}</span>
+        </li>
+    </ul>
+    <span class="wrap_action">
+        <span class="ic_adm ic_accordion_open" title="{{lang.label_unfold}}"></span>
+    </span>
+    <span class="wrap_action" style="display: none;">
+        <span class="ic_adm ic_accordion_close" title="{{lang.label_fold}}"></span>
+    </span>
+</div>
+
+<div class="content_page">
+    <form id="formChatMessageConfig" name="formChatMessageConfig">
+        <div class="container">
+            <div class="header">
+                <h2>{{lang.label_message_delete}}
+                    <span class="wrap_ic_s">
+                        <span class="help">
+                            <span class="tool_tip">{{lang.label_message_delete_desc}}
+                            <i class="tail_left"></i>
+                            </span>
+                        </span>
+                    </span>
+                </h2>
+            </div>
+            <div class="content">
+                <table class="detail">
+                    <colgroup>
+                        <col width="130px">
+                        <col width="*">
+                    </colgroup>
+                    <tbody>
+                    <tr class="last">
+                        <th>
+                            <span class="title">{{lang.label_message_delete_subtitle}}</span>
+                        </th>
+                        <td>
+                            <div class="vertical_wrap_s">
+                                    <span class="option_wrap">
+                                        <input id="messageDelete_true" name="messageDeleteOption"
+                                               type="radio" value="true">
+                                        <label for="messageDelete_true">{{lang.label_used}}</label>
+                                    </span>
+                            </div>
+                            <div class="vertical_wrap_s">
+                                    <span class="option_wrap">
+                                        <input id="messageDelete_false" name="messageDeleteOption" type="radio"
+                                               value="false">
+                                        <label for="messageDelete_false">{{lang.label_unused}}</label>
+                                    </span>
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </form>
+    <form name="formChatAttachConfig">
+        <div class="container">
+            <div class="header">
+                <h2>{{lang.label_chat_keep_setting}}
+                    <span class="wrap_ic_s">
+                    <span class="help">
+                        <span class="tool_tip">{{lang.label_tool_tip}}
+                        <i class="tail_left"></i>
+                        </span>
+                    </span>
+                </span>
+                </h2>
+            </div>
+            <div class="content">
+                <table class="detail">
+                    <colgroup>
+                        <col width="130px"/>
+                        <col width="*"/>
+                    </colgroup>
+                    <tbody>
+                    <tr>
+                        <th>
+                            <span class="title">{{lang.label_chat_delete_period}}</span>
+                        </th>
+                        <td>
+                    			<span class="option_wrap">
+                                    <input class="input" id="chatPeriod" maxlength=3 name="chatPeriod" style="width:150px; text-align:right;"
+                                           type="text"> {{lang.label_days}}
+                                </span>
+                            <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                            <span>
+                                    <input id="unlimitedChat" name="unlimitedChat" type="checkbox"> {{lang.label_unlimited_archive}}
+                                </span>
+                        </td>
+                    </tr>
+                    <tr class="last">
+                        <th>
+                            <span class="title">{{lang.label_attach_delete_period}}</span>
+                        </th>
+                        <td>
+                            <div class="vertical_wrap_s">
+                                    <span class="option_wrap">
+                                        <input class="input" id="chatAttachPeriod" maxlength=3 name="chatAttachPeriod"
+                                               style="width:150px; text-align:right;" type="text"> {{lang.label_days}}
+                                    </span>
+                                <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                <span class="option_wrap">
+                                        <input id="unlimitedChatAttach" name="unlimitedChatAttach" type="checkbox"> {{lang.label_unlimited_archive}}
+                                    </span>
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </form>
+    <div class="page_action">
+        <span class="btn" id="saveChatAttachConfig">{{lang.label_ok}}</span> <span
+            class="btn_nega" id="btn_cancel">{{lang.label_cancel}}</span>
+    </div>
+    <div class="dataTables_wrapper container">
+        <div class="content_tb" id="chatAttachList"></div>
+    </div>
+</div>

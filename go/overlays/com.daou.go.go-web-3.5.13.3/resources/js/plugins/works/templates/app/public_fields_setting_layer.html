@@ -1,0 +1,16 @@
+<div class="header">
+    <p class="desc">{{desc}}</p>
+    <a class="btn_layer_x" el-close><span class="ic"></span><span class="txt">{{lang.닫기}}</span></a>
+</div>
+<div class="wrap_list_attrSet">
+    <ul class="list_attrSet">
+        {{#fields}}
+        <li>
+            <span class="txt">{{label}}</span>
+            <span class="device_access_setting ic_control ic_ctrl_{{#suppressed}}off{{/suppressed}}{{^suppressed}}on{{/suppressed}}"
+                  title="{{#suppressed}}{{lang.비공개}}{{/suppressed}}{{^suppressed}}{{lang.공개}}{{/suppressed}}"
+                  data-field-cid="{{cid}}"></span>
+        </li>
+        {{/fields}}
+    </ul>
+</div>

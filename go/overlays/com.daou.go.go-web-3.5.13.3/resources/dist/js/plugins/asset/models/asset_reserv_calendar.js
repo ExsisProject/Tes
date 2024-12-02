@@ -1,0 +1,1 @@
+define(["backbone"],function(e){var t=null,n=e.Model.extend({urlRoot:GO.contextRoot+"api/asset/reservation/calendar"},{get:function(e){return t==null&&(t=new n),t.urlRoot=GO.contextRoot+"api/asset/reservation/calendar/"+e,t.fetch({async:!1}),t},create:function(){return new n}});return n});

@@ -1,0 +1,68 @@
+<div class="dataTables_wrapper">
+	{{#use_button?}}
+	<div class="critical btn-custom" style="display: none">
+		<a class="btn-mylist btn-survey-progress btn_tool">
+            <span class="ic_toolbar doc"></span>
+			<span class="txt">{{label.progress}}</span>
+        </a>
+		<a class="btn-mylist btn-survey-stop btn_tool">
+            <span class="ic_toolbar cancel"></span>
+            <span class="txt">{{label.stop}}</span>
+        </a>
+        <a class="btn-mylist btn-survey-finished btn_tool">
+            <span class="ic_toolbar end"></span>
+            <span class="txt_caution">{{label.finished}}</span>
+        </a>
+		<a class="btn-mylist btn-survey-remove btn_tool">
+            <span class="ic_toolbar del"></span>
+            <span class="txt_caution">{{label.delete}}</span>
+        </a>
+	</div>
+	{{/use_button?}}
+	{{#canCopyMultiCompanySurvey}}
+	<div class="critical select-custom" style="display: none">
+		<span class="wrap_txt">
+			<span class="txt">{{label.select_site}}</span>
+		</span>
+		<span class="space"></span>
+		<select id="selectSite">
+			{{#companies}}
+			<option value="{{id}}">{{companyName}}</option>
+			{{/companies}}
+		</select>
+	</div>
+	{{/canCopyMultiCompanySurvey}}
+
+	<table id="survey-list-table" class="type_normal list_survey list_survey001">	
+		<thead>
+			<tr>
+				{{#show_seq?}}
+				<th class="sorting_disabled num"><span class="title_sort">{{label.num}}</span></th>
+				{{/show_seq?}}
+				<th class="sorting_disabled state"><span class="title_sort">{{label.status}}</span></th>
+				<th class="sorting_disabled list_subject"><span class="title_sort">{{label.title}}</span></th>
+				<th class="sorting_disabled date"><span class="title_sort">{{label.period}}</span></th>
+				{{^my_list?}}
+				<th class="sorting_disabled name"><span class="title_sort">{{label.creator}}</span></th>
+				{{/my_list?}}
+				{{#my_list?}}
+				<th class="sorting_disabled name"><span class="title_sort">{{label.rating}}</span></th>
+				{{/my_list?}}
+			</tr>
+		</thead>
+	</table>
+</div>
+
+<div class="table_search">					
+	<select name="searchtype">
+		<option value="title">{{label.title}}</option>
+		<option value="writer">{{label.creator}}</option>
+	</select>
+	
+	<section class="search2">
+		<div class="search_wrap"><!--focus되면 "search_focus" multi class로 추가해주세요.-->
+			<input class="search2" type="text" name="keyword" placeholder="{{label.search}}">								
+			<span class="btn-search btn_search2" title="{{label.search}}"></span>
+		</div>
+	</section>					
+</div>

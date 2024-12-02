@@ -1,0 +1,764 @@
+
+<div class="container">
+<div class="module_drop">
+    <div class="module_drop_head">
+        <hr>
+        <div class="tit">
+            <span data-action="docsInfoArrow" class="txt">{{lang.기본}}</span>
+            <span data-action="docsInfoArrow" class="ic ic_arrow_open"></span>
+            <!-- <span data-action="docsInfoArrow" class="ic ic_arrow_open" title="열기"></span> -->
+        </div>
+    </div>
+    <div class="module_drop_body">
+        <table class="detail">
+            <caption>{{lang.caption}}</caption>
+            <colgroup>
+                <col width="200px">
+                <col width="*">
+            </colgroup>
+            <tbody>
+                <tr>
+                    <th><span class="title"><ins class="asterisk">*</ins>{{lang.title}}</span></th>
+                    <td><input class="w_half input" type="text" name="name" value="{{name}}"></td>
+                </tr>
+                <tr>
+                    <th>
+                        <span class="title">
+                            {{lang.alias}}
+                            <ins class="asterisk">*</ins>
+                        </span>
+                        <span class="help">
+                            <span class="tool_tip">
+                            {{lang.양식 약어 도움말}}
+                                <i class="tail_left"></i>
+                            </span>
+                        </span>
+                    </th>
+                    <td><input class="w_half input" type="text" name="alias" value="{{alias}}"></td>
+                </tr>
+                <tr>
+                    <th>
+                        <span class="title">{{lang.folder}}</span>
+                        <span class="help">
+                            <span class="tool_tip">
+                                {{lang.전사 문서함 보관 폴더 도움말}}
+                                <i class="tail_left"></i>
+                            </span>
+                        </span>
+                    </th>
+                    <td>
+                        <span class="txt_form"><span id="docInfo_txt_form"  data-doctypeid="{{companyDocFolder.id}}">{{companyDocFolder.parentName}}</span></span>
+                        <span class="btn_box">
+                                    <span class="ic ic_edit" title="{{lang.수정}}" id="docInfo_btn_edit"></span>
+                        </span>
+                        <span class="btn_box">
+                            <span class="ic ic_del" id="docInfo_btn_delete"></span>
+                        </span>
+                        <span class="go_alert" id="docInfo_txt_formAlert"></span>
+                        <span class="vertical_wrap">
+                            <span class="option_wrap">
+                                <input type="checkbox" id="folderChangeable" name="folderChangeable" {{#folderChangeable}}checked{{/folderChangeable}} value="true">
+                                <label for="folderChangeable">{{lang.folder_addable}}</label>
+                            </span>
+                        </span>
+                    </td>
+                </tr>
+
+                <!--<tr style="display: none;">&lt;!&ndash; 기존 결재선 설정부 &ndash;&gt;
+                    <th><span class="title">{{lang.자동결재선}}</span></th>
+                    <td>
+                        <span class="option_wrap">
+                            <input type="checkbox" id="useApprLineRule" name="useApprLineRule" value="true">
+                            <label for="useApprLineRule">{{lang.use}}</label>
+                        </span>
+                    </td>
+                </tr>
+                <tr style="display: none;">&lt;!&ndash; 기존 결재선 설정부 &ndash;&gt;
+                    <th><span class="title">{{lang.appr_line}}</span></th>
+                    <td id="appr_line_td">
+                        <span class="vertical_wrap">
+                            <span class="option_wrap">
+                                <input type="checkbox" id="assignedActivityDeletable" name="assignedActivityDeletable" {{#assignedActivityDeletable}}checked{{/assignedActivityDeletable}} value="true">
+                                <label for="assignedActivityDeletable">{{lang.guide_approver_deletable}}</label>
+                            </span>
+                        </span>
+                        <span class="vertical_wrap">
+                            <span class="option_wrap">
+                                <input type="checkbox" id="displayDrafter" name="displayDrafter" {{#useDisplayDrafter}}checked{{/useDisplayDrafter}} value="true">
+                                <label for="displayDrafter">{{lang.displayDrafter_desc}}</label>
+                            </span>
+                        </span>
+                        <span class="vertical_wrap">
+                            <span class="option_wrap">
+                                <input type="checkbox" id="includeAgreement" name="includeAgreement" {{#useIncludeAgreement}}checked{{/useIncludeAgreement}} value="true">
+                                <label for="includeAgreement">{{lang.includeAgreement_desc}}</label>
+                            </span>
+                        </span>
+                    </td>
+                </tr>-->
+
+                <tr>
+                    <th>
+                        <span class="title">{{lang.edit_template}}</span>
+                        <span class="help">
+                            <span class="tool_tip">
+                                {{lang.양식 편집 도움말}}
+                                <i class="tail_left"></i>
+                            </span>
+                        </span>
+                    </th>
+                    <td>
+                        <!--<span class="btn_wrap"><span class="btn_s" id="load_old_template_editor">{{lang.template_editor}}</span></span>-->
+                        <span class="btn_wrap"><span class="btn_s" id="load_template_editor">{{lang.template_editor}}</span></span>
+                        <!--<span class="btn_wrap"><span class="btn_s" id="preview_template">{{lang.template_preview}}</span></span>-->
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <span class="title">{{lang.state}}</span>
+                        <span class="help">
+                            <span class="tool_tip">
+                                {{lang.사용 여부 도움말}}
+                                <i class="tail_left"></i>
+                            </span>
+                        </span>
+                    </th>
+                    <td>
+                        <span class="option_wrap">
+                            <input type="checkbox" id="state" name="state" {{#wrappedState}}checked="checked"{{/wrappedState}} value="true">
+                            <label for="state">{{lang.use}}</label>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <span class="title">{{lang.모바일 기안 허용}}</span>
+                        <span class="help">
+                            <span class="tool_tip">
+                                {{lang.모바일 기안 허용 도움말}}
+                                <i class="tail_left"></i>
+                            </span>
+                        </span>
+                    </th>
+                    <td>
+                        <span class="option_wrap">
+                            <input type="checkbox" id="allowMobileApproval" name="allowMobileApproval" {{#allowMobileApproval}}checked="checked"{{/allowMobileApproval}} value="true">
+                            <label for="allowMobileApproval">{{lang.use}}</label>
+                        </span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</div><div class="container">
+
+<div class="module_drop">
+    <div class="module_drop_head">
+        <hr>
+        <div class="tit">
+            <span data-action="docsInfoArrow" class="txt">{{lang.결재정보}}</span>
+            <span data-action="docsInfoArrow" class="ic ic_arrow_open"></span>
+            <!-- <span data-action="docsInfoArrow" class="ic ic_arrow_open" title="열기"></span> -->
+        </div>
+    </div>
+    <div class="module_drop_body" style="display: none;">
+        <table class="detail">
+            <caption>{{lang.caption}}</caption>
+            <colgroup>
+                <col width="200px">
+                <col width="*">
+            </colgroup>
+            <tbody>
+                <tr>
+                    <th>
+                        <span class="title">{{lang.reference}}</span>
+                        <span class="help">
+                            <span class="tool_tip">
+                                {{lang.문서 참조자 도움말}}
+                                <i class="tail_left"></i>
+                            </span>
+                        </span>
+                    </th>
+                    <td>
+                        <span class="option_wrap">
+                            <input type="checkbox" id="referenceActive" name="referenceActive" {{#referenceActive}}checked="checked"{{/referenceActive}} value="true">
+                            <label for="referenceActive">{{lang.use}}</label>
+                        </span>
+                        <div id="reference_detail" {{^referenceActive}}style="display:none"{{/referenceActive}}>
+                            <span id="form_referrer">
+                            </span>
+                            <span id="reference_options" class="vertical_wrap">
+                                <span class="option_wrap">
+                                    <input type="checkbox" id="referrerEditable" name="referrerEditable" {{#referrerEditable}}checked{{/referrerEditable}} value="true">
+                                    <label for="referrerEditable">{{lang.referrerEditable}}</label>
+                                </span>
+                            </span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <span class="title">{{lang.reader}}</span>
+                        <span class="help">
+                            <span class="tool_tip">
+                                {{lang.문서 열람자 도움말}}
+                                <i class="tail_left"></i>
+                            </span>
+                        </span>
+                    </th>
+                    <td>
+                        <span class="option_wrap">
+                            <input type="checkbox" id="readerActive" name="readerActive" {{#readerActive}}checked="checked"{{/readerActive}} value="true">
+                            <label for="readerActive">{{lang.use}}</label>
+                        </span>
+                        <div id="reader_detail" {{^readerActive}}style="display:none"{{/readerActive}}>
+                            <span id="form_reader">
+                            </span>
+                            <span id="reader_options" class="vertical_wrap">
+                                <span class="option_wrap">
+                                    <input type="checkbox" id="readerEditable" name="readerEditable" {{#readerEditable}}checked{{/readerEditable}} value="true">
+                                    <label for="readerEditable">{{lang.readerEditable}}</label>
+                                </span>
+                            </span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <span class="title">{{lang.reception}}</span>
+                        <span class="help">
+                            <span class="tool_tip">
+                                {{lang.문서 수신 도움말}}
+                                <i class="tail_left"></i>
+                            </span>
+                        </span>
+                    </th>
+                    <td>
+                        <span class="option_wrap">
+                            <input type="checkbox" id="receptionActive" name="receptionActive" {{#receptionActive}}checked="checked"{{/receptionActive}} value="true">
+                            <label for="receptionActive">{{lang.use}}</label>
+                        </span>
+                        <div id="reception_detail" {{^receptionActive}}style="display:none"{{/receptionActive}}>
+                            <span id="form_receiver"></span>
+                            <span id="reception_options" class="vertical_wrap">
+                                <span class="option_wrap">
+                                    <input type="checkbox" id="receiverEditable" name="receiverEditable" {{#receiverEditable}}checked{{/receiverEditable}} value="true">
+                                    <label for="receiverEditable">{{lang.receiverEditable}}</label>
+                                    <label for="">(</label>
+                                    <input type="checkbox" id="useRequiredReceiver" name="useRequiredReceiver" {{#useRequiredReceiver}}checked{{/useRequiredReceiver}} {{^receiverEditable}}disabled{{/receiverEditable}} value="true">
+                                    <label for="useRequiredReceiver">{{lang.수신처 지정 필수}})</label>
+                                </span>
+                            </span>
+                            <span class="vertical_wrap">
+                                <span class="option_wrap">
+                                    <input type="checkbox" id="useReceptionDocModifiable" name="useReceptionDocModifiable" {{#useReceptionDocModifiable}}checked{{/useReceptionDocModifiable}} value="true">
+                                    <label for="useReceptionDocModifiable">{{lang.수신문서 수정 허용}}</label>
+                                </span>
+                            </span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <span class="title">{{lang.official_document_send}}</span>
+                        <span class="help">
+                            <span class="tool_tip">
+                                {{lang.공문 발송 기능 도움말}}
+                                <i class="tail_left"></i>
+                            </span>
+                        </span>
+                    </th>
+                    <td>
+                        <span class="option_wrap">
+                            <input type="checkbox" id="officialDocumentSendable" name="officialDocumentSendable" {{#officialDocumentSendable}}checked="checked"{{/officialDocumentSendable}} value="true">
+                            <label for="officialDocumentSendable">{{lang.use}}</label>
+                        </span>
+                        <div id="official_detail" class="option_display" {{^officialDocumentSendable}}style="display:none"{{/officialDocumentSendable}}>
+                        <div class="vertical_wrap_s">
+                            <ul class="list_option">
+                                <li class="first">
+                                    <span class="minor option_label">{{lang.시행문}}</span>
+                                    <select name="officialForm" class="wfix_medium">
+                                        <option value="">{{lang.사용하지 않음}}</option>
+                                    </select>
+                                    <span class="check_w option_wrap">
+                                        <input type="checkbox" id="officialFormEditable" name="officialFormEditable" {{#officialFormEditable}}checked{{/officialFormEditable}}>
+                                        <label for="officialFormEditable">{{lang.changeable}}</label>
+                                    </span>
+                                </li>
+                                <li>
+                                    <span class="minor option_label">{{lang.발신명의}}</span>
+                                    <select name="officialSender" class="wfix_medium">
+                                        <option value="">{{lang.사용하지 않음}}</option>
+                                    </select>
+                                    <span class="check_w option_wrap">
+                                        <input type="checkbox" id="officialSenderEditable" name="officialSenderEditable" {{#officialSenderEditable}}checked{{/officialSenderEditable}}>
+                                        <label for="officialSenderEditable">{{lang.changeable}}</label>
+                                    </span>
+                                </li>
+                                <li id="officialSignLayer">
+                                    <span class="minor option_label">{{lang.직인}}</span>
+                                    <select name="officialSign" class="wfix_medium">
+                                        <option value="">{{lang.사용하지 않음}}</option>
+                                    </select>
+                                    <span class="check_w option_wrap">
+                                        <input type="checkbox" id="officialSignEditable" name="officialSignEditable" {{#officialSignEditable}}checked{{/officialSignEditable}}>
+                                        <label for="officialSignEditable">{{lang.changeable}}</label>
+                                    </span>
+                                </li>
+                                <li id="officialSignPreviewLayer">
+                                    <span class="minor option_label">{{lang.미리보기직인노출}}
+                                        <span class="help">
+                                            <span class="tool_tip">
+                                                {{lang.미리보기직인노출설명}}
+                                                <i class="tail_left"></i>
+                                            </span>
+                                        </span>
+                                    </span>
+
+                                    <span class="officialSignPreview">
+                                        <input type="checkbox" id="officialSignPreviewEditable" name="officialSignPreviewEditable" {{#officialSignPreviewEditable}}checked{{/officialSignPreviewEditable}}>
+                                        <label for="officialSignPreviewEditable">{{lang.changeable}}</label>
+                                    </span>
+                                </li>
+                            </ul>
+                        </div>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+</div><div class="container">
+<div class="module_drop">
+    <div class="module_drop_head">
+        <hr>
+        <div class="tit">
+            <span data-action="docsInfoArrow" class="txt">{{lang.권한 보안}}</span>
+            <span data-action="docsInfoArrow" class="ic ic_arrow_open"></span>
+            <!-- <span data-action="docsInfoArrow" class="ic ic_arrow_open" title="열기"></span> -->
+        </div>
+    </div>
+    <div class="module_drop_body" style="display: none;">
+        <table class="detail">
+            <caption>{{lang.caption}}</caption>
+            <colgroup>
+                <col width="200px">
+                <col width="*">
+            </colgroup>
+            <tbody>
+                <tr>
+                    <th>
+                        <span class="title">{{lang.arbt_decision_active}}</span>
+                        <span class="help">
+                            <span class="tool_tip">
+                                {{lang.전결 도움말}}
+                                <i class="tail_left"></i>
+                            </span>
+                        </span>
+                    </th>
+                    <td>
+                        <span class="option_wrap">
+                            <input type="checkbox" id="arbtDecisionActive" name="arbtDecisionActive" {{#arbtDecisionActive}}checked="checked"{{/arbtDecisionActive}} value="true">
+                            <label for="arbtDecisionActive">{{lang.use}}</label>
+                        </span>
+                        <div class="option_display" id="arbtDecision_detail" {{^arbtDecisionActive}}style="display:none"{{/arbtDecisionActive}}>
+                            <span class="vertical_wrap">
+                                <span class="option_wrap">
+                                    <input type="radio" id="arbtDecisionTypeDocument" name="arbtDecisionType" {{#arbtDecisionTypeValue}}checked="checked"{{/arbtDecisionTypeValue}} value="DOCUMENT">
+                                    <label for="arbtDecisionTypeDocument">{{lang.전결완료유형문서}}</label>
+                                </span>
+                            </span>
+                            <span class="vertical_wrap">
+                                <span class="option_wrap">
+                                    <input type="radio" id="arbtDecisionTypeApprLine" name="arbtDecisionType" {{^arbtDecisionTypeValue}}checked="checked"{{/arbtDecisionTypeValue}} value="APPRGROUP">
+                                    <label for="arbtDecisionTypeApprLine">{{lang.전결완료유형결재방}}</label>
+                                </span>
+                            </span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <span class="title">{{lang.1인결재 옵션}}</span>
+                        <span class="help">
+                            <span class="tool_tip">
+                                {{lang.1인 결재 도움말}}
+                                <i class="tail_left"></i>
+                            </span>
+                        </span>
+                    </th>
+                    <td>
+                        <span class="option_wrap">
+                            <input type="checkbox" id="useSelfApproval" name="useSelfApproval" {{#useSelfApproval}}checked="checked"{{/useSelfApproval}} value="true">
+                            <label for="useSelfApproval">{{lang.use}}</label>
+                        </span>
+                        <p class="desc">{{lang.1인결재 옵션 설명}}</p>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <span class="title">{{lang.use_right}}</span>
+                        <span class="help">
+                            <span class="tool_tip">
+                                {{lang.작성 권한 도움말}}
+                                <i class="tail_left"></i>
+                            </span>
+                        </span>
+                    </th>
+                    <td>
+                        <span class="option_wrap">
+                            <input type="checkbox" id="formUserScope" name="formUserScope" {{#wrappedFormUserScope}}checked="checked"{{/wrappedFormUserScope}} value="true">
+                            <label for="formUserScope">{{lang.all_user}}</label>
+                        </span>
+                        <span id="formUser">
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <span class="title">{{lang.document_editable}}</span>
+                        <span class="help">
+                            <span class="tool_tip">
+                                {{lang.문서 수정 도움말}}
+                                <i class="tail_left"></i>
+                            </span>
+                        </span>
+                    </th>
+                    <td>
+                        <span class="option_wrap">
+                            <input type="checkbox" id="documentEditable" name="documentEditable" {{#documentEditable}}checked="checked"{{/documentEditable}} value="true">
+                            <label for="documentEditable">{{lang.use}}</label>
+                        </span>
+                        {{#useCompanyApprovalOtherType}}
+                        <div class="option_display" id="documentEditable_detail" {{^documentEditable}}style="display:none"{{/documentEditable}}>
+                            <span class="vertical_wrap">
+                                <span class="option_wrap">
+                                    <input type="radio" id="documentEditableTypeAll" name="documentEditableType" {{#useDocEditableTypeAll}}checked="checked"{{/useDocEditableTypeAll}} value="All">
+                                    <label for="documentEditableTypeAll">{{lang.모든 결재 권한 사용자}}</label>
+                                </span>
+                            </span>
+                            <span class="vertical_wrap">
+                                <span class="option_wrap">
+                                    <input type="radio" id="documentEditableTypePart" name="documentEditableType" {{^useDocEditableTypeAll}}checked="checked"{{/useDocEditableTypeAll}} value="Part">
+                                    <label for="documentEditableTypePart">{{lang.일부 결재 권한 사용자}}</label>
+                                </span>
+                                <span class="vertical_wrap">
+									<div id="documentEditableTypes" style="padding-left:20px;{{^useDocEditableTypeAll}}display:none;{{/useDocEditableTypeAll}}">
+                              			<span class="option_wrap">
+											<input type="checkbox" id="docEditableApproval" name="docEditableApproval" {{#useDocEditableApproval}}checked="checked"{{/useDocEditableApproval}} value="Approval">
+											<label for="docEditableApproval">{{lang.결재}}</label>
+										</span>
+										{{#useCompanyAgreement}}
+                              			<span class="option_wrap">
+											<input type="checkbox" id="docEditableAgreement" name="docEditableAgreement" {{#useDocEditableAgreement}}checked="checked"{{/useDocEditableAgreement}} value="Agreement">
+											<label for="docEditableAgreement">{{lang.합의}}</label>
+										</span>
+										{{/useCompanyAgreement}}
+										{{#useCompanyInspectionActivity}}
+                              			<span class="option_wrap">
+											<input type="checkbox" id="docEditableInspection" name="docEditableInspection" {{#useDocEditableInspection}}checked="checked"{{/useDocEditableInspection}} value="Inspection">
+											<label for="docEditableInspection">{{lang.감사}}</label>
+										</span>
+										{{/useCompanyInspectionActivity}}
+										{{#useCompanyCheckActivity}}
+                              			<span class="option_wrap">
+											<input type="checkbox" id="docEditableCheck" name="docEditableCheck" {{#useDocEditableCheck}}checked="checked"{{/useDocEditableCheck}} value="Check">
+											<label for="docEditableCheck">{{lang.확인}}</label>
+										</span>
+										{{/useCompanyCheckActivity}}
+									</div>
+                                </span>
+                            </span>
+                        </div>
+                        {{/useCompanyApprovalOtherType}}
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <span class="title">{{lang.activity_editable}}</span>
+                        <span class="help">
+                            <span class="tool_tip">
+                                {{lang.결재선 수정 도움말}}
+                                <i class="tail_left"></i>
+                            </span>
+                        </span>
+                    </th>
+                    <td>
+                        <span class="option_wrap">
+                            <input type="checkbox" id="activityEditable" name="activityEditable" {{#activityEditable}}checked="checked"{{/activityEditable}} value="true">
+                            <label for="activityEditable">{{lang.use}}</label>
+                        </span>
+                        {{#useCompanyApprovalOtherType}}
+                        <div class="option_display" id="activityEditable_detail" {{^activityEditable}}style="display:none"{{/activityEditable}}>
+                            <span class="vertical_wrap">
+                                <span class="option_wrap">
+                                    <input type="radio" id="activityEditableTypeAll" name="activityEditableType" {{#useActivityEditableTypeAll}}checked="checked"{{/useActivityEditableTypeAll}} value="All">
+                                    <label for="activityEditableTypeAll">{{lang.모든 결재 권한 사용자}}</label>
+                                </span>
+                            </span>
+                            <span class="vertical_wrap">
+                                <span class="option_wrap">
+                                    <input type="radio" id="activityEditableTypePart" name="activityEditableType" {{^useActivityEditableTypeAll}}checked="checked"{{/useActivityEditableTypeAll}} value="Part">
+                                    <label for="activityEditableTypePart">{{lang.일부 결재 권한 사용자}}</label>
+                                </span>
+                                <span class="vertical_wrap">
+									<div id="activityEditableTypes" style="padding-left:20px;{{^useActivityEditableTypeAll}}display:none;{{/useActivityEditableTypeAll}}">
+                              			<span class="option_wrap">
+											<input type="checkbox" id="activityEditableApproval" name="activityEditableApproval" {{#useActivityEditableApproval}}checked="checked"{{/useActivityEditableApproval}} value="Approval">
+											<label for="activityEditableApproval">{{lang.결재}}</label>
+										</span>
+										{{#useCompanyAgreement}}
+                              			<span class="option_wrap">
+											<input type="checkbox" id="activityEditableAgreement" name="activityEditableAgreement" {{#useActivityEditableAgreement}}checked="checked"{{/useActivityEditableAgreement}} value="Agreement">
+											<label for="activityEditableAgreement">{{lang.합의}}</label>
+										</span>
+										{{/useCompanyAgreement}}
+										{{#useCompanyInspectionActivity}}
+                              			<span class="option_wrap">
+											<input type="checkbox" id="activityEditableInspection" name="activityEditableInspection" {{#useActivityEditableInspection}}checked="checked"{{/useActivityEditableInspection}} value="Inspection">
+											<label for="activityEditableInspection">{{lang.감사}}</label>
+										</span>
+										{{/useCompanyInspectionActivity}}
+										{{#useCompanyCheckActivity}}
+                              			<span class="option_wrap">
+											<input type="checkbox" id="activityEditableCheck" name="activityEditableCheck" {{#useActivityEditableCheck}}checked="checked"{{/useActivityEditableCheck}} value="Check">
+											<label for="activityEditableCheck">{{lang.확인}}</label>
+										</span>
+										{{/useCompanyCheckActivity}}
+									</div>
+                                </span>
+                            </span>
+                        </div>
+                        {{/useCompanyApprovalOtherType}}
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <span class="title">{{lang.adminUser}}</span>
+                        <span class="help">
+                            <span class="tool_tip">
+                                {{lang.운영자 도움말}}
+                                <i class="tail_left"></i>
+                            </span>
+                        </span>
+                    </th>
+                    <td>
+                        <span id="admin" class="btn_wrap">
+                            <span class="btn_s">{{lang.운영자 추가}}</span>
+                        </span>
+                        <div id="adminTable"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <span class="title">{{lang.preserve_in_year}}</span>
+                        <span class="help">
+                            <span class="tool_tip">
+                                {{lang.보존연한 도움말}}
+                                <i class="tail_left"></i>
+                            </span>
+                        </span>
+                    </th>
+                    <td>
+                        <span class="option_wrap">
+                        <select name="preserveDurationInYear">
+                            {{#preserveYears}}
+                            <option value="{{value}}" {{#isSelected}}selected{{/isSelected}}>{{label}}</option>
+                            {{/preserveYears}}
+                        </select>
+                        <input type="checkbox" id="preserveDurationEditable" name="preserveDurationEditable" {{#preserveDurationEditable}}checked{{/preserveDurationEditable}} value="true">
+                        <label for="preserveDurationEditable">{{lang.preserve_changeable}}</label>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <span class="title">{{lang.security_level}}</span>
+                        <span class="help">
+                            <span class="tool_tip">
+                                {{lang.보안등급 도움말}}
+                                <i class="tail_left"></i>
+                            </span>
+                        </span>
+                    </th>
+                    <td>
+                        <span class="option_wrap">
+                            <input type="checkbox" id="securityLevelActive" name="securityLevelActive" {{#securityLevelActive}}checked="checked"{{/securityLevelActive}} value="true">
+                            <label for="securityLevelActive">{{lang.use}}</label>
+                        </span>
+                        <span class="vertical_wrap">
+                        <span class="option_wrap">
+                        <select name="securityLevel"></select>
+                        <input type="checkbox" id="securityLevelEditable" name="securityLevelEditable" {{#securityLevelEditable}}checked{{/securityLevelEditable}} value="true">
+                        <label for="securityLevelEditable">{{lang.securityLevel_changeable}}</label>
+                        </span>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <span class="title">{{lang.documentOpenable}}</span>
+                        <span class="help">
+                            <span class="tool_tip">
+                                {{lang.공개여부 도움말}}
+                                <i class="tail_left"></i>
+                            </span>
+                        </span>
+                    </th>
+                    <td>
+                        <span class="option_wrap">
+                            <input type="checkbox" id="documentOpenable" name="documentOpenable" {{#documentOpenable}}checked="checked"{{/documentOpenable}} value="true">
+                            <label for="documentOpenable">{{lang.documentOpen}}</label>
+                        </span>
+                        <span class="option_wrap">
+                            <input type="checkbox" id="documentOpenEditable" name="documentOpenEditable" {{#documentOpenEditable}}checked{{/documentOpenEditable}} value="true">
+                            <label for="documentOpenEditable">{{lang.documentOpenEditable}}</label>
+                        </span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+</div><div class="container">
+<div class="module_drop">
+    <div class="module_drop_head">
+        <hr>
+        <div class="tit">
+            <span data-action="docsInfoArrow" class="txt">{{lang.기타}}</span>
+            <span data-action="docsInfoArrow" class="ic ic_arrow_open"></span>
+            <!-- <span data-action="docsInfoArrow" class="ic ic_arrow_open" title="열기"></span> -->
+        </div>
+    </div>
+    <div class="module_drop_body" style="display: none;">
+        <table class="detail">
+            <caption>{{lang.caption}}</caption>
+            <colgroup>
+                <col width="200px">
+                <col width="*">
+            </colgroup>
+            <tbody>
+                <tr>
+                    <th>
+                        <span class="title">{{lang.description}}</span>
+                        <span class="help">
+                            <span class="tool_tip">
+                                {{lang.양식 도움말}}
+                                <i class="tail_left"></i>
+                            </span>
+                        </span>
+                    </th>
+                    <td>
+                        <span class="option_wrap">
+                            <input type="checkbox" id="useHelp" name="useHelp" {{#useHelp}}checked="checked"{{/useHelp}} value="true">
+                            <label for="useHelp">{{lang.use}}</label>
+                        </span>
+                        <span id="description">
+                            <span class="editor" style="width: 100%" id="description_editor">
+                            </span>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <span class="title">{{lang.메일 발송 기능}}</span>
+                        <span class="help">
+                            <span class="tool_tip">
+                                {{lang.메일 발송 기능 도움말}}
+                                <i class="tail_left"></i>
+                            </span>
+                        </span>
+                    </th>
+                    <td>
+                        <span class="option_wrap">
+                            <input type="checkbox" id="useSendMail" name="useSendMail" {{#useSendMail}}checked="checked"{{/useSendMail}} value="true">
+                            <label for="useSendMail">{{lang.use}}</label>
+                        </span>
+                        <p class="desc">{{lang.메일 발송 기능 설명}}</p>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <span class="title">{{lang.게시판 등록 기능}}</span>
+                        <span class="help">
+                            <span class="tool_tip">
+                                {{lang.게시판 등록 기능 도움말}}
+                                <i class="tail_left"></i>
+                            </span>
+                        </span>
+                    </th>
+                    <td>
+                        <span class="option_wrap">
+                            <input type="checkbox" id="usePostRegistable" name="usePostRegistable" {{#usePostRegistable}}checked="checked"{{/usePostRegistable}} value="true">
+                            <label for="usePostRegistable">{{lang.use}}</label>
+                        </span>
+                    </td>
+                </tr>
+                {{#isEditableIntegration}}
+                <tr>
+                    <th>
+                        <span class="title">{{lang.system_integration}}</span>
+                        <span class="help">
+                            <span class="tool_tip">
+                                {{lang.시스템 연동 도움말}}
+                                <i class="tail_left"></i>
+                            </span>
+                        </span>
+                    </th>
+                    <td id="integration_container">
+                        <span class="vertical_wrap">
+                            <span class="option_wrap">
+                                <input type="checkbox" id="integrationActive" name="integrationActive" {{#integrationActive}}checked{{/integrationActive}} value="true">
+                                <label for="integrationActive">{{lang.use}}</label>
+                            </span>
+                        </span>
+                        <div class="option_display" id="integrationLayer" {{#integrationActive}}style="display:block"{{/integrationActive}} {{^integrationActive}}style="display:none"{{/integrationActive}}>
+                            <div class="vertical_wrap_s">
+                                <ul class="list_option">
+                                    <li class="first">
+                                        <span class="minor option_label">{{lang.code}}</span>
+                                        <input class="input" type="text" name="code" value="{{code}}">
+                                    </li>
+                                </ul>
+                                <span class="desc">※{{lang.연동코드설명}}</span>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                {{/isEditableIntegration}}
+                <tr>
+                    <th><span class="title">{{lang.script}}</span></th>
+                    <td>
+                         <span class="option_wrap">
+                            <input type="radio" id="scriptTypeSrc" name="scriptType" {{#scriptTypeInput}}checked="checked"{{/scriptTypeInput}} value="SRC">
+                            <label for="scriptTypeSrc">{{lang.파일경로}}</label>
+                            <input type="radio" id="scriptTypeEdit" name="scriptType" {{^scriptTypeInput}}checked="checked"{{/scriptTypeInput}} value="EDIT">
+                            <label for="scriptTypeEdit">{{lang.스크립트편집}}</label>
+                        </span>
+                        <div>
+                            <!-- 추가 및 목록 View -->
+                            <input class="w_half input" type="text" name="externalScript" value="{{externalScript}}" {{^scriptTypeInput}}style="display:none;"{{/scriptTypeInput}}>
+                            <textarea class="w_half textarea" name="scriptBody" {{#scriptTypeInput}}style="display:none;"{{/scriptTypeInput}}>{{scriptBody}}</textarea>
+                            <span class="btn_wrap"><span class="btn_s" id="scriptInitData"  {{#scriptTypeInput}}style="display:none;"{{/scriptTypeInput}}>{{lang.스크립트 예시}}</span></span>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</div>
+{{^isCreate}}
+<div class="table_search">
+    <span class="txt_caution">※{{lang.결재양식저장안내}}</span>
+</div>
+{{/isCreate}}
+<div class="page_action">
+    <span class="btn" id="save_btn">{{lang.save}}</span>
+    <span class="btn_nega" id="cancel_btn">{{lang.cancel}}</span>
+</div>

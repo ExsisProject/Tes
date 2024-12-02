@@ -1,0 +1,50 @@
+{{#useToolbar}}
+<div class="tool_bar {{#isAdmin}}toolbar_top header_tb{{/isAdmin}}">
+	<div class="critical custom_header"></div>
+	<div class="optional"></div>
+</div>
+{{/useToolbar}}
+<div data-el-realgrid style="width:100%;height:100px;"></div>
+<div class="tool_bar tool_absolute" id="bottomToolbar">
+	<div class="critical custom_bottom"></div>
+	<div class="optional"></div>
+</div>
+{{#useSearch}}
+<div class="table_search table_new_search">
+	{{#usePeriod}}
+	<select id="duration">
+        <option value="all">{{lang.search_all}}</option>
+        <option value="-1">1{{lang.search_month}}</option>
+        <option value="-6">6{{lang.search_month}}</option>
+        <option value="-12">1{{lang.search_year}}</option>
+        <option value="period">{{lang.search_input}}</option>
+    </select>
+
+    <div id="durationPeriod" class="search_option" style="display: none">
+        <input id="fromDate" class="txt_mini wfix_small" type="text">
+         ~ <input id="toDate" class="txt_mini wfix_small" type="text">
+    </div>
+	{{/usePeriod}}
+
+	<select id="searchTypes">
+		{{#search}}
+		<option value="{{value}}">{{label}}</option>
+		{{/search}}
+	</select>
+    {{^isAdmin}}
+	<section class="search2">
+		<div class="search_wrap">
+			<input id="searchKeyword" class="search2" type="text" placeholder="{{lang.search}}">								
+			<span id="searchBtn" class="btn_search2" title="{{lang.search}}"></span>								
+		</div>
+	</section>
+    {{/isAdmin}}
+    {{#isAdmin}}
+    <span class="search_wrap">
+        <input id="searchKeyword" class="input" type="text" placeholder="{{lang.search}}">
+        <span id="searchBtn" class="btn_search" title="{{lang.search}}"></span>
+        <input class="submit" type="submit" value="">
+    </span>
+    {{/isAdmin}}
+</div>
+{{/useSearch}}

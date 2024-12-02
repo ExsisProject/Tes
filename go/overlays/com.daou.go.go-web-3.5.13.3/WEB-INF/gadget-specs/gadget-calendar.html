@@ -1,0 +1,1375 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <title>캘린더</title>
+    <meta name = "gadget:name-ko" content="캘린더" />
+    <meta name = "gadget:name-en" content="Calendar" />
+    <meta name = "gadget:name-ja" content="カレンダー" />
+    <meta name = "gadget:name-zhcn" content="全公司留言板" />
+    <meta name = "gadget:name-zhtw" content="全公司留言板" />
+    <meta name = "gadget:name-vi" content="Lịch" />
+    <meta name = "gadget:description" content="캘린더" />
+    <meta name = "gadget:app-dependency" content="CALENDAR" />
+    <meta name = "gadget:version" content="1.6.4" />
+    <meta name = "gadget:thumbnail" content="gadget_calendar.png" />
+
+    <meta name = "locale" content="ko" />
+    <link rel="stylesheet" href="css/go-gadget-standalone.css" media="screen, print" />
+    <!--[if IE]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="js/go-gadget-standalone.js"></script>
+    <script type="text/javascript" src="../../resources/js/libs/go-util.js"></script>
+    <script type="text/javascript">
+    var url = "/api/calendar/user/me/event/daily?" + $.param({ "year": new Date().getFullYear(), "month": new Date().getMonth() + 1 });
+        /** 데이터가 있는 경우 **/
+        $.ajaxMock.register(url, {
+            responseText:{
+  "message" : "OK",
+  "code" : "200",
+  "__go_checksum__" : true,
+  "data" : {
+    "list" : [ {
+      "datetime" : "2015-03-22T00:00:00.000+09:00",
+      "eventList" : [ ]
+    }, {
+      "datetime" : "2015-03-23T00:00:00.000+09:00",
+      "eventList" : [ ]
+    }, {
+      "datetime" : "2015-03-24T00:00:00.000+09:00",
+      "eventList" : [ ]
+    }, {
+      "datetime" : "2015-03-25T00:00:00.000+09:00",
+      "eventList" : [ ]
+    }, {
+      "datetime" : "2015-03-26T00:00:00.000+09:00",
+      "eventList" : [ ]
+    }, {
+      "datetime" : "2015-03-27T00:00:00.000+09:00",
+      "eventList" : [ ]
+    }, {
+      "datetime" : "2015-03-28T00:00:00.000+09:00",
+      "eventList" : [ ]
+    }, {
+      "datetime" : "2015-03-29T00:00:00.000+09:00",
+      "eventList" : [ ]
+    }, {
+      "datetime" : "2015-03-30T00:00:00.000+09:00",
+      "eventList" : [ ]
+    }, {
+      "datetime" : "2015-03-31T00:00:00.000+09:00",
+      "eventList" : [ ]
+    }, {
+      "datetime" : "2015-04-01T00:00:00.000+09:00",
+      "eventList" : [ ]
+    }, {
+      "datetime" : "2015-04-02T00:00:00.000+09:00",
+      "eventList" : [ ]
+    }, {
+      "datetime" : "2015-04-03T00:00:00.000+09:00",
+      "eventList" : [ ]
+    }, {
+      "datetime" : "2015-04-04T00:00:00.000+09:00",
+      "eventList" : [ ]
+    }, {
+      "datetime" : "2015-04-05T00:00:00.000+09:00",
+      "eventList" : [ ]
+    }, {
+      "datetime" : "2015-04-06T00:00:00.000+09:00",
+      "eventList" : [ ]
+    }, {
+      "datetime" : "2015-04-07T00:00:00.000+09:00",
+      "eventList" : [ ]
+    }, {
+      "datetime" : "2015-04-08T00:00:00.000+09:00",
+      "eventList" : [ {
+        "id" : "21078_1428454800000",
+        "calendarId" : 595,
+        "calendarName" : "내 일정",
+        "calendarOwnerId" : 1165,
+        "color" : "17",
+        "type" : "normal",
+        "creator" : {
+          "id" : 1165,
+          "email" : "hwjung@daou.co.kr",
+          "name" : "정해운",
+          "subDeptIncluding" : false
+        },
+        "attendees" : [ {
+          "id" : 1165,
+          "email" : "hwjung@daou.co.kr",
+          "name" : "정해운",
+          "subDeptIncluding" : false
+        }, {
+          "email" : "lineageses@nate.com",
+          "name" : "",
+          "subDeptIncluding" : false
+        } ],
+        "reminders" : [ ],
+        "summary" : "다수 / 반복",
+        "description" : "",
+        "location" : "",
+        "recurrence" : "FREQ=MONTHLY;BYDAY=2WE",
+        "exDates" : "2014-08-13T10:00:00.000+09:00",
+        "visibility" : "public",
+        "timeType" : "timed",
+        "phase" : "solar",
+        "startTime" : "2015-04-08T10:00:00.000+09:00",
+        "endTime" : "2015-04-08T11:00:00.000+09:00",
+        "createdAt" : "2014-08-13T09:57:34.336+09:00",
+        "updatedAt" : "2014-08-13T09:58:46.901+09:00",
+        "commentCount" : 0,
+        "mailNoti" : true,
+        "assetReservationIds" : [ ],
+        "solar" : true,
+        "lunar" : false,
+        "new" : false,
+        "public" : true,
+        "private" : false
+      } ]
+    }, {
+      "datetime" : "2015-04-09T00:00:00.000+09:00",
+      "eventList" : [ ]
+    }, {
+      "datetime" : "2015-04-10T00:00:00.000+09:00",
+      "eventList" : [ ]
+    }, {
+      "datetime" : "2015-04-11T00:00:00.000+09:00",
+      "eventList" : [ ]
+    }, {
+      "datetime" : "2015-04-12T00:00:00.000+09:00",
+      "eventList" : [ ]
+    }, {
+      "datetime" : "2015-04-13T00:00:00.000+09:00",
+      "eventList" : [ ]
+    }, {
+      "datetime" : "2015-04-14T00:00:00.000+09:00",
+      "eventList" : [ ]
+    }, {
+      "datetime" : "2015-04-15T00:00:00.000+09:00",
+      "eventList" : [ ]
+    }, {
+      "datetime" : "2015-04-16T00:00:00.000+09:00",
+      "eventList" : [ ]
+    }, {
+      "datetime" : "2015-04-17T00:00:00.000+09:00",
+      "eventList" : [ ]
+    }, {
+      "datetime" : "2015-04-18T00:00:00.000+09:00",
+      "eventList" : [ ]
+    }, {
+      "datetime" : "2015-04-19T00:00:00.000+09:00",
+      "eventList" : [ ]
+    }, {
+      "datetime" : "2015-04-20T00:00:00.000+09:00",
+      "eventList" : [ {
+        "id" : "220530",
+        "calendarId" : 595,
+        "calendarName" : "내 일정",
+        "calendarOwnerId" : 1165,
+        "color" : "17",
+        "type" : "normal",
+        "creator" : {
+          "id" : 1165,
+          "email" : "hwjung@daou.co.kr",
+          "name" : "정해운",
+          "subDeptIncluding" : false
+        },
+        "attendees" : [ {
+          "id" : 1165,
+          "email" : "hwjung@daou.co.kr",
+          "name" : "정해운",
+          "subDeptIncluding" : false
+        } ],
+        "reminders" : [ ],
+        "summary" : "asd",
+        "visibility" : "public",
+        "timeType" : "timed",
+        "phase" : "solar",
+        "startTime" : "2015-04-20T13:00:00.000+09:00",
+        "endTime" : "2015-04-20T17:00:00.000+09:00",
+        "createdAt" : "2015-04-20T12:38:19.515+09:00",
+        "updatedAt" : "2015-04-20T12:38:19.515+09:00",
+        "commentCount" : 0,
+        "mailNoti" : true,
+        "assetReservationIds" : [ ],
+        "solar" : true,
+        "lunar" : false,
+        "new" : false,
+        "public" : true,
+        "private" : false
+      } ]
+    }, {
+      "datetime" : "2015-04-21T00:00:00.000+09:00",
+      "eventList" : [ {
+        "id" : "220570",
+        "calendarId" : 595,
+        "calendarName" : "내 일정",
+        "calendarOwnerId" : 1165,
+        "color" : "17",
+        "type" : "normal",
+        "creator" : {
+          "id" : 1165,
+          "email" : "hwjung@daou.co.kr",
+          "name" : "정해운",
+          "subDeptIncluding" : false
+        },
+        "attendees" : [ {
+          "id" : 1165,
+          "email" : "hwjung@daou.co.kr",
+          "name" : "정해운",
+          "subDeptIncluding" : false
+        }, {
+          "id" : 1899,
+          "email" : "eceris@daou.co.kr",
+          "name" : "박성현",
+          "subDeptIncluding" : false
+        }, {
+          "id" : 696,
+          "email" : "freeis@daou.co.kr",
+          "name" : "백금철",
+          "subDeptIncluding" : false
+        }, {
+          "id" : 429,
+          "email" : "willtake@daou.co.kr",
+          "name" : "조창환",
+          "subDeptIncluding" : false
+        }, {
+          "id" : 1619,
+          "email" : "seulgijo@daou.co.kr",
+          "name" : "조슬기",
+          "subDeptIncluding" : false
+        }, {
+          "id" : 889,
+          "email" : "sopark@daou.co.kr",
+          "name" : "박상오",
+          "subDeptIncluding" : false
+        }, {
+          "id" : 929,
+          "email" : "stkwon@daou.co.kr",
+          "name" : "권세택",
+          "subDeptIncluding" : false
+        }, {
+          "id" : 1120,
+          "email" : "kbsbroad@daou.co.kr",
+          "name" : "강봉수",
+          "subDeptIncluding" : false
+        }, {
+          "id" : 864,
+          "email" : "kimki@daou.co.kr",
+          "name" : "김경인",
+          "subDeptIncluding" : false
+        }, {
+          "id" : 294,
+          "email" : "ghpark@daou.co.kr",
+          "name" : "박관후",
+          "subDeptIncluding" : false
+        }, {
+          "id" : 1616,
+          "email" : "ljhjoin@daou.co.kr",
+          "name" : "이정현",
+          "subDeptIncluding" : false
+        }, {
+          "id" : 1633,
+          "email" : "create2879@daou.co.kr",
+          "name" : "권구성",
+          "subDeptIncluding" : false
+        }, {
+          "id" : 1235,
+          "email" : "jis89@daou.co.kr",
+          "name" : "장인선",
+          "subDeptIncluding" : false
+        }, {
+          "id" : 780,
+          "email" : "chogh1211@daou.co.kr",
+          "name" : "조건희",
+          "subDeptIncluding" : false
+        }, {
+          "id" : 2120,
+          "email" : "hwjung1@daou.co.kr",
+          "name" : "hwjung1",
+          "subDeptIncluding" : false
+        }, {
+          "id" : 2220,
+          "email" : "test1@daou.co.kr",
+          "name" : "test1",
+          "subDeptIncluding" : false
+        }, {
+          "id" : 2261,
+          "email" : "test2@daou.co.kr",
+          "name" : "test2",
+          "subDeptIncluding" : false
+        }, {
+          "id" : 2262,
+          "email" : "test3@daou.co.kr",
+          "name" : "test3",
+          "subDeptIncluding" : false
+        }, {
+          "id" : 6180,
+          "email" : "test6@daou.co.kr",
+          "name" : "test5",
+          "subDeptIncluding" : false
+        }, {
+          "id" : 2090,
+          "email" : "stkwon2@daou.co.kr",
+          "name" : "권세택22",
+          "subDeptIncluding" : false
+        }, {
+          "id" : 2080,
+          "email" : "webmcr2@daou.co.kr",
+          "name" : "김동학2",
+          "subDeptIncluding" : false
+        }, {
+          "id" : 63850,
+          "email" : "annie0202@daou.co.kr",
+          "name" : "김수안",
+          "subDeptIncluding" : false
+        }, {
+          "id" : 62380,
+          "email" : "atomy.atomy@daou.co.kr",
+          "name" : "애터미 | Ato my (9999) 마스터",
+          "subDeptIncluding" : false
+        }, {
+          "id" : 2101,
+          "email" : "woori_2@daou.co.kr",
+          "name" : "우리2",
+          "subDeptIncluding" : false
+        } ],
+        "reminders" : [ ],
+        "summary" : "tms8 &gt; 일정 간편 등록 &gt; 장소테스트",
+        "description" : "",
+        "location" : "본사",
+        "visibility" : "public",
+        "timeType" : "timed",
+        "phase" : "solar",
+        "startTime" : "2015-04-21T12:30:00.000+09:00",
+        "endTime" : "2015-04-21T13:30:00.000+09:00",
+        "createdAt" : "2015-04-21T16:22:22.169+09:00",
+        "updatedAt" : "2015-04-21T16:57:33.093+09:00",
+        "commentCount" : 0,
+        "mailNoti" : true,
+        "assetReservationIds" : [ ],
+        "solar" : true,
+        "lunar" : false,
+        "new" : false,
+        "public" : true,
+        "private" : false
+      }, {
+        "id" : "220560",
+        "calendarId" : 595,
+        "calendarName" : "내 일정",
+        "calendarOwnerId" : 1165,
+        "color" : "17",
+        "type" : "normal",
+        "creator" : {
+          "id" : 1165,
+          "email" : "hwjung@daou.co.kr",
+          "name" : "정해운",
+          "subDeptIncluding" : false
+        },
+        "attendees" : [ {
+          "id" : 1165,
+          "email" : "hwjung@daou.co.kr",
+          "name" : "정해운",
+          "subDeptIncluding" : false
+        } ],
+        "reminders" : [ ],
+        "summary" : "장소",
+        "visibility" : "public",
+        "timeType" : "timed",
+        "phase" : "solar",
+        "startTime" : "2015-04-21T14:30:00.000+09:00",
+        "endTime" : "2015-04-21T15:30:00.000+09:00",
+        "createdAt" : "2015-04-21T16:06:48.644+09:00",
+        "updatedAt" : "2015-04-21T16:06:48.644+09:00",
+        "commentCount" : 0,
+        "mailNoti" : true,
+        "assetReservationIds" : [ ],
+        "solar" : true,
+        "lunar" : false,
+        "new" : false,
+        "public" : true,
+        "private" : false
+      }, {
+        "id" : "220561",
+        "calendarId" : 595,
+        "calendarName" : "내 일정",
+        "calendarOwnerId" : 1165,
+        "color" : "17",
+        "type" : "normal",
+        "creator" : {
+          "id" : 1165,
+          "email" : "hwjung@daou.co.kr",
+          "name" : "정해운",
+          "subDeptIncluding" : false
+        },
+        "attendees" : [ {
+          "id" : 1165,
+          "email" : "hwjung@daou.co.kr",
+          "name" : "정해운",
+          "subDeptIncluding" : false
+        } ],
+        "reminders" : [ ],
+        "summary" : "장소2",
+        "description" : "",
+        "location" : "ㅁㄴㅇㅁㄴㅇ",
+        "visibility" : "public",
+        "timeType" : "timed",
+        "phase" : "solar",
+        "startTime" : "2015-04-21T16:30:00.000+09:00",
+        "endTime" : "2015-04-21T17:30:00.000+09:00",
+        "createdAt" : "2015-04-21T16:07:14.238+09:00",
+        "updatedAt" : "2015-04-21T16:07:14.238+09:00",
+        "commentCount" : 0,
+        "mailNoti" : true,
+        "assetReservationIds" : [ ],
+        "solar" : true,
+        "lunar" : false,
+        "new" : false,
+        "public" : true,
+        "private" : false
+      }, {
+        "id" : "220571",
+        "calendarId" : 595,
+        "calendarName" : "내 일정",
+        "calendarOwnerId" : 1165,
+        "color" : "17",
+        "type" : "normal",
+        "creator" : {
+          "id" : 1165,
+          "email" : "hwjung@daou.co.kr",
+          "name" : "정해운",
+          "subDeptIncluding" : false
+        },
+        "attendees" : [ {
+          "id" : 1165,
+          "email" : "hwjung@daou.co.kr",
+          "name" : "정해운",
+          "subDeptIncluding" : false
+        } ],
+        "reminders" : [ ],
+        "summary" : "[게시글등록] rkskekrkskek",
+        "location" : "오 장소",
+        "visibility" : "public",
+        "timeType" : "timed",
+        "phase" : "solar",
+        "startTime" : "2015-04-21T16:30:00.000+09:00",
+        "endTime" : "2015-04-21T17:30:00.000+09:00",
+        "createdAt" : "2015-04-21T16:25:24.542+09:00",
+        "updatedAt" : "2015-04-21T16:25:24.542+09:00",
+        "commentCount" : 0,
+        "mailNoti" : true,
+        "assetReservationIds" : [ ],
+        "solar" : true,
+        "lunar" : false,
+        "new" : false,
+        "public" : true,
+        "private" : false
+      } ]
+    }, {
+      "datetime" : "2015-04-22T00:00:00.000+09:00",
+      "eventList" : [ {
+        "id" : "220562",
+        "calendarId" : 595,
+        "calendarName" : "내 일정",
+        "calendarOwnerId" : 1165,
+        "color" : "17",
+        "type" : "normal",
+        "creator" : {
+          "id" : 1165,
+          "email" : "hwjung@daou.co.kr",
+          "name" : "정해운",
+          "subDeptIncluding" : false
+        },
+        "attendees" : [ {
+          "id" : 1165,
+          "email" : "hwjung@daou.co.kr",
+          "name" : "정해운",
+          "subDeptIncluding" : false
+        } ],
+        "reminders" : [ ],
+        "summary" : "간편등록에서 장소를 넣어보자",
+        "location" : "안드로메다",
+        "visibility" : "public",
+        "timeType" : "timed",
+        "phase" : "solar",
+        "startTime" : "2015-04-22T14:30:00.000+09:00",
+        "endTime" : "2015-04-22T15:30:00.000+09:00",
+        "createdAt" : "2015-04-21T16:18:49.565+09:00",
+        "updatedAt" : "2015-04-21T16:18:49.565+09:00",
+        "commentCount" : 0,
+        "mailNoti" : true,
+        "assetReservationIds" : [ ],
+        "solar" : true,
+        "lunar" : false,
+        "new" : false,
+        "public" : true,
+        "private" : false
+      } ]
+    }, {
+      "datetime" : "2015-04-23T00:00:00.000+09:00",
+      "eventList" : [ ]
+    }, {
+      "datetime" : "2015-04-24T00:00:00.000+09:00",
+      "eventList" : [ ]
+    }, {
+      "datetime" : "2015-04-25T00:00:00.000+09:00",
+      "eventList" : [ ]
+    }, {
+      "datetime" : "2015-04-26T00:00:00.000+09:00",
+      "eventList" : [ ]
+    }, {
+      "datetime" : "2015-04-27T00:00:00.000+09:00",
+      "eventList" : [ ]
+    }, {
+      "datetime" : "2015-04-28T00:00:00.000+09:00",
+      "eventList" : [ {
+        "id" : "220610",
+        "calendarId" : 595,
+        "calendarName" : "내 일정",
+        "calendarOwnerId" : 1165,
+        "color" : "17",
+        "type" : "normal",
+        "creator" : {
+          "id" : 1165,
+          "email" : "hwjung@daou.co.kr",
+          "name" : "정해운",
+          "subDeptIncluding" : false
+        },
+        "attendees" : [ {
+          "id" : 1165,
+          "email" : "hwjung@daou.co.kr",
+          "name" : "정해운",
+          "subDeptIncluding" : false
+        } ],
+        "reminders" : [ ],
+        "summary" : "asdasd",
+        "location" : "",
+        "visibility" : "public",
+        "timeType" : "timed",
+        "phase" : "solar",
+        "startTime" : "2015-04-28T10:00:00.000+09:00",
+        "endTime" : "2015-04-28T14:00:00.000+09:00",
+        "createdAt" : "2015-04-27T12:43:50.929+09:00",
+        "updatedAt" : "2015-04-27T14:10:05.811+09:00",
+        "commentCount" : 0,
+        "mailNoti" : true,
+        "assetReservationIds" : [ ],
+        "solar" : true,
+        "lunar" : false,
+        "new" : false,
+        "public" : true,
+        "private" : false
+      } ]
+    }, {
+      "datetime" : "2015-04-29T00:00:00.000+09:00",
+      "eventList" : [ ]
+    }, {
+      "datetime" : "2015-04-30T00:00:00.000+09:00",
+      "eventList" : [ ]
+    }, {
+      "datetime" : "2015-05-01T00:00:00.000+09:00",
+      "eventList" : [ ]
+    }, {
+      "datetime" : "2015-05-02T00:00:00.000+09:00",
+      "eventList" : [ ]
+    }, {
+      "datetime" : "2015-05-03T00:00:00.000+09:00",
+      "eventList" : [ ]
+    }, {
+      "datetime" : "2015-05-04T00:00:00.000+09:00",
+      "eventList" : [ ]
+    }, {
+      "datetime" : "2015-05-05T00:00:00.000+09:00",
+      "eventList" : [ ]
+    }, {
+      "datetime" : "2015-05-06T00:00:00.000+09:00",
+      "eventList" : [ ]
+    }, {
+      "datetime" : "2015-05-07T00:00:00.000+09:00",
+      "eventList" : [ ]
+    }, {
+      "datetime" : "2015-05-08T00:00:00.000+09:00",
+      "eventList" : [ ]
+    }, {
+      "datetime" : "2015-05-09T00:00:00.000+09:00",
+      "eventList" : [ ]
+    } ],
+    "licenseAllowed" : true
+  }
+},
+            statusCode: 200,
+            status:'OK',
+            type: 'GET'
+        });
+
+        /** 데이터가 없는 경우 **/
+        // $.ajaxMock.register(url, {
+        //     responseText:$.parseJSON('{"data" : [ {"datetime" : "2013-05-19T00:00:00", "eventList" : [ ] }, {"datetime" : "2013-05-20T00:00:00", "eventList" : [ ] }, {"datetime" : "2013-05-21T00:00:00", "eventList" : [ ] }, {"datetime" : "2013-05-22T00:00:00", "eventList" : [ ] }, {"datetime" : "2013-05-23T00:00:00", "eventList" : [ ] }, {"datetime" : "2013-05-24T00:00:00", "eventList" : [ ] }, {"datetime" : "2013-05-25T00:00:00", "eventList" : [ ] }, {"datetime" : "2013-05-26T00:00:00", "eventList" : [ ] }, {"datetime" : "2013-05-27T00:00:00", "eventList" : [ ] }, {"datetime" : "2013-05-28T00:00:00", "eventList" : [ ] }, {"datetime" : "2013-05-29T00:00:00", "eventList" : [ ] }, {"datetime" : "2013-05-30T00:00:00", "eventList" : [ ] }, {"datetime" : "2013-05-31T00:00:00", "eventList" : [ ] }, {"datetime" : "2013-06-01T00:00:00", "eventList" : [ ] }, {"datetime" : "2013-06-02T00:00:00", "eventList" : [ ] }, {"datetime" : "2013-06-03T00:00:00", "eventList" : [ ] }, {"datetime" : "2013-06-04T00:00:00", "eventList" : [ ] }, {"datetime" : "2013-06-05T00:00:00", "eventList" : [ ] }, {"datetime" : "2013-06-06T00:00:00", "eventList" : [ ] }, {"datetime" : "2013-06-07T00:00:00", "eventList" : [ ] }, {"datetime" : "2013-06-08T00:00:00", "eventList" : [ ] }, {"datetime" : "2013-06-09T00:00:00", "eventList" : [ ] }, {"datetime" : "2013-06-10T00:00:00", "eventList" : [ ] }, {"datetime" : "2013-06-11T00:00:00", "eventList" : [ ] }, {"datetime" : "2013-06-12T00:00:00", "eventList" : [ ] }, {"datetime" : "2013-06-13T00:00:00", "eventList" : [ ] }, {"datetime" : "2013-06-14T00:00:00", "eventList" : [ ] }, {"datetime" : "2013-06-15T00:00:00", "eventList" : [ ] }, {"datetime" : "2013-06-16T00:00:00", "eventList" : [ ] }, {"datetime" : "2013-06-17T00:00:00", "eventList" : [ ] }, {"datetime" : "2013-06-18T00:00:00", "eventList" : [ ] }, {"datetime" : "2013-06-19T00:00:00", "eventList" : [ ] }, {"datetime" : "2013-06-20T00:00:00", "eventList" : [ ] }, {"datetime" : "2013-06-21T00:00:00", "eventList" : [ ] }, {"datetime" : "2013-06-22T00:00:00", "eventList" : [ ] }, {"datetime" : "2013-06-23T00:00:00", "eventList" : [ ] }, {"datetime" : "2013-06-24T00:00:00", "eventList" : [ ] }, {"datetime" : "2013-06-25T00:00:00", "eventList" : [ ] }, {"datetime" : "2013-06-26T00:00:00", "eventList" : [ ] }, {"datetime" : "2013-06-27T00:00:00", "eventList" : [ ] }, {"datetime" : "2013-06-28T00:00:00", "eventList" : [ ] }, {"datetime" : "2013-06-29T00:00:00", "eventList" : [ ] }, {"datetime" : "2013-06-30T00:00:00", "eventList" : [ ] }, {"datetime" : "2013-07-01T00:00:00", "eventList" : [ ] }, {"datetime" : "2013-07-02T00:00:00", "eventList" : [ ] }, {"datetime" : "2013-07-03T00:00:00", "eventList" : [ ] }, {"datetime" : "2013-07-04T00:00:00", "eventList" : [ ] }, {"datetime" : "2013-07-05T00:00:00", "eventList" : [ ] }, {"datetime" : "2013-07-06T00:00:00", "eventList" : [ ] }, {"datetime" : "2013-07-07T00:00:00", "eventList" : [ ] }, {"datetime" : "2013-07-08T00:00:00", "eventList" : [ ] }, {"datetime" : "2013-07-09T00:00:00", "eventList" : [ ] }, {"datetime" : "2013-07-10T00:00:00", "eventList" : [ ] }, {"datetime" : "2013-07-11T00:00:00", "eventList" : [ ] }, {"datetime" : "2013-07-12T00:00:00", "eventList" : [ ] }, {"datetime" : "2013-07-13T00:00:00", "eventList" : [ ] } ], "message" : "OK", "code" : "200", "__go_checksum__" : true }'),
+        //     statusCode: 200,
+        //     status:'OK',
+        //     type: 'GET'
+        // });
+    </script>
+
+    <script type="text/javascript" id="go-gadget-script">
+
+    $(function() {
+        var EventFilterUtil,
+            HomeSideCalendarModel,
+            DailyEventCollection,
+            DailyListView,
+            EventTableItemView,
+            EventTableView,
+            ConfigView,
+            lang,
+            url;
+
+        EventFilterUtil = {
+            execute : function(datetime, dayOffset, models) {
+                var filtered = [];
+                for(var i = 0; i < dayOffset; i++) {
+                    var day = GO.util.toMoment(GO.util.dateWithoutTimeZone(datetime)).clone().startOf("days").add("days", i);
+                    var dayEvents = _.find(models, function(model) {
+                        return GO.util.isSameDate(GO.util.toMoment(GO.util.dateWithoutTimeZone(model.get("datetime"))), day);
+                    });
+                    filtered.push(dayEvents);
+                }
+                return filtered;
+            }
+        };
+
+        DailyEventCollection = Backbone.Collection.extend({
+
+            apiUrl: "",
+            conditions: {
+                year: 0,
+                month: 0
+            },
+
+            url: function() {
+                return this.apiUrl + "?" + $.param(this.conditions);
+            },
+
+            setCondition: function(conds) {
+                this.conditions = conds;
+                return this;
+            },
+
+            setConditionByDate: function(datetime) {
+                this.setCondition({
+                    year: datetime.year(),
+                    month: datetime.month() + 1
+                });
+                return this;
+            }
+        });
+
+        HomeSideCalendarModel = Backbone.Model.extend({
+
+            apiUrl: "",
+            conditions: {
+                year: 0,
+                month: 0
+            },
+
+            url: function() {
+                return this.apiUrl + "?" + $.param(this.conditions);
+            },
+
+            setCondition: function(conds) {
+                this.conditions = conds;
+                return this;
+            },
+
+            setConditionByDate: function(datetime) {
+                this.setCondition({
+                    year: datetime.year(),
+                    month: datetime.month() + 1
+                });
+                return this;
+            }
+        });
+
+        DailyListView = Backbone.View.extend({
+
+            tagName: "ul",
+            className: "briefing_list",
+            events: {
+                "click a": "_goToEventShowPage"
+            },
+
+            initialize: function(options) {
+            	this.options = options || {};
+                this.i18n = this.options.i18n;
+            },
+
+            render: function(dailyEvents) {
+            	var compiledItem = Hogan.compile(this._makeDailyItemTemplate());
+
+            	this.$el.empty();
+                _.each(dailyEvents, function(model) {
+                    this.$el.append(compiledItem.render(this._makeDailyItemData(model)));
+                }, this);
+                return this.$el;
+            },
+
+            getTitle: function() {
+            	return this.i18n.parse("title");
+            },
+
+            _makeDailyItemData: function(model) {
+                var sorted = _.sortBy(model.get("eventList"), function(event) {
+                	return event["timeType"] == "timed";
+               	});
+
+                var isHoliday;
+                var converted = _.map(sorted, function(event) {
+                    if (isHolidayEvent(event)) isHoliday = true;
+                    return {
+                        "summary": getSummary(event),
+                        "isAllDay?": event["timeType"] == "allday",
+                        "isTimed?": event["timeType"] == "timed",
+                        "startTime": this._repraseDate(GO.util.customDateFormatWithoutTimeZone(event["startTime"], "YYYY-MM-DD HH:mm:ss") + event["serverTZOffset"], GO.util.customDateFormatWithoutTimeZone(model.get("datetime"), "YYYY-MM-DD HH:mm:ss")),
+                        "endTime": this._repraseDate(GO.util.customDateFormatWithoutTimeZone(event["endTime"], "YYYY-MM-DD HH:mm:ss") + event["serverTZOffset"], GO.util.customDateFormatWithoutTimeZone(model.get("datetime"), "YYYY-MM-DD HH:mm:ss")),
+                        "calendarId": event["calendarId"],
+                        "eventId": event["id"],
+                        "isHolidayEvent": isHolidayEvent(event)
+                    };
+                }, this);
+
+                function getSummary(event) {
+                    var summary;
+                    if (event['referenceId'] != undefined) {
+                        summary = event["summary"] + "(" + event["creator"].name + ")";
+                    } else if (event["type"] == "holiday" && /^\-(.*)/i.test(event["summary"])) {
+                        summary = '';
+                    } else {
+                        summary = event['summary'];
+                    }
+                    return GO.util.unescapeHtml(summary);
+                }
+
+                function isHolidayEvent(event) {
+                    return event.type === 'holiday';
+                }
+
+                return {
+                    "isToday?": GO.util.isToday(GO.util.toMoment(GO.util.dateWithoutTimeZone(model.get("datetime")))),
+                    "isHoliday?": isHoliday,
+                    "date": GO.util.toMoment(GO.util.dateWithoutTimeZone(model.get("datetime"))).format("D"),
+                    "day" : GO.util.toMoment(GO.util.dateWithoutTimeZone(model.get("datetime"))).format("dddd"),
+                    "empty_message": this.i18n.parse("message_empty_list"),
+                    "eventList": converted
+                };
+            },
+
+            _makeDailyItemTemplate: function() {
+                var tmpl = [];
+                tmpl.push("<li class=\"{{#isToday?}} today{{/isToday?}}\">");
+                tmpl.push("{{#isToday?}}");
+                tmpl.push("<span class=\"ic_side ic_today\" title=\"today\"></span>");
+                tmpl.push("{{/isToday?}}");
+                tmpl.push(" <div class=\"title\">");
+                tmpl.push(" 	<p class=\"date {{#isHoliday?}}holiday_on{{/isHoliday?}}\">{{date}}</p>");
+                tmpl.push(" 	<p class=\"day {{#isHoliday?}}holiday_on{{/isHoliday?}}\">{{day}}</p>")
+                tmpl.push("	</div>");
+                tmpl.push(" <ul class=\"item {{^eventList}}no_data{{/eventList}}\">");
+                tmpl.push("     {{#eventList}}");
+                tmpl.push("     <li {{#isAllDay?}}class=\"day\"{{/isAllDay?}}>");
+                tmpl.push("         <a class=\"event\" data-calendarid=\"{{calendarId}}\" data-eventid=\"{{eventId}}\">");
+                tmpl.push("             <p {{#isHolidayEvent}}class=\"holiday_on\"{{/isHolidayEvent}}{{^isHolidayEvent}}class=\"subject\"{{/isHolidayEvent}}>{{summary}}</p>");
+                tmpl.push("             <p {{^isTimed?}}style=\"display:none\"{{/isTimed?}} class=\"time\">{{startTime}} ~ {{endTime}}</p>");
+                tmpl.push("         </a>");
+                tmpl.push("     </li>");
+                tmpl.push("     {{/eventList}}");
+                tmpl.push("     {{^eventList}}");
+                tmpl.push("		<li>");
+                tmpl.push("     	<p class=\"desc\">{{empty_message}}</p>");
+                tmpl.push("		</li>");
+                tmpl.push("     {{/eventList}}");
+                tmpl.push(" </ul>");
+                tmpl.push("</li>");
+
+                return tmpl.join("\n");
+            },
+
+            _repraseDate: function(date, groupedDate) {
+                if (GO.util.isSameDate(date, groupedDate)) {
+                    return GO.util.hourMinute(moment(date).toDate());
+                } else {
+                    return this.i18n.parse("continue");
+                }
+            },
+
+            _goToEventShowPage: function(e) {
+                var aTag = $(e.target);
+                if (!aTag.hasClass("event")) {
+                    aTag = aTag.parent("a.event");
+                }
+                GO.router.navigate("calendar/" + aTag.data("calendarid") + "/event/" + aTag.data("eventid"), true);
+            }
+        });
+
+        EventTableItemView = Backbone.View.extend({
+
+            tagName: "td",
+            content: {},
+
+            initialize: function(options) {
+            	this.options = options || {};
+                this.model = this.options.model;
+                this.datetime = GO.util.toMoment(GO.util.dateWithoutTimeZone(this.model.get("datetime")))
+            },
+
+            render: function() {
+                var html = [];
+                html.push("<span id=\"" + GO.util.toISO8601(this.datetime) + "\">");
+                html.push(this.datetime.date());
+                if (this._calculateBadgeCount() > 0) {
+                    html.push("<span class=\"badge\">" + this._calculateBadgeCount() + "</span>");
+                }
+                html.push("</span>");
+                this.$el.html(html.join(""));
+                this.$el.attr("class", this._makeTdClass());
+                this.$el.data("instance", this);
+                return this.$el;
+            },
+
+            _calculateHolidayCount : function(){
+              var eventList = this.model.get("eventList");
+              var count = 0;
+              if(!_.isEmpty(this.model.get("eventList"))){
+                _.each(eventList, function(model, index){
+                  if (model.type == 'holiday') {
+                    count ++;
+                  }
+                });
+              }
+              return count;
+            },
+
+            _makeTdClass: function() {
+                var css = "";
+                if (GO.util.isToday(this.datetime)) {
+                    css += "on ";
+                }
+                if (this.datetime.day() == 0) {
+                    css += "sun ";
+                }
+                if (this.options.current.month() != this.datetime.month()) {
+                    css += "other_month ";
+                }
+                if (GO.util.isBeforeToday(this.datetime)) {
+                    css += "past ";
+                }
+                if (this._calculateHolidayCount() > 0 && this.datetime.day() != 0){
+                    css += "holiday_on ";
+                }
+                return css;
+            },
+
+            _calculateBadgeCount: function() {
+              var badgeCount = 0;
+              var eventList = this.model.get("eventList");
+              if(!_.isEmpty(this.model.get("eventList"))){
+                _.each(eventList, function(model, index){
+                  if (model.type != 'anniversary' && model.type != 'holiday') {
+                    badgeCount++;
+                  }
+                });
+              }
+              return badgeCount;
+                }
+        });
+
+        EventTableView = Backbone.View.extend({
+
+            tagName: "div",
+            className: "layer_normal layer_calendar",
+            current: null,
+            WEEK_COUNT_FOR_CACHE: 2,
+            WEEK_DAYS_COUNT: 7,
+
+            callback: function(eventList) {
+                console.log("Any callback didn\"t binded from MyEventsView!");
+            },
+
+            events: {
+                "click td": "onItemClicked",
+                "click #prev_month": "goToPrevMonth",
+                "click #next_month": "goToNextMonth",
+                "click #go_to_event_create" : "goToEventCreate"
+            },
+
+            initialize: function(options) {
+            	this.options = options || {};
+                this.current = moment(new Date());
+                this.model = this.options.model;
+                this.dayOffset = this.options.dayOffset || 3;
+                this.i18n = this.options.i18n;
+                if (this.options.callback) {
+                    this.callback = this.options.callback;
+                }
+            },
+
+            onItemClicked: function(e) {
+                var tdEl = ($(e.target).get(0).tagName == "TD") ? $(e.target) : $(e.target).parents("td"),
+                    clickedDate = tdEl.children("span:first-child").attr("id");
+                this._addClassToCurrentSelected(tdEl);
+
+                if (clickedDate) {
+                    this._handleCallback(GO.util.toMoment(GO.util.dateWithoutTimeZone(clickedDate)));
+                }
+            },
+
+            _handleCallback: function(datetime) {
+                var dayOffset = this.dayOffset;
+                this.callback(EventFilterUtil.execute(datetime, dayOffset, new DailyEventCollection(this.model.get("list")).models));
+            },
+
+            _addClassToCurrentSelected: function(selectedTD) {
+                this.$el.find("tbody").find("td").removeClass("on");
+                selectedTD.addClass("on");
+            },
+
+            goToPrevMonth: function() {
+                this.current = this.current.subtract("months", 1);
+                this.model.setConditionByDate(this.current).fetch().done($.proxy(this.render, this));
+            },
+
+            goToNextMonth: function() {
+                this.current = this.current.add("months", 1);
+                this.model.setConditionByDate(this.current).fetch().done($.proxy(this.render, this));
+            },
+
+            goToEventCreate: function() {
+            	GO.router.navigate("calendar/regist?" + $.param({
+                    "sd": GO.util.shortDate(new Date())
+                }), true);
+            },
+
+            render: function() {
+                var compiled = Hogan.compile(this._makeTemplate());
+                this.$el.empty().html(compiled.render(this._makeAppLabels()));
+                this._renderItems(new DailyEventCollection(this.model.get("list")));
+                return this.$el;
+            },
+
+            _makeTemplate: function() {
+                var tmpl = [];
+                tmpl.push("<header>");
+                tmpl.push("    <div id=\"prev_month\" class=\"critical\">");
+                tmpl.push("        <span class=\"btn_wrap\">");
+                tmpl.push("            <span class=\"ic ic_prev2\" data-role=\"button\" title=\"{{prev}}\"></span>");
+                tmpl.push("        </span>");
+                tmpl.push("    </div>");
+                tmpl.push("    <h1 class=\"date\">{{title}}</h1>");
+                tmpl.push("    <div id=\"next_month\" class=\"optional\">");
+                tmpl.push("        <span class=\"btn_wrap\">");
+                tmpl.push("            <span class=\"ic ic_next2\" data-role=\"button\" title=\"{{next}}\"></span>");
+                tmpl.push("        </span>");
+                tmpl.push("    </div>");
+                tmpl.push("	   <span id=\"go_to_event_create\" class=\"btn_formal\">");
+                tmpl.push("	   		<span title=\"" + this.i18n.parse("add") + "\" class=\"ic_con ic_create_calendar\"></span>");
+                tmpl.push("    </span>");
+                tmpl.push("</header>");
+                tmpl.push("<table class=\"tb_calendar_mini\">");
+                tmpl.push("    <thead>");
+                tmpl.push("        <tr>");
+                tmpl.push("            <th class=\"sun\">{{sun}}</th>");
+                tmpl.push("            <th>{{mon}}</th>");
+                tmpl.push("            <th>{{tue}}</th>");
+                tmpl.push("            <th>{{wed}}</th>");
+                tmpl.push("            <th>{{thu}}</th>");
+                tmpl.push("            <th>{{fri}}</th>");
+                tmpl.push("            <th>{{sat}}</th>");
+                tmpl.push("        </tr>");
+                tmpl.push("    </thead>");
+                tmpl.push("    <tbody>");
+                tmpl.push("    </tbody>");
+                tmpl.push("</table>");
+                return tmpl.join("\n");
+            },
+
+            _makeAppLabels: function() {
+                return {
+                    "title": GO.util.formatDatetime(this.current, null, "YYYY. MM"),
+                    "prev": this.i18n.parse("prev"),
+                    "next": this.i18n.parse("next"),
+                    "sun": this.i18n.parse("sun"),
+                    "mon": this.i18n.parse("mon"),
+                    "tue": this.i18n.parse("tue"),
+                    "wed": this.i18n.parse("wed"),
+                    "thu": this.i18n.parse("thu"),
+                    "fri": this.i18n.parse("fri"),
+                    "sat": this.i18n.parse("sat")
+                };
+            },
+
+            _renderItems: function(collection) {
+                var itemViews = this._makeItemViews(collection);
+                var weekRows = this._drawWeekRows(itemViews.length);
+                this._appendItems(itemViews, weekRows);
+            },
+
+            _makeItemViews: function(collection) {
+                var itemViews = [];
+                collection.each(function(model, index) {
+                    var calItemView = new EventTableItemView({
+                        current: this.current,
+                        model: model
+                    });
+                    itemViews.push(calItemView.render());
+                }, this);
+                return itemViews;
+            },
+
+            _drawWeekRows: function(monthDaysCount) {
+                var tbody = this.$el.find("tbody"),
+                    rowCount = (monthDaysCount / this.WEEK_DAYS_COUNT),
+                    rowCountWithoutCache = rowCount - this.WEEK_COUNT_FOR_CACHE;
+                for (var i = 0; i < rowCountWithoutCache; i++) {
+                    tbody.append("<tr></tr>");
+                }
+                return tbody.find("tr");
+            },
+
+            _appendItems: function(itemViews, weekRows) {
+                var removeItemsForCache = function(views, ctx) {
+                	// 앞뒤로 한개씩 남기기
+                    for (var i=0; i < ctx.WEEK_DAYS_COUNT - 1; i++) {
+                        views.pop();
+                        views.shift();
+                    }
+
+                    /**
+                    === timezone code ===
+                    35개를 남겨야 하는데, 타임존을 맞추기 위해 2개를 더 남긴다.
+                    37개중 첫번째 값을 통해 2개에 대한 shift pop 여부를 정한다.
+                    더 좋은 방법 없을까..
+                    */
+                    var day = GO.util.toMoment(GO.util.dateFormatWithoutTimeZone(views[0].data("instance").model.get("datetime"))).day();
+//                    var day = moment(views[0].data("instance").model.get("datetime")).day();
+                    if (day == 5) {
+                    	views.shift();
+                    	views.shift();
+                    } else if (day == 6) {
+                    	views.pop();
+                    	views.shift();
+                    } else if (day == 0) {
+                    	views.pop();
+                    	views.pop();
+                    }
+
+                    return views;
+                };
+
+                _.each(removeItemsForCache(itemViews, this), function(item, idx) {
+                    var weekSequenceOfDate = Math.floor(idx/this.WEEK_DAYS_COUNT);
+                    weekRows.eq(weekSequenceOfDate).append(item);
+                }, this);
+            }
+        });
+
+        ConfigView = Backbone.View.extend({
+
+            savedOffset: 3,
+
+            initialize: function(options) {
+            	this.options = options || {};
+                if (this.options.values) {
+                    this.savedOffset = this.options.values.dayOffset || this.savedOffset;
+                }
+            },
+
+            render: function() {
+                var compiled = Hogan.compile(this._prepareTemplate());
+                return compiled.render(this._makeTemplateData());
+            },
+
+            _prepareTemplate: function() {
+                var html = [];
+                html.push("<ul class=\"static_style\">");
+                html.push("    <li>");
+                html.push("        <p class=\"title\">{{offsetTitle}}</p>");
+                html.push("        <select name=\"dayOffset\">");
+                html.push("            {{#offsetList}}");
+                html.push("            <option value=\"{{value}}\"{{#selected?}} selected=\"selected\"{{/selected?}}>{{label}}</option>");
+                html.push("            {{/offsetList}}");
+                html.push("        </select>");
+                html.push("    </li>");
+                html.push("</ul>");
+                return html.join("\n");
+            },
+
+            _makeTemplateData: function() {
+                var data = {
+                    "offsetTitle" : this.options.i18n.parse("offset"),
+                    "offsetList" : [],
+                };
+
+                _.each([3, 5, 7], function(num) {
+                    data.offsetList.push({
+                        "value": num,
+                        "selected?": num == this.savedOffset,
+                        "label" : num + this.options.i18n.parse("days")
+                    });
+                }, this);
+
+                return data;
+            }
+        });
+
+        lang = {
+            "title": "캘린더",
+            "add" : "추가",
+            "new_event" : "새 일정",
+            "my_event" : "내 일정",
+            "show_more" : "자세히 보기",
+            "continue" : "계속",
+            "today": "오늘",
+            "prev": "이전",
+            "next": "다음",
+            "sun" : "일",
+            "mon" : "월",
+            "tue" : "화",
+            "wed" : "수",
+            "thu" : "목",
+            "fri" : "금",
+            "sat" : "토",
+            "days": "일",
+            "0m": "안함",
+            "15m": "15분",
+            "30m": "30분",
+            "60m": "1시간",
+            "120m": "2시간",
+            "offset" : "표시 날짜 수",
+            "message_empty_list" : "등록된 일정이 없습니다.",
+
+            "ja": {
+                "title" : "カレンダー",
+                "add" : "追加",
+                "new_event" : "新しい予定",
+                "my_event" : "マイ予定",
+                "show_more" : "詳細確認",
+                "continue" : "継続",
+                "today" : "今日",
+                "prev" : "前へ",
+                "next" : "次へ",
+                "sun" : "日",
+                "mon" : "月",
+                "tue" : "火",
+                "wed" : "水",
+                "thu" : "木",
+                "fri" : "金",
+                "sat" : "土",
+                "days" : "日",
+                "0m" : "更新しない",
+                "15m" : "15分",
+                "30m" : "30分",
+                "60m" : "1時間",
+                "120m" : "2時間",
+                "offset" : "表示日数",
+                "message_empty_list" : "登録されている予定がありません。"
+            },
+
+            "en": {
+                "title" : "Calendar",
+                "add" : "Add",
+                "new_event" : "Add",
+                "my_event" : "My Event",
+                "show_more" : "View More",
+                "continue" : "Continue",
+                "today" : "Today",
+                "prev" : "Previous",
+                "next" : "Next",
+                "sun" : "Sun",
+                "mon" : "Mon",
+                "tue" : "Tue",
+                "wed" : "Wed",
+                "thu" : "Thu",
+                "fri" : "Fri",
+                "sat" : "Sat",
+                "days" : "Day",
+                "0m" : "None",
+                "15m" : "15 mins",
+                "30m" : "30 mins",
+                "60m" : "1 hour",
+                "120m" : "2 hours",
+                "offset" : "Number of Days",
+                "message_empty_list" : "No Events"
+            },
+
+            "zh_CN": {
+                "title" : "日历",
+                "add" : "追加",
+                "new_event" : "新的日程",
+                "my_event" : "我的日程",
+                "show_more" : "详细查看",
+                "continue" : "继续",
+                "today" : "今天",
+                "prev" : "前一页",
+                "next" : "下一页",
+                "sun" : "日",
+                "mon" : "月",
+                "tue" : "火",
+                "wed" : "水",
+                "thu" : "木",
+                "fri" : "金",
+                "sat" : "土",
+                "days" : "日",
+                "0m" : "不",
+                "15m" : "15分",
+                "30m" : "30分",
+                "60m" : "1小时",
+                "120m" : "2小时",
+                "offset" : "显示日期数",
+                "message_empty_list" : "没有已登录的日程。"
+            },
+
+            "zh_TW": {
+                "title" : "日曆",
+                "add" : "追加",
+                "new_event" : "新的日程",
+                "my_event" : "我的日程",
+                "show_more" : "詳細查看",
+                "continue" : "繼續",
+                "today" : "今天",
+                "prev" : "前一頁",
+                "next" : "下一頁",
+                "sun" : "日",
+                "mon" : "月",
+                "tue" : "火",
+                "wed" : "水",
+                "thu" : "木",
+                "fri" : "金",
+                "sat" : "土",
+                "days" : "日",
+                "0m" : "不",
+                "15m" : "15分",
+                "30m" : "30分",
+                "60m" : "1小時",
+                "120m" : "2小時",
+                "offset" : "顯示日期數",
+                "message_empty_list" : "沒有已登錄的日程。"
+            },
+            "vi": {
+            	"title": "Lịch",
+                "add" : "Thêm",
+                "new_event" : "Lịch trình mới",
+                "my_event" : "Lịch trình của tôi",
+                "show_more" : "Xem chi tiết",
+                "continue" : "Liên tục",
+                "today": "Hôm nay",
+                "prev": "Trang trước",
+                "next": "Tiếp theo",
+                "sun" : "Sun",
+                "mon" : "Mon",
+                "tue" : "Tue",
+                "wed" : "Wed",
+                "thu" : "Thu",
+                "fri" : "Fri",
+                "sat" : "Sat",
+                "days": "Chủ Nhật",
+                "0m": "Không",
+                "15m": "15 phút",
+                "30m": "30 phút",
+                "60m": "1 giờ",
+                "120m": "2 giờ",
+                "offset" : "Số ngày tháng biểu thị",
+                "message_empty_list" : "Không có lịch trình được đăng tải."
+            }
+        };
+
+        gadget.load({
+
+            langs: lang,
+            refreshable: true,
+            highlightable : true,
+
+            events: {
+                //"click #go_to_event_create": "_go_to_event_create"
+            },
+
+            url: function() {
+                var params = {
+					"year": new Date().getFullYear(),
+					"month": new Date().getMonth() + 1
+                };
+                return this.contextRoot + "api/calendar/user/me/event/daily?" + $.param(params);
+            },
+
+            setTitle: function() {
+                return this.i18n.parse("title");
+            },
+
+            getTitle: function() {
+            	return this.i18n.parse("title");
+            },
+
+            renderConfig: function(el) {
+                var self = this,
+                    configView = new ConfigView({
+                    values: this.options,
+                    i18n: this.i18n
+                });
+                $(el).append(configView.render());
+            },
+
+            onSuccess: function(el, resp) {
+            	if (console) console.log("onSuccess");
+                var dayOffset = this.options.dayOffset || 3,
+                    collection,
+                    model,
+                    listView,
+                    tableView;
+
+                collection = new DailyEventCollection(resp.data);
+                collection.apiUrl = this.url().split("?")[0];
+                model = new HomeSideCalendarModel(resp.data);
+                model.apiUrl = this.url().split("?")[0];
+
+                listView = new DailyListView({ i18n: this.i18n });
+                tableView = new EventTableView({
+                    i18n: this.i18n,
+                    dayOffset: dayOffset,
+                    model: model,
+                    collection: new DailyEventCollection(model.get("list")),
+                    callback: $.proxy(listView.render, listView)
+                });
+
+                var filtered = EventFilterUtil.execute(GO.util.formatDatetime(new Date()), dayOffset, new DailyEventCollection(model.get("list")).models);
+
+                $(el).append('<div class="gadget_design_wrap"></div>')
+                	.find('.gadget_design_wrap')
+                		.append(tableView.render(), listView.render(filtered));
+
+
+            }
+        });
+    });
+    </script>
+</head>
+
+<body id="main" class="go_skin_home_default" data-role="main">
+    <div class="go-dashboard go-dashboard-editing go_dashboard_3_2">
+        <div class="go-gadget-column gadget-col-1" data-columnid="1">
+            <!-- empty -->
+        </div>
+
+        <div class="gripper"></div>
+
+        <div id="gadget-containter" class="go-gadget-column gadget-col-2" data-columnid="2">
+            <!-- empty -->
+        </div>
+
+        <div class="gripper"></div>
+
+        <div class="go-gadget-column gadget-col-3" data-columnid="3">
+            <!-- empty -->
+        </div>
+    </div>
+</body>
+</html>

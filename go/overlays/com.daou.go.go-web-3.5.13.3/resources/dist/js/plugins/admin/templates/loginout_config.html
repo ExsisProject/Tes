@@ -1,0 +1,147 @@
+<div class="content_page" id="loginoutConfigTmpl">
+    <div class="container">
+        <form name="formLoginoutConfig">
+            <div class="header">
+                <h2>{{lang.label_loginout_config}}</h2>
+            </div>
+            <div class="content">
+                <table class="detail">
+                    <caption>{{lang.label_loginout_config}}</caption>
+                    <colgroup>
+                        <col width="150px" />
+                        <col width="*" />
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <th><span class="title">{{lang.label_concurrent_ok}}</span></th>
+                            <td>
+                                <div class="vertical_wrap_s">
+                                    <span class="option_wrap"> 
+                                        <input type="radio" id="concurrent_true" value="true" name="concurrentConnection" {{#model.concurrentConnection}}checked="checked" {{/model.concurrentConnection}} /> 
+                                        <label for="concurrent_true">{{lang.label_concurrent_ok}}</label>                                      
+                                    </span>
+                                    <span class="option_wrap"> 
+                                        <input type="radio" id="concurrent_false" value="false" name="concurrentConnection" {{^model.concurrentConnection}}checked="checked" {{/model.concurrentConnection}} /> 
+                                        <label for="concurrent_false">{{lang.label_concurrent_no}}</label>                                      
+                                    </span>
+                                </div>                                  
+                            </td>
+                        </tr>
+                        <tr class="last">
+	                        <th><span class="title">{{lang.label_auto_logout}}</span></th>
+	                        <td>
+	                            <div class="vertical_wrap_s">
+	                            	<span class="option_wrap"> 
+	                                    <input type="radio" name="autoLogout" id="autoLogout_true" value="true" {{#model.autoLogout}}checked="checked" {{/model.autoLogout}}/>
+	                                    <label for="autoLogout_true">{{lang.label_use}}</label>
+	                                </span> 
+	                                <span class="option_wrap"> 
+	                                    <input type="radio" name="autoLogout" id="autoLogout_false" value="false" {{^model.autoLogout}}checked="checked" {{/model.autoLogout}}/>
+	                                    <label for="autoLogout_false">{{lang.label_notuse}}</label>
+	                                </span>
+	                            </div>
+	                            <div class="vertical_wrap_s">
+				                    <select id="autoLogoutTime" name="autoLogoutTime">
+				                   	 	<!-- <option value="0">{{lang.label_Unlimited}}</option> -->
+		                                {{#sessionTimeOutMins}}
+		                                    <option value="{{value}}">{{value}} {{lang.label_mins}}</option>
+		                                {{/sessionTimeOutMins}}
+		                                <option value="-1">{{lang.label_time_out_direct}}</option>
+		                            </select>     
+		                            <span class="option_wrap" id="timeOutDirect">
+		                            	<input class="input" type="text" id="timeOutDirectValue" name="timeOutDirect" value=""/> {{lang.label_mins}}
+		                            	<span class="go_alert" id="timeOutDirectValueValidate"></span>
+		                            </span>
+		                        </div>
+	                        </td>
+	                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </form>
+        <form name="formSsoConfig">
+            <div id="divSsoConfig">
+                <div class="header">
+                    <h2>{{lang.label_sso_title}}</h2>
+                </div>
+
+                <div class="content">
+                    <table class="detail">
+                        <caption>{{lang.label_sso_setting}}</caption>
+                        <colgroup>
+                            <col width="110px" />
+                            <col width="*" />
+                        </colgroup>
+                        <tbody>
+                            <tr>
+                                <th><span class="title">{{lang.label_use_notuse}}</span></th>
+                                <td>
+                                <span class="option_wrap">
+                                    <input type="radio" name="apply" value="true" id="apply_true" {{#ssoModel.apply}}checked{{/ssoModel.apply}}><label for="apply_true">{{lang.label_use}}</label>
+                                </span>
+                                    <span class="option_wrap">
+                                    <input type="radio" name="apply" value="false" id="apply_false" {{^ssoModel.apply}}checked{{/ssoModel.apply}}><label for="apply_false">{{lang.label_notuse}}</label>
+                                </span>
+                                </td>
+                            </tr>
+                            <tr class="sso-content">
+                                <th><span class="title">{{lang.label_method}}</span></th>
+                                <td>
+                                <span class="option_wrap">
+                                    <input type="radio" name="method" id="method_COOKIE" value="COOKIE" id="cookie" checked><label for="method_COOKIE">{{lang.label_cookie}}</label>
+                                </span>
+                                    <span class="option_wrap">
+                                    <input type="radio" name="method" id="method_PARAM" value="PARAM" id="param"><label for="method_PARAM">{{lang.label_param}}</label>
+                                </span>
+                                </td>
+                            </tr>
+                            <tr class="sso-content">
+                                <th><span class="title">{{lang.label_sso_key}}</span></th>
+                                <td>
+                                <span class="option_wrap">
+                                    <input type="radio" name="ssoKey" id="ssoKey_ID" value="ID" checked><label for="ssoKey_ID">{{lang.label_id}}</label>
+                                </span>
+                                    <span class="option_wrap">
+                                    <input type="radio" name="ssoKey" id="ssoKey_EMPNO" value="EMPNO"><label for="ssoKey_EMPNO">{{lang.label_empno}}</label>
+                                </span>
+                                </td>
+                            </tr>
+                            <tr class="sso-content">
+                                <th><span class="title">{{lang.label_cryptoAlgorithm}}</span></th>
+                                <td><select id="cryptoAlgorithm" name="cryptoAlgorithm">
+                                    <option value="NONE">{{lang.label_select_none}}</option>
+                                    <option value="AES">{{lang.label_aes}}</option>
+                                    <option value="DES">{{lang.label_des}}</option>
+                                    <option value="DESEDE">{{lang.label_desede}}</option>
+                                    <option value="BLOWFISH">{{lang.label_blowfish}}</option>
+                                    <option value="TWOFISH">{{lang.label_twofish}}</option>
+                                    <option value="ARIA">{{lang.label_aria}}</option>
+                                </select>
+                                    <input class="input w_half" type="text" id="cryptoKey" name="cryptoKey" value="{{ssoModel.cryptoKey}}"/>
+                                    <span class="go_alert" id="cryptoKeyValidate"></span>
+                                </td>
+                            </tr>
+                            <tr class="last sso-content">
+                                <th><span class="title">{{lang.label_cryptoAlgorithm_test}}</span></th>
+                                <td>
+                                    <input class="input w_half" id="testValue" type="text"/>
+                                    <span class="btn_wrap"><span class="btn_s" id="btn_test">{{lang.label_btn_test}}</span></span>
+                                    <span class="go_alert" id="testValueValidate"></span>
+                                    <br><br>
+                                    <textarea class="w_half txtarea" id="encodingValue" rows="3" readonly="readonly" placeholder="{{lang.label_encoding}}" style="font-weight:bold;"></textarea><br><br>
+                                    <input class="input w_half" id="decodingValue" type="text" readonly="readonly" placeholder="{{lang.label_decoding}}"/>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </form>
+        <div class="page_action mini">
+            <span id="loginConfigSaveBtn" class="btn">{{lang.label_ok}}</span>
+            <span id="loginConfigCancelBtn" class="btn_nega">{{lang.label_cancel}}</span>
+        </div>
+    </div>
+
+</div>

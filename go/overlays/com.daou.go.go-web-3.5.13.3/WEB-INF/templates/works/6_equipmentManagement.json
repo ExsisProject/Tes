@@ -1,0 +1,412 @@
+{
+	"meta": {
+		"key": "c47f8405-ea43-4c13-9260-1dce33d1eafb",
+		"base": {
+			"name": "applet.fixtures.manage.template.name",
+			"desc": "applet.fixtures.manage.template.desc",
+			"icon": "ic_app19.png"
+		},
+		"exporter": {
+			"name": "관리자",
+			"companyName": "다우기술"
+		}
+	},
+	"components": {
+		"view": {
+			"charts": [],
+			"columns": [{
+				"fieldCid": "status",
+				"columnName": "{{applet.new.template.col.status}}"
+			}, {
+				"fieldCid": "_9y25g1uzz"
+			}, {
+				"fieldCid": "_5yr4fal4b"
+			}, {
+				"fieldCid": "_05gqmnmx5"
+			}, {
+				"fieldCid": "_tgh2quil6"
+			}, {
+				"fieldCid": "_lc2uxv59n"
+			}, {
+				"fieldCid": "create_date",
+				"columnName": "{{applet.new.template.col.createdat}}"
+			}],
+			"titleColumnIndex": 1,
+			"sortColumnIndex": 6,
+			"sortDirection": "DESC"
+		},
+		"form": {
+			"data": {
+				"type": "canvas",
+				"multiple": false,
+				"cid": "cxx1",
+				"components": [{
+					"type": "label",
+					"multiple": false,
+					"cid": "_x37fqm28f",
+					"parentCid": "cxx1",
+					"properties": {
+						"label": "◆ 신청자 정보"
+					},
+					"components": []
+				}, {
+					"type": "columns",
+					"multiple": false,
+					"cid": "_8dakd6pda",
+					"parentCid": "cxx1",
+					"properties": {
+						"count": 2
+					},
+					"components": [{
+						"type": "column",
+						"multiple": false,
+						"cid": "_iokj97n36",
+						"parentCid": "_8dakd6pda",
+						"properties": {},
+						"components": [{
+							"type": "org",
+							"valueType": "USERS",
+							"multiple": false,
+							"cid": "_9y25g1uzz",
+							"parentCid": "_iokj97n36",
+							"properties": {
+								"label": "신청자",
+								"hideLabel": false,
+								"guide": "",
+								"guideAsTooltip": false,
+								"required": false,
+								"noLimit": true,
+								"useDefaultRegister": false,
+								"allowMemberCount": "1",
+								"members": []
+							},
+							"components": []
+						}]
+					}, {
+						"type": "column",
+						"multiple": false,
+						"cid": "_racurgep6",
+						"parentCid": "_8dakd6pda",
+						"properties": {},
+						"components": [{
+							"type": "text",
+							"valueType": "STEXT",
+							"multiple": false,
+							"cid": "_5yr4fal4b",
+							"parentCid": "_racurgep6",
+							"properties": {
+								"label": "신청부서",
+								"hideLabel": false,
+								"guide": "",
+								"guideAsTooltip": true,
+								"required": false,
+								"defaultValue": "",
+								"minLength": 0,
+								"maxLength": 100,
+								"width": "50",
+								"widthUnit": "percent",
+								"format": "all"
+							},
+							"components": []
+						}]
+					}]
+				}, {
+					"type": "label",
+					"multiple": false,
+					"cid": "_g8e162poe",
+					"parentCid": "cxx1",
+					"properties": {
+						"label": "◆ 비품 정보"
+					},
+					"components": []
+				}, {
+					"type": "columns",
+					"multiple": false,
+					"cid": "_0olnbhzw9",
+					"parentCid": "cxx1",
+					"properties": {
+						"count": 2
+					},
+					"components": [{
+						"type": "column",
+						"multiple": false,
+						"cid": "_c9ovjqlrl",
+						"parentCid": "_0olnbhzw9",
+						"properties": {},
+						"components": [{
+							"type": "select",
+							"valueType": "SELECT",
+							"multiple": false,
+							"cid": "_05gqmnmx5",
+							"parentCid": "_c9ovjqlrl",
+							"properties": {
+								"label": "구분",
+								"hideLabel": false,
+								"guide": "",
+								"guideAsTooltip": true,
+								"required": false,
+								"items": [{
+									"value": "0",
+									"displayText": "사무용품",
+									"selected": true
+								}, {
+									"value": "1",
+									"displayText": "전산용품",
+									"selected": false
+								}, {
+									"value": "2",
+									"displayText": "기타",
+									"selected": false
+								}]
+							},
+							"components": []
+						}]
+					}, {
+						"type": "column",
+						"multiple": false,
+						"cid": "_pxkkr0xsr",
+						"parentCid": "_0olnbhzw9",
+						"properties": {},
+						"components": [{
+							"type": "text",
+							"valueType": "STEXT",
+							"multiple": false,
+							"cid": "_tgh2quil6",
+							"parentCid": "_pxkkr0xsr",
+							"properties": {
+								"label": "품명",
+								"hideLabel": false,
+								"guide": "",
+								"guideAsTooltip": true,
+								"required": false,
+								"defaultValue": "",
+								"minLength": 0,
+								"maxLength": 100,
+								"width": "80",
+								"widthUnit": "percent",
+								"format": "all"
+							},
+							"components": []
+						}]
+					}]
+				}, {
+					"type": "columns",
+					"multiple": false,
+					"cid": "_9s73s64ue",
+					"parentCid": "cxx1",
+					"properties": {
+						"count": 2
+					},
+					"components": [{
+						"type": "column",
+						"multiple": false,
+						"cid": "_nvlvh6lxj",
+						"parentCid": "_9s73s64ue",
+						"properties": {},
+						"components": [{
+							"type": "number",
+							"valueType": "NUMBER",
+							"multiple": false,
+							"cid": "_93b51vcyy",
+							"parentCid": "_nvlvh6lxj",
+							"properties": {
+								"label": "신청량",
+								"hideLabel": false,
+								"guide": "",
+								"guideAsTooltip": true,
+								"required": false,
+								"defaultValue": "",
+								"minLength": 0,
+								"maxLength": "10000",
+								"width": "50",
+								"widthUnit": "px",
+								"unitText": "개",
+								"fixType": "postfix",
+								"decimalPoints": 2,
+								"thousandComma": true
+							},
+							"components": []
+						}]
+					}, {
+						"type": "column",
+						"multiple": false,
+						"cid": "_td0t2r92o",
+						"parentCid": "_9s73s64ue",
+						"properties": {},
+						"components": [{
+							"type": "number",
+							"valueType": "NUMBER",
+							"multiple": false,
+							"cid": "_44c034074",
+							"parentCid": "_td0t2r92o",
+							"properties": {
+								"label": "조정",
+								"hideLabel": false,
+								"guide": "",
+								"guideAsTooltip": true,
+								"required": false,
+								"defaultValue": "",
+								"minLength": 0,
+								"maxLength": "10000",
+								"width": "50",
+								"widthUnit": "px",
+								"unitText": "개",
+								"fixType": "postfix",
+								"decimalPoints": 2,
+								"thousandComma": true
+							},
+							"components": []
+						}]
+					}]
+				}, {
+					"type": "columns",
+					"multiple": false,
+					"cid": "_jy774ex0a",
+					"parentCid": "cxx1",
+					"properties": {
+						"count": 2
+					},
+					"components": [{
+						"type": "column",
+						"multiple": false,
+						"cid": "_i0jfr2r4x",
+						"parentCid": "_jy774ex0a",
+						"properties": {},
+						"components": [{
+							"type": "number",
+							"valueType": "NUMBER",
+							"multiple": false,
+							"cid": "_rf51v52x0",
+							"parentCid": "_i0jfr2r4x",
+							"properties": {
+								"label": "단가",
+								"hideLabel": false,
+								"guide": "",
+								"guideAsTooltip": true,
+								"required": false,
+								"defaultValue": "",
+								"minLength": 0,
+								"maxLength": "10000000000",
+								"width": 100,
+								"widthUnit": "px",
+								"unitText": "원",
+								"fixType": "postfix",
+								"decimalPoints": "0",
+								"thousandComma": true
+							},
+							"components": []
+						}]
+					}, {
+						"type": "column",
+						"multiple": false,
+						"cid": "_kwg91zapx",
+						"parentCid": "_jy774ex0a",
+						"properties": {},
+						"components": [{
+							"type": "number",
+							"valueType": "NUMBER",
+							"multiple": false,
+							"cid": "_lc2uxv59n",
+							"parentCid": "_kwg91zapx",
+							"properties": {
+								"label": "총 금액",
+								"hideLabel": false,
+								"guide": "",
+								"guideAsTooltip": false,
+								"required": false,
+								"defaultValue": "",
+								"minLength": 0,
+								"maxLength": "100000000000",
+								"width": 100,
+								"widthUnit": "px",
+								"unitText": "원",
+								"fixType": "postfix",
+								"decimalPoints": "0",
+								"thousandComma": true
+							},
+							"components": []
+						}]
+					}]
+				}, {
+					"type": "textarea",
+					"valueType": "TEXT",
+					"multiple": false,
+					"cid": "_tyziwi30c",
+					"parentCid": "cxx1",
+					"properties": {
+						"label": "특이사항",
+						"hideLabel": false,
+						"guide": "",
+						"guideAsTooltip": true,
+						"required": false,
+						"defaultValue": "",
+						"width": 100,
+						"widthUnit": "percent",
+						"rows": 10
+					},
+					"components": []
+				}]
+			}
+		},
+		"process": {
+			"useProcess": true,
+			"statuses": [{
+				"name": "{{applet.fixtures.template.status.ready}}",
+				"start": true,
+				"doing": false,
+				"end": false,
+				"color": "0"
+			}, {
+				"name": "{{applet.fixtures.template.status.reject}}",
+				"start": false,
+				"doing": true,
+				"end": false,
+				"color": "0"
+			}, {
+				"name": "{{applet.fixtures.template.status.complete}}",
+				"start": false,
+				"doing": false,
+				"end": true,
+				"color": "0"
+			}],
+			"transitions": [{
+				"beforeStatus": "{{applet.fixtures.template.status.ready}}",
+				"nextStatus": "{{applet.fixtures.template.status.reject}}",
+				"actionName": "{{applet.fixtures.template.action.reject}}",
+				"actionRoles": ["REGISTRANT", "ADMIN"],
+				"pushRoles": []
+			}, {
+				"beforeStatus": "{{applet.fixtures.template.status.ready}}",
+				"nextStatus": "{{applet.fixtures.template.status.complete}}",
+				"actionName": "{{applet.fixtures.template.action.complete}}",
+				"actionRoles": ["REGISTRANT", "ADMIN"],
+				"pushRoles": []
+			}, {
+				"beforeStatus": "{{applet.fixtures.template.status.complete}}",
+				"nextStatus": "{{applet.fixtures.template.status.ready}}",
+				"actionName": "{{applet.fixtures.template.action.cancel}}",
+				"actionRoles": ["REGISTRANT", "ADMIN"],
+				"pushRoles": []
+			}],
+			"addPushes": []
+		}
+	},
+	"messageKeys": [
+		"applet.fixtures.template.status.ready",
+		"applet.fixtures.template.status.reject",
+		"applet.fixtures.template.status.complete",
+		"applet.fixtures.template.action.reject",
+		"applet.fixtures.template.action.complete",
+		"applet.fixtures.template.action.cancel",
+		"applet.new.template.col.status",
+		"applet.new.template.col.createdat"
+	],
+	"guide" : {
+		"contents" : "applet.fixtures.manage.template.guide.content",
+		"imageFiles" : [
+			"6_equipmentManagement/6_01.png",
+			"6_equipmentManagement/6_02.png",
+			"6_equipmentManagement/6_03.png"
+		]
+	}
+}

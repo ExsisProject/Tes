@@ -1,0 +1,43 @@
+{{#isImage}}
+<li class="{{attachClass}}" data-tmpname="{{tmpName}}" data-name="{{name}}" data-hostid="{{hostId}}" data-size="{{size}}">
+    <span class="item_image">
+        <span class="btn_wrap">
+            <span class="ic_classic ic_del" title="{{lang.del}}"></span>
+        </span>
+        <span class="thumb">
+            <img src="{{thumbnail}}" alt="{{name}}" />
+        </span>
+        <span class="name">{{name}}</span>
+        <span class="size">({{humanSize}})</span>
+    </span>
+</li>
+{{/isImage}}
+{{^isImage}}
+<li class="{{attachClass}}" data-tmpname="{{tmpName}}" data-name="{{name}}" data-hostid="{{hostId}}" data-size="{{size}}">
+    <span class="item_file">
+        <span class="btn_bdr">
+            <span class="ic_classic ic_del" title="{{lang.del}}"></span>
+        </span>
+        <span class="ic_file {{fileType}}"></span>
+        <span class="name">{{name}}</span>
+        <span class="size">({{humanSize}})</span>
+
+        {{#usePreview}}
+        <a href="#" data-func="tempPreview" data-bypass data-id>
+            <span class="btn_fn4">
+                <span class="txt" style="padding:0px;">{{lang.preview}}</span>
+            </span>
+        </a>
+        {{/usePreview}}
+
+        {{#useDownload}}
+        <a href="{{previewURL}}" data-bypass>
+            <span class="btn_fn4">
+                <span class="txt" style="padding:0px;">{{lang.download}}</span>
+            </span>
+        </a>
+        {{alertMessage}}
+        {{/useDownload}}
+    </span>
+</li>
+{{/isImage}}

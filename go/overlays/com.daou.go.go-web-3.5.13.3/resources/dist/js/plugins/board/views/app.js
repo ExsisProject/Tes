@@ -1,0 +1,1 @@
+(function(){define(["backbone","app","board/views/home_list"],function(e,t,n){var r=t.BaseView.extend({render:function(){n.render()}},{__instance__:null,render:function(){var e=this.getInstance();return e.render(),e}});return r})})();

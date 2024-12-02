@@ -1,0 +1,26 @@
+<ul class="info_summary">
+    <li class="first">
+        <span class="tit">{{lang.label_total_community}}</span>
+        <span class="txt">
+            <strong id="communityCount">{{totalCount}}</strong> {{lang.label_count}}
+        </span>
+        <span class="desc">
+            {{lang.label_used}} : {{model.communityOnlineCount}} {{lang.label_count}} /
+            {{lang.label_wait}} : {{model.communityWaitCount}} {{lang.label_count}} /
+            {{lang.label_stop}} : {{model.communityStopCount}} {{lang.label_count}}
+        </span>
+    </li>
+    <li style="display: none;">
+        <span class="tit">{{lang.label_total_storage}}</span>
+        <span class="txt"><strong id="storageTotal">{{totalSize}}</strong> {{lang.label_mb}}</span>
+    </li>
+    <li style="display: none;" class="bar">
+        <span class="txt_guide">{{lang.label_usage_desc}}</span>
+    </li>
+</ul>
+<span class="wrap_action">
+    <span class="ic_adm ic_accordion_open" title="펼치기"></span>
+</span>
+<span class="wrap_action" style="display: none;">
+    <span class="ic_adm ic_accordion_close" title="접기"></span>
+</span>

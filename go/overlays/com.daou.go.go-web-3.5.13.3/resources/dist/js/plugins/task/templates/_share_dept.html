@@ -1,0 +1,31 @@
+<td class="subject">
+	<span class="txt">{{data.name}}</span>
+</td>
+<td class="share">
+	<span class="wrap_single_form">
+		<input type="checkbox" {{#data.cascade}}checked{{/data.cascade}}>
+	</span>
+</td>
+<td class="read">
+	<span class="wrap_option">
+		<input id="all{{data.nodeId}}" type="radio" name="readOption{{data.nodeId}}" value="all" data-type="readOption" {{^data.members.length}}checked{{/data.members.length}} />
+		<label for="all{{data.nodeId}}">{{lang.all}}</label>
+	</span>
+	<span class="horspace1"></span>
+	<span class="wrap_option">
+		<input id="partial{{data.nodeId}}" type="radio" name="readOption{{data.nodeId}}" value="partial" data-type="readOption" {{#data.members.length}}checked{{/data.members.length}} />
+		<label for="partial{{data.nodeId}}">{{lang.piece}}</label>
+	</span>
+	<div class="wrap_name_tag" {{^data.members.length}}style="display:none"{{/data.members.length}}>
+</div>
+</td>
+<td class="delete">
+{{#data.defaultFlag}}
+-
+{{/data.defaultFlag}}
+{{^data.defaultFlag}}
+	<span class="btn">
+		<span class="ic_side ic_basket_bx" title="{{lang.delete}}"></span>
+	</span>
+{{/data.defaultFlag}}
+</td>

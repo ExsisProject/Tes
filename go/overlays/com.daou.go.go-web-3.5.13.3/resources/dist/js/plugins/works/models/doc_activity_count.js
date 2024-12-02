@@ -1,0 +1,1 @@
+define("works/models/doc_activity_count",function(require){var e=require("backbone"),t=e.Model.extend({url:function(){return GO.contextRoot+"api/works/applets/"+this.appletId+"/docs/"+this.docId+"/activity/count"},initialize:function(e,t){this.appletId=e,this.docId=t}});return t});

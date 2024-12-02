@@ -1,0 +1,10 @@
+<form class="form_static">
+    {{#labels}}
+    <div class="form_static_wrap">
+        <span class="card_label" style="background:{{color}}"></span>
+        <input class="input-labelname txt w_max" name="label_name_{{id}}" type="text" value="{{title}}" data-labelid="{{id}}">
+    </div>
+    {{/labels}}
+</form>
+
+{{> _confirm_button}}

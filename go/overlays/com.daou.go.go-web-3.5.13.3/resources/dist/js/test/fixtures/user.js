@@ -1,0 +1,1 @@
+(function(e){e.set("me",{id:21,companyId:1,name:"\uc784\uc724\uc544",position:"\uc0ac\uc6d0",loginId:"test1",email:"test1@test.com",anniversary:13294368e5,birthday:6036768e5,employeeNumber:"20081079",locale:"ko",status:"ONLINE",photo:"/resources/images/photo_my.jpg",noti:6})}).call(this,BoneGirl);

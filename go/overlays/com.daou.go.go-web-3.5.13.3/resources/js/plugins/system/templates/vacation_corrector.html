@@ -1,0 +1,44 @@
+<div class="content_page">
+  <form name="formEhrStat" id="formEhrStat" >
+    <div class="container">
+      <div class="header">
+        <h2>{{lang.delete_vacation_history}}</h2>
+      </div>
+      <div class="content">
+        <table class="detail" >
+          <colgroup>
+            <col style="width: 110px">
+          </colgroup>
+          <tr>
+            <th rowspan="3"><span class="title">{{lang.delete_vacation_history}}</span></th>
+            <td>
+              <span class="option_wrap">
+                {{lang.delete_vacation_history_desc}}
+              </span>
+            </td>
+          </tr>
+          <tr class="last">
+            <td>
+              <div class="vertical_wrap">
+                <span class="w_max">회사 아이디 : </span>
+                <span class="wrap_txt w_max">
+                  <input id="companyId" class="input w_mini" type="text">
+                </span>
+                <span class="w_max">기안자 아이디 : </span>
+                <span class="wrap_txt w_max">
+                  <input id="userId" class="input w_mini" type="text">
+                </span>
+              </div>
+              <div class="vertical_wrap">
+                <span class="w_max">근태 이력 아이디 :</span>
+                <span class="wrap_txt w_max">
+                  <input id="vacationHistoryId" class="input w_mini" type="text">
+                </span>
+                <span class="btn_s btn_execution" id="deleteVacationHistory" name="삭제">삭제</span>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </form>

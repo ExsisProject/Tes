@@ -1,0 +1,41 @@
+<tr>
+	{{#empty?}}
+	<td colspan="4">
+		<p class="data_null">
+			<span class="ic_data_type ic_no_data"></span>
+			<span class="txt">{{message.empty}}</span>
+		</p>
+	</td>
+	{{/empty?}}
+	{{^empty?}}
+    {{#first_row?}}<th{{#rowspan?}} rowspan="{{rowspan_count}}"{{/rowspan?}}>{{format_date}}</th>{{/first_row?}}
+    <td><span class="time">{{format_time}}</span></td>
+    <td class="align_l">
+        {{#is_ehr_event}}
+        <div class="ehr_info">
+            <a class="event_link" href="{{detail_url}}">
+                <span class="chip bgcolor{{calendar_color}}" title="{{calendar_name}}"></span>
+                <span class="info">{{&summary}}</span><span class="name">({{creator_name}})</span>
+            </a>
+        </div>
+        {{/is_ehr_event}}
+        {{^is_ehr_event}}
+        <a class="event_link" href="{{detail_url}}">
+            <span class="chip_schedule">
+            	{{#show_color?}}
+                <span class="chip bgcolor{{calendar_color}}" title="{{calendar_name}}"></span>
+                {{/show_color?}}
+                {{#is_group_event?}}
+                <span class="chip bgcolor_group" title="{{label.group_event}}"></span>
+                {{/is_group_event?}}
+                {{#is_private?}}
+                <span class="ic_classic ic_lock" title="{{label.private}}" alt="{{label.private}}"></span>
+                {{/is_private?}}
+                <span>{{&summary}}</span>
+            </span>
+        </a>
+        {{/is_ehr_event}}
+    </td>
+    <td class="align_l">{{attendees}}</td>
+    {{/empty?}}
+</tr>

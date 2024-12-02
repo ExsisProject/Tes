@@ -1,0 +1,42 @@
+<div class="content_page">
+	<div class="dataTables_wrapper container">				
+		<div class="content_tb">			
+			<table class="chart size" id="typeList">
+				<colgroup>
+					<col width="38">
+					<col width="150">
+					<col width="*">
+					<col width="100">
+					<col width="100">
+					<col width="120">
+					<col width="120">
+				</colgroup>
+				<thead>							
+					<tr>
+						<th class="sorting check"><input type="checkbox" id="checkAll"></th>
+						<th class="sorting state"><span class="title_sort">{{lang.typeName}}<ins class="ic"></ins></span></th>
+						<th class="sorting set"><span class="title_sort">{{lang.statusSetting}}<ins class="ic"></ins></span></th>
+						<th class="sorting folder"><span class="title_sort">{{lang.applyFolder}}<ins class="ic"></ins></span></th>
+						<th class="sorting_state"><span class="title_sort">{{lang.isEnable}}<ins class="ic"></ins><span class="selected"></span></span></th>
+						<th class="sorting_desc date"><span class="title_sort">{{lang.createdAt}}<ins class="ic"></ins><span class="selected"></span></span></th>
+						<th class="sorting last action"><span class="title_sort">{{lang.administration}}<ins class="ic"></ins></span></th>
+					</tr>
+				</thead>	
+			</table>	
+
+			<div class="table_search">				
+				<select id="searchType">
+					<option value="ISSUETYPE">{{lang.typeName}}</option>
+					<option value="STATUS">{{lang.statusName}}</option>
+				</select>		
+				
+				<span class="search_wrap">
+					<input class="input" type="text" id="searchKeyword">
+					<span class="btn_search" title="{{lang.search}}" id="search"></span>
+					<input class="submit" type="submit" value="">
+				</span>
+			</div>				
+
+		</div>
+	</div>
+</div>

@@ -1,0 +1,25 @@
+<h1 class="cs_s_title">{{lang.report}}</h1>
+<div class="cs_report_group">
+{{#dataset}}
+	<div class="article_wrap">
+			<div class="info">
+				<span class="item item_default">
+					<span class="name" id="reportTitle" data-seriesId="{{seriesId}}" data-reportId="{{id}}" data-folderId={{folderId}}>{{{contents}}}</span>
+					<span class="date">{{convertSubmittedAt}}</span>
+				</span>
+			</div>
+			<div class="cs_article dot" style="word-wrap: break-word;"><span>{{{contents}}}</span></div>
+			<span class="item">
+					<span class="sub">{{folderDeptName}} &gt; {{folderName}}</span>
+					<span class="part">l</span>
+					<span>{{reporter.name}}</span>
+			</span>
+		</div>
+{{/dataset}}
+</div>
+<div class="btn_more_wrap">
+	<a class="btn_more" id="btn_more" style="display:none;">
+		<span class="txt">{{lang.more}}</span>
+		<span class="ic ic_csm_arrow"></span>
+	</a>
+</div>

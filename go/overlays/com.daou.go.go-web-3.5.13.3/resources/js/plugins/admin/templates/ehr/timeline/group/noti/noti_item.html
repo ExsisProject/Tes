@@ -1,0 +1,26 @@
+<span class="vertical_wrap">
+    {{#timeSetting.use}}
+    <span class="wrap_select">
+        <select class="v2_slt" name="" id="notiTime">
+            {{#timeSetting.timeRange}}
+                <option value="{{.}}" {{#isSelected}} selected {{/isSelected}}>
+                    {{.}}
+                    {{#timeSetting.useMinuteType}}{{AdminLang.분}}{{/timeSetting.useMinuteType}}
+                    {{^timeSetting.useMinuteType}}{{AdminLang.시간}}{{/timeSetting.useMinuteType}}
+                    {{#timeSetting.afterType}}{{AdminLang.후}}{{/timeSetting.afterType}}
+                    {{^timeSetting.afterType}}{{AdminLang.전}}{{/timeSetting.afterType}}
+                </option>
+            {{/timeSetting.timeRange}}
+        </select>
+    </span>
+    <span class="space"></span>
+    <span class="btn_wrap">
+        <span class="ic ic_row_add" id="add_noti" title="{{CommonLang.추가}}"></span>
+        <span class="ic ic_row_del" id="remove_noti" title="{{CommonLang.삭제}}}"></span>
+    </span>
+    {{/timeSetting.use}}
+
+    {{^timeSetting.use}}
+        {{{description}}}
+    {{/timeSetting.use}}
+</span>

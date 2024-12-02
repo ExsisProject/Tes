@@ -1,0 +1,80 @@
+<select id="selectInputDataType" name="dataType">
+     <option value="DIRECT_ACCESS" {{#isDirectAccessType}} selected="selected" {{/isDirectAccessType}}>{{lang.DirectAccess}}</option>
+     <option value="STRING" {{#isStringType}} selected="selected" {{/isStringType}}>{{lang.String}}</option>
+     <option value="HTML" {{#isHtmlType}} selected="selected" {{/isHtmlType}}>{{lang.Html}}</option>
+</select>
+
+<div id="publicArea" class="option_inner">
+      <span class="option_wrap">
+          <input type="radio" id="" value="true" name="usePublic" {{#usePublic}} checked="checked" {{/usePublic}}> 
+          <label for="">{{lang.공용}}</label>
+      </span>
+      <span class="option_wrap">
+          <input type="radio" id="" value="false" name="usePublic" {{^usePublic}} checked="checked" {{/usePublic}}> 
+          <label for="">{{lang.개인 (employeeNumber)}}</label>
+      </span>
+</div>
+
+<div id="inputDataTypeSub" class="">
+      <div id="inputStringDataTypeArea" class="option_inner">
+          <ul class="list_option">
+              <li class="first">
+                 <span class="minor option_label">{{lang.key value 구분자}}</span>
+                 <input class="input" type="text" name="inputKeyValueSeparator" value="{{inputKeyValueSeparator}}">
+              </li>             
+              <li>
+                 <span class="minor option_label">{{lang.Data 구분자}} </span>
+                 <input class="input" type="text" name="inputElementSeparator" value="{{inputElementSeparator}}">
+              </li>
+          </ul>
+	  </div>
+      
+      <div id="inputHtmlDataTypeArea" class="option_inner">
+          <span class="option_wrap">
+              <input type="radio" id="" value="true" name="htmlEditable" {{#htmlEditable}} checked="checked" {{/htmlEditable}}> 
+              <label for="htmlEditable">{{lang.편집가능}}</label>
+          </span>
+          <span class="option_wrap">
+              <input type="radio" id="" value="false" name="htmlEditable" {{^htmlEditable}} checked="checked" {{/htmlEditable}}> 
+              <label for="htmlEditable">{{lang.편집불가}}</label>
+          </span>
+      </div>
+      <div id="inputDirectAccessDataTypeArea" class="">
+          <div class="option_inner line">
+              <ul class="list_option">
+              	  <li>
+              	  	 <span class="minor">{{lang.외부 시스템에서 호출될 때, 아래 값을 입력하세요}}({{lang.필수값 아님}})</span>
+              	  </li>
+              	  <li>
+              	  	 <span class="minor">{{lang.외부 시스템 호출 URL name}} : {{lang.외부 시스템 호출 URL value}}</span>
+              	  </li>
+                  <li class="">
+                     <span class="minor">{{lang.Validator Name}} ({{lang.bean}}) :</span>
+                     <input class="input" type="text" name="validatorBeanName" value="{{validatorBeanName}}">
+                  </li>
+              </ul>
+          </div>
+          
+          <div id="inputDirectAccessRequiredParams" class="option_inner line">
+          </div>
+          
+          <span class="btn_wrap">
+              <span class="btn_s btnRowAdd">{{lang.추가}}</span>
+              <span class="btn_s btnRowDelete">{{lang.삭제}}</span>
+          </span>
+          
+          <table class="in_table direct_access_form">
+              <caption>{{lang.데이터 유형}}</caption>
+              <thead>
+                  <tr>
+                      <th class="chk"><span class="txt"><input type="checkbox" id="inputDataTypeAllCheck"></span></th>
+                      <th class=""><span class="txt">{{lang.Query}}</span></th>
+                      <th class="para"><span class="txt">{{lang.Parameters}}</span></th>
+                      <th class="type"><span class="txt">{{lang.데이터 유형}}</span></th>
+                  </tr>
+              </thead>
+              <tbody id="inputDirectAccessTypeList">
+              </tbody>
+          </table>
+	</div>
+</div>

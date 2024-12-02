@@ -1,0 +1,1 @@
+define(["backbone"],function(e){var t=e.Collection.extend({model:e.Model,url:function(){return"/ad/api/system/asset/list/"+this.companyId},setCompanyId:function(e){this.companyId=e}});return t});

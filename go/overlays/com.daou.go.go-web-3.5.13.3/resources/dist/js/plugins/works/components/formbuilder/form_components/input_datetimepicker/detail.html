@@ -1,0 +1,11 @@
+<span class="box_label_wrap">
+    {{^model.hideLabel}}
+	<label for="">{{{label}}}</label>
+    {{/model.hideLabel}}
+    {{#model.useAlarm}}
+	<span class="ic ic_alarm_s" title="{{timersLabel}}"></span>
+	{{/model.useAlarm}}
+</span>
+<div class="build_box_data">
+	<span class="txt">{{userData}}</span>
+</div>

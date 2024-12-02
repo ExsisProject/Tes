@@ -1,0 +1,1 @@
+define("store/models/store_admin",function(require){var e=require("backbone"),t=require("app"),n=e.Model.extend({url:function(){return t.config("contextRoot")+"api/store/checkadmin"},isAdmin:function(){return this.get("true")!=null||this.get("true")!==undefined}},{getInstance:function(){var e=new n;return e.fetch({async:!1}),e}});return n});

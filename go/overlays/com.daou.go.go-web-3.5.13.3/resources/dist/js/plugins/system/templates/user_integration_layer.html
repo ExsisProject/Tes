@@ -1,0 +1,29 @@
+<p class="desc">{{lang.겸직자 설정 레이어 설명}}</p>
+<table class="tb_select">
+    <tbody>
+        <tr>
+            <td>
+                <div id="user_integration_layer_org_tree" class="wrap_oganization">
+                </div>
+            </td>
+            <td class="action">
+                <span id="add_user" class="btn_s"><span class="ic_con ic_arrow_type4"></span></span>
+            </td>
+            <td>
+                <div class="tool_bar">
+                    <span class="btn_s tool_bar" id="move_user_top" data-type="top" title="{{lang.맨 위로}}"><span class="ic_order first"></span></span>
+                    <span class="btn_s tool_bar" id="move_user_up" title="{{lang.위로}}"><span class="ic_order top"></span></span>
+                    <span class="btn_s tool_bar" id="move_user_down" title="{{lang.아래로}}"><span class="ic_order bottom"></span></span>
+                    <span class="btn_s tool_bar" id="move_user_bottom" data-type="bottom" title="{{lang.맨 아래로}}"><span class="ic_order last"></span></span>
+                    <span class="btn_s tool_bar vt" id="delete_user">{{lang.삭제}}</span>
+                </div>
+                <p class="tit">{{lang.선택한 사용자}}</p>
+                <div class="div_scroll wrap_list">
+                    <ul id="integration_users">
+                        <!-- 사용자 목록 -->
+                    </ul>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>

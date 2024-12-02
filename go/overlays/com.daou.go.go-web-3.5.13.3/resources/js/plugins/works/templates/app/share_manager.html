@@ -1,0 +1,259 @@
+<header class="content_top works_tit" id="worksContentTop">
+</header>
+<div class="content_page">
+	<div class="works_app_write set_works_share">
+		<form>
+			<fieldset>
+				<div class="app_write_tit">	
+					<h5>{{lang.데이터 상세 권한 설정}}</h5>
+					<p class="desc">{{{lang.데이터 상세 권한 설정 설명}}}</p>
+				</div>  
+				<table class="form_type">
+					<tbody>
+						<tr>
+							<th>
+                                <span class="title">{{lang.title}}</span>
+                                <span class="help">
+                                    <span class="tool_tip">{{lang.desc}}<i class="tail_left"></i></span>
+                                </span>
+                            </th>
+							<td>
+								<div>
+									<span class="wrap_option">
+										<input id="public" value="public" type="radio" name="shareType"/>
+										<label for="public">{{lang.pub}}</label>
+									</span>
+									<span class="horspace1"></span>
+									<span class="horspace1"></span>
+									<span class="wrap_option">
+										<input id="custom" value=custom type="radio" name="shareType"/>
+										<label for="custom">{{lang.custom}}</label>
+									</span>
+								</div>
+								<div id="circleArea" style="display: block;">
+									<span id="accessUser"></span>
+								</div>
+
+							</td>
+						</tr>
+						<tr el-add-roles>
+                            <th>
+                                <span class="title">{{lang.데이터 등록 권한}}</span>
+                            </th>
+                            <td>
+                                <div>
+                                    <span class="wrap_opt">
+                                    	<input id="addDocRolesMEMBER" type="checkbox" value="MEMBER" />
+                                    	<label for="addDocRolesMEMBER">{{lang.공유자 전체}}</label>
+                                    </span>
+                                    <span class="horspace1"></span>
+                                    <span class="wrap_opt">
+                                    	<input id="addDocRolesADMIN" type="checkbox" value="ADMIN" />
+                                    	<label for="addDocRolesADMIN">{{lang.운영자}}</label>
+                                    </span>
+                                </div>
+                            </td>
+                        </tr>
+						<tr el-edit-roles>
+                            <th>
+                                <span class="title">{{lang.데이터 수정 권한}}</span>
+                            </th>
+                            <td>
+                                <span class="wrap_opt">
+                                   	<input id="editDocRolesMEMBER" type="checkbox" value="MEMBER" />
+                              		<label for="editDocRolesMEMBER">{{lang.공유자 전체}}</label>
+                                </span>
+                                <span class="horspace1"></span>
+                                <span class="wrap_opt">
+                                   	<input id="editDocRolesREGISTRANT" type="checkbox" value="REGISTRANT" />
+                              		<label for="editDocRolesREGISTRANT">{{lang.등록자}}</label>
+                                </span>
+                                <span class="horspace1"></span>
+                                <span class="wrap_opt">
+                                   <input id="editDocRolesADMIN" type="checkbox" value="ADMIN" />
+                                   <label for="editDocRolesADMIN">{{lang.운영자}}</label>
+                            	</span>
+                            	<span class="horspace1"></span>
+                            	{{#userTypes}}
+                                <span class="wrap_opt">
+                                   	<input id="editDocRoles{{cid}}" type="checkbox" value="{{cid}}" />
+                              		<label for="editDocRoles{{cid}}">{{label}}</label>
+                                </span>
+                            	{{/userTypes}}
+                            </td>
+                        </tr>
+						<tr el-edit-pushes>
+                            <th>
+                                <span class="title">{{lang.수정 알림 대상}}</span>
+                            </th>
+                            <td>
+                                <span class="wrap_opt">
+                                   	<input id="editDocPushesREGISTRANT" type="checkbox" value="REGISTRANT" />
+                              		<label for="editDocPushesREGISTRANT">{{lang.등록자}}</label>
+                                </span>
+                                <span class="horspace1"></span>
+                                <span class="wrap_opt">
+                                   <input id="editDocPushesADMIN" type="checkbox" value="ADMIN" />
+                                   <label for="editDocPushesADMIN">{{lang.운영자}}</label>
+                            	</span>
+                            	<span class="horspace1"></span>
+                                {{#userTypes}}
+                                <span class="wrap_opt">
+                                   	<input id="editDocPushes{{cid}}" type="checkbox" value="{{cid}}" />
+                              		<label for="editDocPushes{{cid}}">{{label}}</label>
+                                </span>
+                            	{{/userTypes}}
+                                {{#hasUserTypes}}
+                                <div class="desc">
+                                    {{lang.수정 알림 대상 설명}}
+                                </div>
+                                {{/hasUserTypes}}
+                            </td>
+                        </tr>
+						<tr el-delete-roles>
+                            <th>
+                                <span class="title">{{lang.데이터 삭제 권한}}</span>
+                            </th>
+                            <td>
+                                <span class="wrap_opt">
+                                   	<input id="deleteDocRolesMEMBER" type="checkbox" value="MEMBER" />
+                              		<label for="deleteDocRolesMEMBER">{{lang.공유자 전체}}</label>
+                                </span>
+                                <span class="horspace1"></span>
+                                <span class="wrap_opt">
+                                   	<input id="deleteDocRolesREGISTRANT" type="checkbox" value="REGISTRANT" />
+                              		<label for="deleteDocRolesREGISTRANT">{{lang.등록자}}</label>
+                                </span>
+                                <span class="horspace1"></span>
+                                <span class="wrap_opt">
+                                   <input id="deleteDocRolesADMIN" type="checkbox" value="ADMIN" />
+                                   <label for="deleteDocRolesADMIN">{{lang.운영자}}</label>
+                            	</span>
+                            	<span class="horspace1"></span>
+                                {{#userTypes}}
+                                <span class="wrap_opt">
+                                   	<input id="deleteDocRoles{{cid}}" type="checkbox" value="{{cid}}" />
+                              		<label for="deleteDocRoles{{cid}}">{{label}}</label>
+                                </span>
+                            	{{/userTypes}}
+                            </td>
+                        </tr>
+                        <tr el-use-closed>
+                            <th>
+                                <span class="title">{{lang.useClosed}}</span>
+                                <span class="help">
+                                    <span class="tool_tip">{{lang.closedDesc}}<i class="tail_left"></i></span>
+                                </span>
+                            </th>
+                            <td>
+                                <div>
+                                    <span class="wrap_opt">
+                                        <input type="radio" id="closedOption_selected" name="closedOption" value="SELECTED">
+                                        <label for="closedOption_selected">{{lang.closedSelected}}</label>
+                                    </span>
+                                    <br>
+                                    <span class="wrap_opt">
+                                        <input type="radio" id="closedOption_open" name="closedOption" value="OPEN">
+                                        <label for="closedOption_open">{{lang.open}}</label>
+                                    	<div class="desc_caution" id="closedOption_open_desc" style="display: none;">{{{lang.공개문서만 등록 설정 시 문구}}}</div>
+                                    </span>
+                                    <br>
+                                    <span class="wrap_opt">
+                                        <input type="radio" id="closedOption_closed" name="closedOption" value="CLOSED">
+                                        <label for="closedOption_closed">{{lang.closed}}</label>
+                                    </span>
+                                </div>
+                            </td>
+                        </tr>      
+ 					</tbody>	
+				</table>                       
+                <hr />
+				<div class="app_write_tit">	
+					<h5>{{lang.데이터 목록 조회 권한 설정}}</h5>
+					<p class="desc">{{{lang.데이터 목록 조회 권한 설정 설명}}}</p>	
+				</div>     
+				<table class="form_type">
+					<tbody>                        
+                        <tr el-filter-manager>
+                        	<th>
+                                <span class="title">{{lang.필터 조건}}</span>                 
+                            </th>
+                            <td>
+						        <span class="vertical_wrap">
+						            <span class="btn_wrap" el-add-filter>
+						                <span class="btn_s">{{lang.추가}}</span>
+						            </span>
+						        </span>
+							    <table class="in_table list_flow">
+							        <thead>
+							            <tr>
+							                <th class="filter_name">
+							                    <span>{{lang.필터명}}</span>
+							                </th>
+							                <th class="filter_condition">
+							                    <span>{{lang.필터 조건}}</span>
+							                </th>
+							                <th class="filter_desc">
+							                    <span>{{lang.설명}}</span>
+							                </th>
+							                <th class="func">
+							                    <span>{{lang.삭제}}</span>
+							                </th>
+							            </tr>
+							        </thead>
+							        <tbody id="filters">
+							            <tr el-null>
+							                <td colspan="4">
+							                    <p class="data_null">
+							                        <span class="ic_data_type ic_no_contents"></span>
+							                        <span class="txt">{{lang.목록이 없습니다}}</span>
+							                    </p>
+							                </td>
+							            </tr>
+							        </tbody>
+							    </table>
+							</tr>
+							<tr el-role-manager>
+								<th>
+	                                <span class="title">{{lang.필터 조건 대상 설정}}</span>                 
+	                            </th>
+	                            <td>
+							    <span class="vertical_wrap">
+						            <span class="btn_wrap" el-add-role>
+						                <span class="btn_s">{{lang.추가}}</span>
+						            </span>
+						        </span>
+							    <table class="in_table list_flow">
+							        <thead>
+							            <tr>
+							                <th class="filter_rule">
+							                    <span>{{lang.필터규칙}}</span>
+							                </th>
+							                <th class="filter_condition">
+							                    <span>{{lang.대상}}</span>
+							                </th>
+							                <th class="group_name">
+							                    <span>{{lang.설명}}</span>
+							                </th>
+							                <th class="func">
+							                    <span>{{lang.삭제}}</span>
+							                </th>
+							            </tr>
+							        </thead>
+							        <tbody id="groups"></tbody>
+							    </table>
+							</td>
+                        </tr>
+					</tbody>	
+				</table>
+			</fieldset>
+		</form>
+		<div class="bar"></div>
+		<div class="page_action_wrap">
+			<a id="btn-confirm" class="btn_major" data-role="button"><span class="txt">{{lang.regist}}</span></a>
+            <a id="btn-cancel" class="btn_minor" data-role="button"><span class="txt">{{lang.cancel}}</span></a>
+            <a id="btn-gosettinghome" class="btn_minor" data-role="button"><span class="txt">{{lang.gosettinghome}}</span></a>
+            <a id="btn-goapphome" class="btn_minor" data-role="button"><span class="txt">{{lang.goapphome}}</span></a>
+		</div>
+	</div>
+</div>

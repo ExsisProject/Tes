@@ -1,0 +1,81 @@
+<form name="formUpdateCommunity" onSubmit="return false;">
+	<fieldset>
+		<table class="form_type">
+			<colgroup>
+				<col width="130" />
+				<col width="*" />
+			</colgroup>
+			<tbody>
+				<tr>
+					<th><span class="title">{{lang.community_name}}</span></th>
+					<td>
+						<input class="txt comp w_max" type="text" name="name" maxlength="" value="{{model.name}}">
+					</td>
+				</tr>
+				<tr>
+					<th><span class="title">{{lang.community_desc}}</span></th>
+					<td>
+						<textarea class="w_max txtarea comp" type="text" name="description">{{model.description}}</textarea>
+					</td>
+				</tr>
+				
+				<tr>
+					<th><span class="title">{{lang.community_master}}</span></th>
+					<td>
+						<ul class="name_tag" id="changeMaster">
+							{{#model.masters}}
+							<li data-id="{{userId}}"><span class="name">{{name}}</span> 
+								<span class="btn_wrap">
+									<input type="hidden" name="masterId" value="{{userId}}" />
+							</li>
+							{{/model.masters}}
+							{{#isMaster}}
+							<li class="creat"><span class="btn_wrap" id="communityMaster"> 
+                                <span class="ic_form ic_addlist"></span> <span class="txt">{{lang.community_modify}}</span></span>
+                            </li>
+                            {{/isMaster}}
+						</ul>
+					</td>
+				</tr>
+				<tr>
+					<th><span class="title">{{lang.community_manager}}</th>
+					<td>
+						<ul class="name_tag" id="addManagers">
+							{{#model.managers}}
+							<li data-id="{{userId}}"><span class="name">{{name}}</span> 
+								<span class="btn_wrap">
+									<input type="hidden" name="managerId" value="{{userId}}" />
+									<span class="ic_classic ic_del" title="{{lang.delete}}"></span>
+								</span>
+							</li>
+							{{/model.managers}}
+							<li class="creat"><span class="btn_wrap" id="communityManager"> <span
+									class="ic_form ic_addlist"></span> <span class="txt">{{lang.community_add}}</span>
+							</span></li>
+						</ul>
+					</td>
+				</tr>
+				<tr>
+					<th><span class="title">{{lang.community_publicflag}}</span></th>
+					<td>
+						<span class="option_wrap"> <input id="publicFlag1" type="radio" name="publicFlag" value="true" 
+						{{#model.publicFlag}}checked="checked"{{/model.publicFlag}}> <label for="publicFlag1">{{lang.community_public}}</label></span>
+					
+						<span class="option_wrap"> <input id="publicFlag0" type="radio" name="publicFlag" value="false" 
+						{{^model.publicFlag}}checked="checked"{{/model.publicFlag}}> <label for="publicFlag0">{{lang.community_private}}</label></span>
+					</td>
+				</tr>
+				<tr class="line">
+					<td colspan="2"><hr /></td>
+				</tr>
+			</tbody>
+		</table>
+	</fieldset>
+</form>
+
+<div class="page_action_wrap">
+	<span class="btn_major" data-role="button" id="btnSave"><span class="txt">{{lang.common_save}}</span></span>
+	<span class="btn_minor" data-role="button" id="btnCancel"><span class="txt">{{lang.common_cancel}}</span></span>
+</div>
+	
+

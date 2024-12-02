@@ -1,0 +1,31 @@
+{{#data}}
+<li>
+    <a class="tit" href="javascript:;" data-id={{id}} data-bypass data-type="{{type}}" data-list-id="{{id}}">
+        <div class="photo"><img src="{{thumbSmall}}"></div> <!-- 44px * 44px -->
+        <div class="info">
+            <span class="name txt_ellipsis">{{name}} {{positionName}}</span>
+            <span class="">{{companyName}}</span>
+            {{#departmentName}}
+            <span class="part"> | </span>
+            <span class="department">{{departmentName}}</span>
+            {{/departmentName}}
+        </div>
+    </a>
+    <div class="optional">
+        <!-- 개행하면 안됩니다. -->
+        {{#mobileNo}}
+        <a data-mobile="{{mobileNo}}" class="telMobile btn btn_user_phone"></a>
+        <a data-mobile="{{mobileNo}}" class="smsMobile btn btn_user_sms"></a>
+        {{/mobileNo}}
+        {{^mobileNo}}
+        <span class="btn btn_user_phone_off"></span>
+        <span class="btn btn_user_sms_off"></span>
+        {{/mobileNo}}
+        {{#email}}{{#isAvailableMail}}<a data-email="{{email}}" class="sendMail btn btn_user_mail"></a>{{/isAvailableMail}}{{/email}}
+        {{^email}}<span class="btn btn_user_mail_off"></span>{{/email}}
+    </div>
+</li>
+{{/data}}
+{{^data}}
+<li class="creat data_null"><span class="txt_ellipsis">{{lang.not_contact}}</span></li>
+{{/data}}

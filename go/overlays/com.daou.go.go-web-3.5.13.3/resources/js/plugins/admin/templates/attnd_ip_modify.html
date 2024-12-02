@@ -1,0 +1,47 @@
+<form name="formIpModify">
+<div class="container">
+            <div class="header">
+                <h2>{{lang.label_access_allow_ip_info}}</h2>
+            </div>
+
+            <div class="content" id="accessBlock">
+                <table class="detail">
+                    <caption>{{lang.label_access_allow_ip_info}}</caption>
+                    <colgroup>
+                        <col width="150px">
+                        <col width="*">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <th><span class="title">{{lang.label_ip_name}}</span></th>
+                            <td>
+                                <div class="ip_name">
+                                <input type="input" name="ipName" id="ipName" class="input w200" value="{{model.ipName}}" maxlength="16">
+                                    <span class="go_alert" id="ipNameAlert"></span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="last">
+                            <th><span class="title">{{lang.label_ip}}</span></th>
+                            <td>
+                                <div class="ip">
+                                <input type="input" name="ip1" id="ip1" class="input wfix_mini" value="{{model.ip1}}" maxlength="3"> .
+                                <input type="input" name="ip2" id="ip2" class="input wfix_mini" value="{{model.ip2}}" maxlength="3"> .
+                                <input type="input" name="ip3" id="ip3" class="input wfix_mini" value="{{model.ip3}}" maxlength="3"> .
+                                <input type="input" name="ip4" id="ip4" class="input wfix_mini" value="{{model.ip4}}" maxlength="3"> - 
+                                <input type="input" name="ip5" id="ip5" class="input wfix_mini" value="{{model.ip5}}" maxlength="3">
+                                    <span class="go_alert" id="ipAlert"></span>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+   </form>
+   
+   <div class="page_action">
+	<span class="btn" id="btn_save">{{lang.label_modify}}</span>
+	<span class="btn_nega" id="btn_cancel">{{lang.label_cancel}}</span>
+</div>
+   

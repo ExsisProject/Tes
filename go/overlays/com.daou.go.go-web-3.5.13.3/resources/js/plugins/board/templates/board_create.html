@@ -1,0 +1,372 @@
+<header class="content_top"></header>
+<div class="content_page go_renew" style="padding-bottom:50px">
+	<form name="formBoardCreate" onSubmit="return false;">
+	<fieldset>
+	<table class="form_type form_add05">
+		<caption>{{lang.board_add_desc}}</caption>
+		<colgroup>
+			<col width="130px">
+			<col width="*">
+		</colgroup>
+		<tbody>
+		<tr>
+			<th><span class="title">{{lang.add_board_group}}</span></th>
+			<td>
+				<span class="wrap_select">
+					<select name="deptId" id="deptId" class="select-node"></select>
+				</span>
+				<span class="wrap_btn btn_creat btn-add-select-node">
+					<span class="ic_form ic_addlist"></span>
+					<span class="txt txt_b">{{lang.select_group}}</span>
+				</span>
+			</td>
+		</tr>
+		<tr>
+			<th><span class="title">{{lang.title}}</span></th>
+			<td>
+				<div class="wrap_txt ">
+					<input class="txt w_max" type="text" name="name" value="{{dataset.name}}" placeholder="">
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<th><span class="title">{{lang.desc}}</span></th>
+			<td>
+				<div class="wrap_txtarea">
+					<textarea class="txtarea w_max" name="description">{{dataset.description}}</textarea>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<th><span class="title">{{lang.type}}</span></th>
+			<td>
+				<ul class="type_style">
+					<li>
+						<label>
+							<input id="boardType1" type="radio" name="type" value="CLASSIC" checked="checked">
+							<span class="board_skin_classic"></span>
+							<span class="txt">{{lang.classic}}</span>
+						</label>
+					</li>
+					<li>
+						<label>
+							<input id="boardType0" type="radio" name="type" value="STREAM">
+							<span class="board_skin_feed"></span>
+							<span class="txt">{{lang.feed}}</span>
+						</label>
+					</li>
+				</ul>
+				<div class="wrap_desc desc">{{lang.alert_board_type}}</div>
+			</td>
+		</tr>
+		<tr class="line"><td colspan="2"><hr></td></tr>
+
+		<tr>
+			<th>
+				<span class="title">
+					{{lang.share_setting}}
+					<span class="help">&nbsp;
+						<span class="tool_tip">{{lang.share_desc}}<i class="tail_left"></i></span>
+					</span>
+				</span>
+
+			</th>
+			<td>
+				<span class="wrap_option">
+					<input type="radio" id="sharedFlag1" name="sharedFlag" value="true">
+					<label for="sharedFlag1">{{lang.use}}</label>
+				</span>
+				<span class="horspace1"></span>
+				<span class="wrap_option">
+					<input type="radio" id="sharedFlag0" name="sharedFlag" value="false" checked="checked">
+					<label for="sharedFlag0">{{lang.unuse}}</label>
+				</span>
+				<span class="wrap_desc_top"><span class="desc">{{lang.share_dept_desc}}</span></span>
+				<div id="sharedFlagOption" style="display:none;">
+					<div class="option_display" style="display:">
+						<span class="wrap_option last">
+							<input type="checkbox" id="lowRankFlag" name="lowRankFlag" value="true" />
+							<label for="lowRankFlag"> <span id="sharedDeptName"></span> {{lang.share_low_dept}}</label>
+						</span>
+						<div id="lowRankPermission" style="display:none">
+							<span class="wrap_option last">
+								<input type="radio" id="logRankPer3" name="lowPermission" value="3" checked="checked">
+								<label for="logRankPer3">{{lang.perm_write_read}}</label>
+							</span>
+							<span class="horspace1"></span>
+							<span class="wrap_option last">
+								<input type="radio" id="logRankPer1" name="lowPermission" value="1" >
+								<label for="logRankPer1">{{lang.perm_only_read}}</label>
+							</span>
+						</div>
+					</div>
+					{{#isOrgServiceOn}}
+					<div class="option_display">
+						<span class="wrap_option last">
+							<input type="checkbox" id="ownersUse">
+							<label for="ownersUse"> {{lang.dept_share}}</label>
+						</span>
+
+						<div class="vertical_wrap_s" id="ownersOption" style="display:none">
+
+							<span class="btn_wrap" id="btnAddOwners">
+								<span class="ic_form ic_addlist"></span><span class="txt txt_bold">{{lang.dept_share_add}}</span>
+							</span>
+							<div id="ownersTable">{{{owners}}}</div>
+
+						</div>
+					</div>
+					{{/isOrgServiceOn}}
+				</div>
+			</td>
+		</tr>
+
+		<tr class="line"><td colspan="2"><hr></td></tr>
+
+		<tr>
+			<th>
+				<span class="title">
+                {{lang.close_set}}
+                    <span class="help">&nbsp;
+                        <span>{{lang.open_set_desc}}<i class="tail_left"></i></span>
+                    </span>
+                </span>
+			</th>
+			<td>
+				<span class="wrap_option">
+					<input type="radio" id="publicFlag1" name="publicFlag" value="true">
+					<label for="publicFlag1">{{lang.use}}</label>
+				</span>
+				<span class="horspace1"></span>
+				<span class="wrap_option">
+					<input type="radio" id="publicFlag0" name="publicFlag" value="false" checked="">
+					<label for="publicFlag0">{{lang.unuse}}</label>
+				</span>
+				<span class="wrap_desc_top"><span class="desc">{{lang.open_member_desc}}</span></span>
+				<div id="publicFlagOption" style="display:none">
+					<div class="option_display" id="publicFlagOptionTable"></div>
+				</div>
+			</td>
+		</tr>
+		<tr class="line"><td colspan="2"><hr></td></tr>
+        <tr>
+            <th class="title">
+                <span class="txt">{{lang.anonym_flag}}
+					<span class="help">
+						<span>{{{lang.anonym_tooltip}}}<i class="tail_left"></i></span>
+					</span>
+				</span>
+            </th>
+            <td class="content">
+                <span class="wrap_option">
+                    <input type="radio" id="anonymFlag_true" name="anonymFlag" value="true">
+                    <label for="anonymFlag_true">{{lang.use}}</label></span>
+                <span class="horspace1"></span>
+                <span class="wrap_option">
+                    <input type="radio" id="anonymFlag_false" name="anonymFlag" value="false" checked="true">
+                    <label for="anonymFlag_false">{{lang.unuse}}</label></span>
+                <div class="wrap_desc desc">{{lang.anonym_desc}}</div>
+                <div id="anonymFlagOption" style="display:none;">
+                    <div class="option_display">
+                        <div class="vertical_wrap_s">
+								<span class="wrap_option">
+									<input type="checkbox" id="publicWriterSettingForPost" name="publicWriterSettingForPost">
+									<label for="publicWriterSettingForPost">{{lang.public_writer_for_post}}</label>
+								</span>
+                        </div>
+                        <div class="vertical_wrap_s" name="publicWriterDetailForPost" style="display:none;">
+							<span class="wrap_option" style="padding-top: 4px;">
+								<input type="radio" id="allUserForPost" name="targetForPost" value="true" checked="checked">
+								<label for="allUserForPost">{{lang.all_user_option}}</label>
+							</span>
+							<span class="horspace1"></span>
+                            <span class="wrap_option">
+								<input type="radio" id="specificUserForPost" name="targetForPost" value="false">
+								<label for="specificUserForPost">{{lang.specific_user_option}}</label>
+							</span>
+                            <div class="option_display" id="postGroupWrap" style="display:none">
+
+                            </div>
+                        </div>
+                        <div class="vertical_wrap_s">
+								<span class="wrap_option">
+									<input type="checkbox" id="publicWriterSettingForPostComment" name="publicWriterSettingForPostComment">
+									<label for="publicWriterSettingForPostComment">{{lang.public_writer_for_post_comment}}</label>
+								</span>
+                        </div>
+                        <div class="vertical_wrap_s" name="publicWriterDetailForPostComment" style="display:none;">
+							<span class="wrap_option" style="padding-top: 4px;">
+								<input type="radio" id="allUserForPostComment" name="targetForPostComment" value="true" checked="checked">
+								<label for="allUserForPostComment">{{lang.all_user_option}}</label>
+							</span>
+							<span class="horspace1"></span>
+                            <span class="wrap_option">
+								<input type="radio" id="specificUserForPostComment" name="targetForPostComment" value="false">
+								<label for="specificUserForPostComment">{{lang.specific_user_option}}</label>
+							</span>
+                            <div class="option_display" id="postCommentGroupWrap" style="display:none">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+
+        <tr class="line"><td colspan="2"><hr></td></tr>
+
+		<tr id="typeFlagOption">
+			<th>
+				<span class="title">
+					{{lang.header}}
+				</span>
+			</th>
+			<td>
+				<span class="wrap_option">
+					<input type="radio" id="headerFlag1" name="headerFlag" value="true">
+					<label for="headerFlag1">{{lang.use}}</label>
+				</span>
+				<span class="horspace1"></span>
+				<span class="wrap_option">
+					<input type="radio" id="headerFlag0" name="headerFlag" value="false" checked="checked">
+					<label for="headerFlag0">{{lang.unuse}}</label>
+				</span>
+				<div  id="headerFlagOption" style="display:none;">
+					<div class="option_display">
+						<span class="wrap_option last">
+							<input type="checkbox" name="headerRequiredFlag" id="headerRequiredFlag"/>
+							<label for="headerRequiredFlag">{{lang.header_required_option}}</label>
+						</span>
+					</div>
+					<div class="option_display option_article_head">
+					<div class="wrap">
+						<input class="input wfix_large" id="headerName" type="text" placeholder="{{lang.header_placeholder}}" data-value="">
+						<a class="btn_fn10" id="headerAdd" data-bypass>{{lang.header_add}}</a>
+						<span class="byte"><strong id="headerByte">0</strong> / 30byte</span>
+					</div>
+					<div class="vertical_wrap_s" style="display:"><!-- 체크하면 보임 -->
+						<table class="in_table tb_article_head">
+							<caption>{{lang.header_add}}</caption>
+							<colgroup>
+								<col width="">
+								<col width="100px">
+							</colgroup>
+							<thead>
+								<tr>
+									<th class="align_l">{{lang.header_subject}}</th>
+									<th>{{lang.delete}}</th>
+								</tr>
+							</thead>
+							<tbody id="headerListPart">
+							</tbody>
+						</table>
+					</div>
+				</div>
+				</div>
+			</td>
+		</tr>
+
+		<tr id="typeFlagLine" class="line"><td colspan="2"><hr></td></tr>
+
+		<tr>
+			<th class="title">
+				<span class="txt">{{{lang.send_mail_title}}}
+					<span class="help">
+						<span class="tool_tip">{{lang.send_mail_tooltip}}<i class="tail_left"></i></span>
+					</span>
+				</span>
+			</th>
+			<td class="content">
+				<span class="wrap_option"><input type="radio" id="baordMailSend1" name="sendMailFlag" value="true" checked="true" ><label for="baordMailSend1">{{lang.yes}}</label></span>
+				<span class="horspace1"></span>
+				<span class="wrap_option"><input type="radio" id="baordMailSend2" name="sendMailFlag" value="false"><label for="baordMailSend2">{{lang.no}}</label></span>
+
+			</td>
+		</tr>
+
+		<tr id="typeFlagLine" class="line"><td colspan="2"><hr></td></tr>
+
+		<tr>
+			<th><span class="title">{{lang.manager}}</span></th>
+			<td>
+				<ul id="boardManagers" class="name_tag">
+					<li class="creat">
+						<span class="btn_wrap" id="btnAddManager">
+							<span class="ic_form ic_addlist"></span>
+							<span class="txt">{{lang.manager_add}}</span>
+						</span>
+					</li>
+				</ul>
+			</td>
+		</tr>
+
+		{{^hidePostAuthOption}}
+		<tr class="closePostTitleShowOptionArea line"><td colspan="2"><hr></td></tr>
+		<tr class="closePostTitleShowOptionArea">
+			<th class="title">
+				<span class="txt">{{boardLang.비공개 문서 제목 표시}}</span>
+			</th>
+			<td>
+			<span class="wrap_option">
+				<input type="radio" id="closePostTitleShowFlagTrue" class="closePostTitleShowOption" name="closePostTitleShowOption" value="true">
+				<label for="closePostTitleShowFlagTrue">{{boardLang.제목만 표시}}</label>
+			</span>
+			<span class="horspace1"></span>
+			<span class="wrap_option">
+				<input type="radio" id="closePostTitleShowFlagFalse" class="closePostTitleShowOption" name="closePostTitleShowOption" value="false" checked="">
+				<label for="closePostTitleShowFlagFalse">{{boardLang.비공개 문서로 표시}}</label>
+			</span>
+				<span class="wrap_desc_top">
+				<span class="desc">{{{boardLang.비공개 문서 제목 표시 설명}}}</span>
+			</span>
+			</td>
+		</tr>
+		<tr class="postAuthOptionArea line"><td colspan="2"><hr></td></tr>
+		<tr class="postAuthOptionArea">
+			<th class="title">
+				<span class="txt">{{boardLang.게시글 별 열람자 설정}}</span>
+			</th>
+			<td>
+				<span class="wrap_option">
+					<input type="radio" id="postAuthFlagTrue" class="postAuthOption" name="postAuthOption" value="true">
+					<label for="postAuthFlagTrue">{{lang.use}}</label>
+				</span>
+				<span class="horspace1"></span>
+				<span class="wrap_option">
+					<input type="radio" id="postAuthFlagFalse" class="postAuthOption" name="postAuthOption" value="false" checked="">
+					<label for="postAuthFlagFalse">{{lang.unuse}}</label>
+				</span>
+				<span class="wrap_desc_top">
+					<span class="desc">{{boardLang.게시글 열람권한 툴팁}}</span>
+				</span>
+			</td>
+		</tr>
+		{{/hidePostAuthOption}}
+		<tr class="line"><td colspan="2"><hr></td></tr>
+		<tr>
+			<th>
+				<span class="title">{{lang.comment_flag}}</span>
+			</th>
+			<td>
+				<span class="wrap_option">
+					<input type="radio" id="commentFlag1" name="commentFlag" value="true" checked="true" />
+					<label for="commentFlag1">{{lang.comment_flag_true}}</label>
+				</span>
+				<span class="horspace1"></span>
+				<span class="wrap_option">
+					<input type="radio" id="commentFlag2" name="commentFlag" value="false" />
+					<label for="commentFlag2">{{lang.comment_flag_false}}</label>
+				</span>
+			</td>
+		</tr>
+
+		<tr class="line"><td colspan="2"><hr></td></tr>
+		</tbody>
+	</table>
+	</fieldset>
+	</form>
+
+	<div class="page_action_wrap">
+		<a id="formCreateRegist" class="btn_major" data-role="button" data-bypass><span class="txt">{{lang.board_add_submit}}</span></a>
+		<a id="formCreateCancel" class="btn_minor" data-role="button" data-bypass><span class="txt">{{lang.board_add_cancel}}</span></a>
+	</div>
+</div>

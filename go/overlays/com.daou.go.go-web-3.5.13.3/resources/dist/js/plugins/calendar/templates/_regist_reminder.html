@@ -1,0 +1,20 @@
+<li data-index="{{reminder_index}}">
+    <input class="input wfix_mini" type="text" name="reminder_value_{{reminder_index}}" value="{{reminder_value}}"{{^editable?}} disabled="disabled"{{/editable?}} maxlength="5"/>
+    <select name="reminder_type_{{reminder_index}}"{{^editable?}} disabled="disabled"{{/editable?}}>
+        <option value="minute"{{#type_minute?}} selected="selected"{{/type_minute?}}>{{label.type_minute}}</option>
+        <option value="hour"{{#type_hour?}} selected="selected"{{/type_hour?}}>{{label.type_hour}}</option>
+        <option value="day"{{#type_day?}} selected="selected"{{/type_day?}}>{{label.type_day}}</option>
+        <option value="week"{{#type_week?}} selected="selected"{{/type_week?}}>{{label.type_week}}</option>
+    </select>
+
+	<select name="reminder_method_{{reminder_index}}"{{^editable?}} disabled="disabled"{{/editable?}}>
+		<option value="notification"{{#method_noti?}} selected="selected"{{/method_noti?}}>{{label.method_noti}}</option>
+		<option value="email"{{#method_email?}} selected="selected"{{/method_email?}}>{{label.method_email}}</option>
+	</select>
+
+    {{#editable?}}
+    <span class="btn_wrap">
+        <span class="ic_classic ic_del" title="{{label.remove}}"></span>
+    </span>
+    {{/editable?}}
+</li>

@@ -1,0 +1,63 @@
+<span class="box_label_wrap">
+    {{^model.hideLabel}}
+	<label for="">{{{label}}}</label>
+	{{#model.required}}
+	<i class="asterisk">*</i>
+	{{/model.required}}
+	{{#model.guideAsTooltip}}
+    {{#model.guide}}
+	<span class="help">
+		<span class="tool_tip">{{model.guide}}<i class="tail_left"></i></span>
+	</span>
+    {{/model.guide}}
+	{{/model.guideAsTooltip}}
+    {{/model.hideLabel}}
+</span>
+<div class="build_box_data" id="{{clientId}}">
+    {{#editable?}}
+	<a class="btn_minor_s">
+		<span class="txt" el-button>{{lang.검색}}</span>
+	</a>
+    {{/editable?}}
+	{{^editable?}}
+		{{#isMobile?}}
+	<div class="btn_wrap wrap_btn_attach">
+			{{#isAndroidApp?}}
+		<span class="btn_wrap">
+			<a href="javascript:;" data-bypass id="callFile"><span class="btn btn_attach_file"></span></a>
+		</span>
+			{{/isAndroidApp?}}
+			{{#isMobileApp?}}
+		<span class="btn_wrap">
+			<a href="javascript:;" data-bypass id="callAlbumComponent"><span class="btn btn_attach_photo"></span></a>
+		</span>
+		<span class="btn_wrap">
+			<a href="javascript:;" data-bypass id="callCameraComponent"><span class="btn btn_attach_camera"></span></a>
+		</span>
+			{{/isMobileApp?}}
+			{{^isMobileApp?}}
+		<span class="btn_wrap" style="position:relative">
+			<span class="btn btn_attach"></span>
+			<input type="file" name="file" style="position:absolute;left:0;top:0;width:40px;height:40px;opacity:0"/>
+		</span>
+			{{/isMobileApp?}}
+	</div>
+
+	<div class="option_display" id="attachWrap" style="display:none">
+		<div class="wrap_attach" id="editModeAttachArea">
+			<div class="add_file">
+			</div>
+			<ul class="img_wrap" id="imageWrap"></ul>
+		</div>
+	</div>
+		{{/isMobile?}}
+		{{^isMobile?}}
+    <a class="btn_minor_s" el-button>
+        <span class="txt">{{lang.검색}}</span>
+    </a>
+		{{/isMobile?}}
+    {{/editable?}}
+    {{^model.guideAsTooltip}}
+	<p class="txt_info">{{#model.guide}}* {{model.guide}}{{/model.guide}}</p>
+	{{/model.guideAsTooltip}}
+</div>

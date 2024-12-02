@@ -1,0 +1,509 @@
+<div class="content_page profile">
+    <div class="portlet_warp profile_wrap" style="height:px">
+        <section class="list_item list_item_alarm">
+            <header>
+                <h1>
+                    <span class="ic_gnb ic_profile1_h"></span>
+                    <span class="title">{{type.title}}</span>
+                </h1>
+            </header>
+        </section>
+    </div>
+    <form id="profileForm">
+        <fieldset>
+            <table class="form_type">
+                <colgroup>
+                    <col width="130px"/><!-- 개발쪽에서 width값을 받아가서 재설정 후 삭제  -->
+                    <col width="*" />
+                </colgroup>
+                <tbody>
+                <tr>
+                    <th><span class="title">{{type.image}}</span></th>
+                    <td>
+                                    <span class="img_profile" style="overflow:hidden">
+                                        {{#user.profileEditable}}
+                                        <span class="btn_edit_photo" style="color:red; cont" id="swfupload-control">
+                                        </span>
+                                        {{/user.profileEditable}}
+                                        <img src="{{user.thumbLarge}} " alt="{{type.photo_profile}}" id="thumbnail_image" data-filename="" data-filepath=""/>
+                                    </span>
+                        {{#user.profileEditable}}<span class="btn_fn7" data-role="button">{{type.deletePhoto}}</span>{{/user.profileEditable}}
+                        <div class="wrap_desc"><span class="desc">{{type.imageUploadInfo}}</span></div>
+                    </td>
+                </tr>
+                <tr>
+                    <th><span class="title">{{type.name}}</span></th>
+                    <td>{{user.name}}</td>
+                </tr>
+                {{^blockPasswordChange}}
+                <tr>
+                    <th><span class="title">{{type.password}}</span></th>
+                    <td><span class="btn_fn9" id="btn_changePassword">{{type.changPassword}}</span></td>
+                </tr>
+                {{/blockPasswordChange}}
+
+                <!--psk84 -->
+                <!--기본 프로필 항목은 아래의 규칙에 의해 표시 된다. -->
+                <!--1. (노출 여부 : True + 수정 가능 여부 : True + 속성값 : 존재 미존재) => 노출 및 수정 가능 -->
+                <!--2. (노출 여부 : True + 수정 가능 여부 : False + 속성값 : 미존재) => 미노출 -->
+                <!--3. (노출 여부 : True + 수정 가능 여부 : False + 속성값 : 존재) => 노출 및 수정 불가능 -->
+                <!--4. (노출 여부 : False) => 미노출 -->
+
+
+                <!-- 회사 이름 -->
+                {{#user.profileExposureInfoModel.companyName}}
+                <tr>
+                    <th><span class="title">{{type.company}}</span></th>
+                    <td>{{user.companyName}}</td>
+                </tr>
+                {{/user.profileExposureInfoModel.companyName}}
+
+                <!-- 부서 정보 -->
+                {{#user.profileExposureInfoModel.duty}}
+                <tr>
+                    <th>
+                        <span class="title">{{type.department}}</span>
+                                        <span class="help">
+                                            <span class="tool_tip" style="width: 180px">{{type.dept_desc}}<i class="tail_left"></i></span>
+                                        </span>
+                    </th>
+                    <td>
+                        <div class="gadget_edit" style="padding: 0px">
+                            <ul class="drag_option_wrap ui-sortable" id="dept_list" style="padding-top: 5px;padding-bottom: 5px;">
+                                {{#user.deptMembers}}
+                                <li class="" style="cursor:move; padding: 0px 0px 0px 14px" data-id="{{id}}">
+                                    <span class="txt">{{deptName}}</span>
+                                </li>
+                                {{/user.deptMembers}}
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
+                {{/user.profileExposureInfoModel.duty}}
+
+                <!-- 직무 -->
+                {{#user.profileExposureInfoModel.job}}
+                {{#user.profileEditable}}
+                <tr>
+                    <th><span class="title">{{type.job}}</span></th>
+                    <td>
+                        {{#user.job}}<span class="txt_form">{{user.job}}<span class="tool_tip">{{type.modify}} <i class="tail"></i></span></span>{{/user.job}}
+                        <input class="txt wfix_max" type="text" name="job" value="{{user.job}}" maxlength="150"  placeholder="{{type.text_job_short_max_placeholder}}" {{#user.job}} style="display: none" {{/user.job}}/>
+                        <span class="error_msg" style="display: none">{{type.text_job_short_max_length_msg}}</span>
+                    </td>
+                </tr>
+                {{/user.profileEditable}}
+                {{^user.profileEditable}}
+                {{#user.job}}
+                <tr>
+                    <th><span class="title">{{type.job}}</span></th>
+                    <td>
+                        <span class="txt_form">{{user.job}}</span>
+                    </td>
+                </tr>
+                {{/user.job}}
+                {{/user.profileEditable}}
+                {{/user.profileExposureInfoModel.job}}
+
+                <!-- 직위 -->
+                {{#user.profileExposureInfoModel.position}}
+                {{#user.position}}
+                <tr>
+                    <th><span class="title">{{type.position}}</span></th>
+                    <td>{{user.position}}</td>
+                </tr>
+                {{/user.position}}
+                {{/user.profileExposureInfoModel.position}}
+
+                <!-- 사번 -->
+                {{#user.profileExposureInfoModel.employeeNumber}}
+                {{#user.employeeNumber}}
+                <tr>
+                    <th><span class="title">{{type.employeeNumber}}</span></th>
+                    <td>{{user.employeeNumber}}</td>
+                </tr>
+                {{/user.employeeNumber}}
+                {{/user.profileExposureInfoModel.employeeNumber}}
+
+                <!-- 직급 -->
+                {{#user.profileExposureInfoModel.grade}}
+                {{#user.grade}}
+                <tr>
+                    <th><span class="title">{{type.grade}}</span></th>
+                    <td>{{user.grade}}</td>
+                </tr>
+                {{/user.grade}}
+                {{/user.profileExposureInfoModel.grade}}
+
+                <!-- 메일 -->
+                {{#user.profileExposureInfoModel.email}}
+                {{#user.email}}
+                <tr>
+                    <th><span class="title">{{type.email}}</span></th>
+                    <td>{{user.email}}</td>
+                </tr>
+                {{/user.email}}
+                {{/user.profileExposureInfoModel.email}}
+
+                {{#passwordSearchFeature}}
+                <tr>
+                    <th>
+                        <span class="title">{{type.externalEmail}}</span>
+                                    <span class="help">
+                                        <span class="tool_tip" style="width: 180px">{{type.externalEmail_tooltip}}<i class="tail_left"></i></span>
+                                    </span>
+                    </th>
+                    <td>
+                        {{#externalEmailIsEmpty}}
+                        <input class="txt wfix_max" type="text" name="externalEmail" value="">
+                        {{/externalEmailIsEmpty}}
+                        <!-- 인증된 외부메일이 있는경우 -->
+                        {{^externalEmailIsEmpty}}
+                        {{#hasExternalEmail}}
+                                        <span class="txt_form" id="externalEmail_form">
+                                            {{user.externalEmail}}<span class="tool_tip">{{type.modify}} <i class="tail"></i></span>
+                                        </span>
+                        <input class="txt wfix_max" type="text" name="externalEmail" value="{{user.externalEmail}}" {{#user.externalEmail}} style="display: none" {{/user.externalEmail}}/>
+                        {{/hasExternalEmail}}
+                        {{^hasExternalEmail}}
+                                        <span class="txt_form" id="externalEmailUnverified_form">
+                                            {{user.externalEmailUnverified}}<span class="tool_tip">{{type.modify}} <i class="tail"></i></span>
+                                        </span>
+                        <input class="txt wfix_max" type="text" name="externalEmail" value="{{user.externalEmailUnverified}}" {{#user.externalEmailUnverified}} style="display: none" {{/user.externalEmailUnverified}}/>
+                        {{/hasExternalEmail}}
+                        {{/externalEmailIsEmpty}}
+
+                        <span class="error_msg" style="display: none">{{type.label_max_length_msg}}</span>
+                        <span class="error_msg" style="display: none">{{type.label_email_invalid_msg}}</span>
+                        <span class="error_msg" style="display: none" id="myMail">{{type.label_email_my_mail}}</span>
+                        {{^externalEmailIsEmpty}}
+                        {{#hasExternalEmail}}
+                                        <span id="verifyOk" style="vertical-align: top;min-height: 19px;line-height: 19px;">
+                                          [ {{type.verify_ok}} ]
+                                        </span>
+                        {{/hasExternalEmail}}
+                        {{^hasExternalEmail}}
+                        <span class="btn_fn10" id="btn_reVerifyMail">{{type.reverify_mail}}</span>
+                                        <span class="wrap_desc_top" id="verifyMailDesc">
+                                            <span class="desc caution">{{type.verify_mail_desc}}</span>
+                                        </span>
+                        {{/hasExternalEmail}}
+                        {{/externalEmailIsEmpty}}
+                    </td>
+                </tr>
+                {{/passwordSearchFeature}}
+
+                <!-- 휴대폰 -->
+                {{#user.profileExposureInfoModel.mobileNo}}
+                {{#user.profileEditable}}
+                <tr>
+                    <th><span class="title">{{type.phone}}</span></th>
+                    <td>
+                        {{#user.mobileNo}}<span class="txt_form">{{user.mobileNo}}<span class="tool_tip">{{type.modify}} <i class="tail"></i></span></span>{{/user.mobileNo}}
+                        <input class="txt wfix_max" type="text" name="mobileNo" value="{{user.mobileNo}}" maxlength="20"  placeholder="{{type.text_short_max_placeholder}}" {{#user.mobileNo}} style="display: none" {{/user.mobileNo}}/>
+                        <span class="error_msg" style="display: none">{{type.text_short_max_length_msg}}</span>
+                    </td>
+                </tr>
+                {{/user.profileEditable}}
+                {{^user.profileEditable}}
+                {{#user.mobileNo}}
+                <tr>
+                    <th><span class="title">{{type.phone}}</span></th>
+                    <td>
+                        <span class="txt_form">{{user.mobileNo}}</span>
+                    </td>
+                </tr>
+                {{/user.mobileNo}}
+                {{/user.profileEditable}}
+                {{/user.profileExposureInfoModel.mobileNo}}
+
+
+                <!-- 직통 전화 -->
+                {{#user.profileExposureInfoModel.directTel}}
+                {{#user.profileEditable}}
+                <tr>
+                    <th><span class="title">{{type.dirTel}}</span></th>
+                    <td>
+                        {{#user.directTel}}<span class="txt_form">{{user.directTel}}<span class="tool_tip">{{type.modify}} <i class="tail"></i></span></span>{{/user.directTel}}
+                        <input class="txt wfix_max" type="text" name="directTel" value="{{user.directTel}}" maxlength="20"  placeholder="{{type.text_short_max_placeholder}}" {{#user.directTel}} style="display: none" {{/user.directTel}}/>
+                        <span class="error_msg" style="display: none">{{type.text_short_max_length_msg}}</span>
+                    </td>
+                </tr>
+                {{/user.profileEditable}}
+                {{^user.profileEditable}}
+                {{#user.directTel}}
+                <tr>
+                    <th><span class="title">{{type.dirTel}}</span></th>
+                    <td>
+                        <span class="txt_form">{{user.directTel}}</span>
+                    </td>
+                </tr>
+                {{/user.directTel}}
+                {{/user.profileEditable}}
+                {{/user.profileExposureInfoModel.directTel}}
+
+                <!-- 대표 전화 -->
+                {{#user.profileExposureInfoModel.repTel}}
+                {{#user.profileEditable}}
+                <tr>
+                    <th><span class="title">{{type.repTel}}</span></th>
+                    <td>
+                        {{#user.repTel}}<span class="txt_form">{{user.repTel}}<span class="tool_tip">{{type.modify}} <i class="tail"></i></span></span>{{/user.repTel}}
+                        <input class="txt wfix_max" type="text" name="repTel" value="{{user.repTel}}" maxlength="20"  placeholder="{{type.text_short_max_placeholder}}" {{#user.repTel}} style="display: none" {{/user.repTel}}/>
+                        <span class="error_msg" style="display: none">{{type.text_short_max_length_msg}}</span>
+                    </td>
+                </tr>
+                {{/user.profileEditable}}
+                {{^user.profileEditable}}
+                {{#user.repTel}}
+                <tr>
+                    <th><span class="title">{{type.repTel}}</span></th>
+                    <td>
+                        <span class="txt_form">{{user.repTel}}</span>
+                    </td>
+                </tr>
+                {{/user.repTel}}
+                {{/user.profileEditable}}
+                {{/user.profileExposureInfoModel.repTel}}
+
+                <!-- 팩스 -->
+                {{#user.profileExposureInfoModel.fax}}
+                {{#user.profileEditable}}
+                <tr>
+                    <th><span class="title">{{type.fax}}</span></th>
+                    <td>
+                        {{#user.fax}}<span class="txt_form">{{user.fax}}<span class="tool_tip">{{type.modify}} <i class="tail"></i></span></span>{{/user.fax}}
+                        <input class="txt wfix_max" type="text" name="fax" value="{{user.fax}}" maxlength="20"  placeholder="{{type.text_short_max_placeholder}}" {{#user.fax}} style="display: none" {{/user.fax}}/>
+                        <span class="error_msg" style="display: none">{{type.text_short_max_length_msg}}</span>
+                    </td>
+                </tr>
+                {{/user.profileEditable}}
+                {{^user.profileEditable}}
+                {{#user.fax}}
+                <tr>
+                    <th><span class="title">{{type.fax}}</span></th>
+                    <td>
+                        <span class="txt_form">{{user.fax}}</span>
+                    </td>
+                </tr>
+                {{/user.fax}}
+                {{/user.profileEditable}}
+                {{/user.profileExposureInfoModel.fax}}
+
+                <!-- 자기소개 -->
+                {{#user.profileExposureInfoModel.selfInfo}}
+                {{#user.profileEditable}}
+                <tr>
+                    <th><span class="title">{{type.selfInfo}}</span></th>
+                    <td>
+                        {{#user.selfInfo}}<span class="txt_form" style="white-space: pre-line">{{user.selfInfo}}<span class="tool_tip">{{type.modify}} <i class="tail"></i></span></span>{{/user.selfInfo}}
+                        <textarea class="wfix_max" name="selfInfo" value="{{user.selfInfo}}" maxlength="100" placeholder="{{type.text_long_max_length_placeholder}}" {{#user.selfInfo}} style="display: none" {{/user.selfInfo}}>{{user.selfInfo}}</textarea>
+                        <span class="error_msg" style="display: none">{{type.text_long_max_length_msg}}</span>
+                    </td>
+                </tr>
+                {{/user.profileEditable}}
+                {{^user.profileEditable}}
+                {{#user.selfInfo}}
+                <tr>
+                    <th><span class="title">{{type.selfInfo}}</span></th>
+                    <td>
+                        <span class="txt_form" style="white-space: pre-line">{{user.selfInfo}}</span>
+                    </td>
+                </tr>
+                {{/user.selfInfo}}
+                {{/user.profileEditable}}
+                {{/user.profileExposureInfoModel.selfInfo}}
+
+                <!-- 위치 -->
+                {{#user.profileExposureInfoModel.location}}
+                {{#user.profileEditable}}
+                <tr>
+                    <th><span class="title">{{type.location}}</span></th>
+                    <td>
+                        {{#user.location}}<span class="txt_form">{{user.location}}<span class="tool_tip">{{type.modify}} <i class="tail"></i></span></span>{{/user.location}}
+                        <input class="txt wfix_max" type="text" name="location" value="{{user.location}}" maxlength="100"  placeholder="{{type.text_long_max_length_placeholder}}" {{#user.location}} style="display: none" {{/user.location}}/>
+                        <span class="error_msg" style="display: none">{{type.text_long_max_length_msg}}</span>
+                    </td>
+                </tr>
+                {{/user.profileEditable}}
+                {{^user.profileEditable}}
+                {{#user.location}}
+                <tr>
+                    <th><span class="title">{{type.location}}</span></th>
+                    <td>
+                        <span class="txt_form">{{user.location}}</span>
+                    </td>
+                </tr>
+                {{/user.location}}
+                {{/user.profileEditable}}
+                {{/user.profileExposureInfoModel.location}}
+
+                <!-- 홈페이지 -->
+                {{#user.profileExposureInfoModel.homePage}}
+                {{#user.profileEditable}}
+                <tr>
+                    <th><span class="title">{{type.homepage}}</span></th>
+                    <td>
+                        {{#user.homePage}}<span class="txt_form">{{user.homePage}}<span class="tool_tip">{{type.modify}} <i class="tail"></i></span></span>{{/user.homePage}}
+                        <input class="txt wfix_max" type="text" name="homePage" value="{{user.homePage}}" maxlength="50"  placeholder="{{type.text_long_mid_length_placeholder}}" {{#user.homePage}} style="display: none" {{/user.homePage}}/>
+                        <span class="error_msg" style="display: none">{{type.text_long_mid_length_msg}}</span>
+                    </td>
+                </tr>
+                {{/user.profileEditable}}
+                {{^user.profileEditable}}
+                {{#user.homePage}}
+                <tr>
+                    <th><span class="title">{{type.homepage}}</span></th>
+                    <td>
+                        <span class="txt_form">{{user.homePage}}</span>
+                    </td>
+                </tr>
+                {{/user.homePage}}
+                {{/user.profileEditable}}
+                {{/user.profileExposureInfoModel.homePage}}
+
+                <!-- 메신저 -->
+                {{#user.profileExposureInfoModel.messanger}}
+                {{#user.profileEditable}}
+                <tr>
+                    <th><span class="title">{{type.messanger}}</span></th>
+                    <td>
+                        {{#user.messanger}}<span class="txt_form">{{user.messanger}}<span class="tool_tip">{{type.modify}} <i class="tail"></i></span></span>{{/user.messanger}}
+                        <input class="txt wfix_max" type="text" name="messanger" value="{{user.messanger}}" maxlength="50"  placeholder="{{type.text_long_mid_length_placeholder}}" {{#user.messanger}} style="display: none" {{/user.messanger}}/>
+                        <span class="error_msg" style="display: none">{{type.text_long_mid_length_msg}}</span>
+                    </td>
+                </tr>
+                {{/user.profileEditable}}
+                {{^user.profileEditable}}
+                {{#user.messanger}}
+                <tr>
+                    <th><span class="title">{{type.messanger}}</span></th>
+                    <td>
+                        <span class="txt_form">{{user.messanger}}</span>
+                    </td>
+                </tr>
+                {{/user.messanger}}
+                {{/user.profileEditable}}
+                {{/user.profileExposureInfoModel.messanger}}
+
+                <!-- 생일  -->
+                {{#user.profileExposureInfoModel.birthday}}
+                {{#user.profileEditable}}
+                <tr>
+                    <th><span class="title">{{type.birthday}}</span></th>
+                    <td>
+                        {{#user.birthday}}<span class="txt_form">{{#user.lunarCal}}{{type.lunar_calendar}} {{/user.lunarCal}}{{user.birthdayDate}}<span class="tool_tip">{{type.modify}} <i class="tail"></i></span></span>{{/user.birthday}}
+                        <!-- <input class="txt wfix_max" type="text" name="birthday" id="birthday" value="{{user.birthdayDate}}" {{#user.birthday}} style="display: none" {{/user.birthday}}/> -->
+                        <div {{#user.birthday}} style="display: none" {{/user.birthday}}>
+			                <select name="birthdayYear" id="birthdayYear">
+			                	<option value="">{{type.select_desc}}</option>
+			                </select>
+			                <select name="birthdayMonth" id="birthdayMonth">
+			                	<option value="">{{type.select_desc}}</option>
+			                </select>
+			                <select name="birthdayDay" id="birthdayDay">
+			                	<option value="">{{type.select_desc}}</option>
+			                </select>
+							<input type="checkbox" name="lunarCal" id="lunarCal" {{#user.lunarCal}}checked="checked"{{/user.lunarCal}}>
+							<label for="lunarCal">{{type.lunar_cal_desc}}</label>
+                        </div>
+                        <span class="error_msg" style="display: none">{{type.input_only_number_msg}}</span>
+                    </td>
+                </tr>
+                {{/user.profileEditable}}
+                {{^user.profileEditable}}
+                {{#user.birthday}}
+                <tr>
+                    <th><span class="title">{{type.birthday}}</span></th>
+                    <td>
+                        <span class="txt_form">{{#user.lunarCal}}{{type.lunar_calendar}} {{/user.lunarCal}} {{user.birthdayDate}}</span>
+                    </td>
+                </tr>
+                {{/user.birthday}}
+                {{/user.profileEditable}}
+                {{/user.profileExposureInfoModel.birthday}}
+
+                <!-- 기념일 -->
+                {{#user.profileExposureInfoModel.anniversary}}
+                {{#user.profileEditable}}
+                <tr>
+                    <th><span class="title">{{type.anniversary}}</span></th>
+                    <td>
+                        {{#user.anniversary}}<span class="txt_form">{{user.anniversaryDate}}<span class="tool_tip">{{type.modify}} <i class="tail"></i></span></span>{{/user.anniversary}}
+                        <input class="txt wfix_max" type="text" name="anniversary" id="anniversary" value="{{user.anniversaryDate}}" {{#user.anniversary}} style="display: none" {{/user.anniversary}}/>
+                        <span class="error_msg" style="display: none">{{type.input_only_number_msg}}</span>
+                    </td>
+                </tr>
+                {{/user.profileEditable}}
+                {{^user.profileEditable}}
+                {{#user.anniversary}}
+                <tr>
+                    <th><span class="title">{{type.anniversary}}</span></th>
+                    <td>
+                        <span class="txt_form">{{user.anniversaryDate}}</span>
+                    </td>
+                </tr>
+                {{/user.anniversary}}
+                {{/user.profileEditable}}
+                {{/user.profileExposureInfoModel.anniversary}}
+
+                <!-- 주소 -->
+                {{#user.profileExposureInfoModel.address}}
+                {{#user.profileEditable}}
+                <tr>
+                    <th><span class="title">{{type.address}}</span></th>
+                    <td>
+                        {{#user.address}}<span class="txt_form" style="white-space: pre-line">{{user.address}}<span class="tool_tip">{{type.modify}} <i class="tail"></i></span></span>{{/user.address}}
+                        <textarea class="wfix_max" name="address" value="{{user.address}}" maxlength="100" placeholder="{{type.text_long_max_length_placeholder}}" {{#user.address}} style="display: none" {{/user.address}}>{{user.address}}</textarea>
+                        <span class="error_msg" style="display: none">{{type.text_long_max_length_msg}}</span>
+                    </td>
+                </tr>
+                {{/user.profileEditable}}
+                {{^user.profileEditable}}
+                {{#user.address}}
+                <tr>
+                    <th><span class="title">{{type.address}}</span></th>
+                    <td>
+                        <span class="txt_form" style="white-space: pre-line">{{user.address}}</span>
+                    </td>
+                </tr>
+                {{/user.address}}
+                {{/user.profileEditable}}
+                {{/user.profileExposureInfoModel.address}}
+
+                <!-- 메모 -->
+                {{#user.profileExposureInfoModel.memo}}
+                {{#user.profileEditable}}
+                <tr>
+                    <th><span class="title">{{type.memo}}</span></th>
+                    <td>
+                        {{#user.memo}}<span class="txt_form" style="white-space: pre-line">{{user.memo}}<span class="tool_tip">{{type.modify}} <i class="tail"></i></span></span>{{/user.memo}}
+                        <textarea class="wfix_max" type="text" name="memo" value="{{user.memo}}" maxlength="100" placeholder="{{type.text_long_max_length_placeholder}}" {{#user.memo}} style="display: none" {{/user.memo}}>{{user.memo}}</textarea>
+                        <span class="error_msg" style="display: none">{{type.text_long_max_length_msg}}</span>
+                    </td>
+                </tr>
+                {{/user.profileEditable}}
+                {{^user.profileEditable}}
+                {{#user.memo}}
+                <tr>
+                    <th><span class="title">{{type.memo}}</span></th>
+                    <td>
+                        <span class="txt_form" style="white-space: pre-line">{{user.memo}}</span>
+                    </td>
+                </tr>
+                {{/user.memo}}
+                {{/user.profileEditable}}
+                {{/user.profileExposureInfoModel.memo}}
+                <tr class="line"><td colspan="2"><hr /></td>
+                </tr>
+                </tbody>
+            </table>
+        </fieldset>
+    </form>
+    {{#user.profileEditable}}
+    <div class="page_action_wrap">
+        <a class="btn_major" data-role="button" id="save"><span class="txt">{{type.save}}</span></a>
+        <a class="btn_minor" data-role="button" id="cancel"><span class="txt">{{type.cancel}}</span></a>
+    </div>
+    {{/user.profileEditable}}
+</div>

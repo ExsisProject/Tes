@@ -1,0 +1,64 @@
+<ul class="article_list home_list">
+	{{#dataSet}}
+	{{^isPostHidden}}
+	<li class="{{boardType}} {{^readPost}}read_no{{/readPost}}" data-boardType="{{type}}" data-boardId="{{boardId}}" data-postId="{{id}}"  data-communityId="{{boardMasterOwner.ownerId}}">
+		<div class="article_wrap">
+            <span class="category">
+                <a class="category_link">{{boardMasterOwner.ownerInfo}}</a>
+	            <span class="arrow">&gt;</span>
+	            <a class="boardName board_link">{{boardName}}</a>
+            </span>
+			{{#isClassic}}<span class="title"><a>{{{titleParse}}}</a></span>{{/isClassic}}
+			{{#newFlag}}<span class="ic_classic ic_new2" title="{{new_post}}"></span>{{/newFlag}}
+			<span class="btn_wrap">
+			    <span class="ic_classic ic_comment"></span>
+				<span class="num">{{commentsCount}}</span>
+			</span>
+			<div class="article home_content"><a>{{{contentParse}}}</a></div>
+
+			<div class="info">
+			    <span class="photo">
+				    <a data-userid="{{writer.id}}" data-bypass><img alt="{{writer.name}} {{writer.position}}" title="{{writer.name}} {{writer.positionName}}" src="{{writer.thumbSmall}}"></a>
+			    </span>
+				<a class="name" data-userid="{{writer.id}}"><strong>{{writer.name}}</strong> {{writer.positionName}}</a>
+				<span class="date">{{dateParse}}</span>
+			</div>
+		</div>
+		<div class="meta_wrap">
+            <span class="wrap_heart {{#recommend}}on{{/recommend}}">
+                <span class="ic_con ic_heart"></span>
+                <span class="txt">{{recommendCount}}</span>
+            </span>
+		</div>
+	</li>
+	{{/isPostHidden}}
+	{{#isPostHidden}}
+	<li class="private" data-boardType="{{type}}" data-boardId="{{boardId}}" data-postId="{{id}}"  data-communityId="{{boardMasterOwner.ownerId}}" data-hidden="true">
+		<p class="noti_msg">
+			<span class="ic"></span>
+			<span class="txt">
+				{{#isTitleHidden}}{{lang.no_auth}}{{/isTitleHidden}}
+				{{^isTitleHidden}}{{{titleParse}}}{{/isTitleHidden}}
+			</span><br>
+			<span class="date">{{dateParse}}</span>
+		</p>
+	</li>	
+	{{/isPostHidden}}
+	{{/dataSet}}
+	<li data-id="noCommunity" style="display:none;">
+		<p class="data_null">
+			<span class="ic_data_type ic_no_comm"></span>
+			<span class="txt">{{lang.not_community}}</span>
+			<br>
+			<a id="btn_CommunityByAll" class="btn_major_s" data-role="button">
+				<span class="txt">{{lang.join_community}}</span>
+			</a>
+		</p>				
+	</li>
+	<li class="no_focus" data-id="noPost" style="display:none;">
+		<P class="data_null">{{lang.no_posts}}</P>
+	</li>
+</ul>
+<div class="bottom_action" id="moreButton">
+	<a class="btn_list_reload" data-bypass><span class="ic"></span><span class="txt">{{lang.more_view}}</span></a>
+</div>

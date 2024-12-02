@@ -1,0 +1,1 @@
+define(["backbone"],function(e){var t=e.Model.extend({urlRoot:GO.contextRoot+"api/user/notisetting"},{get:function(){return config=new t,config.fetch({async:!1}),config}});return{read:function(){return config=t.get()}}});

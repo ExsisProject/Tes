@@ -1,0 +1,76 @@
+﻿			<header class="content_top">
+			</header>
+<form id="form-event">
+    <fieldset>
+        <table class="form_type form_add04">
+				<col style="width: 117px" />
+				<col style="width: auto" />
+			</colgroup>
+            <tbody>
+
+                <tr id="attendee-list-row">
+					<th><span class="title">{{lang.부재 기간}}</span></th>
+					<td>
+						<span class="wrap_date">
+							<input id="startDate" class="txt wfix_small txt_mini" type="text" name="startDate" value="{{data.startAt}}" data-prev="{{data.startAt}}" readonly="readonly">
+                            <span class="ic ic_calendar"></span>
+						</span>
+						<span class="date_wave">~</span>
+						<span class="wrap_date">
+							<input id="endDate" class="txt wfix_small txt_mini" type="text" name="endDate" value="{{data.endAt}}" data-prev="{{data.endAt}}" readonly="readonly">
+                            <span class="ic ic_calendar"></span>
+						</span>	     
+					</td>
+                <tr>
+                    <th><span class="title">{{lang.사용 여부}}</span></th>
+                    <td class="text">
+                        <span class="option_wrap">
+							<input type="radio" id="use" name="useFlag" {{#data.useFlag}}checked{{/data.useFlag}}> 
+							<label for="">{{lang.사용}}</label>										
+						</span>
+						<span class="option_wrap">
+							<input type="radio" id="notuse" name="useFlag" {{^data.useFlag}}checked{{/data.useFlag}}> 
+							<label for="">{{lang.미사용}}</label>										
+						</span>
+                    </td>
+                </tr>
+                <tr>
+                    <th><span class="title">{{lang.부재 사유}}</span></th>
+                    <td class="text">
+                        <div class="wrap_txtarea"><textarea id="textarea-desc" name="description" class="w_max textarea  rows="7">{{data.absenceContent}}</textarea></div>
+                    </td>
+                </tr>
+			   <tr id="attendee-list-row">
+					<th><span class="title">{{lang.대결자}}</span></th>
+					<td>
+						<div class="wrap_name_tag">
+							<ul class="name_tag" id = "addMembers">
+							{{#data.deputyUserId}}
+								<li data-id="{{data.deputyUserId}}" data-name="members">
+									<span class="name">{{data.deputyUserName}} {{data.deputyUserPosition}}</span>
+									<span class="btn_wrap">
+										<input type="hidden" name="memberId" value="{{data.deputyUserId}}" />
+										<span class="ic_classic ic_del"></span>										
+									</span>
+								</li>
+							{{/data.deputyUserId}}
+								<li class="creat">
+									<span class="btn_wrap">
+										<span class="ic_form ic_addlist"></span>
+										<span class="txt">{{lang.대결자 선택}}</span>
+									</span>
+								</li>
+							</ul>
+						</div>
+					</td>
+				</tr>				             
+                <tr class="line"><td colspan="2"><hr /></td></tr>
+            </tbody>
+        </table>                    
+    </fieldset>
+</form>
+
+<div class="page_action_wrap">
+    <a id="btn-confirm" class="btn_major btn_group_confirm" data-role="button" data-bypass><span class="txt">{{lang.확인}}</span></a>
+    <a id="btn-cancel" class="btn_minor btn_group_confirm" data-role="button" data-bypass><span class="txt">{{lang.취소}}</span></a>
+</div>

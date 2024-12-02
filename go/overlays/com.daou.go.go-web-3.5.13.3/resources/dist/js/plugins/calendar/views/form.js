@@ -1,0 +1,1 @@
+(function(){define(["backbone"],function(e){var t=e.View.extend({});return t})})();

@@ -1,0 +1,1 @@
+define(["backbone"],function(e){var t=e.Model.extend({urlRoot:GO.contextRoot+"api/ehr/vacation/company/config",update:function(e){this.set("deptManageOpen",e.isDeptOpen),this.set("useNextVacation",e.useNextVacation)}},{});return t});

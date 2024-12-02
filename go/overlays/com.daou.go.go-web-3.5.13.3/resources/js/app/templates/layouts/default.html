@@ -1,0 +1,26 @@
+<div class="go_wrap">
+	<div id="nav-placeholder"></div>
+	<div class="go_body go_renew">
+		{{#use_side}}
+	    <div class="go_side" id="side"></div>
+	    {{/use_side}}
+	    {{#use_content_wrapper}}
+	    <div class="go_content" id="content"></div>
+		{{/use_content_wrapper}}
+	</div>
+</div>
+{{#use_organogram}}
+<aside class="go_organogram" id="organogram"></aside>
+{{/use_organogram}}
+<footer class="go_footer" >
+    <section class="setting"></section>
+    <section class="meta">
+        <small class="copyright">{{&copyright}}</small>
+    </section>
+</footer>
+{{#use_mobile_button}}
+<a id="changeToMobileWeb" href="javascript:;" class="btn_mobile" data-bypass>
+    <span class="ic_mobileVer"></span>
+    <span class="txt">{{label.view_mobile}}</span>
+</a>
+{{/use_mobile_button}}

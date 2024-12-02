@@ -1,0 +1,795 @@
+<header class="content_top">
+	<h1>   
+		<span class="txt">{{lang.contact_modify}}</span>	
+	</h1>	
+</header>	
+<div class="content_page">
+	<div class="tool_bar board_type">
+		<div class="critical">
+			<a id="saveModify" class="btn_tool" data-role="button">
+				<span class="ic_toolbar modify"></span>
+				<span class="txt">{{lang.modify}}</span>
+			</a>
+			<a id="modifyCancel" class="btn_tool" data-role="button">
+				<span class="ic_toolbar close"></span>
+				<span class="txt">{{lang.cancel}}</span>
+			</a>
+			<a id="contactDelete" class="btn_tool" data-role="button">
+				<span class="ic_toolbar del"></span>
+				<span class="txt">{{lang.delete}}</span>
+			</a>
+		</div>
+		<div class="optional">
+			<a class="btn_tool" url-copy>
+				<span class="ic_toolbar copy_url"></span>
+				<span class="txt">{{lang.copy}}</span>
+			</a>
+			<a id="returnList" class="btn_tool">
+				<span class="ic_toolbar list"></span>
+				<span class="txt">{{lang.return_list}}</span>
+			</a>
+		</div>
+	</div>
+	<form name="formContactCreate">
+		<fieldset>
+			<table class="form_type">
+				<colgroup>
+					<col width="130px">
+					<col width="*">
+				</colgroup>
+				<tbody>
+				{{#data}}
+				<tr>
+					<th><span class="title">{{lang.image}}</span></th>
+						<td>
+						<span class="img_profile" style="overflow:hidden">
+                            <span class="btn_edit_photo" style="color:red" id="swfupload-control">
+                            </span>
+							<img src="{{thumbSmall}}" alt="" id="thumbnail_image" data-filename="{{photo.fileName}}" data-filepath=""/>
+						</span>
+						<span class="btn_fn7" id="del_photo" data-role="button">{{lang.delete}}</span>
+                        <div class="wrap_desc"><span class="desc">{{lang.imageUploadInfo}}</span></div>
+					</td>
+				</tr>
+				{{#name}}
+				<tr>
+					<th><span class="title">{{lang.lastName}}</span></th>
+					<td>
+						<span  class="txt_edit">
+							<input name="lastName" value="{{lastName}}" class="input wfix_large" type="text">
+							{{#isJapanese}}
+							<span class="title" style="margin-left: 10px">{{lang.hurigana}}</span>
+							<input name="lastNameHurigana" value="{{lastNameHurigana}}" class="input wfix_large" type="text"/>
+							{{/isJapanese}}
+						</span>
+					</td>
+				</tr>
+				<tr>
+					<th><span class="title">{{lang.firstName}}</span></th>
+					<td>
+						<span  class="txt_edit">
+							<input name="firstName" value="{{firstName}}" class="input wfix_large" type="text">
+							{{#isJapanese}}
+							<span class="title" style="margin-left: 10px">{{lang.hurigana}}</span>
+							<input name="firstNameHurigana" value="{{firstNameHurigana}}" class="input wfix_large" type="text">
+							{{/isJapanese}}
+						</span>
+					</td>
+				</tr>
+				<tr>
+					<th><span class="title">{{lang.middleName}}</span></th>
+					<td>
+						<span  class="txt_edit">
+							<input name="middleName" value="{{middleName}}" class="input wfix_large" type="text">
+							{{#isJapanese}}
+							<span class="title" style="margin-left: 10px">{{lang.hurigana}}</span>
+							<input name="middleNameHurigana" value="{{middleNameHurigana}}" class="input wfix_large" type="text">
+							{{/isJapanese}}
+						</span>
+					</td>
+				</tr>
+				<tr>
+					<th><span class="title">{{lang.name}}</span><ins class="asterisk">*</ins></th>
+					<td>
+						<span class="txt_edit">
+							<input name="name" value="{{name}}" class="input wfix_large" type="text"/>
+							{{#isJapanese}}
+							<span class="title" style="margin-left: 10px">{{lang.hurigana}}</span>
+							<input name="nameHurigana" value="{{nameHurigana}}" class="input wfix_large" type="text">
+							{{/isJapanese}}
+						</span>
+					</td>
+				</tr>
+				{{/name}}
+
+				{{#companyName}}
+				<tr>
+					<th><span class="title">{{lang.company}}</span></th>
+					<td>
+						<span class="txt_edit" style="display:none">
+								<input name="companyName" class="input wfix_large" type="text">
+						</span>
+						<span class="txt_form contact_item_modify">{{companyName}}
+							<span class="ui_edit btn_wrap">
+							<span class="ic_side ic_edit" title="{{lang.item_modify}}"></span></span>
+							<input type="hidden" name="companyName" value='{{companyName}}'>
+						</span>
+						
+					</td>
+				</tr>
+				{{/companyName}}
+				{{^companyName}}
+				<tr style="display:none">
+					<th><span class="title">{{lang.company}}</span></th>
+					<td>
+						<span class="txt_edit" >
+								<input name="companyName" class="input wfix_large" type="text">
+						</span>
+					</td>
+				</tr>
+				{{/companyName}}
+				
+				{{#departmentName}}
+				<tr>
+					<th><span class="title">{{lang.dept}}</span></th>
+					<td>
+						<span class="txt_edit" style="display:none">
+							<input name="departmentName" class="input wfix_large" type="text">
+						</span>
+						<span class="txt_form contact_item_modify">{{departmentName}}
+							<span class="ui_edit btn_wrap"><span class="ic_side ic_edit" title="{{lang.item_modify}}"></span></span>
+							<input type="hidden" name="departmentName" value='{{departmentName}}'>
+						</span>
+					</td>
+				</tr>
+				{{/departmentName}}
+				{{^departmentName}}
+				<tr style="display:none">
+					<th><span class="title">{{lang.dept}}</span></th>
+					<td>
+						<span class="txt_edit" >
+								<input name="departmentName" class="input wfix_large" type="text">
+						</span>
+					</td>
+				</tr>
+				{{/departmentName}}
+				
+				{{#positionName}}
+				<tr>
+					<th><span class="title">{{lang.position}}</span></th>
+					<td>
+						<span class="txt_edit" style="display:none">
+							<input name="positionName" class="input wfix_large" type="text">
+						</span>
+						<span class="txt_form contact_item_modify">{{positionName}}
+							<span class="ui_edit btn_wrap"><span class="ic_side ic_edit" title="{{lang.item_modify}}"></span></span>
+							<input type="hidden" name="positionName" value='{{positionName}}'>
+						</span>
+					</td>
+				</tr>
+				{{/positionName}}
+				{{^positionName}}
+				<tr style="display:none">
+					<th><span class="title">{{lang.position}}</span></th>
+					<td>
+						<span class="txt_edit" >
+								<input name="positionName" class="input wfix_large" type="text">
+						</span>
+					</td>
+				</tr>
+				{{/positionName}}
+				<tr class="line">
+					<th><span class="title">{{^isCompany}}{{lang.group}}{{/isCompany}}{{#isCompany}}{{lang.contact}}{{/isCompany}}</span></th>
+					<td>
+						<ul id="groupNameTag" class="name_tag">
+							{{#groups}}
+							<li data-id="{{id}}">
+								<input type="hidden" name="groupId" value='{{id}}'>
+								<span class="name">{{name}}</span>{{^isCompany}}
+								<span class="btn_wrap">
+									<span class="ic_classic ic_del" title="{{lang.delete}}" ></span>{{/isCompany}}										
+								</span>
+							</li>
+							{{/groups}}
+							{{^isCompany}}
+							<li class="creat">
+									<span class="btn_wrap"><span class="ic_form ic_addlist"></span><span id="groupCreate"  class="txt">{{lang.group_create}}</span></span>
+							</li>
+							{{/isCompany}}
+						</ul>																		
+					</td>
+				</tr>
+				{{#email}}
+				<tr>
+					<th><span class="title">{{lang.email}}</span></th>
+					<td>
+						<span class="txt_edit" style="display:none">
+								<input name="email" class="input wfix_large" type="text">
+						</span>
+						<span class="txt_form contact_item_modify">{{email}}
+							<span class="ui_edit btn_wrap"><span class="ic_side ic_edit" title="{{lang.item_modify}}"></span></span>
+							<input name="email" type="hidden" value="{{email}}"/>
+						</span>
+					</td>
+				</tr>
+				{{/email}}
+				{{^email}}
+				<tr style="display:none">
+					<th><span class="title">{{lang.email}}</span></th>
+					<td>
+						<span class="txt_edit" >
+								<input name="email" class="input wfix_large" type="text">
+						</span>
+					</td>
+				</tr>
+				{{/email}}
+				{{#mobileNo}}
+				<tr>
+					<th>
+                        <span class="title">{{lang.phone}}</span>
+                        <span class="help"><span class="tool_tip">{{{lang.phone_desc}}}<i class="tail_left"></i></span></span>
+                    </th>
+					<td>
+						<span class="txt_edit" style="display:none">
+								<input name="mobileNo" class="input wfix_large" type="text">
+						</span>
+						<span class="txt_form contact_item_modify">{{mobileNo}}
+							<span class="ui_edit btn_wrap"><span class="ic_side ic_edit" title="{{lang.item_modify}}"></span></span>
+							<input name="mobileNo" type="hidden" value="{{mobileNo}}"/>
+						</span>
+					</td>
+				</tr>
+				{{/mobileNo}}
+				{{^mobileNo}}
+				<tr style="display:none">
+					<th>
+                        <span class="title">{{lang.phone}}</span>
+                        <span class="help"><span class="tool_tip">{{{lang.phone_desc}}}<i class="tail_left"></i></span></span>
+                    </th>
+					<td>
+						<span class="txt_edit" >
+								<input name="mobileNo" class="input wfix_large" type="text">
+						</span>
+					</td>
+				</tr>
+				{{/mobileNo}}
+				{{#office}}
+					{{#tel}}
+					<tr>
+						<th>
+                            <span class="title">{{lang.company_tel}}</span>
+                            <span class="help"><span class="tool_tip">{{{lang.phone_desc}}}<i class="tail_left"></i></span></span>
+                        </th>
+						<td>
+							<span class="txt_edit" style="display:none">
+								<input name="company_tel" class="input wfix_large" type="text">
+							</span>
+							<span class="txt_form contact_item_modify">{{tel}}
+								<span class="ui_edit btn_wrap"><span class="ic_side ic_edit" title="{{lang.item_modify}}"></span></span>
+								<input name="company_tel" type="hidden" value="{{tel}}"/>
+							</span>
+						</td>
+					</tr>
+					{{/tel}}
+					{{^tel}}
+					<tr style="display:none">
+						<th>
+                            <span class="title">{{lang.company_tel}}</span>
+                            <span class="help"><span class="tool_tip">{{{lang.phone_desc}}}<i class="tail_left"></i></span></span>
+                        </th>
+						<td>
+							<span class="txt_edit" >
+									<input name="company_tel" class="input wfix_large" type="text">
+							</span>
+						</td>
+					</tr>
+					{{/tel}}
+				{{/office}}
+				{{#office}}
+				<tr>
+					<th><span class="title">{{lang.company_addr}}</span></th>
+					<td>
+						<span id="officeDetail" class="txt_edit">
+						    <input name="company_basicAddress" class="input wfix_max" type="text" value="{{basicAddress}}" readonly="readonly">
+							<input name="company_country" class="input wfix_max" type="hidden" value="{{country}}">
+							<input name="company_postalCode" class="input wfix_max" type="hidden" value="{{postalCode}}">
+							<input name="company_state" class="input wfix_max" type="hidden" value="{{state}}">
+							<input name="company_city" class="input wfix_max" type="hidden" value="{{city}}">
+							<input name="company_extAddress" class="input wfix_max" type="hidden" value="{{extAddress}}">
+							<span title="{{lang.gname_detail}}" class="ic_con ic_detail" evt-rol="viewLayerAddress" type="office"></span>
+						</span>
+					</td>
+				</tr>					
+				{{/office}}
+				{{^office}}
+				<tr style="display:none">
+					<th>
+                        <span class="title">{{lang.company_tel}}</span>
+                        <span class="help"><span class="tool_tip">{{{lang.phone_desc}}}<i class="tail_left"></i></span></span>
+                    </th>
+					<td>
+						<span class="txt_edit" >
+								<input name="company_tel" class="input wfix_large" type="text">
+						</span>
+					</td>
+				</tr>
+				<tr style="display:none">
+					<th><span class="title">{{lang.company_addr}}</span>
+					</th>
+					<td>
+						<span id="officeDetail" class="txt_edit">
+							<input name="company_basicAddress" class="input wfix_max" type="text" value="{{basicAddress}}" readonly="readonly">
+							<input name="company_country" class="input wfix_max" type="hidden" value="{{country}}">
+							<input name="company_postalCode" class="input wfix_max" type="hidden" value="{{postalCode}}">
+							<input name="company_state" class="input wfix_max" type="hidden" value="{{state}}">
+							<input name="company_city" class="input wfix_max" type="hidden" value="{{city}}">
+							<input name="company_extAddress" class="input wfix_max" type="hidden" value="{{extAddress}}">
+							<span title="{{lang.gname_detail}}" class="ic_con ic_detail" evt-rol="viewLayerAddress" type="office"></span>
+						</span>
+						
+					</td>
+				</tr>
+				{{/office}}
+				{{#description}}
+				<tr>
+					<th><span class="title">{{lang.description}}</span></th>
+					<td>
+						<span class="textarea" style="display:none">
+							<textarea name="description" class="edit w_max"></textarea>									
+						</span>
+						<span class="txt_form contact_item_modify">{{{description}}}
+							<span class="ui_edit btn_wrap"><span class="ic_side ic_edit" title="{{lang.item_modify}}"></span></span>
+							<input name="description" type="hidden" value="{{description}}"/>
+						</span>						
+					</td>
+				</tr>
+				{{/description}}
+				{{^description}}
+				<tr style="display:none">
+					<th><span class="title">{{lang.description}}</span></th>
+					<td>
+						<span class="textarea">
+							<textarea name="description" class="edit w_max"></textarea>									
+						</span>
+					</td>
+				</tr>
+				{{/description}}
+				{{#nickName}}
+				<tr>
+					<th><span class="title">{{lang.nickName}}</span></th>
+					<td>
+						<span class="txt_edit" style="display:none">
+								<input name="nickName" class="input wfix_large" type="text">
+						</span>
+						<span class="txt_form contact_item_modify">{{nickName}}
+							<span class="ui_edit btn_wrap"><span class="ic_side ic_edit" title="{{lang.item_modify}}"></span></span>
+							<input name="nickName" type="hidden" value="{{nickName}}"/>
+						</span>
+					</td>
+				</tr>
+				{{/nickName}}
+				{{^nickName}}
+				<tr style="display:none">
+					<th><span class="title">{{lang.nickName}}</span></th>
+					<td>
+						<span class="txt_edit" >
+								<input name="nickName" class="input wfix_large" type="text">
+						</span>
+					</td>
+				</tr>
+				{{/nickName}}
+				{{#birthday}}
+				<tr>
+					<th><span class="title">{{lang.birthday}}</span></th>
+					<td>
+						<span style="display:none" class="noti_date_wrap option_wrap">
+							<input name="birthday" class="input wfix_large" type="text" id="birthdayDate" readonly="readonly"/>
+							<span id="birthdayDateIcon" class="ic ic_calendar"></span>
+						</span>
+						<span class="txt_form contact_item_modify">{{birthday}}
+							<span class="ui_edit btn_wrap"><span class="ic_side ic_edit" title="{{lang.item_modify}}"></span></span>
+							<input name="birthday" type="hidden" value="{{birthday}}"/>
+						</span>
+					</td>
+				</tr>
+				{{/birthday}}
+				{{^birthday}}
+				<tr style="display:none">
+					<th><span class="title">{{lang.birthday}}</span>
+					</th>
+					<td>
+						<span class="noti_date_wrap option_wrap">
+						<input name="birthday" class="input wfix_large" type="text" id="birthdayDate" readonly="readonly"/>
+							<span id="birthdayDateIcon" class="ic ic_calendar"></span>
+						</span>
+					</td>
+				</tr >
+				{{/birthday}}
+				{{#anniversary}}
+				<tr>
+					<th><span class="title">{{lang.anniversary}}</span></th>
+					<td>
+						<span style="display:none" class="noti_date_wrap option_wrap">
+							<input name="anniversary" class="input wfix_large" type="text" id="anniversaryDate" readonly="readonly"/>
+							<span id="anniversaryDateIcon" class="ic ic_calendar"></span>
+						</span>
+						<span class="txt_form contact_item_modify" >{{anniversary}}
+							<span class="ui_edit btn_wrap"><span class="ic_side ic_edit" title="{{lang.item_modify}}"></span></span>
+							<input name="anniversary" type="hidden" value="{{anniversary}}"/>
+						</span>
+					</td>
+				</tr>
+				{{/anniversary}}
+				{{^anniversary}}
+				<tr style="display:none">
+					<th><span class="title">{{lang.anniversary}}</span>
+					</th>
+					<td><span class="noti_date_wrap option_wrap">
+						<input name="anniversary" class="input wfix_large" type="text" id="anniversaryDate" readonly="readonly"/>
+							<span id="anniversaryDateIcon" class="ic ic_calendar"></span>
+						</span>
+					</td>
+				</tr>
+				{{/anniversary}}
+				{{#home}}
+					{{#tel}}
+					<tr>
+						<th>
+                            <span class="title">{{lang.home_tel}}</span>
+                            <span class="help"><span class="tool_tip">{{{lang.phone_desc}}}<i class="tail_left"></i></span></span>
+                        </th>
+						<td>
+							<span class="txt_edit" style="display:none">
+								<input name="home_tel" class="input wfix_large" type="text">
+							</span>
+							<span class="txt_form contact_item_modify">{{tel}}
+								<span class="ui_edit btn_wrap"><span class="ic_side ic_edit" title="{{lang.item_modify}}"></span></span>
+								<input name="home_tel" type="hidden" value="{{tel}}"/>
+							</span>
+						</td>
+					</tr>
+					{{/tel}}
+					{{^tel}}
+					<tr style="display:none">
+						<th>
+                            <span class="title">{{lang.home_tel}}</span>
+                            <span class="help"><span class="tool_tip">{{{lang.phone_desc}}}<i class="tail_left"></i></span></span>
+                        </th>
+						<td>
+							<span class="txt_edit" >
+									<input name="home_tel" class="input wfix_large" type="text">
+							</span>
+						</td>
+					</tr>
+					{{/tel}}
+				{{/home}}
+				{{#home}}
+				<tr>
+					<th><span class="title">{{lang.home_addr}}</span></th>
+					<td>
+						<span id="homeDetail" class="txt_edit">
+							<input name="home_basicAddress" class="input wfix_max" type="text" value="{{basicAddress}}" readonly="readonly">
+							<input name="home_country" class="input wfix_max" type="hidden" value="{{country}}">
+							<input name="home_postalCode" class="input wfix_max" type="hidden" value="{{postalCode}}">
+							<input name="home_state" class="input wfix_max" type="hidden" value="{{state}}">
+							<input name="home_city" class="input wfix_max" type="hidden" value="{{city}}">
+							<input name="home_extAddress" class="input wfix_max" type="hidden" value="{{extAddress}}">
+							<span title="{{lang.gname_detail}}" class="ic_con ic_detail" evt-rol="viewLayerAddress" type="office"></span>
+						</span>
+						
+					</td>
+				</tr>
+				{{/home}}
+				{{#home}}
+					{{#fax}}
+					<tr>
+						<th>
+                            <span class="title">{{lang.home_fax}}</span>
+                            <span class="help"><span class="tool_tip">{{{lang.phone_desc}}}<i class="tail_left"></i></span></span>
+                        </th>
+						<td>
+							<span class="txt_edit" style="display:none">
+								<input name="home_fax" class="input wfix_large" type="text">
+							</span>
+							<span class="txt_form contact_item_modify">{{fax}}
+								<span class="ui_edit btn_wrap"><span class="ic_side ic_edit" title="{{lang.item_modify}}"></span></span>
+								<input name="home_fax" type="hidden" value="{{fax}}"/>
+							</span>
+						</td>
+					</tr>
+					{{/fax}}
+					{{^fax}}
+					<tr style="display:none">
+						<th>
+                            <span class="title">{{lang.home_fax}}</span>
+                            <span class="help"><span class="tool_tip">{{{lang.phone_desc}}}<i class="tail_left"></i></span></span>
+                        </th>
+						<td>
+							<span class="txt_edit" >
+									<input name="home_fax" class="input wfix_large" type="text">
+							</span>
+						</td>
+					</tr>
+					{{/fax}}
+				{{/home}}
+				{{#home}}
+					{{#homepage}}
+					<tr>
+						<th><span class="title">{{lang.home_homepage}}</span></th>
+						<td>
+							<span class="txt_edit" style="display:none">
+								<input name="home_homepage" class="input wfix_large" type="text">
+							</span>
+							<span class="txt_form contact_item_modify">{{homepage}}
+								<span class="ui_edit btn_wrap"><span class="ic_side ic_edit" title="{{lang.item_modify}}"></span></span>
+								<input name="home_homepage" type="hidden" value="{{homepage}}"/>
+							</span>
+                            <span class="btn_fn7" id="home_link" data-role="button">{{lang.homepage_link}}</span>
+						</td>
+					</tr>
+					{{/homepage}}
+					{{^homepage}}
+					<tr style="display:none">
+						<th><span class="title">{{lang.home_homepage}}</span></th>
+						<td>
+							<span class="txt_edit" >
+									<input name="home_homepage" class="input wfix_large" type="text">
+							</span>
+						</td>
+					</tr>
+					{{/homepage}}
+				{{/home}}
+				{{^home}}
+				<tr style="display:none">
+					<th>
+                        <span class="title">{{lang.home_tel}}</span>
+                        <span class="help"><span class="tool_tip">{{{lang.phone_desc}}}<i class="tail_left"></i></span></span>
+                    </th>
+					<td>
+						<span class="txt_edit" >
+								<input name="home_tel" class="input wfix_large" type="text">
+						</span>
+					</td>
+				</tr>
+				<tr style="display:none">
+					<th><span class="title">{{lang.home_addr}}</span>
+					</th>
+					<td>
+						<span id="homeDetail" class="txt_edit">
+							<input name="home_basicAddress" class="input wfix_max" type="text" value="{{basicAddress}}" readonly="readonly">
+							<input name="home_country" class="input wfix_max" type="hidden" value="{{country}}">
+							<input name="home_postalCode" class="input wfix_max" type="hidden" value="{{postalCode}}">
+							<input name="home_state" class="input wfix_max" type="hidden" value="{{state}}">
+							<input name="home_city" class="input wfix_max" type="hidden" value="{{city}}">
+							<input name="home_extAddress" class="input wfix_max" type="hidden" value="{{extAddress}}">
+							<span title="{{lang.gname_detail}}" class="ic_con ic_detail" evt-rol="viewLayerAddress" type="office"></span>
+						</span>
+						
+					</td>
+				</tr>
+				<tr style="display:none">
+					<th>
+                        <span class="title">{{lang.home_fax}}</span>
+                        <span class="help"><span class="tool_tip">{{{lang.phone_desc}}}<i class="tail_left"></i></span></span>
+                    </th>
+					<td>
+						<span class="txt_edit" >
+								<input name="home_fax" class="input wfix_large" type="text">
+						</span>
+					</td>
+				</tr>
+				<tr style="display:none">
+					<th><span class="title">{{lang.home_homepage}}</span></th>
+					<td>
+						<span class="txt_edit" >
+								<input name="home_homepage" class="input wfix_large" type="text">
+						</span>
+					</td>
+				</tr>
+				{{/home}}
+				{{#office}}
+					{{#fax}}
+					<tr>
+						<th>
+                            <span class="title">{{lang.company_fax}}</span>
+                            <span class="help"><span class="tool_tip">{{{lang.phone_desc}}}<i class="tail_left"></i></span></span>
+                        </th>
+						<td>
+							<span class="txt_edit" style="display:none">
+								<input name="company_fax" class="input wfix_large" type="text">
+							</span>
+							<span class="txt_form contact_item_modify">{{fax}}
+								<span class="ui_edit btn_wrap"><span class="ic_side ic_edit" title="{{lang.item_modify}}"></span></span>
+								<input name="company_fax" type="hidden" value="{{fax}}"/>
+							</span>
+						</td>
+					</tr>
+					{{/fax}}
+					{{^fax}}
+					<tr style="display:none">
+						<th>
+                            <span class="title">{{lang.company_fax}}</span>
+                            <span class="help"><span class="tool_tip">{{{lang.phone_desc}}}<i class="tail_left"></i></span></span>
+                        </th>
+						<td>
+							<span class="txt_edit" >
+									<input name="company_fax" class="input wfix_large" type="text">
+							</span>
+						</td>
+					</tr>
+					{{/fax}}
+				{{/office}}
+				{{#office}}
+					{{#homepage}}
+					<tr>
+						<th><span class="title">{{lang.company_homepage}}</span></th>
+						<td>
+							<span class="txt_edit" style="display:none">
+								<input name="company_homepage" class="input wfix_large" type="text">
+							</span>
+							<span class="txt_form contact_item_modify">{{homepage}}
+								<span class="ui_edit btn_wrap"><span class="ic_side ic_edit" title="{{lang.item_modify}}"></span></span>
+								<input name="company_homepage" type="hidden" value="{{homepage}}"/>
+							</span>
+                            <span class="btn_fn7" id="company_link" data-role="button">{{lang.homepage_link}}</span>
+						</td>
+					</tr>
+					{{/homepage}}
+					{{^homepage}}
+					<tr style="display:none">
+						<th><span class="title">{{lang.company_homepage}}</span></th>
+						<td>
+							<span class="txt_edit" >
+									<input name="company_homepage" class="input wfix_large" type="text">
+							</span>
+						</td>
+					</tr>
+					{{/homepage}}
+				{{/office}}				
+				{{^office}}
+				<tr style="display:none">
+					<th>
+                        <span class="title">{{lang.company_fax}}</span>
+                        <span class="help"><span class="tool_tip">{{{lang.phone_desc}}}<i class="tail_left"></i></span></span>
+                    </th>
+					<td>
+						<span class="txt_edit" >
+								<input name="company_fax" class="input wfix_large" type="text">
+						</span>
+					</td>
+				</tr>				
+				<tr style="display:none">
+					<th><span class="title">{{lang.company_homepage}}</span></th>
+					<td>
+						<span class="txt_edit" >
+								<input name="company_homepage" class="input wfix_large" type="text">
+						</span>
+					</td>
+				</tr>
+				{{/office}}
+				<tr>
+					<th><span class="title">{{lang.item_add}}</span></th>
+					<td>
+						<select name="contactItem">
+							<option>{{lang.select_desc}}</option>
+							{{^companyName}}
+								<option value="companyName">{{lang.company}}</option>
+							{{/companyName}}
+							
+							{{^departmentName}}
+								<option value="departmentName">{{lang.dept}}</option>
+							{{/departmentName}}
+							
+							{{^positionName}}
+								<option value="positionName">{{lang.position}}</option>
+							{{/positionName}}
+							
+							{{^email}}
+								<option value="email">{{lang.email}}</option>
+							{{/email}}
+							
+							{{^mobileNo}}
+								<option value="mobileNo">{{lang.phone}}</option>
+							{{/mobileNo}}
+							
+							{{#office}}
+								{{^tel}}
+								<option value="company_tel">{{lang.company_tel}}</option>
+								{{/tel}}	
+								{{^basicAddress}}
+								<option value="company_basicAddress">{{lang.company_addr}}</option>
+								{{/basicAddress}}							
+							{{/office}}
+							{{^office}}
+								<option value="company_tel">{{lang.company_tel}}</option>
+								<option value="company_basicAddress">{{lang.company_addr}}</option>
+							{{/office}}
+							
+							{{^description}}
+								<option value="description">{{lang.description}}</option>
+							{{/description}}
+							
+							{{^nickName}}
+								<option value="nickName">{{lang.nickName}}</option>
+							{{/nickName}}
+							
+							{{^birthday}}
+								<option value="birthday">{{lang.birthday}}</option>
+							{{/birthday}}
+							
+							{{^anniversary}}
+								<option value="anniversary">{{lang.anniversary}}</option>
+							{{/anniversary}}
+							
+							{{#home}}
+								{{^tel}}
+								<option value="home_tel">{{lang.home_tel}}</option>
+								{{/tel}}
+								{{^basicAddress}}
+								<option value="home_basicAddress">{{lang.home_addr}}</option>
+								{{/basicAddress}}
+								{{^fax}}
+								<option value="home_fax">{{lang.home_fax}}</option>
+								{{/fax}}
+								{{^homepage}}
+								<option value="home_homepage">{{lang.home_homepage}}</option>
+								{{/homepage}}
+							{{/home}}
+							{{^home}}
+								<option value="home_tel">{{lang.home_tel}}</option>
+								<option value="home_basicAddress">{{lang.home_addr}}</option>
+								<option value="home_fax">{{lang.home_fax}}</option>
+								<option value="home_homepage">{{lang.home_homepage}}</option>
+							{{/home}}
+							
+							{{#office}}
+								{{^fax}}
+								<option value="company_fax">{{lang.company_fax}}</option>
+								{{/fax}}
+								{{^homepage}}
+								<option value="company_homepage">{{lang.company_homepage}}</option>
+								{{/homepage}}
+							{{/office}}
+							{{^office}}
+								<option value="company_fax">{{lang.company_fax}}</option>
+								<option value="company_homepage">{{lang.company_homepage}}</option>
+							{{/office}}
+							
+							
+						</select>
+					</td>
+				</tr>
+				<tr class="line"><td colspan="2"><hr /></td></tr>
+				{{/data}}						
+				</tbody>
+			</table>
+		</fieldset>
+	</form>
+
+	<div class="tool_bar board_type">
+		<div class="critical">
+			<a id="bottomSaveModify" class="btn_tool" data-role="button">
+				<span class="ic_toolbar modify"></span>
+				<span class="txt">{{lang.modify}}</span>
+			</a>
+			<a id="bottomModifyCancel" class="btn_tool" data-role="button">
+				<span class="ic_toolbar close"></span>
+				<span class="txt">{{lang.cancel}}</span>
+			</a>
+			<a id="bottomContactDelete" class="btn_tool" data-role="button">
+				<span class="ic_toolbar del"></span>
+				<span class="txt">{{lang.delete}}</span>
+			</a>
+		</div>
+		<div class="optional">
+			<a class="btn_tool" url-copy>
+				<span class="ic_toolbar copy_url"></span>
+				<span class="txt">{{lang.copy}}</span>
+			</a>
+			<a id="bottomReturnList" class="btn_tool">
+				<span class="ic_toolbar list"></span>
+				<span class="txt">{{lang.return_list}}</span>
+			</a>
+		</div>
+	</div>
+</div>

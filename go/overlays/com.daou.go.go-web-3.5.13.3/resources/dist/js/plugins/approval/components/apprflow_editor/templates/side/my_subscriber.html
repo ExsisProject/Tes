@@ -1,0 +1,22 @@
+<section class="lnb">
+    {{^hasMySubscribers}}
+    <div class="null_guide">
+        <span class="ic_side ic_app_bbs"></span> 
+        <p class="desc">
+            {{lang.msg_empty_my_subscribers}}<br>
+        </p>
+    </div>
+    {{/hasMySubscribers}}
+    {{#hasMySubscribers}}
+    <ul class="side_depth">
+        {{#mySubscribers}}
+        <li class="feed">
+            <p class="title {{#isSelected}}on{{/isSelected}}">
+                <a class="my_line_a" data-id={{id}}><ins class="ic"></ins><span class="txt">{{title}}</span><span class="num" title="{{groupCountTitle}}">{{groupCount}}</span></a>
+                <a class="ic_classic ic ic_del" title="{{delete}}"></a>
+            </p>
+        </li>
+        {{/mySubscribers}}
+    </ul>
+    {{/hasMySubscribers}}
+</section>

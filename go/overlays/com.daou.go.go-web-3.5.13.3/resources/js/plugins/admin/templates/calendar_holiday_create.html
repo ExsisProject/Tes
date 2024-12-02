@@ -1,0 +1,74 @@
+<form name="formCreateHoliday" id="formCreateHoliday" onsubmit="return false;">
+    <table class="table_form_mini">
+        <tbody>
+        <tr>
+            <th><span class="title">{{label_calendar}}</span></th>
+            <td>
+                <span class="option_wrap">
+                    <input type="radio" id="solar" name="phase"" value="solar" checked="checked">
+                    <label for="solar">{{label_solar}}</label>
+                </span>
+                <span class="option_wrap">
+                    <input type="radio" id="lunar" name="phase"" value="lunar">
+                    <label for="lunar">{{label_lunar}}</label>
+                </span>
+            </td>
+        </tr>
+        <tr>
+            <th><span class="title">{{label_date}}</span></th>
+            <td>
+                <span class="option_wrap">
+                    <input type="radio" id="dateSelect" value="dateSelect" name="dateOrDay" checked="checked">
+                    <label for="dateSelect">{{label_date_select}}</label>
+                    <select id="selectMonth_date">
+                        {{#selectMonth}}
+                        <option value="{{value}}">{{value}}{{label_month}}</option>
+                        {{/selectMonth}}
+                    </select>
+                    <select id="selectDate_date">
+                        {{#selectDate}}
+                        <option value="{{value}}">{{value}}{{label_day}}</option>
+                        {{/selectDate}}
+                    </select>
+                </span>
+                <span class="option_wrap">
+                    <input type="radio" id="daySelect" value="daySelect" name="dateOrDay"> 
+                    <label for="daySelect">{{label_day_select}}</label>
+                    <select id="selectMonth_day">
+                        {{#selectMonth}}
+                        <option value="{{value}}">{{value}}{{label_month}}</option>
+                        {{/selectMonth}}
+                    </select>
+                    <select id="selectWeek_day">
+                        {{#selectWeek}}
+                        <option value="{{value}}">{{value}}{{label_times}}</option>
+                        {{/selectWeek}}
+                    </select>
+                    <select id="selectDay_day">
+                        {{#selectDay}}
+                        <option value="{{value}}">{{text}}</option>
+                        {{/selectDay}}
+                    </select>
+                </span>
+            </td>
+        </tr>
+        <tr>
+            <th><span class="title"><ins class="asterisk">*</ins>{{label_title}}</span></th>
+            <td><input class="input w_full" id="summary" name="summary"></td>
+        </tr>
+        <tr>
+            <th><span class="title">{{label_status}}</span></th>
+            <td>
+                <span class="option_wrap">
+                    <input type="radio" id="holiday" value="holiday" name="type" checked="checked">
+                    <label for="holiday">{{label_holiday}}</label>
+                </span>
+                <span class="option_wrap">
+                    <input type="radio" id="anniversary" value="anniversary" name="type">
+                    <label for="anniversary">{{label_non_holiday}}</label>
+                </span>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</form>

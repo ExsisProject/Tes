@@ -1,0 +1,1 @@
+define(["backbone","task/models/task_activity"],function(e,t){var n=e.Collection.extend({model:t,initialize:function(e){this.taskId=e.taskId},url:function(){return GO.contextRoot+"api/task/"+this.taskId+"/activity"}});return n});

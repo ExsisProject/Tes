@@ -1,0 +1,57 @@
+<div class="content_info">
+    <ul class="info_summary">
+        <li class="first">
+            <span class="tit">{{lang.label_company_cnt}}</span>
+            <span class="txt">{{companyContactCnt}}</strong> {{lang.label_count}}</span>
+        </li>
+        <li style="display: none;">
+            <span class="tit">{{lang.label_private_cnt}}</span>
+            <span class="txt">{{privateContactCnt}}</strong> {{lang.label_count}}</span>
+        </li>
+    </ul>
+    <span class="wrap_action">
+        <span class="ic_adm ic_accordion_open" title="펼치기"></span>
+    </span>
+        <span class="wrap_action" style="display: none;">
+        <span class="ic_adm ic_accordion_close" title="접기"></span>
+    </span>
+</div>
+
+<div class="content_page">
+    <div class="dataTables_wrapper container">
+		<div id="csvDownLoad" style="display:none">
+		    <span class="btn_tool" id="csvDownLoadBtn">{{lang.label_down}}</span>
+		</div>
+        <div id="postBbsDataTable_processing" class="dataTables_processing" style="visibility: hidden">Processing...</div>
+        <div class="content_tb">
+            <table class="chart size" id="contactList">
+                <thead>
+                    <tr>
+                        <th class="sorting">
+                            <span class="title_sort">
+                                <label>{{lang.label_user}}</label>
+                                <ins class="ic"></ins><span class="selected"></span>
+                            </span>
+                        </th>
+                        <th class="sorting">
+                            <span class="title_sort">
+                                <label>{{lang.label_contact_cnt}}</label>
+                                <ins class="ic"></ins><span class="selected"></span>
+                            </span>
+                        </th>
+                </thead>
+            </table>
+            <div class="table_search">              
+                <select>
+                    <option value="name">{{lang.label_user}}</option>
+                </select>       
+                
+                <span class="search_wrap">
+                    <input class="input" type="text" />
+                    <span class="btn_search" title="{{lang.label_search}}"></span>
+                </span>
+            </div>
+        </div>
+    </div>
+    
+</div>

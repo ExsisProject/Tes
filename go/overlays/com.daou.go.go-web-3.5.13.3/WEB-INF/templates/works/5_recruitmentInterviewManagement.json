@@ -1,0 +1,673 @@
+{
+	"meta": {
+		"key": "51a7bcba-0933-45c0-9767-2181848776b5",
+		"base": {
+			"name": "applet.employed.manage.template.name",
+			"desc": "applet.employed.manage.template.desc",
+			"icon": "ic_app15.png"
+		},
+		"exporter": {
+			"name": "관리자",
+			"companyName": "다우기술"
+		}
+	},
+	"components": {
+		"view": {
+			"charts": [],
+			"columns": [{
+				"fieldCid": "status",
+				"columnName": "{{applet.new.template.col.status}}"
+			}, {
+				"fieldCid": "_waloi7qs7"
+			}, {
+				"fieldCid": "_ns4vuw6jp"
+			}, {
+				"fieldCid": "_ts1eoodj5"
+			}, {
+				"fieldCid": "_2k2e0ehjr"
+			}, {
+				"fieldCid": "_obwqx48ia"
+			}, {
+				"fieldCid": "_3d1d4re8c"
+			}, {
+				"fieldCid": "create_date",
+				"columnName": "{{applet.new.template.col.createdat}}"
+			}],
+			"titleColumnIndex": 2,
+			"sortColumnIndex": 7,
+			"sortDirection": "DESC"
+		},
+		"form": {
+			"data": {
+				"type": "canvas",
+				"multiple": false,
+				"cid": "cxx1",
+				"components": [{
+					"type": "label",
+					"multiple": false,
+					"cid": "_u00403ie1",
+					"parentCid": "cxx1",
+					"properties": {
+						"label": "◆ 면접자 정보"
+					},
+					"components": []
+				}, {
+					"type": "columns",
+					"multiple": false,
+					"cid": "_2yx64msik",
+					"parentCid": "cxx1",
+					"properties": {
+						"count": 2
+					},
+					"components": [{
+						"type": "column",
+						"multiple": false,
+						"cid": "_tfsbvr84q",
+						"parentCid": "_2yx64msik",
+						"properties": {},
+						"components": [{
+							"type": "creator",
+							"valueType": "USER",
+							"multiple": false,
+							"cid": "creator",
+							"parentCid": "_tfsbvr84q",
+							"properties": {
+								"label": "등록자",
+								"hideLabel": false
+							},
+							"components": []
+						}]
+					}, {
+						"type": "column",
+						"multiple": false,
+						"cid": "_u6clsjvkw",
+						"parentCid": "_2yx64msik",
+						"properties": {},
+						"components": [{
+							"type": "update_date",
+							"valueType": "DATETIME",
+							"multiple": false,
+							"cid": "update_date",
+							"parentCid": "_u6clsjvkw",
+							"properties": {
+								"label": "업데이트",
+								"hideLabel": false
+							},
+							"components": []
+						}]
+					}]
+				}, {
+					"type": "columns",
+					"multiple": false,
+					"cid": "_ydbqhwnrh",
+					"parentCid": "cxx1",
+					"properties": {
+						"count": 2
+					},
+					"components": [{
+						"type": "column",
+						"multiple": false,
+						"cid": "_let0nv5rh",
+						"parentCid": "_ydbqhwnrh",
+						"properties": {},
+						"components": [{
+							"type": "file",
+							"valueType": "FILES",
+							"multiple": false,
+							"cid": "_xy21afky6",
+							"parentCid": "_let0nv5rh",
+							"properties": {
+								"label": "프로필 사진",
+								"hideLabel": false,
+								"guide": "",
+								"guideAsTooltip": true,
+								"required": false
+							},
+							"components": []
+						}]
+					}, {
+						"type": "column",
+						"multiple": false,
+						"cid": "_ehoygcuw5",
+						"parentCid": "_ydbqhwnrh",
+						"properties": {},
+						"components": [{
+							"type": "file",
+							"valueType": "FILES",
+							"multiple": false,
+							"cid": "_dxqdhgu1h",
+							"parentCid": "_ehoygcuw5",
+							"properties": {
+								"label": "이력서",
+								"hideLabel": false,
+								"guide": "",
+								"guideAsTooltip": true,
+								"required": false
+							},
+							"components": []
+						}]
+					}]
+				}, {
+					"type": "columns",
+					"multiple": false,
+					"cid": "_36r3vdy9j",
+					"parentCid": "cxx1",
+					"properties": {
+						"count": 2
+					},
+					"components": [{
+						"type": "column",
+						"multiple": false,
+						"cid": "_uv4jdvuxd",
+						"parentCid": "_36r3vdy9j",
+						"properties": {},
+						"components": [{
+							"type": "text",
+							"valueType": "STEXT",
+							"multiple": false,
+							"cid": "_ts1eoodj5",
+							"parentCid": "_uv4jdvuxd",
+							"properties": {
+								"label": "출신대학",
+								"hideLabel": false,
+								"guide": "",
+								"guideAsTooltip": true,
+								"required": false,
+								"defaultValue": "",
+								"minLength": 0,
+								"maxLength": 100,
+								"width": 100,
+								"widthUnit": "percent",
+								"format": "all"
+							},
+							"components": []
+						}]
+					}, {
+						"type": "column",
+						"multiple": false,
+						"cid": "_bexig6yhi",
+						"parentCid": "_36r3vdy9j",
+						"properties": {},
+						"components": [{
+							"type": "text",
+							"valueType": "STEXT",
+							"multiple": false,
+							"cid": "_2k2e0ehjr",
+							"parentCid": "_bexig6yhi",
+							"properties": {
+								"label": "세부전공",
+								"hideLabel": false,
+								"guide": "",
+								"guideAsTooltip": true,
+								"required": false,
+								"defaultValue": "",
+								"minLength": 0,
+								"maxLength": 100,
+								"width": 100,
+								"widthUnit": "percent",
+								"format": "all"
+							},
+							"components": []
+						}]
+					}]
+				}, {
+					"type": "columns",
+					"multiple": false,
+					"cid": "_s3wrgk3tu",
+					"parentCid": "cxx1",
+					"properties": {
+						"count": 2
+					},
+					"components": [{
+						"type": "column",
+						"multiple": false,
+						"cid": "_orasrpkq6",
+						"parentCid": "_s3wrgk3tu",
+						"properties": {},
+						"components": [{
+							"type": "text",
+							"valueType": "STEXT",
+							"multiple": false,
+							"cid": "_ns4vuw6jp",
+							"parentCid": "_orasrpkq6",
+							"properties": {
+								"label": "지원자",
+								"hideLabel": false,
+								"guide": "",
+								"guideAsTooltip": true,
+								"required": false,
+								"defaultValue": "",
+								"minLength": 0,
+								"maxLength": 100,
+								"width": 100,
+								"widthUnit": "percent",
+								"format": "all"
+							},
+							"components": []
+						}]
+					}, {
+						"type": "column",
+						"multiple": false,
+						"cid": "_ysnduph0w",
+						"parentCid": "_s3wrgk3tu",
+						"properties": {},
+						"components": [{
+							"type": "text",
+							"valueType": "STEXT",
+							"multiple": false,
+							"cid": "_b9ymk21oj",
+							"parentCid": "_ysnduph0w",
+							"properties": {
+								"label": "연락처",
+								"hideLabel": false,
+								"guide": "",
+								"guideAsTooltip": true,
+								"required": false,
+								"defaultValue": "",
+								"minLength": 0,
+								"maxLength": 100,
+								"width": 100,
+								"widthUnit": "percent",
+								"format": "all"
+							},
+							"components": []
+						}]
+					}]
+				}, {
+					"type": "select",
+					"valueType": "SELECT",
+					"multiple": false,
+					"cid": "_waloi7qs7",
+					"parentCid": "cxx1",
+					"properties": {
+						"label": "지원 구분",
+						"hideLabel": false,
+						"guide": "",
+						"guideAsTooltip": true,
+						"required": false,
+						"defaultValue": "0",
+						"items": [{
+							"value": "0",
+							"displayText": "2015 공채",
+							"selected": true
+						}, {
+							"value": "1",
+							"displayText": "수시 채용",
+							"selected": false
+						}, {
+							"value": "2",
+							"displayText": "인턴사원",
+							"selected": false
+						}]
+					},
+					"components": []
+				}, {
+					"type": "columns",
+					"multiple": false,
+					"cid": "_exqcgqln6",
+					"parentCid": "cxx1",
+					"properties": {
+						"count": 2
+					},
+					"components": [{
+						"type": "column",
+						"multiple": false,
+						"cid": "_zhw6anki5",
+						"parentCid": "_exqcgqln6",
+						"properties": {},
+						"components": [{
+							"type": "select",
+							"valueType": "SELECT",
+							"multiple": false,
+							"cid": "_l87unso2m",
+							"parentCid": "_zhw6anki5",
+							"properties": {
+								"label": "지원 직종",
+								"hideLabel": false,
+								"guide": "",
+								"guideAsTooltip": true,
+								"required": false,
+								"items": [{
+									"value": "0",
+									"displayText": "개발",
+									"selected": true
+								}, {
+									"value": "1",
+									"displayText": "영업",
+									"selected": false
+								}, {
+									"value": "2",
+									"displayText": "기획",
+									"selected": false
+								}, {
+									"value": 3,
+									"displayText": "디자인",
+									"selected": false
+								}, {
+									"value": 4,
+									"displayText": "경영지원",
+									"selected": false
+								}]
+							},
+							"components": []
+						}]
+					}, {
+						"type": "column",
+						"multiple": false,
+						"cid": "_dfda2v2nm",
+						"parentCid": "_exqcgqln6",
+						"properties": {},
+						"components": [{
+							"type": "checkbox",
+							"valueType": "SELECTS",
+							"multiple": false,
+							"cid": "_o0axy1ca5",
+							"parentCid": "_dfda2v2nm",
+							"properties": {
+								"label": "지원계기",
+								"hideLabel": false,
+								"guide": "",
+								"guideAsTooltip": true,
+								"required": false,
+								"items": [{
+									"value": "0",
+									"displayText": "채용사이트",
+									"selected": true
+								}, {
+									"value": "1",
+									"displayText": "SNS 소개",
+									"selected": false
+								}, {
+									"value": "2",
+									"displayText": "지인소개",
+									"selected": false
+								}, {
+									"value": 3,
+									"displayText": "기타",
+									"selected": false
+								}],
+								"align": "horizontal",
+								"minCheckedCount": "1",
+								"maxCheckedCount": "4"
+							},
+							"components": []
+						}]
+					}]
+				}, {
+					"type": "label",
+					"multiple": false,
+					"cid": "_fkz9a7h6m",
+					"parentCid": "cxx1",
+					"properties": {
+						"label": "------------------------ 아래는 면접관께서 직접 기록해 주시기 바랍니다. ------------------------"
+					},
+					"components": []
+				}, {
+					"type": "columns",
+					"multiple": false,
+					"cid": "_s23xjzqv2",
+					"parentCid": "cxx1",
+					"properties": {
+						"count": 2
+					},
+					"components": [{
+						"type": "column",
+						"multiple": false,
+						"cid": "_azdnrjcfk",
+						"parentCid": "_s23xjzqv2",
+						"properties": {},
+						"components": [{
+							"type": "date",
+							"valueType": "DATE",
+							"multiple": false,
+							"cid": "_obwqx48ia",
+							"parentCid": "_azdnrjcfk",
+							"properties": {
+								"label": "1차 면접일",
+								"hideLabel": false,
+								"guide": "",
+								"guideAsTooltip": true,
+								"required": false,
+								"defaultAsNow": false,
+								"defaultDate": ""
+							},
+							"components": []
+						}]
+					}, {
+						"type": "column",
+						"multiple": false,
+						"cid": "_6nbele53c",
+						"parentCid": "_s23xjzqv2",
+						"properties": {},
+						"components": [{
+							"type": "org",
+							"valueType": "USERS",
+							"multiple": false,
+							"cid": "_027x3phmf",
+							"parentCid": "_6nbele53c",
+							"properties": {
+								"label": "1차 면접관",
+								"hideLabel": false,
+								"guide": "",
+								"guideAsTooltip": true,
+								"required": false,
+								"noLimit": true,
+								"useDefaultRegister": false,
+								"allowMemberCount": "1",
+								"members": []
+							},
+							"components": []
+						}]
+					}]
+				}, {
+					"type": "textarea",
+					"valueType": "TEXT",
+					"multiple": false,
+					"cid": "_2nrjlegkw",
+					"parentCid": "cxx1",
+					"properties": {
+						"label": "1차 면접 종합 코멘트",
+						"hideLabel": false,
+						"guide": "",
+						"guideAsTooltip": true,
+						"required": false,
+						"defaultValue": "",
+						"width": 100,
+						"widthUnit": "percent",
+						"rows": "10"
+					},
+					"components": []
+				}, {
+					"type": "radio",
+					"valueType": "SELECT",
+					"multiple": false,
+					"cid": "_jown1le7l",
+					"parentCid": "cxx1",
+					"properties": {
+						"label": "결과 통보",
+						"hideLabel": false,
+						"guide": "",
+						"guideAsTooltip": true,
+						"required": false,
+						"items": [{
+							"value": "0",
+							"displayText": "미통보",
+							"selected": true
+						}, {
+							"value": "1",
+							"displayText": "전화통보",
+							"selected": false
+						}, {
+							"value": "2",
+							"displayText": "이메일 통보",
+							"selected": false
+						}, {
+							"value": 3,
+							"displayText": "홈페이지 공지",
+							"selected": false
+						}, {
+							"value": 4,
+							"displayText": "기타 통보",
+							"selected": false
+						}],
+						"align": "horizontal"
+					},
+					"components": []
+				}, {
+					"type": "columns",
+					"multiple": false,
+					"cid": "_oey7tox5p",
+					"parentCid": "cxx1",
+					"properties": {
+						"count": 2
+					},
+					"components": [{
+						"type": "column",
+						"multiple": false,
+						"cid": "_wdx2pliu6",
+						"parentCid": "_oey7tox5p",
+						"properties": {},
+						"components": [{
+							"type": "date",
+							"valueType": "DATE",
+							"multiple": false,
+							"cid": "_3d1d4re8c",
+							"parentCid": "_wdx2pliu6",
+							"properties": {
+								"label": "2차 면접일",
+								"hideLabel": false,
+								"guide": "",
+								"guideAsTooltip": true,
+								"required": false,
+								"defaultAsNow": false,
+								"defaultDate": ""
+							},
+							"components": []
+						}]
+					}, {
+						"type": "column",
+						"multiple": false,
+						"cid": "_gfh59a7o9",
+						"parentCid": "_oey7tox5p",
+						"properties": {},
+						"components": [{
+							"type": "org",
+							"valueType": "USERS",
+							"multiple": false,
+							"cid": "_zciij7pzj",
+							"parentCid": "_gfh59a7o9",
+							"properties": {
+								"label": "2차 면접관",
+								"hideLabel": false,
+								"guide": "",
+								"guideAsTooltip": true,
+								"required": false,
+								"noLimit": true,
+								"useDefaultRegister": false,
+								"allowMemberCount": "1",
+								"members": []
+							},
+							"components": []
+						}]
+					}]
+				}, {
+					"type": "textarea",
+					"valueType": "TEXT",
+					"multiple": false,
+					"cid": "_tr4icv828",
+					"parentCid": "cxx1",
+					"properties": {
+						"label": "2차 면접 종합 코멘트",
+						"hideLabel": false,
+						"guide": "",
+						"guideAsTooltip": true,
+						"required": false,
+						"defaultValue": "",
+						"width": 100,
+						"widthUnit": "percent",
+						"rows": "10"
+					},
+					"components": []
+				}]
+			}
+		},
+		"process": {
+			"useProcess": true,
+			"statuses": [{
+				"name": "{{applet.employed.template.status.ready}}",
+				"start": true,
+				"doing": false,
+				"end": false,
+				"color": "0"
+			}, {
+				"name": "{{applet.employed.template.status.firstpass}}",
+				"start": false,
+				"doing": true,
+				"end": false,
+				"color": "0"
+			}, {
+				"name": "{{applet.employed.template.status.firstfail}}",
+				"start": false,
+				"doing": true,
+				"end": false,
+				"color": "0"
+			}, {
+				"name": "{{applet.employed.template.status.secondfail}}",
+				"start": false,
+				"doing": false,
+				"end": true,
+				"color": "0"
+			}, {
+				"name": "{{applet.employed.template.status.finalpass}}",
+				"start": false,
+				"doing": false,
+				"end": true,
+				"color": "0"
+			}],
+			"transitions": [{
+				"beforeStatus": "{{applet.employed.template.status.ready}}",
+				"nextStatus": "{{applet.employed.template.status.firstpass}}",
+				"actionName": "{{applet.employed.template.status.firstpass}}",
+				"actionRoles": ["REGISTRANT", "ADMIN"],
+				"pushRoles": []
+			}, {
+				"beforeStatus": "{{applet.employed.template.status.ready}}",
+				"nextStatus": "{{applet.employed.template.status.firstfail}}",
+				"actionName": "{{applet.employed.template.status.firstfail}}",
+				"actionRoles": ["REGISTRANT", "ADMIN"],
+				"pushRoles": []
+			}, {
+				"beforeStatus": "{{applet.employed.template.status.firstpass}}",
+				"nextStatus": "{{applet.employed.template.status.finalpass}}",
+				"actionName": "{{applet.employed.template.status.finalpass}}",
+				"actionRoles": ["REGISTRANT", "ADMIN"],
+				"pushRoles": []
+			}, {
+				"beforeStatus": "{{applet.employed.template.status.firstpass}}",
+				"nextStatus": "{{applet.employed.template.status.secondfail}}",
+				"actionName": "{{applet.employed.template.status.secondfail}}",
+				"actionRoles": [],
+				"pushRoles": []
+			}],
+			"addPushes": []
+		}
+	},
+	"messageKeys": [
+		"applet.employed.template.status.ready",
+		"applet.employed.template.status.firstpass",
+		"applet.employed.template.status.firstfail",
+		"applet.employed.template.status.secondfail",
+		"applet.employed.template.status.finalpass",
+		"applet.new.template.col.status",
+		"applet.new.template.col.createdat"
+	],
+	"guide" : {
+		"contents" : "applet.employed.manage.template.guide.content",
+		"imageFiles" : [
+			"5_recruitmentInterviewManagement/5_01.png",
+			"5_recruitmentInterviewManagement/5_02.png",
+			"5_recruitmentInterviewManagement/5_03.png",
+			"5_recruitmentInterviewManagement/5_04.png"
+		]
+	}
+}

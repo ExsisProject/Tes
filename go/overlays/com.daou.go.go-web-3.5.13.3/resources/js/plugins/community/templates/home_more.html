@@ -1,0 +1,55 @@
+{{#dataSet}}
+{{^isPostHidden}}
+<li class="{{boardType}} {{^readPost}}read_no{{/readPost}}" data-boardType="{{type}}" data-boardId="{{boardId}}" data-postId="{{id}}"  data-communityId="{{boardMasterOwner.ownerId}}">
+	<div class="article_wrap">
+		<span class="category">
+			<a data-bypass data-communityId="{{boardMasterOwner.ownerId}}" class="community_link">{{boardMasterOwner.ownerInfo}}</a>
+			<span class="arrow">></span>
+			<a data-bypass data-boardId="{{boardId}}" data-communityId="{{boardMasterOwner.ownerId}}" class="board_link">{{boardName}}</a>
+		</span>
+        {{#isClassic}}
+        <span class="title"><a data-bypass>{{{title}}}</a></span>
+        {{/isClassic}}
+		{{#newFlag}}<span class="ic_classic ic_new2" title="{{new_post}}"></span>{{/newFlag}}
+        <span class="btn_wrap">
+		    <span class="ic_classic ic_comment"></span>
+            <span class="num">{{commentsCount}}</span>
+        </span>
+        <div class="article home_content"><a data-bypass>{{{contentParse}}}</a></div>
+        <div class="info">
+            <span class="photo">
+			    <a data-userid="{{writer.id}}" data-bypass><img alt="{{writer.name}} {{writer.position}}" title="{{writer.name}} {{writer.positionName}}" src="{{writer.thumbSmall}}"></a>
+		    </span>
+            <a class="name"  data-userid="{{writer.id}}" data-bypass >{{writer.name}} {{writer.positionName}}</a>
+            <span class="date">{{dateParse}}</span>
+        </div>
+	</div>
+	<div class="meta_wrap">
+        <span class="wrap_heart {{#recommend}}on{{/recommend}}">
+            <span class="ic_con ic_heart"></span>
+            <span class="txt">{{recommendCount}}</span>
+        </span>
+	</div>
+</li>
+{{/isPostHidden}}
+{{#isPostHidden}}
+<li class="private" data-boardType="{{type}}" data-boardId="{{boardId}}" data-postId="{{id}}"  data-communityId="{{boardMasterOwner.ownerId}}" data-hidden="true">
+	<p class="noti_msg">
+		<span class="ic"></span>
+		<span class="txt">
+			<span class="category">
+				<a data-bypass data-communityId="{{boardMasterOwner.ownerId}}" class="community_link">{{boardMasterOwner.ownerInfo}}</a>
+				<span class="arrow">></span>
+				<a data-bypass data-boardId="{{boardId}}" data-communityId="{{boardMasterOwner.ownerId}}" class="board_link">{{boardName}}</a>
+			</span>
+		</span><br>
+		<span class="date">{{dateParse}}</span>
+	</p>
+	<br />
+	<p class="title">
+		{{#isTitleHidden}}{{lang.no_auth}}{{/isTitleHidden}}
+		{{^isTitleHidden}}{{{title}}}{{/isTitleHidden}}
+	</p>
+</li>
+{{/isPostHidden}}
+{{/dataSet}}

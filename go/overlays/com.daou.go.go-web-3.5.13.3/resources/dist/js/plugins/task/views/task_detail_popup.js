@@ -1,0 +1,1 @@
+define(function(require){var e=require("i18n!nls/commons"),t=require("task/views/task_detail");return t.extend({render:function(){t.prototype.render.call(this),this.$("section.combine_search").remove(),this.$("#goToListBtn").remove()},deleteTask:function(){this.task.destroy({success:function(){$.goMessage(e["\uc0ad\uc81c\ub418\uc5c8\uc2b5\ub2c8\ub2e4."]),window.close()}})}})});

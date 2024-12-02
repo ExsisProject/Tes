@@ -1,0 +1,15 @@
+{{^noMoreApplicant}}
+<div class="notice">
+    <span class="ic_notice ic_network_push"></span>
+    <h2 class="title">{{{text}}}</h2>
+
+    <a id="approval" class="btn_major" data-role="button"><span class="txt">{{lang.승인}}</span></a>
+    <a id="refusal" class="btn_minor" data-role="button"><span class="txt">{{lang.거절}}</span></a>
+</div>
+{{/noMoreApplicant}}
+{{#noMoreApplicant}}
+<div class="notice">
+    <span class="ic_notice ic_network_push"></span>
+    <h2 class="title">{{lang.정상 처리}}</h2>
+</div>
+{{/noMoreApplicant}}

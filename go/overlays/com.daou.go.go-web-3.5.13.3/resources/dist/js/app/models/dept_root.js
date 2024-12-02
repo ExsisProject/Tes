@@ -1,0 +1,1 @@
+define("models/dept_root",function(require){var e=require("backbone"),t=require("app"),n=require("when"),r=e.Model.extend({url:function(){return t.config("contextRoot")+"api/organization/root"}});return r});

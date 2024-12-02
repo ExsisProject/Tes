@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<div class="tWrap go_skin_default">
+	<header class="go_header go_header_2row">
+		<h1>
+			<a href="/summaryView.do">
+				<img class="logo" src="{{contextRoot}}{{logoImg}}" alt="{{label_logo}}" />
+			</a>
+		</h1>
+		<nav>
+			<ul id="adminTopMenu">
+				<li><a href="/summaryView.do"><span class="menu">{{label_main}}</span></a></li>
+                <li><a href="/listSystem.do"><span class="menu">{{label_system}}</span></a></li>
+                <li id="site"><a href="{{contextRoot}}admin/system/site"><span class="menu">{{label_site}}</span></a></li>
+                <li><a href="/listVirusFilter.do"><span class="menu">{{label_security}}</span></a></li>
+                <li><a href="/reportTrendView.do?statCategory=summary&mailType=all&isSelectedDomain=none"><span class="menu">{{label_stat}}</span></a></li>
+                <li><a href="/readRealtimeView.do"><span class="menu">{{label_monitor}}</span></a></li>
+                {{#hasMobilePack}}<li id="mobilty" class="on"><a href="{{contextRoot}}admin/system/device"><span class="menu">{{label_mobile}}</span></a></li>{{/hasMobilePack}}
+                <li id="etcConfig"><a href="/listIPGroup.do"><span class="menu">{{label_etc}}</span></a></li>
+                <li><a href="/adminList.do"><span class="menu">{{label_admin}}</span></a></li>
+			</ul>
+		</nav>
+		<section class="my_info">
+			<div class="profile">                      
+				<span class="info">
+					<a class="name" href="/readAdminSelfInfo.do" title="{{model.email}}" alt="{{model.email}}">{{model.name}}</a>
+				</span>
+			</div>
+			<ul class="ctrl">
+				<li><a id="btn_help" class="btn_help" title="{{label_guide}}"><span>{{label_guide}}</span></a></li>
+				<li><a href="/logout.do" class="btn_logout" title="{{label_logout}}"><span>{{label_logout}}</span></a></li>
+			</ul>
+		</section>
+	</header>
+	<div class="admin_body">
+	<!--@side : common-->
+		<div class="admin_side" style="padding-bottom: 50px">
+	
+	    </div>	
+	    <div class="breadcrumb">
+            <span class="path">{{label_breadcrumb}}</span>
+        </div>
+		<div class="admin_content">
+			<header class="content_top">
+				<h1><span class="title" id="layoutTitle">{{title}}</span></h1>
+			</header>
+			<div id="layoutContent" class="content_page">
+			
+			</div>
+		</div>
+	
+	<!--  // Layer -->
+	</div>
+	<div class="tFooter">
+		<section class="setting">
+			Last login : {{lastLoginedAt}}
+		</section>
+		<section class="meta">
+			<small class="copyright">Copyright <strong>DAOU TECHNOLOGY INC.</strong> All rights reserved.</small>
+		</section>
+	</div>
+</div>

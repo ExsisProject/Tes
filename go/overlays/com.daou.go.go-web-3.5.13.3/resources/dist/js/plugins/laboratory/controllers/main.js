@@ -1,0 +1,1 @@
+define("laboratory/controllers/main",function(require){var e=require("laboratory/views/layouts/default");return{renderLabDetail:function(){require(["laboratory/views/lab_detail"],function(t){e.render().done(function(e){var n=new t({});e.setContent(n),n.render(e.baseConfig.labFeedbackConfigModel)})})}}});

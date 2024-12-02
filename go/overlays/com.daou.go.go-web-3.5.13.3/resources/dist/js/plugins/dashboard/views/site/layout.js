@@ -1,0 +1,1 @@
+(function(){define(["views/layouts/default"],function(e){return e.extend({name:"dashboard",useRedirectPolicy:!1,_init:function(){this.className="go_skin_home_w",GO.config("workspace_expansion_button_visible",!1),this.setUseSide(!1),this.setUseContentWrapper(!1)}},{__instance__:null})})})();

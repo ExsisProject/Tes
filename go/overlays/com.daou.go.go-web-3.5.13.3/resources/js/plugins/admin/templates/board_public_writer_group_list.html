@@ -1,0 +1,26 @@
+<span class="desc publicAdd">{{lang.manager_add}} </span>
+<select class="baseJobList">
+    {{#isOrgServiceOn}}<option value="department">{{lang.department}}</option>{{/isOrgServiceOn}}
+    {{^isContact}}<option value="user">{{lang.user}}</option>{{/isContact}}
+    <option value="position">{{lang.position}}</option>
+    <option value="grade">{{lang.rank}}</option>
+    {{#isOrgServiceOn}}
+    <option value="duty">{{lang.duty}}</option>
+    {{/isOrgServiceOn}}
+    <option value="usergroup">{{lang.user_group}}</option>
+</select>
+<select class="groupListSelect">
+</select>
+{{#isOrgServiceOn}}
+<span class="option_wrap">
+	<label>
+        <input type="checkbox" value="" class="sharedType" id="sharedType"/>{{lang.low_dept}}
+    </label>
+</span>
+{{/isOrgServiceOn}}
+<span class="btn_s addBtn" data-btntype="addBtn">{{lang.add}}</span>
+<span class="btn_s saveBtn" data-btntype="saveBtn" style="display:none">{{lang.save}}</span>
+<span class="btn_s cancelBtn" data-btntype="cancelBtn" style="display:none">{{lang.cancel}}</span>
+<div>
+    <ul id="groupUl"></ul>
+</div>

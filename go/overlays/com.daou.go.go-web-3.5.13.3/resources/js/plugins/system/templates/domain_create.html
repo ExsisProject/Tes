@@ -1,0 +1,106 @@
+<div class="content_page">
+	<form name="formDomainConfig">
+	<div class="container">			
+		<div class="header">
+			<h2>{{lang.label_domain_info}}</h2>
+		</div>			
+        
+		<div class="content">
+			<input type="hidden" id="installLocale" value="">
+			<table class="detail">
+				<colgroup>
+					<col width="180px"/>
+					<col width="*" />
+				</colgroup>
+				<tbody>
+    				<tr>
+    					<th class="title"><ins class="asterisk">*</ins>{{lang.label_domain}}
+    						<span class="wrap_ic_s">
+	                            <span class="help">
+									<span class="tool_tip">{{lang.label_domain_name_help}}<i class="tail_left"></i></span>
+								</span>
+							</span>
+    					</th>
+                		<td>
+                        	<input class="w_half input" type="text" id="mailDomain" name="mailDomain" style="text-transform:lowercase">
+                        	<span class="go_alert" id="mailDomainValidate"></span>
+                		</td>
+    				</tr>
+    				<!-- <tr>
+    					<th class="title"><ins class="asterisk">*</ins>{{lang.label_site_url}}
+    						<span class="wrap_ic_s">
+	                            <span class="help">
+									<span class="tool_tip">{{lang.label_web_address_help}}<i class="tail_left"></i></span>
+								</span>
+							</span>
+    					</th>
+                		<td>
+                        	<input class="w_half input" type="text" id="siteUrl" name="siteUrl" style="text-transform:lowercase">
+                        	<span class="go_alert" id="siteUrlValidate"></span>
+                            <span class="desc">{{lang.label_siteUrl_desc}}</span>
+                		</td>
+    				</tr> -->
+						<tr>
+							<th class="title">
+								<ins class="asterisk">*</ins>
+								{{lang.label_mode}}
+							</th>
+							<td>
+								<select id="loginMode" name="loginMode">
+									<option value="id">{{lang.label_id}}</option>
+									{{#canSelectEmpNoLoginMode}}
+									<option value="empno">{{lang.label_employeenum}}</option>
+									{{/canSelectEmpNoLoginMode}}
+								</select>
+							</td>
+						</tr>
+            		<tr>
+    					<th class="title">{{lang.label_virtual_domain}}
+    						<span class="wrap_ic_s">
+	                            <span class="help">
+									<span class="tool_tip">{{lang.label_virtual_domain_help}}<i class="tail_left"></i></span>
+								</span>
+							</span>
+    					</th>
+                		<td>
+                        	<input class="w200 input" type="text" id="addVirtualDomain" style="text-transform:lowercase">
+                			<span class="btn_s" id="btn_add_virtualDomain">{{lang.label_add}}</span>
+                        	<span class="btn_s" id="btn_delete_virtualDomain">{{lang.label_delete}}</span>
+                        	<span class="go_alert" id="addVirtualDomainValidate"></span>
+                        	<br><br>
+	                        <select id="virtualDomains" name="virtualDomains" multiple="multiple" size="10" style="width:320px;height:100px;border:1x solid #999999;">   
+	                        </select>
+                        </td>
+    				</tr>
+    				<tr class="last">
+    					<th class="title">{{lang.label_user_virtual_domain}}
+    						<span class="wrap_ic_s">
+	                            <span class="help">
+									<span class="tool_tip">{{lang.label_user_virtual_domain_help}}<i class="tail_left"></i></span>
+								</span>
+							</span>
+    					</th>
+                		<td>
+                        	<input class="w200 input" type="text" id="addUserVirtualDomain" style="text-transform:lowercase">
+                			<span class="btn_s" id="btn_add_user_virtualDomain">{{lang.label_add}}</span>
+                        	<span class="btn_s" id="btn_delete_user_virtualDomain">{{lang.label_delete}}</span>
+                        	<span class="go_alert" id="addUserVirtualDomainValidate"></span>
+                        	<br><br>
+	                        <select id="userVirtualDomains" name="userVirtualDomains" multiple="multiple" size="10" style="width:320px;height:100px;border:1x solid #999999;">   
+	                        </select>
+                        </td>
+    				</tr>
+                </tbody>
+			</table>
+		</div>
+	</div>
+	
+	</form>
+	<div class="page_action">
+		{{^isInstalled}}<div class="s_btn cancel"><a href="/readLicense.do">{{lang.label_prev}}</a></div>{{/isInstalled}}
+		{{#isInstalled}}<span class="btn" id="btn_ok">{{lang.label_save}}</span>{{/isInstalled}}
+		{{^isInstalled}}<div class="s_btn save3 mr"><a id="btn_ok">{{lang.label_save_next}}</a></div>{{/isInstalled}}
+		{{#isInstalled}}<span class="btn_nega" id="btn_cancel">{{lang.label_cancel}}</span>{{/isInstalled}}
+	</div>
+					
+</div>

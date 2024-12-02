@@ -1,0 +1,1 @@
+define("works/components/formbuilder/core/component_validator",function(require){var e=require("underscore"),t=function(){};return t.prototype.validate=function(e,t){return this.createResult(!0)},t.prototype.createResult=function(e,t,n){return{isValid:e,type:t,message:n}},t});

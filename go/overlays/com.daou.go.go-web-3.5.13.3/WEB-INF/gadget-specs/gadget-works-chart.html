@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <title>Works app - 차트형</title>
+    <meta name="gadget:name-ko" content="Works app - 차트형"/>
+    <meta name="gadget:name-en" content="Works app - Type charts"/>
+    <meta name="gadget:name-ja" content="Works app - チャート型"/>
+    <meta name="gadget:name-zhcn" content="Works app - 图表型"/>
+    <meta name="gadget:name-zhtw" content="Works app - 圖表型"/>
+    <meta name="gadget:name-vi" content="Ứng dụng Works - Dạng biểu đồ"/>
+    <meta name="gadget:description" content="Works 앱의 차트를 보여주는 가젯입니다."/>
+    <meta name="gadget:version" content="2.3.2"/>
+    <meta name="gadget:app-dependency" content="WORKS"/>
+    <meta name="gadget:thumbnail" content="gadget_works_chart.png"/>
+
+    <!-- 테스트 할 로케일은 여기에 설정하세요.-->
+    <meta name="locale" content="ko"/>
+
+    <!-- 컨텍스트 루트는 여기서 설정하세요 -->
+    <meta name="contextRoot" content="/"/>
+
+    <link rel="stylesheet" href="css/go-gadget-standalone.css" media="screen, print"/>
+    <script type="text/javascript" src="js/go-gadget-standalone.js"></script>
+
+    <script type="text/javascript" id="go-gadget-script">
+
+        gadget.load({
+
+            highlightable: true,
+
+            refreshable: true,
+
+            langs: {
+
+                //셋팅 화면
+                "title_app": "앱 선택",
+                "title_label": "가젯 제목",
+                "title_filter": "필터 선택",
+                "title_chart": "차트 선택",
+                "add": "추가",
+                "app_name_default": "앱명",
+                "all": "전체",
+                "title_detail_filter": "필터 상세",
+                "basic_filter": "기본 필터",
+                "personal_filter": "개인 필터",
+
+                //validate message
+                "select_app_default": "선택하세요.",
+                "no_chart": "차트가 존재하지 않습니다.",
+                "no_filter": "필터가 존재하지 않습니다.",
+                "message_select_applet": "앱을 선택해 주세요.",
+                "message_select_filter": "필터를 선택해 주세요.",
+                "message_select_chart": "차트를 선택해 주세요.",
+                "app_empty_label": "앱이 존재하지 않습니다.",
+                "title_size_limit": "가젯제목은 2~20자 까지만 입력할 수 있습니다.",
+                "error": "요청하신 내용을 불러오지 못했습니다. 오류가 지속될 경우, 문의해 주십시오.",
+                "initialLabel": "'WORKs App'가젯은 사용자에 맞게 설정을 해야 합니다. [대시보드]편집 모드에서 설정 값을 변경하세요.",
+
+                "en": {
+                    //셋팅 화면
+                    "title_app": "Select Apps",
+                    "title_label": "Gadget Title",
+                    "title_filter": "Select Filter",
+                    "title_chart": "Select Charts",
+                    "add": "Add",
+                    "app_name_default": "App's name",
+                    "all": "All",
+                    "title_detail_filter": "필터 상세",
+                    "basic_filter": "Basic Filter",
+                    "personal_filter": "Personal Filter",
+
+                    //validate message
+                    "select_app_default": "Please select.",
+                    "no_chart": "There's no chart.",
+                    "no_filter": "There's no filter.",
+                    "message_select_applet": "Please select apps.",
+                    "message_select_filter": "Please select filter.",
+                    "message_select_chart": "Please select charts.",
+                    "app_empty_label": "There's no app.",
+                    "title_size_limit": "You can enter 2 characters or more and 20 characters or less.",
+                    "error": "Fail to import the file. If the error hold out, pleas ask.",
+                    "initialLabel": "The gadget 'WORKs App', should be personalized. Change the setpoint in Editor of [Dashboard]."
+                },
+
+                "ja": {
+                    //셋팅 화면
+                    "title_app": "アプリ選択",
+                    "title_label": "ガジェット件名",
+                    "title_filter": "フィルタ選択",
+                    "title_chart": "チャート選択",
+                    "add": "追加",
+                    "app_name_default": "アプリ名",
+                    "all": "全体",
+                    "title_detail_filter": "필터 상세",
+                    "basic_filter": "基本フィルタ",
+                    "personal_filter": "個人フィルタ",
+
+                    //validate message
+                    "select_app_default": "選択してください。",
+                    "no_chart": "チャートが存在しません。",
+                    "no_filter": "フィルタが存在しません。",
+                    "message_select_applet": "アプリを選択してください。",
+                    "message_select_filter": "フィルタを選択してください。",
+                    "message_select_chart": "チャートを選択してください。",
+                    "app_empty_label": "アプリが存在しません。",
+                    "title_size_limit": "カジェット件名は2～20文字まで入力することができます。",
+                    "error": "要請した内容をインポートできませんでした。エラーが継続して発生する場合はお問い合わせください。",
+                    "initialLabel": "'WORKs App'ガジェットはユーザに合わせて設定する必要があります。[ダッシュボード]編集モードで設定値を変更してください。"
+                },
+
+                "zh_CN": {
+                    //셋팅 화면
+                    "title_app": "选择APP",
+                    "title_label": "小工具主题",
+                    "title_filter": "选择过滤器",
+                    "title_chart": "选择图表",
+                    "add": "追加",
+                    "app_name_default": "APP名",
+                    "all": "全体",
+                    "title_detail_filter": "필터 상세",
+                    "basic_filter": "基本过滤器",
+                    "personal_filter": "个人过滤器",
+
+                    //validate message
+                    "select_app_default": "请选择。",
+                    "no_chart": "图表不存在。",
+                    "no_filter": "过滤器不存在。",
+                    "message_select_applet": "请选择APP。",
+                    "message_select_filter": "请选择过滤器。",
+                    "message_select_chart": "请选择图表。",
+                    "app_empty_label": "APP不存在。",
+                    "title_size_limit": "小工具的主题可以输入2～20个字符。",
+                    "error": "无法导入请求的内容。持续发生错误时，请与管理员联系。",
+                    "initialLabel": "'WORKs App'必须根据用户设置。请在[仪表盘]的编辑模式里更改设定值。"
+                },
+
+                "zh_TW": {
+                    //셋팅 화면
+                    "title_app": "選擇APP",
+                    "title_label": "小工具主題",
+                    "title_filter": "選擇過濾器",
+                    "title_chart": "選擇圖表",
+                    "add": "追加",
+                    "app_name_default": "APP名",
+                    "all": "全體",
+                    "title_detail_filter": "필터 상세",
+                    "basic_filter": "基本過濾器",
+                    "personal_filter": "個人過濾器",
+
+                    //validate message
+                    "select_app_default": "請選擇。",
+                    "no_chart": "圖表不存在。",
+                    "no_filter": "過濾器不存在。",
+                    "message_select_applet": "請選擇APP。",
+                    "message_select_filter": "請選擇過濾器。",
+                    "message_select_chart": "請選擇圖表。",
+                    "app_empty_label": "APP不存在。",
+                    "title_size_limit": "小工具的主題可以輸入2～20個字符。",
+                    "error": "無法導入請求的內容。持續發生錯誤時，請與管理員聯繫。",
+                    "initialLabel": "WORKs App'必鬚根據用戶設置。請在[儀錶盤]的編輯模式裡更改設定值。"
+                },
+                "vi": {
+                    //셋팅 화면
+                    "title_app": "Chọn ứng dụng",
+                    "title_label": "Tiêu đề gadget",
+                    "title_filter": "Chọn filter",
+                    "title_chart": "Chọn biểu đồ",
+                    "add": "Thêm",
+                    "app_name_default": "Tên ứng dụng",
+                    "all": "Toàn bộ",
+                    "title_detail_filter": "필터 상세",
+                    "basic_filter": "Filter cơ sở",
+                    "personal_filter": "Filter cá nhân",
+
+                    //validate message
+                    "select_app_default": "Vui lòng chọn.",
+                    "no_chart": "Không tồn tại biểu đồ",
+                    "no_filter": "Không tồn tại filter.",
+                    "message_select_applet": "Vui lòng chọn ứng dụng.",
+                    "message_select_filter": "Vui lòng chọn filter.",
+                    "message_select_chart": "Vui lòng chọn biểu đồ.",
+                    "app_empty_label": "Không tồn tại ứng dụng.",
+                    "title_size_limit": "Có thể nhập tiêu đề gadget từ 2~20 ký tự.",
+                    "error": "Không gọi được nội dung đã yêu cầu. Vui lòng liên hệ trong trường hợp liên tục phát sinh lỗi.",
+                    "initialLabel": "Phải cài đặt 'ứng dụng WORKs' gadget phù hợp với người sử dụng. Vui lòng đổi giá trị cài đặt tại chế độ biên tập [Bảng điều khiển]."
+                }
+            },
+
+            defaultOptions: {},
+
+            renderConfig: function (el) {
+                this.el = el;
+                var self = this;
+                $(el).append(this._configTemplate());
+                // event binding
+                this._bindEvents(el);
+                var urlstr = this.contextRoot + "api/works/applets";
+                jQuery.ajax({
+                    url: urlstr,
+                    type: "GET",
+                    success: function (resp) {
+                        self._appletArrayParsing(el, resp.data);
+                    }
+                });
+            },
+
+            _bindEvents: function (el) {
+                var self = this;
+
+                $(el).find("#id_filter_select").on("change", function () {
+                    //기존 항목 제거 (필터 상세)
+                    $(el).find('#id_detail_filter_select option').remove();
+
+                    self._detailFilterArrayParsing(el, $(el).find('#id_applet_select').val(), $(el).find('#id_filter_select').val());
+                });
+            },
+
+            _isMiniArea: function () {
+                var layout = this.options.layout;
+                var column = this.options.column;
+                if (layout === 'undefined_undefined') return false;
+                var sets = [
+                    {layout: '3_1', column: 1},
+                    {layout: '3_3', column: 1},
+                    {layout: '3_3', column: 3},
+                    {layout: '5_1', column: 1},
+                    {layout: '5_1', column: 3}
+                ];
+                return !!_.find(sets, {layout: layout, column: column});
+            },
+
+            onMoved: function (el, column, layout) {
+                this.options.column = column;
+                this.options.layout = layout;
+                this.onSuccess(el);
+            },
+
+            onSuccess: function (el) {
+                $(window).on('activator', function(e) {
+                    $(window).trigger('resize');
+                });
+
+                var self = this;
+                var savedAppletId = this._getSavedAppletId();
+                if (savedAppletId < 0) {
+                    $(el).empty().append(self._contentEmptyTemplate());
+                    return;
+                }
+
+                //데이터 셋팅
+                require([
+                    "when",
+                    "works/components/filter/models/filter",
+                    "works/components/filter/collections/filter_conditions",
+                    "works/collections/fields",
+                    "works/components/list_manager/models/list_setting",
+                    "works/components/chart/collections/chart_settings",
+                    "works/components/chart/views/chart",
+                    "jquery.bxslider"
+                ], function (
+                    when,
+                    Filter,
+                    Conditions,
+                    Fields,
+                    ListSetting,
+                    ChartSettings,
+                    ChartView
+                ) {
+                    var appletId = self._getSavedAppletId();
+                    var filterId = self._getSavedDetailFilterData();
+
+                    if (filterId < 0) {
+                        self.filter = new Filter({"appletId": appletId});
+                    } else {
+                        self.filter = new Filter({"appletId": appletId, "id": filterId});
+                    }
+                    self.fields = new Fields([], {"appletId": appletId, includeProperty: true, type: 'accessible'});
+                    self.setting = new ListSetting({}, {"appletId": appletId});
+
+                    var fetchOption = {statusCode: {}};
+
+                    $.when(self.fields.fetch(fetchOption), self.setting.fetch(fetchOption), self.filter.fetch(fetchOption))
+                        .done(function () {
+                            $(el).empty().append(self._contentChartTemplate());
+
+                            self.conditions = new Conditions(self.filter.get("conditions"));
+
+                            self.conditions.mergeFromFields(self.fields.toJSON());
+                            self.fields.mergeFromConditions(self.conditions.toJSON());
+
+                            var chartArray = self._getSavedChartData();
+                            var chartList = self.setting.get("charts");
+                            var selectCharts = [];
+                            selectCharts.length = chartArray.length;
+                            _.each(chartList, function (chartItem, index) {
+                                var title = chartItem.title,
+                                    groupByCid = chartItem.groupByCid,
+                                    aggMethod = chartItem.aggMethod,
+                                    rangeOption = chartItem.rangeOption,
+                                    chartValue = title + "|" + groupByCid + "|" + aggMethod + "|" + rangeOption;
+
+                                if (_.contains(chartArray, chartValue)) {
+                                    var findIndex = chartArray.indexOf(chartValue);
+                                    selectCharts.splice(findIndex, 1, chartItem);
+                                }
+                            });
+
+                            self.charts = new ChartSettings();
+                            self.charts.reset(_.filter(selectCharts, function (selectChart) {
+                                return selectChart != undefined;
+                            }));
+                            self.charts.mergeFromFields(self.fields);
+                            self.charts.each(function (chartSetting, index) {
+                                if (chartSetting.get("hasDeletedField")) return;
+
+                                var chartView = new ChartView({
+                                    model: chartSetting,
+                                    appletId: appletId,
+                                    chartFields: this.fields.getChartFields(),
+                                    numberFields: this.fields.getNumberFields(),
+                                    usePresentation: false,
+                                    useLink: true,
+                                    isMini: self._isMiniArea()
+                                });
+                                $(el).find("div.card_item_wrapper").append(chartView.el);
+                                chartView.render();
+                            }, self);
+
+                            if (!self.charts.length) {
+                                $(el).find("div[el-chart-wrapper]").hide();
+                                $(el).empty().append(self._contentEmptyTemplate());
+                            }
+                            self._makeBxSlider(el);
+                            self.charts.setQueryString(self.filter.getSearchQuery(self.conditions));
+                        }).fail(function (err) {
+                        if (err.status == 403) {
+                            $(el).empty().append(self._contentEmptyTemplate());
+                        } else {
+                            $(el).empty().append(self._contentErrorTemplate());
+                        }
+                    });
+                });
+            },
+
+            validate: function (el) {
+                var titleValue = this._selectedGadgetTitle(el);
+                var selectedAppletId = this._selectedAppletId(el);
+                var selectedFilterId = this._selectedFilterId(el);
+                var selectChartArray = $(el).find('#chartList').children();
+                var message;
+                if (titleValue.length > 20 || titleValue.length < 2) {
+                    message = this.i18n.parse('title_size_limit');
+                    return message;
+                }
+
+                if (selectedAppletId == null || selectedAppletId == -1) {
+                    message = this.i18n.parse('message_select_applet');
+                    return message;
+                } else if (selectedFilterId == "") {
+                    message = this.i18n.parse('message_select_filter');
+                    return message;
+                } else if (selectChartArray.length == 0) {
+                    message = this.i18n.parse('message_select_chart');
+                    return message;
+                }
+                return false;
+            },
+
+
+            //앱 목록 파싱
+            _appletArrayParsing: function (el, appArray) {
+                var self = this;
+                var appCount = appArray.length == undefined ? 0 : appArray.length;
+
+                if (appCount == 0) {
+                    $(el).find('#id_applet_select').append('<option value= -1> ' + self.i18n.parse('app_empty_label') + '   </option>');
+                    $(el).find('#id_filter_select').append('<option value= -1> ' + self.i18n.parse('no_filter') + '   </option>');
+                    $(el).find('#id_chart_select').append('<option value= -1> ' + self.i18n.parse('no_chart') + '   </option>');
+                } else {
+                    $(el).find('#id_applet_select').append('<option value="-1"> ' + self.i18n.parse('select_app_default') + '   </option>');
+                }
+
+                var savedAppId = this._getSavedAppletId();
+
+                for (var i = 0; i < appCount; i++) {
+                    //앱 타이틀
+                    var appName = appArray[i].name;
+                    var appletId = appArray[i].id;
+                    $(el).find('#id_applet_select').append('<option value=' + appletId + '> ' + appName + '   </option>');
+                    if (savedAppId == -1) { //저장된 값이 없는 경우.
+                        if (i == 0) {
+                            $(el).find('#id_applet_select').val(appletId);
+                            self._filterArrayParsing(el, appletId);
+                            self._chartArrayParsing(el, appletId);
+                        }
+                    } else {//저장된 값이 있을 경우
+                        if (appletId == savedAppId) {
+                            $(el).find('#id_applet_select').val(appletId);
+                            self._filterArrayParsing(el, appletId);
+                            self._chartArrayParsing(el, appletId);
+                        }
+                    }
+                }
+
+                // 앱이 변경되는 경우.
+
+                $(el).find("#id_applet_select").on("change", function (e) {
+
+                    //기존 항목 제거 (필터)
+                    $(el).find('#id_filter_select option').remove();
+
+                    //기존 항목 제거 (필터 상세)
+                    $(el).find('#id_detail_filter_select option').remove();
+
+                    //기존 항목 제거 (차트)
+                    $(el).find('#id_chart_select option').remove();
+
+                    var chartList = $(el).find("ul #chartList");
+                    var chartCount = chartList.children().size();
+                    if (chartCount > 0) {
+                        chartList.children().remove();
+                    }
+
+                    //항목 다시 설정
+                    var $target = $(e.target);
+                    var selectid = $target.val();
+
+                    for (var i = 0; i < appCount; i++) {
+                        var appletId = appArray[i].id;
+                        if (selectid == appletId) {
+                            self._filterArrayParsing(el, appletId);
+                            self._chartArrayParsing(el, appletId);
+                            break;
+                        }
+                    }
+                });
+
+                $(el).find("#addChart").on("click", function (e) {
+                    var target = $(el).find("#id_chart_select"),
+                        targetVal = target.val();
+
+                    var originCharts = [];
+                    _.each($(el).find('#chartList').children(), function (item) {
+                        originCharts.push($(item).find('input:hidden').val());
+                    });
+
+                    if (_.contains(self._getSavedChartData(), targetVal)) {
+                        return;
+                    }
+                    if (_.contains(originCharts, targetVal)) {
+                        return;
+                    }
+                    if (targetVal == -1) return;
+                    if (targetVal) {
+                        $(el).find("#chartList").append(self._makeChartItem(targetVal));
+                    }
+                });
+
+                $(el).on('click', '.ic_d_delete', function (e) {
+                    $(e.currentTarget).parents("li[data-title]").remove();
+                    self.options.chart = _.without(self.options.chart, $(e.currentTarget).parents("li[data-title]").attr("data-title"))
+                });
+
+                self._initSortable(el);
+            },
+
+            _makeChartItem: function (value) {
+                var targetTitle = value.split("|")[0];
+                var targetGroupByCid = value.split("|")[1];
+                var targetAggMethod = value.split("|")[2];
+                var targetRange = value.split("|")[3];
+                var targetData = targetTitle + '|' + targetGroupByCid + '|' + targetAggMethod + '|' + targetRange;
+
+                return '<li data-title="' + targetData + '" value="' + targetData + '">'
+                    + '<span class="txt">' + targetTitle + '</span>'
+                    + '<span class="btn_wrap"><span class="ic_dashboard2 ic_d_delete"></span></span>'
+                    + '<input type="hidden" name="chart" value="' + targetData + '" />'
+                    + '</li>';
+            },
+
+            _initSortable: function (el) {
+                var self = this;
+                $(el).find('#chartList').sortable({
+                    opacity: '1',
+                    delay: 100,
+                    cursor: "move",
+                    items: "li",
+                    containment: $(el).find('#chartList'),
+                    hoverClass: "move",
+                    placeholder: 'ui-sortable-placeholder',
+                    start: function (event, ui) {
+                        ui.placeholder.html(ui.helper.html());
+                        ui.placeholder.find('li').css('padding', '5px 10px');
+                    },
+                    stop: function () {
+                    }
+                });
+            },
+
+            _getSavedAppletId: function () {
+                var savedAppId = -1;
+                if (_.has(this.options, 'id_applet_select')) {
+                    savedAppId = this.options.id_applet_select;
+                }
+                return savedAppId;
+            },
+
+            _filterArrayParsing: function (el, appletId) {
+                var self = this;
+                var savedFilterId = this._getSavedFilterData();
+                $(el).find('#id_filter_select option').remove();
+                $(el).find('#id_filter_select').append('<option value="base"> ' + self.i18n.parse('basic_filter') + '</option>');
+                $(el).find('#id_filter_select').append('<option value="mine"> ' + self.i18n.parse('personal_filter') + '</option>');
+
+                if (savedFilterId == -1) { //저장된 값이 없는 경우.
+                    self._detailFilterArrayParsing(el, appletId, $(el).find('#id_filter_select').val());
+                } else {//저장된 값이 있을 경우
+                    $(el).find('#id_filter_select').val(savedFilterId);
+                    self._detailFilterArrayParsing(el, appletId, $(el).find('#id_filter_select').val());
+                }
+            },
+
+            _detailFilterArrayParsing: function (el, appletId, filterType) {
+                var self = this;
+                var savedDetailFilterId = this._getSavedDetailFilterData();
+                var url = this.contextRoot + "api/works/applets/" + appletId + "/filters/" + filterType;
+                jQuery.ajax({
+                    url: url,
+                    type: "GET",
+                    success: function (resp) {
+                        var filters = resp.data;
+                        $(el).find('#id_detail_filter_select option').remove();
+
+                        if (filterType == "base") {
+                            $(el).find('#id_detail_filter_select').append('<option value= -1>' + self.i18n.parse('all') + '   </option>');
+                        } else if (filters.length == 0) {
+                            $(el).find('#id_detail_filter_select').append('<option value= ""> ' + self.i18n.parse('no_filter') + '   </option>');
+                            $(el).find('#id_chart_select').attr('disabled', 'disabled');
+                            return;
+                        }
+
+                        for (var i = 0; i < filters.length; i++) {
+                            var filterId = filters[i].id;
+                            var filterName = filters[i].name;
+                            $(el).find('#id_detail_filter_select').append('<option value=' + filterId + '>' + filterName + '</option>');
+                            if (savedDetailFilterId == filterId) {
+                                $(el).find('#id_detail_filter_select').val(filterId);
+                            }
+                        }
+                    }
+                });
+
+            },
+
+            _getSavedFilterData: function () {
+                var savedFilterId = -1;
+                if (_.has(this.options, 'id_filter_select')) {
+                    savedFilterId = this.options.id_filter_select;
+                }
+                return savedFilterId;
+            },
+
+            _getSavedDetailFilterData: function () {
+                var savedFilterId = -1;
+                if (_.has(this.options, 'id_detail_filter_select')) {
+                    savedFilterId = this.options.id_detail_filter_select;
+                }
+                return savedFilterId;
+            },
+
+            _chartArrayParsing: function (el, appletId) {
+                var chartData = this._getSavedChartData();
+                var url = this.contextRoot + "api/works/applets/" + appletId + "/chartview";
+                var self = this;
+                jQuery.ajax({
+                    url: url,
+                    type: "GET",
+                    success: function (resp) {
+                        var charts = resp.data;
+                        $(el).find('#id_chart_select').removeAttr('disabled');
+                        $(el).find('#id_chart_select option').remove();
+                        if (charts.length == 0) {
+                            $(el).find('#id_chart_select').append('<option value=""> ' + self.i18n.parse('no_chart') + '   </option>');
+                        }
+
+                        var optionVal = [];
+                        for (var i = 0; i < charts.length; i++) {
+                            var chartTitle = charts[i].title;
+                            var chartGroupByCid = charts[i].groupByCid;
+                            var chartAggMethod = charts[i].aggMethod;
+                            var chartRange = charts[i].rangeOption;
+                            var chartSelectVal = chartTitle + "|" + chartGroupByCid + "|" + chartAggMethod + "|" + chartRange;
+
+                            if (!(_.contains(optionVal, chartSelectVal))) {
+                                $(el).find('#id_chart_select').append('<option value="' + chartSelectVal + '">' + chartTitle + '</option>');
+                                optionVal.push(chartSelectVal);
+                            }
+                        }
+
+                        if (chartData.length > 0) {
+                            var html = '';
+                            _.each(chartData, function (chart) {
+                                if (_.contains(optionVal, chart)) {
+                                    html = html + self._makeChartItem(chart);
+                                }
+                            });
+                            $(el).find("#chartList").append(html);
+                        }
+                    }
+                });
+            },
+
+            _getSavedChartData: function () {
+                var chartArray = [];
+                if (_.has(this.options, 'chart')) {
+                    chartArray = this.options.chart;
+                }
+                return _.uniq(_.isArray(chartArray) ? chartArray : [chartArray]);
+            },
+
+            //초기 셋팅화면 구성
+            _configTemplate: function () {
+                var html = [];
+                //가젯 제목
+                html.push('<ul class="static_style">');
+                html.push('<li>');
+                html.push('<ul class="standard_style display-options">');
+                html.push('<p class="title">' + this.i18n.parse('title_label') + '</p>');
+                var title_data = this._getTitleData();
+                html.push('<span class="wrap_txt wrap_label">');
+                html.push('<input class="txt w_max" id="id_gadget_title" type="text" value="' + title_data + '" name = "id_gadget_title">');
+                html.push('</span>');
+                html.push('</ul>');
+                html.push('</li>');
+
+                //앱 선택
+                html.push('<li>');
+                html.push('<ul class="static_style display-options">');
+                html.push('<p class="title">' + this.i18n.parse('title_app') + '</p>');
+                html.push(this._buildSelect("id_applet_select"));
+                html.push('</ul>');
+                html.push('</li>');
+
+                //필터 선택
+                html.push('<li>');
+                html.push('<ul class="static_style display-options">');
+                html.push('<p class="title">' + this.i18n.parse('title_filter') + '</p>');
+                html.push(this._buildSelect("id_filter_select"));
+                html.push('</ul>');
+                html.push('</li>');
+
+                //필터 상세 선택
+                html.push('<li>');
+                html.push('<ul class="static_style display-options">');
+                html.push('<p class="title">' + this.i18n.parse('title_detail_filter') + '</p>');
+                html.push(this._buildSelect("id_detail_filter_select"));
+                html.push('</ul>');
+                html.push('</li>');
+
+                // 차트 선택
+                html.push('<ul>');
+                html.push('<li>');
+                html.push('<p class="title">' + this.i18n.parse("title_chart") + '</p>');
+
+                html.push('<ul id="chartList" class="drag_option_wrap">');
+                html.push('</ul>');
+
+                html.push('<div class="create_option">');
+                html.push(this._buildSelect("id_chart_select"));
+                html.push('<span class="btn_formal" id="addChart">');
+                html.push('<span class="txt">' + this.i18n.parse("add") + '</span>');
+                html.push('</span>');
+                html.push('</div>');
+                html.push('</li>');
+                html.push('</ul>');
+
+                html.push('</ul>');
+                return html.join("\n");
+            },
+
+            _getTitleData: function () {
+                var title_data = this.i18n.parse('app_name_default');
+                if (_.has(this.options, 'id_gadget_title')) {
+                    title_data = this.options.id_gadget_title;
+                }
+                return title_data;
+            },
+
+            _buildSelect: function (id_value) {
+                var html = [];
+                html.push(' <select id = {{id}} name = {{id}} > ');
+                html.push(' </select>');
+                return this.template(html.join("\n"), {
+                    "id": id_value
+                });
+            },
+            _contentGadgetTemplate: function () {
+                var html = [];
+                var title_data = this._getTitleData();
+                //가젯 제목
+                html.push('<div class="go-gadget-header go_gadget_header">');
+                html.push('<div class="gadget_h1">');
+                html.push('<span class="type"><span class="ic_dashboard2 ic_type_todo" title=""></span></span>');
+                html.push('<span class="title">' + title_data + '</span>');
+                html.push('</div>');
+                html.push('</div>');
+                return html;
+            },
+            _contentChartTemplate: function () {
+                var html = this._contentGadgetTemplate();
+                html.push('<div class="dashboard_box dashboard_works" el-chart-wrapper><div class="card_item_wrapper"></div></div>');
+                return this._contentChartDecorator(html.join("\n"));
+            },
+
+            _contentErrorTemplate: function () {
+                var html = this._contentGadgetTemplate();
+                html.push('<ul class="type_simple_list simple_list_notice">');
+                html.push('<li class="null_data">');
+                html.push('<span class="ic_data_type ic_error_page"></span>');
+                html.push('<p class="desc">' + this.i18n.parse('error') + '</p>');
+                html.push('</li>');
+                html.push('</ul>');
+                return this._contentChartDecorator(html.join("\n"));
+            },
+
+            _contentEmptyTemplate: function () {
+                var html = this._contentGadgetTemplate();
+                html.push('<ul class="type_simple_list simple_list_notice">');
+                html.push('<li class="null_data">');
+                html.push('<span class="ic_data_type ic_error_page"></span>');
+                html.push('<p class="desc">' + this.i18n.parse('initialLabel') + '</p>');
+                html.push('</li>');
+                html.push('</ul>');
+                return this._contentChartDecorator(html.join("\n"));
+            },
+
+            _makeBxSlider: function (el) {
+                var wrapperWidth = $(el).find('.dashboard_box').width();
+                var slide = parseInt(($(el).width() - 40) / wrapperWidth);
+                var slideWidth = (slide > 1) ? wrapperWidth : 0;
+                var slideMargin = (slide > 1) ? 10 : 0;
+
+                $(el).find("div.card_item_wrapper").bxSlider({
+                    pager: false,
+                    hideControlOnEnd: true,
+                    infiniteLoop: false,
+                    minSlides: slide,
+                    maxSlides: slide + 1,
+                    slideWidth: slideWidth,
+                    slideMargin: slideMargin,
+                    onSliderLoad: function () {
+                        $(el).find('div.bx-viewport').css('height', '');
+                        $(el).find('div.bx-viewport').removeClass();
+                        $(el).find('div.bx-controls').css({"background-color": "transparent"});
+                        $(el).find('a.bx-prev').css({"margin-top": "-215px"});
+                        $(el).find('a.bx-next').css({"margin-top": "-215px"});
+                        $(el).find('a.bx-prev').attr('href', 'javascript:void(0);');
+                        $(el).find('a.bx-next').attr('href', 'javascript:void(0);');
+                    }
+                });
+            },
+
+            _contentChartDecorator: function (content, tvars) {
+                return this.template(
+                    '<div class="gadget_design_wrap">{{>content}}</div>',
+                    _.defaults(tvars || {}, {"highlight?": _.has(this.options, 'highlight')}),
+                    {"content": content}
+                );
+            },
+
+            _selectedGadgetTitle: function (el) {
+                return $(el).find('#id_gadget_title').val();
+            },
+
+            _selectedAppletId: function (el) {
+                return $(el).find('#id_applet_select').val();
+            },
+
+            _selectedFilterId: function (el) {
+                return $(el).find('#id_detail_filter_select').val();
+            }
+
+        });
+
+    </script>
+</head>
+
+<body id="main" class="go_skin_home_default" data-role="main">
+<div class="go-dashboard go-dashboard-editing go_dashboard_3_2">
+    <div class="go-gadget-column gadget-col-1" data-columnid="1">
+        <!-- empty -->
+    </div>
+    <div class="gripper"></div>
+    <div id="gadget-containter" class="go-gadget-column gadget-col-2" data-columnid="2">
+        <!-- empty -->
+    </div>
+    <div class="gripper"></div>
+    <div class="go-gadget-column gadget-col-3" data-columnid="3">
+        <!-- empty -->
+    </div>
+</div>
+</body>
+</html>

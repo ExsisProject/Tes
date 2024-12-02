@@ -1,0 +1,17 @@
+<div class="appInterlock">
+    <div class="appInterlock_header on">
+        <span class="txt">{{model.applet.name}}</span>
+
+        <p class="desc">
+            {{#hasData}}{{model.count}}{{lang.건의 연동된 데이터가 있습니다}}{{/hasData}}
+            {{^hasData}}{{lang.현재 연동된 데이터가 없습니다}}{{/hasData}}
+        </p>
+        {{#hasData}}
+        <a class="btn_ic_arrow">
+            <span class="ic_v2 ic_arrow_close"></span>
+        </a>
+        {{/hasData}}
+    </div>
+    <div class="appInterlock_body" id="consumerDocumentList_{{appletId}}"></div>
+    <hr>
+</div>

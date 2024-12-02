@@ -1,0 +1,165 @@
+<form id="formUpdateCode" name="formUpdateCode" onsubmit="return false;">
+    <table class="table_form_mini">
+        <tbody>
+            <tr>
+                <th><span class="title"><ins class="asterisk">*</ins>{{lang.label_code}}</span></th>
+                <td>
+                    <span class="user_data editable" data-formname="code" data-value="{{popupmodel.code}}">
+                        <span id="data">{{popupmodel.code}}</span>
+                        <span class="btn_box" data-btntype="changeform">
+                            <span class="ic ic_edit" title="{{lang.lang.label_edit}}"></span>
+                        </span>
+                    </span>
+                </td>
+            </tr>
+
+            <tr>
+                <th>
+                    <span class="title">
+                        <ins class="asterisk">*</ins>{{lang.label_name}}
+                        {{#isKoLocale}} ({{lang.label_ko}}) {{/isKoLocale}}
+                        {{#isEnLocale}} ({{lang.label_en}}) {{/isEnLocale}}
+                        {{#isJpLocale}} ({{lang.label_jp}}) {{/isJpLocale}}
+                        {{#isZhcnLocale}} ({{lang.label_zhcn}}) {{/isZhcnLocale}}
+                        {{#isZhtwLocale}} ({{lang.label_zhtw}}) {{/isZhtwLocale}}
+                        {{#isViLocale}} ({{lang.label_vi}}) {{/isViLocale}}
+                    </span>
+                </th>
+                <td>
+                    {{#isKoLocale}}
+                    <span class="user_data editable" data-formname="koName" data-value="{{popupmodel.koName}}">
+                        <span id="data">{{popupmodel.koName}}</span>
+                        <span class="btn_box" data-btntype="changeform">
+                            <span class="ic ic_edit" title="{{lang.label_edit}}"></span>
+                        </span>
+                    </span>
+                    {{/isKoLocale}}
+                    {{#isEnLocale}}
+                    <span class="user_data editable" data-formname="enName" data-value="{{popupmodel.enName}}">
+                        <span id="data">{{popupmodel.enName}}</span>
+                        <span class="btn_box" data-btntype="changeform">
+                            <span class="ic ic_edit" title="{{lang.label_edit}}"></span>
+                        </span>
+                    </span>
+                    {{/isEnLocale}}
+                    {{#isJpLocale}}
+                    <span class="user_data editable" data-formname="jpName" data-value="{{popupmodel.jpName}}">
+                        <span id="data">{{popupmodel.jpName}}</span>
+                        <span class="btn_box" data-btntype="changeform">
+                            <span class="ic ic_edit" title="{{lang.label_edit}}"></span>
+                        </span>
+                    </span>
+                    {{/isJpLocale}}
+                    {{#isZhcnLocale}}
+                    <span class="user_data editable" data-formname="zhcnName" data-value="{{popupmodel.zhcnName}}">
+                        <span id="data">{{popupmodel.zhcnName}}</span>
+                        <span class="btn_box" data-btntype="changeform">
+                            <span class="ic ic_edit" title="{{lang.label_edit}}"></span>
+                        </span>
+                    </span>
+                    {{/isZhcnLocale}}
+                    {{#isZhtwLocale}}
+                    <span class="user_data editable" data-formname="zhtwName" data-value="{{popupmodel.zhtwName}}">
+                        <span id="data">{{popupmodel.zhtwName}}</span>
+                        <span class="btn_box" data-btntype="changeform">
+                            <span class="ic ic_edit" title="{{lang.label_edit}}"></span>
+                        </span>
+                    </span>
+                    {{/isZhtwLocale}}
+                    {{#isViLocale}}
+                    <span class="user_data editable" data-formname="viName" data-value="{{popupmodel.viName}}">
+                        <span id="data">{{popupmodel.viName}}</span>
+                        <span class="btn_box" data-btntype="changeform">
+                            <span class="ic ic_edit" title="{{lang.label_edit}}"></span>
+                        </span>
+                    </span>
+                    {{/isViLocale}}
+                    <span class="wrap_btn btn_clean" id="btnMultiLang">
+                        <span class="txt">{{lang.label_multi_lang}}</span>
+                        <i class="ic_adm ic_accordion_s" title="{{lang.label_open}}"></i>
+                    </span>
+                </td>
+            </tr>
+
+            {{^isKoLocale}}
+            <tr id="koNameInput" style="display: none">
+                <th><span class="title">{{lang.label_name}} ({{lang.label_ko}})</span></th>
+                <td>
+                    <span class="user_data editable" data-formname="koName" data-value="{{popupmodel.koName}}">
+                        <span id="data">{{popupmodel.koName}}</span>
+                        <span class="btn_box" data-btntype="changeform">
+                            <span class="ic ic_edit" title="{{lang.lang.label_edit}}"></span>
+                        </span>
+                    </span>
+                </td>
+            </tr>
+            {{/isKoLocale}}
+            {{^isEnLocale}}
+            <tr id="enNameInput" style="display: none">
+                <th><span class="title">{{lang.label_name}} ({{lang.label_en}})</span></th>
+                <td>
+                    <span class="user_data editable" data-formname="enName" data-value="{{popupmodel.enName}}">
+                        <span id="data">{{popupmodel.enName}}</span>
+                        <span class="btn_box" data-btntype="changeform">
+                            <span class="ic ic_edit" title="{{lang.lang.label_edit}}"></span>
+                        </span>
+                    </span>
+                </td>
+            </tr>
+            {{/isEnLocale}}
+            {{^isJpLocale}}
+            <tr id="jpNameInput" style="display: none">
+                <th><span class="title">{{lang.label_name}} ({{lang.label_jp}})</span></th>
+                <td>
+                    <span class="user_data editable" data-formname="jpName" data-value="{{popupmodel.jpName}}">
+                        <span id="data">{{popupmodel.jpName}}</span>
+                        <span class="btn_box" data-btntype="changeform">
+                            <span class="ic ic_edit" title="{{lang.lang.label_edit}}"></span>
+                        </span>
+                    </span>
+                </td>
+            </tr>
+            {{/isJpLocale}}
+            {{^isZhcnLocale}}
+            <tr id="zhcnNameInput" style="display: none">
+                <th><span class="title">{{lang.label_name}} ({{lang.label_zhcn}})</span></th>
+                <td>
+                    <span class="user_data editable" data-formname="zhcnName" data-value="{{popupmodel.zhcnName}}">
+                        <span id="data">{{popupmodel.zhcnName}}</span>
+                        <span class="btn_box" data-btntype="changeform">
+                            <span class="ic ic_edit" title="{{lang.lang.label_edit}}"></span>
+                        </span>
+                    </span>
+                </td>
+            </tr>
+            {{/isZhcnLocale}}
+            {{^isZhtwLocale}}
+            <tr id="zhtwNameInput" style="display: none">
+                <th><span class="title">{{lang.label_name}} ({{lang.label_zhtw}})</span></th>
+                <td>
+                    <span class="user_data editable" data-formname="zhtwName" data-value="{{popupmodel.zhtwName}}">
+                        <span id="data">{{popupmodel.zhtwName}}</span>
+                        <span class="btn_box" data-btntype="changeform">
+                            <span class="ic ic_edit" title="{{lang.lang.label_edit}}"></span>
+                        </span>
+                    </span>
+                </td>
+            </tr>
+            {{/isZhtwLocale}}
+            {{^isViLocale}}
+            <tr id="viNameInput" style="display: none">
+                <th><span class="title">{{lang.label_name}} ({{lang.label_vi}})</span></th>
+                <td>
+                    <span class="user_data editable" data-formname="viName" data-value="{{popupmodel.viName}}">
+                        <span id="data">{{popupmodel.viName}}</span>
+                        <span class="btn_box" data-btntype="changeform">
+                            <span class="ic ic_edit" title="{{lang.lang.label_edit}}"></span>
+                        </span>
+                    </span>
+                </td>
+            </tr>
+            {{/isViLocale}}
+
+        </tbody>
+    </table>
+</form>

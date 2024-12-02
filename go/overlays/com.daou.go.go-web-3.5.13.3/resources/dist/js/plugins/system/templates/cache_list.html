@@ -1,0 +1,89 @@
+<div class="container ">                    
+    <div class="content">
+        <form>
+            <fieldset>              
+                <table class="form_type">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <span class="title">{{lang.label_host}}</span>
+                                <select name="hostName" id="hostName" style="min-width:100px;">
+                                {{#hostNames}}
+                                    <option value="{{hostName}}">{{hostName}}</option>
+                                {{/hostNames}}
+                                </select>
+                                <span class="title">{{lang.label_service}}</span>
+                                    <select name="serviceType" id="serviceType" style="min-width:100px;">
+                                        <option value="front" selected="">FRONT</option>
+                                        <option value="admin">ADMIN</option>
+                                    </select>
+                            </td>
+                        </tr>
+                    </tbody>    
+                </table>
+            </fieldset>
+        </form>
+    </div>
+</div>
+
+
+<div id="controlButtons" style="display:none">
+    <div class="critical" id="btnCache">
+        <span id="btnCacheGroup">
+            <span class="btn_tool txt_caution" id="btn_delete">{{lang.label_delete}}</span>
+        </span> 
+    </div>
+</div>
+<div class="content_page">
+    <div class="dataTables_wrapper container">
+        <form name="formCacheList">
+        <div id="dataTable_processing"
+            class="dataTables_processing" style="visibility: hidden">Processing...</div>
+        <div class="toolbar_top header_tb"></div>
+        <div class="content_tb">
+            <table class="chart size" id="cacheList">
+                <thead>
+                    <tr>
+                        <th class="sorting_disabled">
+                            <span class="title_sort">
+                                <label>{{lang.label_cacheName}}</label>
+                            </span>
+                        </th>
+                        <th class="sorting_disabled">
+                            <span class="title_sort">
+                                <label>{{lang.label_description}}</label>
+                            </span>
+                        </th>
+                        <th class="sorting_disabled">
+                            <span class="title_sort">
+                                <label>{{lang.label_cacheHits}}</label>
+                            </span>
+                        </th>
+                        <th class="sorting_disabled">
+                            <span class="title_sort">
+                                <label>{{lang.label_cacheMisses}}</label>
+                            </span>
+                        </th>
+                        <th class="sorting_disabled">
+                            <span class="title_sort">
+                                <label>{{lang.label_cacheHitRatio}}</label>
+                            </span>
+                        </th>
+                        <th class="sorting_disabled">
+                            <span class="title_sort">
+                                <label>{{lang.label_count}}</label>
+                            </span>
+                        </th>
+                        <th class="sorting_disabled">
+                            <span class="title_sort">
+                                <label>{{lang.label_size}}</label>
+                            </span>
+                        </th> 
+                    </tr>
+                </thead>
+            </table>
+        </div>
+        </form>
+    </div>
+    
+</div>

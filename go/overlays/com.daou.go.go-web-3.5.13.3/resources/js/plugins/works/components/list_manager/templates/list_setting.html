@@ -1,0 +1,44 @@
+<div class="app_docnum" {{#isPrivate}}style="display: none;"{{/isPrivate}}>
+	<span class="wrap_option">
+		<input type="checkbox" id="notUseDocNo" {{^useDocNo}}checked{{/useDocNo}}><label for="notUseDocNo">{{lang.문서번호 사용유무}}</label>
+	</span>
+	<div class="option_display">
+		<table class="form_type form_document_num">
+			<tbody>
+				<tr>
+					<th><span class="wrap_opt"><input type="radio" id="custom" name="docNoType" value="custom"><label for="custom">{{lang.문서번호 직접 설정}}</label></span></th>
+					<td>
+						<span id="customInputView_1" class="wrap_txt"><input class="txt" type="text" id="customPrefix" maxlength="20" placeholder="Works"></span>
+						<span class="txt">-</span>
+						<span class="wrap_txt"><input class="txt" type="text" value="Today(yymmdd)" disabled=""></span>
+						<span class="txt">-</span>
+						<span id="customSelectView_1" class="wrap_select">
+							<select id="customDigit">
+								<option value="2" selected="selected">{{lang.2자리}}(02)</option>
+								<option value="3">{{lang.3자리}}(003)</option>
+								<option value="4">{{lang.4자리}}(0004)</option>
+								<option value="5">{{lang.5자리}}(00005)</option>
+							</select>
+						</span>
+					</td>
+				</tr>
+				<tr>
+					<th><span class="wrap_opt"><input type="radio" id="simple" name="docNoType" value="simple"><label for="simple">{{lang.문서번호 자동 설정}}</label></span></th>
+					<td>
+						<span class="wrap_txt"><input class="txt" type="text" value="{{lang.숫자 1부터 자동 등록}}" disabled=""></span>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+	
+<div class="tool_bar">
+    <div class="critical" el-button-area></div>
+</div>
+
+<table class="type_normal">
+    <tbody>
+    <tr id="columns"></tr>
+    </tbody>
+</table>

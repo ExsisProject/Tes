@@ -1,0 +1,134 @@
+<div class="container">
+	<div class="tab_menu_wrap">
+		<ul class="tab_menu" id="tabControll">
+			<li {{#isActiveBoard}}class="active"{{/isActiveBoard}} data-type="ACTIVE"><span class="txt ">{{lang.actived_board}}</span></li>
+			<li {{^isActiveBoard}}class="active"{{/isActiveBoard}}  data-type="CLOSED"><span class="txt">{{lang.closed_board}}</span></li>
+		</ul>
+	</div>
+	<div class="dataTables_wrapper container" >
+		{{#isActive}}
+		<div class="toolbar_top header_tb">
+			<div class="critical">
+				<span class="btn_tool btnToggleNodes" data-state="opened">{{lang.close_all}}</span>
+				<span class="btn_tool btnBoardAdd" data-btntype="bbsCreate">{{lang.company_board_add}}</span>
+				<span class="btn_tool btnBoardGroupAdd">{{lang.add_group}}</span>
+				<span class="btn_tool btnBoardLineAdd">{{lang.separate_add}}</span>
+				<span class="btn_tool btnBoardSortable">{{lang.board_sort}}</span>
+				<span class="btn_tool btnBoardStop">{{lang.board_stop}}</span>
+				<span class="btn_tool txt_caution btnBoardDelete">{{lang.board_delete}}</span>
+			</div>
+		</div>
+		{{/isActive}}
+		{{^isActive}}
+		<div class="toolbar_top header_tb">
+			<div class="critical">
+				<span class="btn_tool txt_caution btnBoardDelete">{{lang.board_delete}}</span>
+				<span class="btn_tool btnBoardStatusNormal">{{lang.board_normal}}</span>
+			</div>
+		</div>
+		{{/isActive}}
+		<div class="content_tb">
+
+			{{#isActive}}
+			<ul class="tb-header tb_stair">
+				<li class="subject">
+					<div class="item">
+						<input id="checkAll" class="chk" type="checkbox" name="board_all_check"/>
+						<div class="tit">
+							<span class="txt">{{lang.board_title}}</span>
+						</div>
+						<div class="opt">
+						<span class="name">
+							<span class="txt">{{lang.board_manager}}</span>
+						</span>
+							<span class="status">
+							<span class="txt">{{lang.board_exposure}}</span>
+						</span>
+							<span class="set">
+							<span class="txt">{{lang.board_setting}}</span>
+						</span>
+						</div>
+					</div>
+				</li>
+			</ul>
+
+			<ul id="board-tree-config" class="tb_stair"></ul>
+
+			<!-- 목록이 없을 경우  -->
+			<table class="no-list-msg chart size list_occupied" style="display:none">
+				<tbody>
+					<tr>
+						<td colspan="9">
+							<p class="data_null">
+								<span class="ic_data_type ic_no_data"></span>
+								<span class="txt">{{lang.board_no_list}}</span>
+							</p>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			{{/isActive}}
+
+			{{^isActive}}
+			<table class="chart size list_occupied" id="tableBorderList">
+				<thead>
+					<tr>
+						<th class="check sorting_disable"><input type="checkbox" id="checkedAll"></th>
+						<th class="title sorting_disable"><span class="title_sort">{{lang.board_title}}</span></th>
+						<th class="status sorting_disable"><span class="title_sort">{{lang.board_type}}</span></th>
+						<th class="admin  sorting_disable"><span class="title_sort">{{lang.board_manager}}</span></th>
+						<th class="date sorting_disable"><span class="title_sort">{{lang.board_createdAt}}</span></th>
+						<th class="num sorting_disable"><span class="title_sort">{{lang.board_count}}</span></th>
+						<th class="range sorting_disable"><span class="title_sort">{{lang.share_range}}</span></th>
+						{{#isActive}}<th class="option sorting_disable"><span class="title_sort">{{lang.board_exposure}}</span></th>{{/isActive}}
+						<th class="action sorting_disable last"><span class="title_sort">{{lang.board_setting}}</span></th>
+					</tr>
+				</thead>
+				<tbody>
+					{{^dataset}}
+					<tr>
+						<td colspan="9">
+							<p class="data_null">
+								<span class="ic_data_type ic_no_data"></span>
+								<span class="txt">{{lang.board_no_list}}</span>
+							</p>
+						</td>
+					</tr>
+					{{/dataset}}
+					{{#dataset}}
+					{{#isSeparator}}
+					{{{isSeparator}}}
+					{{/isSeparator}}
+					{{^isSeparator}}
+					<tr data-id="{{id}}">
+						{{#board}}
+						<td class="check">
+							<input type="checkbox" name="board_id" value="{{id}}">
+						</td>
+						<td class="title" style="cursor: pointer;" data-boardId={{id}}>{{name}}</td>
+						<td class="status">{{bbsType}}</td>
+						<td class="admin title">
+							{{{managerNames}}}
+						</td>
+						<td class="date">{{parseDate}}</td>
+						<td class="num">{{postCount}}</td>
+						<td class="range status">{{sharedRange}}</td>
+						{{#isActive}}
+						<td class="option status">
+							<select id="homeExposure" data-boardId={{id}}>
+								<option value="true"  {{#homeExposureFlag}}selected="true"{{/homeExposureFlag}}>O</option>
+								<option value="false" {{^homeExposureFlag}}selected="true"{{/homeExposureFlag}}>X</option>
+							</select>
+						</td>
+						{{/isActive}}
+						<td class="action last"><span class="btn_s" data-boardId={{id}} data-btntype="modify">{{lang.board_setting}}</span></td>
+						{{/board}}
+					</tr>
+					{{/isSeparator}}
+					{{/dataset}}
+				</tbody>
+			</table>
+			{{/isActive}}
+		</div>
+	</div>
+</div>

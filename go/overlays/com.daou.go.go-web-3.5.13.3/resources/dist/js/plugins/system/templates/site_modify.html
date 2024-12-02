@@ -1,0 +1,903 @@
+<div class="content_page">
+    <form name="formSiteConfig">
+        <div class="container">
+            <div class="header">
+                <h2>{{lang.label_domain_info}}</h2>
+            </div>
+
+            <div class="content">
+                <input type="hidden" id="installLocale" value="">
+                <table class="detail">
+                    <colgroup>
+                        <col width="180px"/>
+                        <col width="*"/>
+                    </colgroup>
+                    <tbody>
+                    <tr>
+                        <th class="title">
+                            <ins class="asterisk">*</ins>
+                            {{lang.label_domain}}
+                            <span class="wrap_ic_s">
+	                            <span class="help">
+									<span class="tool_tip">{{lang.label_domain_name_help}}<i
+                                            class="tail_left"></i></span>
+								</span>
+							</span>
+                        </th>
+                        <td>
+                            {{siteInfo.domainName}}
+                            <input class="w_half input" type="text" id="mailDomain" name="domainName"
+                                   value="{{siteInfo.domainName}}" style="display:none; text-transform:lowercase">
+                            <span class="go_alert" id="mailDomainValidate"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="title">
+                            <ins class="asterisk">*</ins>
+                            {{lang.label_company_name}}
+                            <span class="wrap_ic_s">
+	                            <span class="help">
+									<span class="tool_tip">{{lang.label_site_name_help}}<i class="tail_left"></i></span>
+								</span>
+							</span>
+                        </th>
+                        <td>
+    						<span {{^isSiteControlOn}}class="editable"{{/isSiteControlOn}}>
+                            {{siteInfo.name}}
+                            {{^isSiteControlOn}}
+                            <span class="btn_box">
+                                <span class="ic ic_edit" title="{{lang.label_modify}}"></span>
+                            </span>
+                            {{/isSiteControlOn}}
+	                        </span>
+                            <input class="w_half input" type="text" id="name" name="name" value="{{siteInfo.name}}"
+                                   style="display:none;">
+                            <span class="go_alert" id="nameValidate"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="title">
+                            <ins class="asterisk">*</ins>
+                            {{lang.label_site_url}}
+                            <span class="wrap_ic_s">
+                                <span class="help">
+                                    <span class="tool_tip">{{lang.label_siteUrl_desc}}<i class="tail_left"></i></span>
+                                </span>
+                            </span>
+                        </th>
+                        <td>
+                            <span {{^isSiteControlOn}}class="editable"{{/isSiteControlOn}}>
+                            {{siteInfo.siteUrl}}
+                            {{^isSiteControlOn}}
+                            <span class="btn_box">
+                                <span class="ic ic_edit" title="{{lang.label_modify}}"></span>
+                            </span>
+                            {{/isSiteControlOn}}
+                            </span>
+                            <input class="input" type="text" id="siteUrl" name="siteUrl" value="{{siteInfo.siteUrl}}"
+                                   style="display:none;">
+                            <span class="go_alert" id="siteUrlValidate"></span>
+                        </td>
+                    </tr>
+                    <tr id="indexfsTr" class="last">
+                        <th class="title">
+                            <ins class="asterisk">*</ins>
+                            {{lang.label_domain_indexfs}}
+                        </th>
+                        <td>
+                            <select id="hostName">
+                                <option value="">{{lang.label_select_host}}</option>
+                            </select>
+                            <hr/>
+                            Indexfs <select class="wfix_max" id="indexFs" style="display:none;">
+                        </select>
+                            <!-- <span class="text" id="portText" style="display:none;"> port : </span>
+                            <input class="" type="text" id="port" name="" value="25" style="display:none;"> -->
+                            <span class="btn_s" id="btn_add_indexFs">{{lang.label_add}}</span>
+                            <span class="go_alert" id="indexFssValidate"></span>
+                            <br><br>
+                            <select id="indexFss" name="indexFss" multiple="multiple" size="10"
+                                    style="width:400px;height:100px;border:1x solid #999999;">
+                            </select>
+                            <span class="btn_s vt" id="btn_delete_indexFs">{{lang.label_delete}}</span><br>
+                        </td>
+                    </tr>
+                    <tr id="datafsTr">
+                        <th class="title"></th>
+                        <td>
+                            Datafs <select class="wfix_max" id="dataFs" style="display:none;">
+                        </select>
+                            <span class="btn_s" id="btn_add_dataFs">{{lang.label_add}}</span>
+                            <span class="go_alert" id="dataFssValidate"></span>
+                            <br><br>
+                            <select id="dataFss" name="dataFss" multiple="multiple" size="10"
+                                    style="width:400px;height:100px;border:1x solid #999999;">
+                            </select>
+                            <span class="btn_s vt" id="btn_delete_dataFs">{{lang.label_delete}}</span><br>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="title">
+                            <ins class="asterisk">*</ins>
+                            {{lang.label_max_user_count}}
+                            <span class="wrap_ic_s">
+	                            <span class="help">
+									<span class="tool_tip">{{lang.label_max_user_help}}<i class="tail_left"></i></span>
+								</span>
+							</span>
+                        </th>
+                        <td>
+    						<span {{^isSiteControlOn}}class="editable"{{/isSiteControlOn}}>
+                                {{siteInfo.userCount}}
+                                {{^isSiteControlOn}}
+	                            <span class="btn_box">
+	                                <span class="ic ic_edit" title="{{lang.label_modify}}"></span>
+	                            </span>
+                                {{/isSiteControlOn}}
+	                        </span>
+                            <input class="input" type="text" id="userCount" name="userCount"
+                                   value="{{siteInfo.userCount}}" style="display:none;">
+                            <span class="go_alert" id="userCountValidate"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="title">{{lang.label_password_method}}
+                            <span class="wrap_ic_s">
+	                            <span class="help">
+									<span class="tool_tip">{{lang.label_algorithm_name_help}}<i
+                                            class="tail_left"></i></span>
+								</span>
+							</span>
+                        </th>
+                        <td>
+                            <select id="passwordMethod" name="algorithmName">
+                                <option value="{CLEARTEXT}">{{lang.label_clear_text}}</option>
+                                <option value="{CRYPT}">{{lang.label_unix_crypt}}</option>
+                                <option value="{MD5}">{{lang.label_md5}}</option>
+                                <option value="{SHA}">{{lang.label_sha}}</option>
+                                <option value="{SHA256}">{{lang.label_sha256}}</option>
+                                <option value="{SHA512}">{{lang.label_sha512}}</option>
+                                <option value="{TWOFISH}" selected>{{lang.label_towfish}}</option>
+                                <option value="{SSHA}">{{lang.label_ssha}}</option>
+                                <option value="{BCRYPT}">{{lang.label_bcrypt}}</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="title">{{lang.label_total_account_quota}}
+                            <span class="wrap_ic_s">
+	                         	<span class="help">
+								<span class="tool_tip">{{lang.label_help_account_quota}}<i class="tail_left"></i></span>
+								</span>
+							</span>
+                        </th>
+                        <td>
+	                		<span class="option_wrap totalAccountQuotaLimitless">
+                                <input type="radio" name="baseCompanyConfig_totalAccountQuota" value="0"
+                                       id="totalAccountQuota_on" checked="checked"/>
+                                <label for="totalAccountQuota_on">{{lang.label_limitless}}</label>
+                            </span>
+                            <span class="option_wrap totalAccountQuotaDirectInput">
+                                <input type="radio" name="baseCompanyConfig_totalAccountQuota" value="self"
+                                       id="totalAccountQuota_off"/>
+                                <label for="totalAccountQuota_off">{{lang.label_direct_input}}</label>
+                            </span>
+                            <span class="option_wrap totalAccountQuotaDirectInput">
+                                <input class="input" type="text" id="totalAccountQuota" {{#isSiteControlOn}}readonly{{/isSiteControlOn}}> GB
+								<span class="go_alert" id="totalAccountQuotaValidate"></span>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="title">{{lang.label_total_company_quota}}
+                            <span class="wrap_ic_s">
+							<span class="help">
+								<span class="tool_tip">{{lang.label_help_company_quota}}<i class="tail_left"></i></span>
+							</span>
+						</span>
+                        </th>
+                        <td>
+	                		<span class="option_wrap companyQuotaLimitless">
+                                <input type="radio" name="baseCompanyConfig_companyQuota" value="0" id="companyQuota_on"
+                                       checked="checked"/>
+                                <label for="companyQuota_on">{{lang.label_limitless}}</label>
+                            </span>
+                            <span class="option_wrap companyQuotaDirectInput">
+                                <input type="radio" name="baseCompanyConfig_companyQuota" value="self"
+                                       id="companyQuota_off"}/>
+                                <label for="companyQuota_off">{{lang.label_direct_input}}</label>
+                            </span>
+                            <span class="option_wrap companyQuotaDirectInput">
+                                <input class="input" type="text" id="companyQuota" {{#isSiteControlOn}}readonly{{/isSiteControlOn}}/> GB
+								<span class="go_alert" id="companyQuotaValidate"></span>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr id="sendWarningMode">
+                        <th class="title">{{lang.label_send_warning}}</th>
+                        <td>
+	                		<span class="option_wrap">
+                                <input type="radio" name="baseCompanyConfig_sendWarningExceedCompanyQuota" value="true"
+                                       id="sendWarningExceedCompanyQuota_on" checked="checked"/>
+                                <label for="sendWarningExceedCompanyQuota_on">{{lang.label_use}}</label>
+                            </span>
+                            <span class="option_wrap">
+                                <input type="radio" name="baseCompanyConfig_sendWarningExceedCompanyQuota" value="false"
+                                       id="sendWarningExceedCompanyQuota_off"/>
+                                <label for="sendWarningExceedCompanyQuota_off">{{lang.label_not_use}}</label>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr id="warningRate">
+                        <th class="title">{{lang.label_warning_rate}}</th>
+                        <td>
+                            <span class="option_wrap">
+                                <input class="input" type="text" id="companyQuotaWarningRate"
+                                       name="baseCompanyConfig_companyQuotaWarningRate"> %
+                                <span class="go_alert" id="companyQuotaWarningRateValidate"></span>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr id="restrict">
+                        <th class="title">{{lang.label_restriction}}</th>
+                        <td>
+	                		<span class="option_wrap">
+                                <input type="radio" name="baseCompanyConfig_restrictCompanyQuota" value="true"
+                                       id="restrictCompanyQuota_on" checked="checked"/>
+                                <label for="restrictCompanyQuota_on">{{lang.label_use}}</label>
+                            </span>
+                            <span class="option_wrap">
+                                <input type="radio" name="baseCompanyConfig_restrictCompanyQuota" value="false"
+                                       id="restrictCompanyQuota_false"/>
+                                <label for="restrictCompanyQuota_false">{{lang.label_not_use}}</label>
+                            </span>
+                            <span class="option_wrap">
+                            <span class="wrap_ic_s">
+		                        <span class="help">
+									<span class="tool_tip">{{lang.label_help_restrict_quota}}<i
+                                            class="tail_left"></i></span>
+								</span>
+							</span>
+							</span>
+                        </td>
+                    </tr>
+                    <tr class="last">
+                        <th class="title">{{lang.label_period}}
+                            <span class="wrap_ic_s">
+                                <span class="help">
+                                    <span class="tool_tip">{{lang.label_period_ment}}<i class="tail_left"></i></span>
+                                </span>
+                            </span>
+                        </th>
+                        <td>
+                            <span class="option_wrap restrictCompanyPeriod_on">
+                                <input type="radio" name="baseCompanyConfig_restrictCompanyPeriod" value=false
+                                       id="restrictCompanyPeriod_on" checked="checked"/>
+                                <label for="restrictCompanyPeriod_on">{{lang.label_limitless}}</label>
+                            </span>
+                            <span class="option_wrap restrictCompanyPeriod_false">
+                                <input type="radio" name="baseCompanyConfig_restrictCompanyPeriod" value=true
+                                       id="restrictCompanyPeriod_false"/>
+                                <label for="restrictCompanyPeriod_false">{{lang.label_direct_input}}</label>
+                            </span>
+                            <span class="option_wrap restrictCompanyPeriod_false">
+                                <div class="opt_repeatDate" id="period_scope_select">
+                                    <span class="wrap_date">
+                                        <input id="baseCompanyConfig_restrictCompanyPeriodStart" readonly="readonly"
+                                               class="txt wfix_small" type="text" {{#isSiteControlOn}}disabled="disabled"{{/isSiteControlOn}}>
+                                        <span class="ic_go ic_calendar"></span>
+                                    </span>
+                                    <span class="wave">~</span>
+                                    <span class="wrap_date">
+                                        <input id="baseCompanyConfig_restrictCompanyPeriodEnd" readonly="readonly"
+                                               class="txt wfix_small" type="text" {{#isSiteControlOn}}disabled="disabled"{{/isSiteControlOn}}>
+                                        <span class="ic_go ic_calendar"></span>
+                                    </span>
+                                </div>
+                            </span>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="header">
+                <h2>{{lang.label_admin_info}}</h2>
+            </div>
+
+            <div class="content">
+                <table class="detail">
+                    <colgroup>
+                        <col width="180px"/><!-- 개발쪽에서 width값을 받아가서 재설정 후 삭제  -->
+                        <col width="*"/>
+                    </colgroup>
+                    <tbody>
+                    <tr>
+                        <th class="title">{{lang.label_admin_name}}</th>
+                        <td>
+    						<span {{^isSiteControlOn}}class="editable"{{/isSiteControlOn}}>
+                            {{siteInfo.info.contactPerson}}
+                            {{^isSiteControlOn}}
+                            <span class="btn_box">
+                                <span class="ic ic_edit" title="{{lang.label_modify}}"></span>
+                            </span>
+                            {{/isSiteControlOn}}
+	                        </span>
+                            <input class="w_half input" type="text" id="info_contactPerson" name="info_contactPerson"
+                                   value="{{siteInfo.info.contactPerson}}" style="display:none;">
+                            <span class="go_alert" id="info_contactPersonValidate"></span>
+                        </td>
+                    </tr>
+                    <tr {{#isSaaS}}class="last"{{/isSaaS}}>
+                        <th class="title">{{lang.label_admin_id}}
+                        <td>
+                            {{siteInfo.managerId}}
+                            <input class="w200 input" type="text" id="info_adminId" name="info_adminId"
+                                   value="{{siteInfo.managerId}}" style="display:none; text-transform:lowercase">
+                            <span class="go_alert" id="info_adminIdValidate"></span>
+                        </td>
+                    </tr>
+                    {{^isSaaS}}
+                    <tr class="last">
+                        <th class="title">{{lang.label_phone_num}}</th>
+                        <td>
+                            {{#siteInfo.info.officeTel}}
+                            <span class="editable">
+                            {{siteInfo.info.officeTel}}
+	                            <span class="btn_box">
+	                                <span class="ic ic_edit" title="{{lang.label_modify}}"></span>
+	                            </span>
+	                        </span>
+                            <input class="w200 input" type="text" id="officeTel" name="info_officeTel"
+                                   value="{{siteInfo.info.officeTel}}" style="display:none;">
+                            {{/siteInfo.info.officeTel}}
+                            {{^siteInfo.info.officeTel}}
+                            <input class="w200 input" type="text" id="officeTel" name="info_officeTel"
+                                   value="{{siteInfo.info.officeTel}}">
+                            {{/siteInfo.info.officeTel}}
+                        </td>
+                    </tr>
+                    {{/isSaaS}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="header">
+                <h2>{{lang.label_service}}</h2>
+            </div>
+
+            <div class="content">
+                <table class="detail">
+                    <colgroup>
+                        <col width="180px"/>
+                        <col width="*"/>
+                    </colgroup>
+                    <tbody>
+                    <tr>
+                        <th class="title">
+                            <ins class="asterisk">*</ins>
+                            {{lang.label_mail_service}}
+                        </th>
+                        <td>
+                            <div class="vertical_wrap_s">
+		                		<span class="wrap_option">
+		                        	<input type="checkbox" id='POP' name="serviceModel_pop">
+		                        		<label for="POP">{{lang.label_pop}}</label>
+		                        </span>
+                            </div>
+                            <div class="vertical_wrap_s">
+		                        <span class="wrap_option">
+		                        	<input type="checkbox" id='IMAP' name="serviceModel_imap">
+		                        		<label for="IMAP">{{lang.label_imap}}</label>
+		                        </span>
+                            </div>
+                            <div class="vertical_wrap_s">
+		                        <span class="wrap_option">
+		                        	<input type="checkbox" id='WEBMAIL' name="serviceModel_webMail" checked disabled>
+		                        		<label for="WEBMAIL">{{lang.label_webmail}}</label>
+		                        </span>
+                            </div>
+                            <div class="vertical_wrap_s">
+		                        <span class="wrap_option">
+		                        	<input type="checkbox" id='SMTPAUTH' name="serviceModel_smtpauth">
+		                        		<label for="SMTPAUTH">{{lang.label_smtp_auth}}</label>
+		                        </span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="title">{{lang.label_home}}</th>
+                        <td>
+	                		<span class="option_wrap">
+                                <input type="radio" name="config_homeService" value="on" id="homeService_on"
+                                       checked="checked"/>
+                                <label for="homeService_on">{{lang.label_use}}</label>
+                            </span>
+                            <span class="option_wrap">
+                                <input type="radio" name="config_homeService" value="off" id="homeService_off"/>
+                                <label for="homeService_off">{{lang.label_not_use}}</label>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr id="contactService">
+                        <th class="title">{{lang.label_contact}}</th>
+                        <td>
+	                		<span class="option_wrap">
+                                <input type="radio" name="config_contactService" value="on" id="contactService_on"
+                                       checked="checked"/>
+                                <label for="contactService_on">{{lang.label_use}}</label>
+                            </span>
+                            <span class="option_wrap">
+                                <input type="radio" name="config_contactService" value="off" id="contactService_off"/>
+                                <label for="contactService_off">{{lang.label_not_use}}</label>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr id="fileService">
+                        <th class="title">{{lang.label_file}}</th>
+                        <td>
+	                		<span class="option_wrap">
+                                <input type="radio" name="config_webfolderService" value="on" id="webfolderService_on"
+                                       checked="checked"/>
+                                <label for="webfolderService_on">{{lang.label_use}}</label>
+                            </span>
+                            <span class="option_wrap">
+                                <input type="radio" name="config_webfolderService" value="off" id="webfolderService_off"/>
+                                <label for="webfolderService_off">{{lang.label_not_use}}</label>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr id="calendarService">
+                        <th class="title">{{lang.label_calendar}}</th>
+                        <td>
+	                		<span class="option_wrap">
+                                <input type="radio" name="config_calendarService" value="on" id="calendarService_on"/>
+                                <label for="calendarService_on">{{lang.label_use}}</label>
+                            </span>
+                            <span class="option_wrap">
+                                <input type="radio" name="config_calendarService" value="off" id="calendarService_off"
+                                       checked="checked"/>
+                                <label for="calendarService_off">{{lang.label_not_use}}</label>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr id="boardService">
+                        <th class="title">{{lang.label_board}}</th>
+                        <td>
+	                		<span class="option_wrap">
+                                <input type="radio" name="config_boardService" value="on" id="boardService_on"/>
+                                <label for="boardService_on">{{lang.label_use}}</label>
+                            </span>
+                            <span class="option_wrap">
+                                <input type="radio" name="config_boardService" value="off" id="boardService_off"
+                                       checked="checked"/>
+                                <label for="boardService_off">{{lang.label_not_use}}</label>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr id="communityService">
+                        <th class="title">{{lang.label_community}}</th>
+                        <td>
+	                		<span class="option_wrap">
+                                <input type="radio" name="config_communityService" value="on" id="communityService_on"/>
+                                <label for="communityService_on">{{lang.label_use}}</label>
+                            </span>
+                            <span class="option_wrap">
+                                <input type="radio" name="config_communityService" value="off" id="communityService_off"
+                                       checked="checked"/>
+                                <label for="communityService_off">{{lang.label_not_use}}</label>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr id="assetService">
+                        <th class="title">{{lang.label_reserve}}</th>
+                        <td>
+	                		<span class="option_wrap">
+                                <input type="radio" name="config_assetService" value="on" id="assetService_on"/>
+                                <label for="assetService_on">{{lang.label_use}}</label>
+                            </span>
+                            <span class="option_wrap">
+                                <input type="radio" name="config_assetService" value="off" id="assetService_off"
+                                       checked="checked"/>
+                                <label for="assetService_off">{{lang.label_not_use}}</label>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr id="reportService">
+                        <th class="title">{{lang.label_report}}</th>
+                        <td>
+	                		<span class="option_wrap">
+                                 <input type="radio" name="config_reportService" value="on" id="reportService_on"/>
+                                 <label for="reportService_on">{{lang.label_use}}</label>
+                             </span>
+                            <span class="option_wrap">
+                                 <input type="radio" name="config_reportService" value="off" id="reportService_off"
+                                        checked="checked"/>
+                                 <label for="reportService_off">{{lang.label_not_use}}</label>
+                             </span>
+                        </td>
+                    </tr>
+                    <tr id="taskService">
+                        <th class="title">{{lang.label_task}}</th>
+                        <td>
+	                		<span class="option_wrap">
+                                <input type="radio" name="config_taskService" value="on" id="taskService_on"/>
+                                <label for="taskService_on">{{lang.label_use}}</label>
+                            </span>
+                            <span class="option_wrap">
+                                <input type="radio" name="config_taskService" value="off" id="taskService_off"
+                                       checked="checked"/>
+                                <label for="taskService_off">{{lang.label_not_use}}&nbsp;&nbsp;&nbsp;{{lang.label_task_guide}}</label>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr id="worksService">
+                        <th class="title">{{lang.label_works}}</th>
+                        <td>
+                            <span class="option_wrap">
+                                <input type="radio" name="config_worksService" value="on" id="worksService_on"/>
+                                <label for="worksService_on">{{lang.label_use}}</label>
+                            </span>
+                            <span class="option_wrap">
+                                <input type="radio" name="config_worksService" value="off" id="worksService_off"
+                                       checked="checked"/>
+                                <label for="worksService_off">{{lang.label_not_use}}</label>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr id="todoService">
+                        <th class="title">{{lang.label_todo}}</th>
+                        <td>
+                            <span class="option_wrap">
+                                <input type="radio" name="config_todoService" value="on" id="todoService_on"/>
+                                <label for="todoService_on">{{lang.label_use}}</label>
+                            </span>
+                            <span class="option_wrap">
+                                <input type="radio" name="config_todoService" value="off" id="todoService_off"
+                                       checked="checked"/>
+                                <label for="todoService_off">{{lang.label_not_use}}</label>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr id="surveyService">
+                        <th class="title">{{lang.label_survey}}</th>
+                        <td>
+	                		<span class="option_wrap">
+                                <input type="radio" name="config_surveyService" value="on" id="surveyService_on"/>
+                                <label for="surveyService_on">{{lang.label_use}}</label>
+                            </span>
+                            <span class="option_wrap">
+                                <input type="radio" name="config_surveyService" value="off" id="surveyService_off"
+                                       checked="checked"/>
+                                <label for="surveyService_off">{{lang.label_not_use}}</label>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr id="approvalService">
+                        <th class="title">{{lang.label_approval}}</th>
+                        <td>
+	                		<span class="option_wrap">
+                                <input type="radio" name="config_approvalService" value="on" id="approvalService_on"/>
+                                <label for="approvalService_on">{{lang.label_use}}</label>
+                            </span>
+                            <span class="option_wrap">
+                                <input type="radio" name="config_approvalService" value="off" id="approvalService_off"
+                                       checked="checked"/>
+                                <label for="approvalService_off">{{lang.label_not_use}}</label>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr id="docfolderService">
+                        <th class="title">{{lang.label_docfolder}}</th>
+                        <td>
+	                		<span class="option_wrap">
+                                <input type="radio" name="config_docfolderService" value="on" id="docfolderService_on"/>
+                                <label for="docfolderService_on">{{lang.label_use}}</label>
+                            </span>
+                            <span class="option_wrap">
+                                <input type="radio" name="config_docfolderService" value="off" id="docfolderService_off"
+                                       checked="checked"/>
+                                <label for="docfolderService_off">{{lang.label_not_use}}</label>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr id="smsService">
+                        <th class="title">{{lang.label_sms_config}}</th>
+                        <td>
+                            <span class="option_wrap">
+                                <input type="radio" name="config_smsService" value="on" id="smsService_on"/>
+                                <label for="smsService_on">{{lang.label_use}}</label>
+                            </span>
+                            <span class="option_wrap">
+                                <input type="radio" name="config_smsService" value="off" id="smsService_off"
+                                       checked="checked"/>
+                                <label for="smsService_off">{{lang.label_not_use}}</label>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr id="chatService">
+                        <th class="title">{{lang.label_chat}}</th>
+                        <td>
+	                		<span class="option_wrap">
+                                <input type="radio" name="config_chatService" value="on" id="chatService_on"/>
+                                <label for="chatService_on">{{lang.label_use}}</label>
+                            </span>
+                            <span class="option_wrap">
+                                <input type="radio" name="config_chatService" value="off" id="chatService_off"
+                                       checked="checked"/>
+                                <label for="chatService_off">{{lang.label_not_use}}</label>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr id="pcappService">
+                        <th class="title">{{lang.label_pcapp}}</th>
+                        <td>
+	                		<span class="option_wrap">
+                                <input type="radio" name="config_pcappService" value="on" id="pcappService_on"/>
+                                <label for="pcappService_on">{{lang.label_use}}</label>
+                            </span>
+                            <span class="option_wrap">
+                                <input type="radio" name="config_pcappService" value="off" id="pcappService_off"
+                                       checked="checked"/>
+                                <label for="pcappService_off">{{lang.label_not_use}}</label>
+                            </span>
+                            (
+                            {{lang.메신저타입설정}}
+                            <span class="option_wrap">
+                                <input type="radio" name="config_messengerType" value="DotNet" id="messenger_default" />
+                                <label for="messenger_default">{{lang.기본}}</label>
+                            </span>
+                            <span class="option_wrap">
+                                <input type="radio" name="config_messengerType" value="Electron" id="messenger_electron"
+                                       checked="checked" />
+                                <label for="messenger_electron">{{lang.신규}}</label>
+                            </span>
+                            )
+                        </td>
+                    </tr>
+                    <tr id="mobileService">
+                        <th class="title">{{lang.label_Mobile}}</th>
+                        <td>
+	                		<span class="option_wrap">
+                                <input type="radio" name="config_mobileService" value="on" id="mobileService_on"/>
+                                <label for="mobileService_on">{{lang.label_use}}</label>
+                            </span>
+                            <span class="option_wrap">
+                                <input type="radio" name="config_mobileService" value="off" id="mobileService_off"
+                                       checked="checked"/>
+                                <label for="mobileService_off">{{lang.label_not_use}}</label>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr id="mobileAppService">
+                        <th class="title">{{lang.label_mobile_app}}</th>
+                        <td>
+	                		<span class="option_wrap">
+                                <input type="radio" name="config_mobileAppService" value="on" id="mobileAppService_on"/>
+                                <label for="mobileAppService_on">{{lang.label_use}}</label>
+                            </span>
+                            <span class="option_wrap">
+                                <input type="radio" name="config_mobileAppService" value="off" id="mobileAppService_off"
+                                       checked="checked"/>
+                                <label for="mobileAppService_off">{{lang.label_not_use}}</label>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr id="orgService">
+                        <th class="title">{{lang.label_org}}</th>
+                        <td>
+	                		<span class="option_wrap">
+                                <input type="radio" name="config_orgService" value="on" id="orgService_on"/>
+                                <label for="orgService_on">{{lang.label_use}}</label>
+                            </span>
+                            <span class="option_wrap">
+                                <input type="radio" name="config_orgService" value="off" id="orgService_off"
+                                       checked="checked"/>
+                                <label for="orgService_off">{{lang.label_not_use}}</label>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr id="otpService">
+                        <th class="title">{{lang.label_otp}}</th>
+                        <td>
+	                		<span class="option_wrap">
+                                <input type="radio" name="config_otpService" value="on" id="otpService_on"/>
+                                <label for="otpService_on">{{lang.label_use}}</label>
+                            </span>
+                            <span class="option_wrap">
+                                <input type="radio" name="config_otpService" value="off" id="otpService_off"
+                                       checked="checked"/>
+                                <label for="otpService_off">{{lang.label_not_use}}</label>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr id="ehrService">
+                        <th class="title">{{lang.label_ehr_config}}</th>
+                        <td>
+                			<span class="option_wrap">
+                                <input type="radio" name="config_ehrService" value="on" id="ehrService_on" checked="checked"/>
+                                <label for="ehrService_on">{{lang.label_use}}</label>
+                            </span>
+                            <span class="option_wrap">
+                                <input type="radio" name="config_ehrService" value="off" id="ehrService_off"/>
+                                <label for="ehrService_off">{{lang.label_not_use}}</label>
+                            </span>
+                            <span id="welfareConfig">
+                                (
+                                {{lang.label_welfare_config}}
+                                <span class="option_wrap">
+                                    <input type="radio" name="config_welfareConfig" value="on" id="welfare_on" />
+                                    <label for="welfare_on">{{lang.label_use}}</label>
+                                </span>
+                                <span class="option_wrap">
+                                    <input type="radio" name="config_welfareConfig" value="off" id="welfare_off"  checked="checked" />
+                                    <label for="welfare_off">{{lang.label_not_use}}</label>
+                                </span>
+                                )
+                            </span>
+                        </td>
+                    </tr>
+                    <tr class="docs" id="docsService">
+                        <th class="title">{{lang.label_docs}}</th>
+                        <td>
+                            <span class="option_wrap">
+                                <input type="radio" name="config_docsService" value="on" id="docsService_on"/>
+                                <label for="docsService_on">{{lang.label_use}}</label>
+                            </span>
+                            <span class="option_wrap">
+                                <input type="radio" name="config_docsService" value="off" id="docsService_off"
+                                       checked="checked"/>
+                                <label for="docsService_off">{{lang.label_not_use}}</label>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr class="store" id="storeService">
+                        <th class="title">{{lang.label_store}}</th>
+                        <td>
+                            <span class="option_wrap">
+                                <input type="radio" name="config_storeService" value="on" id="storeService_on"/>
+                                <label for="storeService_on">{{lang.label_use}}</label>
+                            </span>
+                            <span class="option_wrap">
+                                <input type="radio" name="config_storeService" value="off" id="storeService_off"
+                                       checked="checked"/>
+                                <label for="storeService_off">{{lang.label_not_use}}</label>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr id="securityCenter">
+                        <th class="title">{{lang.label_security}}</th>
+                        <td>
+                			<span class="option_wrap">
+                                <input type="radio" name="config_securityCenter" value="on" id="securityCenter_on"/>
+                                <label for="securityCenter_on">{{lang.label_use}}</label>
+                            </span>
+                            <span class="option_wrap">
+                                <input type="radio" name="config_securityCenter" value="off" id="securityCenter_off"
+                                       checked="checked"/>
+                                <label for="securityCenter_off">{{lang.label_not_use}}</label>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr id="smartFilter">
+                        <th class="title">{{lang.label_smartFilter}}</th>
+                        <td>
+                			<span class="option_wrap">
+                                <input type="radio" name="config_smartFilter" value="on" id="smartFilter_on"/>
+                                <label for="smartFilter_on">{{lang.label_use}}</label>
+                            </span>
+                            <span class="option_wrap">
+                                <input type="radio" name="config_smartFilter" value="off" id="smartFilter_off"
+                                       checked="checked"/>
+                                <label for="smartFilter_off">{{lang.label_not_use}}</label>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr id="directedApprover">
+                        <th class="title">{{lang.label_directed_approver}}</th>
+                        <td>
+                            <span class="option_wrap">
+                                <input type="radio" name="config_directedApprover" value="on" id="directedApprover_on"/>
+                                <label for="directedApprover_on">{{lang.label_use}}</label>
+                            </span>
+                            <span class="option_wrap">
+                                <input type="radio" name="config_directedApprover" value="off" id="directedApprover_off"
+                                       checked="checked"/>
+                                <label for="directedApprover_off">{{lang.label_not_use}}</label>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr id="useAbbroadIpCheck">
+                        <th class="title">{{lang.label_use_abbroad_ip_check}}</th>
+                        <td>
+                			<span class="option_wrap">
+                                <input type="radio" name="config_useAbbroadIpCheck" value="on"
+                                       id="useAbbroadIpCheck_on"/>
+                                <label for="useAbbroadIpCheck_on">{{lang.label_use}}</label>
+                            </span>
+                            <span class="option_wrap">
+                                <input type="radio" name="config_useAbbroadIpCheck" value="off"
+                                       id="useAbbroadIpCheck_off" checked="checked"/>
+                                <label for="useAbbroadIpCheck_off">{{lang.label_not_use}}</label>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr id="allowEncryptedFileUploadCheck">
+                        <th class="title">{{lang.label_allow_encrypted_file}}</th>
+                        <td>
+                			<span class="option_wrap">
+                                <input type="radio" name="config_allowEncryptedFileUploadCheck" value="on"
+                                       id="allowEncryptedFileUploadCheck_on"/>
+                                <label for="allowEncryptedFileUploadCheck_on">{{lang.label_use}}</label>
+                            </span>
+                            <span class="option_wrap">
+                                <input type="radio" name="config_allowEncryptedFileUploadCheck" value="off"
+                                       id="allowEncryptedFileUploadCheck_off" checked="checked"/>
+                                <label for="allowEncryptedFileUploadCheck_off">{{lang.label_not_use}}&nbsp;&nbsp;&nbsp;{{lang.label_allow_encrypted_file_description}}</label>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr class="last" id="allowSyncHistory">
+                        <th class="title">{{lang.label_allow_sync_history}}</th>
+                        <td>
+                			<span class="option_wrap">
+                                <input type="radio" name="config_allowSyncHistory" value="on"
+                                       id="allowSyncHistory_on"/>
+                                <label for="allowSyncHistory_on">{{lang.label_use}}</label>
+                            </span>
+                            <span class="option_wrap">
+                                <input type="radio" name="config_allowSyncHistory" value="off"
+                                       id="allowSyncHistory_off" checked="checked"/>
+                                <label for="allowSyncHistory_off">{{lang.label_not_use}}</label>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr id="channelService" style="display: none;">
+                        <th class="title">{{lang.label_channel}}</th>
+                        <td>
+	                		<span class="option_wrap">
+                                <input type="radio" name="config_channelService" value="on" id="channelService_on"/>
+                                <label for="channelService_on">{{lang.label_use}}</label>
+                            </span>
+                            <span class="option_wrap">
+                                <input type="radio" name="config_channelService" value="off" id="channelService_off"
+                                       checked="checked"/>
+                                <label for="channelService_off">{{lang.label_not_use}}</label>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr class="last" id="allianceSystemService" style="display: none;">
+                        <th class="title">{{lang.label_alliance_system}}</th>
+                        <td>
+                			<span class="option_wrap">
+                                <input type="radio" name="config_allianceSystemService" value="on"
+                                       id="useAllianceSystemService_on"/>
+                                <label for="useAllianceSystemService_on">{{lang.label_use}}</label>
+                            </span>
+                            <span class="option_wrap">
+                                <input type="radio" name="config_allianceSystemService" value="off"
+                                       id="useAllianceSystemService_off" checked="checked"/>
+                                <label for="useAllianceSystemService_off">{{lang.label_not_use}}</label>
+                            </span>
+                            <span class="option_wrap">
+                                {{lang.label_alliance_system_guide}}
+                            </span>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </form>
+    <div class="page_action">
+        <span class="btn" id="btn_site_modify">{{lang.label_modify}}</span>
+        <span class="btn_nega" id="btn_site_cancel">{{lang.label_cancel}}</span>
+        <span class="btn_nega" id="btn_return_list">{{lang.label_return_list}}</span>
+    </div>
+
+</div>

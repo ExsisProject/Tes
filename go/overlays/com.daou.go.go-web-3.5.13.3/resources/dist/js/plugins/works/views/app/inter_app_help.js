@@ -1,0 +1,1 @@
+define("works/views/app/inter_app_help",function(require){var e=require("hgn!works/templates/app/inter_app_help"),t=Backbone.View.extend({className:"layer_normal layer_mail_print popup",render:function(){return this.$el.html(e),this}});return t});

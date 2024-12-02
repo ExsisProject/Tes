@@ -1,0 +1,97 @@
+{{#data}}
+<div class="content_page">
+	<form name="formCustomProfileConfig" id="formCustomProfileConfig" >
+		<div class="container ">
+			<div class="header">
+				<h2>AttndSyncJob</h2>
+			</div>
+			<div class="content">
+				<table class="detail">
+					<colgroup>
+						<col width="150px" />
+						<col width="*" />
+					</colgroup>
+					<tbody>
+					<tr class="last">
+						<th>
+							<span class="title">{{lang.label_attnd_sync}}</span>
+						</th>
+						<td>
+							<div class="vertical_wrap_s">
+				                <span class="option_wrap">
+				                    <input type="radio" value="on" id="use_attnd_sync_on" name="attndSyncUse" {{#attndSyncUse}} checked="checked" {{/attndSyncUse}} />
+				                    <label for="use_attnd_sync_on">{{lang.label_use}}</label>
+				                </span>
+				                <span class="option_wrap"> 
+				                    <input type="radio" value="off" id ="use_attnd_sync_off" name="attndSyncUse" {{^attndSyncUse}} checked="checked" {{/attndSyncUse}} />
+				                    <label for="use_attnd_sync_off">{{lang.label_no_use}}</label>
+				                </span>
+							</div>
+						</td>
+					</tr>
+					<tr  id="use_attnd_sync_setting" {{^attndSyncUse}}style="display:none"{{/attndSyncUse}}>
+					<th>
+						<span class="title">{{lang.label_attnd_sync_time}}</span>
+					</th>
+					<td>
+		                    <span class="user_data editable">
+		                        <span id="data">{{attndSyncCron}}</span>
+		                        <span class="btn_box">
+		                            <span class="ic ic_edit" title="{{lang.label_edit}}"></span>
+		                        </span>
+		                    </span>
+						<input class="w_half input" type="text" id="attndSyncCron" name="attndSyncCron" value="{{attndSyncCron}}" style="display:none;">
+						<span class="go_alert" id="attndSyncCronValidate"></span>
+					</td>
+					</tr>
+					<tr class="last" id="example" {{^attndSyncUse}}style="display:none"{{/attndSyncUse}}>
+					<th colspan="2">
+						<table>
+							<tr>
+								<td>
+									<span class="title">
+									초 0-59 , - * / </br>
+										분 0-59 , - * / </br>
+										시 0-23 , - * / </br>
+										일 1-31 , - * ? / L W</br>
+										월 1-12 or JAN-DEC , - * / </br>
+										요일 1-7 or SUN-SAT , - * ? / L # </br>
+										년(옵션) 1970-2099 , - * /</br></br>
+								</span>
+								</td>
+								<td>
+									<span class="title">
+										* example </br>
+										"0 0 12 * * ?" : 아무 요일, 매월, 매일 12:00:00</br>
+										"0 15 10 ? * *" : 모든 요일, 매월, 아무 날이나 10:15:00 </br>
+										"0 15 10 * * ?" : 아무 요일, 매월, 매일 10:15:00 </br>
+										"0 15 10 * * ? *" : 모든 연도, 아무 요일, 매월, 매일 10:15 </br>
+										"0 15 10 * * ? : 2005" 2005년 아무 요일이나 매월, 매일 10:15 </br>
+										"0 * 14 * * ?" : 아무 요일, 매월, 매일, 14시 매분 0초 </br>
+										"0 0/5 14 * * ?" : 아무 요일, 매월, 매일, 14시 매 5분마다 0초 </br>
+										"0 0/5 14,18 * * ?" : 아무 요일, 매월, 매일, 14시, 18시 매 5분마다 0초 </br>
+										"0 0-5 14 * * ?" : 아무 요일, 매월, 매일, 14:00 부터 매 14:05까지 매 분 0초 </br>
+										"0 10,44 14 ? 3 WED" : 3월의 매 주 수요일, 아무 날짜나 14:10:00, 14:44:00 </br>
+										"0 15 10 ? * MON-FRI" : 월~금, 매월, 아무 날이나 10:15:00 </br>
+										"0 15 10 15 * ?" : 아무 요일, 매월 15일 10:15:00 </br>
+										"0 15 10 L * ?" : 아무 요일, 매월 마지막 날 10:15:00 </br>
+										"0 15 10 ? * 6L" : 매월 마지막 금요일 아무 날이나 10:15:00 </br>
+										"0 15 10 ? * 6L 2002-2005" : 2002년부터 2005년까지 매월 마지막 금요일 아무 날이나 10:15:00 </br>
+										"0 15 10 ? * 6#3" : 매월 3번째 금요일 아무 날이나 10:15:00</br>
+										</span>
+								</td>
+							</tr>
+						</table>
+					</th>
+					</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</form>
+	<div class="page_action">
+		<span class="btn" id="btn_ok">{{lang.label_ok}}</span>
+		<span class="btn_nega" id="btn_cancel">{{lang.label_cancel}}</span>
+	</div>
+</div>
+{{/data}}

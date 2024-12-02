@@ -1,0 +1,20 @@
+{{#isAdmin?}}
+<a data-bypass class="btn_set" title="{{lang.설정}}">
+	<ins class="ic_works ic_set_1"></ins>
+</a>
+{{/isAdmin?}}
+<a data-bypass class="btn_star" title="{{lang.즐겨찾기}}">
+	<ins class="ic_works ic_star_1 {{#favorite?}}on{{/favorite?}}"></ins>
+</a>
+<a data-bypass class="wrap_works_info">
+{{#isRecent?}}<i class="ic_works ic_new" title="{{lang.새로 등록된 앱}}"></i>{{/isRecent?}}
+	<div class="wrap_img_ic">
+		<img src="{{thumbSmall}}" alt="{{lang.유저 등록 아이콘}}">
+	</div>
+	<div class="wrap_works_tit">
+		<div class="inner_works_info">
+			<span class="tit">{{{name}}}</span>
+			<span class="card_info">{{{desc}}}<i class="dot_bg"></i></span>
+		</div>
+	</div>
+</a>

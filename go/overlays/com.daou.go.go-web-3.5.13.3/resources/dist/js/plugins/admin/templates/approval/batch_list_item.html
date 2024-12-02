@@ -1,0 +1,104 @@
+<td class="tit"><a form-id="{{id}}">{{path}}{{name}}</a></td>
+<td>
+	<span class="option_wrap">
+		<input type="checkbox" id="useHelp_{{cid}}" name="useHelp_{{cid}}" {{#useHelp}}checked="checked"{{/useHelp}} value="true" data-name="useHelp"> 
+	    <label for="useHelp_{{cid}}">{{lang.use}}</label>
+	</span>
+</td>
+<td>
+	<span class="option_wrap">
+        <input type="checkbox" id="receptionActive_{{cid}}" name="receptionActive_{{cid}}" {{#receptionActive}}checked="checked"{{/receptionActive}} value="true" data-name="receptionActive"> 
+        <label for="receptionActive_{{cid}}">{{lang.use}}</label>
+    </span>
+</td>
+<td>
+	<span class="option_wrap">
+        <input type="checkbox" id="readerActive_{{cid}}" name="readerActive_{{cid}}" {{#readerActive}}checked="checked"{{/readerActive}} value="true" data-name="readerActive"> 
+        <label for="readerActive_{{cid}}">{{lang.use}}</label>
+	</span>
+</td>
+<td>
+	<span class="option_wrap">
+        <input type="checkbox" id="referenceActive_{{cid}}" name="referenceActive_{{cid}}" {{#referenceActive}}checked="checked"{{/referenceActive}} value="true" data-name="referenceActive"> 
+        <label for="referenceActive_{{cid}}">{{lang.use}}</label>
+	</span>
+</td>
+<td>
+	<span class="option_wrap">
+       <input type="checkbox" disabled id="integrationActive_{{cid}}" name="integrationActive_{{cid}}" {{#integrationActive}}checked{{/integrationActive}} value="true" data-name="integrationActive"> 
+       <label for="integrationActive_{{cid}}">{{lang.use}}</label>
+	</span>
+</td>
+<td>
+	<span class="option_wrap">
+        <input type="checkbox" id="arbtDecisionActive_{{cid}}" name="arbtDecisionActive_{{cid}}" {{#arbtDecisionActive}}checked="checked"{{/arbtDecisionActive}} value="true" data-name="arbtDecisionActive"> 
+        <label for="arbtDecisionActive_{{cid}}">{{lang.use}}</label>
+	</span>
+</td>
+<td>
+	<span class="option_wrap">
+    	<input type="checkbox" id="formUserScope_{{cid}}" name="formUserScope_{{cid}}" {{#wrappedFormUserScope}}checked="checked"{{/wrappedFormUserScope}} value="true" data-name="formUserScope"> 
+        <label for="formUserScope_{{cid}}">{{lang.all_user}}</label>
+	</span>
+</td>
+<td>
+	<span class="option_wrap">
+        <input type="checkbox" id="documentOpenable_{{cid}}" name="documentOpenable_{{cid}}" {{#documentOpenable}}checked="checked"{{/documentOpenable}} value="true" data-name="documentOpenable"> 
+        <label for="documentOpenable_{{cid}}">{{lang.documentOpen}}</label>
+	</span>
+</td>
+<td>
+	<span class="option_wrap">
+		<input type="checkbox" id="documentEditable_{{cid}}" name="documentEditable_{{cid}}" {{#documentEditable}}checked="checked"{{/documentEditable}} value="true" data-name="documentEditable"> 
+        <label for="documentEditable_{{cid}}">{{lang.use}}</label>
+	</span>
+</td>
+<td>
+	<span class="option_wrap">
+        <input type="checkbox" id="activityEditable_{{cid}}" name="activityEditable_{{cid}}" {{#activityEditable}}checked="checked"{{/activityEditable}} value="true" data-name="activityEditable"> 
+        <label for="activityEditable_{{cid}}">{{lang.use}}</label>
+	</span>
+</td>
+<td>
+	<span class="option_wrap">
+		<input type="checkbox" id="officialDocumentSendable_{{cid}}" name="officialDocumentSendable_{{cid}}" {{#officialDocumentSendable}}checked="checked"{{/officialDocumentSendable}} value="true" data-name="officialDocumentSendable"> 
+		<label for="officialDocumentSendable_{{cid}}">{{lang.use}}</label>
+	</span>
+</td>
+<td>
+    <select name="preserveDurationInYear_{{cid}}" data-name="preserveDurationInYear">
+		{{#preserveYears}}
+		<option value="{{value}}" {{#isSelected}}selected{{/isSelected}}>{{label}}</option>
+		{{/preserveYears}}
+	</select>
+</td>
+<td>
+	<span class="option_wrap">
+        <input type="checkbox" id="securityLevelActive_{{cid}}" name="securityLevelActive_{{cid}}" {{#securityLevelActive}}checked="checked"{{/securityLevelActive}} value="true" data-name="securityLevelActive"> 
+        <label for="securityLevelActive_{{cid}}">{{lang.use}}</label>
+	</span>
+</td>
+<td>
+	<span class="option_wrap">
+		<input type="checkbox" id="useSelfApproval_{{cid}}" name="useSelfApproval_{{cid}}" {{#useSelfApproval}}checked="checked"{{/useSelfApproval}} value="true" data-name="useSelfApproval"> 
+        <label for="useSelfApproval_{{cid}}">{{lang.use}}</label>
+	</span>
+</td>
+<td>
+	<span class="option_wrap">
+		<input type="checkbox" id="useSendMail_{{cid}}" name="useSendMail_{{cid}}" {{#useSendMail}}checked="checked"{{/useSendMail}} value="true" data-name="useSendMail"> 
+		<label for="useSendMail_{{cid}}">{{lang.use}}</label>
+	</span>
+</td>
+<td>
+	<span class="option_wrap">
+		<input type="checkbox" id="usePostRegistable_{{cid}}" name="usePostRegistable_{{cid}}" {{#usePostRegistable}}checked="checked"{{/usePostRegistable}} value="true" data-name="usePostRegistable"> 
+		<label for="usePostRegistable_{{cid}}">{{lang.use}}</label>
+	</span>
+</td>
+<td>
+	<span class="option_wrap">
+        <input type="checkbox" id="state" name="state" {{#wrappedState}}checked="checked"{{/wrappedState}} value="true" data-name="state"> 
+    	<label for="state">{{lang.use}}</label>
+    </span>
+</td>

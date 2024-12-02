@@ -1,0 +1,22 @@
+<header class="content_top"></header>	
+
+<!--업무 상세-->	
+<div class="content_page task_home">	
+
+	<div class="home_tab_wrap">
+		<ul id="taskTypes" class="comm_home_tab">
+			<li data-type="associated" class="active"><span class="txt">{{lang.all}}</span></li>
+			<li data-type="assigned" ><span class="txt">{{lang.assign}}<span class="num">{{data.assignedCount}}</span></span></li>
+			<li data-type="approvable"><span class="txt">{{lang.approve}}<span class="num">{{data.approvableCount}}</span></span></li>
+			<li data-type="referred"><span class="txt">{{lang.refer}}<span class="num">{{data.referredCount}}</span></span></li>
+			<li data-type="requested"><span class="txt">{{lang.request}}<span class="num">{{data.requestedCount}}</span></span></li>
+		</ul>
+	</div>
+
+	<ul id="todoList" class="article_list task_list ">
+	</ul>
+	
+	<div class="bottom_action">
+		<a class="btn_list_reload" id="moreTodos"><span class="ic"></span><span class="txt">{{lang.showMore}}</span></a>
+	</div>
+</div>

@@ -1,0 +1,32 @@
+<table class="table_form_mini">
+	{{^isCompanyType}}
+	<tr>
+		<th><span class="txt">{{lang.group_select}}</span></th>
+		<td>
+			<select name="groupName" class="w_max">
+				{{#data}}
+				<option value="{{id}}" {{#isCurrentGroup}}selected="selected"{{/isCurrentGroup}}>{{name}}</option>
+				{{/data}}
+			 </select>
+		</td>			
+	</tr>
+	<tr>
+		<th><span class="txt">{{lang.새 이름}}</span></th>
+		<td><input class="txt_mini" type="text" /></td>			
+	</tr>
+	{{/isCompanyType}}
+	{{#isCompanyType}}
+	<tr>
+		<th><span class="txt">{{lang.주소록 이름}}</span></th>
+		<td>
+			{{name}}
+		</td>
+	</tr>
+	<tr>
+		<th><span class="txt">{{lang.새 이름}}</span></th>
+		<td>
+			<input class="txt_mini" type="text" value="">
+		</td>
+	</tr>
+	{{/isCompanyType}}
+</table>

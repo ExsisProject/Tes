@@ -1,0 +1,58 @@
+<div class="content">
+    <form onsubmit="return false;">
+	<fieldset>
+		<table class="form_type">
+			<caption>보고서 추가하기</caption>
+			<tbody>
+			<tr>
+				<td>
+					<div style="text-align: center;">{{title}}</div>
+				</td>
+			</tr>
+			{{^isPeriodic}}
+			<tr>
+				<td>
+					<div class="ipt_wrap"><input class="input w_max edit" type="text" id="name" placeholder="{{titleDesc}}"></div>
+				</td>
+			</tr>
+			{{/isPeriodic}}
+			<tr>
+				<td class="display_position">
+					<div class="optional wrap_btn_attach" id="go-fileuploader">
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				<!-- 첨부파일 삽입 -->
+					<div class="option_display" id="attach_wrap">
+						<div id="attach_placeholder">
+							<ul class="file_wrap">
+							</ul>
+							<ul class="img_wrap">
+							</ul>
+						</div>
+					</div>
+					<!-- // 첨부파일 삽입 -->
+				</td>
+			</tr>
+			</tbody>
+		</table>
+	</fieldset>
+	</form>
+
+	<section class="classic_detail" style="margin-top:0px">
+		<header class="article_header" id="report_header"></header>
+		<div class="board_reply scroll" id="report_iscroll" style="position:relative">
+			<div id="report_hscroll">
+				<article class="article_view report_view"  style="margin-bottom:0px;padding:0">
+					<!--GO-34367 모바일 줌인/줌아웃을 위해 inline-table 속성이 꼭 필요합니다. -->
+					<div id="report_view" style="display:inline-table">
+						<form class="article_view_area editor_view" id="reportContent" style="padding:0;margin:0 6px 0 6px">
+						</form>
+					</div>
+				</article>
+			</div>
+		</div>
+	</section>
+</div>

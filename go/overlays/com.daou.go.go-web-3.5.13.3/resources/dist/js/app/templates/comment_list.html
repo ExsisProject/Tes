@@ -1,0 +1,59 @@
+<ul class="reply">
+	{{#dataset}}
+	<li data-id="{{id}}" data-thread="{{thread}}" {{#isReply}}class="depth_in"{{/isReply}}>
+		{{#isReply}}<span class="ic_classic ic_depth"></span>{{/isReply}}
+		<span class="photo"><a data-userid="{{writer.id}}" data-bypass><img alt="{{lang.photo}}" src="{{writer.thumbnail}}"></a></span>
+		<div class="msg_wrap">											
+			<div class="info">
+				<span class="name">{{writer.name}} {{writer.positionName}}</span>
+			{{^dataset.isPrintMode}}
+				{{^isReply}}
+				{{^dataset.isTask}}
+				<span class="btn_wrap"><span class="ic_classic ic_answer"></span><span class="txt_b comment_reply">{{lang.comment}}</span></span>
+				{{/dataset.isTask}}
+				{{/isReply}}
+			{{/dataset.isPrintMode}}
+				<span class="date">{{dateformat}}</span>
+			</div>
+			<p class="message">{{{messageParse}}}</p>
+			{{{attachFiles}}}
+		</div>
+		
+		<div class="action_wrap">
+		{{^dataset.isPrintMode}}
+			{{#actions.updatable}}
+				<span class="wrap_btn">
+					<span class="ic_side ic_edit comment_modify" title="{{lang.comment_modify}}" data-btntype="postmodify"></span>
+				</span>
+			{{/actions.updatable}}
+			{{#actions.removable}}
+			<span class="wrap_btn">
+				<span class="ic_side ic_basket_bx comment_delete" title="{{lang.comment_delete}}" data-btntype="postdelete"></span>
+			</span>
+			{{/actions.removable}}
+		{{/dataset.isPrintMode}}
+		</div>
+	</li>		
+	{{/dataset}}
+</ul>
+<div id="commentAttachPart">
+	<ul class="file_wrap"></ul>
+</div>
+{{^dataset.isPrintMode}}
+<div class="reply_create">
+	<span class="photo"><img src="{{dataset.user.thumbnail}}"></span>
+	<div class="msg_wrap">	
+		<div id="comment_progress"></div>
+		<p class="form_wrap">
+			<span class="textarea_edit">
+				<textarea type="text" class="edit w_max commentContent" placeholder="{{lang.comment_placeholder}}"></textarea>
+			</span>
+		</p>
+		<span class="btn_fn7 posi1" id="uploadBtn" title="{{lang.file_attach}}">
+			<span class="ic_con ic_file_up_s" id="file-control-{{dataset.typeId}}"> </span>
+		</span>
+		<span id="comment_progress"></span>
+		<span class="btn_minor_s saveComment"><span class="txt">{{lang.comment_save}}</span></span>
+	</div>
+</div>
+{{/dataset.isPrintMode}}

@@ -1,0 +1,1 @@
+define(["backbone"],function(e){var t=e.Model.extend({initialize:function(e){this.options=e},url:function(){return this.options.url+"/"+this.get("id")}},{});return t});

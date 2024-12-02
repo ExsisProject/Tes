@@ -1,0 +1,1 @@
+define("works/home/collections/applet_export_list",function(require){var e=require("collections/paginated_collection"),t=e.extend({url:function(){var e=GO.contextRoot+"api/works/applets/export";return e+="?"+this.makeParam(),e}});return t});

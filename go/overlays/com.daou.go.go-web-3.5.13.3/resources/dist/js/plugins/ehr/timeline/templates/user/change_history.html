@@ -1,0 +1,33 @@
+<div class="reply_wrap">
+    <header class="single_title">
+        <span class="txt">{{TimelineLang.변경이력}}</span><span class="num">{{total}}</span>
+    </header>
+    <div class="aside_wrapper_body">
+        <ul class="type_simple_list simple_list_alarm">
+
+            {{#logs}}
+            <li>
+                <p data-id={{modifier.id}} style="cursor:pointer"  class="photo"><img src={{modifier.thumbnail}} title={{modifier.name}} {{modifier.position}} alt={{modifier.name}} {{modifier.position}}><!--외부메일발신자,프로필사진이 없는 발신자 사진 동일--></p>
+                <div class="info">
+                    <p class="name">{{modifier.name}} {{modifier.position}}</p>
+                    <span class="date">{{date}}</span>
+                    <p class="subject">{{commentStr}}</p>
+                </div>
+            </li>
+            {{/logs}}
+            {{^logs}}
+            <li>
+                <p class="desc">
+                    {{noHistoryMsg}}
+                </p>
+            </li>
+            {{/logs}}
+
+        </ul>
+        {{#hasNextPage}}
+        <div class="bottom_action">
+            <a class="btn_list_reload" id="reload"><span class="ic_works ic_reload"></span></a>
+        </div>
+        {{/hasNextPage}}
+    </div>
+</div>

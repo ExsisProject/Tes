@@ -1,0 +1,15 @@
+<form onsubmit="return false;" class="form_doc_editor editor_view">
+<div id="printView" class="content_page report_detail">
+	<div class='report_type approval_type'>
+		<div id="printArea" >
+			<div class='approval_import'>
+				{{{data}}}
+			</div>
+		</div>
+	{{#hasAttach}}
+		<div id="attachePrintView"></div>
+		<div id="referencePrintView"></div>
+	</div>
+	{{/hasAttach}}
+</div>
+</form>

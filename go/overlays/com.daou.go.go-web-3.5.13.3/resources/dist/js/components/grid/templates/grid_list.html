@@ -1,0 +1,21 @@
+{{#collection}}
+<tr class="odd {{trClass}}" el-grid-list-item data-id="{{id}}">
+	{{#useCheckbox}}
+	<td class="check" el-checkbox>
+		<input type="checkbox" data-id="{{id}}">
+	</td>
+	{{/useCheckbox}}
+	{{#columns}}
+	<td class="{{className}}">
+		{{{data}}}
+	</td>
+	{{/columns}}
+</tr>
+{{/collection}}
+{{^collection}}
+<tr>
+	<td colspan="{{columnLength}}">
+		{{{emptyContent}}}
+	</td>
+</tr>
+{{/collection}}

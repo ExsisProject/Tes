@@ -1,0 +1,1 @@
+define("works/components/app_list/collections/apps",function(require){var e=require("collections/paginated_collection"),t=e.extend({url:function(){var e=GO.contextRoot+"api/works/applets/search";return e+="?"+this.makeParam(),e}});return t});

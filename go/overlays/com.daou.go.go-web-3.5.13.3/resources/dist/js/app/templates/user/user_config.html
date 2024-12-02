@@ -1,0 +1,109 @@
+<div class="content_page profile">
+    <div class="portlet_warp profile_wrap" style="height:px">
+        <section class="list_item list_item_alarm">
+            <header>
+                <h1>
+                    <span class="ic_gnb ic_profile3_h"></span>
+                    <span class="title">{{type.title}}</span>
+                </h1>
+            </header>
+        </section>    
+    </div>
+    <form id="configForm">
+        <fieldset>
+            <table class="form_type">
+                <colgroup>
+                    <col width="150px"/>
+                    <col width="*" />
+                </colgroup>
+                <tbody>
+                <tr>
+                    <th><span class="title">{{type.language}}</span></th>
+                    <td>
+                        <select name="locale">
+                            {{#locale}}
+                                <option value="{{value}}" {{#isLocale?}} selected {{/isLocale?}}>{{text}}</option>
+                            {{/locale}}
+                        </select>
+                    </td>
+                </tr>
+                {{#useAbbroadIpCheckConfigOn}}
+                <tr>
+                    <th><span class="title">{{type.use_abbroad_ip_check}}</span></th>
+                    <td>
+                    	<span class="wrap_desc_top">
+                    		<span class="desc">
+                    		{{{type.help_use_abbroad_ip_check}}}
+                    		</span>
+                    	</span>
+                    	{{#useAbbroadIpCheck}}
+                        <span class="option_wrap">
+                            <input type="radio" name="useAbbroadIpCheck" value={{value}} {{#isUseAbbroadIpCheck?}} checked {{/isUseAbbroadIpCheck?}}>
+                            <label for="">{{text}}</label>
+                        </span>
+                        {{/useAbbroadIpCheck}}
+                    </td>
+                </tr>
+                {{/useAbbroadIpCheckConfigOn}}
+                {{#useSkinStyleOn}}
+                <tr style="display: none">
+                    <th><span class="title">{{type.skin}}</span></th>
+                    <td>
+                        <select name="style">
+                            {{#skinStyle}}
+                                <option value="{{value}}" {{#isStyle?}} selected {{/isStyle?}}>{{text}}</option>
+                            {{/skinStyle}}
+                        </select>
+                    </td>
+                </tr>
+                {{/useSkinStyleOn}}
+                <tr style="display: none">
+                    <th><span class="title">{{type.timezone}}</span></th>
+                    <td>
+                        <select name="timeZone">
+                        {{#timeZone}}
+                        <option value="{{location}}" {{#isTimeZone?}} selected {{/isTimeZone?}}>{{displayName}} GMT {{offset}}</option>
+                        {{/timeZone}}
+                        </select>
+                    </td>
+                </tr>
+                <tr style="display: none">
+                    <th><span class="title">{{type.notification}}</span></th>
+                    <td>
+                        {{#noti}}
+                        <span class="option_wrap">
+                            <input type="radio" name="noti" value="{{value}}" {{#isNoti?}} checked {{/isNoti?}}>
+                            <label for="">{{text}}</label>
+                        </span>
+                        {{/noti}}
+                    </td>
+                </tr>
+                <tr>
+                    <th><span class="title">{{type.theme}}</span></th>
+                    <td>
+                        <span class="column_wrap">
+                            <span class="option_wrap">
+                                <input type="radio" name="theme" value="THEME_CLASSIC" {{^isAdvancedTheme}} checked {{/isAdvancedTheme}} id="theme_classic">
+                                <label for="theme_classic"><strong>Classic</strong><br>{{{type.themeClassicDesc}}}</label>
+                                <br><span class="img_theme classic"></span>
+                            </span>
+                        </span>
+                        <span class="column_wrap">
+                            <span class="option_wrap">
+                                <input type="radio" name="theme" value="THEME_ADVANCED" {{#isAdvancedTheme}} checked {{/isAdvancedTheme}} id="theme_advanced">
+                                <label for="theme_advanced"><strong>Advanced</strong><br>{{{type.themeAdvancedDesc}}}</label>
+                                <br><span class="img_theme advanced"></span>
+                            </span>
+                        </span>
+                    </td>
+                </tr>
+                <tr class="line"><td colspan="2"><hr /></td></tr>
+                </tbody>
+            </table>
+        </fieldset>
+    </form>
+    <div class="page_action_wrap">
+        <a class="btn_major" data-role="button" id="save"><span class="txt">{{type.save}}</span></a>
+        <a class="btn_minor" data-role="button" id="cancel"><span class="txt">{{type.cancel}}</span></a>                
+    </div>
+</div>

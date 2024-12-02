@@ -1,0 +1,34 @@
+<div class="build_prev_wrap build_write_wrap">
+    <div class="build_content_inner convas-container">
+        {{^isMultiForm}}
+        <span class="docu_form_name">
+            <span class="txt">{{formName}}</span>
+            {{#mainForm}}<span class="label_state normal">main</span>{{/mainForm}}
+        </span>
+        {{/isMultiForm}}
+        {{#canUsePrivateOption}}
+        <div class="opt_privacy">
+			<span class="wrap_option">
+				<input id="cbx-privateflag" type="checkbox" name="privateFlag" value="true"{{#isPrivateOptionClosed}} checked="checked" disabled="disabled"{{/isPrivateOptionClosed}}>
+				<label for="cbx-privateflag">{{lang.privateOptionTitle}}</label>
+				<span class="help">
+					<span class="tool_tip">
+						{{lang.privateOptionDesc}}
+						<i class="tail_left"></i>
+					</span>
+				</span>
+			</span>
+        </div>
+        {{/canUsePrivateOption}}
+        <div id="fb-canvas-edit" class="build_prev_content"></div>
+        <div class="page_action_wrap">
+            {{^isEmptyForm}}
+            <a class="btn_major btn-confirm" data-role="button"><span class="txt">{{lang.confirm}}</span></a>
+            <a class="btn_minor btn-cancel" data-role="button"><span class="txt">{{lang.cancel}}</span></a>
+            {{/isEmptyForm}}
+            {{#isEmptyForm}}
+            <a class="btn_minor btn-golist" data-role="button"><span class="txt">{{lang.goToList}}</span></a>
+            {{/isEmptyForm}}
+        </div>
+    </div>
+</div>

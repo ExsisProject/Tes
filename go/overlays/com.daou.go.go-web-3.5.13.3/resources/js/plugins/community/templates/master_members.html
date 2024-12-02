@@ -1,0 +1,68 @@
+<div class="vertical_wrap">
+	<span class="option_wrap">
+		<input type="radio" name="member" id="onlineMember" value="online">
+		<label for="onlineMember">{{lang.community_online}}</label>
+	</span>
+	<span class="option_wrap">
+		<input type="radio" name="member" id="waitMember" value="wait" >
+		<label for="waitMember">{{lang.community_wait}}</label>
+	</span>
+</div>
+<div class="tool_bar" id="toolBar" style="display:none">
+	<div class="vertical_wrap">
+		<span class="title online">{{lang.community_member}}</span>
+		<span class="title wait">{{lang.community_wait}} {{lang.community_members}}</span>
+		<span class="num">({{lang.community_total}} <strong><span id="memberTotalElements"></span></strong>{{lang.community_count}})</span>
+		{{#isAvailableMail}}{{#isOnlineMember}}<span id="btnSendMailAll" class="wrap_brn" data-role="button"><a class="btn_fn7">{{lang.send_mail_all}}</a></span>{{/isOnlineMember}}{{/isAvailableMail}}
+	</div>
+	<!-- 커스텀 버튼 편집 가능  -->
+	<div id="btnMember">
+		<a data-bypass id="btnRemove" class="btn_tool online" data-role="button" data-status="online">
+            <span class="ic_toolbar cancel"></span>
+			<span class="txt_caution">{{lang.community_leave}}</span>
+        </a>
+		<a data-bypass id="btnOnline" class="btn_tool wait" data-role="button" data-status="wait">
+            <span class="ic_toolbar check"></span>
+            <span class="txt">{{lang.community_accept}}</span>
+        </a>
+		<a data-bypass id="btnRemove" class="btn_tool wait" data-role="button" data-status="wait">
+            <span class="ic_toolbar cancel"></span>
+            <span class="txt_caution">{{lang.community_reject}}</span>
+        </a>
+		{{#isAvailableMail}}
+        <a data-bypass id="btnSendMail" class="btn_tool online" data-role="button" data-status="online">
+            <span class="ic_toolbar mail"></span>
+            <span class="txt">{{lang.send_mail}}</span>
+        </a>
+        {{/isAvailableMail}}
+	</div>
+</div>
+
+
+
+<!-- 테이블 -->
+<form name="formCommunityMembers">
+<table class="type_normal" id="memberList">
+	<caption>{{lang.community_member_all}}</caption>
+	<thead>
+		<tr>
+			<th><span class="title_sort">{{lang.community_name}}<ins class="ic"></ins></span></th>
+			<th>{{lang.community_dept}}<ins class="ic"></th>
+			{{#mailExposure}}<th>{{lang.community_email}}<ins class="ic"></ins></th>{{/mailExposure}}
+			<th>{{lang.community_jointat}}<ins class="ic"></ins></th>
+			<th>{{lang.community_post_count}}<ins class="ic"></th>
+		</tr>
+	</thead>
+</table>
+</form>
+<div class="table_search">
+	<select style="display:none">
+		<option value="name">{{lang.name}}</option>
+	</select>
+	<section class="search2">
+		<div id="memberSearch2" class="search_wrap">
+			<input class="search2" type="text" placeholder="{{lang.placeholder_name}}">
+			<span id="memberSearch" class="btn_search2" title="{{lang.search}}"></span>
+		</div>
+	</section>
+</div>

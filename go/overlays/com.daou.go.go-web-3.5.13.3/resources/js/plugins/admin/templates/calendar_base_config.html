@@ -1,0 +1,43 @@
+<div class="content_page">
+    <div class="dataTables_wrapper container">        
+        <div class="toolbar_top header_tb">
+            <div class="critical">            
+                        
+                <span class="btn_tool" id="add">{{lang.캘린더추가}}</span>
+                <span class="btn_tool" id="changeSort">{{lang.순서바꾸기}}</span>
+                <span class="btn_tool btn_save txt_confirm" id="changeSortDone" style="display: none">순서바꾸기 완료</span>
+                <span class="btn_tool txt_caution" id="remove">{{lang.삭제}}</span>
+            </div>                        
+        </div>
+        <div class="content_tb">
+            <table class="chart size list_occupied" id="companyCalendarList">
+                <thead>
+                    <tr class="last">
+                        <th class="check sorting_disable"><input type="checkbox" id="checkedAll"></th>
+                        <th class="title sorting_disable"><span class="title_sort">{{lang.캘린더제목}}</span></th>
+                        <th class="status sorting_disable"><span class="title_sort">{{lang.운영자}}</span></th>
+                        <th class="range sorting_disable"><span class="title_sort">{{lang.공개범위}}</span></th>
+                        <th class="action sorting_disable last"><span class="title_sort">{{lang.설정}}</span></th>
+                    </tr>
+                </thead>    
+                <tbody>
+                    {{#collection}}
+                    <tr data-id="{{id}}" class="last">
+                        <td class="check">
+                            {{^defaultCalendar}}<input type="checkbox" value="{{id}}">{{/defaultCalendar}}
+                        </td>
+                        <td class="title" style="cursor: pointer;">
+                            <span data-btntype="modify">{{name}}</span>
+                        </td>
+                        <td class="admin title" style="text-align: center">
+                            {{managerNames}}
+                        </td>
+                        <td class="range status">{{visible}}</td>
+                        <td class="action last"><span class="btn_s" data-btntype="modify">{{lang.설정}}</span></td>
+                    </tr>
+                    {{/collection}}
+                </tbody>
+            </table>    
+        </div>
+    </div>
+</div>

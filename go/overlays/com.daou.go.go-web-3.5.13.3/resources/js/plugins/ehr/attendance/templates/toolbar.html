@@ -1,0 +1,32 @@
+
+<div class="critical">
+	<a class="btn_tool" id="attndListDownload">
+		<span class="txt">{{lang.label_listDownload}}</span>
+	</a>
+	{{#isManage}}
+	<h1 class="s_title">{{#info.deptName}}{{info.deptName}} - {{/info.deptName}}{{name}}</h1>
+	{{/isManage}}
+</div>
+<div class="current_date">
+	<span class="btn_ic_prev2 btn_border" title="{{lang.label_prev}}" id="prevMonth"><span class="ic ic_prev2"></span></span>
+	<span class="date">{{month}}</span>
+	<span class="btn_ic_next2 btn_border" title="{{lnag.label_next}}" id="nextMonth"><span class="ic ic_next2"></span></span>
+	<!-- <span class="btn_tool"><span class="ic_gnb ic_cal_mini" id="calendarDatepicker"></span></span> -->
+	<span class="btn_tool" style="vertical-align:bottom" id="attndCalBtn"><span class="ic_gnb ic_cal_mini"><input type="text" id="calendarDatepicker" style="border:0px;width:1px;height:1px"/></span></span>
+	<!-- <span class="btn_tool" alt="{{lang.label_move_date}}" id="attndCalBtn"><span class="ic_gnb ic_cal_mini"><input type="text" style="border:0px;width:1px;height:1px"/></span></span> -->
+	<span class="btn_tool"><span class="txt" id="todayMonth">{{lang.label_today}}</span></span>
+</div>
+
+<div class="optional">
+	{{#isDeleteStatus}}
+	<a class="btn_tool" id="attndStatusDeleteTerm">
+		<span class="txt">{{lang.label_delete_status_term}}</span>
+	</a>
+	{{/isDeleteStatus}}
+	{{#isManage}}
+	<a class="btn_tool" id="moveBack">
+		<span class="ic_gnb ic_prev" title="{{lang.label_prev}}"></span>
+		<span class="txt">{{lang.label_prev}}</span>
+	</a>
+	{{/isManage}}
+</div>

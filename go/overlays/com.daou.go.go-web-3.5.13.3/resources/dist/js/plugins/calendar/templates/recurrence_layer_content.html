@@ -1,0 +1,39 @@
+<table id="recurrence-content">
+    <tbody>
+        <tr>
+            <td>
+                <input class="txt_mini wfix_mini align_r" type="text" />
+                <span class="txt_day">{{label.per_date}}</span>
+                <div class="vertical_wrap"></div>
+            </td>           
+        </tr>
+        <tr>
+            <td>{{label.start_date}} : {{start_date}}</td>         
+        </tr>
+        <tr>
+            <td>
+                <span class="option_wrap">
+                    <input id="repeat_end" type="radio" checked>
+                    <label for="repeat_end">{{label.end_recurrence}}</label>
+                    <input class="txt_mini wfix_small" type="text" />
+                </span>
+                <span class="option_wrap">
+                    <input id="repeat_num" type="radio">
+                    <input class="txt_mini wfix_mini" type="text" disabled />
+                    <label for="repeat_num" class="inactive">{{label.recurence_count}}</label>
+                </span>
+                <span class="option_wrap last">
+                    <input id="repeat_infinite" type="radio">
+                    <label for="repeat_infinite">{{label.infinit_recurrence}}</label>
+                </span>
+            </td>           
+        </tr>
+        <tr id="recurrece-text" style="display:none;">
+            <td>
+                <div class="alert_box">
+                    <span class="txt">{{label.recurrence}} : {{recurrence_result}}</span>                                   
+                </div>
+            </td>               
+        </tr>
+    </tbody>
+</table>

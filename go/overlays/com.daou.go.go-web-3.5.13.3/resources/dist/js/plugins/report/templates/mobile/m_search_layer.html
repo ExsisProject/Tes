@@ -1,0 +1,79 @@
+<div class="nav" id="searchNav">
+</div>
+<div id="searchDetail" class="search_detail">
+    <span id="simpleSearchWrap">
+        <p class="tit">{{lang.검색 조건}}</p>
+        <ul class="search_result">
+            <li>
+                <a href="" data-search="all" data-bypass>
+                    <label class="tit">{{lang.전체}} {{lang.검색}}</label>
+                    <div class="txt">
+                        <span class="searchText"></span>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="" data-search="reporterName" data-bypass>
+                    <label class="tit">{{lang.보고자}}</label>
+                    <div class="txt">
+                        <span class="searchText"></span>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="" data-search="content" data-bypass>
+                    <label class="tit">{{lang.본문}}</label>
+                    <div class="txt">
+                        <span class="searchText"></span>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </span>
+    <span id="detailSearchWrap">
+        <ul class="search_result">
+            <li>
+                <label class="tit">{{lang.위치}}</label>
+                <div class="txt">
+                    <select id="deptSelect">
+                        <option value="all">{{lang.전체}}</option>
+                        {{#data}}
+                            <option value="{{id}}">[{{lang.부서}}] {{name}}</option>
+                        {{/data}}
+                    </select>
+                    <select id="folderSelect" style="display: none"></select>
+                </div>
+            </li>
+            <li>
+                <label class="tit">{{lang.보고자}}</label>
+                <div class="txt">
+                    <input id="detailRepoter" class="input" type="search" placeholder="{{lang.검색 키워드를 입력하세요}}">
+                </div>
+            </li>
+            <li>
+                <label class="tit">{{lang.검색어}}</label>
+                <div class="txt">
+                    <span class="option_wrap">
+                        <input id="detailContent" type="checkbox" name="detailContent">
+                        <label for="detailContent" class="txt">{{lang.본문}}</label>
+                    </span>
+                    <span class="option_wrap">
+                        <input id="detailComment" type="checkbox" name="detailComment">
+                        <label for="detailComment" class="txt">{{lang.댓글}}</label>
+                    </span>
+                    <span class="option_wrap">
+                        <input id="detailAttach" type="checkbox" name="detailAttach">
+                        <label for="detailAttach" class="txt">{{lang.첨부파일}}</label>
+                    </span>
+                    <input class="input" type="search" id="stext" placeholder="{{lang.검색 키워드를 입력하세요}}"/>
+                </div>
+            </li>
+        </ul>
+        <a class="btn_wrap" id="searchInit">
+            <span class="btn btn_refresh"></span>
+            <span class="txt">{{lang.초기화}}</span>
+        </a>
+    </span>
+    <span id="searchResultWrap">
+    </span>
+</div>

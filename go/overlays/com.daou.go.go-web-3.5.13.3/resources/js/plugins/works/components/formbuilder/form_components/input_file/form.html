@@ -1,0 +1,85 @@
+<span class="box_label_wrap">
+    {{^model.hideLabel}}
+	<label for="">{{{label}}}</label>
+	{{^editable?}}
+	{{#isSaaS}}
+	<span class="help">
+		<span class="tool_tip top" style="width:210px">{{lang.첨부파일 1개의 최대 용량은 NNN MB 이며 최대 N개 까지 등록 가능합니다}}
+			<i class="tail_left"></i>
+		</span>
+	</span>
+	{{/isSaaS}}
+	{{/editable?}}
+	{{#model.required}}
+	<i class="asterisk">*</i>
+	{{/model.required}}
+	{{#model.guideAsTooltip}}
+    {{#model.guide}}
+	<span class="help">
+		<span class="tool_tip">{{model.guide}}<i class="tail_left"></i></span>
+	</span>
+    {{/model.guide}}
+	{{/model.guideAsTooltip}}
+    {{/model.hideLabel}}
+</span>
+<div class="build_box_data" id="{{clientId}}">
+    {{#editable?}}
+	<a class="btn_minor_s" style="" >
+		<span class="txt" data-id="file-control">{{lang.파일첨부}}</span>
+	</a>
+    {{/editable?}}
+	{{^editable?}}
+		{{#isMobile?}}
+		<div class="btn_wrap wrap_btn_attach">
+			{{#isAndroidApp?}}
+			<span class="btn_wrap">
+				<a href="javascript:;" data-bypass id="callFile"><span class="btn btn_attach_file"></span></a>
+			</span>
+			<span class="btn_wrap">
+				<a href="javascript:;" id="btnAttachLayer"><span class="btn btn_attach_photo"></span></a>
+			</span>
+			{{/isAndroidApp?}}
+			{{^isAndroidApp?}}
+			<span class="btn_wrap" style="position:relative">
+				<span class="btn btn_attach_file"></span>
+				<input type="file" multiple name="file" class="btn_image_upload" style="position:absolute;left:0;top:0;width:40px;height:40px;opacity:0"/>
+			</span>
+			{{/isAndroidApp?}}
+            {{#isWebFolderUsable?}}
+			<div class="btn_wrap"><a href=""><span id = "attachWebfolder" class="btn btn_attach_folder"></span></a></div>
+            {{/isWebFolderUsable?}}
+		</div>
+		<div class="option_display" id="attachWrap" style="display:none">
+			<div class="wrap_attach" id="editModeAttachArea">
+				<div class="add_file">
+					<ul class="file_wrap" id="fileWrap"></ul>
+				</div>
+				<ul class="img_wrap" id="imageWrap"></ul>
+			</div>													
+		</div>
+		{{/isMobile?}}
+		{{^isMobile?}}
+		<div id="dropZone" class="dropZone dd_attach">
+			<p class="drag_txt">{{lang.이 곳에 파일을 드래그 하세요}}</p>
+			<div class="area_txt">
+				<span class="ic_attach ic_upload"></span>
+				<span class="msg">{{lang.이 곳에 파일을 드래그 하세요 또는}}
+					<span class="btn_minor_s" data-id="file-control" id="swfupload-control" style="padding:0; !important"></span>
+					<span class="size total_size"></span>
+				</span>
+			</div>
+			<div class="progress"></div>
+
+
+			<div class="wrap_attach" id="createModeAttachArea">
+				<ul class="file_wrap"></ul>
+				<ul class="img_wrap"></ul>
+			</div>
+			<div class="file_wrap" id="editModeAttachArea"></div>
+		</div>
+		{{/isMobile?}}
+    {{/editable?}}
+    {{^model.guideAsTooltip}}
+	<p class="txt_info">{{#model.guide}}* {{model.guide}}{{/model.guide}}</p>
+	{{/model.guideAsTooltip}}
+</div>

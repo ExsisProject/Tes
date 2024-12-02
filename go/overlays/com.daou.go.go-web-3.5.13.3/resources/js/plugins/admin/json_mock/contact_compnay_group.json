@@ -1,0 +1,44 @@
+{
+	"data" : {
+		"name" : "test",
+	    "publicFlag" : false,
+	    "owners" : [
+	        {
+	            "ownerShip" : "Moderator",
+	            "ownerType" : "UserGroup",
+	            "ownerId" : "1",
+	            "action" : "read",
+	            "ownerInfo" : "[직책 : 차장]"
+	        },
+	        {
+	            "ownerShip" : "Moderator",
+	            "ownerType" : "DomainCode",
+	            "ownerId" : "2",
+	            "action" : "readwrite",
+	            "ownerInfo" : "[사용자 그룹 : 그룹1]"
+	        }
+	    ],
+	    "managers" : [
+	        {
+	        	"groupId" : "1",
+	        	"createdAt" : "2012-03-01",
+	        	"user" : {
+	        		"id" : "2",
+					"name" : "박상오",
+	            	"position" : "연구원"
+	        	}
+	        },
+	        {
+	        	"groupId" : "1",
+	        	"createdAt" : "2012-03-01",
+	        	"user" : {
+	        		"id" : "2",
+					"name" : "조건희",
+	            	"position" : "연구원"
+	        	}
+	        }
+	    ]
+	},
+    "code" : "200",
+    "message" : "success"
+}

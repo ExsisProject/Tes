@@ -1,0 +1,5 @@
+dostart (다우오피스 시작하기)
+
+* html root : admin/***.html 
+
+* image root : images/admin/dostart/guide_start_s1_1.png

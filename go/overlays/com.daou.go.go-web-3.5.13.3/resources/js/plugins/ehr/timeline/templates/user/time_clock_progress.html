@@ -1,0 +1,21 @@
+{{#first}}
+<span class="progress_bar">
+        <span id="clockIn" class="txt label_l">{{inStatusName}} {{#tomorrow}}(+1){{/tomorrow}}</span>
+        <div class="tool_tip">
+            <p class="time">
+                <span class="ic_ehr ic_watch"></span>{{clockInTime}}
+            </p>
+            <p class="tit">{{inStatusName}}</p>
+    </div>
+    </span>
+{{/first}}
+{{#last}}
+<span class="progress_bar">
+    <span id="clockOut" class="txt label_r">{{outStatusName}} {{#tomorrow}}(+1){{/tomorrow}}</span>
+    <div class="tool_tip">
+        <p class="time">
+            <span class="ic_ehr ic_watch"></span>{{clockOutTime}}
+        <p class="tit">{{outStatusName}}</p>
+    </div>
+</span>
+{{/last}}

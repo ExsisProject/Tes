@@ -1,0 +1,56 @@
+<div class="content">
+	<form name="importForm">
+		<table class="table_form_mini">
+			<tbody>
+			<tr>
+				<th><span class="txt">{{lang.file_select}}</span></th>
+				<td>
+				<!-- <input name="file" type="file"> -->
+					<span class="btn_minor_s" id="swfupload-control" style="padding:0 !important"></span>
+					<p id="fileName" class="filename"></p>					
+					<input id="filePath" type="hidden">
+				</td>
+			</tr>
+			<tr>
+				<th><span class="txt">{{lang.group_select}}</span></th>
+				<td>
+					<select id="selectContactImport" name="groupId" class="w_max">
+					{{^isCompany}}
+					<option value="">{{lang.not_select}}</option>
+					{{/isCompany}}
+					{{#data}}
+					<option value="{{id}}">{{name}}</option>
+					{{/data}}
+				 </select>
+				</td>			
+			</tr>
+			<tr>
+				<th><span class="txt">{{lang.file_type}}</span></th>
+				<td>
+					<select name="csvType" class="w_max">
+						{{#fileType}}
+						<option value="{{value}}">{{value}}</option>
+						{{/fileType}}
+					 </select>
+				</td>			
+			</tr>
+			<tr class="align_t">
+				<th><span class="txt">{{{lang.dup_addr}}}</span></th>
+				<td>
+					<span class="option_wrap">
+						<input type="radio" name="writeType" id="addnew" value="ADDNEW" checked="checked"><label for="addnew">{{lang.all_new}}</label>
+					</span>
+					<span class="option_wrap">
+						<input type="radio" name="writeType" id="overwrite" value="OVERWRITE"><label for="overwrite">{{lang.overwrite}}</label>
+					</span>
+					<span class="option_wrap">
+						<input type="radio" name="writeType" id="ignore" value="IGNORE"><label for="ignore">{{lang.not_add}}</label>
+					</span>
+					<p class="desc">{{lang.import_desc}}</p>
+				</td>			
+			</tr>
+			<input type="hidden" name="ownerType" value="{{ownerType}}"> 
+		</tbody>
+		</table>
+	</form>
+</div>

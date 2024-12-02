@@ -1,0 +1,260 @@
+<header class="content_top">
+</header>    
+
+<div class="content_page" >            
+    <table class="form_type form_reportfolder_add">
+        <tbody>
+            <tr>
+                <th><span class="title">{{lang.department}}</span></th>
+                <td>
+                    <span class="wrap_select ">
+                        <select id="deptId" name="deptId" class="wfix_large" value="{{data.deptId}}" {{#data.id}} disabled="disabled" {{/data.id}}>
+                            {{{departmentList}}}
+                        </select>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <th><span class="title">{{lang.folderName}}</span></th>
+                <td>
+                    <div class="wrap_txt">
+                        <input id="folderName" class="txt w_max" type="text" value="{{data.name}}" />
+                    </div>                
+                </td>
+            </tr>            
+            <tr>
+                <th><span class="title">{{lang.desc}}</span></th>
+                <td>
+                    <div class="wrap_txtarea">
+                        <textarea id="description" class="w_max txtarea" rows="5">{{data.description}}</textarea>
+                    </div>        
+                </td>
+            </tr>
+            <tr>
+                <th><span class="title">{{lang.privateSetting}}</span></th>
+                <td>
+                    <span class="wrap_option">
+                        <input id="privateFlag" type="checkbox" {{^data.isOpen}}checked{{/data.isOpen}} value="OPEN">
+                        <label for="privateFlag">{{lang.private}}</label>
+                    </span>
+                    <br>
+                    <div id="privateOptionView" class="option_display" style="display:{{#data.isOpen}}none{{/data.isOpen}};">
+                        <span class="wrap_option">
+                            <input id="share-radio" name="privateOption" value="CLOSED" type="radio" {{#data.isReporterOpen}}checked{{/data.isReporterOpen}}>
+                            <label for="share-radio">{{lang.share}}</label>
+                        </span>
+                        <span class="horspace1"></span>
+                        <span class="desc">{{lang.shareDesc}}</span>
+                        <br>
+                        <span class="wrap_option">
+                            <input id="reporterPrivate" name="privateOption" value="PRIVATE" type="radio" {{#data.isPrivate}}checked{{/data.isPrivate}}>
+                            <label for="reporterPrivate">{{lang.alone}}</label>
+                        </span>
+                        <span class="horspace1"></span>
+                        <span class="desc">{{lang.aloneDesc}}</span>
+                    </div>
+                </td>
+            </tr>
+            <tr class="line"><td colspan="2"><hr></td></tr>                                
+            <tr>
+                <th><span class="title">{{lang.reporter}}</span></th>
+                <td id="reporterOption">
+                    <span class="wrap_option">
+                        <input id="all" type="radio" name="reporter" value="MEMBER" {{^data.isSpecifiedWrite}}checked{{/data.isSpecifiedWrite}}>
+                        <label for="all">{{lang.all}}</label>
+                    </span>
+                    <span class="horspace1"></span>
+                    <span class="wrap_option" id="descendantUseOption">( 
+                        <input type="checkbox" id="descendantUse" value="DESCENDANT" {{#data.isDescendantWrite}}checked{{/data.isDescendantWrite}} {{#data.isSpecifiedWrite}}disabled="disabled"{{/data.isSpecifiedWrite}}>
+                        <label for="descendantUse">{{lang.rowRank}}</label> )
+                    </span>
+                    <br>
+                    <span class="wrap_option">
+                        <input id="directly" type="radio" name="reporter" value="SPECIFIED" {{#data.isSpecifiedWrite}}checked{{/data.isSpecifiedWrite}}>
+                        <label for="directly">{{lang.directly}}</label>
+                    </span>
+                    <div id="reporterOptionView" class="option_display" style="display:{{^data.isSpecifiedWrite}}none;{{/data.isSpecifiedWrite}}">
+                        <div id="reporters" class="wrap_name_tag">
+                        </div>    
+                    </div>
+                </td>
+            </tr>                    
+            <tr>
+                <th><span class="title">{{lang.referer}}</span></th>
+                <td>
+                    <div id="circleArea" style="display: block;">
+                        <span id="referrers"></span>
+                    </div>
+                </td>
+            </tr>                    
+            <tr>
+                <th><span class="title">{{lang.admin}}</span></th>
+                <td>
+                    <div id="admins" class="wrap_name_tag" style="display:">
+                    </div>
+                </td>
+            </tr>                        
+            <tr>
+                <th><span class="title">{{lang.type}}</span></th>
+                <td id="folderTypeOption">
+                    <span class="wrap_option">
+                        <input id="series" value="PERIODIC" type="radio" name="folderType" {{#data.isPeriodic}}checked{{/data.isPeriodic}} {{#data.id}} disabled="disabled" {{/data.id}}>
+                        <label for="series"></label>
+                            {{lang.series}}
+                        <span class="wrap_ic_s" style="padding: 0px">
+					        <span class="help"><span class="tool_tip">{{lang.periodicToolTip}}<i class="tail_left"></i></span></span>
+				        </span>
+                    </span>
+                    <span class="horspace1"></span>
+                    <span class="wrap_option">
+                        <input id="anytime" value="OCCASIONAL" type="radio" name="folderType" {{#data.isOccasional}}checked{{/data.isOccasional}} {{#data.id}} disabled="disabled" {{/data.id}}>
+                        <label for="anytime">{{lang.anytime}}</label>
+                    </span>
+                    <br>
+                    <!--반복설정 : 매주 (기본)-->
+                    {{#data.isPeriodic}}                        
+                    <div id="folderTypeOptionView" class="option_display">
+                        <div class="repeat_schedule">
+                            <header>
+                                <ul id="repeatTab" class="tab_nav">            
+                                    <li data-repeat="DAILY" class="first"><span>{{lang.everyDay}}</span></li>            
+                                    <li data-repeat="WEEKLY" class="on"><span>{{lang.everyWeek}}</span></li>                            
+                                    <li data-repeat="MONTHLY" class="last"><span>{{lang.everyMonth}}</span></li>
+                                </ul>    
+                            </header>
+                            <div class="content">
+                                <table>
+                                    <tbody id="recurrence_table">
+                                        <tr data-type="option" data-repeat="DAILY" style="display:none">
+                                            <td>
+                                                <span class="wrap_select">
+                                                    <select data-seq="1" data-tag="repeatSelect" data-repeat="DAILY" name="" class="wfix_small">
+                                                    {{#baseTerm}}
+                                                        <option value={{value}}>{{value}}</option>
+                                                    {{/baseTerm}}
+                                                    </select>
+                                                </span>
+                                                <span data-seq="1" class="date_wave">{{lang.daily}}</span>
+                                            </td>            
+                                        </tr>
+                                        <tr data-type="option" data-repeat="WEEKLY">
+                                            <td>
+                                                <span class="wrap_select">
+                                                    <select data-seq="1" data-tag="repeatSelect" data-repeat="WEEKLY" name="" class="wfix_small">
+                                                    {{#baseTerm}}
+                                                        <option value={{value}}>{{value}}</option>
+                                                    {{/baseTerm}}
+                                                    </select>
+                                                </span>
+                                                <span class="recurrence_data">
+	                                                <span data-seq="1" class="date_wave">{{lang.weekly}}</span>
+	                                                {{#dayTerm}}
+	                                                <span class="horspace1"></span>
+	                                                <span class="wrap_option">
+	                                                    <input data-seq="2" id="day-{{value}}" value={{value}} name="day" type="checkbox" data-tag="repeatSelect" data-repeat="WEEKLY">
+	                                                    <label for="day-{{value}}">{{text}}</label>
+	                                                </span>
+                                                </span>
+                                                {{/dayTerm}}
+                                            </td>            
+                                        </tr>
+                                        <tr data-type="option" data-repeat="MONTHLY" style="display:none">
+                                            <td>
+                                                <span class="wrap_select">
+                                                    <select data-seq="1" id="month" data-tag="repeatSelect" data-repeat="MONTHLY" name="" class="wfix_small">
+                                                    {{#baseTerm}}
+                                                        <option value={{value}}>{{value}}</option>
+                                                    {{/baseTerm}}
+                                                    </select>
+                                                </span>
+                                                <span data-seq="1" class="date_wave">{{lang.monthly}}</span>
+                                                
+                                                <span class="monthRecurrenceOption">
+	                                                <span>
+	                                                    <span class="wrap_option">
+	                                                    <input data-seq="2" name="termOption" data-repeat="MONTHLY" type="radio" value="byMonthDay"></span>
+	                                                    <span class="wrap_select">
+	                                                        <select id="date" data-tag="repeatSelect" data-repeat="MONTHLY">
+	                                                        {{#dateTerm}}
+	                                                            <option value={{value}}>{{value}}</option>
+	                                                        {{/dateTerm}}
+	                                                            <option value=-1>{{lang.last}}</option>
+	                                                        </select>
+	                                                    </span>
+	                                                    <span data-seq="2" class="date_wave">{{lang.date}}</span>
+	                                                </span>
+                                                </span>
+                                                <span class="monthRecurrenceOption">
+                                                    <span class="wrap_option">
+                                                    <input data-seq="2" name="termOption" type="radio" data-repeat="MONTHLY" value="bySetPos" checked></span>
+                                                    <span class="wrap_select">
+                                                        <select id="week" data-tag="repeatSelect" data-repeat="MONTHLY">
+                                                        {{#weekTerm}}
+                                                            <option value={{value}}>{{value}}</option>
+                                                        {{/weekTerm}}
+                                                            <option value=-1>{{lang.last}}</option>
+                                                        </select>
+                                                    </span>
+                                                    <span data-seq="2" class="date_wave">{{lang.th}}</span>
+                                                    <span class="wrap_select">
+                                                        <select id="day" data-tag="repeatSelect" data-repeat="MONTHLY">
+                                                        {{#dayTerm}}
+                                                            <option value={{value}}>{{text}}</option>
+                                                        {{/dayTerm}}
+                                                        </select>
+                                                    </span>
+                                                    <span data-seq="2" class="date_wave">{{lang.day}}</span>
+                                                </span>
+                                            </td>            
+                                        </tr>
+                                        <tr class="recurrence_label">
+                                            <td>
+                                                <span class="wrap_alert">
+                                                    <span class="alert_box">
+                                                        <span class="txt">{{lang.repeat}} : </span>
+                                                        <span id="repeatLabel" class="txt"></span>
+                                                        <input type="hidden" id="repeat">
+                                                    </span>
+                                                </span>
+                                            </td>                
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div> 
+                        <div class="desc caution"> * {{lang.recurrence_desc}} </div>
+                        </div>
+                    </div>
+                    {{/data.isPeriodic}}
+                </td>
+            </tr>
+            <tr>
+                <th><span class="title">{{lang.reportForm}}</span></th>
+                <td id="formOption">
+                    <span class="wrap_option">
+                        <input id="formUnuse" name="formRadio" type="radio" value="false" {{^data.formFlag}}checked{{/data.formFlag}}>
+                        <label for="formUnuse">{{lang.notUse}}</label>
+                    </span>
+                    <br>
+                    <span class="wrap_option">
+                        <input id="formUse" name="formRadio" type="radio" value="true" {{#data.formFlag}}checked{{/data.formFlag}}>
+                        <label for="formUse">{{lang.use}}</label>
+                    </span>
+                    <span class="space"></span>
+                    <span id="formUseOption" {{^data.formFlag}} style="display: none" {{/data.formFlag}}>
+	                    <span id="showFormPreview" class="btn_fn7" data-role="button"><span class="txt">{{lang.preview}}</span></span>
+	                    <span class="btn_wrap" id="editForm">
+	                        <span class="ic_form ic_addlist"></span>
+	                        <span class="txt">{{lang.editForm}}</span>                                            
+	                    </span>
+                    </span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="page_action_wrap">
+        <a class="btn_major" data-role="button" id="submit"><span class="txt">{{lang.ok}}</span></a>
+        <a class="btn_minor" data-role="button" id="cancel"><span class="txt">{{lang.cancel}}</span></a>
+        <a class="btn_minor" data-role="button" id="delete"><span class="txt">{{lang.delete}}</span></a>   
+    </div>
+</div>

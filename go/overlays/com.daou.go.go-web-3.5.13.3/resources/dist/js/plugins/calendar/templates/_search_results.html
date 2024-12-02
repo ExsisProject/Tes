@@ -1,0 +1,24 @@
+{{#search_results}}
+<tr>
+    <th>{{event_date}}</th>
+    <td><span class="time">{{event_time}}</span></td>
+    <td class="align_l">
+        <a href="#" class="summary_link" data-id="{{id}}" data-calendar-id="{{calendarId}}" data-bypass>
+            <span class="chip_schedule">
+                <span>{{&summary}}</span>
+            </span>
+        </a>
+    </td>
+    <td class="align_l">{{&attendees}}</td>
+</tr>
+{{/search_results}}
+{{^search_results}}
+<tr>
+    <td colspan="4">
+        <p class="data_null">
+        <span class="ic_classic ic_no_result"></span>
+        <span class="txt">{{msg.no_matched}}</span>
+        </p>
+    </td>
+</tr>
+{{/search_results}}

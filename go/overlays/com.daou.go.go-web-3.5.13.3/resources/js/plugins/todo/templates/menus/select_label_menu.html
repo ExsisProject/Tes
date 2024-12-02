@@ -1,0 +1,16 @@
+<ul class="list_label">
+    {{#labels}}
+    <li>
+        <a href="#" class="ui-label card_label" style="background:{{color}}" data-labelid="{{id}}" data-bypass>
+            <span class="txt txt_ellipsis">{{title}}</span>
+            <span class="ic_board ic_checked"></span>
+        </a>
+    </li>
+    {{/labels}}
+</ul>
+<hr>
+<div class="row_wrap">
+    <div class="row_tit">
+        <a href="#" class="btn-modify-labelname row" data-bypass><span class="txt">{{label.modify_name}}</span></a>
+    </div>
+</div>

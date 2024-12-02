@@ -1,0 +1,60 @@
+﻿		<div class="content_page">
+			<div class="dataTables_wrapper container">				
+				<div class="header">
+					<h2>{{lang.menu_title}}</h2>
+				</div>
+				
+				<div class="content">			
+					<table class="detail">
+						<caption>{{lang.rep_info}}</caption>
+						<colgroup>
+							<col width="130px" />
+							<col width="*" />
+						</colgroup>
+						<tbody>
+						<tr>
+							<th><span class="title">{{lang.repnumber_name}}</span></th>
+							<td>
+								<span class="option_wrap" id="" style="width: 500px"> 
+									<input type="text" class="input w_large" id="name" name="" value="{{data.name}}">
+									<span class="desc vb caution" id="name_validation" style="display: none">{{lang.limit_char}}</span>
+								</span>
+							</td>
+						</tr>
+                        <tr>
+                            <th><span class="title">{{lang.repnumber}}</span></th>
+                            <td>
+                                <span class="option_wrap" id="" style="width: 500px"> 
+                                    <input type="text" class="input w_large" id="repNumber" name="" value="{{data.repNumber}}">
+                                    <span class="desc vb caution" id="repNumber_validation" style="display: none">{{lang.limit_char}}</span>
+                                </span>
+                            </td>
+                        </tr>
+						<tr class="last">
+                            <th>
+                                <span class="title">{{lang.state}}</span>
+                            </th>
+                            <td>
+                                <span class="option_wrap">
+                                    <input type="radio" id="NORMAL" name="status" value="NORMAL" {{#data.isNormal}}checked="checked" {{/data.isNormal}}>
+                                    <label for="NORMAL">{{lang.normal}}</label>
+                                </span>
+                                <span class="option_wrap">
+                                    <input type="radio" id="HIDDEN" name="status" value="HIDDEN"{{^data.isNormal}}checked="checked" {{/data.isNormal}}>
+                                    <label for="HIDDEN">{{lang.hidden}}</label>
+                                </span>
+                            </td>
+                        </tr>
+                        </tbody>
+					</table>
+				</div>
+			</div><!-- //container -->
+			
+			<div class="page_action">
+				<span style="display:" id="btnActionGroup">
+					<span class="btn" id="save">{{lang.save}}</span>
+					<span class="btn_nega" id="cancel">{{lang.cancel}}</span>
+				</span>
+			</div>
+			
+		</div>	

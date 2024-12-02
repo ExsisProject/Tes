@@ -1,0 +1,152 @@
+<tr id="partialArea"></tr>
+<tr data-tag="partial">
+	<th><span class="title">{{lang.title}}</span></th>
+	<td>
+		<div class="ipt_wrap">
+			<input id="taskName" class="input w_max" type="text" value="{{data.name}}" {{^editable.NAME}}disabled="disabled"{{/editable.NAME}}>
+		</div>
+		{{#folder}}
+		<span class="option_wrap">
+			<input id="privateTask" type="checkbox" 
+			{{#folder.privateTask}} checked disabled="disabled" {{/folder.privateTask}}
+			{{^folder.privateTask}}
+				{{#data.privateTask}}
+					checked
+				{{/data.privateTask}} 
+			{{/folder.privateTask}}
+			{{^editable.NAME}}disabled="disabled"{{/editable.NAME}}
+			><label for="privateTask" class="txt">{{lang.private}}</label>
+		</span>
+		{{/folder}}	
+	</td>
+</tr>
+{{#folder}}
+{{#editable.ASSIGNEE}}
+<tr data-tag="partial">
+	<th><span class="title">{{lang.assignee}}</span></th>
+	<td>	
+		<div class="div_ipt_wrap add_ipt_wrap">	
+			<div class="div_ipt">
+				<ul id="assignees" class="name_tag">
+				{{#data.assignees}}
+					<li data-id="{{id}}" data-name="{{name}}" data-position="{{position}}">
+						<span class="name">{{name}} {{position}}</span>
+						<span class="btn_wrap"><span class="ic ic_del"></span></span>
+					</li>
+				{{/data.assignees}}
+				</ul>
+			</div>
+			<a data-tag="callOrg" data-type="assignees">
+				<span class="btn_item_add">
+					<span class="ic ic_plus"></span>
+					<span class="txt">{{lang.add}}</span>
+				</span>
+			</a>
+		</div>	
+	</td>
+</tr>
+{{/editable.ASSIGNEE}}
+{{#editable.DUEDATE}}
+<tr data-tag="partial">
+	<th><span class="title">{{lang.dueDate}}</span></th>
+	<td>	
+		<div class="ipt_wrap">
+			<input id="beginDate" class="input w_small" type="text" value="{{beginDate}}" {{^editable.DUEDATE}}disabled="disabled"{{/editable.DUEDATE}} readonly="readonly">
+			 <span class="date_wave wrapper">~</span>
+			<input id="dueDate" class="input w_small" type="text" value="{{dueDate}}" {{^editable.DUEDATE}}disabled="disabled"{{/editable.DUEDATE}} readonly="readonly">
+		</div>
+	</td>
+</tr>
+{{/editable.DUEDATE}}
+{{#folder.tagAllowed}}
+<tr data-tag="partial" id="tag-tr">
+	<th><span class="title">{{lang.tag}}{{#folder.tagRequired}}<ins class="asterisk">*</ins>{{/folder.tagRequired}}</span></th>
+	<td>	
+		<div class="div_ipt_wrap add_ipt_wrap">	
+			<div class="div_ipt">
+				<ul id="tag" class="name_tag">
+					{{#data.tags}}
+					<li data-id="{{.}}">
+						<span class="name">{{.}}</span>
+						<span class="btn_wrap">
+							<span class="ic ic_del"></span>
+						</span>
+					</li>
+					{{/data.tags}}
+				</ul>
+			</div>												
+		</div>	
+		<span class="option_wrap">
+		<select class="select_type_add" id="tagSelect">
+			<option value="" selected="selected">{{lang.add}}</option>
+			{{#folder.tags}}
+			<option>{{.}}</option>
+			{{/folder.tags}}
+		</select>
+		</span>
+	</td>
+</tr>
+{{/folder.tagAllowed}}
+
+<tr id="folderFieldArea"></tr>
+<tr id="typeFieldArea"></tr>
+
+{{#folder.referersAllowed}}
+<tr data-tag="partial">
+	<th><span class="title">{{lang.referer}}</span></th>
+	<td>	
+		<div class="div_ipt_wrap add_ipt_wrap">	
+			<!-- name_tag in input -->
+			<div class="div_ipt">
+				<ul id="referers" class="name_tag">
+					{{#data.referers}}
+					<li data-id="{{id}}">
+						<a href="">
+						<span class="name">{{name}} {{position}}</span>
+						<span class="btn_wrap"><span class="ic ic_del"></span></span>
+						</a>
+					</li>
+					{{/data.referers}}
+				</ul>
+			</div>	
+			<a data-tag="callOrg" data-type="referers">
+				<span class="btn_item_add">
+					<span class="ic ic_plus"></span>
+					<span class="txt">{{lang.add}}</span>
+				</span>
+			</a>									
+		</div>											
+	</td>
+</tr>
+{{/folder.referersAllowed}}
+
+{{#isApprover}}
+<tr data-tag="partial">
+	<th><span class="title">{{lang.approver}}</span></th>
+	<td>	
+		<div class="div_ipt_wrap add_ipt_wrap">	
+			<!-- name_tag in input -->
+			<div class="div_ipt">
+				<ul id="approver" class="name_tag">
+					{{#data.approver}}
+					<li data-id="{{data.approver.id}}" data-name="{{data.approver.name}}" data-position="{{#data.approver.position}}{{data.approver.position}}{{/data.approver.position}}">
+						<a href="">
+						<span class="name">{{name}} {{#position}}{{position}}{{/position}}</span>
+						<span class="btn_wrap"><span class="ic ic_del"></span></span>
+						</a>
+					</li>
+					{{/data.approver}}
+				</ul>
+			</div>	
+			<a data-tag="callOrg" data-type="approver">
+				<span class="btn_item_add">
+					<span class="ic ic_plus"></span>
+					<span class="txt">{{lang.add}}</span>
+				</span>
+			</a>									
+		</div>											
+	</td>
+</tr>
+{{/isApprover}}
+
+{{/folder}}

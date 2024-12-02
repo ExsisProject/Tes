@@ -1,0 +1,1 @@
+define(["backbone","fixtures/core/user"],function(e,t){var n={contextRoot:"/"};return n.config=function(e){return{contextRoot:n.contextRoot}[e]},n.session=function(e){var n=t[0];return{id:n.id}[e]},n.router=new e.Router,n});

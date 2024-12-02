@@ -1,0 +1,216 @@
+<div class="container">			
+	<div class="header">
+		<h2>{{lang.asset_basic_info}}</h2>
+	</div>			
+	<div class="content">
+		<table class="detail">
+			<colgroup>
+				<col width="100px"/>
+				<col width="*" />
+			</colgroup>
+			<tbody>
+			<tr>
+				<th><span class="title"><ins class="asterisk">*</ins>{{lang.asset_name}}</span></th>
+				<td>
+					<input class="w_half input" type="text" id="name"/>
+				</td>
+			</tr>
+			<tr>
+				<th><span class="title">{{lang.book_setting}}</span></th>
+				<td>
+					<span class="option_wrap">
+						<input id="reserve" type="radio" name="type" checked="checked" value="false"> 
+						<label for="reserve">{{lang.asset_book}}</label>										
+					</span>
+					<span class="option_wrap">
+						<input id="rental" type="radio" name="type" value="true"/> 
+						<label for="rental">{{lang.asset_rent}}</label>										
+					</span>
+					<br />
+					<span class="desc_caution">※ {{lang.alert_no_change}}</span>
+				</td>
+			</tr>
+			<tr id="loopReservation">
+				<th><span class="title">{{lang.loop_reservation_setting}}</span></th>
+				<td>
+					<span class="option_wrap">
+						<input id="disallowLoopReservation" type="radio" name="useLoopReservation" checked="checked" value="false">
+						<label for="disallowLoopReservation">{{lang.disallow}}</label>
+					</span>
+					<span class="option_wrap">
+						<input id="allowLoopReservation" type="radio" name="useLoopReservation" value="true">
+						<label for="allowLoopReservation">{{lang.allow}}</label>
+					</span>
+				</td>
+			</tr>
+			<tr>
+				<th><span class="title">{{lang.asset_time}}</span></th>
+				<td>
+					<select class="" id="startTime">
+						<option value="0000">00:00</option>
+						<option value="0100">01:00</option>
+						<option value="0200">02:00</option>
+						<option value="0300">03:00</option>
+						<option value="0400">04:00</option>
+						<option value="0500">05:00</option>
+						<option value="0600">06:00</option>
+						<option value="0700">07:00</option>
+						<option value="0800">08:00</option>
+						<option value="0900">09:00</option>
+						<option value="1000">10:00</option>
+						<option value="1100">11:00</option>
+						<option value="1200">12:00</option>
+						<option value="1300">13:00</option>
+						<option value="1400">14:00</option>
+						<option value="1500">15:00</option>
+						<option value="1600">16:00</option>
+						<option value="1700">17:00</option>
+						<option value="1800">18:00</option>
+						<option value="1900">19:00</option>
+						<option value="2000">20:00</option>
+						<option value="2100">21:00</option>
+						<option value="2200">22:00</option>
+						<option value="2300">23:00</option>
+					</select>
+					~
+					<select class="" id="endTime">
+						<option value="0100">01:00</option>
+						<option value="0200">02:00</option>
+						<option value="0300">03:00</option>
+						<option value="0400">04:00</option>
+						<option value="0500">05:00</option>
+						<option value="0600">06:00</option>
+						<option value="0700">07:00</option>
+						<option value="0800">08:00</option>
+						<option value="0900">09:00</option>
+						<option value="1000">10:00</option>
+						<option value="1100">11:00</option>
+						<option value="1200">12:00</option>
+						<option value="1300">13:00</option>
+						<option value="1400">14:00</option>
+						<option value="1500">15:00</option>
+						<option value="1600">16:00</option>
+						<option value="1700">17:00</option>
+						<option value="1800">18:00</option>
+						<option value="1900">19:00</option>
+						<option value="2000">20:00</option>
+						<option value="2100">21:00</option>
+						<option value="2200">22:00</option>
+						<option value="2300">23:00</option>						
+						<option value="2400" selected>24:00</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<th><span class="title">{{lang.asset_week}}</span></th>
+				<td>
+					<div class="week_option" id="DayOfWeek">
+						<span class="option_wrap">
+							<input type="checkbox" id="labelSun"> 
+							<label for="labelSun">{{lang.asset_sun}}</label>										
+						</span>
+						<span class="option_wrap">
+							<input type="checkbox" checked="checked" id="labelMon"> 
+							<label for="labelMon">{{lang.asset_mon}}</label>										
+						</span>
+						<span class="option_wrap">
+							<input type="checkbox" checked="checked" id="labelTue"> 
+							<label for="labelTue">{{lang.asset_tue}}</label>										
+						</span>
+						<span class="option_wrap">
+							<input type="checkbox" checked="checked" id="labelWed"> 
+							<label for="labelWed">{{lang.asset_wed}}</label>										
+						</span>
+						<span class="option_wrap">
+							<input type="checkbox" checked="checked" id="labelThu"> 
+							<label for="labelThu">{{lang.asset_thu}}</label>										
+						</span>
+						<span class="option_wrap">
+							<input type="checkbox" checked="checked" id="labelFri"> 
+							<label for="labelFri">{{lang.asset_fri}}</label>										
+						</span>
+						<span class="option_wrap">
+							<input type="checkbox" id="labelSat"> 
+							<label for="labelSat">{{lang.asset_sat}}</label>										
+						</span>
+					</div>	
+				</td>
+			</tr>
+			<tr>
+				<th><span class="title">{{lang.asset_cal}}</span></th>
+				<td>
+					<span class="option_wrap">
+						<input id="caluse" type="radio" name="useCalendar" value="true"> 
+						<label for="caluse">{{lang.asset_use}}</label>										
+					</span>
+					<span class="option_wrap">
+						<input id="calnotuse" type="radio" name="useCalendar" value="false" checked="checked" /> 
+						<label for="calnotuse">{{lang.asset_no_use}}</label>										
+					</span>
+					<br />
+					<span class="desc_caution">※ {{lang.alert_calendar}}</span>
+				</td>
+			</tr>
+			<tr>
+				<th><span class="title">{{lang.asset_use_auth}}</span></th>
+				<td>
+					<div class="vertical_wrap_s">
+						<span class="option_wrap">
+							<input id="public" name="share" type="radio" checked="checked" value="true"> 
+							<label for="public">{{lang.asset_use_all}}</label>										
+						</span>
+					</div>
+					<div class="vertical_wrap_s">									
+					<span class="option_wrap">
+						<input id="private" name="share" type="radio" value="false"> 
+						<label for="private">{{lang.asset_use_part}}</label>										
+					</span>
+					</div>
+					<div class="option_display" style="display:none">									
+						<div class="vertical_wrap_s" id="partPublicWrap">
+						</div>
+						<ul id="groupUl">							
+						</ul>										
+					</div>							
+				</td>
+			</tr>
+            <tr>
+                <th><span class="title">{{lang.asset_allow_anonym}}</span></th>
+                <td>
+                    <div class="vertical_wrap_s">
+                        <span class="option_wrap">
+							<input id="disallowAnonym" name="allowAnonym" type="radio" checked="checked" value="false">
+							<label for="disallowAnonym">{{lang.disallow}}</label>
+						</span>
+						<span class="option_wrap">
+							<input id="allowAnonym" name="allowAnonym" type="radio" value="true">
+							<label for="allowAnonym">{{lang.allow}}</label>
+						</span>
+						<span class="option_wrap" id="alwaysAnonymOption" style="display: none;">
+							<input id="alwaysAnonym" name="alwaysAnonym" type="checkbox" value="true">
+							<label for="alwaysAnonym">{{lang.always_anonym}}</label>
+						</span>
+                    </div>
+                </td>
+            </tr>
+			<tr class="last">
+				<th><span class="title"><ins class="asterisk">*</ins>{{lang.asset_manager}}</span></th>
+				<td>
+					<ul class="name_tag" id="assetManagerList">										
+						<li class="creat">
+							<span class="btn_wrap" id="selectManager">
+								<span class="ic ic_addlist"></span>
+								<span class="txt">{{lang.asset_manager_select}}</span>
+							</span>
+						</li>							
+					</ul>
+				</td>
+			</tr>	
+			</tbody>
+		</table>
+	</div>
+</div>
+<div class="page_action">
+	<span class="btn" data-btntype='submit'>{{lang.asset_save}}</span>
+	<span class="btn_nega" data-btntype='cancel'>{{lang.asset_cancel}}</span>
+</div>

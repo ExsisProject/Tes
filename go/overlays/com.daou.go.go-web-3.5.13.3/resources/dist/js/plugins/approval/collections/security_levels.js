@@ -1,0 +1,1 @@
+(function(){define(["jquery","backbone","app","approval/models/security_level"],function(e,t,n,r){var i=t.Collection.extend({url:GO.contextRoot+"ad/api/approval/securitylevel",model:r});return i})}).call(this);

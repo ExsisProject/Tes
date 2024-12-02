@@ -1,0 +1,32 @@
+<div class="search_wrap">
+    <form name="searchform" onsubmit="return false;">
+        <input id="contactSearch1" class="search" type="text" placeholder="{{lang.search}}">
+        <input id="contactSearch2" class="btn_search" type="button" value="{{lang.search}}">
+    </form>
+</div>
+<div class="scroll_wrap">
+    <table class="symple" id="contactTable">
+        <thead>
+        <tr>
+            <th class="checkbox"><input type="checkbox" id="contactChkAll"/></th>
+            <th class="name">{{lang.name}}</th>
+            <th class="position">{{lang.position}}</th>
+            <th class="part">{{lang.dept}}</th>
+            {{#isMailExposure}}
+            <th class="email">{{lang.email}}</th>
+            {{/isMailExposure}}
+
+            {{#isSMSMode}}
+            <th class="mobileNo">{{lang.mobileNo}}</th>
+            {{/isSMSMode}}
+
+            <th class="company">{{lang.company}}</th>
+        </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+    <div class="bottom_action" data-param style="display: none">
+        <a class="btn_list_reload"><span class="ic"></span><span class="txt">{{lang.list_more}}</span></a>
+    </div>
+</div>

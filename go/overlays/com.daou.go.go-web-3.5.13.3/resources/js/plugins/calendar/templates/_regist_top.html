@@ -1,0 +1,51 @@
+{{! deprecated }}
+<tr>
+    <td colspan="2">
+    	<div class="basic_info">
+    		<div class="title_wrap">
+	            <span class="wrap_txt">
+	            	<input class="ipt_tit" type="text" name="summary" value="{{&summary}}" maxlength="500" />
+	           	</span>
+	            <span class="wrap_option">
+	                <input type="checkbox" id="check-visibility" name="visibility" value="private"{{#private?}} checked="checked"{{/private?}} />
+	                <label for="check-visibility">{{label.privacy}}</label>
+	            </span>
+	            <span class="wrap_ic_s">
+	            	<span class="help">
+	            		<span class="tool_tip">
+	            			{{msg.private_event_info}}
+	            			<i class="tail_left"></i>
+	           			</span>
+	        		</span>
+	        	</span>
+    		</div>
+	    	<div id="selectDate" class="date_wrap">
+	    		{{>select_date}}
+	    	</div>
+    	</div>
+    </td>
+</tr>
+{{#calendar_manager?}}
+<tr>
+    <th>
+        <span class="title">{{label.public_event}}</span>
+    </th>
+    <td>
+        <span class="wrap_option">
+            <input type="checkbox" name="is_company_event" value="1" id="check-company-event" />
+            <label for="check-company-event">{{label.public_event}}</label>
+        </span>
+        <div id="company-calendar-list" style="display: none">
+            <span class="wrap_multiselect">
+                <span class="wrap_select">
+                    <select name="company_calendar_id">
+                        {{#company_calendar}}
+                        <option value="{{id}}">{{name}}</option>
+                        {{/company_calendar}}
+                    </select>
+                </span>
+            </span>
+        </div>
+    </td>
+</tr>
+{{/calendar_manager?}}

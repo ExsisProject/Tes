@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+<title>DEXT5 Developer Manual</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<link href="../../css/help.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div class="dext5help_content_right">
+<div class="right_con">           
+    <h3 class="title">DEXT5 Editor :: Config :: UserHelpUrl</h3>
+    <p class="ttl">config.UserHelpUrl</p>
+    <p class="txt">
+       에디터 사용자 매뉴얼(help 폴더) 경로를 설정합니다.<br />
+    </p>
+    <p class="mttl01">remarks</p>
+    <p class="txt">
+        http:// 포함하는 전체 url 를 입력합니다.
+    </p>
+    <p class="mttl01">sample code</p>            
+    <div class="cord">
+        <pre class="pre">
+&#60;script type="text/javascript" src="dext5/js/dext5editor.js"&#62;&#60;/script&#62;	
+ 
+&#60;!-- ..... 생략 ..... --&#62;
+ 
+&#60;div style="width:900px;height:550px"&#62;    
+    &#60;script type="text/javascript"&#62;
+
+        // help 폴더 경로를 설정합니다.
+        DEXT5.config.UserHelpUrl = "http://www.dext5.com/help/";
+
+        new Dext5editor("editor1");
+
+    &#60;/script&#62;       
+&#60;/div&#62;
+        </pre>  
+    </div>                   
+    </div>
+</div>
+</body>
+</html>
+

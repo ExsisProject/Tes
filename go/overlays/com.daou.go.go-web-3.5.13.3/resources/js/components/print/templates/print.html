@@ -1,0 +1,19 @@
+		<header class="layer_header">
+			<h1>
+				{{title}}
+			</h1>		
+		</header>
+		<div id="printArea" class="content print_content">
+		<!--[if IE]>
+    		<script src="/resources/js/vendors/html5.js"></script>
+    		<script src="/resources/js/vendors/html5shiv-printshiv.js"></script>
+    	<![endif]-->
+		<link rel="stylesheet" href="/resources/css/go_print.css" media="print">
+			<div id="printContent">
+				{{{content}}}
+			</div>
+		</div>	
+		<footer class="btn_layer_wrap" id="actions">
+			<a class="btn_major_s print" data-bypass><span class="ic"></span><span class="txt">{{lang.print}}</span></a>
+			<a class="btn_minor_s cancel" data-bypass><span class="ic"></span><span class="txt">{{lang.cancel}}</span></a>
+		</footer>

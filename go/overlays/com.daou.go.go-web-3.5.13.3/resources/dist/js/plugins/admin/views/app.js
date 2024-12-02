@@ -1,0 +1,1 @@
+(function(){define(["backbone","app","admin/views/side","admin/views/company_info"],function(e,t,n,r){var i=e.View.extend({initialize:function(){return console.log("admin app.js initialize"),!1},render:function(){console.log("admin app.js render")}},{__instance__:null});return i})}).call(this);

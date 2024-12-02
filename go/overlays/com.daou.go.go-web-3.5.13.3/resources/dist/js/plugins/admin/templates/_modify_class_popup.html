@@ -1,0 +1,36 @@
+<table class="table_form_mini">
+    <tbody>
+    <tr>
+        <td><span class="user_data">{{type.select_user}} {{selectCount}}{{type.about_target_person}}, </span></td>
+    </tr>
+    <tr>
+        <td>
+            <select class="class_type">
+                <option value="position">{{type.modify_position}}</option>
+                <option value="grade">{{type.modify_grade}}</option>
+                {{#isOrg}}<option value="duty">{{type.modify_duty}}</option>{{/isOrg}}
+                <option value="mail_group">{{type.modify_mail_group}}</option>
+                <option value="status">{{type.modify_status}}</option>
+                <option value="user_group">{{type.modify_user_group}}</option>
+            </select>
+            <select class="class_type_values">
+                {{#positions}}
+                <option value="{{id}}">{{name}}</option>
+                {{/positions}}
+            </select>
+            <p class="go_alert" id="account_error_message" style="display: none">{{type.dont_change_status}}</p>
+        </td>
+    </tr>
+    <tr id="userGroupOption" style="display:none;">
+    	<td>
+        	<span class="wrap_opt">
+        		<input type="radio" name="userGroup" id="addGroup" value="add" checked><label for="addGroup">{{type.add_user_group}}</label>
+        	</span>
+        	<br/>
+        	<span class="wrap_opt">
+        		<input type="radio" name="userGroup" id="changeGroup" value="change"><label for="changeGroup">{{type.change_user_group}}</label>
+        	</span>
+        </td>
+    </tr>
+    </tbody>
+</table>

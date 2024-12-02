@@ -1,0 +1,39 @@
+<div class="content_page">
+    <!-- App Admin List View -->
+    <div class="container" id="spec_list">
+        <div class="header">
+            <h2>{{lang.gadget_visibility}}</h2>
+        </div>
+        <div class="content">
+            <table class="detail">
+                <caption>{{lang.gadget_visibility}}</caption>
+                <colgroup>
+                    <col width="180px"><!-- 개발쪽에서 width값을 받아가서 재설정 후 삭제  -->
+                    <col width="*">
+                </colgroup>
+                <tbody>
+                    {{#specs}}
+                    <tr>
+                        <th><span class="title">{{name}}</span></th>
+                        <td>
+                            <span class="option_wrap">
+                                <input type="radio" name="{{id}}" value="true" {{#active}}checked{{/active}} id="public_{{id}}"/>
+                                <label for="public_{{id}}">{{lang.public}}</label>
+                            </span>
+                            <span class="option_wrap">
+                                <input type="radio" name="{{id}}" value="false" {{^active}}checked{{/active}} id="private_{{id}}"/>
+                                <label for="private_{{id}}">{{lang.private}}</label>
+                            </span>
+                        </td>
+                    </tr>
+                    {{/specs}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="page_action">
+        <span class="btn" id="btn_ok">{{lang.label_ok}}</span> <span
+            class="btn_nega" id="btn_cancel">{{lang.label_cancel}}</span>
+    </div>
+</div>

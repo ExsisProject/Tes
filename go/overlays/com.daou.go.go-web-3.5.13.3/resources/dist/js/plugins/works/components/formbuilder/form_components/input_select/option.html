@@ -1,0 +1,23 @@
+<li>
+	<div><label for="">{{lang.이름}}</label></div>
+	<div><input type="text" name="label" value="{{model.label}}" class="txt_mini tool_txt" placeholder="{{lang.이름을 입력해주세요}}" title="{{lang.이름}}"></div>
+    <div class="wrap_input_sub">
+       <input type="checkbox" id="hideLabel" name="hideLabel" class="tool_chk" title="{{lang.이름숨기기}}" {{#model.hideLabel}}checked{{/model.hideLabel}}><label for="hideLabel">{{lang.이름숨기기}}</label>
+    </div>
+</li>
+<li>
+	<div><label for="">{{lang.설명}}</label></div>
+	<div><input type="text" name="guide" value="{{model.guide}}" class="txt_mini tool_txt" placeholder="{{lang.설명을 입력해주세요}}" title="{{lang.설명}}"></div>
+	<div class="wrap_input_sub">
+		<input type="checkbox" name="guideAsTooltip" id="guideAsTooltip" class="tool_chk" title="{{lang.툴팁으로 표현}}"{{#model.guideAsTooltip}} checked="checked"{{/model.guideAsTooltip}}><label for="guideAsTooltip">{{lang.툴팁으로 표현}}</label>
+	</div>
+</li>
+<li>
+	<div class="wrap_input_sub">
+		<input type="checkbox" name="required" id="required" class="tool_chk" title="{{lang.필수 입력 컴포넌트}}"{{#model.required}} checked="checked"{{/model.required}}><label for="required">{{lang.필수 입력 컴포넌트}}</label>
+	</div>
+</li>
+<li>
+	<div>{{lang.세부항목}} <span class="edit_title_sub" id="add_option"><i class="ic_works ic_add" title="">{{lang.추가}}</i>{{lang.추가}}</span></div>
+    <div class="option-item-list"></div>
+</li>

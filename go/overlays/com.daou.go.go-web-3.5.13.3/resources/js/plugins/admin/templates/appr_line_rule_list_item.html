@@ -1,0 +1,14 @@
+<tr>
+    <td class="check"><input name="id" type="checkbox" value="{{data.id}}" data-row=""></td>
+	<td class="name"><span class="txt"><a>{{data.name}}</a></span></td>
+	<td class="count">{{data.adjustedFormCount}}</td>
+	<td class="line">
+        <ul>
+            {{#data.apprLineSummary}}
+
+                {{{.}}}
+
+            {{/data.apprLineSummary}}
+        </ul>
+    </td>
+</tr>

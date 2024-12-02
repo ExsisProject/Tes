@@ -1,0 +1,58 @@
+<form name="attndIpConfig">
+
+	<div class="container">
+	    <div class="header">
+	        <h2>{{lang.label_title}}</h2>
+	    </div>
+	    <div class="content">
+	        <table class="detail">
+	            <colgroup>
+	                <col width="130px" />
+	                <col width="*" />
+	            </colgroup>
+	            <tbody>
+	                <tr class="last">
+	                    <td>
+	                         <div class="vertical_wrap_s">
+	                            <span class="option_wrap"> 
+	                                <input type="radio" value="true" id="onUseAccessAllowIp" name="useAccessAllowIp" {{#model.useAccessAllowIp}} checked="checked" {{/model.useAccessAllowIp}} />
+	                                <label for="onUseAccessAllowIp">{{lang.label_use}}</label>
+	                            </span>
+	                            <span class="option_wrap"> 
+	                                <input type="radio" value="false" id ="offUseAccessAllowIp" name="useAccessAllowIp" {{^model.useAccessAllowIp}} checked="checked" {{/model.useAccessAllowIp}} />
+	                                <label for="offUseAccessAllowIp">{{lang.label_not_use}}</label>
+	                            </span>
+	                         </div>
+	                    </td>
+	                </tr>
+	            </tbody>
+	        </table>
+	    </div>
+	</div>
+
+<div class="page_action">
+	<span class="btn" id="ok">{{lang.label_ok}}</span> 
+	<span class="btn_nega" id="cancel">{{lang.label_cancel}}</span>
+</div>
+<p class="desc">{{lang.label_guide}}</p>
+<div class="content_page">
+			<div class="dataTables_wrapper container">				
+				<div id="controlButtons" style="display: none">
+					<span class="btn_tool" id="add_ip">{{lang.label_add}}</span>
+					<span class="btn_tool txt_caution" id="delete_ip">{{lang.label_delete}}</span>
+				</div>
+				
+				<div class="content_tb">			
+					<table class="chart size popup_list" id="accessIpTable">
+						<thead>							
+							<tr>
+								<th class="sorting ip_name"><span class="title_sort">{{lang.label_ip_name}}</span></th>
+								<th class="sorting ip"><span class="title_sort">{{lang.label_ip}}</span></th>
+							</tr>
+						</thead>	
+					</table>	
+				</div>
+			</div>
+					
+		</div>	
+</form>

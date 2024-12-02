@@ -1,0 +1,1 @@
+define(["backbone"],function(e){var t=e.Collection.extend({model:e.Model,url:function(){return"/api/webfolder/folder/tree?type=share"}});return{getCollection:function(){var e=new t;return e.fetch({async:!1}),e}}});

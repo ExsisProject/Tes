@@ -1,0 +1,27 @@
+<header class="content_top"></header>	
+
+
+<div class="content_page">
+	<div class="tab_menu_wrap">
+		<ul class="tab_menu">
+			<li {{#isLive}}class="active"{{/isLive}} data-tag="stateTab" data-status="Live"><span class="txt">{{lang.normal}}</span></li>
+			<li {{^isLive}}class="active"{{/isLive}} data-tag="stateTab"data-status="Stopped"><span class="txt">{{lang.stop}}</span></li>
+		</ul>
+	</div>
+	<div class="dataTables_wrapper">
+		<table id="subDeptFolderList" class="type_normal list_task004">	
+			<thead>
+				<tr>
+					<th class="sorting_desc part"><span class="title_sort">{{lang.deptName}}<ins class="ic"></ins></span></th>
+					<th class="sorting subject"><span class="title_sort">{{lang.folderName}}<ins class="ic"></ins></span></th>
+					<th class="sorting name"><span class="title_sort">{{lang.admin}}<ins class="ic"></ins></span></th>
+					<th class="sorting num"><span class="title_sort">{{lang.taskCount}}<ins class="ic"></ins></span></th>
+					<th class="sorting date"><span class="title_sort">{{lang.createdAt}}<ins class="ic"></ins></span></th>
+					<th class="sorting_disabled setting"><span class="title_sort">{{lang.setting}}</span></th>
+				</tr>
+			</thead>
+			<tbody>			
+			</tbody>
+		</table>		
+	</div>
+</div>

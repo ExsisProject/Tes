@@ -1,0 +1,48 @@
+<div id="actionArea" class="tool_bar"></div>
+
+<div class="build_prev_wrap works_detail">
+	{{^isPrint}}
+	<div class="build_content_inner wrap_appInterlock" id="consumerArea"></div>
+
+	{{^isRefDocPopup}}
+	<div id="activitySection" class="activity activity_type">
+		<header class="box_sub_h">
+			<div class="tab_menu_wrap">
+				<ul class="tab_menu">
+					<li class="active"><span class="txt">{{lang.activity}}<span class="num"></span></span><i class="b_border"></i></li>
+					<li><span class="txt">{{lang.attach}}<span class="num"></span></span><i class="b_border"></i></li>
+				</ul>
+			</div>
+			<div class="tool_bar">
+				<ul class="optional">
+					<li><a class="btn_tool"><span class="txt">{{lang.writeActivity}}</span></a></li>
+				</ul>
+				<span data-tag="toggle" data-type="taskView" class="btn_wrap">
+					<span class="txt">{{lang.fold}}</span>
+					<!-- <span class="ic_classic ic_close"></span> -->
+					<i class="ic_works ic_op on"></i> <!--//on 클래스로 열고 닫기 가능-->
+				</span>
+			</div>
+		</header>
+		<div class="write_wrap">
+			<p class="data_null">
+				<span class="ic_data_type ic_no_contents"></span>
+				<span class="txt">{{lang.loading}}</span>
+			</p>
+		</div>
+	</div>
+	{{/isRefDocPopup}}
+	
+	<div id="logSection" class="reply reply_wrap">
+		<header class="single_title">
+			<span class="txt">{{lang.history}}</span><span class="num"></span>
+		</header>
+		<div class="aside_wrapper_body">
+			<p class="data_null">
+				<span class="ic_data_type ic_no_contents"></span>
+				<span class="txt">{{lang.loading}}</span>
+			</p>
+		</div>
+	</div>
+	{{/isPrint}}
+</div>

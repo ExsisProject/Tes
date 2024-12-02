@@ -1,0 +1,117 @@
+<header class="content_top"></header>
+<!-- content -->
+<div class="content_page">
+    <!-- 탭 메뉴  -->
+	<div class="tab_menu_wrap">
+		<ul class="tab_menu">
+			<li id = "tab_user_config" class="active"><span class="txt" >{{lang.기본 설정}}</span></li>
+			<li id = "tab_user_deputy"><span class="txt" >{{lang.부재/위임 설정}}</span></li>
+		</ul>
+	</div>
+	<!-- form  -->
+	<section class="form_admin">
+		<form id="profileForm">
+			<fieldset>
+				<table class="form_type">
+					<colgroup>
+						<col width="130px"><!-- 개발쪽에서 width값을 받아가서 재설정 후 삭제  -->
+						<col width="*">
+					</colgroup>
+					<tbody>
+    					<tr>
+    						<th><span class="title">{{lang.서명관리}}</span></th>
+    						<td>
+    							<div>
+    							<span class="wrap_btn" style="vertical-align:middle">
+	    							<span class="btn_minor_s fileinput-button" id="swfupload-control" style="padding:0px !important;font-weight:bold;font-size:12px;">    							    
+	    							</span>
+    							</span>
+    							{{#data.userChangFlag}}
+    							<span class="desc">{{lang.서명은 이미지 크기 안내}}</span>
+    							{{/data.userChangFlag}}
+    							</div>
+    							<br>
+                                <div class="sign_type1 sign_type_new">
+                                    <table class="tb_sign_type1">
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <table class="sign_member">
+                                                        <tbody>
+                                                            <tr><td><span class="sign_rank">{{lang.직위}}</span></td></tr>
+                                                            <tr>
+                                                                <td class="wrap_name wrap_sign">
+                                                                    <span class="sign_stamp">
+                                                                    	<img src="{{data.signPath}}" id="thumbnail_image" data-filename="" data-filepath="" data-hostid="" data-filesize=""/>
+                                                                    	<span class="btn_fn4" id="delete_sign" {{^data.useFlag}}style="display:none"{{/data.useFlag}}>																				
+                                                                    		<span class="ic_feed ic_del_white" title="삭제"></span>
+                                                                    	</span>
+                                                                    </span>
+                                                                    <span class="sign_name">{{lang.이름}}</span>
+                                                                </td>
+                                                            </tr>
+                                                            <tr><td class="last"><span class="sign_date">{{lang.결재일}}</span></td></tr>
+                                                        </tbody>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+    						</td>
+    					</tr>
+    					{{#data.passwordUseFlag}}
+    					<tr>
+    						<th><span class="title">{{lang.결재비밀번호}}</span></th>
+    						<td>
+    							<span class="btn_minor_s">
+    							    <span class="txt" id="btn_chnPwd">{{lang.비밀번호 변경하기}}</span>
+    						    </span>
+    						</td>
+    					</tr>
+    					{{/data.passwordUseFlag}}
+    					<tr>
+                            <th><span class="title">{{lang.결재 작성 방식}}</span></th>
+                            <td>
+                                <select name="writeMode">
+                                    {{#data.writeModes}}
+                                        <option value="{{value}}" {{#isSelected}}selected{{/isSelected}}>{{label}}</option>
+                                    {{/data.writeModes}}
+                                </select>
+                            </td>
+                        </tr>
+						<tr>
+							<th>
+								<span class="title">{{lang.첨부 이미지 설정}}</span>
+							</th>
+							<td>
+								<span class="wrap_option">
+									<input id="attachImageMode_thumbnail" type="radio" name="attachImageMode" value="THUMBNAIL">
+									<label for="attachImageMode_thumbnail">{{lang.기본 사이즈로 표시}}</label>
+									<span class="desc">({{lang.기본 사이즈로 표시 설명}})</span>
+								</span>
+								<br/>
+								<span class="wrap_option">
+									<input id="attachImageMode_original" type="radio" name="attachImageMode" value="ORIGINAL">
+									<label for="attachImageMode_original">{{lang.원본 사이즈로 표시}}</label>
+									<span class="desc">({{lang.원본 사이즈로 표시 설명}})</span>
+								</span>
+								<br/>
+								<span class="wrap_option">
+									<input id="attachImageMode_filename" type="radio" name="attachImageMode" value="FILENAME">
+									<label for="attachImageMode_filename">{{lang.파일명으로 표시}}</label>
+									<span class="desc">({{lang.파일명으로 표시 설명}})</span>
+								</span>
+							</td>
+						</tr>
+                        <tr><td colspan="2"><hr></td></tr>
+					</tbody>
+				</table>
+			</fieldset>
+		</form>
+        <div class="page_action_wrap">
+            <a class="btn_major" data-role="button" id="save_apprconfig"><span class="txt">{{lang.저장}}</span></a>
+            <a class="btn_minor" data-role="button" id="cancel_apprconfig"><span class="txt">{{lang.취소}}</span></a>                
+        </div>
+	</section>
+</div>

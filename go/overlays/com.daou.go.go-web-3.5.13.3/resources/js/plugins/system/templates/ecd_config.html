@@ -1,0 +1,38 @@
+{{#dataset}}
+<div class="content_page">
+    <form id="formEcdConfig" >
+        <div class="container">
+            <div class="header">
+                <h2>{{lang.데이터 백업 설정}}</h2>
+            </div>
+            <div class="content">
+                <table class="detail">
+                    <colgroup>
+                        <col width="110px" />
+                        <col width="*" />
+                    </colgroup>
+                <tbody>
+                    <tr class="last">
+                        <th>
+                            <span class="title">{{lang.데이터 백업 서버}}</span>
+                        </th>
+                        <td>
+                            <span class="user_data editable" data-formname="ecdServerURL" data-value="{{str}}">
+                                <span id="data">{{str}}</span>
+                                <span class="btn_box" data-btntype="changeform">
+                                    <span class="ic ic_edit" title="{{lang.label_edit}}"></span>
+                                </span>
+                            </span>
+                            <span class="go_alert" id="ecdServerURLValidate"></span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    </form>
+    <div class="page_action">
+        <span class="btn" id="btn_ok">{{lang.저장}}</span>
+        <span class="btn_nega" id="btn_cancel">{{lang.취소}}</span>
+    </div>
+{{/dataset}}

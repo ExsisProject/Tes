@@ -1,0 +1,39 @@
+/*!
+ * 
+ * Product name/Version: SynapDocumentViewer 2019.19.12.1
+ * 
+ */
+
+.wrap__header__container {
+    background-color: #354052;
+}
+.wrap__header__container .page__input {
+    background-color: #FFFFFF;
+    color: #000000;
+}
+
+.wrap__thumbnail {
+    border: 4px solid #c0d0d9;
+    background-color: #c0d0d9;
+    overflow-y: auto !important;
+}
+.wrap__thumbnail .wrap__index {
+    background-color: #c0d0d9;
+}
+.wrap__thumbnail span {
+    color: #000000;
+}
+
+body, .wrap__contents {
+    background-color: #ebf1f5;
+}
+
+/* 기능 비활성화 */
+.wrap__logo, .wrap__thumbnailbar, #backgroundcolor-btn, #info-btn, #more, #header-title-icon {
+    display: none;
+}
+
+/* 상단 색깔 */
+#header, #header-menu, #fullscreen {
+    background-color: #354052;
+}

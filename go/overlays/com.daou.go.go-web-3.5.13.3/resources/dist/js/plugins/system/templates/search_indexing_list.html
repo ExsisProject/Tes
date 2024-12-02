@@ -1,0 +1,164 @@
+<div class="content_page">
+    <form name="formSearchIndexingList" id="formSearchIndexingList" >
+        <div class="container">
+            <div class="header">
+                <h2>{{lang.label_title}}</h2>
+            </div>
+            <div class="content_tb">
+                <table class="chart" >
+                        <tr>
+                            <th><span class="title">{{lang.label_calendar}}</span></th>
+                            <td>
+                                <span class="btn_s btn_execution" id="calendar" name="{{lang.label_calendar}}">{{lang.label_execution}}</span>
+                            </td>
+                        </tr>
+                        {{#hasSocialPack}}
+                        <tr>
+                            <th><span class="title">{{lang.label_board}} / {{lang.label_community}}</span></th>
+                            <td>
+                                <span class="btn_s btn_execution" id="board" name="{{lang.label_board}} / {{lang.label_community}}">{{lang.label_execution}}</span>
+                                <span class="vertical_wrap">
+                                	<span class="wrap_date">
+    									<label class="tit" title="">{{lang.label_siteName}}</label>
+    									<select class="companyList" id="boardCompanyList">
+                                		</select>
+									</span>
+									<span class="wrap_date">
+										<input id="boardStartDate" class="txt wfix_small" type="text" value="" readyonly=""><span class="ic_go ic_calendar"></span>
+									</span>
+										~
+									<span class="wrap_date">
+										<input id="boardEndDate" class="txt wfix_small" type="text" value="" readyonly=""><span class="ic_go ic_calendar"></span>
+									</span>
+									<span>({{lang.label_boardCreatedDateBase}})</span>
+								<span class="btn_s btn_execution" id="boardPeriod" name="{{lang.label_board}} / {{lang.label_community}}">{{lang.label_execution}}</span>
+								</span>
+                            </td>
+                        </tr>
+                        {{/hasSocialPack}}
+                        {{#hasCollaborationPack}}
+                        <tr>
+                            <th><span class="title">{{lang.label_report}}</span></th>
+                            <td>
+                                <span class="btn_s btn_execution" id="report" name="{{lang.label_report}}">{{lang.label_execution}}</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th><span class="title">{{lang.label_task}}</span></th>
+                            <td>
+								<span class="btn_s btn_execution" id="task" name="{{lang.label_task}}">{{lang.label_execution}}</span>
+							</td>
+                        </tr>
+                        <tr>
+                            <th><span class="title">{{lang.label_works}}</span></th>
+                            <td>
+                                <table>
+                                    <tr>
+                                        <span class="vertical_wrap">
+                                            <span class="option_wrap">
+                                                <label class="tit" title="">{{lang.label_works_indexType}}</label>
+                                                <select id="worksIndexTypeSelect">
+                                                    <option value="all">all</option>
+                                                    <option value="appletId">appletId</option>
+                                                    <option value="createdAt">createdAt</option>
+                                                    <option value="updatedAt">updatedAt</option>
+                                                    <option value="createdAtWithAppletId">createdAtWithAppletId</option>
+                                                    <option value="updatedAtWithAppletId">updatedAtWithAppletId</option>
+                                                    <option value="docIds">docIds</option>
+                                                </select>
+                                            </span>
+                                            <span id="clear_solr_wrap" class="option_wrap">
+                                                <input type="checkbox" id="clear_solr" name="clear_solr" style="margin-left: 10px" />
+                                                <label for="clear_solr">clear solr</label>
+                                            </span>
+                                            <span class="option_wrap" >
+                                                <input type="checkbox" id="attach_Indexable" name="attach_Indexable" checked="checked" style="margin-left: 10px"/>
+                                                <label for="attach_Indexable">attachIndexable</label>
+                                            </span>
+                                        </span>
+
+                                        <span class="vertical_wrap">
+                                            <span id="applet_id_wrap" style="display: none">
+                                                <label class="tit" title="">Applet Id</label>
+                                                <input id="appletId" class="txt wfix_small" type="text" value="" maxlength="10">
+                                            </span>
+                                            <span id="from_to_date_wrap" style="margin-left:10px; display: none">
+                                                <label class="tit" title="">{{lang.label_base_date}}</label>
+                                                <span class="wrap_date">
+                                                    <input id="worksStartDate" class="txt wfix_small" type="text" value=""><span class="ic_go ic_calendar"></span>
+                                                </span>
+                                                    ~
+                                                <span class="wrap_date">
+                                                    <input id="worksEndDate" class="txt wfix_small" type="text" value=""><span class="ic_go ic_calendar"></span>
+                                                </span>
+                                            </span>
+                                            <span id="docIds_wrap" style="display: none">
+                                                <label class="tit" title="">Doc Ids</label>
+                                                <textarea class="input w_small" id="worksDocIds" placeholder="ex) 10,20,30 ...."></textarea>
+                                            </span>
+                                            <span class="btn_s btn_execution" id="worksPeriod" name="{{lang.label_works}}">{{lang.label_execution}}</span>
+                                        </span>
+                                    </tr>
+                                    <tr>
+                                        <span class="vertical_wrap" id="worksIndexTypeSampleText" style="text-align:left; margin-top:10px; border-top:1px solid lightgrey">
+                                            <label class="tit" title="">[Works reindexing URL Sample]</label>
+                                            </select>
+                                            <span class="vertical_wrap">※ {{lang.label_works_url_sample_desc}}</span>
+                                            <span class="vertical_wrap">※ isClearSolr:solr clear{{lang.label_true_false}}({{lang.label_works_only_all_appletid}}), attachIndexable: {{lang.label_works_attachIndexable_true_false}}</span>
+                                            <span class="vertical_wrap">- <strong>all case1</strong>: https://url주소:8443/go/ad/api/search/works/full-import => solr가 모두 clear 되고 첨부파일도 인덱싱 됨</span>
+                                            <span class="vertical_wrap">- <strong>all case2</strong>: https://url주소:8443/go/ad/api/search/works/reindex/type/all?isClearSolr=true&attachIndexable=true</span>
+                                            <span class="vertical_wrap">- <strong>appletId</strong>: https://url주소:8443/go/ad/api/search/works/reindex/type/appletId?appletId=앱Id&isClearSolr=true&attachIndexable=true</span>
+                                            <span class="vertical_wrap">- <strong>createdAt</strong>: https://url주소:8443/go/ad/api/search/works/reindex/type/createdAt?from=2019-11-01T00%3A00%3A00.000%2B09%3A00&to=2019-11-30T23%3A59%3A59.999%2B09%3A00&isClearSolr=false&attachIndexable=true</span>
+                                            <span class="vertical_wrap">- <strong>updatedAt</strong>: https://url주소:8443/go/ad/api/search/works/reindex/type/updatedAt?from=2019-11-01T00%3A00%3A00.000%2B09%3A00&to=2019-11-30T23%3A59%3A59.999%2B09%3A00&isClearSolr=false&attachIndexable=true</span>
+                                            <span class="vertical_wrap">- <strong>createdAtWithAppletId</strong>: https://url주소:8443/go/ad/api/search/works/reindex/type/createdAtWithAppletId?appletId=앱Id&from=2019-11-01T00%3A00%3A00.000%2B09%3A00&to=2019-11-30T23%3A59%3A59.999%2B09%3A00&isClearSolr=false&attachIndexable=true</span>
+                                            <span class="vertical_wrap">- <strong>updatedAtWithAppletId</strong>: https://url주소:8443/go/ad/api/search/works/reindex/type/updatedAtWithAppletId?appletId=앱Id&from=2019-11-01T00%3A00%3A00.000%2B09%3A00&to=2019-11-30T23%3A59%3A59.999%2B09%3A00&isClearSolr=false&attachIndexable=true</span>
+                                            <span class="vertical_wrap">- <strong>docIds</strong>: https://url주소:8443/go/ad/api/search/works/reindex/docIds?id=문서Id&id=문서Id&id=문서Id&isClearSolr=false&attachIndexable=true</span>
+                                        </span>
+                                    </tr>
+                                </table>
+
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <th><span class="title">{{lang.label_todo}}</span></th>
+                            <td>
+                                <span class="btn_s btn_execution" id="todo" name="{{lang.label_todo}}">{{lang.label_execution}}</span>
+                            </td>
+                        </tr>
+                        {{/hasCollaborationPack}}
+                        {{#hasApprovalServicePack}}
+                        <tr>
+                            <th><span class="title">{{lang.label_approval}}</span></th>
+                            <td>
+                                <span class="btn_s btn_execution" id="approval" name="{{lang.label_approval}}">{{lang.label_execution}}</span>
+                                <span class="vertical_wrap">
+                                	<span class="wrap_date">
+    									<label class="tit" title="">{{lang.label_siteName}}</label>
+    									<select class="companyList" id="approvalCompanyList">
+                                		</select>
+									</span>
+									<span class="wrap_date">
+										<input id="approvalStartDate" class="txt wfix_small" type="text" value="" readyonly=""><span class="ic_go ic_calendar"></span>
+									</span>
+										~
+									<span class="wrap_date">
+										<input id="approvalEndDate" class="txt wfix_small" type="text" value="" readyonly=""><span class="ic_go ic_calendar"></span>
+									</span>
+									<span>({{lang.label_draftDateBase}})</span>
+								<span class="btn_s btn_execution" id="approvalPeriod" name="{{lang.label_approval}}">{{lang.label_execution}}</span>
+								</span>
+                            </td>
+                        </tr>
+                        {{/hasApprovalServicePack}}
+                        <tr>
+                            <th><span class="title">{{lang.label_docs}}</span></th>
+                            <td>
+                                <span class="btn_s btn_execution" id="docs" name="{{lang.label_docs}}">{{lang.label_execution}}</span>
+                            </td>
+                        </tr>
+                </table>
+            </div>
+    </div>
+    </form>
+</div>

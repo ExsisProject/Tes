@@ -1,0 +1,1 @@
+(function(){define(["backbone","board/models/post"],function(e,t){var n=e.Collection.extend({model:t,url:function(){var e="/api/board/"+this.boardId+"/posts/"+this.postId+"/classic/tiny";return this.notice&&(e+="/notice"),e}});return n})}).call(this);

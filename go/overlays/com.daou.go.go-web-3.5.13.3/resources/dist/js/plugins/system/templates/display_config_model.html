@@ -1,0 +1,83 @@
+
+<div class="content_page">
+    <form name="formDisplayConfigModel" id="formDisplayConfigModel" >
+        <div class="container ">
+            <div class="content">
+                <fieldset>
+                    <table class="form_type">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <span class="title">{{lang.label_company_name}}</span>
+                                    <select id="companyList" style="min-width:100px;">
+                                    </select>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </fieldset>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div class="dataTables_wrapper container">
+    <div class="content_tb over_visi">
+        <!--div id="displayConfigList_wrapper" class="dataTables_wrapper" role="grid">
+            <div class="toolbar_top header_tb">
+                <div class="critical custom_header">
+                    <div class="critical" id="controlButtons1" style="">
+                        <span class="btn_tool" id="delete_attr">설정 삭제</span>
+                    </div>
+                </div>
+            </div>
+        </div-->
+        <table class="chart size list_account dataTable" id="displayConfigList" style="width: 100%; margin-bottom: 0px;">
+            <colgroup>
+                <!--col width="36px"-->
+                <col width="250px">
+                <col width="*">
+                <col width="70px">
+                <col width="60px">
+            </colgroup>
+            <thead>
+                <form name="add-attr-form" id="addConfigForm" onsubmit="return false;">
+                <tr role="row">
+                    <!--th class="sorting_disabled" role="columnheader">
+                        <input type="checkbox" id="checkedAll">
+                    </th-->
+                    <th class="sorting_disabled" role="columnheader">
+                        <span class="title_sort"><label>KEY</label></span>
+                    </th>
+                    <th class="sorting_disabled" role="columnheader">
+                        <span class="title_sort"><label>VALUE</label></span>
+                    </th>
+                    <th class="sorting_disabled" role="columnheader">
+                        <span class="buttons">{{lang.label_perfomance}}</span>
+                    </th>
+                    <th class="sorting_disabled" role="columnheader"></th>
+                </tr>
+                <tr role="row">
+                    <!--td class="sorting_disabled" role="columnheader">
+                        &nbsp;
+                    </td-->
+                    <td class="sorting_disabled" role="columnheader">
+                        <span class="title_sort"><input type="text" id="newAttrKey" class="input txt" name="key" value="" style="width: 95% !important;"/></span>
+                    </td>
+                    <td class="sorting_disabled" role="columnheader">
+                        <span class="title_sort"><input type="text" id="newAttrValue" class="input txt" name="value" value="" style="width: 95% !important;"/></span>
+                    </td>
+                    <td class="sorting_disabled" role="columnheader">
+                        <div class="critical">
+                            <span class="btn_tool btn-cmd" data-role="create">{{lang.label_add}}</span>
+                        </div>
+                    </td>
+                    <td class="sorting_disabled" role="columnheader"></td>
+                </tr>
+                </form>
+            </thead>
+
+            <tbody role="alert"></tbody>
+        </table>
+    </div>
+</div>

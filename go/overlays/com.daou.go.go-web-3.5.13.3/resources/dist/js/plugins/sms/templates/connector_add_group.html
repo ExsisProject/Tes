@@ -1,0 +1,31 @@
+<!-- 그룹 추가 -->
+{{#data}}
+{{^isOrg}}
+<li data-name="{{dataName}}" data-id="{{dataId}}" data-type="group">
+    <label class="mailInfo">
+        {{lang.주소록}} : {{dataName}}
+    </label>
+    <span class="list_side_wrap">
+        <span class="btn_wrap">
+            <span class="ic_side ic_list_del"></span>
+        </span>
+    </span>
+</li>
+{{/isOrg}}
+
+<!-- 부서 추가 -->
+{{#isOrg}}
+<li data-name="{{dataName}}" data-id="{{dataId}}" data-type="department">
+    <label class="mailInfo">
+        {{lang.부서}} : {{dataName}}
+    </label>
+    <span class="list_side_wrap">
+        <input type="checkbox" class="lowDeptChk" id="{{dataName}}{{dataId}}">
+        <label class="depth" for="{{dataName}}{{dataId}}">{{lang.하위부서포함}}</label>
+        <span class="btn_wrap">
+            <span class="ic_side ic_list_del"></span>
+        </span>
+    </span>
+</li>
+{{/isOrg}}
+{{/data}}

@@ -1,0 +1,69 @@
+{{#data}}
+<section class="lnb" data-type="{{type}}">
+    <h3 class="user">
+		<span class="btn_wrap">
+			<span class="txt_ellipsis">{{getTitle}}</span>
+		</span>
+    </h3>
+
+    <ul class="side_depth" {{^isOpen}} style="display:none" {{/isOpen}}>
+        {{#isUser}} <!--전체주소록 / 공용에는 없음.-->
+        <li class="group">
+            <a>
+                <span class="btn_wrap contactTag">
+                    <span class="ic_side ic_add_tag"></span>
+                    <span class="txt_ellipsis">{{lang.contact_all}}</span>
+                </span>
+            </a>
+        </li>
+        {{/isUser}}
+
+        {{^isDept}} <!--user or company-->
+        {{#groups}}
+        <li class="group" data-group-id={{id}}>
+            <a>
+                <span class="btn_wrap contactTag">
+                    <span class="ic_side ic_add_tag"></span>
+                    <span class="txt_ellipsis">{{name}}</span>
+                    {{#isContactCount}}<span class="num">{{contactCount}}</span>{{/isContactCount}}
+                </span>
+            </a>
+        </li>
+        {{/groups}}
+        {{/isDept}}
+
+        {{#isDept}} <!-- dept -->
+        {{#deptInfo}}
+        <li class="org" data-dept-id="{{deptId}}">
+            <span class="btn_wrap">
+				<span class="ic_side ic_part"></span>
+				<span class="txt_ellipsis">{{deptName}} {{lang.contact}}</span>
+			</span>
+            <ul>
+                <li class="group">
+                    <a>
+						<span class="btn_wrap contactTag">
+							<span class="ic_side ic_add_tag"></span>
+							<span class="txt_ellipsis">{{lang.contact_all}}</span>
+						</span>
+                    </a>
+
+                </li>
+                {{#groups}}
+                <li class="group" data-group-id="{{id}}">
+                    <a>
+						<span class="btn_wrap contactTag">
+							<span class="ic_side ic_add_tag"></span>
+							<span class="txt_ellipsis">{{name}}</span>
+                            {{#isContactCount}}<span class="num">{{contactCount}}</span>{{/isContactCount}}
+						</span>
+                    </a>
+                </li>
+                {{/groups}}
+
+            </ul>
+        </li>
+        {{/deptInfo}}
+        {{/isDept}}
+</section>
+{{/data}}

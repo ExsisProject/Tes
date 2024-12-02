@@ -1,0 +1,55 @@
+
+<div class="dataTables_wrapper container">
+    <div class="toolbar_top header_tb">
+        <div style="float:left;">
+            <h2>{{lang.label_db_header_info}}</h2>
+        </div>
+        <div class="critical" style="float:right;">
+                <span>
+                    <span class="btn_tool" id="add_btn">{{lang.label_add}}</span>
+                    <span class="btn_tool txt_caution" id="delete_btn">{{lang.label_delete}}</span>
+                </span>
+        </div>
+    </div>
+
+    <div class="content_tb">
+        <table class="chart size" id="dbConfigTable">
+            <thead>
+            <tr>
+                <th class="sorting_disable check vm">
+                    <input type="checkbox" id="group_all"/>
+                </th>
+                <th class="sorting_disable menu">
+                    <span class="title_sort">{{lang.label_db_company_name}}</span>
+                </th>
+                <th class="sorting_disable onoff">
+                    <span class="title_sort">{{lang.label_db_config_name}}</span>
+                </th>
+                <th class="sorting_disable onoff">
+                    <span class="title_sort">{{lang.label_db_key}}</span>
+                </th>
+                <th class="sorting_disable onoff">
+                    <span class="title_sort">{{lang.label_db_vender}}</span>
+                </th>
+                <th class="sorting_disable onoff">
+                    <span class="title_sort">{{lang.label_db_host}}</span>
+                </th>
+                <th class="sorting_disable onoff">
+                    <span class="title_sort">{{lang.label_db_description}}</span>
+                </th>
+            </tr>
+            </thead>
+
+            <tbody class="document-row" style="cursor:pointer"></tbody>
+        </table>
+    </div>
+    <div class="critical" style="float:right;">
+        <span>
+            <span class="btn_tool txt_caution" id="apply_btn">{{lang.label_apply}}</span>
+        </span>
+    </div>
+</div>
+<br>
+<br><br>
+
+<div class="detail_container container"></div>

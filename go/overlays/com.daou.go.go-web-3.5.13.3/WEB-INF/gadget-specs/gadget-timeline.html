@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <title>근태관리</title>
+    <meta name="gadget:name-ko" content="근태관리"/>
+    <meta name="gadget:name-en" content="Attendance Management"/>
+    <meta name="gadget:name-ja" content="勤怠管理"/>
+    <meta name="gadget:name-zhcn" content="考勤管理"/>
+    <meta name="gadget:name-zhtw" content="考勤管理"/>
+    <meta name="gadget:name-vi" content="Quản lý giờ làm việc"/>
+    <meta name="gadget:app-dependency" content="EHR"/>
+    <meta name="gadget:description" content="근태관리"/>
+    <meta name="gadget:version" content="2.0.0"/>
+    <meta name="gadget:thumbnail" content="gadget_attend.png"/>
+    <meta name="locale" content="ko"/>
+    <meta name="contextRoot" content="/"/>
+    <link rel="stylesheet" href="css/go-gadget-standalone.css" media="screen, print"/>
+    <!--[if IE]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="js/go-gadget-standalone.js"></script>
+    <script type="text/javascript" id="go-gadget-script">
+        $(function () {
+            var Store = null;
+            if (!!window.amplify) {
+                Store = (function () {
+                    function getStorage(type/*,key, val, options*/) {
+                        var storeType = type || 'local',
+                            args = Array.prototype.slice.apply(arguments),
+                            rargs = args.slice(1),
+                            func = (storeType === 'session' && !!window.sessionStorage ? amplify.store.sessionStorage : amplify.store);
+                        return func.apply(amplify, rargs);
+                    }
+
+                    return {
+                        get: function (key) {
+                            return (getStorage('local', key) || getStorage('session', key));
+                        },
+
+                        set: function (key, val, options) {
+                            var opts = _.defaults(options || {}, {type: 'local'});
+                            return getStorage(opts.type, key, val, _.omit(opts, 'type'));
+                        }
+                    };
+                })();
+            }
+            ;
+            gadget.load({
+                refreshable: false,
+                highlightable: true,
+                langs: {
+                    "label_timelineTitle": "근태관리",
+                    "label_changeStatus": "상태변경",
+                    "label_clockIn": "출근하기",
+                    "label_clockOut": "퇴근하기",
+                    "label_clockInTime": "출근시간",
+                    "label_clockOutTime": "퇴근시간",
+                    "label_unconfirmed": "미등록",
+                    "label_date": "오늘 날짜 + 현재 시간",
+                    "label_time": "현재 시간",
+                    "label_inOutAlertTitle": "에러",
+                    "label_weeklyTotalTime": "주간누적",
+                    'date_format': '날짜 표시',
+                    "disabled_timeline_service": "근태 서비스가 비활성화 되어 있습니다.",
+                    "label_night_work_check":"늦은 퇴근인가요?<br>출근인가요?",
+                    "label_night_work_description":" 하루 전날부터 업무를 지속적으로 진행한 후 퇴근하는 경우 [퇴근하기],<br> 오늘 새 출근체크를 하려는 경우 [출근하기] 버튼을 눌러주세요.<br>",
+                    "label_average_to_work": "앞으로 매일 평균",
+                    "label_need_to_work": "근무 필요",
+                    "최소":"최소",
+                    "최대":"최대",
+                    "총 최소근무시간 안내" : "\{\{arg1\}\}월 총 최소 근무시간은 \{\{arg2\}\}입니다.",
+                    "총 최대근무시간 안내" : "\{\{arg1\}\}월 총 최대 근무시간은 \{\{arg2\}\}입니다.",
+                    "주 최소근무시간 안내" : "주간 근무시간은 40h입니다.",
+                    "주 최대근무시간 안내" : "최대 근무시간은 52h입니다.",
+                    "선택근무":"선택근무",
+                    "초과근무":"초과근무",
+                    "승인근무":"승인근무",
+                    "연장":"연장",
+                    "en": {
+                        "label_timelineTitle": "Attendance Management",
+                        "label_changeStatus": "Status",
+                        "label_clockIn": "Start",
+                        "label_clockOut": "Finish",
+                        "label_clockInTime": "Start time",
+                        "label_clockOutTime": "Finish time",
+                        "label_unconfirmed": "Unchecked",
+                        "label_date": "today's date + current time",
+                        "label_time": "Current time",
+                        "label_inOutAlertTitle": "error",
+                        "label_weeklyTotalTime": "Weekly accumulation",
+                        'date_format': 'Show dates',
+                        "disabled_timeline_service": "Attendance deactivated",
+                        "label_night_work_check":"Is it late work? <br> Start work?",
+                        "label_night_work_description":"If you are going to work after the day before, Press [Finish], <br> If you want to check for a new job today, please Press the [Start] button.<br>",
+                        "label_average_to_work": "on average a day ahead",
+                        "label_need_to_work": "need to work",
+                        "최소":"Minimum",
+                        "최대":"Maximum",
+                        "총 최소근무시간 안내" : "\{\{arg1\}\} The total minimum working time for the month is \{\{arg2\}\}.",
+                        "총 최대근무시간 안내" : "\{\{arg1\}\} The total maximum working time for the month is \{\{arg2\}\}.",
+                        "주 최소근무시간 안내" : "The weekly working hours are 40h.",
+                        "주 최대근무시간 안내" : "The maximum working hours are 52h.",
+                        "선택근무":"Flexible work",
+                        "초과근무":"Overtime work",
+                        "승인근무":"Approved work",
+                        "연장":"Extend"
+                    },
+                    "ja": {
+                        "label_timelineTitle": "勤怠管理",
+                        "label_changeStatus": "状態",
+                        "label_clockIn": "出勤",
+                        "label_clockOut": "退勤",
+                        "label_clockInTime": "出勤時間",
+                        "label_clockOutTime": "退勤時間",
+                        "label_unconfirmed": "未確認",
+                        "label_date": "今日の日付 + 現在時間",
+                        "label_time": "現在時間",
+                        "label_inOutAlertTitle": "エラー",
+                        "label_weeklyTotalTime": "累積勤務時間",
+                        'date_format': '日付表示',
+                        "disabled_timeline_service": "勤怠サービスが非表示になっています。",
+                        "label_night_work_check":"遅い退勤ですか? <br> 出勤ですか?",
+                        "label_night_work_description":"前日から業務を継続的に進行した後、退勤した場合、[退勤する]，<br> 今日新しい出勤チェックをしたい場合は、[出勤する]ボタンを押してください。<br>",
+                        "label_average_to_work": "これから毎日平均",
+                        "label_need_to_work": "勤務必要",
+                        "최소":"最小",
+                        "최대":"最大",
+                        "총 최소근무시간 안내" : "\{\{arg1\}\}月トータル最小勤務時間は \{\{arg2\}\}です。",
+                        "총 최대근무시간 안내" : "\{\{arg1\}\}月トータル最大勤務時間は \{\{arg2\}\}です。",
+                        "주 최소근무시간 안내" : "週間勤務時間は40hです。",
+                        "주 최대근무시간 안내" : "最大勤務時間は52hです。",
+                        "선택근무":"選択勤務",
+                        "초과근무":"超過勤務",
+                        "승인근무":"承認勤務",
+                        "연장":"延長"
+                    },
+                    "zh_CN": {
+                        "label_timelineTitle": "考勤管理",
+                        "label_changeStatus": "状态",
+                        "label_clockIn": "上班",
+                        "label_clockOut": "下班",
+                        "label_clockInTime": "上班时间",
+                        "label_clockOutTime": "下班时间",
+                        "label_unconfirmed": "未确认",
+                        "label_date": "今天的日期 + 当前时间",
+                        "label_time": "当前时间",
+                        "label_inOutAlertTitle": "错误",
+                        "label_weeklyTotalTime": "累计工作时间",
+                        'date_format': '日期显示',
+                        "disabled_timeline_service": "考勤服务已被隐藏。。",
+                        "label_night_work_check":"晚点的退勤吗? <br> 出勤吗?",
+                        "label_night_work_description":"如果从昨天开始持续工作后，退勤时，点击[退勤]。<br> 如果今天重新出勤时，请点击[出勤]。<br>",
+                        "label_average_to_work": "从现在每天平均",
+                        "label_need_to_work": "需要工作",
+                        "최소":"最小",
+                        "최대":"最大",
+                        "총 최소근무시간 안내" : "\{\{arg1\}\}月最小总工作时间是 \{\{arg2\}\} 。",
+                        "총 최대근무시간 안내" : "\{\{arg1\}\}月最大总工作时间是 \{\{arg2\}\} 。",
+                        "주 최소근무시간 안내" : "一周工作时间是40h。",
+                        "주 최대근무시간 안내" : "最大工作时间是52h。",
+                        "선택근무":"选择工作时间",
+                        "초과근무":"超过工作时间",
+                        "승인근무":"承认工作时间",
+                        "연장":"延长"
+                    },
+                    "zh_TW": {
+                        "label_timelineTitle": "考勤管理",
+                        "label_changeStatus": "狀態",
+                        "label_clockIn": "上班",
+                        "label_clockOut": "下班",
+                        "label_clockInTime": "上班時間",
+                        "label_clockOutTime": "下班時間",
+                        "label_unconfirmed": "未確認",
+                        "label_date": "今天的日期 + 當前時間",
+                        "label_time": "當前時間",
+                        "label_inOutAlertTitle": "錯誤",
+                        "label_weeklyTotalTime": "累計工作時間",
+                        'date_format': '日期顯示',
+                        "disabled_timeline_service": "考勤服務已被隱藏。",
+                        "label_night_work_check":"晚點的退勤嗎? <br> 出勤嗎?",
+                        "label_night_work_description":"如果從昨天開始持續工作後，退勤時，點擊[退勤]。<br> 如果今天重新出勤時，請點擊[出勤]。<br>",
+                        "label_average_to_work": "從現在每天平均",
+                        "label_need_to_work": "需要工作",
+                        "최소":"最小",
+                        "최대":"最大",
+                        "총 최소근무시간 안내" : "\{\{arg1\}\}月最小总工作时间是 \{\{arg2\}\} 。",
+                        "총 최대근무시간 안내" : "\{\{arg1\}\}月最大总工作时间是 \{\{arg2\}\} 。",
+                        "주 최소근무시간 안내" : "一周工作時間是40h。",
+                        "주 최대근무시간 안내" : "最大工作時間是52h。",
+                        "선택근무":"選擇工作時間",
+                        "초과근무":"超過工作時間",
+                        "승인근무":"承認工作時間",
+                        "연장":"延長"
+                    },
+                    "vi": {
+                        "label_timelineTitle": "Quản lý giờ làm việc",
+                        "label_changeStatus": "Đổi trạng thái",
+                        "label_clockIn": "Đi làm",
+                        "label_clockOut": "Tan ca",
+                        "label_clockInTime": "Giờ bắt đầu làm việc",
+                        "label_clockOutTime": "Giờ kết thúc làm việc",
+                        "label_unconfirmed": "Chưa xác nhận",
+                        "label_date": "Ngày tháng hôm nay + Thời gian hiện tại",
+                        "label_time": "Thời gian hiện tại",
+                        "label_inOutAlertTitle": "Lỗi",
+                        "label_weeklyTotalTime": "Cumulative working hours",
+                        'date_format': 'Hiển thị ngày tháng',
+                        "disabled_timeline_service": "Attendance deactivated",
+                        "label_night_work_check":"Is it late work? <br> Start work?",
+                        "label_night_work_description":"If you are going to work after the day before, Press [Finish], <br> If you want to check for a new job today, please Press the [Start] button.<br>",
+                        "label_average_to_work": "on average a day ahead",
+                        "label_need_to_work": "need to work",
+                        "최소":"Min",
+                        "최대":"Max",
+                        "총 최소근무시간 안내" : "\{\{arg1\}\} The total minimum working time for the month is \{\{arg2\}\}.",
+                        "총 최대근무시간 안내" : "\{\{arg1\}\} The total maximum working time for the month is \{\{arg2\}\}.",
+                        "주 최소근무시간 안내" : "The weekly working hours are 40h.",
+                        "주 최대근무시간 안내" : "The maximum working hours are 52h.",
+                        "선택근무":"Flexible Work",
+                        "초과근무":"Overtime work",
+                        "승인근무":"Approved work",
+                        "연장":"Extend"
+                    }
+                },
+                defaultOptions: {
+                    "type": "date"
+                },
+                date: moment().format('YYYY-MM-DD'),
+
+                url: function () {
+                    var deferred = $.Deferred();
+                    this._initData().done($.proxy(function() {
+                            deferred.resolve(GO.config("contextRoot") + 'api/ehr/timeline/info');
+                    }, this));
+                    return deferred;
+                },
+                _initData : function() {
+                    var deferred = $.Deferred();
+                    var self = this;
+                    $.ajax({
+                        url : GO.config("contextRoot") + "api/ehr/timeline/summary",
+                        async : false,
+                        success : function(resp) {
+                            self.workingType = resp.group.workingType;
+                            self.selectiveWorkingTime = resp.month.selectiveWorkingTime;
+                            self.time =moment(resp.serverTime);
+                            if(self.workingType == "SELECTIVE_WORKING_TIME") {
+                                self.totalWorkingTime = resp.month.workingTime.totalDetail;
+                            }else{
+                                self.totalWorkingTime = resp.week.workingTime.totalDetail;
+                            }
+                            deferred.resolve();
+                        }
+                    });
+                    return deferred;
+                },
+                renderConfig: function (el) {
+                    this._renderConfigTemplate(el);
+                    this._configDataBind();
+                },
+                onSuccess: function (el, resp) {
+                    this.data = resp.data;
+                    this.isNightWork = resp.data.nightWork;
+                    this.el = el;
+                    this._renderContent(el);
+                    $(window).on('activator', function () {
+                        console.log($(".dashboard-tab.on").attr("data-id"));
+                    });
+                },
+                validate: function (el) {
+                    if (!this.data.active) return this.i18n.parse("disabled_timeline_service");
+                    return false;
+                },
+                changeType: function (e) {
+                    var type = $(e.currentTarget).val();
+                    this.options.type = type;
+                },
+                _renderContent: function (el) {
+                    var self = this;
+                    //이번달 몇주차 인지.
+                    var clomeTime = this.time.clone();
+                    this.weekOfMonth = clomeTime.weeks() - clomeTime.add(0, 'month').startOf('month').weeks() + 1;
+                    $(el).addClass("timeline_contents_wrap");
+                    $(el).empty().append(this.template(this._contentTemplate(), {
+                        "contextRoot": this.contextRoot,
+                        today: function () {
+                            var date = moment();
+                            return date.format('LL') + ' ' + date.format('[(]dd[)]');
+                        },
+                        getGroup: this.data.group,
+                        workInTime: function () {
+                            return self.data.workInTime;
+                        },
+                        workOutTime: function () {
+                            return self.data.workOutTime;
+                        },
+                        totalTime: function () {
+                            var totalTime = self.data.totalTime;
+                            return totalTime;
+                        },
+                        time: function () {
+                            return self.time.format('HH:mm:ss');
+                        },
+                        isDateType: this.options.type == 'date' ? true : false,
+                        hideGadgetBtn: function () {
+                            return self.data.syncActive || !self.data.hasGroup;
+                        },
+                        myStatus: function () {
+                            var myStatus = self.data.myStatus;
+                            return (myStatus && myStatus.id) ? myStatus.name : null;
+                        },
+                        isSelectiveWorkingType: function() {
+                            return (self.workingType == "SELECTIVE_WORKING_TIME") ? true : false;
+                        },
+                        selectiveWorkingTime : function() {
+                            if(self.workingType != "SELECTIVE_WORKING_TIME"){
+                                return "";
+                            }
+                            var selectiveWorkingTime =  self.selectiveWorkingTime;
+                            var rate = getSelectiveWorkingTimeRate(selectiveWorkingTime);
+                            selectiveWorkingTime.rate.tunedNormalWorkingTimeRate = rate.tunedNormalWorkingTimeRate;
+                            selectiveWorkingTime.rate.tunedNormalOverWorkingTimeRate = rate.tunedNormalOverWorkingTimeRate;
+                            selectiveWorkingTime.rate.tunedExtensionWorkingTimeRate = rate.tunedExtensionWorkingTimeRate;
+
+                            function getSelectiveWorkingTimeRate(selectiveWorkingTime) {
+                                var tunedNormalWorkingTimeRate = selectiveWorkingTime.rate.normalWorkingTimeRate;
+                                var tunedNormalOverWorkingTimeRate = selectiveWorkingTime.rate.normalOverWorkingTimeRate;
+                                var tunedExtensionWorkingTimeRate = selectiveWorkingTime.rate.extensionWorkingTimeRate;
+
+                                var sum = tunedNormalWorkingTimeRate + tunedNormalOverWorkingTimeRate + tunedExtensionWorkingTimeRate;
+                                if (sum > 100) {
+                                    if (tunedNormalWorkingTimeRate + tunedNormalOverWorkingTimeRate > 100) {
+                                        tunedNormalOverWorkingTimeRate = 100 - tunedNormalWorkingTimeRate - 1;
+                                        tunedExtensionWorkingTimeRate = 1;
+                                    } else {
+                                        tunedExtensionWorkingTimeRate = 100 - (tunedNormalWorkingTimeRate+tunedNormalOverWorkingTimeRate);
+                                    }
+                                }
+
+                                return {
+                                    tunedNormalWorkingTimeRate : tunedNormalWorkingTimeRate,
+                                    tunedNormalOverWorkingTimeRate : tunedNormalOverWorkingTimeRate,
+                                    tunedExtensionWorkingTimeRate : tunedExtensionWorkingTimeRate
+                                };
+                            }
+                            return selectiveWorkingTime;
+                        },
+                        minTodayWorkRate:function(){
+                           return self.selectiveWorkingTime.rate.todayMinimumWorkingTimeRate;
+                        },
+                        minTodayWorkInfo:function(){
+                         return self.i18n.parse('오늘까지최소근무시간안내',
+                                {arg1 : self.selectiveWorkingTime.todayMinimumTotalWorkingTimeStr});
+                        },
+                        minTotalWorkingDesc : function() {
+
+                            if(self.workingType == "SELECTIVE_WORKING_TIME"){
+                                var arg1 = self.time.format("MM");
+                                var arg2 = self.selectiveWorkingTime.minimumTotalWorkingTimeStr;
+                                return self.i18n.parse("총 최소근무시간 안내",{arg1 : arg1, arg2 : arg2});
+                            }else{
+                                return self.i18n.parse("주 최소근무시간 안내");
+                            }
+
+                        },
+                        maxTotalWorkingDesc : function() {
+
+                            if(self.workingType == "SELECTIVE_WORKING_TIME"){
+                                var arg1 = self.time.format("MM");
+                                var arg2 = self.selectiveWorkingTime.maximumTotalWorkingTimeStr;
+                                label = "총 최대근무시간 안내";
+                                return self.i18n.parse(label,{arg1 : arg1, arg2 : arg2});
+                            }else{
+                                return self.i18n.parse("주 최대근무시간 안내");
+                            }
+
+                        },
+                        totalWorkingHourTime : function(){
+                            return self.totalWorkingTime.hour;
+                        },
+                        totalWorkingMinTime : function(){
+                            return self.totalWorkingTime.min;
+                        },
+                        weekTime : function(){
+                            if(self.workingType == "SELECTIVE_WORKING_TIME"){
+                                return "";
+                            }
+                            var totalWorkingTime = parseInt(self.totalWorkingTime.totalTime);
+                            var weekTime = {};
+                            //40시간 : 144000000, 52시간 : 187200000
+                            if(totalWorkingTime <= 144000000) {
+                                weekTime.normalWorkingTime = totalWorkingTime;
+                                weekTime.overWorkingTime = 0;
+                            }else{
+                                weekTime.normalWorkingTime = 144000000;
+                                weekTime.overWorkingTime = totalWorkingTime - 144000000;
+                            }
+                            weekTime.normalWorkingTime = parseInt(weekTime.normalWorkingTime / 187200000 * 100);
+                            weekTime.overWorkingTime = parseInt(weekTime.overWorkingTime / 187200000 * 100);
+                            return weekTime;
+                        }
+                    }));
+
+                    $(el).off();
+                    $(el).on("click", "a#workIn", $.proxy(this._clickWorkIn, this));
+                    $(el).on("click", "a#workOut", $.proxy(this._clickWorkOut, this));
+                    $(el).on("click", "a#changeStatus", $.proxy(this._showStatusList, this));
+                    $(el).on("click", "li.timelineStatus", $.proxy(this._changeStatus, this));
+                    this._setTimerInterval(el);
+                    this._renderStatus();
+                },
+                _clickWorkIn: function (e) {
+                    if ($(e.currentTarget).hasClass('off')) return;
+                    var self = this;
+                    var workInTime = moment($(this.el).find("#timelineGadgetTime").text(), 'HH:mm:ss');
+                    if (workInTime) {
+                        $.ajax({
+                            type: "POST",
+                            dataType: "json",
+                            async: false,
+                            url: GO.contextRoot + "api/ehr/timeline/status/clockIn?" + $.param(this._getRequestInfo()),
+                            contentType: "application/json",
+                            data: JSON.stringify(this._getVariable()),
+                            success: function (resp) {
+                                self.reload();
+                            },
+                            error: function (xhr, status, error) {
+                                $.goAlert(xhr.responseJSON.message);
+                            }
+                        });
+                    }
+                },
+                _clickWorkOut: function (e) {
+                    var self = this;
+                    if ($(e.currentTarget).hasClass("off")) return;
+                    if (self.isNightWork) {
+                        var tmpl = '<p class="q">'+ self.i18n.parse("label_night_work_check") + '</p>' +
+                            '<p class="add">' + self.i18n.parse("label_night_work_description") + '</p>';
+                        $.goPopup({
+                            width: 400,
+                            title: "",
+                            pclass: "layer_confim layer_colleage layer_confim_attend",
+                            contents: tmpl,
+                            buttons: [{
+                                btext: self.i18n.parse("label_clockOut"),
+                                btype: "confirm",
+                                autoclose: true,
+                                callback: function (popup) {
+                                    self._workOut(e);
+                                }
+                            },
+                                {
+                                    btext: self.i18n.parse("label_clockIn"),
+                                    btype: "normal",
+                                    autoclose: true,
+                                    callback: function (popup) {
+                                        self.isNightWork = false;
+                                        self._clickWorkIn(e);
+                                    }
+                                }]
+                        });
+                    } else {
+                        this._workOut(e)
+                    }
+                },
+                _workOut: function (e) {
+                    if ($(e.currentTarget).hasClass('off')) return;
+                    var self = this;
+                    var workOutTime = moment($(this.el).find("#timelineGadgetTime").text(), 'HH:mm:ss');
+                    if (workOutTime) {
+                        $.ajax({
+                            type: "POST",
+                            dataType: "json",
+                            async: true,
+                            url: GO.contextRoot + "api/ehr/timeline/status/clockOut?" + $.param(this._getRequestInfo()),
+                            contentType: "application/json",
+                            data: JSON.stringify(this._getVariable()),
+                            success: function (resp) {
+                                self.reload();
+                            },
+                            error: function (xhr, status, error) {
+                                $.goAlert(xhr.responseJSON.message);
+                            }
+                        });
+                    }
+                },
+                _showStatusList: function () {
+                    $(this.el).find(".layer_transition").toggle();
+                },
+                _getRequestInfo: function () {
+                    return {
+                        userId: GO.session("id"),
+                        baseDate: this.time.format("YYYY-MM-DD")
+                    };
+                },
+                _changeStatus: function (e) {
+                    self = this;
+                    var statusCode = $(e.currentTarget).find('span').attr('data-code');
+                    $.ajax({
+                        type: "POST",
+                        dataType: "json",
+                        async: true,
+                        url: GO.contextRoot + "api/ehr/timeline/status?" + $.param(this._getRequestInfo()),
+                        contentType: "application/json",
+                        data: JSON.stringify(this._getVariable(statusCode)),
+                        success: function (resp) {
+                            self.reload();
+                        },
+                        error: function (xhr, status, error) {
+                            $.goAlert(xhr.responseJSON.message);
+                        }
+
+                    });
+                },
+                _getVariable: function (data) {
+                    var workInTime = moment($(this.el).find("#timelineGadgetTime").text(), 'HH:mm:ss').toISOString();
+                    return {
+                        "checkTime": workInTime,
+                        "timelineStatus": {id: data},
+                        "isNightWork": this.isNightWork,
+                        "workingDay": this.isNightWork ? this.time.subtract(1, 'days').format("YYYY-MM-DD") : this.time.format("YYYY-MM-DD")
+                    }
+                },
+
+                reload: function () {
+                    $(this.el).trigger('gadget:request-content');
+                },
+                _padDigits: function (number, digits) {
+                    return Array(Math.max(digits - String(number).length + 1, 0)).join(0) + number;
+                },
+                _contentTemplate: function () {
+                    var html = [];
+                    html.push('<div class="gadget_design_wrap">');
+                    html.push('						<div class="go-gadget-header go_gadget_header">');
+                    html.push('							<div class="gadget_h1">');
+                    html.push('								<span class="type"><span class="ic_dashboard2 ic_type_attend" title="' + this.i18n.parse("label_timelineTitle") + '"></span></span>');
+                    html.push('								<span class="title">' + this.i18n.parse("label_timelineTitle") + '</span>');
+                    html.push('							</div>');
+                    html.push('						</div>');
+                    html.push('						<div class="attend_contents_wrap2">');
+                    html.push('						<p class="txt"> {{#isDateType}}{{today}}{{/isDateType}} <span class="time" id="timelineGadgetTime">{{time}}</span></p>');
+                   /* html.push('			<p class="time_view" style="display:none">');
+                    html.push('				<span class="time" id="timelineGadgetTime">{{time}}</span>');
+                    html.push('			</p>');*/
+                    html.push('                         {{^isSelectiveWorkingType}}');
+                    html.push('                         <div class="ehr_stat_data summary">');
+                    html.push('                             <p class="stat_tit">{{totalWorkingHourTime}}<b>h</b> {{totalWorkingMinTime}}<b>m</b></p>');
+                    html.push('                             <div class="type_flexible_summary">');
+                    html.push('                                 <div class="wrap_progress">');
+                    html.push('                                     <div class="time min" title="{{minTotalWorkingDesc}}" style="left:76%">' + this.i18n.parse("최소") + ' 40h</div>');
+                    html.push('                                     <div class="bar" style="left:76%"></div>');
+                    html.push('                                     <div class="time max" title="{{maxTotalWorkingDesc}}">' + this.i18n.parse("최대") + ' 52h</div>');
+                    html.push('                                     <div class="progress">');
+                    html.push('                                         <div class="part_default" title="' + this.i18n.parse("선택근무") + '" style="width:{{weekTime.normalWorkingTime}}%"></div>');
+                    html.push('                                         <div class="part_overtime" title="' + this.i18n.parse("초과근무") + '(' + this.i18n.parse("연장") + ')" style="width:{{weekTime.overWorkingTime}}%"></div>');
+                    html.push('                                     </div>');
+                    html.push('                                 </div>');
+                    html.push('                             </div>');
+                    html.push('                         </div>');
+                    html.push('                         {{/isSelectiveWorkingType}}');
+                    html.push('                         {{#isSelectiveWorkingType}}');
+                    html.push('                         <div class="ehr_stat_data summary">');
+                    html.push('                             <p class="stat_tit">{{totalWorkingHourTime}}<b>h</b> {{totalWorkingMinTime}}<b>m</b></p>');
+                    html.push('                             <div class="type_flexible_summary">');
+                    html.push('                                 <div class="wrap_progress">');
+                    html.push('                                     <div class="time min" title="{{minTotalWorkingDesc}}" style="left:{{selectiveWorkingTime.rate.minimumWorkingTimeRate}}%">' + this.i18n.parse("최소") + ' {{selectiveWorkingTime.minimumTotalWorkingTimeStr}}</div>');
+                    html.push('                                     <div class="bar" style="left:{{selectiveWorkingTime.rate.minimumWorkingTimeRate}}%"></div>');
+                    html.push('                                     <div class="min_today" style="left:{{minTodayWorkRate}}%" title="{{minTodayWorkInfo}}"></div>');
+                    html.push('                                     <div class="time max" title="{{maxTotalWorkingDesc}}">' + this.i18n.parse("최대") + ' {{selectiveWorkingTime.maximumTotalWorkingTimeStr}}</div>');
+                    html.push('                                     <div class="progress">');
+                    html.push('                                         <div class="part_default" title="' + this.i18n.parse("선택근무") + '" style="width:{{selectiveWorkingTime.rate.tunedNormalWorkingTimeRate}}%"></div>');
+                    html.push('                                         <div class="part_overtime" title="' + this.i18n.parse("초과근무") + '(' + this.i18n.parse("연장") + ')" style="width:{{selectiveWorkingTime.rate.tunedNormalOverWorkingTimeRate}}%"></div>');
+                    html.push('                                         <div class="part_approval" title="' + this.i18n.parse("승인근무") + '(' + this.i18n.parse("연장") + ')" style="width:{{selectiveWorkingTime.rate.tunedExtensionWorkingTimeRate}}%"></div>');
+                    html.push('                                     </div>');
+                    html.push('                                 </div>');
+                    html.push('                             </div>');
+                    html.push('                         </div>');
+                    html.push('                         {{/isSelectiveWorkingType}}');
+                    html.push('							<div class="log_view_wrap">');
+                    html.push('								<ul class="log_view">');
+                    html.push('									<li>');
+                    html.push('                                     <dl>');
+                    html.push('                                         <dt>' + this.i18n.parse("label_clockInTime") + '</dt>');
+                    html.push('                                         <dd id="workInTime">{{#workInTime}}{{workInTime}}{{/workInTime}}{{^workInTime}}' + this.i18n.parse("label_unconfirmed") + '{{/workInTime}}</dd>');
+                    html.push('                                     </dl>');
+                    html.push('									</li>');
+                    html.push('									<li>');
+                    html.push('                                     <dl>');
+                    html.push('                                         <dt>' + this.i18n.parse("label_clockOutTime") + '</dt>');
+                    html.push('                                         <dd id="workOutTime">{{#workOutTime}}{{workOutTime}}{{/workOutTime}}{{^workOutTime}}' + this.i18n.parse("label_unconfirmed") + '{{/workOutTime}}</dd>');
+                    html.push('                                     <dl>');
+                    html.push('									</li>');
+                    html.push('                                 {{#isSelectiveWorkingType}}');
+                    html.push('									<li>');
+                    html.push('                                     <dl>');
+                    html.push('										    <dt>' + this.i18n.parse("label_average_to_work") + '</dt>');
+                    html.push('                                         <dd>{{selectiveWorkingTime.averageMinimumWorkingTimeStr}}' + this.i18n.parse("label_need_to_work") + '</dd>');
+                    html.push('                                     <dl>');
+                    html.push('									</li>');
+                    html.push('                                 {{/isSelectiveWorkingType}}');
+                    html.push('								</ul>');
+                    html.push('							</div>');
+                    html.push('							<div class="vertical_bar" {{#hideGadgetBtn}}style="border-top:0;"{{/hideGadgetBtn}} ></div>');
+                    html.push('	{{^hideGadgetBtn}}');
+                    html.push('							<section class="function function_attend">');
+                    html.push('							    <div class="function_btn_wrap">');
+                    html.push('								    <a id="workIn" class="btn_function btn_function_s {{#workInTime}}off{{/workInTime}}">');
+                    html.push('									    <span class="txt">' + this.i18n.parse("label_clockIn") + '</span>');
+                    html.push('								    </a>');
+                    html.push('								    <a id="workOut" class="btn_function btn_function_s {{#workOutTime}}off{{/workOutTime}}">');
+                    html.push('									    <span class="txt">' + this.i18n.parse("label_clockOut") + '</span>');
+                    html.push('								    </a>');
+                    html.push('							    </div>');
+                    html.push('							    <div class="works_state">');
+                    html.push('                                 <a class="btn_function" id="changeStatus">');
+                    html.push('                                     <span class="txt" id="myStatus">{{#myStatus}}{{myStatus}}{{/myStatus}}{{^myStatus}}' + this.i18n.parse("label_changeStatus") + '{{/myStatus}}&nbsp;&nbsp;<span class="ic_side ic_show_down"></span></span>');
+                    html.push('                                 </a>');
+                    html.push('							    </div>');
+                    html.push('									<div class="layer_transition" id="layer_transition" style="z-index: 100;display: none;">');
+                    html.push('									<div class="ui-menu-container container">');
+                    html.push('										<div class="content">');
+                    html.push('											<div class="row_wrap menuitem my-todo-list foldable">');
+                    html.push('												<ul class="submenu-list statusList">');
+                    html.push('												</ul>');
+                    html.push('											</div>');
+                    html.push('											<hr>');
+                    html.push('										</div>');
+                    html.push('									</div>');
+                    html.push('                                 </div>');
+                    html.push('							</section>');
+                    html.push('	{{/hideGadgetBtn}}');
+                    html.push('						</div>');
+                    html.push('					</div>');
+                    return html.join('');
+                },
+
+                _renderTimer: function (el) {
+                    var timer = this.time.format('HH:mm:ss');
+                    if (timer == '00:00:00') {
+                        $(el).trigger('gadget:request-content');
+                    }
+                    $(el).find('#timelineGadgetTime').text(timer);
+                },
+                _setTimerInterval: function (el) {
+                    var self = this;
+                    var divider = '-' + $(".dashboard-tab.on").attr("data-id");
+                    var storedValue = Store.get(GO.session("loginId") + '-gadget-attendance-timer' + divider);
+                    if (storedValue || 0) {
+                        clearInterval(storedValue);
+                    }
+                    var timerId = setInterval(function () {
+                        self.time = self.time.add(1, 'seconds');
+                        self._renderTimer(el);
+                    }, 1000);
+                    Store.set(GO.session("loginId") + '-gadget-attendance-timer' + divider, timerId);
+                },
+                _renderConfigTemplate: function (el) {
+                    $(el).off("change", "select.contentType");
+                    $(el).on("change", "select.contentType", $.proxy(this.changeType, this));
+
+                    var _this = this;
+                    var html = [];
+                    html.push('<ul class="static_style">');
+                    html.push('    <li>');
+                    html.push('        <p class="title">' + this.i18n.parse("date_format") + '</p>');
+                    html.push('        <select name="type" class="contentType">');
+                    html.push(this._makeOptionTemplate());
+                    html.push('        </select>');
+                    html.push('    </li>');
+                    html.push('</ul>');
+                    $(el).append(html.join(''));
+                },
+                _renderStatus: function () {
+                    $('.statusList').empty();
+                    var timelineStatusModels = this.data.timelineStatusList;
+                    $(timelineStatusModels).each(function (index, item) {
+                        $('.statusList').append("<li class='timelineStatus'><span class=\"txt \" data-code=" + item.id + ">" + item.name + "</span></li>");
+                    })
+                },
+                _makeOptionTemplate: function () {
+                    var html = [];
+                    html.push('<option value="date">' + this.i18n.parse("label_date") + '</option>');
+                    html.push('<option value="time">' + this.i18n.parse("label_time") + '</option>');
+                    return html.join('');
+                },
+                _configDataBind: function () {
+                    $('select.contentType option[value="' + this.options.type + '"]').attr('selected', true);
+                }
+            });
+        });
+    </script>
+</head>
+<body id="main" class="go_skin_home_default" data-role="main">
+<div class="go-dashboard go-dashboard-editing go_dashboard_3_2">
+    <div class="go-gadget-column gadget-col-1" data-columnid="1">
+        <!-- empty -->
+    </div>
+    <div class="gripper"></div>
+    <div id="gadget-containter" class="go-gadget-column gadget-col-2" data-columnid="2">
+        <!-- empty -->
+    </div>
+    <div class="gripper"></div>
+    <div class="go-gadget-column gadget-col-3" data-columnid="3">
+        <!-- empty -->
+    </div>
+</div>
+</body>
+</html>

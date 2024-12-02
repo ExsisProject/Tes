@@ -1,0 +1,1 @@
+define(["backbone"],function(e){var t=e.Model.extend({initialize:function(e){this.type=e},url:function(){var e=[];return e.push("/api/contact"),this.type=="DEPARTMENT"?e.push("dept/group"):e.push("personal/group"),e.push(this.get("id")),e.join("/")}});return t});

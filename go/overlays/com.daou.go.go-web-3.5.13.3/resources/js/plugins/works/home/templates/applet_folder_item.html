@@ -1,0 +1,23 @@
+<div class="ic_option_wrap" data-el-setting>
+    <i class="ic_works_n ic_option"></i>
+</div>
+<div class="array_option array_works" el-backdrop style="display: none;">
+    <ul class="array_type">
+        <li data-el-rename>
+            <span class="ic_board ic_w_edit"></span>
+            <span class="txt">{{lang.이름 바꾸기}}</span>
+        </li>
+        <li data-el-delete>
+            <span class="ic_board ic_w_del"></span>
+            <span class="txt">{{lang.삭제}}</span>
+        </li>
+    </ul>
+</div>
+<a>
+    <div class="app_image">
+        <span class="{{^isMobile}}ic_side{{/isMobile}}{{#isMobile}}ic_works{{/isMobile}} ic_body_folder"></span>
+    </div>
+    <div class="works_app_tit">
+        <span class="tit" title="{{model.name}}">{{model.name}}</span>
+    </div>
+</a>

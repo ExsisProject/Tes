@@ -1,0 +1,14 @@
+<tr>
+	<td class="check"><input {{^default?}}type="checkbox"{{/default?}}{{#default?}}type="hidden"{{/default?}} name="calendar_id" value="{{calendar_id}}"></td>
+	<td class="tit"><span class="calendar-name txt_form contact_item_modify" data-id="{{calendar_id}}" data-name="{{calendar_name}}">{{tag}} {{calendar_name}}
+		<span class="ui_edit btn_wrap"><span class="ic_side ic_edit" title="{{editable}}"></span></span>
+	</span></td>
+	<td class="opt"><input type="radio" name="is_default" value="Y" data-id="{{calendar_id}}"{{#default?}} checked="checked"{{/default?}} /></td>
+	<td class="state">
+		<select name="visibility" data-id="{{calendar_id}}">
+			<option value="public"{{#public?}} selected="selected"{{/public?}}>{{label.visibility_public}}</option>
+			<option value="protected"{{#protected?}} selected="selected"{{/protected?}}>{{label.visibility_protected}}</option>
+			<option value="private"{{#private?}} selected="selected"{{/private?}}>{{label.visibility_private}}</option>
+		</select>
+	</td>
+</tr>

@@ -1,0 +1,1 @@
+define(function(require){var e=require("jquery"),t=require("backbone"),n=require("app");require("GO.util");var r=t.Model.extend({initialize:function(e){this.companyGroupId=e},idAttribute:"_id",url:function(){return GO.contextRoot+"ad/api/system/companygroup/"+this.companyGroupId+"/board/shares"}});return r});

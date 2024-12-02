@@ -1,0 +1,62 @@
+<div class="content_page">
+    <div class="dataTables_wrapper container">
+        <div class="" style="display: none" id="controlButtons">
+            <span class="btn_tool" id="btn_down">{{lang.label_download}}</span>
+        </div>
+        <div class="content_tb">
+            <table class="chart size tb_admin_record" id="adminList">
+                <thead>
+                    <tr>
+                        <th class="sorting">
+                            <span class="title_sort">
+                                <label>{{lang.label_create_at}}</label>
+                                <ins class="ic"></ins><span class="selected"></span>
+                            </span>
+                        </th>
+                        <th class="sorting_disable">
+                            <select id="categoryName">
+                                 {{#lang.select_type}}
+                                 <option value="{{value}}">{{text}}</option>
+                                 {{/lang.select_type}}
+                            </select>
+                        </th>
+                        <th class="sorting_desc">
+                            <span class="title_sort">
+                                <label>{{lang.label_name}}</label>
+                                <ins class="ic"></ins><span class="selected"></span>
+                            </span>
+                        </th>
+                        <th class="sorting_disable">
+                            <span class="title_sort">
+                                <label>{{lang.label_position}}</label>
+                                <ins class="ic"></ins><span class="selected"></span>
+                            </span>
+                        </th>
+                        <th class="sorting_desc">
+                            <span class="title_sort">
+                                <label>{{lang.label_email}}</label>
+                                <ins class="ic"></ins><span class="selected"></span>
+                            </span>
+                        </th>
+                        <th class="sorting_disable last">
+                            <span class="title_sort">{{lang.label_desc}}</span>
+                        </th>
+                    </tr>
+                </thead>
+            </table>
+            <div class="table_search">                
+                <select>
+                    <option value="name">{{lang.label_name}}</option>
+                    <option value="email">{{lang.label_email}}</option>
+                </select>        
+                
+                <span class="search_wrap" id="historySearch">
+                    <input class="input" type="text" />
+                    <span id="search_history" class="btn_search" title="{{lang.search}}"></span>
+                    <input class="submit" type="submit" value="" />
+                </span>
+            </div>                
+        </div>
+    </div>
+</div>
+

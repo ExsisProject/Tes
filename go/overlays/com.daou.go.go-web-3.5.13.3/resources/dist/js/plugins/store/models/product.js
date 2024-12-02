@@ -1,0 +1,1 @@
+define("store/models/product",function(require){var e=require("backbone"),t=e.Model.extend({initialize:function(e){this.options=e,this.code=e.code},url:function(){return GO.contextRoot+"api/store/"+this.code}});return t});

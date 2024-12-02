@@ -1,0 +1,79 @@
+<div class="con_group">
+	<div class="list_group">
+		<div class="container menu_list">
+			<div class="header">
+				<h2>{{lang.menu_list}}</h2>
+			</div>
+			<div class="content_tb">
+				<div class="col1">
+					<div class="content_wrap simplebar-content-wrapper">
+						<div class="jstree jstree-2 jstree-focused jstree-default simplebar-content">
+							<ul id="system">
+								<li class="ic">
+									<ins class="title">&nbsp;</ins>{{lang.systemMenu}}
+									<ul id="systemMenus">
+									</ul>
+								</li>
+								<li class="ic">
+									<ins class="title">&nbsp;</ins>{{lang.etcMenu}}
+									<ul style="">
+										<li class="ic">
+											<a data-id="category" rel="org">
+												<ins class="folder">&nbsp;</ins>{{lang.category}}
+											</a>
+										</li>
+										<li class="ic">
+											<a data-id="link" rel="org">
+												<ins class="link">&nbsp;</ins>{{lang.link}}
+											</a>
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="select_b">
+			<span class="btn_wrap">
+				<span class="btn_s btn_insert" id="activateMenu" >
+						<span class="ic_adm ic_arrow_left"></span>
+				</span>
+			</span>
+		</div>
+	</div>
+
+	<div class="container selected_menu">
+		<div class="header">
+			<h2>{{lang.label_selected}}</h2>
+		</div>
+		<div class="content_tb">
+			<div class="wrap_tool_bar">
+				<div class="tool_bar">
+				<span class="btn_s btn_disable" id="top" data-type="top" title="{{lang.top}}">
+				<span class="ic_order first"></span> </span>
+				<span class="btn_s btn_disable" id="up" title="{{lang.up}}"> <span class="ic_order top"></span> </span>
+				<span class="btn_s btn_disable" id="down" title="{{lang.down}}"> <span class="ic_order bottom"></span> </span>
+				<span class="btn_s btn_disable" id="bottom"  data-type="bottom" title="{{lang.bottom}}"> <span class="ic_order last"></span> </span>
+
+				<!-- hidden function -->
+				<span class="btn_s" id="order" style="display:none">{{lang.label_order}}</span>
+				<span class="btn_s btn_disable" id="changeDepth">{{lang.changeDepth}}</span>
+				<span class="btn_s btn_disable" id="setInitialMenu">{{lang.label_initial}}</span>
+				<span class="btn_s btn_disable" id="deleteMenu">
+						<span class="txt_caution">{{lang.label_delete}}</span>
+					</span>
+				</div>
+			</div>
+			<div class="col1">
+				<div class="content_wrap simplebar-content-wrapper"  id="activeSortableArea">
+					<div class="jstree jstree-2 jstree-focused jstree-default simplebar-content">
+						<ul id="active"></ul>
+					</div>
+				</div>
+			</div>
+			<div id="detail" class="col2" style="display:none"></div>
+		</div>
+	</div>
+</div>

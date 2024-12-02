@@ -1,0 +1,102 @@
+﻿<div class="content_page">
+   <div class="dataTables_wrapper container">
+      <div class="header">
+         <h2>{{lang.notice_config}}</h2>
+      </div>
+      <div class="content">
+         <table class="detail">
+            <caption>{{lang.notice_detail_config}}</caption>
+            <colgroup>
+               <col width="130px" />
+               <col width="*" />
+            </colgroup>
+            <tbody>
+               <tr>
+                  <th><span class="title">작성예시</span></th>
+                  <td>
+                     <span class="option_wrap" style="width:1000px">
+                        <textarea class="w_full">
+* x버튼이 있는 a태그에 id="bannerClose" 추가
+* 인라인 이미지는 편집기 통해서 추가해야 함
+                        </textarea>
+                     </span>
+                  </td>
+               </tr>
+               <tr>
+                  <th><span class="title">{{lang.notice_name}}</span></th>
+                  <td>
+                     <span class="option_wrap" id="" style="width: 500px"> 
+                     <input type="text" class="input w_large" id="title" name="" value="{{data.title}}">
+                     <span class="desc vb caution" id="name_validation" style="display: none">{{lang.limit_char}}</span>
+                     </span>
+                  </td>
+               </tr>
+               <tr>
+                  <th><span class="title">{{lang.content}}</span></th>
+                  <td>
+                     <form id="notice_content">
+                        <div class="editor" style="width: 100%" id="notice_editor"></div>
+                     </form>
+                  </td>
+               </tr>
+               <tr>
+                  <th><span class="title">{{lang.term}}</span></th>
+                  <td>
+                     <span class="wrap_option">
+                     <input id="scope" value="scope" type="radio" name="term" checked="checked" data-tag="repeatSelect">
+                     <label for="scope">{{lang.scope}}</label>
+                     </span>
+                     <div class="option_display opt_repeat">
+                        <div class="opt_repeatDate" id="scope_select">
+                           <span class="wrap_date"><input id="startDate" readonly="readonly" class="txt wfix_small" type="text" value="{{data.convertedStartTime}}"><span class="ic_go ic_calendar"></span></span>
+                           <span class="wave">~</span>
+                           <span class="wrap_date"><input id="endDate" readonly="readonly" class="txt wfix_small" type="text" value="{{data.convertedEndTime}}"><span class="ic_go ic_calendar"></span></span>
+                        </div>
+                     </div>
+                  </td>
+               </tr>
+               <tr>
+                  <th><span class="title">{{lang.target}}</span></th>
+                  <td>
+                     <span class="option_wrap">
+                     <input type="checkbox" id="targetAll" name="targetAll" checked="checked" value="true"> 
+                     <label for="targetAll">{{lang.targetAll}}</label>
+                     </span>
+                     <div id="target_detail">
+                        <span id="target">
+                        </span>
+                     </div>
+                  </td>
+               </tr>
+               <tr>
+                  <th><span class="title">{{lang.options}}</span></th>
+                  <td>
+                     <span class="option_wrap"><input type="radio" name="option" {{#data.isNoneMode}} checked {{/data.isNoneMode}} value="none" id="none_mode"><label for="none_mode">{{lang.option_4}}</label></span>
+                  </td>
+               </tr>
+               <tr class="last">
+                  <th>
+                     <span class="title">{{lang.state}}</span>
+                     <span class="help">
+                     <span class="tool_tip">{{lang.usedesc}}<i class="tail_left"></i></span>
+                     </span>
+                  </th>
+                  <td>
+                     <span class="option_wrap">
+                     <input type="checkbox" id="state" name="state" {{#data.isNormalState}}checked="checked" value="true"{{/data.isNormalState}}> 
+                     <label for="state">{{lang.normal}}</label>
+                     </span>
+                  </td>
+               </tr>
+            </tbody>
+         </table>
+      </div>
+   </div>
+   <!-- //container -->
+   <div class="page_action">
+      <span style="display:" id="btnActionGroup">
+      <span class="btn" id="save">{{lang.save}}</span>
+      <span class="btn_nega" id="cancel">{{lang.cancel}}</span>
+      </span>
+   </div>
+</div>

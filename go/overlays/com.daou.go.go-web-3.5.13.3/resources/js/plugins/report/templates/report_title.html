@@ -1,0 +1,37 @@
+			<h1>   
+				<span class="txt" title="{{data.text}}">{{data.text}}</span>
+				{{#data.meta_data}}
+				<span class="meta">
+					<span class="from">in {{{data.meta_data}}}</span>
+				</span>
+				{{/data.meta_data}}
+				
+				{{#data.meta_section}}
+				<span class="meta_section">
+					<span class="date">{{{data.meta_section}}}</span>
+				</span>
+				{{/data.meta_section}}
+				{{#data.favorite}}
+				<span class="btn_wrap">
+					<ins class="ic_star {{^isOn}} ic_star_off {{/isOn}}" title="{{text}}"></ins>
+				</span>
+				{{/data.favorite}}
+				{{#data.num_section}}
+				<span class="num">
+					{{{data.num_section}}}
+				</span>
+				{{/data.num_section}}
+			</h1>
+			
+			<section class="combine_search">
+				<div class="c_search_wrap"><!--focus되면 "search_focus" multi class로 추가해주세요.-->
+					<select class="search_op" id="searchType">
+						<option value="appSearch">{{lang.report}}</option>
+						<option value="totalSearch">{{lang.unified_search}}</option>
+					</select>
+					<input class="c_search" type="text" id="simpleInput" placeholder="{{lang.search}}">
+					<a class="c_btn_detail" id="detailSeach" title="{{lang.detailSearch}}"><span class="txt">{{lang.detail}}</span><span class="ic ic_cs_detail_arrow  "></span></a>
+					<input class="btn_c_search" type="button" id="btn_search_report" value="{{lang.search}}">
+					<input type="hidden" id="searchFolder" value="{{data.folder_id}}"/>
+				</div>
+			</section>

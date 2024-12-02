@@ -1,0 +1,1 @@
+define(["backbone"],function(e){var t=e.Collection.extend({model:e.Model,url:function(){return"/ad/api/community/list/wait"}});return{getCollection:function(){var e=new t;return e.fetch({async:!1}),e}}});

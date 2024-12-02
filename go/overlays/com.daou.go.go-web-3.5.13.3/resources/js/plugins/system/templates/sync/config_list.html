@@ -1,0 +1,47 @@
+<div id='syncConfigView' class="container">
+    <div class="toolbar_top header_tb">
+        <div style="float: left;">
+            <h2>{{lang.label_sync_query_list_title}}</h2>
+        </div>
+        <div class="critical" style="float: right;">
+            <span> <span class="btn_tool" id="add_btn">{{lang.label_add}}</span>
+                <span class="btn_tool txt_caution" id="delete_btn">{{lang.label_delete}}</span>
+            </span>
+        </div>
+    </div>
+    <div class="content_tb">
+        <table class="chart size" id="syncConfigTable">
+            <tr>
+                <td colspan="6" style="text-align: left;">
+                    <span class="title" style='margin-left: 10px; vertical-align: middle;'>{{lang.label_sync_company_select}}</span>
+                    <select id="sortCompanies" name="companies" class="companies" style="min-width: 100px;">
+                        <option value=''>{{lang.label_all}}</option>
+                        {{#companies}}
+                        <option value="{{id}}" {{#isSelectedCompany}} selected="selected" {{/isSelectedCompany}}>{{name}}</option>
+                        {{/companies}}
+                    </select>
+                </td>
+            </tr>
+            <tr id="head_area">
+                <th class="sorting_disable check vm"><input type="checkbox" id="group_all" value=""/>
+                <th class="sorting_disable menu"><span class="title_sort">{{lang.label_sync_company_name}}</span>
+                </th>
+                <th class="sorting_disable menu"><span class="title_sort">{{lang.label_sync_jdbc_name}}</span>
+                </th>
+                <th class="sorting_disable menu"><span class="title_sort">{{lang.label_sync_query_type}}</span>
+                </th>
+                <th class="sorting_disable menu"><span class="title_sort">{{lang.label_sync_query_columns}}</span>
+                </th>
+                <th class="sorting_disable menu"><span class="title_sort">{{lang.label_sync_query}}</span>
+                </th>
+            </tr>
+        </table>
+    </div>
+</div>
+
+
+
+
+
+
+</div>

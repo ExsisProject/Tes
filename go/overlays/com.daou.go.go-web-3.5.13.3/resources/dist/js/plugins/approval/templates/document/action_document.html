@@ -1,0 +1,124 @@
+{{#message}}
+<p class="desc"><span class="desc caution">{{message}}</span></p>
+{{/message}}
+<form onsubmit="return false;">
+	<fieldset>
+	<table class="form_type">
+		<tbody>
+			<tr>
+				<th>
+					<span class="title">{{lang.결재문서명}}</span>
+				</th>
+				<td>
+					<span class="txt" id="title">{{documentTitle}}</span>
+				</td>
+			</tr>
+		    {{#inCancel}}
+			<tr>
+				<th>
+					<span class="title">
+						{{#isDraft}}{{lang.기안자}}{{/isDraft}}
+						{{^isDraft}}{{lang.결재자}}{{/isDraft}}
+					</span>
+				</th>
+				<td>
+					<span class="txt">{{userName}}<br/>{{userDept}}</span>
+				</td>
+			</tr>
+			{{/inCancel}}
+			{{^inCancel}}
+			<tr>
+				<th>
+					<span class="title">
+						{{#inDraft}}{{lang.기안의견}}{{/inDraft}}
+						{{^inDraft}}{{comment}}{{/inDraft}}
+					</span>
+				</th>
+				<td>
+					<div class="wrap_txtarea">
+						<textarea class="w_max textarea" id="textarea-desc" name="description" placeholder="{{placeholder}}" rows="7"></textarea>
+					</div>
+				</td>
+			</tr>
+			{{/inCancel}}
+			{{#usePassword}}
+			<tr>
+				<th><span class="title">{{lang.결재비밀번호}}</span></th>
+				<td>
+					<input class="input w_max" type="password" id="apprPassword">
+				</td>
+			</tr>
+			{{/usePassword}}
+			{{#inDraft}}
+			<tr>
+			    <th rowspan="2"><span class="title">{{lang.긴급문서}}</span></th>
+			    <td>
+			        <span class="option_wrap opt_emergency">
+			            <input type="checkbox" id="isEmergency" {{#isEmergency}}checked{{/isEmergency}} {{#isReceptionDocument}}disabled="disabled"{{/isReceptionDocument}}>
+			            <label for="isEmergency">{{lang.긴급}}</label>
+			            <p class="desc">{{lang.긴급문서설명}}</p>
+			        </span>
+			    </td>
+			</tr>
+			{{/inDraft}}
+			{{#showPreviousReturn}}
+			<tr>
+				<th><span class="title">{{lang.반려옵션}}</span></th>
+			    <td>
+			        <span class="option_wrap opt_emergency">
+			            <input type="checkbox" id="isPreviousReturn"/>
+			            <label for="isPreviousReturn">{{lang.반려옵션설명}}</label>
+			        </span>
+			    </td>
+			</tr>    
+			{{/showPreviousReturn}}
+			{{#useArbitrary}}
+			<tr>
+			    <th rowspan="3"><span class="title">{{lang.결재옵션}}</span></th>
+			    <td>
+			        <span class="option_wrap">
+			            <input type="checkbox" id="arbitrary" {{#defaultCheckArbitrary}}checked{{/defaultCheckArbitrary}}>
+			            <label for="arbitrary">{{lang.전결}}</label>
+			            {{#arbtDecisionType}}<span>({{lang.전결설명}})</span>{{/arbtDecisionType}}
+			            {{^arbtDecisionType}}<span>({{arbtDescLang}})</span>{{/arbtDecisionType}}
+			        </span>
+			    </td>
+			</tr>
+			<tr {{^defaultCheckArbitrary}}style="display:none;"{{/defaultCheckArbitrary}} id="arbtAddReferrerDetail">
+			    <td>
+			        <span class="option_wrap">
+			            <input type="checkbox" id="arbtAddReferrer">
+			            <label for="arbtAddReferrer">{{lang.전결참조자추가}}</label>
+			        </span>
+			    </td>
+			</tr>
+				{{#nextApproval}}
+				<tr>
+				    <td>
+				        <span class="option_wrap">
+				            <input type="checkbox" id="nextApproval" {{#useNextApproval}}checked{{/useNextApproval}}>
+				            <label for="nextApproval">{{lang.다음문서로이동}}</label>
+				            <span>({{lang.다음문서로이동설명}})</span>
+				        </span>
+				    </td>
+				</tr>
+				{{/nextApproval}}
+			{{/useArbitrary}}
+			{{^useArbitrary}}
+				{{#nextApproval}}
+				<tr>
+				    <th><span class="title">{{lang.결재옵션}}</span></th>
+				    <td>
+				        <span class="option_wrap">
+				            <input type="checkbox" id="nextApproval" {{#useNextApproval}}checked{{/useNextApproval}}>
+				            <label for="nextApproval">{{lang.다음문서로이동}}</label>
+				            <span>({{lang.다음문서로이동설명}})</span>
+				        </span>
+				    </td>
+				</tr>
+				{{/nextApproval}}
+			{{/useArbitrary}}			
+		</tbody>
+	</table>
+	</fieldset>
+</form>	

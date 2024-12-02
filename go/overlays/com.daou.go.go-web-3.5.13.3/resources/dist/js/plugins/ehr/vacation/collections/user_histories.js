@@ -1,0 +1,1 @@
+define(["backbone"],function(e){var t=e.Collection.extend({url:function(){return GO.contextRoot+"api/ehr/vacation/my/histories?year="+this.year},setYear:function(e){this.year=e}},{});return t});

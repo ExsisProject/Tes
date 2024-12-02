@@ -1,0 +1,231 @@
+﻿		<div class="content_page">
+			<div class="dataTables_wrapper container">				
+				<div class="header">
+					<h2>{{lang.notice_config}}</h2>
+				</div>
+				
+				<div class="content">			
+					<table class="detail">
+						<caption>{{lang.notice_detail_config}}</caption>
+						<colgroup>
+							<col width="130px" />
+							<col width="*" />
+						</colgroup>
+						<tbody>
+						<tr>
+							<th><span class="title">{{lang.notice_name}}</span></th>
+							<td>
+								<span class="option_wrap" id="" style="width: 500px"> 
+									<input type="text" class="input w_large" id="title" name="" value="{{data.title}}">
+									<span class="desc vb caution" id="name_validation" style="display: none">{{lang.limit_char}}</span>
+								</span>
+							</td>
+						</tr>
+						<tr>
+							<th><span class="title">{{lang.content}}</span></th>
+							<td>
+                                <form id="notice_content">
+     								<div class="editor" style="width: 100%" id="notice_editor"></div>
+                                </form>
+								<div>
+									<span class="wrap_btn">
+										<span class="btn_minor_s fileUpload" id="file-control" style="padding:0 !important; line-height: 0px !important">
+										</span>
+									</span>
+								</div>
+								<div class="file_wrap feed" id="attaches">
+									<ul class="file_wrap">
+											{{#data.files}}
+												<li class="item_file" data-name="{{name}}" data-path="" data-file-size="{{size}}" data-id="{{id}}">
+													<span class="item_file">
+														<span class="ic_file {{file_icon}}"></span>
+														<span class="name">{{name}}</span>
+														<span class="size">({{sizeByKb}})</span>
+														<span class="btn_wrap" title="{{lang.remove}}">
+														<span class="ic_classic ic_del"></span>
+														</span>
+													</span>
+												</li>											
+											{{/data.files}}
+									</ul>
+								</div>
+							</td>
+						</tr>
+                        <tr>
+                            <th><span class="title">{{lang.term}}</span></th>
+                            <td>
+                                <span class="wrap_option">
+                                    <input id="scope" value="scope" type="radio" name="term" {{^data.hasRecurrence}}checked="checked"{{/data.hasRecurrence}} data-tag="repeatSelect">
+                                    <label for="scope">{{lang.scope}}</label>
+                                </span>
+                                <span class="horspace1"></span>
+                                <span class="wrap_option">
+                                    <input id="monthly_radio" value="monthly" type="radio" name="term" {{#data.hasByMonthDay}}checked="checked"{{/data.hasByMonthDay}} data-tag="repeatSelect">
+                                    <label for="monthly_radio">{{lang.monthly}}</label>
+                                </span>
+                                <span class="horspace1"></span>
+                                <span class="wrap_option">
+                                    <input id="weekly" value="weekly" type="radio" name="term"{{#data.hasByDay}}checked="checked"{{/data.hasByDay}} data-tag="repeatSelect">
+                                    <label for="weekly">{{lang.weekly}}</label>
+                                </span>
+                                <div class="option_display opt_repeat">
+                                    <div class="opt_repeatDate" id="scope_select" {{#data.hasRecurrence}}style="display: none;"{{/data.hasRecurrence}}>
+                                        <span class="wrap_date"><input id="startDate" readonly="readonly" class="txt wfix_small" type="text" value="{{data.convertedStartTime}}"><span class="ic_go ic_calendar"></span></span>
+                                        <span class="wave">~</span>
+                                        <span class="wrap_date"><input id="endDate" readonly="readonly" class="txt wfix_small" type="text" value="{{data.convertedEndTime}}"><span class="ic_go ic_calendar"></span></span>
+                                    </div>
+                                    <div class="opt_repeatMonth" id="monthly" {{^data.hasRecurrence}}style="display: none;"{{/data.hasRecurrence}}>
+                                        <span class="tit">{{lang.recurmonth}} :</span>
+                                        <div class="opt">
+                                            <span class="wrap_option">
+                                                <input type="checkbox" id="month_all" name=month data-tag="repeatSelect" value="all">
+                                                <label for="month_all" >{{lang.every_month}}</label>
+                                            </span>
+                                            <span class="horspace1"></span>
+                                            {{#data.monthTerm}}
+                                            <span class="wrap_option">
+                                                <input type="checkbox" id="month_{{value}}" value={{value}} name="month" data-tag="repeatSelect">
+                                                <label for="month_{{value}}">{{value}}{{lang.month}}</label>
+                                            </span>
+                                            <span class="horspace1"></span>
+                                            {{/data.monthTerm}}
+                                        </div>
+                                    </div>
+                                    <div class="opt_repeatDay" id="monthly_select" {{^data.hasByMonthDay}}style="display: none;"{{/data.hasByMonthDay}}>
+                                    <span class="tit">{{lang.specday}} :</span>
+                                    <div class="opt">
+                                        <span class="wrap_multiselect">
+                                            <span class="wrap_select">
+                                                <select class="slt_day" id="startDay" data-tag="repeatSelect">
+                                                    {{#data.dateTerm}}
+                                                    <option value="{{value}}">{{value}}</option>
+                                                    {{/data.dateTerm}}
+                                                    <option value="-1">{{lang.last_day}}</option>
+                                                </select>
+                                            </span>
+                                            <span class="txt">{{lang.day}}</span>
+                                            <span class="date_wave">~</span>
+                                            <span class="wrap_select">
+                                                <select class="slt_day" id="endDay" data-tag="repeatSelect">
+                                                    {{#data.dateTerm}}
+                                                    <option value="{{value}}">{{value}}</option>
+                                                    {{/data.dateTerm}}
+                                                    <option value="-1">{{lang.last_day}}</option>
+                                                </select>
+                                            </span>
+                                            <span class="txt">{{lang.day}}</span>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="opt_repeatWeek" id="weekly_select" {{^data.hasByDay}}style="display: none;"{{/data.hasByDay}}>
+                                    <span class="tit">{{lang.specweek}} :</span>
+                                    <div class="opt">
+                                        <span class="wrap_option">
+                                            <input type="checkbox" id="week_all" name="week" data-tag="repeatSelect" value="all">
+                                            <label for="week_all" data-tag="repeatSelect">{{lang.every_week}}</label>
+                                        </span>
+                                        <span class="horspace1"></span>
+                                        {{#data.weekTerm}}
+                                        <span class="wrap_option">
+                                            <input type="checkbox" id="week_{{value}}" name="week" value="{{value}}" data-tag="repeatSelect">
+                                            <label for="week_{{value}}">{{text}}</label>
+                                        </span>
+                                        <span class="horspace1"></span>
+                                        {{/data.weekTerm}}
+                                        <span class="wrap_option">
+                                            <input type="checkbox" id="week_-1" name="week" value="-1" data-tag="repeatSelect">
+                                            <label for="week_-1">{{lang.last_week}}</label>
+                                        </span>
+                                        <span class="horspace1"></span>
+                                    </div>
+                                </div>
+                                <div class="opt_repeatWeekday" id="weekly_select" {{^data.hasByDay}}style="display: none;"{{/data.hasByDay}}>
+                                    <span class="tit">{{lang.specdays}} :</span>
+                                    <div class="opt">
+                                        {{#data.dayTerm}}
+                                        <span class="wrap_option">
+                                            <input type="checkbox" id="day_{{value}}" name="day" value="{{value}}" data-tag="repeatSelect">
+                                            <label for="day_{{value}}">{{text}}</label>
+                                        </span>
+                                        <span class="horspace1"></span>
+                                        {{/data.dayTerm}}
+                                    </div>
+                                </div>
+                                <span class="alert_box" id="reccurrenceDetail" {{^data.hasRecurrence}}style="display: none;"{{/data.hasRecurrence}}>
+                                    <span class="txt" id="recurrence_label" data-recurrence>{{lang.recur}} :</span>     
+                                </span>
+                                </div>
+                            </td>
+                        </tr>
+						<tr>
+							<th><span class="title">{{lang.target}}</span></th>
+							<td>
+                                <span class="option_wrap">
+                                    <input type="checkbox" id="targetAll" name="targetAll" {{#data.targetAll}}checked="checked" value="true"{{/data.targetAll}}> 
+                                    <label for="targetAll">{{lang.targetAll}}</label>
+                                </span>
+                                <div id="target_detail">
+                                    <span id="target">
+                                    </span>
+                                </div>
+							</td>
+						</tr>
+                        <tr>
+                            <th><span class="title">{{lang.device}}</span></th>
+                            <td>
+                                <span class="option_wrap"><input type="radio" name="popup_device" {{#data.isShowAll}}checked="checked" {{/data.isShowAll}} id="isShowAll" value="all"><label for="all">{{lang.web}}+{{lang.mobile}}</label></span>
+                                <span class="option_wrap"><input type="radio" name="popup_device" {{#data.isShowWeb}}checked="checked" {{/data.isShowWeb}} id="isShowWeb" value="web"><label for="web">{{lang.web}}</label></span>
+                                <span class="option_wrap"><input type="radio" name="popup_device" {{#data.isShowMobile}}checked="checked" {{/data.isShowMobile}} id="mobile" value="mobile"><label for="mobile">{{lang.mobile}}</label></span>
+                            </td>
+                        </tr>
+						<tr>
+							<th><span class="title">{{lang.size}}</span></th>
+							<td>
+								<span class="option_wrap"><input type="radio" name="popup_size" {{#data.isSize400_600}}checked="checked" {{/data.isSize400_600}} id="400|600" value="400|600"><label for="400|600">400x600</label></span>
+								<span class="option_wrap"><input type="radio" name="popup_size" {{#data.isSize520_600}}checked="checked" {{/data.isSize520_600}} id="520|600" value="520|600"><label for="520|600">520x600</label></span>								
+								<span class="option_wrap"><input type="radio" name="popup_size" {{#data.isSize800_600}}checked="checked" {{/data.isSize800_600}} id="800|600" value="800|600"><label for="800|600">800x600</label></span>
+								<span class="wrap_btn"><span class="btn_s" id="preview">{{lang.preview}}</span></span>
+                                <br />
+                                <p><span class="desc vb">{{lang.mobile_size_desc}}</span><p>
+                            </td>
+
+
+                        </tr>
+						<tr>
+							<th><span class="title">{{lang.options}}</span></th>
+							<td>
+								<span class="option_wrap"><input type="radio" name="option" {{#data.isAlwaysMode}} checked {{/data.isAlwaysMode}} value="always" id="always_mode"><label for="always_mode">{{lang.option_1}}</label></span><br />
+								<span class="option_wrap"><input type="radio" name="option" {{#data.isDayMode}} checked {{/data.isDayMode}} value="day" id="day_mode"><label for="day_mode">{{lang.option_2}}</label></span><br />
+								<span class="option_wrap"><input type="radio" name="option" {{#data.isWeekMode}} checked {{/data.isWeekMode}} value="week" id="week_mode"><label for="week_mode">{{lang.option_3}}</label></span><br />
+								<span class="option_wrap"><input type="radio" name="option" {{#data.isNoneMode}} checked {{/data.isNoneMode}} value="none" id="none_mode"><label for="none_mode">{{lang.option_4}}</label></span>
+                                <p><span class="desc vb">{{lang.desc}}</span><p>
+                                <p><span class="desc vb">{{lang.mobile_option_1_desc}}</span><p>
+							</td>
+						</tr>						
+						<tr class="last">
+                            <th>
+                                <span class="title">{{lang.state}}</span>
+                                <span class="help">
+                                    <span class="tool_tip">{{lang.usedesc}}<i class="tail_left"></i></span>
+                                </span>
+                            </th>
+                            <td>
+                                <span class="option_wrap">
+                                    <input type="checkbox" id="state" name="state" {{#data.isNormalState}}checked="checked" value="true"{{/data.isNormalState}}> 
+                                    <label for="state">{{lang.normal}}</label>
+                                </span>
+                            </td>
+                        </tr>
+                        </tbody>
+					</table>
+				</div>
+			</div><!-- //container -->
+			
+			<div class="page_action">
+				<span style="display:" id="btnActionGroup">
+					<span class="btn" id="save">{{lang.save}}</span>
+					<span class="btn_nega" id="cancel">{{lang.cancel}}</span>
+				</span>
+			</div>
+			
+		</div>	

@@ -1,0 +1,1 @@
+define(function(require){var e=require("backbone"),t=e.Collection.extend({url:function(){return GO.contextRoot+"api/ehr/vacation/statuses/enable"}});return t});

@@ -1,0 +1,20 @@
+<form onsubmit="return false;">
+<ul class="file_wrap">
+{{^dataset}}
+	<li><span class="item_file">
+			<span class="ic_file ic_def"></span>
+			<span class="name"> {{lang.no_attach_file}} </span>
+		</span>
+	</li>
+{{/dataset}}
+{{#dataset}}
+	<li><span class="item_file">
+			<span class="ic_file ic_{{extention}}"></span>
+			<span class="name"><a href="{{contextRoot}}api/docs/{{docId}}/download/{{id}}" data-bypass>{{name}}</a></span>
+			<span class="size">({{size}})</span>
+		</span>
+		<a href="{{contextRoot}}api/docs/{{docId}}/download/{{id}}" data-bypass><span class="btn_fn4"><span class="txt">{{lang.save}}</span></span></a>
+	</li>
+{{/dataset}}
+</ul>
+</form>
