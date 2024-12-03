@@ -29,9 +29,8 @@ public class TesDataSourceConfig {
     @Autowired
     TesDBProperties tesDBProp;
 
-    @Bean(destroyMethod = "close", name = "TesDataSouce")
+    @Bean(destroyMethod = "close", name = "TesDataSource")
     public DataSource customERPDataSource() {
-
         try {
             ComboPooledDataSource pool = new ComboPooledDataSource();
             pool.setDriverClass(tesDBProp.getDriver());
@@ -52,9 +51,9 @@ public class TesDataSourceConfig {
         }
     }
 
-    @Bean(name = "ERPJdbcTemplate")
+    @Bean(name = "TESJdbcTemplate")
     @Autowired
-    public NamedParameterJdbcTemplate jdbcTemplateERP(@Qualifier("TesDataSouce") DataSource dataSource) {
+    public NamedParameterJdbcTemplate jdbcTemplateERP(@Qualifier("TesDataSource") DataSource dataSource) {
         NamedParameterJdbcTemplate jdbcTemplate = new NamedParameterJdbcTemplate(dataSource);
         return jdbcTemplate;
     }
