@@ -12,42 +12,42 @@ import org.springframework.context.annotation.PropertySource;
 @Getter
 public class TesDBProperties extends GoProperties{
 
-    @Value("${erp.db.host}")
+    @Value("${tes.db.host}")
     private String host;
 
-    @Value("${erp.db.port}")
+    @Value("${tes.db.port}")
     private String port;
 
-    @Value("${erp.db.name}")
+    @Value("${tes.db.name}")
     private String dbName;
 
-    @Value("${erp.db.username}")
+    @Value("${tes.db.username}")
     private String username;
 
-    @Value("${erp.db.password}")
+    @Value("${tes.db.password}")
     private String password;
 
-    @Value("${erp.db.driver}")
+    @Value("${tes.db.driver}")
     private String driver;
 
-    @Value("${erp.db.url.protocol}")
+    @Value("${tes.db.url.protocol}")
     private String protocol;
 
-    @Value("${erp.conn.pool.init}")
+    @Value("${tes.conn.pool.init}")
     private int initialPoolSize;
 
-    @Value("${erp.conn.pool.min}")
+    @Value("${tes.conn.pool.min}")
     private int minPoolSize;
 
-    @Value("${erp.conn.pool.max}")
+    @Value("${tes.conn.pool.max}")
     private int maxPoolSize;
 
-    @Value("${erp.datasource.jndi.name:@null}")
+    @Value("${tes.datasource.jndi.name:@null}")
     private String dataSourceJndiName;
 
-    @Value("${erp.conn.checkoutTimeout:10000}")
+    @Value("${tes.conn.checkoutTimeout:10000}")
     private int checkoutTimeout;
 
-    @Value("${erp.conn.unreturnedConnectionTimeout:10}")
+    @Value("${tes.conn.unreturnedConnectionTimeout:10}")
     private int unreturnedConnectionTimeout;
 }
